@@ -1,0 +1,55 @@
+{% set rootLocationPath = path( ezpublish.rootLocation ) %}
+
+<link rel="home" href="{{ rootLocationPath }}" title="{{ siteName }} front page" />
+<link rel="index" href="{{ rootLocationPath }}" />
+<link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="Search {{ siteName }}" />
+
+<!-- Favicons -->
+<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset( 'bundles/netgenmoredemo/images/apple-touch-icon-152-precomposed.png' ) }}">
+
+<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset( 'bundles/netgenmoredemo/images/apple-touch-icon-144-precomposed.png' ) }}">
+
+<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset( 'bundles/netgenmoredemo/images/apple-touch-icon-120-precomposed.png' ) }}">
+
+<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset( 'bundles/netgenmoredemo/images/apple-touch-icon-114-precomposed.png' ) }}">
+
+<!-- For the iPad mini and the first- and second-generation iPad on iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset( 'bundles/netgenmoredemo/images/apple-touch-icon-76-precomposed.png' ) }}">
+
+<!-- For the iPad mini and the first- and second-generation iPad on iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset( 'bundles/netgenmoredemo/images/apple-touch-icon-72-precomposed.png' ) }}">
+
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="{{ asset( 'bundles/netgenmoredemo/images/apple-touch-icon-57-precomposed.png' ) }}">
+
+<link rel="icon" href="{{ asset( 'bundles/netgenmoredemo/images/favicon.png' ) }}" type="image/x-icon" />
+
+{% set localeConversionMap = ezpublish.configResolver.getParameter( 'locale.conversion_map', 'ngmore' ) %}
+{% set prioritizedLanguages = ezpublish.configResolver.getParameter( 'languages' ) %}
+
+{% if availableTranslations is not defined %}
+    {% set availableTranslations = [] %}
+
+    {% for language in ezpublish.availableLanguages %}
+        {% set translationSiteAccess = ezpublish.translationSiteAccess( language ) %}
+
+        {% if translationSiteAccess is not empty %}
+            {% if language != prioritizedLanguages.0 %}
+                {% set url = url( ez_route( params={ 'siteaccess': translationSiteAccess } ) ) %}
+                {% set availableTranslations = availableTranslations|merge( { ( language ): url } ) %}
+            {% else %}
+                {% set availableTranslations = availableTranslations|merge( { ( language ): '#' } ) %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% for language, translationUrl in availableTranslations %}
+    {% if translationUrl != '#' %}
+        <link rel="alternate" href="{{ translationUrl }}" hreflang="{{ localeConversionMap[language][0:2] }}" />
+    {% endif %}
+{% endfor %}

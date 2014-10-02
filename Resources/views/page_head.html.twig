@@ -1,0 +1,57 @@
+{% if metaData is not defined %}
+    {% set metaData = [] %}
+{% endif %}
+
+{% set configMetaData = ezpublish.configResolver.getParameter( 'SiteSettings.MetaDataArray' ) %}
+{% set metaData = configMetaData|merge( metaData ) %}
+
+{% if content is defined %}
+    {% if not ez_is_field_empty( content, 'metadata' ) %}
+        {% set contentMetaData = ez_field_value( content, 'metadata' ) %}
+        {% for key in configMetaData|keys %}
+            {% if contentMetaData[key] is defined and contentMetaData[key] is not empty %}
+                {% set metaData = metaData|merge( { ( key ): contentMetaData[key] } ) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% set metaData = ezpublish.configResolver.getParameter( 'SiteSettings.MetaDataArray' )|merge( metaData ) %}
+
+{% if siteTitle is not defined %}
+    {% set siteTitle = siteName %}
+
+    {% if locationPath is defined and locationPath is not empty %}
+        {% if ezpublish.configResolver.getParameter( 'SeoSettings.ShowPathInTitle', 'ngmore' ) in ['false', false] %}
+            {% set siteTitle = locationPath[locationPath|length - 1].text ~ ' - ' ~ siteTitle %}
+        {% elseif locationPath|length > 1 %}
+            {% for pathItem in locationPath %}
+                {% if not loop.first %}
+                    {% set siteTitle = pathItem.text ~ ' - ' ~ siteTitle %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    {% if contentMetaData is defined and contentMetaData.title is defined and contentMetaData.title is not empty %}
+        {% set siteTitle = contentMetaData.title %}
+    {% endif %}
+{% endif %}
+
+<title>{{ siteTitle }}</title>
+
+{% for key, value in metaData %}
+    <meta name="{{ key }}" content="{{ value }}" />
+{% endfor %}
+
+{# Prefer chrome frame on IE 8 and lower, or at least as new engine as possible #}
+<!--[if lt IE 9 ]>
+    <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
+<![endif]-->
+
+<meta name="generator" content="eZ Publish Platform powered by Netgen">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+{% include 'NetgenMoreDemoBundle::canonical_link.html.twig' %}
+
+{% include 'NetgenMoreDemoBundle::link.html.twig' %}

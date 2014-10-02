@@ -1,0 +1,129 @@
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{# PERSISTENT VARIABLE #}
+
+{% set content_info = null %}
+{% if ezpublish.legacy.has( 'content_info' ) %}
+    {% set content_info = ezpublish.legacy.get( 'content_info' ) %}
+{% endif %}
+
+{% if module_result.content_info is defined %}
+    {% set content_info = module_result.content_info %}
+{% endif %}
+
+{% set persistent_variable = null %}
+{% if content_info.persistent_variable is defined %}
+    {% set persistent_variable = content_info.persistent_variable %}
+{% endif %}
+
+{# OPTIONS TO DISABLE LAYOUT REGIONS OR CONTAINERS #}
+
+{% if persistent_variable.disable_layout_regions is defined and persistent_variable.disable_layout_regions %}
+    {% set disableLayoutRegions = true %}
+{% endif %}
+
+{% if persistent_variable.disable_containers is defined and persistent_variable.disable_containers %}
+    {% set disableContainers = true %}
+{% endif %}
+
+{# PLACEHOLDER BLOCKS #}
+
+{% block placeholderTopTop %}
+{% spaceless %}
+    {% if persistent_variable.placeholder_top_top is defined %}
+        {{ persistent_variable.placeholder_top_top|raw }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block placeholderTopBottom %}
+{% spaceless %}
+    {% if persistent_variable.placeholder_top_bottom is defined %}
+        {{ persistent_variable.placeholder_top_bottom|raw }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block placeholderLeftTop %}
+{% spaceless %}
+    {% if persistent_variable.placeholder_left_top is defined %}
+        {{ persistent_variable.placeholder_left_top|raw }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block placeholderLeftBottom %}
+{% spaceless %}
+    {% if persistent_variable.placeholder_left_bottom is defined %}
+        {{ persistent_variable.placeholder_left_bottom|raw }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block placeholderRightTop %}
+{% spaceless %}
+    {% if persistent_variable.placeholder_right_top is defined %}
+        {{ persistent_variable.placeholder_right_top|raw }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block placeholderRightBottom %}
+{% spaceless %}
+    {% if persistent_variable.placeholder_right_bottom is defined %}
+        {{ persistent_variable.placeholder_right_bottom|raw }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block placeholderBottomTop %}
+{% spaceless %}
+    {% if persistent_variable.placeholder_bottom_top is defined %}
+        {{ persistent_variable.placeholder_bottom_top|raw }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block placeholderBottomBottom %}
+{% spaceless %}
+    {% if persistent_variable.placeholder_bottom_bottom is defined %}
+        {{ persistent_variable.placeholder_bottom_bottom|raw }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{# OPENGRAPH #}
+
+{% if persistent_variable.opengraph is defined %}
+    {% set openGraph = persistent_variable.opengraph %}
+{% endif %}
+
+{# SITE TITLE #}
+
+{% if persistent_variable.site_title is defined %}
+    {% set siteTitle = persistent_variable.site_title %}
+{% endif %}
+
+{# METADATA #}
+
+{% set configMetaData = ezpublish.configResolver.getParameter( 'SiteSettings.MetaDataArray' ) %}
+{% set metaData = [] %}
+{% for key in configMetaData|keys %}
+    {% if persistent_variable[key] is defined %}
+        {% set metaData = metaData|merge( { ( key ): persistent_variable[key] } ) %}
+    {% endif %}
+{% endfor %}
+
+{# CANONICAL URL #}
+
+{% if persistent_variable.canonical_url is defined %}
+    {% set canonicalUrl = persistent_variable.canonical_url %}
+{% elseif persistent_variable.canonical_language_url is defined %}
+    {% set canonicalUrl = persistent_variable.canonical_language_url %}
+{% endif %}
+
+{# CONTENT BLOCK #}
+
+{% block content %}
+    {{ module_result.content|raw }}
+{% endblock %}

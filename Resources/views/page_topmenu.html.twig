@@ -1,0 +1,25 @@
+<div class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            {% block pageRelationMenu %}
+                {{ render_esi(
+                    controller(
+                        'netgen_more.controller.page_layout:relationMenu', {
+                            activeLocationId: mainCategoryLocationId is defined ? mainCategoryLocationId : 0
+                        }
+                    )
+                ) }}
+            {% endblock %}
+
+            {% include 'NetgenMoreDemoBundle::page_header_searchbox.html.twig' %}
+        </nav>
+    </div>
+</div>

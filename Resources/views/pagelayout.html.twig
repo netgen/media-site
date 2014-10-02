@@ -1,0 +1,165 @@
+{% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
+
+{% if content is defined and location is defined and not location.isDraft %}
+    {% set locationPath = ngmore_location_path( location.id ) %}
+    {% set mainCategoryLocationId = locationPath[1] is defined ? locationPath[1].locationId : locationPath[0].locationId %}
+{% endif %}
+
+{% set disableLayoutRegions = disableLayoutRegions|default( false ) %}
+{% set disableContainers = disableContainers|default( false ) %}
+{% set layout = ngmore.layout|default( false ) %}
+
+{% set disableTopRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_top_region' ).bool )  %}
+{% set disableRightRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_right_region' ).bool ) %}
+{% set disableLeftRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_left_region' ).bool )  %}
+{% set disableBottomRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_bottom_region' ).bool ) %}
+
+{% set _placeholderTopTop = block( 'placeholderTopTop' ) %}
+{% set _placeholderTopBottom = block( 'placeholderTopBottom' ) %}
+{% set _placeholderLeftTop = block( 'placeholderLeftTop' ) %}
+{% set _placeholderLeftBottom = block( 'placeholderLeftBottom' ) %}
+{% set _placeholderRightTop = block( 'placeholderRightTop' ) %}
+{% set _placeholderRightBottom = block( 'placeholderRightBottom' ) %}
+{% set _placeholderBottomTop = block( 'placeholderBottomTop' ) %}
+{% set _placeholderBottomBottom = block( 'placeholderBottomBottom' ) %}
+
+{% set leftColumnAvailable = ( _placeholderLeftTop is not empty or _placeholderLeftBottom is not empty or not disableLeftRegion ) %}
+{% set rightColumnAvailable = ( _placeholderRightTop is not empty or _placeholderRightBottom is not empty or not disableRightRegion ) %}
+
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="utf-8">
+
+    {% include 'NetgenMoreBundle:parts:typekit.html.twig' %}
+
+    {% block pageHead %}
+        {% include 'NetgenMoreDemoBundle::page_head.html.twig' %}
+    {% endblock %}
+
+    {% block pageHeadStyle %}
+        {% include 'NetgenMoreDemoBundle::page_head_style.html.twig' %}
+    {% endblock %}
+
+    {% block pageHeadScript %}
+        {% include 'NetgenMoreDemoBundle::page_head_script.html.twig' %}
+    {% endblock %}
+
+    {% block openGraph %}
+        {% include 'NetgenMoreBundle:parts:opengraph.html.twig' %}
+    {% endblock %}
+
+    {% include 'NetgenMoreBundle:parts:sublime_video.html.twig' %}
+
+    {% include 'NetgenMoreBundle:parts:ga_code.html.twig' %}
+</head>
+<body>
+
+{% include 'NetgenMoreBundle:parts:facebook_api.html.twig' %}
+
+<div id="page">
+
+    {% block pageHeader %}
+        {% include 'NetgenMoreDemoBundle::page_header.html.twig' %}
+    {% endblock %}
+
+    {% block pagePath %}
+        {% include 'NetgenMoreDemoBundle::page_path.html.twig' %}
+    {% endblock %}
+
+    {% block regionTop %}
+        {% if _placeholderTopTop is not empty %}
+            <div class="placeholder placeholder-top-top">{{ _placeholderTopTop|raw }}</div>
+        {% endif %}
+
+        {% if not disableTopRegion %}
+            {{ render_esi( controller( 'netgen_more.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'top' } ) ) }}
+        {% endif %}
+
+        {% if _placeholderTopBottom is not empty %}
+            <div class="placeholder placeholder-top-bottom">{{ _placeholderTopBottom|raw }}</div>
+        {% endif %}
+    {% endblock %}
+
+    {% if not disableContainers %}<div class="container"><div class="row">{% endif %}
+
+    {% if not disableContainers and leftColumnAvailable %}<div class="col-lg-3 col-md-3 col-sm-3">{% endif %}
+
+    {% block regionLeft %}
+        {% if _placeholderLeftTop is not empty %}
+            <div class="placeholder placeholder-left-top">{{ _placeholderLeftTop|raw }}</div>
+        {% endif %}
+
+        {% if not disableLeftRegion %}
+            {{ render_esi( controller( 'netgen_more.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'left' } ) ) }}
+        {% endif %}
+
+        {% if _placeholderLeftBottom is not empty %}
+            <div class="placeholder placeholder-left-bottom">{{ _placeholderLeftBottom|raw }}</div>
+        {% endif %}
+    {% endblock %}
+
+    {% if not disableContainers and leftColumnAvailable %}</div>{% endif %}
+
+    {% if not disableContainers %}
+        {% if leftColumnAvailable and rightColumnAvailable %}
+            <div class="col-lg-6 col-md-6 col-sm-6">
+        {% elseif leftColumnAvailable or rightColumnAvailable %}
+            <div class="col-lg-9 col-md-9 col-sm-9">
+        {% else %}
+            <div class="col-lg-12 col-md-12 col-sm-12">
+        {% endif %}
+    {% endif %}
+
+    <div id="main" class="clearfix">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% if not disableContainers %}</div>{% endif %}
+
+    {% if not disableContainers and rightColumnAvailable %}<div class="col-lg-3 col-md-3 col-sm-3">{% endif %}
+
+    {% block regionRight %}
+        {% if _placeholderRightTop is not empty %}
+            <div class="placeholder placeholder-right-top">{{ _placeholderRightTop|raw }}</div>
+        {% endif %}
+
+        {% if not disableRightRegion %}
+            {{ render_esi( controller( 'netgen_more.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'right' } ) ) }}
+        {% endif %}
+
+        {% if _placeholderRightBottom is not empty %}
+            <div class="placeholder placeholder-right-bottom">{{ _placeholderRightBottom|raw }}</div>
+        {% endif %}
+    {% endblock %}
+
+    {% if not disableContainers and rightColumnAvailable %}</div>{% endif %}
+
+    {% if not disableContainers %}</div></div>{% endif %}
+
+    {% block regionBottom %}
+        {% if _placeholderBottomTop is not empty %}
+            <div class="placeholder placeholder-bottom-top">{{ _placeholderBottomTop|raw }}</div>
+        {% endif %}
+
+        {% if not disableBottomRegion %}
+            {{ render_esi( controller( 'netgen_more.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'bottom' } ) ) }}
+        {% endif %}
+
+        {% if _placeholderBottomBottom is not empty %}
+            <div class="placeholder placeholder-bottom-bottom">{{ _placeholderBottomBottom|raw }}</div>
+        {% endif %}
+    {% endblock %}
+
+    {% block pageFooter %}
+        {% include 'NetgenMoreDemoBundle::page_footer.html.twig' %}
+    {% endblock %}
+
+</div>
+
+{% block pageFooterScript %}
+    {% include 'NetgenMoreDemoBundle::page_footer_script.html.twig' %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!--[if lte IE 8]><div class="header-ie8lte"><![endif]--> {# just remove this line when support for IE8 ends #}
+<header>
+    <div class="container">
+        <a id="logo" href="{{ path( ezpublish.rootLocation ) }}" title="{{ siteName }}">{{ siteName }}</a>
+        <div id="lang">
+            {% include 'NetgenMoreDemoBundle::page_header_languages.html.twig' %}
+        </div>
+        <div id="main-nav">
+            {% include 'NetgenMoreDemoBundle::page_topmenu.html.twig' %}
+        </div>
+    </div>
+</header>
+<!--[if lte IE 8]></div><![endif]--> {# just remove this line when support for IE8 ends #}
