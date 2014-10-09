@@ -1,0 +1,96 @@
+# Copy this file to a new file called .htaccess in your eZ Publish web folder
+# to secure your installation by turning on .htaccess based virtual host mode.
+
+# Environment.
+# Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
+# Defaults to "prod" if omitted
+SetEnv ENVIRONMENT "dev"
+
+# Whether to use Symfony's ApcClassLoader.
+# Possible values: 0 or 1
+# Defaults to 0 if omitted
+#SetEnv USE_APC_CLASSLOADER 0
+
+# Prefix used when USE_APC_CLASSLOADER is set to 1.
+# Use a unique prefix in order to prevent cache key conflicts
+# with other applications also using APC.
+# Defaults to "ezpublish" if omitted
+#SetEnv APC_CLASSLOADER_PREFIX "ezpublish"
+
+# Whether to use debugging.
+# Possible values: 0 or 1
+# Defaults to 0 if omitted, unless ENVIRONMENT is set to: "dev"
+#SetEnv USE_DEBUGGING 0
+
+# Whether to use Symfony's HTTP Caching.
+# Disable it if you are using an external reverse proxy (e.g. Varnish)
+# Possible values: 0 or 1
+# Defaults to 1 if omitted, unless ENVIRONMENT is set to: "dev"
+#SetEnv USE_HTTP_CACHE 1
+
+# Defines the proxies to trust.
+# Separate entries by a comma
+# Example: "proxy1.example.com,proxy2.example.org"
+# By default, no trusted proxies are set
+#SetEnv TRUSTED_PROXIES "127.0.0.1"
+
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/json
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
+AddDefaultCharset UTF-8
+
+DirectoryIndex index.php
+
+Options +FollowSymlinks
+Options -Indexes
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} \.svn|\.git
+RewriteRule .* / [L,R=301]
+
+# START: Multisite rewrite rules for robots.txt
+
+# RewriteRule ^robots_site1.txt$ - [L]
+# RewriteCond %{HTTP_HOST} ^site1.netgen.biz$ [NC]
+# RewriteRule ^robots.txt$ robots_site1.txt [L]
+
+# RewriteRule ^robots_site2.txt$ - [L]
+# RewriteCond %{HTTP_HOST} ^site2.netgen.biz$ [NC]
+# RewriteRule ^robots.txt$ robots_site2.txt [L]
+
+# END: Multisite rewrite rules for robots.txt
+
+# START: Maintenance mode
+
+# RewriteRule ^offline_eng.html$ - [L]
+
+# RewriteRule .* offline_eng.html [R=503,L]
+# ErrorDocument 503 /offline_eng.html
+
+# END: Maintenance mode
+
+# v1 rest API is on Legacy
+# RewriteRule ^api/[^/]+/v1/ /index_rest.php [L]
+
+RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
+RewriteRule ^var/([^/]+/)?cache/(texttoimage|public)/.* - [L]
+RewriteRule ^design/[^/]+/(stylesheets|images|fonts|javascript)/.* - [L]
+RewriteRule ^share/icons/.* - [L]
+RewriteRule ^extension/[^/]+/design/[^/]+/(stylesheets|flash|images|fonts|lib|javascripts?)/.* - [L]
+
+RewriteRule ^favicon\.ico - [L]
+RewriteRule ^robots\.txt - [L]
+
+# Following rule is needed to correctly display assets from eZ Publish5 / Symfony bundles
+RewriteRule ^bundles/ - [L]
+
+RewriteRule .* index\.php
