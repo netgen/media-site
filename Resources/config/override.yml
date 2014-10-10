@@ -1,0 +1,8 @@
+ezpublish:
+    system:
+        ngmore_frontend_group:
+            block_view:
+                ContentGrid:
+                    template: NetgenMoreDemoBundle:override/block:content_grid.html.twig
+                    match:
+                        Type: ContentGrid
