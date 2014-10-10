@@ -1,5 +1,0 @@
-system:
-    ngmore_frontend_group:
-        templating:
-            view_layout: 'NetgenMoreDemoBundle::pagelayout_legacy.html.twig'
-            module_layout: 'NetgenMoreDemoBundle::pagelayout_module.html.twig'

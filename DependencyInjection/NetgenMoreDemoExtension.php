@@ -32,16 +32,14 @@ class NetgenMoreDemoExtension extends Extension implements PrependExtensionInter
     public function prepend( ContainerBuilder $container )
     {
         $configFiles = array(
-            __DIR__ . '/../Resources/config/ezpublish.yml' => 'ezpublish',
-            __DIR__ . '/../Resources/config/override.yml' => 'ezpublish',
-            __DIR__ . '/../Resources/config/ezpage.yml' => 'ezpublish',
-            __DIR__ . '/../Resources/config/ezpublish_legacy.yml' => 'ez_publish_legacy'
+            __DIR__ . '/../Resources/config/override.yml',
+            __DIR__ . '/../Resources/config/ezpage.yml'
         );
 
-        foreach ( $configFiles as $configFile => $configSection )
+        foreach ( $configFiles as $configFile )
         {
             $config = Yaml::parse( file_get_contents( $configFile ) );
-            $container->prependExtensionConfig( $configSection, $config );
+            $container->prependExtensionConfig( 'ezpublish', $config );
             $container->addResource( new FileResource( $configFile ) );
         }
     }
