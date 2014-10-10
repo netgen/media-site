@@ -1,6 +1,4 @@
-{% if metaData is not defined %}
-    {% set metaData = [] %}
-{% endif %}
+{% set metaData = metaData|default( [] ) %}
 
 {% set configMetaData = ezpublish.configResolver.getParameter( 'SiteSettings.MetaDataArray' ) %}
 {% set metaData = configMetaData|merge( metaData ) %}
