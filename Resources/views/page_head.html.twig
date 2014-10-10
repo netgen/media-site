@@ -36,8 +36,10 @@
 
 <title>{{ siteTitle }}</title>
 
-{% for key, value in metaData %}
-    <meta name="{{ key }}" content="{{ value }}" />
+{% for key in configMetaData|keys %}
+    {% if metaData[key] is defined and metaData[key] is not empty %}
+        <meta name="{{ key }}" content="{{ metaData[key] }}" />
+    {% endif %}
 {% endfor %}
 
 {# Prefer chrome frame on IE 8 and lower, or at least as new engine as possible #}
