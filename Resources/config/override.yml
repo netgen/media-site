@@ -2,6 +2,10 @@ ezpublish:
     system:
         ngmore_frontend_group:
             block_view:
+                PageTitle:
+                    template: NetgenMoreDemoBundle:override/block:page_title.html.twig
+                    match:
+                        Type: PageTitle
                 ContentGrid:
                     template: NetgenMoreDemoBundle:override/block:content_grid.html.twig
                     match:

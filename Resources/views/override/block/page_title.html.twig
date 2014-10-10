@@ -1,0 +1,14 @@
+{% set html_tag = block.customAttributes.html_tag|default( 'h1' ) %}
+{% set advanced_html_id = block.customAttributes.advanced_html_id|default( '' ) %}
+{% set advanced_html_class = block.customAttributes.advanced_html_class|default( '' ) %}
+
+{% set set_container = set_container|default( false ) %}
+
+<div {% if advanced_html_id is not empty %} id="{{ advanced_html_id }}"{% endif %}
+    class="block-type-page-title block-view-{{ block.view }} {{ advanced_html_class }} clearfix">
+
+    {% if set_container %}<div class="container"><div class="row"><div class="col-lg-12">{% endif %}
+        <{{ html_tag }}>{{ block.name }}</{{ html_tag }}>
+    {% if set_container %}</div></div></div>{% endif %}
+
+</div>
