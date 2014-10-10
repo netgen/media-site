@@ -1,0 +1,79 @@
+<div class="zone-layout-{{ zone_layout|lower }}">
+
+    {% if zones[0].blocks is not empty %}
+        <div class="top-content-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="zone zone-{{ zones[0].identifier|lower }}">
+                            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[0] } %}
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if zones[1].blocks is not empty or zones[2].blocks is not empty or zones[3].blocks is not empty or zones[4].blocks is not empty %}
+        <div class="main-content-block">
+            <div class="container">
+                <div class="custom-grid">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            {% if zones[1].blocks is not empty %}
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <section class="zone zone-{{ zones[1].identifier|lower }}">
+                                            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[1] } %}
+                                        </section>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    {% if zones[2].blocks is not empty %}
+                                        <section class="zone zone-{{ zones[2].identifier|lower }}">
+                                            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[2] } %}
+                                        </section>
+                                    {% endif %}
+                                </div>
+
+                                <div class="col-lg-4">
+                                    {% if zones[3].blocks is not empty %}
+                                        <section class="zone zone-{{ zones[3].identifier|lower }}">
+                                            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[3] } %}
+                                        </section>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            {% if zones[4].blocks is not empty %}
+                                <section class="zone zone-{{ zones[4].identifier|lower }}">
+                                    {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[4] } %}
+                                </section>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if zones[5].blocks is not empty %}
+        <div class="bottom-content-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="zone zone-{{ zones[5].identifier|lower }}">
+                            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[5] } %}
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>

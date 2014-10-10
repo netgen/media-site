@@ -1,0 +1,9 @@
+<div class="zone-layout-{{ zone_layout|lower }}">
+
+    {% if zones[0].blocks is not empty %}
+        <section class="zone zone-{{ zones[0].identifier|lower }}">
+            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[0] } %}
+        </section>
+    {% endif %}
+
+</div>

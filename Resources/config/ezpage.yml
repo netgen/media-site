@@ -11,5 +11,3 @@ ezpublish:
                 template: 'NetgenMoreDemoBundle:zone:4_zones_c.html.twig'
             6ZonesA:
                 template: 'NetgenMoreDemoBundle:zone:6_zones_a.html.twig'
-            NGRegionLayout:
-                template: 'NetgenMoreDemoBundle:zone:ngmoreregionlayout.html.twig'
