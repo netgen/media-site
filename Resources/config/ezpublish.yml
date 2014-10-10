@@ -1,2 +1,3 @@
 imports:
     - { resource: override.yml }
+    - { resource: ezpage.yml }
