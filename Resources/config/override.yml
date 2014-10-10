@@ -1,26 +1,27 @@
-system:
-    ngmore_frontend_group:
-        block_view:
-            PageTitle:
-                template: NetgenMoreDemoBundle:override/block:page_title.html.twig
-                match:
-                    Type: PageTitle
-            ContentGrid:
-                template: NetgenMoreDemoBundle:override/block:content_grid.html.twig
-                match:
-                    Type: ContentGrid
+ezpublish:
+    system:
+        ngmore_frontend_group:
+            block_view:
+                PageTitle:
+                    template: NetgenMoreDemoBundle:override/block:page_title.html.twig
+                    match:
+                        Type: PageTitle
+                ContentGrid:
+                    template: NetgenMoreDemoBundle:override/block:content_grid.html.twig
+                    match:
+                        Type: ContentGrid
 
-        location_view:
-            full:
-                ng_frontpage:
-                    template: NetgenMoreDemoBundle:override/full:ng_frontpage.html.twig
-                    match:
-                        Identifier\ContentType: ng_frontpage
-                ng_landing_page:
-                    template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
-                    match:
-                        Identifier\ContentType: ng_landing_page
-                ng_category_page:
-                    template: NetgenMoreDemoBundle:override/full:ng_category_page.html.twig
-                    match:
-                        Identifier\ContentType: ng_category_page
+            location_view:
+                full:
+                    ng_frontpage:
+                        template: NetgenMoreDemoBundle:override/full:ng_frontpage.html.twig
+                        match:
+                            Identifier\ContentType: ng_frontpage
+                    ng_landing_page:
+                        template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
+                        match:
+                            Identifier\ContentType: ng_landing_page
+                    ng_category_page:
+                        template: NetgenMoreDemoBundle:override/full:ng_category_page.html.twig
+                        match:
+                            Identifier\ContentType: ng_category_page
