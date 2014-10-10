@@ -21,3 +21,7 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
                         match:
                             Identifier\ContentType: ng_landing_page
+                    ng_category_page:
+                        template: NetgenMoreDemoBundle:override/full:ng_category_page.html.twig
+                        match:
+                            Identifier\ContentType: ng_category_page
