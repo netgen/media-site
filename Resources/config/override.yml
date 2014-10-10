@@ -17,3 +17,7 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/full:ng_frontpage.html.twig
                         match:
                             Identifier\ContentType: ng_frontpage
+                    ng_landing_page:
+                        template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
+                        match:
+                            Identifier\ContentType: ng_landing_page
