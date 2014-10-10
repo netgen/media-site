@@ -14,8 +14,6 @@
     {% endif %}
 {% endif %}
 
-{% set metaData = ezpublish.configResolver.getParameter( 'SiteSettings.MetaDataArray' )|merge( metaData ) %}
-
 {% if siteTitle is not defined %}
     {% set siteTitle = siteName %}
 
