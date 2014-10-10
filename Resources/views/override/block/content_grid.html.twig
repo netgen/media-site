@@ -1,6 +1,6 @@
 {% if valid_items|length > 0 %}
     {% include
-        'NetgenMoreDemoBundle:parts/block_views:' ~ block.view ~ '.html.twig'
+        'NetgenMoreDemoBundle:parts/block_views:' ~ block.view ~ '.html.twig' ignore missing
          with {
             'valid_items': valid_items,
             'block_type': 'content-grid',
