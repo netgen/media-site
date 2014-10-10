@@ -1,0 +1,29 @@
+{% set advanced_html_tag = block.customAttributes.advanced_html_tag|default( 'h2' ) %}
+{% set advanced_html_id = block.customAttributes.advanced_html_id|default( '' ) %}
+{% set advanced_html_class = block.customAttributes.advanced_html_class|default( '' ) %}
+
+<div {% if advanced_html_id is not empty %} id="{{ advanced_html_id }}"{% endif %}
+    class="block-type-{{ block_type }} block-view-{{  block.view }} {{ advanced_html_class }} clearfix">
+
+    {% if block.name is not empty %}
+        <div class="attribute-header">
+            <{{ advanced_html_tag }}>{{ block.name }}</{{ advanced_html_tag }}>
+        </div>
+    {% endif %}
+
+    {% for valid_item in valid_items|slice( 0, 4 ) %}
+        {{ render(
+            controller(
+                'ez_content:viewLocation', {
+                    'locationId': valid_item.locationId,
+                    'viewType': 'block_item',
+                    'params': {
+                        'image_class': 'contentgrid',
+                        'viewtype': block.customAttributes.advanced_block_item_viewtype
+                    }
+                }
+            )
+        ) }}
+    {% endfor %}
+
+</div>
