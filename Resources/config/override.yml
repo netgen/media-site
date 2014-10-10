@@ -6,3 +6,10 @@ ezpublish:
                     template: NetgenMoreDemoBundle:override/block:content_grid.html.twig
                     match:
                         Type: ContentGrid
+
+            location_view:
+                full:
+                    ng_frontpage:
+                        template: NetgenMoreDemoBundle:override/full:ng_frontpage.html.twig
+                        match:
+                            Identifier\ContentType: ng_frontpage

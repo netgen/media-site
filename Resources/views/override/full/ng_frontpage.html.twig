@@ -1,0 +1,13 @@
+{# NG Frontpage - Full view #}
+
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{% set disableLayoutRegions = true %}
+
+{% block content %}
+<div class="content-view-full ng-frontpage">
+
+    {{ ez_render_field( content, 'page' ) }}
+
+</div>
+{% endblock %}
