@@ -1,4 +1,8 @@
-{% if locationPath is defined and locationPath|length > 1 %}
+{% if showPath is not defined %}
+    {% set showPath = true %}
+{% endif %}
+
+{% if showPath and locationPath is defined and locationPath|length > 1 %}
     <div class="breadcrumb-wrapper">
         <div class="container">
             <ol class="breadcrumb">

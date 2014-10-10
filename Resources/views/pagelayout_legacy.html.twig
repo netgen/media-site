@@ -16,6 +16,12 @@
     {% set persistent_variable = content_info.persistent_variable %}
 {% endif %}
 
+{# SHOWING OR HIDING PATH #}
+
+{% if persistent_variable.show_path is defined and not persistent_variable.show_path %}
+    {% set showPath = false %}
+{% endif %}
+
 {# OPTIONS TO DISABLE LAYOUT REGIONS OR CONTAINERS #}
 
 {% if persistent_variable.disable_layout_regions is defined and persistent_variable.disable_layout_regions %}
