@@ -1,0 +1,14 @@
+{% set viewtype = viewtype|default( 'default' ) %}
+{% set content_type_identifier = ngmore_content_type_identifier( content.contentInfo.contentTypeId ) %}
+
+{% include [
+        'NetgenMoreDemoBundle:parts/block_item_view_types/' ~ content_type_identifier ~ ':' ~ viewtype ~ '.html.twig',
+        'design:parts/block_item_view_types/' ~ content_type_identifier ~ '/' ~ viewtype ~ '.tpl',
+        'NetgenMoreDemoBundle:parts/block_item_view_types/' ~ content_type_identifier ~ ':default.html.twig',
+        'design:parts/block_item_view_types/' ~ content_type_identifier ~ '/default.tpl'
+    ]
+    with {
+        'location': location,
+        'node': location
+    }
+%}

@@ -25,3 +25,6 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/full:ng_category_page.html.twig
                         match:
                             Identifier\ContentType: ng_category_page
+                block_item:
+                    block_item:
+                        template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
