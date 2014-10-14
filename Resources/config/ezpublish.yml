@@ -2,3 +2,4 @@ imports:
     - { resource: templating.yml }
     - { resource: override.yml }
     - { resource: ezpage.yml }
+    - { resource: image.yml }
