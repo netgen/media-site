@@ -50,6 +50,6 @@
 
 {% for language, translationUrl in availableTranslations %}
     {% if translationUrl != '#' %}
-        <link rel="alternate" href="{{ translationUrl }}" hreflang="{{ localeConversionMap[language][0:2] }}" />
+        <link rel="alternate" href="{{ translationUrl }}" hreflang="{{ localeConversionMap[language]|lower|replace( { '_': '-' } ) }}" />
     {% endif %}
 {% endfor %}
