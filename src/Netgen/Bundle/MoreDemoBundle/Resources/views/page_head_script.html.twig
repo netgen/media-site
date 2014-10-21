@@ -1,1 +1,24 @@
-{% include 'design:page_head_script.tpl' %}
+{# jquery.ez.js is equivalent of legacy ezjsc::jqueryio, modified to work in eZ Publish 5 context #}
+{% javascripts filter='?uglifyjs2'
+    '@NetgenMoreDemoBundle/Resources/public/js/jquery-1.8.3.min.js'
+    '@NetgenMoreDemoBundle/Resources/public/js/jquery.ez.js'
+    '@NetgenMoreDemoBundle/Resources/public/js/bootstrap.min.js'
+    '@NetgenMoreDemoBundle/Resources/public/js/jquery.royalslider.min.js'
+    '@NetgenMoreDemoBundle/Resources/public/js/ng_responsive_tables.js'
+    '@NetgenMoreDemoBundle/Resources/public/js/app.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script type="text/javascript">
+    $.ez.root_url = '{{ path( ezpublish.rootLocation ) }}';
+</script>
+
+<!--[if lt IE 9]>
+{% javascripts filter='?uglifyjs2'
+    '@NetgenMoreDemoBundle/Resources/public/js/html5shiv.js'
+    '@NetgenMoreDemoBundle/Resources/public/js/respond.min.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<![endif]-->

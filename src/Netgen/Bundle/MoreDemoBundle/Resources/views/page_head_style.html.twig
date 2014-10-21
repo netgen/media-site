@@ -1,1 +1,18 @@
-{% include 'design:page_head_style.tpl' %}
+{% stylesheets filter='?uglifycss' filter='cssrewrite'
+    'bundles/netgenmoredemo/css/bootstrap.css'
+    'bundles/netgenmoredemo/css/royalslider.css'
+    'bundles/netgenmoredemo/css/rs-default.css'
+    'bundles/netgenmoredemo/css/ng_responsive_tables.css'
+    'bundles/netgenmoredemo/css/style.css'
+%}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+{% endstylesheets %}
+
+<!-- IE conditional comments; for bug fixes for different IE versions -->
+<!--[if lte IE 8]>
+{% stylesheets filter='?uglifycss' filter='cssrewrite'
+    'bundles/netgenmoredemo/css/browsers/ie8lte.css'
+%}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+{% endstylesheets %}
+<![endif]-->

@@ -1,0 +1,25 @@
+@media (max-width: 480px) {
+    /* CSS Responsive table */
+    table.responsive,
+    table.responsive thead,
+    table.responsive tbody,
+    table.responsive th,
+    table.responsive td,
+    table.responsive tr { display: block; }
+    table.responsive thead tr { position: absolute; top: -9999px; left: -9999px; }
+    table.responsive tr { border: 1px solid #ccc; margin-bottom: 10px; }
+    table.responsive td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; }
+    /* Bootstrap 3 fix */
+    table.responsive thead > tr > th,
+    table.responsive tbody > tr > th,
+    table.responsive tfoot > tr > th,
+    table.responsive thead > tr > td,
+    table.responsive tbody > tr > td,
+    table.responsive tfoot > tr > td { padding-left: 50%; }
+    table.responsive td:before {    position: absolute; top: 6px; left: 6px; width: 40%; padding-right: 10px; text-align: left; word-wrap: break-word; }
+    table.responsive tr:first-child { position: absolute; top: -9999px; left: -9999px; }
+    table.responsive td:before { content: attr(data-content); height: 50px; }
+    table.responsive td.small-padding { padding-top: 5px; padding-bottom: 5px; }
+    table.responsive td.medium-padding { padding-top: 15px; padding-bottom: 15px; }
+    table.responsive td.large-padding { padding-top: 25px; padding-bottom: 25px; }
+}
