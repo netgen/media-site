@@ -1,4 +1,4 @@
-{% stylesheets filter='?uglifycss' filter='cssrewrite'
+{% stylesheets filter='cssrewrite,?uglifycss'
     'bundles/netgenmoredemo/css/bootstrap.css'
     'bundles/netgenmoredemo/css/royalslider.css'
     'bundles/netgenmoredemo/css/rs-default.css'
@@ -10,7 +10,7 @@
 
 <!-- IE conditional comments; for bug fixes for different IE versions -->
 <!--[if lte IE 8]>
-{% stylesheets filter='?uglifycss' filter='cssrewrite'
+{% stylesheets filter='cssrewrite,?uglifycss'
     'bundles/netgenmoredemo/css/browsers/ie8lte.css'
 %}
     <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
