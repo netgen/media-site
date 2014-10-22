@@ -1,8 +1,8 @@
 {% set rootLocationPath = path( ezpublish.rootLocation ) %}
 
-<link rel="home" href="{{ rootLocationPath }}" title="{{ siteName }} front page" />
+<link rel="home" href="{{ rootLocationPath }}" title="{{ 'netgen_more.layout.site_frontpage'|trans( { '%siteName%': siteName } ) }}" />
 <link rel="index" href="{{ rootLocationPath }}" />
-<link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="Search {{ siteName }}" />
+<link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="{{ 'netgen_more.layout.search_site'|trans( { '%siteName%': siteName } ) }}" />
 
 <!-- Favicons -->
 <!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->

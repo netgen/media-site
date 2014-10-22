@@ -1,0 +1,6 @@
+netgen_more.layout.toggle_navigation: 'Toggle navigation'
+netgen_more.layout.search: Search
+netgen_more.layout.search_site: 'Search %siteName%'
+netgen_more.layout.site_frontpage: '%siteName% front page'
+netgen_more.layout.meta_generator: 'eZ Publish Platform powered by Netgen'
+netgen_more.layout.powered_by: 'Powered by'
