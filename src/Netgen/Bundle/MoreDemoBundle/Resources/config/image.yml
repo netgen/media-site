@@ -1,28 +1,4 @@
 ezpublish:
-    imagemagick:
-        filters:
-            geometry/scale: '-geometry {1}x{2}'
-            geometry/scalewidth: '-geometry {1}'
-            geometry/scaleheight: '-geometry x{1}'
-            geometry/scaledownonly: '-geometry {1}x{2}>'
-            geometry/scalewidthdownonly: '-geometry {1}>'
-            geometry/scaleheightdownonly: '-geometry x{1}>'
-            geometry/scaleexact: '-geometry {1}x{2}!'
-            geometry/scalepercent: '-geometry {1}x{2}%'
-            geometry/crop: '-crop {1}x{2}+{3}+{4}'
-            filter/noise: '-noise {1}'
-            filter/swirl: '-swirl {1}'
-            colorspace/gray: '-colorspace GRAY'
-            colorspace/transparent: '-colorspace Transparent'
-            colorspace: '-colorspace {1}'
-            border: '-border {1}x{2}'
-            border/color: '-bordercolor rgb({1},{2},{3})'
-            border/width: '-borderwidth {1}'
-            flatten: '-flatten'
-            resize: '-resize {1}'
-            thumb: '-resize ''x{1}'' -resize ''{1}x<'' -resize 50%'
-            centerimg: '-gravity center -crop {1}x{2}+0+0 +repage'
-            strip: '-strip'
     system:
         ngmore_frontend_group:
             image_variations:
@@ -50,7 +26,6 @@ ezpublish:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1800] }
-                        - { name: geometry/scalewidthdownonly, params: [770] }
                 gallerythumbnail:
                     reference: null
                     filters:
@@ -65,7 +40,6 @@ ezpublish:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1000] }
-                        - { name: geometry/scalewidthdownonly, params: [770] }
                 i320:
                     reference: original
                     filters:

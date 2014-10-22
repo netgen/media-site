@@ -28,3 +28,4 @@ ezpublish:
                 block_item:
                     block_item:
                         template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
+                        match: ~
