@@ -1,0 +1,85 @@
+{# NG category - full view #}
+
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{% if not ez_is_field_empty( content, 'line_intro' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% elseif not ez_is_field_empty( content, 'full_intro' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'full_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% endif %}
+
+{% block content %}
+<div class="content-view-full ng-category {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
+    <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
+
+    {% if not ez_is_field_empty( content, 'image' ) %}
+        <div class="att-image">
+            {{ ez_render_field( content, 'image', parameters: { alias: 'ng_image_full' } ) }}
+        </div>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'full_intro' ) %}
+        <div class="att-full-intro">
+            {{ ez_render_field( content, 'full_intro' ) }}
+        </div>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'body' ) %}
+        <div class="att-body">
+            {{ ez_render_field( content, 'body' ) }}
+        </div>
+    {% endif %}
+
+    {% if featured_locations|length > 0 %}
+        <div class="att-featured-content">
+            {% for featured_location in featured_locations %}
+                {{ render( controller( 'ez_content:viewLocation', { 'locationId': featured_location.id, 'viewType': 'line' } ) ) }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if ez_field_value( content, 'show_children' ).bool %}
+        <div class="content-view-children">
+            {% if pager|length > 0 %}
+                {% if ez_is_field_empty( content, 'list_output_type' ) or ez_field_value( content, 'list_output_type' ).identifiers[0] == 'list_view' %}
+                    {% for pagerItem in pager %}
+                        {{ render( controller( 'ez_content:viewLocation', { 'locationId': pagerItem.id, 'viewType': 'line' } ) ) }}
+                    {% endfor %}
+                {% elseif not ez_is_field_empty( content, 'list_output_type' ) and ez_field_value( content, 'list_output_type' ).identifiers[0] == 'grid_view' %}
+                    <div class="row">
+                        {% for pagerItem in pager %}
+                            <div class="col-lg-3 col-md-4 col-sm-6
+                                {% if loop.index0 > 0 and loop.index0 % 4 == 0 %} col-lg-break {% endif%}
+                                {% if loop.index0 > 0 and loop.index0 % 3 == 0 %} col-md-break {% endif%}
+                                {% if loop.index0 > 0 and loop.index0 % 2 == 0 %} col-sm-break {% endif%}
+                            ">
+                                {{ render(
+                                    controller(
+                                        'ez_content:viewLocation', {
+                                            'locationId': pagerItem.id,
+                                            'viewType': 'block_item',
+                                            'params': {
+                                                'image_class': 'contentgrid'
+                                            }
+                                        }
+                                    )
+                                ) }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% elseif not ez_is_field_empty( content, 'list_output_type' ) and ez_field_value( content, 'list_output_type' ).identifiers[0] == 'listitem_view' %}
+                    <ul>
+                        {% for pagerItem in pager %}
+                            <li>{{ render( controller( 'ez_content:viewLocation', { 'locationId': pagerItem.id, 'viewType': 'listitem' } ) ) }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        </div>
+
+        {% if pager.haveToPaginate() %}
+            {{ pagerfanta( pager, 'twitter_bootstrap_translated' ) }}
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
