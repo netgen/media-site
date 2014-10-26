@@ -41,13 +41,16 @@
     {% if ez_field_value( content, 'show_children' ).bool %}
         <div class="content-view-children">
             {% if pager|length > 0 %}
-                {% if ez_is_field_empty( content, 'list_output_type' ) or ez_field_value( content, 'list_output_type' ).identifiers[0] == 'list_view' %}
-                    {% for pagerItem in pager %}
-                        {{ render( controller( 'ez_content:viewLocation', { 'locationId': pagerItem.id, 'viewType': 'line' } ) ) }}
+                {% set list_output_type_empty = ez_is_field_empty( content, 'list_output_type' ) %}
+                {% set list_output_type_value = ez_field_value( content, 'list_output_type' ) %}
+
+                {% if list_output_type_empty or list_output_type_value.identifiers[0] == 'list_view' %}
+                    {% for pager_item in pager %}
+                        {{ render( controller( 'ez_content:viewLocation', { 'locationId': pager_item.id, 'viewType': 'line' } ) ) }}
                     {% endfor %}
-                {% elseif not ez_is_field_empty( content, 'list_output_type' ) and ez_field_value( content, 'list_output_type' ).identifiers[0] == 'grid_view' %}
+                {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'grid_view' %}
                     <div class="row">
-                        {% for pagerItem in pager %}
+                        {% for pager_item in pager %}
                             <div class="col-lg-3 col-md-4 col-sm-6
                                 {% if loop.index0 > 0 and loop.index0 % 4 == 0 %} col-lg-break {% endif%}
                                 {% if loop.index0 > 0 and loop.index0 % 3 == 0 %} col-md-break {% endif%}
@@ -56,7 +59,7 @@
                                 {{ render(
                                     controller(
                                         'ez_content:viewLocation', {
-                                            'locationId': pagerItem.id,
+                                            'locationId': pager_item.id,
                                             'viewType': 'block_item',
                                             'params': {
                                                 'image_class': 'contentgrid'
@@ -67,10 +70,10 @@
                             </div>
                         {% endfor %}
                     </div>
-                {% elseif not ez_is_field_empty( content, 'list_output_type' ) and ez_field_value( content, 'list_output_type' ).identifiers[0] == 'listitem_view' %}
+                {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'listitem_view' %}
                     <ul>
-                        {% for pagerItem in pager %}
-                            <li>{{ render( controller( 'ez_content:viewLocation', { 'locationId': pagerItem.id, 'viewType': 'listitem' } ) ) }}</li>
+                        {% for pager_item in pager %}
+                            <li>{{ render( controller( 'ez_content:viewLocation', { 'locationId': pager_item.id, 'viewType': 'listitem' } ) ) }}</li>
                         {% endfor %}
                     </ul>
                 {% endif %}
