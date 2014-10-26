@@ -14,7 +14,7 @@
 
     {% if not ez_is_field_empty( content, 'image' ) %}
         <div class="att-image">
-            {{ ez_render_field( content, 'image', parameters: { alias: 'ng_image_full' } ) }}
+            {{ ez_render_field( content, 'image', { 'parameters': { 'alias': 'ng_image_full' } } ) }}
         </div>
     {% endif %}
 
