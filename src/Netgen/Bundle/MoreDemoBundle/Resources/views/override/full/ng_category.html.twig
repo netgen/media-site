@@ -30,13 +30,7 @@
         </div>
     {% endif %}
 
-    {% if featured_locations|length > 0 %}
-        <div class="att-featured-content">
-            {% for featured_location in featured_locations %}
-                {{ render( controller( 'ez_content:viewLocation', { 'locationId': featured_location.id, 'viewType': 'line' } ) ) }}
-            {% endfor %}
-        </div>
-    {% endif %}
+    {% include 'design:parts/ng_category_featured_content.tpl' with { 'node': location } %}
 
     {% if ez_field_value( content, 'show_children' ).bool %}
         <div class="content-view-children">
