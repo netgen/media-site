@@ -12,7 +12,7 @@ ezpublish:
                         Type: ContentGrid
                 ContentGridDynamic:
                     template: NetgenMoreDemoBundle:override/block:content_grid_dynamic.html.twig
-                    controller: netgen_more.controller.block:viewContentGridDynamicBlockById
+                    controller: netgen_more.controller.block_view:viewContentGridDynamicBlockById
                     match:
                         Type: ContentGridDynamic
 
