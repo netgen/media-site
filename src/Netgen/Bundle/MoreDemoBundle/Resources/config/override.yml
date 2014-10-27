@@ -10,6 +10,11 @@ ezpublish:
                     template: NetgenMoreDemoBundle:override/block:content_grid.html.twig
                     match:
                         Type: ContentGrid
+                ContentGridDynamic:
+                    template: NetgenMoreDemoBundle:override/block:content_grid_dynamic.html.twig
+                    controller: netgen_more.controller.block:viewContentGridDynamicBlockById
+                    match:
+                        Type: ContentGridDynamic
 
             location_view:
                 full:
