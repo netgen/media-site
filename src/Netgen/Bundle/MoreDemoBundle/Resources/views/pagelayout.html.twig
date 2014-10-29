@@ -1,8 +1,13 @@
 {% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
 
-{% if locationPath is not defined and content is defined and location is defined and not location.isDraft %}
-    {% set locationPath = ngmore_location_path( location.id ) %}
-    {% set mainCategoryLocationId = locationPath[1] is defined ? locationPath[1].locationId : locationPath[0].locationId %}
+{% if pathArray is not defined %}
+    {% if content is defined and location is defined and not location.isDraft %}
+        {% set pathArray = ngmore_location_path( location.id ) %}
+        {% set mainCategoryLocationId = pathArray[1] is defined ? pathArray[1].locationId : pathArray[0].locationId %}
+    {% else %}
+        {% set pathArray = [] %}
+        {% set mainCategoryLocationId = 0 %}
+    {% endif %}
 {% endif %}
 
 {% set disableLayoutRegions = disableLayoutRegions|default( false ) %}

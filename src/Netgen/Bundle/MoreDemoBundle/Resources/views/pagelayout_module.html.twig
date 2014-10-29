@@ -1,5 +1,7 @@
 {% extends 'NetgenMoreDemoBundle::pagelayout_legacy.html.twig' %}
 
+{% set pathArray = ezpublish.legacy.get( 'path' ) %}
+
 {% block content %}
     {{ module_result.content|raw }}
 {% endblock %}

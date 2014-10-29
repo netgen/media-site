@@ -2,15 +2,13 @@
     {% set showPath = true %}
 {% endif %}
 
-{% if showPath and locationPath is defined and locationPath|length > 1 %}
+{% if showPath and pathArray|length > 1 %}
     <div class="breadcrumb-wrapper">
         <div class="container">
             <ol class="breadcrumb">
-                {% for pathItem in locationPath %}
+                {% for pathItem in pathArray %}
                     {% if pathItem.url != false %}
                         <li><a href="{{ pathItem.url }}">{{ pathItem.text }}</a></li>
-                    {% else %}
-                        <li>{{ pathItem.text }}</li>
                     {% endif %}
                 {% endfor %}
             </ol>
