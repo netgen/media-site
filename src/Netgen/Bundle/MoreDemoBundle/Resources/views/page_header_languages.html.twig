@@ -4,16 +4,11 @@
     <a href="#lang-selector" data-toggle="dropdown" class="current-lang">{{ ngmore_language_name( prioritizedLanguages.0 ) }}&nbsp;<b class="caret"></b></a>
 
     <ul class="lang-select dropdown-menu">
-        {% for language in ezpublish.availableLanguages %}
-            {% set translationSiteAccess = ezpublish.translationSiteAccess( language ) %}
-
-            {% if translationSiteAccess is not empty %}
-                {% if language != prioritizedLanguages.0 %}
-                    {% set url = url( ez_route( params={ 'siteaccess': translationSiteAccess } ) ) %}
-                    <li><a href="{{ url }}">{{ ngmore_language_name( language ) }}</a></li>
-                {% else %}
-                    <li class="current"><a href="#" data-toggle="dropdown">{{ ngmore_language_name( language ) }}</a></li>
-                {% endif %}
+        {% for language, url in availableTranslations %}
+            {% if language != prioritizedLanguages.0 %}
+                <li><a href="{{ url }}">{{ ngmore_language_name( language ) }}</a></li>
+            {% else %}
+                <li class="current"><a href="#" data-toggle="dropdown">{{ ngmore_language_name( language ) }}</a></li>
             {% endif %}
         {% endfor %}
     </ul>

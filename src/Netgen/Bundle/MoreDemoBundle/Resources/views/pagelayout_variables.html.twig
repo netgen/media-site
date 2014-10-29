@@ -1,0 +1,58 @@
+{# SITE NAME #}
+
+{% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
+
+{# PATH ARRAY #}
+
+{% if pathArray is not defined %}
+    {% if content is defined and location is defined and not location.isDraft %}
+        {% set pathArray = ngmore_location_path( location.id ) %}
+        {% set mainCategoryLocationId = pathArray[1] is defined ? pathArray[1].locationId : pathArray[0].locationId %}
+    {% else %}
+        {% set pathArray = [] %}
+        {% set mainCategoryLocationId = 0 %}
+    {% endif %}
+{% endif %}
+
+{# LAYOUT & CONTAINERS #}
+
+{% set disableLayoutRegions = disableLayoutRegions|default( false ) %}
+{% set disableContainers = disableContainers|default( false ) %}
+{% set layout = ngmore.layout|default( false ) %}
+
+{# LAYOUT REGIONS #}
+
+{% set disableTopRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_top_region' ).bool )  %}
+{% set disableRightRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_right_region' ).bool ) %}
+{% set disableLeftRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_left_region' ).bool )  %}
+{% set disableBottomRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_bottom_region' ).bool ) %}
+
+{# PLACEHOLDERS #}
+
+{% set _placeholderTopTop = block( 'placeholderTopTop' ) %}
+{% set _placeholderTopBottom = block( 'placeholderTopBottom' ) %}
+{% set _placeholderLeftTop = block( 'placeholderLeftTop' ) %}
+{% set _placeholderLeftBottom = block( 'placeholderLeftBottom' ) %}
+{% set _placeholderRightTop = block( 'placeholderRightTop' ) %}
+{% set _placeholderRightBottom = block( 'placeholderRightBottom' ) %}
+{% set _placeholderBottomTop = block( 'placeholderBottomTop' ) %}
+{% set _placeholderBottomBottom = block( 'placeholderBottomBottom' ) %}
+
+{% set leftColumnAvailable = ( _placeholderLeftTop is not empty or _placeholderLeftBottom is not empty or not disableLeftRegion ) %}
+{% set rightColumnAvailable = ( _placeholderRightTop is not empty or _placeholderRightBottom is not empty or not disableRightRegion ) %}
+
+{# AVAILABLE TRANSLATIONS #}
+
+{% set prioritizedLanguages = ezpublish.configResolver.getParameter( 'languages' ) %}
+{% set availableTranslations = [] %}
+
+{% for language in ezpublish.availableLanguages %}
+    {% set translationSiteAccess = ezpublish.translationSiteAccess( language ) %}
+
+    {% if translationSiteAccess is not empty %}
+        {% set url = url( ez_route( params={ 'siteaccess': translationSiteAccess } ) ) %}
+        {% set availableTranslations = availableTranslations|merge( { ( language ): url } ) %}
+    {% endif %}
+{% endfor %}
+
+{% block pagelayout_content %}{% endblock %}

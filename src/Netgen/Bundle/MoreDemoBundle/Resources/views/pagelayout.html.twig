@@ -1,36 +1,6 @@
-{% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
+{% extends 'NetgenMoreDemoBundle::pagelayout_variables.html.twig' %}
 
-{% if pathArray is not defined %}
-    {% if content is defined and location is defined and not location.isDraft %}
-        {% set pathArray = ngmore_location_path( location.id ) %}
-        {% set mainCategoryLocationId = pathArray[1] is defined ? pathArray[1].locationId : pathArray[0].locationId %}
-    {% else %}
-        {% set pathArray = [] %}
-        {% set mainCategoryLocationId = 0 %}
-    {% endif %}
-{% endif %}
-
-{% set disableLayoutRegions = disableLayoutRegions|default( false ) %}
-{% set disableContainers = disableContainers|default( false ) %}
-{% set layout = ngmore.layout|default( false ) %}
-
-{% set disableTopRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_top_region' ).bool )  %}
-{% set disableRightRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_right_region' ).bool ) %}
-{% set disableLeftRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_left_region' ).bool )  %}
-{% set disableBottomRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_bottom_region' ).bool ) %}
-
-{% set _placeholderTopTop = block( 'placeholderTopTop' ) %}
-{% set _placeholderTopBottom = block( 'placeholderTopBottom' ) %}
-{% set _placeholderLeftTop = block( 'placeholderLeftTop' ) %}
-{% set _placeholderLeftBottom = block( 'placeholderLeftBottom' ) %}
-{% set _placeholderRightTop = block( 'placeholderRightTop' ) %}
-{% set _placeholderRightBottom = block( 'placeholderRightBottom' ) %}
-{% set _placeholderBottomTop = block( 'placeholderBottomTop' ) %}
-{% set _placeholderBottomBottom = block( 'placeholderBottomBottom' ) %}
-
-{% set leftColumnAvailable = ( _placeholderLeftTop is not empty or _placeholderLeftBottom is not empty or not disableLeftRegion ) %}
-{% set rightColumnAvailable = ( _placeholderRightTop is not empty or _placeholderRightBottom is not empty or not disableRightRegion ) %}
-
+{% block pagelayout_content %}
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 <head>
@@ -168,3 +138,4 @@
 
 </body>
 </html>
+{% endblock %}

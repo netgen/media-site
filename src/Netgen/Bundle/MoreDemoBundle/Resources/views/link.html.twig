@@ -29,15 +29,7 @@
 <link rel="icon" href="{{ asset( 'bundles/netgenmoredemo/images/favicon.png' ) }}" type="image/x-icon" />
 
 {% set localeConversionMap = ezpublish.configResolver.getParameter( 'locale.conversion_map', 'ngmore' ) %}
-{% set prioritizedLanguages = ezpublish.configResolver.getParameter( 'languages' ) %}
 
-{% for language in ezpublish.availableLanguages %}
-    {% set translationSiteAccess = ezpublish.translationSiteAccess( language ) %}
-
-    {% if translationSiteAccess is not empty %}
-        {% if language != prioritizedLanguages.0 %}
-            {% set url = url( ez_route( params={ 'siteaccess': translationSiteAccess } ) ) %}
-            <link rel="alternate" href="{{ url }}" hreflang="{{ localeConversionMap[language]|lower|replace( { '_': '-' } ) }}" />
-        {% endif %}
-    {% endif %}
+{% for language, url in availableTranslations %}
+    <link rel="alternate" href="{{ url }}" hreflang="{{ localeConversionMap[language]|lower|replace( { '_': '-' } ) }}" />
 {% endfor %}
