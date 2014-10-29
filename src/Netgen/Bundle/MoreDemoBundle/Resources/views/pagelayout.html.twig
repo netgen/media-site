@@ -1,6 +1,6 @@
 {% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
 
-{% if content is defined and location is defined and not location.isDraft %}
+{% if locationPath is not defined and content is defined and location is defined and not location.isDraft %}
     {% set locationPath = ngmore_location_path( location.id ) %}
     {% set mainCategoryLocationId = locationPath[1] is defined ? locationPath[1].locationId : locationPath[0].locationId %}
 {% endif %}
