@@ -1,6 +1,14 @@
 {% extends 'NetgenMoreDemoBundle::pagelayout_legacy.html.twig' %}
 
-{% set pathArray = ezpublish.legacy.get( 'path' ) %}
+{% set legacyPathArray = ezpublish.legacy.get( 'path' ) %}
+{% set pathArray = [] %}
+
+{% for legacyPathItem in legacyPathArray %}
+    {% set pathArray = pathArray|merge( [ {
+        url: legacyPathItem.url ? path( 'ez_legacy', { 'module_uri': legacyPathItem.url } ) : false,
+        text: legacyPathItem.text
+    } ] ) %}
+{% endfor %}
 
 {% block content %}
     {{ module_result.content|raw }}
