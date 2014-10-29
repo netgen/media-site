@@ -1,6 +1,6 @@
 {% extends 'NetgenMoreDemoBundle::pagelayout_legacy.html.twig' %}
 
-{% set legacyPathArray = ezpublish.legacy.get( 'path' ) %}
+{% set legacyPathArray = ezpublish.legacy.has( 'path' ) ? ezpublish.legacy.get( 'path' ) : [] %}
 {% set pathArray = [] %}
 
 {% for legacyPathItem in legacyPathArray %}
