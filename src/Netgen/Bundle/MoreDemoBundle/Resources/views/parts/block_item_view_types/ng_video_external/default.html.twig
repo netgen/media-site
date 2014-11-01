@@ -1,0 +1,17 @@
+{# ng_video_external - block_item default view type #}
+
+{% set location_path = path( location ) %}
+
+<div class="content-view-block-item ng-video-external">
+
+    <h2 class="att-name"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
+
+    {% if not ez_is_field_empty( content, 'poster' ) %}
+        <div class="att-poster">
+            <a href="{{ location_path }}">
+                {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'ng_image_block_item' } } ) }}
+            </a>
+        </div>
+    {% endif %}
+
+</div>
