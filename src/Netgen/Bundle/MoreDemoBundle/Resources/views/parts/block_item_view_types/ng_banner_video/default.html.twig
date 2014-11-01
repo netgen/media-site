@@ -2,7 +2,7 @@
 
 {% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:linkable.html.twig' %}
 
-{% set image_field = content.getField( 'image' ) %}
+{% set image_field = content.getField( 'poster' ) %}
 {% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
 
 {% block content %}

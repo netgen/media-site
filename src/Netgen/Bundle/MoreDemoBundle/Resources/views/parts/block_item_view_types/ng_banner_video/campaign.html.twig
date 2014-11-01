@@ -2,7 +2,7 @@
 
 {% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:linkable.html.twig' %}
 
-{% set image_field = content.getField( 'image' ) %}
+{% set image_field = content.getField( 'poster' ) %}
 {% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
 
 {% block content %}
@@ -30,19 +30,18 @@
 
             <div class="video-local">
                 <img alt="{{ ez_content_name( content ) }}" class="rsImg" src="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}"
-                data-rsVideo='<video style="display:none;" class="" id="sublime_0" title="{{ ez_content_name( content ) }}" width="770" height="433" data-uid="sublime_0" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' )[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}">
+                data-rsVideo='<video style="display:none;" class="" id="sublime_0" title="{{ ez_content_name( content ) }}" width="770" height="433" data-uid="sublime_0" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' ).identifiers[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}">
                     {% if not ez_is_field_empty( content, 'video_file' ) %}
-                        <source src="{{ path( 'ez_legacy', { 'module_uri': 'content/download/' ~ content.id ~ '/' ~ content.getField( 'video_file' ).id ~ '/' ~ ez_field_value( content, 'video_file' ).fileName|url_encode } ) }}" />
+                        <source src="{{ ez_field_value( content, 'video_file' ).uri }}" />
                     {% endif %}
 
                     {% if not ez_is_field_empty( content, 'video_file_hd' ) %}
-                        <source src="{{ path( 'ez_legacy', { 'module_uri': 'content/download/' ~ content.id ~ '/' ~ content.getField( 'video_file_hd' ).id ~ '/' ~ ez_field_value( content, 'video_file_hd' ).fileName|url_encode } ) }}" />
+                        <source src="{{ ez_field_value( content, 'video_file_hd' ).uri }}" />
                     {% endif %}
                 </video>' />
             </div>
 
         {% endif %}
-
 
         <div class="bContainer">
             <div class="rsABlock txtCent">
