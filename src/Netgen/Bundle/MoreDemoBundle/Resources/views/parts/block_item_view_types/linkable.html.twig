@@ -1,0 +1,18 @@
+{% set url = '#' %}
+{% set open_in_new_window = false %}
+
+{% if not ez_is_field_empty( content, 'url' ) %}
+    {% set url = ez_field_value( content, 'url' ).link %}
+
+    {% if ez_field_value( content, 'new_window' ).bool %}
+        {% set open_in_new_window = true %}
+    {% endif %}
+{% elseif not ez_is_field_empty( content, 'related_object' ) %}
+    {% set relatedContentId = ez_field_value( content, 'related_object' ).destinationContentId %}
+
+    {% if relatedContentId != content.id %} {# dead loop #}
+        {% set url = path( 'ngmore_urlalias', { 'contentId': relatedContentId } ) %}
+    {% endif %}
+{% endif %}
+
+{% block content %}{% endblock %}
