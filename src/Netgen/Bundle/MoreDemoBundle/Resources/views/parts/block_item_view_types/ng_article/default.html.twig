@@ -1,0 +1,37 @@
+{# ng_article - block_item default view type #}
+
+{% set location_path = path( location ) %}
+
+<div class="content-view-block-item ng-article">
+
+    {% if not ez_is_field_empty( content, 'line_image' ) %}
+        <div class="att-image">
+            {{ ez_render_field(
+                content,
+                'line_image', {
+                    'parameters': {
+                        'alias': 'ng_image_block_item',
+                        'href': location_path,
+                        'image_class': 'img-responsive'
+                    }
+                }
+            ) }}
+        </div>
+    {% elseif not ez_is_field_empty( content, 'image' ) %}
+        <div class="att-image">
+            {{ ez_render_field(
+                content,
+                'image', {
+                    'parameters': {
+                        'alias': 'ng_image_block_item',
+                        'href': location_path,
+                        'image_class': 'img-responsive'
+                    }
+                }
+            ) }}
+        </div>
+    {% endif %}
+
+    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+
+</div>

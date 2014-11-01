@@ -1,0 +1,17 @@
+{# ng_blog_post - block_item campaign view type #}
+
+{% set image_field = content.getField( 'image' ) %}
+{% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
+{% set content_name = ez_content_name( content ) %}
+
+<div class="rsContent">
+    <img class="rsImg rsMainSlideImage" src="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" alt="{{ content_name }}" />
+    <div class="bContainer">
+        <div class="rsABlock txtCent">
+            <h2><a href={{ path( location ) }}>{{ content_name }}</a></h2>
+            {% if not ez_is_field_empty( content, 'intro' ) %}
+                {{ ez_render_field( content, 'intro' ) }}
+            {% endif %}
+        </div>
+    </div>
+</div>
