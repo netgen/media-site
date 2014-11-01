@@ -41,3 +41,6 @@ ezpublish:
                     block_item:
                         template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
                         match: ~
+
+            field_templates:
+                - { template: NetgenMoreBundle::content_fields.html.twig, priority: 4294967295 }
