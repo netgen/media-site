@@ -81,7 +81,7 @@ RewriteRule .* / [L,R=301]
 # v1 rest API is on Legacy
 # RewriteRule ^api/[^/]+/v1/ /index_rest.php [L]
 
-RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
+RewriteRule ^var/([^/]+/)?storage/(original|images(-versioned)?)/.* - [L]
 RewriteRule ^var/([^/]+/)?cache/(texttoimage|public)/.* - [L]
 RewriteRule ^design/[^/]+/(stylesheets|images|fonts|javascript)/.* - [L]
 RewriteRule ^share/icons/.* - [L]
