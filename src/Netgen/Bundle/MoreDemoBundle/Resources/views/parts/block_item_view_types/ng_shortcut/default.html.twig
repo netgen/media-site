@@ -1,0 +1,27 @@
+{# ng_shortcut - block_item default view type #}
+
+{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:linkable.html.twig' %}
+
+{% block content %}
+    <div class="content-view-block-item ng-shortcut">
+
+        <h2 class="att-title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+
+        {% if not ez_is_field_empty( content, 'line_image' ) %}
+            {{ ez_render_field(
+                content,
+                'line_image', {
+                    'parameters': {
+                        'alias': 'ng_image_line',
+                        'link_class': 'att-image',
+                        'href': url
+                    }
+                }
+            ) }}
+        {% endif %}
+
+        {% if not ez_is_field_empty( content, 'line_intro' ) %}
+            <div class="att-line-intro">{{ ez_render_field( content, 'line_intro' ) }}</div>
+        {% endif %}
+    </div>
+{% endblock %}
