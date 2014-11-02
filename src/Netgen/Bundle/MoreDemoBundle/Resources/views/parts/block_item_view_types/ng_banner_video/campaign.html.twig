@@ -1,6 +1,6 @@
 {# ng_banner_video - block_item campaign view type #}
 
-{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:linkable.html.twig' %}
+{% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
 {% set image_field = content.getField( 'poster' ) %}
 {% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
