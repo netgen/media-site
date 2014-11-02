@@ -1,0 +1,41 @@
+{# NG category - line view #}
+
+{% set location_path = path( location ) %}
+
+<div class="content-view-line ng-category media clearfix">
+
+    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+
+    {% if not ez_is_field_empty( content, 'line_image' ) %}
+        {{ ez_render_field(
+            content,
+            'line_image', {
+                'parameters': {
+                    'alias': 'ng_image_line',
+                    'link_class': 'att-image pull-left',
+                    'href': location_path
+                }
+            }
+        ) }}
+    {% elseif not ez_is_field_empty( content, 'image' ) %}
+        {{ ez_render_field(
+            content,
+            'image', {
+                'parameters': {
+                    'alias': 'ng_image_line',
+                    'link_class': 'att-image pull-left',
+                    'href': location_path
+                }
+            }
+        ) }}
+    {% endif %}
+
+    <div class="att-line-intro">
+        {% if not ez_is_field_empty( content, 'line_intro' ) %}
+            {{ ez_render_field( content, 'line_intro' ) }}
+        {% elseif not ez_is_field_empty( content, 'full_intro' ) %}
+            {{ ez_render_field( content, 'full_intro' ) }}
+        {% endif %}
+    </div>
+
+</div>

@@ -1,0 +1,13 @@
+{# NG landing page - line view #}
+
+<div class="content-view-line ng-landing-page clearfix">
+
+    <h2 class="att-title"><a href="{{ path( location ) }}">{{ ez_content_name( content ) }}</a></h2>
+
+    {% if not ez_is_field_empty( content, 'line_intro' ) %}
+        <div class="att-line-intro">
+            {{ ez_render_field( content, 'line_intro' ) }}
+        </div>
+    {% endif %}
+
+</div>

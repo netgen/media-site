@@ -1,0 +1,15 @@
+{# NG feedback form - line view #}
+
+<div class="content-view-line ng-feedback-form clearfix">
+
+    <h2 class="att-title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+
+    <div class="att-line-intro">
+        {% if not ez_is_field_empty( content, 'line_intro' ) %}
+            {{ ez_render_field( content, 'line_intro' ) }}
+        {% elseif not ez_is_field_empty( content, 'full_intro' ) %}
+            {{ ez_render_field( content, 'full_intro' ) }}
+        {% endif %}
+    </div>
+
+</div>

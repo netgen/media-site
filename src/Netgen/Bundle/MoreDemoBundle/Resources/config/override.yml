@@ -41,6 +41,67 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/full:ng_article.html.twig
                         match:
                             Identifier\ContentType: ng_article
+                line:
+                    ng_frontpage:
+                        template: NetgenMoreDemoBundle:override/line:ng_frontpage.html.twig
+                        match:
+                            Identifier\ContentType: ng_frontpage
+                    ng_category:
+                        template: NetgenMoreDemoBundle:override/line:ng_category.html.twig
+                        match:
+                            Identifier\ContentType: ng_category
+                    ng_category_page:
+                        template: NetgenMoreDemoBundle:override/line:ng_category_page.html.twig
+                        match:
+                            Identifier\ContentType: ng_category_page
+                    ng_landing_page:
+                        template: NetgenMoreDemoBundle:override/line:ng_landing_page.html.twig
+                        match:
+                            Identifier\ContentType: ng_landing_page
+                    ng_article:
+                        template: NetgenMoreDemoBundle:override/line:ng_article.html.twig
+                        match:
+                            Identifier\ContentType: ng_article
+                    ng_news:
+                        template: NetgenMoreDemoBundle:override/line:ng_news.html.twig
+                        match:
+                            Identifier\ContentType: ng_news
+                    ng_blog_post:
+                        template: NetgenMoreDemoBundle:override/line:ng_blog_post.html.twig
+                        match:
+                            Identifier\ContentType: ng_blog_post
+                    ng_audio:
+                        template: NetgenMoreDemoBundle:override/line:ng_audio.html.twig
+                        match:
+                            Identifier\ContentType: ng_audio
+                    ng_gallery:
+                        template: NetgenMoreDemoBundle:override/line:ng_gallery.html.twig
+                        match:
+                            Identifier\ContentType: ng_gallery
+                    ng_video:
+                        template: NetgenMoreDemoBundle:override/line:ng_video.html.twig
+                        match:
+                            Identifier\ContentType: ng_video
+                    ng_video_external:
+                        template: NetgenMoreDemoBundle:override/line:ng_video_external.html.twig
+                        match:
+                            Identifier\ContentType: ng_video_external
+                    ng_htmlbox:
+                        template: NetgenMoreDemoBundle:override/line:ng_htmlbox.html.twig
+                        match:
+                            Identifier\ContentType: ng_htmlbox
+                    ng_infobox:
+                        template: NetgenMoreDemoBundle:override/line:ng_infobox.html.twig
+                        match:
+                            Identifier\ContentType: ng_infobox
+                    ng_feedback_form:
+                        template: NetgenMoreDemoBundle:override/line:ng_feedback_form.html.twig
+                        match:
+                            Identifier\ContentType: ng_feedback_form
+                    ng_shortcut:
+                        template: NetgenMoreDemoBundle:override/line:ng_shortcut.html.twig
+                        match:
+                            Identifier\ContentType: ng_shortcut
                 block_item:
                     block_item:
                         template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig

@@ -1,0 +1,29 @@
+{# NG shortcut - line view #}
+
+{% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
+
+{% block content %}
+    <div class="content-view-line ng-shortcut media clearfix">
+
+        <h2 class="att-title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+
+        {% if not ez_is_field_empty( content, 'line_image' ) %}
+            {{ ez_render_field(
+                content,
+                'line_image', {
+                    'parameters': {
+                        'alias': 'ng_image_line',
+                        'link_class': 'att-image pull-left',
+                        'href': url
+                    }
+                }
+            ) }}
+        {% endif %}
+
+        <div class="att-line-intro">
+            {% if not ez_is_field_empty( content, 'line_intro' ) %}
+                {{ ez_render_field( content, 'line_intro' ) }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

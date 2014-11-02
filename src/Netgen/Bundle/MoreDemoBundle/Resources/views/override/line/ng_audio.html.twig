@@ -1,0 +1,19 @@
+{# NG audio - line view #}
+
+<div class="content-view-line ng-audio">
+
+    {% if not ez_is_field_empty( content, 'image' ) %}
+        <div class="att-image">
+            {{ ez_render_field( content, 'image' ) }}
+        </div>
+    {% endif %}
+
+    <h2 class="att-title"><a href="{{ path( location ) }}">{{ ez_content_name( content ) }}</a></h2>
+
+    {% if not ez_is_field_empty( content, 'line_intro' ) %}
+        <div class="att-line-intro">
+            {{ ez_render_field( content, 'line_intro' ) }}
+        </div>
+    {% endif %}
+
+</div>
