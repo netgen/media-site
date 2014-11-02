@@ -37,6 +37,10 @@ ezpublish:
                         controller: netgen_more.controller.full_view:viewNgCategoryPageLocation
                         match:
                             Identifier\ContentType: ng_category_page
+                    ng_article:
+                        template: NetgenMoreDemoBundle:override/full:ng_article.html.twig
+                        match:
+                            Identifier\ContentType: ng_article
                 block_item:
                     block_item:
                         template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
