@@ -42,5 +42,12 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
                         match: ~
 
+            content_view:
+                embed:
+                    image:
+                        template: NetgenMoreDemoBundle:override/embed:image.html.twig
+                        match:
+                            Identifier\ContentType: image
+
             field_templates:
                 - { template: NetgenMoreBundle::content_fields.html.twig, priority: 4294967295 }

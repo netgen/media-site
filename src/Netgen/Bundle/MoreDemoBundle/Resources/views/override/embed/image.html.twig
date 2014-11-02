@@ -1,0 +1,15 @@
+{% if not ez_is_field_empty( content, 'image' ) %}
+    <div class="content-view-embed class-image">
+        <div class="attribute-image">
+            <div class="attribute-image full-head">
+                {{ ez_render_field( content, 'image', { 'parameters': { 'alias': objectParameters.size } } ) }}
+
+                {% if not ez_is_field_empty( content, 'caption' ) %}
+                    <div class="attribute-caption">
+                        {{ ez_render_field( content, 'caption' ) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}
