@@ -102,6 +102,23 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/line:ng_shortcut.html.twig
                         match:
                             Identifier\ContentType: ng_shortcut
+                listitem:
+                    ng_news:
+                        template: NetgenMoreDemoBundle:override/listitem:ng_news.html.twig
+                        match:
+                            Identifier\ContentType: ng_news
+                    ng_video:
+                        template: NetgenMoreDemoBundle:override/listitem:ng_video.html.twig
+                        match:
+                            Identifier\ContentType: ng_video
+                    ng_video_external:
+                        template: NetgenMoreDemoBundle:override/listitem:ng_video_external.html.twig
+                        match:
+                            Identifier\ContentType: ng_video_external
+                    ng_shortcut:
+                        template: NetgenMoreDemoBundle:override/listitem:ng_shortcut.html.twig
+                        match:
+                            Identifier\ContentType: ng_shortcut
                 block_item:
                     block_item:
                         template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
