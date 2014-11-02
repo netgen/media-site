@@ -27,16 +27,16 @@ ezpublish:
                         controller: netgen_more.controller.full_view:viewNgCategoryLocation
                         match:
                             Identifier\ContentType: ng_category
-                    ng_landing_page:
-                        template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
-                        controller: netgen_more.controller.full_view:viewNgLandingPageLocation
-                        match:
-                            Identifier\ContentType: ng_landing_page
                     ng_category_page:
                         template: NetgenMoreDemoBundle:override/full:ng_category_page.html.twig
                         controller: netgen_more.controller.full_view:viewNgCategoryPageLocation
                         match:
                             Identifier\ContentType: ng_category_page
+                    ng_landing_page:
+                        template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
+                        controller: netgen_more.controller.full_view:viewNgLandingPageLocation
+                        match:
+                            Identifier\ContentType: ng_landing_page
                     ng_article:
                         template: NetgenMoreDemoBundle:override/full:ng_article.html.twig
                         match:
