@@ -54,4 +54,4 @@ ezpublish:
                             Identifier\ContentType: image
 
             field_templates:
-                - { template: NetgenMoreBundle::content_fields.html.twig, priority: 4294967295 }
+                - { template: NetgenMoreBundle::content_fields.html.twig, priority: 10000 }
