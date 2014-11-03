@@ -29,9 +29,8 @@ ezpublish:
                 gallerythumbnail:
                     reference: null
                     filters:
-                        - { name: thumb, params: [182] }
-                        - { name: centerimg, params: [96, 72] }
-                        - { name: strip, params: [''] }
+                        - { name: geometry/scalewidth, params: [96] }
+                        - { name: geometry/crop, params: [96, 72, 0, 0] }
                 medium:
                     reference: reference
                     filters:
