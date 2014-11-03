@@ -11,7 +11,7 @@
     {% set relatedContentId = ez_field_value( content, 'related_object' ).destinationContentId %}
 
     {% if relatedContentId != content.id %} {# dead loop #}
-        {% set url = path( 'ngmore_urlalias', { 'contentId': relatedContentId } ) %}
+        {% set url = path( 'ez_urlalias', { 'contentId': relatedContentId } ) %}
     {% endif %}
 {% endif %}
 
