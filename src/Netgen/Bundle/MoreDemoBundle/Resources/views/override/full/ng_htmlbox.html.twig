@@ -1,0 +1,9 @@
+{# NG HTML box - full view #}
+
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{% block content %}
+<div class="content-view-full ng-htmlbox">
+    {{ ez_field_value( content, 'html_code' ).text }}
+</div>
+{% endblock %}

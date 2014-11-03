@@ -1,0 +1,60 @@
+{# NG news - full view #}
+
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{% if not ez_is_field_empty( content, 'line_intro' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% elseif not ez_is_field_empty( content, 'full_intro' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'full_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% endif %}
+
+{% block content %}
+<div class="content-view-full ng-news {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
+
+    {% if not ez_is_field_empty( content, 'headline' ) %}
+        <h2 class="att-headline">{{ ez_render_field( content, 'headline' ) }}</h2>
+    {% endif %}
+
+    <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
+
+    <div class="att-publish-date">
+        <p><small>{{ ez_field_value( content, 'publish_date' ).value|date( 'F d, Y.' ) }}</small></p>
+    </div>
+
+    {% if not ez_is_field_empty( content, 'full_intro' ) %}
+        <div class="att-full-intro">
+            {{ ez_render_field( content, 'full_intro' ) }}
+        </div>
+    {% endif %}
+
+    {% include 'NetgenMoreBundle:parts:social.html.twig' %}
+
+    <div class="images media">
+        {{ render(
+            controller(
+                'netgen_more.controller.parts:viewGallery', {
+                    'locationId': location.id,
+                    'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
+                }
+            )
+        ) }}
+    </div>
+
+    {% if not ez_is_field_empty( content, 'body' ) %}
+        <div class="att-body">
+            {{ ez_render_field( content, 'body' ) }}
+        </div>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'location' ) %}
+        <div class="att-location">
+            {{ ez_render_field( content, 'location' ) }}
+        </div>
+    {% endif %}
+
+    {% include 'design:parts/related_items.tpl' with { 'node': location, 'view': 'line' } %}
+
+    {# TODO: Comments #}
+
+</div>
+{% endblock %}

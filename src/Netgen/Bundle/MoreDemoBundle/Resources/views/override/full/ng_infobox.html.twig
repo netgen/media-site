@@ -1,0 +1,9 @@
+{# NG infobox - full view #}
+
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{% block content %}
+<div class="content-view-full ng-infobox {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
+    {{ ez_render_field( content, 'content' ) }}
+</div>
+{% endblock %}

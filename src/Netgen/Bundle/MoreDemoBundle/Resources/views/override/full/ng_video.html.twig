@@ -1,0 +1,45 @@
+{# NG video - full view #}
+
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{% if not ez_is_field_empty( content, 'line_intro' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% endif %}
+
+{% set image_field = content.getField( 'poster' ) %}
+{% set image_alias = ez_image_alias( image_field, content.versionInfo, 'original' ) %}
+
+{% block content %}
+<div class="content-view-full ng-video">
+
+    {% if not ez_is_field_empty( content, 'name' ) %}
+        <h1 class="att-name">{{ ez_render_field( content, 'name' ) }}</h1>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'line_intro' ) %}
+        <div class="att-line-intro">
+            {{ ez_render_field( content, 'line_intro' ) }}
+        </div>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'description' ) %}
+        <div class="att-description">
+            {{ ez_render_field( content, 'description' ) }}
+        </div>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
+        <div class="video-local sublime-{{ ez_field_value( content, 'autoresize' )[0] }}-container">
+            <video style="display:none;" class="sublime" title="{{ ez_field_value( content, 'name' ).text }}" width="750" height="422" poster="/{{ image_alias.uri }}" data-uid="sublime_0" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' )[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}">
+                {% if not ez_is_field_empty( content, 'video_file' ) %}
+                    <source src="{{ ez_field_value( content, 'video_file' ).uri }}" />
+                {% endif %}
+                {% if not ez_is_field_empty( content, 'video_file_id' ) %}
+                    <source src="{{ ez_field_value( content, 'video_file_hd' ).uri }}" />
+                {% endif %}
+            </video>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

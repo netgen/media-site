@@ -41,6 +41,38 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/full:ng_article.html.twig
                         match:
                             Identifier\ContentType: ng_article
+                    ng_news:
+                        template: NetgenMoreDemoBundle:override/full:ng_news.html.twig
+                        match:
+                            Identifier\ContentType: ng_news
+                    ng_blog_post:
+                        template: NetgenMoreDemoBundle:override/full:ng_blog_post.html.twig
+                        match:
+                            Identifier\ContentType: ng_blog_post
+                    ng_audio:
+                        template: NetgenMoreDemoBundle:override/full:ng_audio.html.twig
+                        match:
+                            Identifier\ContentType: ng_audio
+                    ng_gallery:
+                        template: NetgenMoreDemoBundle:override/full:ng_gallery.html.twig
+                        match:
+                            Identifier\ContentType: ng_gallery
+                    ng_video:
+                        template: NetgenMoreDemoBundle:override/full:ng_video.html.twig
+                        match:
+                            Identifier\ContentType: ng_video
+                    ng_video_external:
+                        template: NetgenMoreDemoBundle:override/full:ng_video_external.html.twig
+                        match:
+                            Identifier\ContentType: ng_video_external
+                    ng_htmlbox:
+                        template: NetgenMoreDemoBundle:override/full:ng_htmlbox.html.twig
+                        match:
+                            Identifier\ContentType: ng_htmlbox
+                    ng_infobox:
+                        template: NetgenMoreDemoBundle:override/full:ng_infobox.html.twig
+                        match:
+                            Identifier\ContentType: ng_infobox
                 line:
                     ng_frontpage:
                         template: NetgenMoreDemoBundle:override/line:ng_frontpage.html.twig

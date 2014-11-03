@@ -1,0 +1,22 @@
+{# NG gallery - full view #}
+
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{% if not ez_is_field_empty( content, 'line_intro' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% elseif not ez_is_field_empty( content, 'description' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'description' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% endif %}
+
+{% block content %}
+<div class="container content-view-full ng-gallery {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
+    {{ render(
+        controller(
+            'netgen_more.controller.parts:viewGallery', {
+                'locationId': location.id,
+                'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
+            }
+        )
+    ) }}
+</div>
+{% endblock %}

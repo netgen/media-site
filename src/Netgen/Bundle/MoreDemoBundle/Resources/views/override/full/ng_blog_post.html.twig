@@ -1,0 +1,59 @@
+{# NG blog post - full view #}
+
+{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+
+{% if not ez_is_field_empty( content, 'line_intro' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% elseif not ez_is_field_empty( content, 'full_intro' ) %}
+    {% set metaData = { 'description': ez_field_value( content, 'full_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% endif %}
+
+{% block content %}
+<div class="content-view-full ng-blog-post {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
+
+    <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
+
+    <div class="att-author">
+        <p><small>
+            {% if not ez_is_field_empty( content, 'author_override' ) %}
+                {{ ez_render_field( content, 'author_override' ) }}
+            {% else %}
+                {# TODO: Owner name #}
+            {% endif %}
+        on {{ ez_field_value( content, 'publish_date' ).value|date( 'F j, Y.' ) }}
+        </small></p>
+    </div>
+
+    <div class="images">
+        {{ render(
+            controller(
+                'netgen_more.controller.parts:viewGallery', {
+                    'locationId': location.id,
+                    'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
+                }
+            )
+        ) }}
+    </div>
+
+    {% if not ez_is_field_empty( content, 'full_intro' ) %}
+        <div class="att-full-intro">
+            {{ ez_render_field( content, 'full_intro' ) }}
+        </div>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'body' ) %}
+        <div class="att-body">
+            {{ ez_render_field( content, 'body' ) }}
+        </div>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'location' ) %}
+        <div class="att-location">
+            {{ ez_render_field( content, 'location' ) }}
+        </div>
+    {% endif %}
+
+    {% include 'design:parts/related_items.tpl' with { 'node': location, 'view': 'line' } %}
+
+</div>
+{% endblock %}
