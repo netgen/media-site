@@ -13,14 +13,16 @@
 
     <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
 
-    {{ render(
-        controller(
-            'netgen_more.controller.full_view_parts:viewGallery', {
-                'location': location,
-                'template': 'NetgenMoreDemoBundle:parts/full_view_parts:gallery.html.twig'
-            }
-        )
-    ) }}
+    <div class="images">
+        {{ render(
+            controller(
+                'netgen_more.controller.parts:viewGallery', {
+                    'location': location,
+                    'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
+                }
+            )
+        ) }}
+    </div>
 
     {% if not ez_is_field_empty( content, 'full_intro' ) %}
         <div class="att-full-intro">
