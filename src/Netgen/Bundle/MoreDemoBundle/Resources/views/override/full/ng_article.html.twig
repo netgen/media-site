@@ -17,7 +17,7 @@
         {{ render(
             controller(
                 'netgen_more.controller.parts:viewGallery', {
-                    'location': location,
+                    'locationId': location.id,
                     'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
                 }
             )
