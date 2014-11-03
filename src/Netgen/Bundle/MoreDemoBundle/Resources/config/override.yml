@@ -130,6 +130,74 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/embed:image.html.twig
                         match:
                             Identifier\ContentType: image
+                    ng_frontpage:
+                        template: NetgenMoreDemoBundle:override/embed:ng_frontpage.html.twig
+                        match:
+                            Identifier\ContentType: ng_frontpage
+                    ng_category:
+                        template: NetgenMoreDemoBundle:override/embed:ng_category.html.twig
+                        match:
+                            Identifier\ContentType: ng_category
+                    ng_category_page:
+                        template: NetgenMoreDemoBundle:override/embed:ng_category_page.html.twig
+                        match:
+                            Identifier\ContentType: ng_category_page
+                    ng_landing_page:
+                        template: NetgenMoreDemoBundle:override/embed:ng_landing_page.html.twig
+                        match:
+                            Identifier\ContentType: ng_landing_page
+                    ng_article:
+                        template: NetgenMoreDemoBundle:override/embed:ng_article.html.twig
+                        match:
+                            Identifier\ContentType: ng_article
+                    ng_news:
+                        template: NetgenMoreDemoBundle:override/embed:ng_news.html.twig
+                        match:
+                            Identifier\ContentType: ng_news
+                    ng_blog_post:
+                        template: NetgenMoreDemoBundle:override/embed:ng_blog_post.html.twig
+                        match:
+                            Identifier\ContentType: ng_blog_post
+                    ng_audio:
+                        template: NetgenMoreDemoBundle:override/embed:ng_audio.html.twig
+                        match:
+                            Identifier\ContentType: ng_audio
+                    ng_gallery:
+                        template: NetgenMoreDemoBundle:override/embed:ng_gallery.html.twig
+                        match:
+                            Identifier\ContentType: ng_gallery
+                    ng_video:
+                        template: NetgenMoreDemoBundle:override/embed:ng_video.html.twig
+                        match:
+                            Identifier\ContentType: ng_video
+                    ng_video_external:
+                        template: NetgenMoreDemoBundle:override/embed:ng_video_external.html.twig
+                        match:
+                            Identifier\ContentType: ng_video_external
+                    ng_htmlbox:
+                        template: NetgenMoreDemoBundle:override/embed:ng_htmlbox.html.twig
+                        match:
+                            Identifier\ContentType: ng_htmlbox
+                    ng_infobox:
+                        template: NetgenMoreDemoBundle:override/embed:ng_infobox.html.twig
+                        match:
+                            Identifier\ContentType: ng_infobox
+                    ng_feedback_form:
+                        template: NetgenMoreDemoBundle:override/embed:ng_feedback_form.html.twig
+                        match:
+                            Identifier\ContentType: ng_feedback_form
+                    ng_shortcut:
+                        template: NetgenMoreDemoBundle:override/embed:ng_shortcut.html.twig
+                        match:
+                            Identifier\ContentType: ng_shortcut
+                    ng_banner:
+                        template: NetgenMoreDemoBundle:override/embed:ng_banner.html.twig
+                        match:
+                            Identifier\ContentType: ng_banner
+                    ng_banner_video:
+                        template: NetgenMoreDemoBundle:override/embed:ng_banner_video.html.twig
+                        match:
+                            Identifier\ContentType: ng_banner_video
 
             field_templates:
                 - { template: NetgenMoreBundle::content_fields.html.twig, priority: 10000 }

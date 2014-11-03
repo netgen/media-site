@@ -1,0 +1,5 @@
+{# NG infobox - embed view #}
+
+<div class="content-view-embed ng-infobox {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
+    {{ ez_render_field( content, 'content' ) }}
+</div>

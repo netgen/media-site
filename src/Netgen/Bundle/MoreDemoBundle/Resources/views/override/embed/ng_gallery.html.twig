@@ -1,0 +1,12 @@
+{# NG gallery - embed view #}
+
+<div class="content-view-embed ng-gallery {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
+    {{ render(
+        controller(
+            'netgen_more.controller.parts:viewGallery', {
+                'locationId': content.contentInfo.mainLocationId,
+                'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
+            }
+        )
+    ) }}
+</div>

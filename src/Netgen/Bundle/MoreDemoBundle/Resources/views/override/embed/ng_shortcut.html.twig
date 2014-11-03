@@ -1,0 +1,9 @@
+{# NG shortcut - embed view #}
+
+{% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
+
+{% block content %}
+    <div class="content-view-embed ng-article">
+        <h2 class="att-title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    </div>
+{% endblock %}

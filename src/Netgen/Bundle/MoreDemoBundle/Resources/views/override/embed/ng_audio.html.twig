@@ -1,0 +1,20 @@
+{# NG audio - embed view #}
+
+<div class="content-view-embed ng-audio">
+
+    <h2 class="att-name">{{ ez_render_field( content, 'name' ) }}</h2>
+
+    {% if not ez_is_field_empty( content, 'file' ) %}
+        <audio controls>
+            <source type="audio/mpeg" src="{{ ez_field_value( content, 'file' ).uri }}" />
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'description' ) %}
+        <div class="att-description">
+            {{ ez_render_field( content, 'description' ) }}
+        </div>
+    {% endif %}
+
+</div>
