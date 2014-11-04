@@ -87,8 +87,6 @@ DesignLocationCache=enabled
 
 [RegionalSettings]
 TranslationSA[]
-TranslationSA[eng]=Eng
-TranslationSA[cro]=Cro
 
 [MailSettings]
 Transport=sendmail
