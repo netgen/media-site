@@ -4,6 +4,6 @@
 
 {% block content %}
 <div class="content-view-full ng-htmlbox">
-    {{ ez_field_value( content, 'html_code' ).text }}
+    {{ ez_field_value( content, 'html_code' ).text|raw }}
 </div>
 {% endblock %}
