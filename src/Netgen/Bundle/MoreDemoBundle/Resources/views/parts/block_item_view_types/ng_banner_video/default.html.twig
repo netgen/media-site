@@ -2,8 +2,11 @@
 
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
-{% set image_field = content.getField( 'poster' ) %}
-{% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
+{% set image_alias = null %}
+{% if not ez_is_field_empty( content, 'poster' ) %}
+    {% set image_field = content.getField( 'poster' ) %}
+    {% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
+{% endif %}
 
 {% block content %}
     <div class="content-view-block-item ng-banner-video{% if not ez_is_field_empty( content, 'css_class' ) %} {{ ez_field_value( content, 'css_class' ).text }}{% endif %}">

@@ -2,8 +2,11 @@
 
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
-{% set image_field = content.getField( 'poster' ) %}
-{% set image_alias = ez_image_alias( image_field, content.versionInfo, 'original' ) %}
+{% set image_alias = null %}
+{% if not ez_is_field_empty( content, 'poster' ) %}
+    {% set image_field = content.getField( 'poster' ) %}
+    {% set image_alias = ez_image_alias( image_field, content.versionInfo, 'original' ) %}
+{% endif %}
 
 {% block content %}
 <div class="content-view-full ng-banner-video {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
@@ -21,7 +24,7 @@
 
         {% if 'youtube' in video_type.identifiers %}
             <div class="video-external youtube">
-                <video style="display:none;" class="sublime" data-youtube-id="{{ ez_field_value( content, 'video_identifier' ).text }}" width="770" height="433" poster="/{{ image_alias.uri }}" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' )[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"></video>
+                <video style="display:none;" class="sublime" data-youtube-id="{{ ez_field_value( content, 'video_identifier' ).text }}" width="770" height="433" poster="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' ).identifiers[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"></video>
             </div>
         {% elseif 'vimeo' in video_type.identifiers %}
             <div class="video-external vimeo">
@@ -30,7 +33,7 @@
         {% endif %}
     {% elseif not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
         <div class="video-local">
-            <video style="display:none;" class="sublime" title="{{ ez_field_value( content, 'name' ).text }}" width="770" height="433" poster="/{{ image_alias.uri }}" data-uid="sublime_0" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' )[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}">
+            <video style="display:none;" class="sublime" title="{{ ez_field_value( content, 'name' ).text }}" width="770" height="433" poster="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" data-uid="sublime_0" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' ).identifiers[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}">
                 {% if not ez_is_field_empty( content, 'video_file' ) %}
                     <source src="{{ ez_field_value( content, 'video_file' ).uri }}" />
                 {% endif %}
