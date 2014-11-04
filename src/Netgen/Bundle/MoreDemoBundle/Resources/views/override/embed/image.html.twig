@@ -1,15 +1,72 @@
 {% if not ez_is_field_empty( content, 'image' ) %}
-    <div class="content-view-embed class-image">
-        <div class="attribute-image">
-            <div class="attribute-image full-head">
-                {{ ez_render_field( content, 'image', { 'parameters': { 'alias': objectParameters.size } } ) }}
+    {% set align = objectParameters.align|default( '' ) %}
+    {% set responsive_image_class = 'ng_responsive_full' %}
 
-                {% if not ez_is_field_empty( content, 'caption' ) %}
-                    <div class="attribute-caption">
-                        {{ ez_render_field( content, 'caption' ) }}
-                    </div>
+    {% if align in ['center', 'left', 'right'] %}
+        {% set responsive_image_class = 'ng_responsive_half' %}
+    {% endif %}
+
+    <div class="content-view-embed class-image {% if align is not empty %}align-{{ align }}{% endif %}">
+        <div class="attribute-image">
+            {% set link_href = objectParameters.link_href|default( '' ) %}
+
+            {% if link_href is not empty %}
+                {% set link_direct_download = objectParameters.link_direct_download|default( '' ) %}
+
+                {# TODO: Implement download link #}
+
+                {% if link_href starts with 'eznode://' %}
+                    {% set link_href = path( 'ez_urlalias', { 'locationId': link_href|slice( 9 ) } ) %}
+                {% elseif link_href starts with 'ezobject://' %}
+                    {% set link_href = path( 'ez_urlalias', { 'contentId': link_href|slice( 11 ) } ) %}
                 {% endif %}
-            </div>
+
+                {{ ez_render_field(
+                    content,
+                    'image', {
+                        'parameters': {
+                            'alias': objectParameters.size,
+                            'responsive_image_class': responsive_image_class,
+                            'href': link_href,
+                            'link_class': objectParameters.link_class|default( '' ),
+                            'link_id': objectParameters.link_id|default( '' ),
+                            'link_title': objectParameters.link_title|default( '' ),
+                            'target': objectParameters.link_target|default( '' )
+                        }
+                    }
+                ) }}
+            {% else %}
+                {{ ez_render_field(
+                    content,
+                    'image', {
+                        'parameters': {
+                            'alias': objectParameters.size,
+                            'responsive_image_class': responsive_image_class
+                        }
+                    }
+                ) }}
+            {% endif %}
         </div>
+
+        {% if not ez_is_field_empty( content, 'caption' ) %}
+            {% set image_alias = ez_image_alias( content.getField( 'image' ), content.versionInfo, objectParameters.size ) %}
+            {% if image_alias.width is defined and image_alias.width is not empty %}
+                {% set image_width = image_alias.width %}
+                {% if objectParameters.margin_size is defined and objectParameters.margin_size is not empty %}
+                    {% set image_width = image_width + ( objectParameters.margin_size * 2 ) %}
+                {% endif %}
+                {% if objectParameters.border_size is defined and objectParameters.border_size is not empty %}
+                    {% set image_width = image_width + ( objectParameters.border_size * 2 ) %}
+                {% endif %}
+
+                <div class="attribute-caption" style="width: {{ image_width }}px">
+                    {{ ez_render_field( content, 'caption' ) }}
+                </div>
+            {% else %}
+                <div class="attribute-caption">
+                    {{ ez_render_field( content, 'caption' ) }}
+                </div>
+            {% endif %}
+        {% endif %}
     </div>
 {% endif %}

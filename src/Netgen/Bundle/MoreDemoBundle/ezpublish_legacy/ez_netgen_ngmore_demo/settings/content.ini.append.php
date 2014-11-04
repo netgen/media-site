@@ -4,6 +4,14 @@
 AvailableCustomTags[]=underline
 IsInline[underline]=true
 
+[embed]
+CustomAttributes[]=link_href
+CustomAttributes[]=link_class
+CustomAttributes[]=link_id
+CustomAttributes[]=link_title
+CustomAttributes[]=link_target
+CustomAttributes[]=link_direct_download
+
 [factbox]
 CustomAttributes[]=align
 CustomAttributes[]=title
