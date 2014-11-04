@@ -1,6 +1,6 @@
 <?php /* #?ini charset="utf8"?
 
-[CustomAttribute_embed_link_href]
+[CustomAttribute_embed_href]
 Name=Link
 Type=link
 Required=false

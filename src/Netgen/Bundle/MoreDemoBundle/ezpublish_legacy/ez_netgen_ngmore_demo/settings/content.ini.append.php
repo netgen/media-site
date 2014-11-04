@@ -5,7 +5,7 @@ AvailableCustomTags[]=underline
 IsInline[underline]=true
 
 [embed]
-CustomAttributes[]=link_href
+CustomAttributes[]=href
 CustomAttributes[]=link_class
 CustomAttributes[]=link_id
 CustomAttributes[]=link_title
