@@ -33,7 +33,7 @@
     {% endif %}
 
     <div class="att-publish-date">
-        {{ content.contentInfo.publishedDate|date( 'j. n. Y.' ) }}
+        {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
     </div>
 
     {% if not ez_is_field_empty( content, 'headline' ) %}
