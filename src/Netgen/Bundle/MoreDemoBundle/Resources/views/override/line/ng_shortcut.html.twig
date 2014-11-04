@@ -20,10 +20,11 @@
             ) }}
         {% endif %}
 
-        <div class="att-line-intro">
-            {% if not ez_is_field_empty( content, 'line_intro' ) %}
+        {% if not ez_is_field_empty( content, 'line_intro' ) %}
+            <div class="att-line-intro">
                 {{ ez_render_field( content, 'line_intro' ) }}
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
+
     </div>
 {% endblock %}
