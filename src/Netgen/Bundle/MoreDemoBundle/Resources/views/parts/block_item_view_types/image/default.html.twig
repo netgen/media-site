@@ -4,5 +4,5 @@
 {% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
 
 <div class="content-view-block-item image">
-    <img src="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" alt="{{ ez_content_name( content ) }}" />
+    <img src="{{ image_alias.uri }}" alt="{{ ez_content_name( content ) }}" />
 </div>

@@ -5,7 +5,7 @@
 {% set content_name = ez_content_name( content ) %}
 
 <div class="rsContent">
-    <img class="rsImg rsMainSlideImage" src="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" alt="{{ content_name }}" />
+    <img class="rsImg rsMainSlideImage" src="{{ image_alias.uri }}" alt="{{ content_name }}" />
     <div class="bContainer">
         <div class="rsABlock txtCent">
             <h2><a href={{ path( location ) }}>{{ content_name }}</a></h2>
