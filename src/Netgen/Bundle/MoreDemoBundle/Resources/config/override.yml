@@ -233,3 +233,8 @@ ezpublish:
 
             field_templates:
                 - { template: NetgenMoreBundle::content_fields.html.twig, priority: 10000 }
+
+            fieldtypes:
+                ezxml:
+                    custom_tags:
+                        - { path: %kernel.root_dir%/Resources/custom_tags.xsl, priority: 10000 }
