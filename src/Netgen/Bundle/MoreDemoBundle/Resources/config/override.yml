@@ -151,6 +151,9 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/listitem:ng_shortcut.html.twig
                         match:
                             Identifier\ContentType: ng_shortcut
+                    listitem:
+                        template: NetgenMoreDemoBundle:location/view:listitem.html.twig
+                        match: ~
                 block_item:
                     block_item:
                         template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
