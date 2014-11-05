@@ -38,7 +38,6 @@ ActiveExtensions[]=ezgmaplocation
 ActiveExtensions[]=ezdemo
 ActiveExtensions[]=ezwt
 ActiveExtensions[]=ezflow
-ActiveExtensions[]=ezcomments
 ActiveExtensions[]=ezie
 ActiveExtensions[]=ezoe
 ActiveExtensions[]=ezodf
