@@ -52,7 +52,18 @@
         </div>
     {% endif %}
 
-    {% include 'design:parts/related_items.tpl' with { 'node': location, 'view': 'line' } %}
+    <div class="att-related-content">
+        {{ render(
+            controller(
+                'netgen_more.controller.parts:viewRelatedItems', {
+                    'contentId': location.contentInfo.id,
+                    'fieldDefinitionIdentifier': 'related_content',
+                    'viewType': 'line',
+                    'template': 'NetgenMoreDemoBundle:parts:related_items.html.twig'
+                }
+            )
+        ) }}
+    </div>
 
     {# TODO: Comments #}
 

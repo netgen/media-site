@@ -1,0 +1,13 @@
+{% if related_items|length > 0 %}
+    {% for related_item in related_items %}
+        {{ render(
+            controller(
+                'ez_content:viewLocation', {
+                    'locationId': related_item.id,
+                    'viewType': view_type,
+                    'params': { 'location': related_item }
+                }
+            )
+        ) }}
+    {% endfor %}
+{% endif %}
