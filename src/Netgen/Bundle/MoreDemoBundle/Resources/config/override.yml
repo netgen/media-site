@@ -240,4 +240,4 @@ ezpublish:
             fieldtypes:
                 ezxml:
                     custom_tags:
-                        - { path: %kernel.root_dir%/Resources/custom_tags.xsl, priority: 10000 }
+                        - { path: %kernel.root_dir%/Resources/ezxml/tags.xsl, priority: 10000 }
