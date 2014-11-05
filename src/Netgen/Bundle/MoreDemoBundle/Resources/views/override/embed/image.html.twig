@@ -8,7 +8,7 @@
 
     <div class="content-view-embed class-image {% if align is not empty %}align-{{ align }}{% endif %}">
         <div class="attribute-image">
-            {% set link_href = objectParameters.link_href|default( '' ) %}
+            {% set link_href = objectParameters.href|default( '' ) %}
 
             {% if link_href is not empty %}
                 {% set link_direct_download = objectParameters.link_direct_download|default( '' ) %}
