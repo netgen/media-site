@@ -30,7 +30,18 @@
         </div>
     {% endif %}
 
-    {% include 'design:parts/ng_category_featured_content.tpl' with { 'node': location } %}
+    <div class="att-featured-content">
+        {{ render(
+            controller(
+                'netgen_more.controller.parts:viewRelatedItems', {
+                    'contentId': location.contentInfo.id,
+                    'fieldDefinitionIdentifier': 'featured_content',
+                    'viewType': 'line',
+                    'template': 'NetgenMoreDemoBundle:parts:related_items.html.twig'
+                }
+            )
+        ) }}
+    </div>
 
     {% if ez_field_value( content, 'show_children' ).bool %}
         <div class="content-view-children">
