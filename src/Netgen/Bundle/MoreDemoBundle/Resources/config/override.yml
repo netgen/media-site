@@ -233,8 +233,3 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/embed:ng_banner_video.html.twig
                         match:
                             Identifier\ContentType: ng_banner_video
-
-            fieldtypes:
-                ezxml:
-                    custom_tags:
-                        - { path: %kernel.root_dir%/Resources/ezxml/tags.xsl, priority: 10000 }
