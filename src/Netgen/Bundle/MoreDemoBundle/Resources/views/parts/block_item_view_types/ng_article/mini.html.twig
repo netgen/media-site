@@ -1,3 +1,5 @@
 {# ng_article - block_item mini view type #}
 
-<a class="content-view-block-item ng-article mini" href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a>
+{% set location_path = path( 'ez_urlalias', { 'locationId': location is defined ? location.id : content.contentInfo.mainLocationId } ) %}
+
+<a class="content-view-block-item ng-article mini" href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a>

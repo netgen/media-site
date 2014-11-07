@@ -1,5 +1,7 @@
 {# ng_feedback_form - block_item default view type #}
 
+{% set location_path = path( 'ez_urlalias', { 'locationId': location is defined ? location.id : content.contentInfo.mainLocationId } ) %}
+
 <div class="content-view-block-item ng-feedback-form">
-    <h2 class="att-title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 </div>

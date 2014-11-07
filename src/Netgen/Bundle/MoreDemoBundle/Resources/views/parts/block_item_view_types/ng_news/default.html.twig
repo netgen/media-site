@@ -1,6 +1,6 @@
 {# ng_news - block_item default view type #}
 
-{% set location_path = path( location ) %}
+{% set location_path = path( 'ez_urlalias', { 'locationId': location is defined ? location.id : content.contentInfo.mainLocationId } ) %}
 
 <div class="content-view-block-item ng-news {{ view_type|default( '' ) }} clearfix">
 
