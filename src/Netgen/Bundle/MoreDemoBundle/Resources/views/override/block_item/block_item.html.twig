@@ -6,7 +6,7 @@
         'NetgenMoreDemoBundle:parts/block_item_view_types/' ~ content_type_identifier ~ ':default.html.twig'
     ] ignore missing
     with {
-        'location': location,
+        'location': location is defined ? location : false,
         'content': content
     }
 %}

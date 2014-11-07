@@ -239,3 +239,7 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/embed:ng_banner_video.html.twig
                         match:
                             Identifier\ContentType: ng_banner_video
+                block_item:
+                    block_item:
+                        template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
+                        match: ~
