@@ -22,7 +22,7 @@
         {% if not ez_is_field_empty( content, 'author_override' ) %}
             {{ ez_render_field( content, 'author_override' ) }}
         {% else %}
-            {# TODO: OWNER NAME #}
+            {{ ngmore_owner_name( content ) }}
         {% endif %}
     </div>
 

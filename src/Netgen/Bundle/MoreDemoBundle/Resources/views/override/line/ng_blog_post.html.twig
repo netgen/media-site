@@ -11,7 +11,7 @@
             {% if not ez_is_field_empty( content, 'author_override' ) %}
                 {{ ez_render_field( content, 'author_override' ) }}
             {% else %}
-                {# TODO: Owner name #}
+                {{ ngmore_owner_name( content ) }}
             {% endif %}
             on {{ ez_field_value( content, 'publish_date' ).value|date( 'F j, Y.' ) }}
         </small></p>
