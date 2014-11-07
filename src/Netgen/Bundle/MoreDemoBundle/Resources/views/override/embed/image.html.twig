@@ -1,13 +1,54 @@
-{{ render(
-    controller(
-        'ez_content:embedContent', {
-            'contentId': content.id,
-            'viewType': 'embed_inner',
-            'layout': false,
-            'params': {
-                'objectParameters': objectParameters,
-                'noLayout': true
-            }
-        }
-    )
-) }}
+{% if not ez_is_field_empty( content, 'image' ) %}
+    {% set align = objectParameters.align|default( '' ) %}
+    {% set responsive_image_class = 'ng_responsive_full' %}
+
+    {% if align in ['center', 'left', 'right'] %}
+        {% set responsive_image_class = 'ng_responsive_half' %}
+    {% endif %}
+
+    <div class="content-view-embed class-image {% if align is not empty %}align-{{ align }}{% endif %}">
+        <div class="attribute-image">
+            {% if link_href is not empty %}
+                {{ ez_render_field(
+                    content,
+                    'image', {
+                        'parameters': {
+                            'alias': objectParameters.size,
+                            'responsive_image_class': responsive_image_class,
+                            'link_href': link_href,
+                            'link_class': objectParameters.link_class|default( '' ),
+                            'link_id': objectParameters.link_id|default( '' ),
+                            'link_title': objectParameters.link_title|default( '' ),
+                            'link_target': objectParameters.link_target|default( '' )
+                        }
+                    }
+                ) }}
+            {% else %}
+                {{ ez_render_field(
+                    content,
+                    'image', {
+                        'parameters': {
+                            'alias': objectParameters.size,
+                            'responsive_image_class': responsive_image_class
+                        }
+                    }
+                ) }}
+            {% endif %}
+        </div>
+
+        {% if not ez_is_field_empty( content, 'caption' ) %}
+            {% set image_alias = ez_image_alias( content.getField( 'image' ), content.versionInfo, objectParameters.size ) %}
+            {% if image_alias.width is defined and image_alias.width is not empty %}
+                {% set image_width = image_alias.width %}
+
+                <div class="attribute-caption" style="width: {{ image_width }}px">
+                    {{ ez_render_field( content, 'caption' ) }}
+                </div>
+            {% else %}
+                <div class="attribute-caption">
+                    {{ ez_render_field( content, 'caption' ) }}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endif %}

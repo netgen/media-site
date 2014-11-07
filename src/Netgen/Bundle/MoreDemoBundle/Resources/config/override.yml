@@ -160,15 +160,10 @@ ezpublish:
                         match: ~
 
             content_view:
-                embed_inner:
-                    image:
-                        template: NetgenMoreDemoBundle:override/embed_inner:image.html.twig
-                        controller: netgen_more.controller.embed_view:embedImageContent
-                        match:
-                            Identifier\ContentType: image
                 embed:
                     image:
                         template: NetgenMoreDemoBundle:override/embed:image.html.twig
+                        controller: netgen_more.controller.embed_view:embedImageContent
                         match:
                             Identifier\ContentType: image
                     ng_frontpage:
