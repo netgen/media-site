@@ -1,6 +1,12 @@
 {# ng_article - block_item default view type #}
 
-{% set location_path = path( 'ez_urlalias', { 'locationId': location is defined ? location.id : content.contentInfo.mainLocationId } ) %}
+{% set location_path = path(
+    'ez_urlalias', {
+        'locationId': location is defined and location is not empty ?
+            location.id :
+            content.contentInfo.mainLocationId
+        }
+) %}
 
 <div class="content-view-block-item ng-article">
 
