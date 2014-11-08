@@ -6,285 +6,285 @@ ezpublish:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1170] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 ng_image_line:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [330] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 ng_image_embed:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [330] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 ng_image_block_item:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [330] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 gallerylarge:
                     reference: original
                     filters:
                         - { name: geometry/scalewidth, params: [770] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 galleryfull:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1800] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 gallerythumbnail:
                     reference: original
                     filters:
                         - { name: ngmore/thumbnail, params: [96, 72, 'outbound'] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 imagefull:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1000] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 i320:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [320] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 i480:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [480] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 i770:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 i960:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [960] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 i1540:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1540] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 medium:
                     reference: reference
                     filters:
                         - { name: geometry/scaledownonly, params: [200, 200] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 mainstory1:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [468] }
                         - { name: geometry/crop, params: [468, 396, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 mainstory2:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [439] }
                         - { name: geometry/crop, params: [439, 233, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 mainstory3:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [201] }
                         - { name: geometry/crop, params: [201, 239, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 block2items1:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [195] }
                         - { name: geometry/crop, params: [195, 98, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 block2items2:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [195] }
                         - { name: geometry/crop, params: [195, 98, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 block3items3:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [195] }
                         - { name: geometry/crop, params: [195, 98, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 blockgallery1:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [126] }
                         - { name: geometry/crop, params: [126, 84, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 imagelarge:
                     reference: null
                     filters:
                         - { name: geometry/scaledownonly, params: [448, 622] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 campaign:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: geometry/crop, params: [770, 390, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 backgroundimage:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: geometry/crop, params: [770, 390, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 highlighted:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [300] }
                         - { name: geometry/crop, params: [300, 300, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 contentgrid:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [370] }
                         - { name: geometry/crop, params: [370, 160, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 gallery:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: geometry/crop, params: [770, 390, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 multiuploadthumbnail:
                     reference: null
                     filters:
                         - { name: geometry/scaledownonly, params: [100, 80] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 opengraph:
                     reference: null
                     filters:
                         - { name: geometry/scale, params: [200, 200] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
         ngmore_administration_group:
             image_variations:
                 reference:
                     reference: null
                     filters:
                         - { name: geometry/scaledownonly, params: [600, 600] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 small:
                     reference: reference
                     filters:
                         - { name: geometry/scaledownonly, params: [100, 100] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 tiny:
                     reference: reference
                     filters:
                         - { name: geometry/scaledownonly, params: [30, 30] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 medium:
                     reference: reference
                     filters:
                         - { name: geometry/scaledownonly, params: [200, 200] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 large:
                     reference: reference
                     filters:
                         - { name: geometry/scaledownonly, params: [300, 300] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 rss:
                     reference: reference
                     filters:
                         - { name: geometry/scale, params: [88, 31] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 mainstory1:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [468] }
                         - { name: geometry/crop, params: [468, 396, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 mainstory2:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [439] }
                         - { name: geometry/crop, params: [439, 233, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 mainstory3:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [201] }
                         - { name: geometry/crop, params: [201, 239, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 block2items1:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [195] }
                         - { name: geometry/crop, params: [195, 98, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 block2items2:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [195] }
                         - { name: geometry/crop, params: [195, 98, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 block3items3:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [195] }
                         - { name: geometry/crop, params: [195, 98, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 blockgallery1:
                     reference: null
                     filters:
                         - { name: geometry/scalewidth, params: [126] }
                         - { name: geometry/crop, params: [126, 84, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 imagelarge:
                     reference: null
                     filters:
                         - { name: geometry/scaledownonly, params: [448, 622] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 campaign:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: geometry/crop, params: [770, 390, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 backgroundimage:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: geometry/crop, params: [770, 390, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 highlighted:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [300] }
                         - { name: geometry/crop, params: [300, 300, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 contentgrid:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [370] }
                         - { name: geometry/crop, params: [370, 160, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 gallery:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: geometry/crop, params: [770, 390, 0, 0] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 galleryfull:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 imagefull:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 multiuploadthumbnail:
                     reference: null
                     filters:
                         - { name: geometry/scaledownonly, params: [100, 80] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
                 opengraph:
                     reference: null
                     filters:
                         - { name: geometry/scale, params: [200, 200] }
-                        - { name: strip, params: [] }
+                        - { name: strip }
