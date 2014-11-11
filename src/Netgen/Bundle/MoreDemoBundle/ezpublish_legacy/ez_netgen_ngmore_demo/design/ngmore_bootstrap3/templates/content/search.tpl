@@ -214,9 +214,9 @@
                         {foreach $default_search_facets as $key => $default_facet}
                             {if and( is_set( $default_facet.field ), is_set( $default_facet.name ) )}
                                 {if array_keys( $active_facet_parameters )|contains( concat( $default_facet.field, ':', $default_facet.name ) )|not}
-                                    {def $facet_data = $search_extras.facet_fields.$key}
+                                    {def $facet_data = first_set( $search_extras.facet_fields.$key, array() )}
 
-                                    {if $facet_data.nameList|count}
+                                    {if and( is_set( $facet_data.nameList ), $facet_data.nameList|count )}
                                         <p><strong>{$default_facet.name|wash}</strong></p>
                                         <ul>
                                             {foreach $facet_data.nameList as $key2 => $facet_name}
