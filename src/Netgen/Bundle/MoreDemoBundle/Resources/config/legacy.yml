@@ -2,7 +2,3 @@ parameters:
     ngmore.legacy_mapper.configuration.options:
         enabled_legacy_settings:
             - solr
-
-    ngmore_legacy.global.solr:
-        SolrBase:
-            SearchServerURI: %ezpublish.solr_server%

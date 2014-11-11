@@ -1,0 +1,4 @@
+parameters:
+    ngmore_legacy.global.solr:
+        SolrBase:
+            SearchServerURI: %ezpublish.solr_server%
