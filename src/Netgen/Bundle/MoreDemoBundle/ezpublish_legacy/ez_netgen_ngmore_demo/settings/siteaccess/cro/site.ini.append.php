@@ -64,5 +64,4 @@ SearchClasses[]=ng_category_page
 SearchClasses[]=ng_video_external
 SearchClasses[]=ng_audio
 SearchClasses[]=file
-SearchClasses[]=video
 */ ?>
