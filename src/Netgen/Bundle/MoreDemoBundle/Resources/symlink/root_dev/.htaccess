@@ -1,6 +1,3 @@
-# Copy this file to a new file called .htaccess in your eZ Publish web folder
-# to secure your installation by turning on .htaccess based virtual host mode.
-
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
 # Defaults to "prod" if omitted
