@@ -38,9 +38,5 @@ LeftMenu=flat_left
 
 [MenuContentSettings]
 TopIdentifierList[]
-TopIdentifierList[]=folder
-TopIdentifierList[]=feedback_form
 LeftIdentifierList[]
-LeftIdentifierList[]=folder
-LeftIdentifierList[]=feedback_form
 */ ?>
