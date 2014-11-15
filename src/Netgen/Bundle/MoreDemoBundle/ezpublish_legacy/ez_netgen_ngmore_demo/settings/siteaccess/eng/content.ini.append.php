@@ -2,7 +2,4 @@
 
 [VersionView]
 AvailableSiteDesignList[]=ezdemo
-
-[ObjectRelationDataTypeSettings]
-ClassAttributeStartNode[]=236;AddRelatedBannerImageToDataType
 */ ?>
