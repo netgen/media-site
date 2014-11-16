@@ -33,7 +33,7 @@
     <div class="att-featured-content">
         {{ render(
             controller(
-                'netgen_more.controller.parts:viewRelatedItems', {
+                'ngmore.controller.parts:viewRelatedItems', {
                     'contentId': location.contentInfo.id,
                     'fieldDefinitionIdentifier': 'featured_content',
                     'template': 'NetgenMoreDemoBundle:parts:related_items.html.twig'
@@ -85,7 +85,7 @@
         </div>
 
         {% if pager.haveToPaginate() %}
-            {{ pagerfanta( pager, 'netgen_more_bootstrap3' ) }}
+            {{ pagerfanta( pager, 'ngmore_bootstrap3' ) }}
         {% endif %}
     {% endif %}
 </div>

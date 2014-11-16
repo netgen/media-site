@@ -32,7 +32,7 @@
     <div class="images media">
         {{ render(
             controller(
-                'netgen_more.controller.parts:viewGallery', {
+                'ngmore.controller.parts:viewGallery', {
                     'locationId': location.id,
                     'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
                 }
@@ -55,7 +55,7 @@
     <div class="att-related-content">
         {{ render(
             controller(
-                'netgen_more.controller.parts:viewRelatedItems', {
+                'ngmore.controller.parts:viewRelatedItems', {
                     'contentId': location.contentInfo.id,
                     'fieldDefinitionIdentifier': 'related_content',
                     'template': 'NetgenMoreDemoBundle:parts:related_items.html.twig'

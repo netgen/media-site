@@ -12,7 +12,7 @@
 <div class="container content-view-full ng-gallery {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
     {{ render(
         controller(
-            'netgen_more.controller.parts:viewGallery', {
+            'ngmore.controller.parts:viewGallery', {
                 'locationId': location.id,
                 'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
             }

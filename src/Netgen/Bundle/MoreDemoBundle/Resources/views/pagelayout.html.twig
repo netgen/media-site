@@ -48,7 +48,7 @@
         {% endif %}
 
         {% if not disableTopRegion %}
-            {{ render_esi( controller( 'netgen_more.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'top' } ) ) }}
+            {{ render_esi( controller( 'ngmore.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'top' } ) ) }}
         {% endif %}
 
         {% if _placeholderTopBottom is not empty %}
@@ -66,7 +66,7 @@
         {% endif %}
 
         {% if not disableLeftRegion %}
-            {{ render_esi( controller( 'netgen_more.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'left' } ) ) }}
+            {{ render_esi( controller( 'ngmore.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'left' } ) ) }}
         {% endif %}
 
         {% if _placeholderLeftBottom is not empty %}
@@ -100,7 +100,7 @@
         {% endif %}
 
         {% if not disableRightRegion %}
-            {{ render_esi( controller( 'netgen_more.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'right' } ) ) }}
+            {{ render_esi( controller( 'ngmore.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'right' } ) ) }}
         {% endif %}
 
         {% if _placeholderRightBottom is not empty %}
@@ -118,7 +118,7 @@
         {% endif %}
 
         {% if not disableBottomRegion %}
-            {{ render_esi( controller( 'netgen_more.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'bottom' } ) ) }}
+            {{ render_esi( controller( 'ngmore.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'bottom' } ) ) }}
         {% endif %}
 
         {% if _placeholderBottomBottom is not empty %}
