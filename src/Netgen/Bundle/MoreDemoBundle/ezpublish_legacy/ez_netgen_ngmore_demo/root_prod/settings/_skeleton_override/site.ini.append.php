@@ -2,11 +2,11 @@
 
 [DatabaseSettings]
 DatabaseImplementation=ezmysqli
-Server={{ databaseServer }}
-Port={{ databasePort }}
-User={{ databaseUser }}
-Password={{ databasePassword }}
-Database={{ databaseName }}
+Server=
+Port=
+User=
+Password=
+Database=
 Charset=
 Socket=disabled
 
@@ -91,11 +91,4 @@ TranslationSA[]
 Transport=sendmail
 AdminEmail=info@netgen.hr
 EmailSender=
-
-[EmbedViewModeSettings]
-AvailableViewModes[]
-AvailableViewModes[]=embed
-AvailableViewModes[]=embed-inline
-InlineViewModes[]
-InlineViewModes[]=embed-inline
 */ ?>

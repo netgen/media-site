@@ -91,11 +91,4 @@ TranslationSA[]
 Transport=sendmail
 AdminEmail=info@netgen.hr
 EmailSender=
-
-[EmbedViewModeSettings]
-AvailableViewModes[]
-AvailableViewModes[]=embed
-AvailableViewModes[]=embed-inline
-InlineViewModes[]
-InlineViewModes[]=embed-inline
 */ ?>
