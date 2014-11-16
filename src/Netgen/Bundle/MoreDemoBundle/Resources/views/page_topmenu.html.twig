@@ -12,8 +12,9 @@
             {% block pageRelationMenu %}
                 {{ render_esi(
                     controller(
-                        'netgen_more.controller.page_layout:relationMenu', {
-                            activeLocationId: mainCategoryLocationId is defined ? mainCategoryLocationId : 0
+                        'netgen_more.controller.page_layout:menu', {
+                            menuName: 'ngmore_main_menu',
+                            activeItemId: mainCategoryLocationId is defined ? mainCategoryLocationId : 0
                         }
                     )
                 ) }}
