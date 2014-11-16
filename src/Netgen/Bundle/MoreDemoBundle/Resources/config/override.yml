@@ -12,7 +12,7 @@ ezpublish:
                         Type: ContentGrid
                 ContentGridDynamic:
                     template: NetgenMoreDemoBundle:override/block:content_grid_dynamic.html.twig
-                    controller: netgen_more.controller.block_view:viewContentGridDynamicBlockById
+                    controller: ngmore.controller.block_view:viewContentGridDynamicBlockById
                     match:
                         Type: ContentGridDynamic
 
@@ -24,17 +24,17 @@ ezpublish:
                             Identifier\ContentType: ng_frontpage
                     ng_category:
                         template: NetgenMoreDemoBundle:override/full:ng_category.html.twig
-                        controller: netgen_more.controller.full_view:viewNgCategoryLocation
+                        controller: ngmore.controller.full_view:viewNgCategoryLocation
                         match:
                             Identifier\ContentType: ng_category
                     ng_category_page:
                         template: NetgenMoreDemoBundle:override/full:ng_category_page.html.twig
-                        controller: netgen_more.controller.full_view:viewNgCategoryPageLocation
+                        controller: ngmore.controller.full_view:viewNgCategoryPageLocation
                         match:
                             Identifier\ContentType: ng_category_page
                     ng_landing_page:
                         template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
-                        controller: netgen_more.controller.full_view:viewNgLandingPageLocation
+                        controller: ngmore.controller.full_view:viewNgLandingPageLocation
                         match:
                             Identifier\ContentType: ng_landing_page
                     ng_article:
@@ -163,7 +163,7 @@ ezpublish:
                 embed:
                     image:
                         template: NetgenMoreDemoBundle:override/embed:image.html.twig
-                        controller: netgen_more.controller.embed_view:embedImageContent
+                        controller: ngmore.controller.embed_view:embedImageContent
                         match:
                             Identifier\ContentType: image
                     ng_frontpage:
