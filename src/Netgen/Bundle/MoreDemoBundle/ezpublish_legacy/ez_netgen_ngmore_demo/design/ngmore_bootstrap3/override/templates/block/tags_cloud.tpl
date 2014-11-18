@@ -1,9 +1,13 @@
 {def $advanced_html_tag = 'h2'}
+{def $set_container = false()}
+
 {if is_set( $block.custom_attributes.advanced_html_tag )}
     {set $advanced_html_tag = $block.custom_attributes.advanced_html_tag|wash}
 {/if}
 
-{def $set_container = and( is_set( $block.custom_attributes.advanced_set_container ), $block.custom_attributes.advanced_set_container|eq( '1' ) )}
+{if and( is_set( $block.custom_attributes.advanced_set_container ), $block.custom_attributes.advanced_set_container|eq( '1' ) )}
+    {set $set_container = true()}
+{/if}
 
 <div {if and( is_set( $block.custom_attributes.advanced_html_id ), $block.custom_attributes.advanced_html_id|count_chars )} id="{$block.custom_attributes.advanced_html_id|wash}"{/if}
     class="block-type-tags-cloud block-view-{$block.view|wash} {if and( is_set( $block.custom_attributes.advanced_html_class ), $block.custom_attributes.advanced_html_class|count_chars )} {$block.custom_attributes.advanced_html_class|wash}{/if} clearfix">
@@ -51,3 +55,5 @@
     {if $set_container}</div>{/if}
 
 </div>
+
+{undef $advanced_html_tag $set_container}

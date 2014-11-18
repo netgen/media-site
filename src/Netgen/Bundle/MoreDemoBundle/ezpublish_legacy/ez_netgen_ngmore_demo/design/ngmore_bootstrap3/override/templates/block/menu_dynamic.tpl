@@ -50,7 +50,10 @@
 
     {def $valid_nodes = fetch('content', 'list', $fetch_array|merge(hash('parent_node_id', $block.custom_attributes.root_node))|merge(hash('sort_by', $sort_array)) )}
 
-    {def $set_container = and( is_set( $block.custom_attributes.advanced_set_container ), $block.custom_attributes.advanced_set_container|eq( '1' ) )}
+    {def $set_container = false()}
+    {if and( is_set( $block.custom_attributes.advanced_set_container ), $block.custom_attributes.advanced_set_container|eq( '1' ) )}
+        {set $set_container = true()}
+    {/if}
 
     {if $valid_nodes|count}
         <div {if and( is_set( $block.custom_attributes.advanced_html_id ), $block.custom_attributes.advanced_html_id|count_chars )} id="{$block.custom_attributes.advanced_html_id|wash}"{/if}
@@ -80,6 +83,6 @@
         </div>
     {/if}
 
-    {undef $valid_nodes}
+    {undef $valid_nodes $set_container}
 
 {/if}
