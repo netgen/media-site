@@ -2,7 +2,7 @@
 {% set advanced_html_id = block.customAttributes.advanced_html_id|default( '' ) %}
 {% set advanced_html_class = block.customAttributes.advanced_html_class|default( '' ) %}
 
-{% set set_container = set_container|default( false ) %}
+{% set set_container = block.customAttributes.advanced_set_container|default( '0' ) == '1' %}
 
 <div {% if advanced_html_id is not empty %} id="{{ advanced_html_id }}"{% endif %}
     class="block-type-page-title block-view-{{ block.view }} {{ advanced_html_class }} clearfix">

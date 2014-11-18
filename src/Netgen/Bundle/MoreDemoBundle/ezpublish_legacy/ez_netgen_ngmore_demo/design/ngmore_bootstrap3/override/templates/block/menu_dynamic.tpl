@@ -50,29 +50,33 @@
 
     {def $valid_nodes = fetch('content', 'list', $fetch_array|merge(hash('parent_node_id', $block.custom_attributes.root_node))|merge(hash('sort_by', $sort_array)) )}
 
+    {def $set_container = and( is_set( $block.custom_attributes.advanced_set_container ), $block.custom_attributes.advanced_set_container|eq( '1' ) )}
+
     {if $valid_nodes|count}
         <div {if and( is_set( $block.custom_attributes.advanced_html_id ), $block.custom_attributes.advanced_html_id|count_chars )} id="{$block.custom_attributes.advanced_html_id|wash}"{/if}
             class="block-type-menu-dynamic block-view-{$block.view|wash} {if and( is_set( $block.custom_attributes.advanced_html_class ), $block.custom_attributes.advanced_html_class|count_chars )} {$block.custom_attributes.advanced_html_class|wash}{/if} clearfix">
 
-            {if ne( $block.name, '' )}
-                <h2 class="block-title">{if $block.custom_attributes.advanced_link_to_root|eq(1)}<a href={$parent_node.url_alias|ezurl()}>{/if}{$block.name|wash()}{if $block.custom_attributes.advanced_link_to_root|eq(1)}</a>{/if}</h2>
-            {/if}
+            {if $set_container}<div class="container">{/if}
+                {if ne( $block.name, '' )}
+                    <h2 class="block-title">{if $block.custom_attributes.advanced_link_to_root|eq(1)}<a href={$parent_node.url_alias|ezurl()}>{/if}{$block.name|wash()}{if $block.custom_attributes.advanced_link_to_root|eq(1)}</a>{/if}</h2>
+                {/if}
 
-            <ul>
-                {foreach $valid_nodes as $node}
-                    {include
-                        uri=concat('design:parts/submenu_part.tpl')
-                        root_node=$node
-                        current_node=$current_node
-                        depth=$depth
+                <ul>
+                    {foreach $valid_nodes as $node}
+                        {include
+                            uri=concat('design:parts/submenu_part.tpl')
+                            root_node=$node
+                            current_node=$current_node
+                            depth=$depth
 
-                        fetch_array=$fetch_array
-                        use_root_sort_array = $block.custom_attributes.advanced_order|eq('parent_node_sort_array')
-                        sort_array=$sort_array
-                        fetch_entire_subtree = $fetch_entire_subtree
-                    }
-                {/foreach}
-            </ul>
+                            fetch_array=$fetch_array
+                            use_root_sort_array = $block.custom_attributes.advanced_order|eq('parent_node_sort_array')
+                            sort_array=$sort_array
+                            fetch_entire_subtree = $fetch_entire_subtree
+                        }
+                    {/foreach}
+                </ul>
+            {if $set_container}</div>{/if}
         </div>
     {/if}
 

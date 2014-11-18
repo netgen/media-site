@@ -2,34 +2,38 @@
 {% set advanced_html_id = block.customAttributes.advanced_html_id|default( '' ) %}
 {% set advanced_html_class = block.customAttributes.advanced_html_class|default( '' ) %}
 
+{% set set_container = block.customAttributes.advanced_set_container|default( '0' ) == '1' %}
+
 <div {% if advanced_html_id is not empty %} id="{{ advanced_html_id }}"{% endif %}
     class="block-type-{{ block_type }} block-view-{{  block.view }} {{ advanced_html_class }} clearfix">
 
-    {% if block.name is not empty %}
-        <div class="attribute-header">
-            <{{ advanced_html_tag }}>{{ block.name }}</{{ advanced_html_tag }}>
-        </div>
-    {% endif %}
-
-    <div class="row">
-        {% for valid_item in valid_items|slice( 0, 8 ) %}
-            <div class="col-lg-3 col-md-3 col-sm-6
-                {% if loop.index0 > 0 and loop.index0 % 2 == 0 %} col-sm-break {% endif%}
-            ">
-                {{ render(
-                    controller(
-                        'ez_content:viewLocation', {
-                            'locationId': valid_item.locationId,
-                            'viewType': 'block_item',
-                            'params': {
-                                'alias_name': 'contentgrid',
-                                'view_type': block.customAttributes.advanced_block_item_viewtype
-                            }
-                        }
-                    )
-                ) }}
+    {% if set_container %}<div class="container">{% endif %}
+        {% if block.name is not empty %}
+            <div class="attribute-header">
+                <{{ advanced_html_tag }}>{{ block.name }}</{{ advanced_html_tag }}>
             </div>
-        {% endfor %}
-    </div>
+        {% endif %}
+
+        <div class="row">
+            {% for valid_item in valid_items|slice( 0, 8 ) %}
+                <div class="col-lg-3 col-md-3 col-sm-6
+                    {% if loop.index0 > 0 and loop.index0 % 2 == 0 %} col-sm-break {% endif%}
+                ">
+                    {{ render(
+                        controller(
+                            'ez_content:viewLocation', {
+                                'locationId': valid_item.locationId,
+                                'viewType': 'block_item',
+                                'params': {
+                                    'alias_name': 'contentgrid',
+                                    'view_type': block.customAttributes.advanced_block_item_viewtype
+                                }
+                            }
+                        )
+                    ) }}
+                </div>
+            {% endfor %}
+        </div>
+    {% if set_container %}</div>{% endif %}
 
 </div>
