@@ -37,7 +37,7 @@
                 {% if not ez_is_field_empty( content, 'video_file' ) %}
                     <source src="{{ ez_field_value( content, 'video_file' ).uri }}" />
                 {% endif %}
-                {% if not ez_is_field_empty( content, 'video_file_id' ) %}
+                {% if not ez_is_field_empty( content, 'video_file_hd' ) %}
                     <source src="{{ ez_field_value( content, 'video_file_hd' ).uri }}" />
                 {% endif %}
             </video>
