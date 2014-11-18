@@ -61,7 +61,7 @@
 
             {if $set_container}<div class="container">{/if}
                 {if ne( $block.name, '' )}
-                    <h2 class="block-title">{if $block.custom_attributes.advanced_link_to_root|eq(1)}<a href={$parent_node.url_alias|ezurl()}>{/if}{$block.name|wash()}{if $block.custom_attributes.advanced_link_to_root|eq(1)}</a>{/if}</h2>
+                    <h2 class="block-name">{if $block.custom_attributes.advanced_link_to_root|eq(1)}<a href={$parent_node.url_alias|ezurl()}>{/if}{$block.name|wash()}{if $block.custom_attributes.advanced_link_to_root|eq(1)}</a>{/if}</h2>
                 {/if}
 
                 <ul>

@@ -40,7 +40,7 @@
             {/if}
 
             {if ne( $block.name, '' )}
-                <div class="attribute-header">
+                <div class="block-name">
                     <{$advanced_html_tag}>{$block.name|wash()}</{$advanced_html_tag}>
                 </div>
             {/if}
