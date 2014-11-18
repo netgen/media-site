@@ -16,7 +16,7 @@
 
         <div class="row">
             {% for valid_item in valid_items %}
-                <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="col-sm-6">
                     {{ render(
                         controller(
                             'ez_content:viewLocation', {
@@ -30,11 +30,7 @@
                         )
                     ) }}
                 </div>
-
-                {% if loop.index % 2 == 0 %}
-                    </div>
-                    <div class="row">
-                {% endif %}
+                {% if loop.index0 % 2 == 1 %}<div class="clearfix hidden-xs"></div>{% endif %}
             {% endfor %}
         </div>
     {% if set_container %}</div>{% endif %}

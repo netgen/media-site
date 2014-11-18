@@ -16,10 +16,7 @@
 
         <div class="row">
             {% for valid_item in valid_items|slice( 0, 6 ) %}
-                <div class="col-lg-4 col-md-4 col-sm-6
-                    {% if loop.index0 > 0 and loop.index0 % 3 == 0 %} col-md-break col-lg-break {% endif %}
-                    {% if loop.index0 > 0 and loop.index0 % 2 == 0 %} col-sm-break {% endif%}
-                ">
+                <div class="col-sm-6 col-md-4">
                     {{ render(
                         controller(
                             'ez_content:viewLocation', {
@@ -33,6 +30,9 @@
                         )
                     ) }}
                 </div>
+                {% if loop.index0 % 2 == 1 %}<div class="clearfix visible-sm"></div>{% endif %}
+                {% if loop.index0 % 3 == 2 %}<div class="clearfix visible-md"></div>{% endif %}
+                {% if loop.index0 % 3 == 2 %}<div class="clearfix visible-lg"></div>{% endif %}
             {% endfor %}
         </div>
     {% if set_container %}</div>{% endif %}
