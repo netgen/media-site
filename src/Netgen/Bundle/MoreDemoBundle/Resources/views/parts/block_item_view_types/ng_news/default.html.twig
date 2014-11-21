@@ -8,7 +8,7 @@
         }
 ) %}
 
-<div class="content-view-block-item ng-news {{ view_type|default( '' ) }} clearfix">
+<div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-news clearfix">
 
     {% if not ez_is_field_empty( content, 'line_image' ) %}
         <div class="att-image">

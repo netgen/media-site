@@ -9,7 +9,7 @@
 {% endif %}
 
 {% block content %}
-    <div class="content-view-block-item ng-banner-video{% if not ez_is_field_empty( content, 'css_class' ) %} {{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-banner-video{% if not ez_is_field_empty( content, 'css_class' ) %} {{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
 
         <img src="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" alt="{{ image_field.value.alternativeText }}" />
 

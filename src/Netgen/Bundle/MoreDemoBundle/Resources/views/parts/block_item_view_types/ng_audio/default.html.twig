@@ -8,7 +8,7 @@
         }
 ) %}
 
-<div class="content-view-block-item ng-audio">
+<div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-audio">
 
     {% if not ez_is_field_empty( content, 'image' ) %}
         <div class="att-image">

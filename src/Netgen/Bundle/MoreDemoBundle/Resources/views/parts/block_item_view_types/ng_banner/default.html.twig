@@ -3,7 +3,7 @@
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
 {% block content %}
-    <div class="content-view-block-item ng-banner">
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-banner">
 
         {% if not ez_is_field_empty( content, 'image' ) %}
             <div class="att-image">

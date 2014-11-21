@@ -8,4 +8,4 @@
         }
 ) %}
 
-<a class="content-view-block-item ng-article mini" href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a>
+<a class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-article" href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a>

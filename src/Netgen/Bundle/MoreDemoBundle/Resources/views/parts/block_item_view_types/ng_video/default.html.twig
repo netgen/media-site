@@ -8,7 +8,7 @@
         }
 ) %}
 
-<div class="content-view-block-item ng-video">
+<div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-video">
 
     <h2 class="att-name"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
 

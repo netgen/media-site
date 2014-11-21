@@ -8,7 +8,7 @@
         }
 ) %}
 
-<div class="content-view-block-item ng-blog-post">
+<div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-blog-post">
 
     {% if not ez_is_field_empty( content, 'line_image' ) %}
         <div class="att-image">

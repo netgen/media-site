@@ -8,6 +8,6 @@
         }
 ) %}
 
-<div class="content-view-block-item ng-feedback-form">
+<div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-feedback-form">
     <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 </div>
