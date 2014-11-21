@@ -2,15 +2,9 @@
 
     {% if zones[0].blocks is not empty %}
         <div class="top-content-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="zone zone-{{ zones[0].identifier|lower }}">
-                            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[0] } %}
-                        </section>
-                    </div>
-                </div>
-            </div>
+            <section class="zone zone-{{ zones[0].identifier|lower }}">
+                {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[0] } %}
+            </section>
         </div>
     {% endif %}
 
@@ -64,15 +58,9 @@
 
     {% if zones[5].blocks is not empty %}
         <div class="bottom-content-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="zone zone-{{ zones[5].identifier|lower }}">
-                            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[5] } %}
-                        </section>
-                    </div>
-                </div>
-            </div>
+            <section class="zone zone-{{ zones[5].identifier|lower }}">
+                {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[5] } %}
+            </section>
         </div>
     {% endif %}
 
