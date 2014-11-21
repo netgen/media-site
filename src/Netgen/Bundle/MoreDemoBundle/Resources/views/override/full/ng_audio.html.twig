@@ -19,7 +19,7 @@
 
     {% if not ez_is_field_empty( content, 'file' ) %}
         <audio controls>
-            <source type="audio/mpeg" src="{{ ez_field_value( content, 'file' ).uri }}" />
+            <source type="audio/mpeg" src="{{ path( '_netgenMoreDownload', { 'contentId': content.id, 'fieldId': content.getField( 'file' ).id } ) }}" />
             Your browser does not support the audio element.
         </audio>
     {% endif %}
