@@ -1,7 +1,5 @@
 {# ng_blog_post - block_item campaign view type #}
 
-{% set image_field = content.getField( 'image' ) %}
-{% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
 {% set content_name = ez_content_name( content ) %}
 {% set location_path = path(
     'ez_urlalias', {
@@ -12,7 +10,17 @@
 ) %}
 
 <div class="rsContent">
-    <img class="rsImg rsMainSlideImage" src="{{ image_alias.uri }}" alt="{{ content_name }}" />
+    {{ ez_render_field(
+        content,
+        'image', {
+            parameters: {
+                alias: alias_name|default( 'original' ),
+                image_class: 'rsImg rsMainSlideImage',
+                alt_text: content_name
+            }
+        }
+    ) }}
+
     <div class="bContainer">
         <div class="rsABlock txtCent">
             <h2><a href={{ location_path }}>{{ content_name }}</a></h2>

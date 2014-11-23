@@ -2,8 +2,7 @@
 
 {% set image_alias = null %}
 {% if not ez_is_field_empty( content, 'poster' ) %}
-    {% set image_field = content.getField( 'poster' ) %}
-    {% set image_alias = ez_image_alias( image_field, content.versionInfo, 'original' ) %}
+    {% set image_alias = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'original' ) %}
 {% endif %}
 
 <div class="content-view-embed ng-video">

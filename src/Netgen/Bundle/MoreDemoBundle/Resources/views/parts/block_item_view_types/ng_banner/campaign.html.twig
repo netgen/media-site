@@ -2,12 +2,18 @@
 
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
-{% set image_field = content.getField( 'image' ) %}
-{% set image_alias = ez_image_alias( image_field, content.versionInfo, alias_name|default( 'original' ) ) %}
-
 {% block content %}
     <div class="rsContent{% if not ez_is_field_empty( content, 'css_class' ) %} {{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
-        <img class="rsImg rsMainSlideImage" src="{{ image_alias.uri }}" alt="{{ image_field.value.alternativeText }}" />
+        {{ ez_render_field(
+            content,
+            'image', {
+                parameters: {
+                    alias: alias_name|default( 'original' ),
+                    image_class: 'rsImg rsMainSlideImage'
+                }
+            }
+        ) }}
+
         <div class="bContainer">
             <div class="rsABlock txtCent">
 

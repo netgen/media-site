@@ -4,10 +4,10 @@
     {% elseif content_list|length > 1 %}
         <div class="gallery royalSlider rsDefault fwImage">
             {% for content in content_list %}
-                {% set image = content.getField( 'image' ) %}
+                {% set image = ngmore_field( content, 'image' ) %}
                 {% set content_name = ez_content_name( content ) %}
 
-                <a class="rsImg" data-rsdelay="1000" data-rsbigimg="{{ ez_image_alias( image, content.versionInfo, 'galleryfull' ).uri }}" href="{{ ez_image_alias( image, content.versionInfo, 'gallerylarge' ).uri }}">{{ ez_content_name( content ) }}<img class="rsTmb" src="{{ ez_image_alias( image, content.versionInfo, 'gallerythumbnail' ).uri }}" height="72" width="96" alt="{{ content_name }}" /></a>
+                <a class="rsImg" data-rsdelay="1000" data-rsbigimg="{{ ez_image_alias( image, content.versionInfo, 'galleryfull' ).uri }}" href="{{ ez_image_alias( image, content.versionInfo, 'gallerylarge' ).uri }}">{{ content_name }}<img class="rsTmb" src="{{ ez_image_alias( image, content.versionInfo, 'gallerythumbnail' ).uri }}" height="72" width="96" alt="{{ content_name }}" /></a>
             {% endfor %}
         </div>
     {% endif %}
