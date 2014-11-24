@@ -6,8 +6,8 @@
         {% set responsive_image_class = 'ng_responsive_half' %}
     {% endif %}
 
-    <div class="content-view-embed class-image {% if align is not empty %}align-{{ align }}{% endif %}">
-        <div class="attribute-image">
+    <div class="content-view-embed image {% if align is not empty %}align-{{ align }}{% endif %}">
+        <div class="att-image">
             {{ ez_render_field(
                 content,
                 'image', {
@@ -29,11 +29,11 @@
             {% if image_alias.width is defined and image_alias.width is not empty %}
                 {% set image_width = image_alias.width %}
 
-                <div class="attribute-caption" style="width: {{ image_width }}px">
+                <div class="att-caption" style="width: {{ image_width }}px">
                     {{ ez_render_field( content, 'caption' ) }}
                 </div>
             {% else %}
-                <div class="attribute-caption">
+                <div class="att-caption">
                     {{ ez_render_field( content, 'caption' ) }}
                 </div>
             {% endif %}
