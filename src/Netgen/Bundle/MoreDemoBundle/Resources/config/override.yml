@@ -134,6 +134,14 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/line:ng_shortcut.html.twig
                         match:
                             Identifier\ContentType: ng_shortcut
+                    image:
+                        template: NetgenMoreDemoBundle:override/line:image.html.twig
+                        match:
+                            Identifier\ContentType: image
+                    file:
+                        template: NetgenMoreDemoBundle:override/line:file.html.twig
+                        match:
+                            Identifier\ContentType: file
                 listitem:
                     ng_news:
                         template: NetgenMoreDemoBundle:override/listitem:ng_news.html.twig
@@ -161,11 +169,6 @@ ezpublish:
 
             content_view:
                 embed:
-                    image:
-                        template: NetgenMoreDemoBundle:override/embed:image.html.twig
-                        controller: ngmore.controller.embed_view:embedImageContent
-                        match:
-                            Identifier\ContentType: image
                     ng_frontpage:
                         template: NetgenMoreDemoBundle:override/embed:ng_frontpage.html.twig
                         match:
@@ -234,6 +237,15 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/embed:ng_banner_video.html.twig
                         match:
                             Identifier\ContentType: ng_banner_video
+                    image:
+                        template: NetgenMoreDemoBundle:override/embed:image.html.twig
+                        controller: ngmore.controller.embed_view:embedImageContent
+                        match:
+                            Identifier\ContentType: image
+                    file:
+                        template: NetgenMoreDemoBundle:override/embed:file.html.twig
+                        match:
+                            Identifier\ContentType: file
                 block_item:
                     block_item:
                         template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
