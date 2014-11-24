@@ -10,7 +10,7 @@
         </div>
     {% endif %}
 
-    <div class="att-file mime-type-{{ ez_field_value( content, 'file' ).mimeType|replace( '/', '-' ) }}">
+    <div class="att-file mime-type-{{ ez_field_value( content, 'file' ).mimeType|replace( { '/': '-' } ) }}">
         {{ ez_render_field( content, 'file' ) }}
     </div>
 
