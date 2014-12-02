@@ -1,25 +1,21 @@
 {# ng_category - block_item default view type #}
 
-{% set location_path = path(
-    'ez_urlalias', {
-        'locationId': location is defined and location is not empty ?
-            location.id :
-            content.contentInfo.mainLocationId
-        }
-) %}
+{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
 
-<div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-category">
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-category">
 
-    {% if not ez_is_field_empty( content, 'line_image' ) %}
-        <div class="att-image">
-            {{ ez_render_field( content, 'line_image', { 'parameters': { 'alias': 'ng_image_block_item', 'link_href': location_path } } ) }}
-        </div>
-    {% elseif not ez_is_field_empty( content, 'image' ) %}
-        <div class="att-image">
-            {{ ez_render_field( content, 'image', { 'parameters': { 'alias': 'ng_image_block_item', 'link_href': location_path } } ) }}
-        </div>
-    {% endif %}
+        {% if not ez_is_field_empty( content, 'line_image' ) %}
+            <div class="att-image">
+                {{ ez_render_field( content, 'line_image', { 'parameters': { 'alias': 'ng_image_block_item', 'link_href': location_path } } ) }}
+            </div>
+        {% elseif not ez_is_field_empty( content, 'image' ) %}
+            <div class="att-image">
+                {{ ez_render_field( content, 'image', { 'parameters': { 'alias': 'ng_image_block_item', 'link_href': location_path } } ) }}
+            </div>
+        {% endif %}
 
-    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
-</div>
+    </div>
+{% endblock %}

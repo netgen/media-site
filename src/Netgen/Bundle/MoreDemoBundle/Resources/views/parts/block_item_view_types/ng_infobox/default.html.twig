@@ -1,13 +1,9 @@
 {# ng_infobox - block_item default view type #}
 
-{% set location_path = path(
-    'ez_urlalias', {
-        'locationId': location is defined and location is not empty ?
-            location.id :
-            content.contentInfo.mainLocationId
-        }
-) %}
+{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
 
-<div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-infobox">
-    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
-</div>
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-infobox">
+        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
+    </div>
+{% endblock %}

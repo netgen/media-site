@@ -1,0 +1,9 @@
+{% set location_path = path(
+    'ez_urlalias', {
+        'locationId': location is defined and location is not empty
+            ? location.id
+            : content.contentInfo.mainLocationId
+        }
+) %}
+
+{% block content %}{% endblock %}

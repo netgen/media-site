@@ -1,11 +1,7 @@
 {# ng_article - block_item mini view type #}
 
-{% set location_path = path(
-    'ez_urlalias', {
-        'locationId': location is defined and location is not empty ?
-            location.id :
-            content.contentInfo.mainLocationId
-        }
-) %}
+{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
 
-<a class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-article" href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a>
+{% block content %}
+    <a class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-article" href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a>
+{% endblock %}
