@@ -7,20 +7,20 @@ SiteURL=ngmore.netgen.biz/cro
 SQLOutput=disabled
 
 [ContentSettings]
-ViewCaching=disabled
+ViewCaching=enabled
 
 [OverrideSettings]
 Cache=enabled
 
 [TemplateSettings]
 Debug=disabled
-DevelopmentMode=enabled
-TemplateCache=disabled
-TemplateCompile=disabled
-ShowUsedTemplates=enabled
+DevelopmentMode=disabled
+TemplateCache=enabled
+TemplateCompile=enabled
+ShowUsedTemplates=disabled
 ShowXHTMLCode=disabled
 
 [DebugSettings]
-DebugOutput=enabled
+DebugOutput=disabled
 DebugRedirection=disabled
 */ ?>

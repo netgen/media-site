@@ -7,7 +7,7 @@ SiteURL=ngmore.netgen.biz
 SQLOutput=disabled
 
 [ContentSettings]
-ViewCaching=disabled
+ViewCaching=enabled
 
 [OverrideSettings]
 Cache=enabled

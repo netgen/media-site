@@ -7,7 +7,7 @@ SiteURL={{ siteDomain }}{% if siteAccessUriPart is not empty %}/{{ siteAccessUri
 SQLOutput=disabled
 
 [ContentSettings]
-ViewCaching=disabled
+ViewCaching=enabled
 
 [OverrideSettings]
 Cache=enabled
