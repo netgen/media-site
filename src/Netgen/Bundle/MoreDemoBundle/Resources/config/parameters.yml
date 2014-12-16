@@ -1,0 +1,2 @@
+parameters:
+    ngmore.default.pagelayout: 'NetgenMoreDemoBundle::pagelayout.html.twig'

@@ -1,6 +1,6 @@
 {# NG video external - full view #}
 
-{% extends 'NetgenMoreDemoBundle::pagelayout.html.twig' %}
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
 {% if not ez_is_field_empty( content, 'line_intro' ) %}
     {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
