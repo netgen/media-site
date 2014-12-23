@@ -1,0 +1,31 @@
+# This must be set to the directory where eZ Publish is installed.
+EZPUBLISHROOT=/path/to/the/ez/publish/directory
+
+# The command used to call the cronjobs
+EZPUBLISHSCRIPT=ezpublish/console ezpublish:legacy:script runcronjobs.php
+
+# Siteaccess used for operations
+SITEACCESS=eng
+
+# Location of the PHP Command Line Interface binary.
+PHP=/usr/bin/php
+
+# Instruct cron to run the main set of cronjobs
+# at 6:35am every day
+35 6 * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS 2>&1
+
+# Instruct cron to run the "infrequent" set of cronjobs
+# at 5:20am every Monday
+20 5 * * 1 cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS infrequent 2>&1
+
+# Instruct cron to run the "frequent" set of cronjobs
+# every 15 minutes
+*/15 * * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS frequent 2>&1
+
+# Instruct cron to run the "ezflow" set of cronjobs
+# every 5 minutes
+*/5 * * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS ezflow 2>&1
+
+# Instruct cron to run the "ezfoptimizeindex" set of cronjobs
+# at 6:00am every day
+0 6 * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS ezfoptimizeindex 2>&1
