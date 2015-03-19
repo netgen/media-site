@@ -47,13 +47,15 @@
 
 {% set availableTranslations = [] %}
 
-{% for language in ezpublish.availableLanguages %}
-    {% set translationSiteAccess = ezpublish.translationSiteAccess( language ) %}
+{% if not ( status_code is defined or ( module_result is defined and module_result.errorCode is defined ) ) %}
+    {% for language in ezpublish.availableLanguages %}
+        {% set translationSiteAccess = ezpublish.translationSiteAccess( language ) %}
 
-    {% if translationSiteAccess is not empty %}
-        {% set url = url( ez_route( params={ 'siteaccess': translationSiteAccess } ) ) %}
-        {% set availableTranslations = availableTranslations|merge( { ( language ): url } ) %}
-    {% endif %}
-{% endfor %}
+        {% if translationSiteAccess is not empty %}
+            {% set url = url( ez_route( params={ 'siteaccess': translationSiteAccess } ) ) %}
+            {% set availableTranslations = availableTranslations|merge( { ( language ): url } ) %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
 
 {% endspaceless %}{% block pagelayout_content %}{% endblock %}
