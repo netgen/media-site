@@ -6,7 +6,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Netgen\Bundle\MoreBundle\NetgenMoreProjectBundleInterface;
 use Netgen\Bundle\MoreDemoBundle\DependencyInjection\Compiler\XslRegisterPass;
-use Netgen\Bundle\MoreDemoBundle\DependencyInjection\Compiler\AsseticBundlesResetPass;
 
 class NetgenMoreDemoBundle extends Bundle implements NetgenMoreProjectBundleInterface
 {
@@ -19,6 +18,5 @@ class NetgenMoreDemoBundle extends Bundle implements NetgenMoreProjectBundleInte
     {
         parent::build( $container );
         $container->addCompilerPass( new XslRegisterPass() );
-        $container->addCompilerPass( new AsseticBundlesResetPass() );
     }
 }
