@@ -1,6 +1,6 @@
 ezpublish:
     system:
-        ngmore_frontend_group:
+        frontend_group:
             image_variations:
                 ng_image_full:
                     reference: original
@@ -159,7 +159,7 @@ ezpublish:
                     filters:
                         - { name: geometry/scale, params: [200, 200] }
                         - { name: strip }
-        ngmore_administration_group:
+        administration_group:
             image_variations:
                 reference:
                     reference: null
