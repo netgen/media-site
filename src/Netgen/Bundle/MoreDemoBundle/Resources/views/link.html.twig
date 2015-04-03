@@ -14,8 +14,10 @@
 
 <link rel="icon" href="{{ asset( 'bundles/netgenmoredemo/images/favicon.png' ) }}" type="image/x-icon" />
 
-{% set localeConversionMap = ezpublish.configResolver.getParameter( 'locale.conversion_map', 'ngmore' ) %}
+{% if availableTranslations|length > 1 %}
+    {% set localeConversionMap = ezpublish.configResolver.getParameter( 'locale.conversion_map', 'ngmore' ) %}
 
-{% for language, url in availableTranslations %}
-    <link rel="alternate" href="{{ url }}" hreflang="{{ localeConversionMap[language]|lower|replace( { '_': '-' } ) }}" />
-{% endfor %}
+    {% for language, url in availableTranslations %}
+        <link rel="alternate" href="{{ url }}" hreflang="{{ localeConversionMap[language]|lower|replace( { '_': '-' } ) }}" />
+    {% endfor %}
+{% endif %}
