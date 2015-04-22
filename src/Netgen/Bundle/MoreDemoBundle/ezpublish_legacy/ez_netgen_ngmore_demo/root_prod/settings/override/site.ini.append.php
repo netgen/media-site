@@ -18,7 +18,6 @@ ActiveExtensions[]=ez_netgen_ngmore_demo
 ActiveExtensions[]=ngresponsiveimages
 ActiveExtensions[]=ngmore
 ActiveExtensions[]=ezfind
-ActiveExtensions[]=nglanguageswitcher
 ActiveExtensions[]=ngclasslist
 ActiveExtensions[]=xrowmetadata
 ActiveExtensions[]=bccie
