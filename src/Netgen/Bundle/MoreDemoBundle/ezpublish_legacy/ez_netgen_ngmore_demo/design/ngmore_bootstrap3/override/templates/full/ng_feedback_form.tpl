@@ -1,5 +1,5 @@
 {* NG Feedback form - Full view *}
-{include uri="design:parts/opengraph_set_persistent.tpl"}
+
 {if $node.data_map.line_intro.has_content}
     {ezpagedata_set( 'description', $node.data_map.line_intro.content.output.output_text|strip_tags|shorten(152))}
 {elseif $node.data_map.full_intro.has_content}

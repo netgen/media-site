@@ -18,7 +18,6 @@ ActiveExtensions[]={{ extensionName }}
 ActiveExtensions[]=ngresponsiveimages
 ActiveExtensions[]=ngmore
 ActiveExtensions[]=ezfind
-ActiveExtensions[]=ngopengraph
 ActiveExtensions[]=nglanguageswitcher
 ActiveExtensions[]=ngclasslist
 ActiveExtensions[]=xrowmetadata
