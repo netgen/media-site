@@ -7,7 +7,7 @@ EmailReceiver=
 SessionNamePerSiteAccess=disabled
 
 [SiteSettings]
-SiteName=NG more
+SiteName=NG More
 LoginPage=embedded
 AdditionalLoginFormActionURL=
 MetaDataArray[]
