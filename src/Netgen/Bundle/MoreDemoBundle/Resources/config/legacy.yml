@@ -3,3 +3,4 @@ parameters:
         enabled_legacy_settings:
             - solr
             - ngmore
+            - site
