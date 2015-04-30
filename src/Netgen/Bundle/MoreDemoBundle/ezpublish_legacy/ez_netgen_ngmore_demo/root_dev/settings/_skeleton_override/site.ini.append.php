@@ -1,18 +1,5 @@
 <?php /* #?ini charset="utf-8"?
 
-[DatabaseSettings]
-DatabaseImplementation=ezmysqli
-Server=
-Port=
-User=
-Password=
-Database=
-Charset=
-Socket=disabled
-
-[FileSettings]
-VarDir=var/ezdemo_site
-
 [ExtensionSettings]
 ActiveExtensions[]={{ extensionName }}
 ActiveExtensions[]=ngresponsiveimages
@@ -44,14 +31,6 @@ ActiveExtensions[]=ezprestapiprovider
 [Session]
 SessionNameHandler=custom
 
-[SiteSettings]
-DefaultAccess={{ defaultAccess }}
-SiteList[]
-{% for siteAccess in siteList %}
-SiteList[]={{ siteAccess }}
-{% endfor %}
-RootNodeDepth=1
-
 [UserSettings]
 LogoutRedirect=/
 
@@ -68,16 +47,6 @@ Rules[]=module;visual
 ForceVirtualHost=true
 RemoveSiteAccessIfDefaultAccess=enabled
 CheckValidity=false
-AvailableSiteAccessList[]
-{% for siteAccess in availableSiteAccessList %}
-AvailableSiteAccessList[]={{ siteAccess }}
-{% endfor %}
-MatchOrder=host_uri
-HostUriMatchMapItems[]
-{% for hostUriMatchMapItem in hostUriMatchMapItems %}
-HostUriMatchMapItems[]={{ hostUriMatchMapItem }}
-{% endfor %}
-HostMatchMapItems[]
 
 [DesignSettings]
 DesignLocationCache=enabled

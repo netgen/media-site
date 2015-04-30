@@ -1,18 +1,5 @@
 <?php /* #?ini charset="utf-8"?
 
-[DatabaseSettings]
-DatabaseImplementation=ezmysqli
-Server=
-Port=
-User=
-Password=
-Database=
-Charset=
-Socket=disabled
-
-[FileSettings]
-VarDir=var/ezdemo_site
-
 [ExtensionSettings]
 ActiveExtensions[]=ez_netgen_ngmore_demo
 ActiveExtensions[]=ngresponsiveimages
@@ -44,14 +31,6 @@ ActiveExtensions[]=ezprestapiprovider
 [Session]
 SessionNameHandler=custom
 
-[SiteSettings]
-DefaultAccess=eng
-SiteList[]
-SiteList[]=eng
-SiteList[]=cro
-SiteList[]=administration
-RootNodeDepth=1
-
 [UserSettings]
 LogoutRedirect=/
 
@@ -68,16 +47,6 @@ Rules[]=module;visual
 ForceVirtualHost=true
 RemoveSiteAccessIfDefaultAccess=enabled
 CheckValidity=false
-AvailableSiteAccessList[]
-AvailableSiteAccessList[]=eng
-AvailableSiteAccessList[]=cro
-AvailableSiteAccessList[]=administration
-MatchOrder=host_uri
-HostUriMatchMapItems[]
-HostUriMatchMapItems[]=ngmore.netgen.biz;cro;cro
-HostUriMatchMapItems[]=ngmore.netgen.biz;administration;administration
-HostUriMatchMapItems[]=ngmore.netgen.biz;;eng
-HostMatchMapItems[]
 
 [DesignSettings]
 DesignLocationCache=enabled

@@ -4,3 +4,10 @@ parameters:
             - solr
             - ngmore
             - site
+
+        replace_array_values:
+            site:
+                SiteSettings:
+                    SiteList: true
+                SiteAccessSettings:
+                    AvailableSiteAccessList: true

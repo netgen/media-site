@@ -1,4 +1,12 @@
 parameters:
+    ngmore_legacy.global.site:
+        SiteSettings:
+            DefaultAccess: %ezpublish.siteaccess.default%
+            SiteList: %ezpublish.siteaccess.list%
+            RootNodeDepth: %ngmore_legacy.default.site_settings.root_node_depth%
+        SiteAccessSettings:
+            AvailableSiteAccessList: %ezpublish.siteaccess.list%
+
     ngmore_legacy.frontend_group.site:
         DatabaseSettings:
             SQLOutput: %ngmore_legacy.frontend_group.database_settings.sql_output%
