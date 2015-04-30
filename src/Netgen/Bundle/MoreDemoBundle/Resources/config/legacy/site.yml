@@ -4,16 +4,20 @@ parameters:
             DefaultAccess: %ezpublish.siteaccess.default%
             SiteList: %ezpublish.siteaccess.list%
             RootNodeDepth: %ngmore_legacy.default.site_settings.root_node_depth%
+
         SiteAccessSettings:
             AvailableSiteAccessList: %ezpublish.siteaccess.list%
 
     ngmore_legacy.frontend_group.site:
         DatabaseSettings:
             SQLOutput: %ngmore_legacy.frontend_group.database_settings.sql_output%
+
         ContentSettings:
             ViewCaching: %ngmore_legacy.frontend_group.content_settings.view_caching%
+
         OverrideSettings:
             Cache: %ngmore_legacy.frontend_group.override_settings.cache%
+
         TemplateSettings:
             Debug: %ngmore_legacy.frontend_group.template_settings.debug%
             DevelopmentMode: %ngmore_legacy.frontend_group.template_settings.development_mode%
@@ -21,6 +25,7 @@ parameters:
             TemplateCompile: %ngmore_legacy.frontend_group.template_settings.template_compile%
             ShowUsedTemplates: %ngmore_legacy.frontend_group.template_settings.show_used_templates%
             ShowXHTMLCode: %ngmore_legacy.frontend_group.template_settings.show_xhtml_code%
+
         DebugSettings:
             DebugOutput: %ngmore_legacy.frontend_group.debug_settings.debug_output%
             DebugRedirection: %ngmore_legacy.frontend_group.debug_settings.debug_redirection%
@@ -28,10 +33,13 @@ parameters:
     ngmore_legacy.administration_group.site:
         DatabaseSettings:
             SQLOutput: %ngmore_legacy.default.database_settings.sql_output%
+
         ContentSettings:
             ViewCaching: %ngmore_legacy.default.content_settings.view_caching%
+
         OverrideSettings:
             Cache: %ngmore_legacy.default.override_settings.cache%
+
         TemplateSettings:
             Debug: %ngmore_legacy.default.template_settings.debug%
             DevelopmentMode: %ngmore_legacy.default.template_settings.development_mode%
@@ -39,6 +47,7 @@ parameters:
             TemplateCompile: %ngmore_legacy.default.template_settings.template_compile%
             ShowUsedTemplates: %ngmore_legacy.default.template_settings.show_used_templates%
             ShowXHTMLCode: %ngmore_legacy.default.template_settings.show_xhtml_code%
+
         DebugSettings:
             DebugOutput: %ngmore_legacy.default.debug_settings.debug_output%
             DebugRedirection: %ngmore_legacy.default.debug_settings.debug_redirection%
