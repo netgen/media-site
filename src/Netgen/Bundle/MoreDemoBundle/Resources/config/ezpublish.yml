@@ -1,8 +1,10 @@
 imports:
+    - { resource: parameters.yml }
     - { resource: override.yml }
     - { resource: ezpage.yml }
     - { resource: image.yml }
     - { resource: opengraph.yml }
+    - { resource: ngmore_legacy.yml }
 
 ezpublish:
     system:

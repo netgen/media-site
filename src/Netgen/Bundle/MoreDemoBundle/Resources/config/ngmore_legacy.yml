@@ -1,0 +1,72 @@
+netgen_more_legacy:
+    enabled_legacy_settings:
+        - solr.ini
+        - ngmore.ini
+        - site.ini
+
+    system:
+        frontend_group:
+            injected_settings:
+                site.ini:
+                    DatabaseSettings/SQLOutput: %ngmore_legacy.frontend_group.database_settings.sql_output%
+
+                    ContentSettings/ViewCaching: %ngmore_legacy.frontend_group.content_settings.view_caching%
+
+                    OverrideSettings/Cache: %ngmore_legacy.frontend_group.override_settings.cache%
+
+                    TemplateSettings/Debug: %ngmore_legacy.frontend_group.template_settings.debug%
+                    TemplateSettings/DevelopmentMode: %ngmore_legacy.frontend_group.template_settings.development_mode%
+                    TemplateSettings/TemplateCache: %ngmore_legacy.frontend_group.template_settings.template_cache%
+                    TemplateSettings/TemplateCompile: %ngmore_legacy.frontend_group.template_settings.template_compile%
+                    TemplateSettings/ShowUsedTemplates: %ngmore_legacy.frontend_group.template_settings.show_used_templates%
+                    TemplateSettings/ShowXHTMLCode: %ngmore_legacy.frontend_group.template_settings.show_xhtml_code%
+
+                    DebugSettings/DebugOutput: %ngmore_legacy.frontend_group.debug_settings.debug_output%
+                    DebugSettings/DebugRedirection: %ngmore_legacy.frontend_group.debug_settings.debug_redirection%
+
+        administration_group:
+            injected_settings:
+                site.ini:
+                    DatabaseSettings/SQLOutput: %ngmore_legacy.default.database_settings.sql_output%
+
+                    ContentSettings/ViewCaching: %ngmore_legacy.default.content_settings.view_caching%
+
+                    OverrideSettings/Cache: %ngmore_legacy.default.override_settings.cache%
+
+                    TemplateSettings/Debug: %ngmore_legacy.default.template_settings.debug%
+                    TemplateSettings/DevelopmentMode: %ngmore_legacy.default.template_settings.development_mode%
+                    TemplateSettings/TemplateCache: %ngmore_legacy.default.template_settings.template_cache%
+                    TemplateSettings/TemplateCompile: %ngmore_legacy.default.template_settings.template_compile%
+                    TemplateSettings/ShowUsedTemplates: %ngmore_legacy.default.template_settings.show_used_templates%
+                    TemplateSettings/ShowXHTMLCode: %ngmore_legacy.default.template_settings.show_xhtml_code%
+
+                    DebugSettings/DebugOutput: %ngmore_legacy.default.debug_settings.debug_output%
+                    DebugSettings/DebugRedirection: %ngmore_legacy.default.debug_settings.debug_redirection%
+
+        default:
+            injected_settings:
+                solr.ini:
+                    SolrBase/SearchServerURI: %ezpublish.solr_server%
+
+                site.ini:
+                    SiteSettings/DefaultAccess: %ezpublish.siteaccess.default%
+                    SiteSettings/SiteList: %ezpublish.siteaccess.list%
+                    SiteSettings/RootNodeDepth: %ngmore_legacy.default.site_settings.root_node_depth%
+
+                    SiteAccessSettings/AvailableSiteAccessList: %ezpublish.siteaccess.list%
+
+                ngmore.ini:
+                    SpecialNodes/SiteInfoNode: %ngmore.default.locations.site_info.id%
+                    SpecialNodes/SidebarsParentNode: %ngmore.default.locations.sidebars_parent.id%
+
+                    GoogleMapsSettings/DefaultLatitude: %ngmore.default.google_maps.latitude%
+                    GoogleMapsSettings/DefaultLongitude: %ngmore.default.google_maps.longitude%
+                    GoogleMapsSettings/DefaultZoom: %ngmore.default.google_maps.zoom%
+                    GoogleMapsSettings/DefaultMapType: %ngmore.default.google_maps.map_type%
+
+                    SiteSettings/GoogleAnalyticsCode: %ngmore.default.site_settings.google_analytics_code%
+                    SiteSettings/GoogleAnalyticsUniversal: %ngmore.default.site_settings.google_analytics_universal%
+                    SiteSettings/AddThisCode: %ngmore.default.site_settings.add_this_code%
+                    SiteSettings/TypeKitCode: %ngmore.default.site_settings.typekit_code%
+                    SiteSettings/SublimeVideoCode: %ngmore.default.site_settings.sublime_video_code%
+                    SiteSettings/FacebookApi: %ngmore.default.site_settings.facebook_api%
