@@ -106,7 +106,7 @@ RewriteRule ^bundles/ - [L]
 
 # Additional Assetic rules for environments different from dev,
 # remember to run php ezpublish/console assetic:dump --env=prod
-RewriteCond %{ENV:ENVIRONMENT} !(dev)
+RewriteCond %{ENV:ENVIRONMENT} !^(dev)
 RewriteRule ^(css|js|font)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
 
 RewriteRule .* index\.php
