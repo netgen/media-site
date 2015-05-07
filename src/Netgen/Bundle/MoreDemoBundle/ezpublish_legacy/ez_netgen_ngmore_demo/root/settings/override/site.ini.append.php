@@ -53,9 +53,4 @@ DesignLocationCache=enabled
 
 [RegionalSettings]
 TranslationSA[]
-
-[MailSettings]
-Transport=sendmail
-AdminEmail=info@netgen.hr
-EmailSender=
 */ ?>

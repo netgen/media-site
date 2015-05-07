@@ -56,6 +56,15 @@ netgen_more_legacy:
 
                     SiteAccessSettings/AvailableSiteAccessList: %ezpublish.siteaccess.list%
 
+                    MailSettings/Transport: %mailer_transport%
+                    MailSettings/TransportServer: %mailer_host%
+                    MailSettings/TransportConnectionType: %swiftmailer.mailer.default.transport.smtp.encryption%
+                    MailSettings/TransportPort: %mailer_port%
+                    MailSettings/TransportUser: %mailer_user%
+                    MailSettings/TransportPassword: %mailer_password%
+                    MailSettings/AdminEmail: %mailer_sender%
+                    MailSettings/EmailSender: %mailer_sender%
+
                 ngmore.ini:
                     SpecialNodes/SiteInfoNode: %ngmore.default.locations.site_info.id%
                     SpecialNodes/SidebarsParentNode: %ngmore.default.locations.sidebars_parent.id%
