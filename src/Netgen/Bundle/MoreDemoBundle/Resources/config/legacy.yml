@@ -55,6 +55,23 @@ netgen_more_legacy:
                     SiteSettings/SiteURL: %ngmore.default.site_domain%
 
                     SiteAccessSettings/AvailableSiteAccessList: %ezpublish.siteaccess.list%
+                    SiteAccessSettings/ForceVirtualHost: "true"
+                    SiteAccessSettings/RemoveSiteAccessIfDefaultAccess: enabled
+                    SiteAccessSettings/CheckValidity: "false"
+
+                    Session/SessionNameHandler: custom
+                    UserSettings/LogoutRedirect: /
+
+                    SiteAccessRules/Rules:
+                        - access;disable
+                        - module;user/register
+                        - module;ezinfo/about
+                        - module;ezinfo/copyright
+                        - module;content/advancedsearch
+                        - module;settings/edit
+                        - module;visual
+
+                    DesignSettings/DesignLocationCache: "enabled"
 
                     MailSettings/Transport: %mailer_transport%
                     MailSettings/TransportServer: %mailer_host%
