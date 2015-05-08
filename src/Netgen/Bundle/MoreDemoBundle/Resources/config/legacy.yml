@@ -52,7 +52,7 @@ netgen_more_legacy:
                     SiteSettings/DefaultAccess: %ezpublish.siteaccess.default%
                     SiteSettings/SiteList: %ezpublish.siteaccess.list%
                     SiteSettings/RootNodeDepth: %ngmore_legacy.default.site_settings.root_node_depth%
-                    SiteSettings/SiteURL: %ngmore.site_domains.default%
+                    SiteSettings/SiteURL: %ngmore.default.site_domain%
 
                     SiteAccessSettings/AvailableSiteAccessList: %ezpublish.siteaccess.list%
 
