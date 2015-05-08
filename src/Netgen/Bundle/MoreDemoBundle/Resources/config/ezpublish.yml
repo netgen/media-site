@@ -10,7 +10,7 @@ ezpublish:
     system:
         frontend_group:
             user:
-                layout: 'NetgenMoreDemoBundle::pagelayout.html.twig'
+                layout: %ngmore.default.pagelayout%
 
 ez_publish_legacy:
     system:
