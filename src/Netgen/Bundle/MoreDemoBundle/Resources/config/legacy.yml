@@ -44,6 +44,36 @@ netgen_more_legacy:
                     DebugSettings/DebugRedirection: %ngmore_legacy.default.debug_settings.debug_redirection%
 
         default:
+            injected_merge_settings:
+                site.ini:
+                    ExtensionSettings/ActiveExtensions:
+                        - ez_netgen_ngmore_demo
+                        - ngresponsiveimages
+                        - ngmore
+                        - ezfind
+                        - ngclasslist
+                        - xrowmetadata
+                        - bccie
+                        - birthday
+                        - childrenindexer
+                        - parentindexer
+                        - hideuntildate
+                        - ezclasslists
+                        - ezchangeclass
+                        - enhancedselection2
+                        - ezmultiupload
+                        - eztags
+                        - ezjscore
+                        - ezstarrating
+                        - ezgmaplocation
+                        - ezdemo
+                        - ezwt
+                        - ezflow
+                        - ezie
+                        - ezoe
+                        - ezodf
+                        - ezprestapiprovider
+
             injected_settings:
                 solr.ini:
                     SolrBase/SearchServerURI: %ezpublish.solr_server%
