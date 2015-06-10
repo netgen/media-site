@@ -53,7 +53,7 @@ DependentClassIdentifier[]
 DependentClassIdentifier[]=ng_category
 DependentClassIdentifier[]=ng_category_page
 DependentClassIdentifier[]=ng_landing_page
-DependentClassIdentifier[]=ng_frontpage_page
+DependentClassIdentifier[]=ng_frontpage
 ClearCacheMethod[]
 ClearCacheMethod[]=object
 ClearCacheMethod[]=parent
@@ -64,7 +64,7 @@ DependentClassIdentifier[]
 DependentClassIdentifier[]=ng_category
 DependentClassIdentifier[]=ng_category_page
 DependentClassIdentifier[]=ng_landing_page
-DependentClassIdentifier[]=ng_frontpage_page
+DependentClassIdentifier[]=ng_frontpage
 ClearCacheMethod[]
 ClearCacheMethod[]=object
 ClearCacheMethod[]=parent
@@ -75,7 +75,7 @@ DependentClassIdentifier[]
 DependentClassIdentifier[]=ng_category
 DependentClassIdentifier[]=ng_category_page
 DependentClassIdentifier[]=ng_landing_page
-DependentClassIdentifier[]=ng_frontpage_page
+DependentClassIdentifier[]=ng_frontpage
 ClearCacheMethod[]
 ClearCacheMethod[]=object
 ClearCacheMethod[]=parent
@@ -86,7 +86,7 @@ DependentClassIdentifier[]
 DependentClassIdentifier[]=ng_category
 DependentClassIdentifier[]=ng_category_page
 DependentClassIdentifier[]=ng_landing_page
-DependentClassIdentifier[]=ng_frontpage_page
+DependentClassIdentifier[]=ng_frontpage
 ClearCacheMethod[]
 ClearCacheMethod[]=object
 ClearCacheMethod[]=parent
