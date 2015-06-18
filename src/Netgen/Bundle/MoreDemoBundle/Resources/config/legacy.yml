@@ -70,10 +70,7 @@ netgen_more_legacy:
                         - ezdemo
                         - ezwt
                         - ezflow
-                        - ezie
                         - ezoe
-                        - ezodf
-                        - ezprestapiprovider
 
             injected_settings:
                 solr.ini:
