@@ -1,0 +1,32 @@
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="register-user">
+            <div class="login-box">
+                <div class="page-header">
+                    <h1 class="title">{{ 'ngmore.user.register.title'|trans }}</h1>
+                </div>
+
+                {#
+                {% include 'GenericBundle:user:social_buttons.html.twig' with { owners: hwi_oauth_resource_owners() } %}
+                #}
+
+                {% if errorMessage is defined and errorMessage is not empty %}
+                    <div class="error">
+                        {{ errorMessage|raw }}
+                    </div>
+                {% endif %}
+
+                {% if form is defined %}
+                    <div class="form">
+
+                        {{ form( form ) }}
+
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
