@@ -2,6 +2,16 @@ ezpublish:
     system:
         ngmore_frontend_group:
             image_variations:
+                ng_responsive_full:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [1000] }
+                        - { name: strip }
+                ng_responsive_half:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [750] }
+                        - { name: strip }
                 ng_image_full:
                     reference: original
                     filters:
