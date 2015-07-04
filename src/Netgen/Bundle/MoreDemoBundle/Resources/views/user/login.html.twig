@@ -1,0 +1,37 @@
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="login-box">
+
+            <div class="page-header">
+                <h1 class="title">{{ 'ngmore.user.register.title'|trans }}</h1>
+            </div>
+
+            <form class="form-horizontal" action="{{ path( 'login_check' ) }}" method="post">
+                <fieldset>
+
+                    <input class="input-large col-xs-12" name="_username" id="username" type="text" placeholder="{{ 'type username'|trans }} value="{{ last_username }}" tabindex="1" />
+                    <input class="input-large col-xs-12" name="_password" id="password" type="password" placeholder="{{ 'type password'|trans }}" tabindex="1"/>
+                    {% if error %}
+                        <div class="alert alert-danger">
+                            <p><strong>{{ error.message|trans }}</strong></p>
+                        </div>
+                    {% endif %}
+                    <div class="clearfix"></div>
+                    <button name="login" type="submit" class="btn btn-primary col-xs-12">{{ "Login"|trans }}</button>
+                </fieldset>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                <input type="hidden" name="_target_path" value="/" />
+            </form>
+
+            <h3>{{ "Forgot Password?"|trans }}</h3>
+            <p>{{ "No problem, <a href='forgotpassword'>click here</a> to get a new password"|trans|raw }}</p>
+
+            <hr/>
+            <h3>{{ "Don't have an account?"|trans }}</h3>
+            <p>{{ "Please, <a href='register'>click here</a> to sign up."|trans|raw}}</p>
+
+        </div>
+    </div><!--/row-->
+{% endblock %}
