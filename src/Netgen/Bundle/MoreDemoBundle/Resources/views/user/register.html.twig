@@ -8,10 +8,6 @@
                     <h1 class="title">{{ 'ngmore.user.register.title'|trans }}</h1>
                 </div>
 
-                {#
-                {% include 'GenericBundle:user:social_buttons.html.twig' with { owners: hwi_oauth_resource_owners() } %}
-                #}
-
                 {% if errorMessage is defined and errorMessage is not empty %}
                     <div class="error">
                         {{ errorMessage|raw }}

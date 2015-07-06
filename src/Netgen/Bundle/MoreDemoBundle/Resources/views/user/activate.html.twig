@@ -1,0 +1,28 @@
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+
+{% block content %}
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="registered">
+
+            <div class="page-header">
+                <h1 class="title">{{ 'ngmore.user.activate.title'|trans }}</h1>
+            </div>
+
+            <p>
+                {% if account_activated %}
+                    {{'ngmore.user.activate.success'|trans}}
+                {% elseif already_active %}
+                    {{ 'ngmore.user.activate.already_active'|trans }}
+                {% else %}
+                    {{ 'ngmore.user.activate.failure'|trans }}
+                {% endif %}
+            </p>
+
+            {% if account_activated or already_active %}
+                <h3>{{ "ngmore.user.login.title"|trans }}</h3>
+                <p>{{ "ngmore.user.activate.go_to_login"|trans( { '%login_url%': path( 'login' ) } )|raw }}</p>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
