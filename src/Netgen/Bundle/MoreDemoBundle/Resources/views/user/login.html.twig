@@ -25,12 +25,12 @@
                 <input type="hidden" name="_target_path" value="/" />
             </form>
 
-            <h3>{{ "Forgot Password?"|trans }}</h3>
-            <p>{{ "No problem, <a href='forgotpassword'>click here</a> to get a new password"|trans|raw }}</p>
+            <h3>{{ "ngmore.user.login.forgot_password"|trans }}</h3>
+            <p>{{ "ngmore.user.login.forgot_password_link"|trans( { '%forgot_pass_url%': path( 'ngmore_user_forgot_password' ) } )|raw }}</p>
 
             <hr/>
-            <h3>{{ "Don't have an account?"|trans }}</h3>
-            <p>{{ "Please, <a href='register'>click here</a> to sign up."|trans|raw}}</p>
+            <h3>{{ "ngmore.user.login.no_account"|trans }}</h3>
+            <p>{{ "ngmore.user.login.register_link"|trans( { '%register_url%': path( 'ngmore_user_register' ) } )|raw }}</p>
 
         </div>
     </div><!--/row-->

@@ -1,2 +1,11 @@
 parameters:
     ngmore.default.pagelayout: 'NetgenMoreDemoBundle::pagelayout.html.twig'
+    ngmore.default.user_register.activation_mail_template: 'NetgenMoreDemoBundle:user/mail:activation_mail.html.twig'
+    ngmore.default.user_register.template: 'NetgenMoreDemoBundle:user:register.html.twig'
+    ngmore.default.user_activate.template: 'NetgenMoreDemoBundle:user:activate.html.twig'
+    ngmore.default.user_register.forgotten_password_template: 'NetgenMoreDemoBundle:user:forgotten_password.html.twig'
+    ngmore.default.user_register.forgotten_password_mail_template: 'NetgenMoreDemoBundle:user/mail:forgotten_password.html.twig'
+    ngmore.default.user_register.reset_password_template: 'NetgenMoreDemoBundle:user:reset_password.html.twig'
+    ngmore.default.user_register.mail_sender: 'info@netgen.hr'
+    ngmore.default.user_register.user_group: 11
+    ngmore.default.user_register.auto_enable: false
