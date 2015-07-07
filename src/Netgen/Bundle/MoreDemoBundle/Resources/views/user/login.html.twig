@@ -11,15 +11,17 @@
             <form class="form-horizontal" action="{{ path( 'login_check' ) }}" method="post">
                 <fieldset>
 
-                    <input class="input-large col-xs-12" name="_username" id="username" type="text" placeholder="{{ 'type username'|trans }} value="{{ last_username }}" tabindex="1" />
-                    <input class="input-large col-xs-12" name="_password" id="password" type="password" placeholder="{{ 'type password'|trans }}" tabindex="1"/>
+                    <input class="input-large col-xs-12" name="_username" id="username" type="text" placeholder="{{ 'ngmore.user.login.placeholder.username'|trans }}" value="{{ last_username }}" tabindex="1" />
+                    <input class="input-large col-xs-12" name="_password" id="password" type="password" placeholder="{{ 'ngmore.user.login.placeholder.password'|trans }}" tabindex="1"/>
+
                     {% if error %}
                         <div class="alert alert-danger">
                             <p><strong>{{ error.message|trans }}</strong></p>
                         </div>
                     {% endif %}
+
                     <div class="clearfix"></div>
-                    <button name="login" type="submit" class="btn btn-primary col-xs-12">{{ "Login"|trans }}</button>
+                    <button name="login" type="submit" class="btn btn-primary col-xs-12">{{ "ngmore.user.login.submit_button"|trans }}</button>
                 </fieldset>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
                 <input type="hidden" name="_target_path" value="/" />

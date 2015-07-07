@@ -9,15 +9,25 @@
                 </div>
 
                 {% if errorMessage is defined and errorMessage is not empty %}
-                    <div class="error">
-                        {{ errorMessage|raw }}
+                    <div class="alert alert-danger">
+                        <p><strong>{{ errorMessage|raw }}</strong></p>
                     </div>
                 {% endif %}
 
                 {% if form is defined %}
                     <div class="form">
 
-                        {{ form( form ) }}
+                        {{ form_start( form, { 'attr': { 'class': 'form-horizontal' } } ) }}
+
+                        {% for form_child in form.children %}
+                            {% if form_child == form.save %}
+                                {{ form_row( form_child, { 'attr': { 'class': 'btn btn-primary col-xs-12' } } ) }}
+                            {% else %}
+                                {{ form_row( form_child, { 'attr': { 'class': 'input-large col-xs-12' } } ) }}
+                            {% endif %}
+                        {% endfor %}
+
+                        {{ form_end( form ) }}
 
                     </div>
                 {% endif %}
