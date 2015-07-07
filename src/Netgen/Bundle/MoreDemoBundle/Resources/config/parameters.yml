@@ -1,6 +1,6 @@
 parameters:
     ngmore.default.pagelayout: 'NetgenMoreDemoBundle::pagelayout.html.twig'
-    ngmore.default.user_register.templates.activation_mail: 'NetgenMoreDemoBundle:user/mail:activation_mail.html.twig'
+    ngmore.default.user_register.template.activation_mail: 'NetgenMoreDemoBundle:user/mail:activation_mail.html.twig'
     ngmore.default.user_register.template.register: 'NetgenMoreDemoBundle:user:register.html.twig'
     ngmore.default.user_register.template.activate: 'NetgenMoreDemoBundle:user:activate.html.twig'
     ngmore.default.user_register.template.forgotten_password: 'NetgenMoreDemoBundle:user:forgotten_password.html.twig'
