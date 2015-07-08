@@ -1,6 +1,6 @@
 {% block body %}
     <p>
-        {{ 'ngmore.user.mail.activation.thank_you'|trans }} <a href="{{ url( "ez_urlalias", { "locationId": root_location.contentInfo.mainLocationId } ) }}">{{ root_location.contentInfo.name }}</a>
+        {{ 'ngmore.user.mail.activation.thank_you'|trans }} <a href="{{ base_url }}">{{ site_name }}</a>
     </p>
 
     <p>{{ "ngmore.user.mail.account_information"|trans }}:<br/>
