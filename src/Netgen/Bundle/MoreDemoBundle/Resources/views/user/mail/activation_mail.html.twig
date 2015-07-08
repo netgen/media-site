@@ -3,9 +3,9 @@
         {{ 'ngmore.user.mail.activation.thank_you'|trans }} <a href="{{ url( "ez_urlalias", { "locationId": root_location.contentInfo.mainLocationId } ) }}">{{ root_location.contentInfo.name }}</a>
     </p>
 
-    <p>{{ "ngmore.user.mail.activation.account_information"|trans }}:<br/>
-        {{ "ngmore.user.mail.activation.username"|trans }}: {{ user.login }}<br/>
-        {{ "ngmore.user.mail.activation.email"|trans }}: {{ user.email }}<br/>
+    <p>{{ "ngmore.user.mail.account_information"|trans }}:<br/>
+        {{ "ngmore.user.mail.username"|trans }}: {{ user.login }}<br/>
+        {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}<br/>
     </p>
     <p>
         {{ "ngmore.user.mail.activation.click_to_activate"|trans }} <a href="{{ url( 'ngmore_user_activate', { "hash": hash } ) }}">{{ url( 'ngmore_user_activate', { "hash": hash } ) }}</a>
