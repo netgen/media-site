@@ -36,11 +36,11 @@ AdditionalSiteDesignList[]=base
 AdditionalSiteDesignList[]=standard
 
 [RegionalSettings]
-Locale=eng-EU
-ContentObjectLocale=eng-EU
+Locale=eng-GB
+ContentObjectLocale=eng-GB
 ShowUntranslatedObjects=disabled
 SiteLanguageList[]
-SiteLanguageList[]=eng-EU
+SiteLanguageList[]=eng-GB
 TextTranslation=enabled
 
 [ContentSettings]

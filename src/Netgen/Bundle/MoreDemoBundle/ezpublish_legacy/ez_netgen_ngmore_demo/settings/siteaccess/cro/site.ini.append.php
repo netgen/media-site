@@ -41,7 +41,7 @@ ContentObjectLocale=cro-HR
 ShowUntranslatedObjects=disabled
 SiteLanguageList[]
 SiteLanguageList[]=cro-HR
-SiteLanguageList[]=eng-EU
+SiteLanguageList[]=eng-GB
 TextTranslation=enabled
 
 [ContentSettings]
