@@ -1,0 +1,14 @@
+{% if not ez_is_field_empty( content, 'image' ) %}
+    {% if is_slider is not defined %}
+        {% set is_slider = false %}
+    {% endif %}
+
+    {% if alias_name is not defined or alias_name is empty %}
+        {% set alias_name = 'gallerylarge' %}
+    {% endif %}
+
+    <div class="{% if is_slider %}rsContent{% else %}multimediaContent{% endif %}">
+        {% set image = ngmore_field( content, 'image' ) %}
+        <img class="img-responsive {% if is_slider %}rsImg{% endif %}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} src="{{ ez_image_alias( image, content.versionInfo, alias_name ).uri }}"  />
+    </div>
+{% endif %}
