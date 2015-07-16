@@ -2,61 +2,80 @@
 
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
-{% set image_alias = null %}
+{% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster_default_blank.png' ) %}
+
 {% if not ez_is_field_empty( content, 'poster' ) %}
-    {% set image_alias = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, alias_name|default( 'original' ) ) %}
+    {% set image = ngmore_field( content, 'poster' ) %}
+    {% set image_alias = ez_image_alias( image, content.versionInfo, alias_name|default( 'original' ) ) %}
+    {% if image_alias.uri is defined and image_alias.uri is not empty %}
+        {% set image_path = image_alias.uri %}
+    {% endif %}
 {% endif %}
+
+{% set bContainerDisable = false %}
 
 {% block content %}
     <div class="rsContent{% if not ez_is_field_empty( content, 'css_class' ) %} {{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
-
         {% if not ez_is_field_empty( content, 'video_identifier' ) %}
             {% set video_type = ez_field_value( content, 'video_type' ) %}
+            {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
 
             {% if 'youtube' in video_type.identifiers %}
-
-                <div class="video-youtube">
-                    {# Potrebno mozda još srediti funkciju atributa data-autoresize="{{ ez_field_value( content, 'autoresize' )[0] }}" i data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" #}
-                    <img alt="YouTube" class="rsImg" src="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" data-rsVideo="https://www.youtube.com/embed/{{ ez_field_value( content, 'video_identifier' ).text }}?rel=0" />
+                <div class="video-config video-external-{{ content.id }}"
+                     data-video_player_id="video-external-{{ content.id }}"
+                     data-autostart="true"
+                     data-image="{% if image_path is defined and image_path is not empty %}{{ image_path }}{% else %}//:0{% endif %}"
+                     data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
+                     data-videotype="youtube">
                 </div>
-
+                <a class="rsImg"
+                   data-rsVideo="video-external-{{ content.id }}"
+                   href="{% if image_path is defined and image_path is not empty %}{{ image_path }}{% else %}//:0{% endif %}"></a>
             {% elseif 'vimeo' in video_type.identifiers %}
-
-                <div class="video-vimeo">
-                    {# Potrebno mozda još srediti funkciju atributa data-autoresize="{{ ez_field_value( content, 'autoresize' )[0] }}" i data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" #}
-                    <img alt="Vimeo" class="rsImg" src="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" data-rsVideo="https://vimeo.com/{{ ez_field_value( content, 'video_identifier' ).text }}" />
+                {% set bContainerDisable = true %}
+                <div class="video-external-vimeo" style="height:96%; width:100%;">
+                    <iframe id="video-external-{{ content.id }}" height="100%" width="100%" src="//player.vimeo.com/video/{{ video_identifier }}"></iframe>
                 </div>
-
             {% endif %}
+
         {% elseif not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
 
-            <div class="video-local">
-                <img alt="{{ ez_content_name( content ) }}" class="rsImg" src="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}"
-                data-rsVideo='<video style="display:none;" class="" id="sublime_0" title="{{ ez_content_name( content ) }}" width="770" height="433" data-uid="sublime_0" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' ).identifiers[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}">
-                    {% if not ez_is_field_empty( content, 'video_file' ) %}
-                        <source src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( 'video_file' ).id } ) }}" />
-                    {% endif %}
+            {% set localVideoField = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
 
-                    {% if not ez_is_field_empty( content, 'video_file_hd' ) %}
-                        <source src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( 'video_file_hd' ).id } ) }}" />
-                    {% endif %}
-                </video>' />
+            {% set ngDownloadUrl = path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( localVideoField ).id  } ) %}
+            {% set mimeType = ez_field_value(content, localVideoField ).mimeType %}
+
+            <div class="video-config video-local-{{ content.id }}"
+                 data-video_player_id="video-local-{{ content.id }}"
+                 data-autostart="true"
+                 data-width="100%"
+                 data-height="100%"
+                 data-image="{% if image_path is defined and image_path is not empty %}{{ image_path }}{% else %}//:0{% endif %}"
+                 data-file="{{ ngDownloadUrl }}"
+                 data-videotype="local"
+                 data-mimetype="{{ mimeType }}">
             </div>
+
+        <a class="rsImg"
+           data-rsVideo="video-local-{{ content.id }}"
+           href="{% if image_path is defined and image_path is not empty %}{{ image_path }}{% else %}//:0{% endif %}"></a>
 
         {% endif %}
 
-        <div class="bContainer">
-            <div class="rsABlock txtCent">
+        {% if not bContainerDisable %}
+            <div class="bContainer">
+                <div class="rsABlock txtCent">
 
-                {% if not ez_is_field_empty( content, 'title' ) %}
-                    <h2 class="att-title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
-                {% endif %}
+                    {% if not ez_is_field_empty( content, 'title' ) %}
+                        <h2 class="att-title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+                    {% endif %}
 
-                {% if not ez_is_field_empty( content, 'short_description' ) %}
-                    <div class="att-short-description">{{ ez_render_field( content, 'short_description' ) }}</div>
-                {% endif %}
+                    {% if not ez_is_field_empty( content, 'short_description' ) %}
+                        <div class="att-short-description">{{ ez_render_field( content, 'short_description' ) }}</div>
+                    {% endif %}
 
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 {% endblock %}
