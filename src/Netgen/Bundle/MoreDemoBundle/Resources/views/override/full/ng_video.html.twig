@@ -6,9 +6,14 @@
     {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
 {% endif %}
 
-{% set image_alias = null %}
+{% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster_default.png' ) %}
+
 {% if not ez_is_field_empty( content, 'poster' ) %}
-    {% set image_alias = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'original' ) %}
+    {% set image = ngmore_field( content, 'poster' ) %}
+    {% set image_alias = ez_image_alias( image, content.versionInfo, 'original' ) %}
+    {% if image_alias.uri is defined and image_alias.uri is not empty %}
+        {% set image_path = image_alias.uri %}
+    {% endif %}
 {% endif %}
 
 {% block content %}
@@ -31,16 +36,25 @@
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
-        <div class="video-local sublime-{{ ez_field_value( content, 'autoresize' ).identifiers[0] }}-container">
-            <video style="display:none;" class="sublime" title="{{ ez_field_value( content, 'name' ).text }}" width="750" height="422" poster="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" data-uid="sublime_0" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' ).identifiers[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}">
-                {% if not ez_is_field_empty( content, 'video_file' ) %}
-                    <source src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( 'video_file' ).id } ) }}" />
-                {% endif %}
-                {% if not ez_is_field_empty( content, 'video_file_hd' ) %}
-                    <source src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( 'video_file_hd' ).id } ) }}" />
-                {% endif %}
-            </video>
+
+        {% set localVideoField = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
+
+        {% set ngDownloadUrl = path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( localVideoField ).id } ) %}
+        {% set mimeType = ez_field_value(content, localVideoField ).mimeType %}
+
+        <div class="video-config video-local-{{ content.id }}"
+             data-video_player_id="video-local-{{ content.id }}"
+             data-width="750"
+             data-height="422"
+             data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
+             data-image="{% if image_path is defined and image_path is not empty %}{{ image_path }}{% else %}//:0{% endif %}"
+             data-file="{{ ngDownloadUrl }}"
+             data-videotype="local"
+             data-mimetype="{{ mimeType }}">
         </div>
+
+        <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
+
     {% endif %}
 
 </div>
