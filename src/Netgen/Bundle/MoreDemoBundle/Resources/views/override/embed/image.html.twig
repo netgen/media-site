@@ -1,18 +1,17 @@
 {% if not ez_is_field_empty( content, 'image' ) %}
-    {% set align = objectParameters.align|default( '' ) %}
     {% set responsive_image_class = 'ng_responsive_full' %}
 
-    {% if align in ['center', 'left', 'right'] %}
+    {% if objectParameters.align|default( '' ) is not empty %}
         {% set responsive_image_class = 'ng_responsive_half' %}
     {% endif %}
 
-    <div class="content-view-embed image {% if align is not empty %}align-{{ align }}{% endif %}">
+    <div class="content-view-embed image">
         <div class="att-image">
             {{ ez_render_field(
                 content,
                 'image', {
                     'parameters': {
-                        'alias': objectParameters.size,
+                        'alias': responsive_image_class,
                         'responsive_image_class': responsive_image_class,
                         'link_href': link_href|default( '' ),
                         'link_class': objectParameters.link_class|default( '' ),
