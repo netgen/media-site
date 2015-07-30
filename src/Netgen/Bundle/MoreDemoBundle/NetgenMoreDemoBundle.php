@@ -14,9 +14,9 @@ class NetgenMoreDemoBundle extends Bundle implements NetgenMoreProjectBundleInte
      *
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    public function build( ContainerBuilder $container )
+    public function build(ContainerBuilder $container)
     {
-        parent::build( $container );
-        $container->addCompilerPass( new XslRegisterPass() );
+        parent::build($container);
+        $container->addCompilerPass(new XslRegisterPass());
     }
 }
