@@ -10,7 +10,7 @@ use Netgen\Bundle\MoreDemoBundle\DependencyInjection\Compiler\XslRegisterPass;
 class NetgenMoreDemoBundle extends Bundle implements NetgenMoreProjectBundleInterface
 {
     /**
-     * Builds the bundle
+     * Builds the bundle.
      *
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */

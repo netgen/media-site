@@ -9,7 +9,7 @@ class XslRegisterPass implements CompilerPassInterface
 {
     /**
      * Compiler pass to register ezxml_tags.xsl as custom XSL stylesheet for
-     * XmlText field type
+     * XmlText field type.
      *
      * Avoids having it in %kernel.root_dir%/Resources folder
      *
