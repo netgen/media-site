@@ -11,7 +11,7 @@
     {% endif %}
 {% endif %}
 
-{% set bContainerDisable = false %}
+{% set disable_container = false %}
 
 {% block content %}
     <div class="rsContent{% if not ez_is_field_empty( content, 'css_class' ) %} {{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
@@ -31,7 +31,7 @@
                    data-rsVideo="video-external-{{ content.id }}"
                    href="{{ image_path }}"></a>
             {% elseif 'vimeo' in video_type.identifiers %}
-                {% set bContainerDisable = true %}
+                {% set disable_container = true %}
                 <div class="video-external-vimeo" style="height:96%; width:100%;">
                     <iframe id="video-external-{{ content.id }}" height="100%" width="100%" src="//player.vimeo.com/video/{{ video_identifier }}"></iframe>
                 </div>
@@ -61,7 +61,7 @@
 
         {% endif %}
 
-        {% if not bContainerDisable %}
+        {% if not disable_container %}
             <div class="bContainer">
                 <div class="rsABlock txtCent">
 
