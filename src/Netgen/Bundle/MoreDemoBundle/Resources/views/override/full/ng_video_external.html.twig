@@ -6,10 +6,15 @@
     {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
 {% endif %}
 
-{% set image_alias = null %}
+{% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster_default.png' ) %}
+
 {% if not ez_is_field_empty( content, 'poster' ) %}
     {% set image_alias = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'original' ) %}
+    {% if image_alias.uri is defined and image_alias.uri is not empty %}
+        {% set image_path = image_alias.uri %}
+    {% endif %}
 {% endif %}
+
 
 {% block content %}
 <div class="content-view-full ng-video-external">
@@ -26,16 +31,28 @@
 
     {% if not ez_is_field_empty( content, 'video_identifier' ) %}
         {% set video_type = ez_field_value( content, 'video_type' ) %}
+        {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
 
         {% if 'youtube' in video_type.identifiers %}
             <div class="video-youtube">
-                <video style="display:none;" class="sublime" data-youtube-id="{{ ez_field_value( content, 'video_identifier' ).text }}" width="770" height="433" poster="{% if image_alias %}{{ image_alias.uri }}{% else %}//:0{% endif %}" preload="none" data-initial-overlay-enable="false" data-autoresize="{{ ez_field_value( content, 'autoresize' ).identifiers[0] }}" data-autoplay="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"></video>
+                <div class="video-config video-external-{{ content.id }}"
+                     data-video_player_id="video-external-{{ content.id }}"
+                     data-width="770"
+                     data-height="433"
+                     data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
+                     data-image="{{ image_path }}"
+                     data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
+                     data-videotype="youtube">
+                </div>
+
+                <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
             </div>
         {% elseif 'vimeo' in video_type.identifiers %}
             <div class="video-vimeo">
-                <iframe style="border:none;" src="//player.vimeo.com/video/{{ ez_field_value( content, 'video_identifier' ).text }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+                <iframe style="border:none;" src="//player.vimeo.com/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% endif %}
+
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'description' ) %}
