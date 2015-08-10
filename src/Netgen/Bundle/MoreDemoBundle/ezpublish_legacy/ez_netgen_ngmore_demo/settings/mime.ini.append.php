@@ -8,5 +8,4 @@ Types[]=video/mp4
 
 [flv]
 Types[]=video/flv
-
 */?>
