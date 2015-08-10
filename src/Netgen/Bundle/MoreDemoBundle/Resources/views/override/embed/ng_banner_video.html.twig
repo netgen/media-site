@@ -34,7 +34,7 @@
                  data-width="770"
                  data-height="433"
                  data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
-                 data-image="{% if image_path is defined and image_path is not empty %}{{ image_path }}{% else %}//:0{% endif %}"
+                 data-image="{{ image_path }}"
                  data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
                  data-videotype="youtube">
             </div>
@@ -59,7 +59,7 @@
              data-width="770"
              data-height="433"
              data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
-             data-image="{% if image_path is defined and image_path is not empty %}{{ image_path }}{% else %}//:0{% endif %}"
+             data-image="{{ image_path }}"
              data-file="{{ ngDownloadUrl }}"
              data-videotype="local"
              data-mimetype="{{ mimeType }}">

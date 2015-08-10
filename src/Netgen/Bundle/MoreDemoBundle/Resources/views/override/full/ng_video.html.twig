@@ -47,7 +47,7 @@
              data-width="750"
              data-height="422"
              data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
-             data-image="{% if image_path is defined and image_path is not empty %}{{ image_path }}{% else %}//:0{% endif %}"
+             data-image="{{ image_path }}"
              data-file="{{ ngDownloadUrl }}"
              data-videotype="local"
              data-mimetype="{{ mimeType }}">
