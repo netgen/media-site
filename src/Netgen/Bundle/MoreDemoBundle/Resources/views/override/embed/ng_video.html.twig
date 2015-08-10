@@ -17,7 +17,7 @@
     {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
         {% set local_video_field = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
 
-        {% set ng_download_url = path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( local_video_field ).id } ) %}
+        {% set download_url = path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( local_video_field ).id } ) %}
         {% set mime_type = ez_field_value(content, local_video_field ).mimeType %}
 
         <div class="video-config video-local-{{ content.id }}"
@@ -27,7 +27,7 @@
              data-height="422"
              data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
              data-image="{{ image_path }}"
-             data-file="{{ ng_download_url }}"
+             data-file="{{ download_url }}"
              data-videotype="local"
              data-mimetype="{{ mime_type }}">
         </div>
