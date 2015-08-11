@@ -15,6 +15,7 @@ VarDir=var/ezdemo_site
 
 [ExtensionSettings]
 ActiveExtensions[]=ez_netgen_ngmore_demo
+ActiveExtensions[]=ngsymfonytools
 ActiveExtensions[]=ngresponsiveimages
 ActiveExtensions[]=ngmore
 ActiveExtensions[]=ezfind
