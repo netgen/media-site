@@ -70,7 +70,7 @@
         {% if not ez_is_field_empty( content, 'title' ) %}
             <div class="bContainer">
                 <div class="rsABlock txtCent">
-                    <p class="att-title">{{ ez_field_value(content, 'title') }}</p>
+                    <p class="att-title">{{ ez_field_value( content, 'title' ).text }}</p>
                 </div>
             </div>
         {% endif %}

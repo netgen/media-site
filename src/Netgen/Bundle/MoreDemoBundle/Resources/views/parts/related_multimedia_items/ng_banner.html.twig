@@ -7,15 +7,15 @@
 {% endif %}
 
 <div class="{% if is_slider %}rsContent{% else %}multimediaContent{% endif %}">
-    <a href="{{ path( "ez_urlalias", { "contentId": content.versionInfo.contentInfo.id } ) }}">
+    <a href="{{ path( "ez_urlalias", { "contentId": content.id } ) }}">
         <img class="img-responsive {% if is_slider %}rsImg{% endif %}" src="{{ ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, alias_name ).uri }}" />
     </a>
 
     {% if not ez_is_field_empty( content, 'title' ) %}
-    <div class="bContainer">
-        <div class="rsABlock txtCent">
-            <p class="att-title">{{ ez_field_value( content, 'title' ) }} </p>
+        <div class="bContainer">
+            <div class="rsABlock txtCent">
+                <p class="att-title">{{ ez_field_value( content, 'title' ).text }} </p>
+            </div>
         </div>
-    </div>
     {% endif %}
 </div>
