@@ -13,16 +13,19 @@
 
     <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
 
-    <div class="images">
-        {{ render(
-            controller(
-                'ngmore.controller.parts:viewGallery', {
-                    'locationId': location.id,
-                    'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
-                }
-            )
-        ) }}
-    </div>
+    {% if not ez_is_field_empty( content, 'image' ) or not ez_is_field_empty( content, 'related_multimedia' ) %}
+        <div class="images media">
+            {{ render(
+                controller(
+                    'ngmore.controller.parts:viewRelatedMultimedia', {
+                        'locationId': location.id,
+                        'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig',
+                        'includeChildrenImages': true
+                    }
+                )
+            ) }}
+        </div>
+    {% endif %}
 
     {% if not ez_is_field_empty( content, 'full_intro' ) %}
         <div class="att-full-intro">

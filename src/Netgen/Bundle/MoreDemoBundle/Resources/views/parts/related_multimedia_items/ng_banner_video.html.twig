@@ -1,0 +1,78 @@
+{% if not ez_is_field_empty( content, 'video_identifier' ) or not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
+    {% if is_slider is not defined %}
+        {% set is_slider = false %}
+    {% endif %}
+
+    {% if alias_name is not defined or alias_name is empty %}
+        {% set alias_name = 'gallerylarge' %}
+    {% endif %}
+
+    {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster_default.png' ) %}
+
+    {% if not ez_is_field_empty( content, 'poster' ) %}
+        {% set image_alias = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, alias_name ) %}
+        {% if image_alias.uri is defined and image_alias.uri is not empty %}
+            {% set image_path = image_alias.uri %}
+        {% endif %}
+    {% endif %}
+
+    <div class="{% if is_slider %}rsContent{% else %}multimediaContent{% endif %}">
+        {# EXTERNAL VIDEO #}
+        {% if not ez_is_field_empty( content, 'video_identifier' ) %}
+            {% set video_type = ez_field_value( content, 'video_type' ) %}
+            {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
+
+            {% if 'youtube' in video_type.identifiers %}
+                <div class="video-config video-external-{{ content.id }}"
+                     data-video_player_id="video-external-{{ content.id }}"
+                     data-autostart="{% if ez_field_value( content, 'autoplay' ).bool or is_slider %}true{% else %}false{% endif %}"
+                     data-image="{{ image_path }}"
+                     data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
+                     data-videotype="youtube">
+                </div>
+
+                {% if is_slider %}
+                    <a class="rsImg"
+                       data-rsVideo="video-external-{{ content.id }}"
+                       href="{{ image_path }}"></a>
+                {% else %}
+                    <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
+                {% endif %}
+            {% elseif 'vimeo' in video_type.identifiers %}
+                <div class="video-external-vimeo" style="height:96%; width:100%;">
+                    <iframe id="video-external-{{ content.id }}" height="100%" width="100%" src="//player.vimeo.com/video/{{ video_identifier }}" ></iframe>
+                </div>
+            {% endif %}
+        {# LOCAL VIDEO #}
+        {% else %}
+            {% set local_video_field = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
+            {% set download_url = path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( local_video_field ).id } ) %}
+            {% set mime_type = ez_field_value(content, local_video_field ).mimeType %}
+
+            <div class="video-config video-local-{{ content.id }}"
+                 data-video_player_id="video-local-{{ content.id }}"
+                 data-autostart="{% if ez_field_value( content, 'autoplay' ).bool or is_slider %}true{% else %}false{% endif %}"
+                 data-image="{{ image_path }}"
+                 data-file="{{ download_url }}"
+                 data-videotype="local"
+                 data-mimetype="{{ mime_type }}">
+            </div>
+
+            {% if is_slider %}
+                <a class="rsImg"
+                   data-rsVideo="video-local-{{ content.id }}"
+                   href="{{ image_path }}"></a>
+            {% else %}
+                <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
+            {% endif %}
+        {% endif %}
+
+        {% if not ez_is_field_empty( content, 'title' ) %}
+            <div class="bContainer">
+                <div class="rsABlock txtCent">
+                    <p class="att-title">{{ ez_field_value( content, 'title' ).text }}</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

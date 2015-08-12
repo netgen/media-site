@@ -1,0 +1,26 @@
+{% set is_slider = false %}
+
+{% if multimedia_items is defined and multimedia_items|length > 0 %}
+    {% if multimedia_items|length > 1 %}
+        {% set is_slider = true %}
+    {% endif %}
+
+    {% if is_slider %}
+        <div class="relatedMultimediaSlides royalSlider rsDefault fwImage">
+    {% else %}
+        <div class="noSlider">
+    {% endif %}
+
+    {% for multimedia_item in multimedia_items %}
+        {% include
+            'NetgenMoreDemoBundle:parts/related_multimedia_items:' ~ multimedia_item.type ~ '.html.twig'
+            ignore missing
+            with {
+                'content': multimedia_item.content,
+                'is_slider': is_slider,
+                'alias_name': alias_name
+            }
+        %}
+    {% endfor %}
+    </div>
+{% endif %}
