@@ -10,5 +10,3 @@ parameters:
     ngmore.default.user_register.template.mail.email_not_registered: 'NetgenMoreDemoBundle:user/mail:not_registered_mail.html.twig'
     ngmore.default.user_register.template.mail.password_changed: 'NetgenMoreDemoBundle:user/mail:password_changed.html.twig'
     ngmore.default.user_register.mail_sender: 'info@netgen.hr'
-    ngmore.default.user_register.user_group: 11
-    ngmore.default.user_register.auto_enable: false
