@@ -1,39 +1,42 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
 {% block content %}
-    <div class="row">
-        <div class="login-box">
+    {% block login_content %}
+        <div class="row">
+            <div class="login-box">
 
-            <div class="page-header">
-                <h1 class="title">{{ 'ngmore.user.login.title'|trans }}</h1>
+                <div class="page-header">
+                    <h1 class="title">{{ 'ngmore.user.login.title'|trans }}</h1>
+                </div>
+
+                <form class="form-horizontal" action="{{ path( 'login_check' ) }}" method="post">
+                    {% block login_fields %}
+                        <fieldset>
+                            <input class="input-large col-xs-12" name="_username" id="username" type="text" placeholder="{{ 'ngmore.user.login.placeholder.username'|trans }}" value="{{ last_username }}" tabindex="1" />
+                            <input class="input-large col-xs-12" name="_password" id="password" type="password" placeholder="{{ 'ngmore.user.login.placeholder.password'|trans }}" tabindex="1"/>
+
+                            {% if error %}
+                                <div class="alert alert-danger">
+                                    <p><strong>{{ error.message|trans }}</strong></p>
+                                </div>
+                            {% endif %}
+
+                            <div class="clearfix"></div>
+                            <button name="login" type="submit" class="btn btn-primary col-xs-12">{{ "ngmore.user.login.submit_button"|trans }}</button>
+                        </fieldset>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                        <input type="hidden" name="_target_path" value="/" />
+                    {% endblock %}
+                </form>
+
+                <h3>{{ "ngmore.user.login.forgot_password_text"|trans }}</h3>
+                <p>{{ "ngmore.user.login.forgot_password_link"|trans( { '%forgot_pass_url%': path( 'ngmore_user_forgot_password' ) } )|raw }}</p>
+
+                <hr/>
+                <h3>{{ "ngmore.user.login.no_account"|trans }}</h3>
+                <p>{{ "ngmore.user.login.register_link"|trans( { '%register_url%': path( 'ngmore_user_register' ) } )|raw }}</p>
+
             </div>
-
-            <form class="form-horizontal" action="{{ path( 'login_check' ) }}" method="post">
-                <fieldset>
-
-                    <input class="input-large col-xs-12" name="_username" id="username" type="text" placeholder="{{ 'ngmore.user.login.placeholder.username'|trans }}" value="{{ last_username }}" tabindex="1" />
-                    <input class="input-large col-xs-12" name="_password" id="password" type="password" placeholder="{{ 'ngmore.user.login.placeholder.password'|trans }}" tabindex="1"/>
-
-                    {% if error %}
-                        <div class="alert alert-danger">
-                            <p><strong>{{ error.message|trans }}</strong></p>
-                        </div>
-                    {% endif %}
-
-                    <div class="clearfix"></div>
-                    <button name="login" type="submit" class="btn btn-primary col-xs-12">{{ "ngmore.user.login.submit_button"|trans }}</button>
-                </fieldset>
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
-                <input type="hidden" name="_target_path" value="/" />
-            </form>
-
-            <h3>{{ "ngmore.user.login.forgot_password_text"|trans }}</h3>
-            <p>{{ "ngmore.user.login.forgot_password_link"|trans( { '%forgot_pass_url%': path( 'ngmore_user_forgot_password' ) } )|raw }}</p>
-
-            <hr/>
-            <h3>{{ "ngmore.user.login.no_account"|trans }}</h3>
-            <p>{{ "ngmore.user.login.register_link"|trans( { '%register_url%': path( 'ngmore_user_register' ) } )|raw }}</p>
-
-        </div>
-    </div><!--/row-->
+        </div><!--/row-->
+    {% endblock %}
 {% endblock %}
