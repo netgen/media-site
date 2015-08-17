@@ -2,7 +2,7 @@
 
 {% block body %}
     <p>
-        {{ 'ngmore.user.activate.mail.thank_you_message'|trans{ '%site_url%': base_url, '%site_name%': site_name } }}
+        {{ 'ngmore.user.activate.mail.thank_you_message'|trans( { '%site_url%': base_url, '%site_name%': site_name } ) }}
     </p>
 
     <p>{{ "ngmore.user.mail.account_information"|trans }}:<br/>
