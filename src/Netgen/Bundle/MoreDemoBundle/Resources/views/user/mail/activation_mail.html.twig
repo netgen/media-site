@@ -1,6 +1,8 @@
+{% trans_default_domain "ngmore_user" %}
+
 {% block body %}
     <p>
-        {{ 'ngmore.user.mail.activation.thank_you'|trans }} <a href="{{ base_url }}">{{ site_name }}</a>
+        {{ 'ngmore.user.activate.mail.thank_you_message'|trans{ '%site_url%': base_url, '%site_name%': site_name } }}
     </p>
 
     <p>{{ "ngmore.user.mail.account_information"|trans }}:<br/>
@@ -8,6 +10,6 @@
         {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}<br/>
     </p>
     <p>
-        {{ "ngmore.user.mail.activation.click_to_activate"|trans }} <a href="{{ url( 'ngmore_user_activate', { "hash": hash } ) }}">{{ url( 'ngmore_user_activate', { "hash": hash } ) }}</a>
+        {{ "ngmore.user.activate.mail.click_to_activate"|trans }} <a href="{{ url( 'ngmore_user_activate', { "hash": hash } ) }}">{{ url( 'ngmore_user_activate', { "hash": hash } ) }}</a>
     </p>
 {% endblock %}

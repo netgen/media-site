@@ -1,0 +1,60 @@
+# login feature
+ngmore.user.login.title: 'Login'
+ngmore.user.login.placeholder.username: 'Enter your username or email'
+ngmore.user.login.placeholder.password: 'Enter your password'
+ngmore.user.login.submit_button: 'Login'
+ngmore.user.login.forgot_password_text: 'Forgot password?'
+ngmore.user.login.forgot_password_link: 'No problem, <a href=%forgot_pass_url%>click here</a> to reset your password.'
+ngmore.user.login.no_account: "Don't have an account?"
+ngmore.user.login.register_link: 'Please, <a href=%register_url%>click here</a> to register.'
+
+# register feature
+ngmore.user.register.title: 'Register'
+ngmore.user.register.already_logged_in: '<a href="%logout%">Log out</a> to continue with registration!'
+ngmore.user.register.submit_label: 'Register'
+ngmore.user.register.general_error: 'Register is not possible at the moment. Please try again later.'
+ngmore.user.register.already_exists: 'User with given credentials already exists.'
+ngmore.user.register.email_already_in_use: 'User with given credentials already exists'
+
+ngmore.user.register.mail.title: 'Thank you for registering at our site!'
+ngmore.user.register.mail.subject: 'Welcome!'
+
+# user activation
+ngmore.user.activate.title: 'Activate account'
+ngmore.user.activate.success: 'Your account has now been activated!'
+ngmore.user.activate.already_active: 'Your account has already been activated!'
+ngmore.user.activate.failure: 'There has been an error.'
+ngmore.user.activate.go_to_login: 'You can now <a href=%login_url%>log in here</a>.'
+
+ngmore.user.activate.mail.subject: 'Activation mail'
+ngmore.user.activate.mail.thank_you_message: 'Thank you for registering at <a href="%site_url%">%site_name%</a>!'
+ngmore.user.activate.mail.click_to_activate: 'Click the following link to activate your account:'
+
+# forgotten password
+ngmore.user.forgotten_password.title: 'Forgotten password?'
+ngmore.user.forgotten_password.text: 'No problem, enter your e-mail below and we will send you email so you can reset it'
+ngmore.user.forgotten_password.email: 'E-mail'
+ngmore.user.forgotten_password.submit: 'Send mail'
+ngmore.user.forgotten_pasword.mail_sent: 'E-mail has been sent with further information about resetting your password.'
+ngmore.user.forgotten_password.wrong_hash: "I can't let you do that Dave"
+ngmore.user.forgotten_password.wrong_password: "You have entered wrong password."
+
+ngmore.user.forgotten_password.mail.title: 'You have requested a password reset.'
+ngmore.user.forgotten_password.mail.change_requested.subject: 'Password change request'
+ngmore.user.forgotten_password.mail.password_changed.subject: 'Password changed'
+ngmore.user.forgotten_password.mail.text: 'Click the following URL to reset password: '
+
+ngmore.user.forgotten_password.mail.email_not_registered.subject: 'Account access attempted'
+ngmore.user.forgotten_password.mail.email_not_registered.text: 'You (or someone else) entered this email when trying to change the password. However, we do not have knowledge that this email address is registered at our site. If you were expecting this mail, please try again using other email address you might have used when opening the account. Otherwise, please ignore this email.'
+
+# reset password
+ngmore.user.reset_password.title: 'Reset your password'
+ngmore.user.reset_password.label: 'New password'
+ngmore.user.reset_password.submit_label: 'Reset password'
+
+ngmore.user.reset_password.mail.password_changed.text: 'Your password on our site has been changed!'
+
+# mail general
+ngmore.user.mail.account_information: 'Your account information'
+ngmore.user.mail.username: 'Username'
+ngmore.user.mail.email: 'E-mail'
