@@ -40,7 +40,7 @@ ngmore.user.forgotten_password.title: 'Forgotten password?'
 ngmore.user.forgotten_password.text: 'No problem, enter your e-mail below and we will send you email so you can reset it'
 ngmore.user.forgotten_password.email: 'E-mail'
 ngmore.user.forgotten_password.submit: 'Send mail'
-ngmore.user.forgotten_pasword.mail_sent: 'E-mail has been sent with further information about resetting your password.'
+ngmore.user.forgotten_pasword.mail_sent: 'E-mail has been sent with further information about resetting your password. If you would like to enter different e-mail, simply <a href=%reloadLink%>reload</a> the page'
 ngmore.user.forgotten_password.wrong_hash: "I can't let you do that Dave"
 ngmore.user.forgotten_password.wrong_password: "You have entered wrong password."
 
