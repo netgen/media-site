@@ -1,6 +1,6 @@
 # login feature
 ngmore.user.login.title: 'Login'
-ngmore.user.login.placeholder.username: 'Enter your username or email'
+ngmore.user.login.placeholder.username: 'Enter your username or e-mail'
 ngmore.user.login.placeholder.password: 'Enter your password'
 ngmore.user.login.submit_button: 'Login'
 ngmore.user.login.forgot_password_text: 'Forgot password?'
@@ -35,9 +35,14 @@ ngmore.user.activate.mail.subject: 'Activation mail'
 ngmore.user.activate.mail.thank_you_message: 'Thank you for registering at <a href="%site_url%">%site_name%</a>!'
 ngmore.user.activate.mail.click_to_activate: 'Click the following link to activate your account:'
 
+ngmore.user.activate.mail.activation_mail_not_registered.subject: 'User activation attempt'
+ngmore.user.activate.mail.email_not_registered.text: 'You (or someone else) entered this e-mail to receive account activation link. However, this e-mail address has not been used to register on our site. If you were expecting this mail, please try registering again using this e-mail, or check other e-mail addresses you might have used during registration. Otherwise, please ignore this e-mail.'
+ngmore.user.activate.mail.user_already_active.subject: 'User activation attempt'
+ngmore.user.activate.mail.already_active.text: 'Your account is already active!'
+
 # forgotten password
 ngmore.user.forgotten_password.title: 'Forgotten password?'
-ngmore.user.forgotten_password.text: 'No problem, enter your e-mail below and we will send you email so you can reset it'
+ngmore.user.forgotten_password.text: 'No problem, enter your e-mail below and we will send you e-mail so you can reset it'
 ngmore.user.forgotten_password.email: 'E-mail'
 ngmore.user.forgotten_password.submit: 'Send mail'
 ngmore.user.forgotten_pasword.mail_sent: 'E-mail has been sent with further information about resetting your password. If you would like to enter different e-mail, simply <a href=%reloadLink%>reload</a> the page'
@@ -50,7 +55,7 @@ ngmore.user.forgotten_password.mail.password_changed.subject: 'Password changed'
 ngmore.user.forgotten_password.mail.text: 'Click the following URL to reset password: '
 
 ngmore.user.forgotten_password.mail.email_not_registered.subject: 'Account access attempted'
-ngmore.user.forgotten_password.mail.email_not_registered.text: 'You (or someone else) entered this email when trying to change the password. However, we do not have knowledge that this email address is registered at our site. If you were expecting this mail, please try again using other email address you might have used when opening the account. Otherwise, please ignore this email.'
+ngmore.user.forgotten_password.mail.email_not_registered.text: 'You (or someone else) entered this e-mail when trying to change the password. However, we do not have knowledge that this e-mail address is registered at our site. If you were expecting this mail, please try again using other e-mail address you might have used when opening the account. Otherwise, please ignore this e-mail.'
 
 # reset password
 ngmore.user.reset_password.title: 'Reset your password'

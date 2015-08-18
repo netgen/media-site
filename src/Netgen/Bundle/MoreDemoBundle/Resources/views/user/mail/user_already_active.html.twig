@@ -1,0 +1,18 @@
+{% trans_default_domain "ngmore_user" %}
+
+<h1><a href="{{ base_url }}" target="_blank">{{ site_name }}</a></h1>
+
+<p>
+    {{ "ngmore.user.activate.mail.already_active.text"|trans }}
+</p>
+
+<p>{{ "ngmore.user.mail.account_information"|trans }}<br/>
+    {{ "ngmore.user.mail.username"|trans }}: {{ user.login }}<br/>
+    {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}<br/>
+</p>
+
+{% if return_url is defined and return_url is not empty %}
+    <p><a href="{{ return_url }}">{{ return_url }}</a></p>
+{% else %}
+    <p><a href="{{ base_url }}">{{ site_name }}</a></p>
+{% endif %}
