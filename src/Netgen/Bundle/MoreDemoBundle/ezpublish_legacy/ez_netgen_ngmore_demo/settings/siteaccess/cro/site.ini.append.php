@@ -19,6 +19,7 @@ RelatedSiteAccessList[]
 RelatedSiteAccessList[]=eng
 RelatedSiteAccessList[]=cro
 RelatedSiteAccessList[]=administration
+RelatedSiteAccessList[]=administration2
 ShowHiddenNodes=false
 
 [DesignSettings]

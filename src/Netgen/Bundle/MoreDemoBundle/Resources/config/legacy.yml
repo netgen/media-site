@@ -48,6 +48,7 @@ netgen_more_legacy:
                 site.ini:
                     ExtensionSettings/ActiveExtensions:
                         - ez_netgen_ngmore_demo
+                        - ngadminui
                         - ngsymfonytools
                         - ngresponsiveimages
                         - ngmore

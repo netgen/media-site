@@ -20,9 +20,9 @@ RelatedSiteAccessList[]=administration2
 ShowHiddenNodes=true
 
 [DesignSettings]
-SiteDesign=admin2
+SiteDesign=ngadminui
 AdditionalSiteDesignList[]
-AdditionalSiteDesignList[]=admin
+AdditionalSiteDesignList[]=admin2
 AdditionalSiteDesignList[]=ezdemo
 
 [RegionalSettings]
