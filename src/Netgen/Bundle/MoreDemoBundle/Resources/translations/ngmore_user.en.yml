@@ -59,8 +59,10 @@ ngmore.user.forgotten_password.mail.email_not_registered.text: 'You (or someone 
 
 # reset password
 ngmore.user.reset_password.title: 'Reset your password'
-ngmore.user.reset_password.label: 'New password'
+ngmore.user.reset_password.first.label: 'New password'
+ngmore.user.reset_password.second.label: 'Repeat new password'
 ngmore.user.reset_password.submit_label: 'Reset password'
+ngmore.user.reset_password.validation_error: 'Both passwords must match'
 
 ngmore.user.reset_password.mail.password_changed.text: 'Your password on our site has been changed!'
 
