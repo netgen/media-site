@@ -22,12 +22,10 @@
                         {{ form_start( form, { 'attr': { 'class': 'form-horizontal' } } ) }}
 
                         {% for form_child in form.children %}
-                            {% if form_child == form.save %}
-                                {{ form_row( form_child, { 'attr': { 'class': 'btn btn-primary col-xs-12' } } ) }}
-                            {% else %}
-                                {{ form_row( form_child, { 'attr': { 'class': 'input-large col-xs-12' } } ) }}
-                            {% endif %}
+                            {{ form_row( form_child, { 'attr': { 'class': 'input-large col-xs-12' } } ) }}
                         {% endfor %}
+
+                        <input type="submit" value="{{ 'ngmore.user.register.submit_label'|trans }}" class="btn btn-primary col-xs-12" />
 
                         {{ form_end( form ) }}
 
