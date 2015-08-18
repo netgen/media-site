@@ -1,6 +1,8 @@
 # login feature
 ngmore.user.login.title: 'Login'
+ngmore.user.login.label.username: 'Username or e-mail'
 ngmore.user.login.placeholder.username: 'Enter your username or e-mail'
+ngmore.user.login.label.password: 'Password'
 ngmore.user.login.placeholder.password: 'Enter your password'
 ngmore.user.login.submit_button: 'Login'
 ngmore.user.login.forgot_password_text: 'Forgot password?'
