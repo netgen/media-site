@@ -17,6 +17,9 @@ ngmore.user.register.general_error: 'Register is not possible at the moment. Ple
 ngmore.user.register.email_already_in_use: 'E-mail has already been registered.'
 ngmore.user.register.username_taken: 'Username has already been taken.'
 
+ngmore.user.register.success.title: 'You have been registered!'
+ngmore.user.register.success.text: 'Your account has successfully been created! You can now go ahead and <a href=%path%>log in</a>.'
+
 ngmore.user.register.resend_activation.email: 'E-mail'
 ngmore.user.register.resend_activation.submit: 'Resend'
 ngmore.user.register.activation.form.title: 'Enter your e-mail'
