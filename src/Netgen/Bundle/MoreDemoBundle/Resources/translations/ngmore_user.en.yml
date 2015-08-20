@@ -63,6 +63,8 @@ ngmore.user.forgotten_password.mail.email_not_registered.subject: 'Account acces
 ngmore.user.forgotten_password.mail.email_not_registered.text: 'You (or someone else) entered this e-mail when trying to change the password. However, we do not have knowledge that this e-mail address is registered at our site. If you were expecting this mail, please try again using other e-mail address you might have used when opening the account. Otherwise, please ignore this e-mail.'
 ngmore.user.forgotten_password.mail.user_disabled.subject: 'Account access attempted'
 ngmore.user.forgotten_password.mail.user_disabled.text: 'You have attempted to reset your password, but your account has been previously disabled!'
+ngmore.user.forgotten_password.mail.user_not_activated.subject: 'Account access attempted'
+ngmore.user.forgotten_password.mail.user_not_activated.text: 'You have attempted to reset your password, but your account has not yet been activated!'
 
 # reset password
 ngmore.user.reset_password.title: 'Reset your password'
