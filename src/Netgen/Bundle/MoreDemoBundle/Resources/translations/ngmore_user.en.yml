@@ -6,9 +6,9 @@ ngmore.user.login.label.password: 'Password'
 ngmore.user.login.placeholder.password: 'Enter your password'
 ngmore.user.login.submit_button: 'Login'
 ngmore.user.login.forgot_password_text: 'Forgot password?'
-ngmore.user.login.forgot_password_link: 'No problem, <a href=%forgot_pass_url%>click here</a> to reset your password.'
+ngmore.user.login.forgot_password_link: 'No problem, <a href="%forgot_pass_url%">click here</a> to reset your password.'
 ngmore.user.login.no_account: "Don't have an account?"
-ngmore.user.login.register_link: 'Please, <a href=%register_url%>click here</a> to register.'
+ngmore.user.login.register_link: 'Please, <a href="%register_url%">click here</a> to register.'
 
 # register feature
 ngmore.user.register.title: 'Register'
@@ -18,13 +18,13 @@ ngmore.user.register.email_already_in_use: 'E-mail has already been registered.'
 ngmore.user.register.username_taken: 'Username has already been taken.'
 
 ngmore.user.register.success.title: 'You have been registered!'
-ngmore.user.register.success.text: 'Your account has successfully been created! You can now go ahead and <a href=%path%>log in</a>.'
+ngmore.user.register.success.text: 'Your account has successfully been created! You can now go ahead and <a href="%path%">log in</a>.'
 
 ngmore.user.register.resend_activation.email: 'E-mail'
 ngmore.user.register.resend_activation.submit: 'Resend'
 ngmore.user.register.activation.form.title: 'Enter your e-mail'
 ngmore.user.register.activation.sent.title: 'Activation e-mail has been sent!'
-ngmore.user.register.activation.sent.text: 'We have sent you e-mail with further instructions. Please check your inbox (and spam folder). If you have not received the mail, click <a href=%path%>here</a> to send it again.'
+ngmore.user.register.activation.sent.text: 'We have sent you e-mail with further instructions. Please check your inbox (and spam folder). If you have not received the mail, click <a href="%path%">here</a> to send it again.'
 
 ngmore.user.register.mail.title: 'Thank you for registering at our site!'
 ngmore.user.register.mail.subject: 'Welcome!'
@@ -33,9 +33,9 @@ ngmore.user.register.mail.subject: 'Welcome!'
 ngmore.user.activate.title: 'Activate account'
 ngmore.user.activate.success: 'Your account has now been activated!'
 ngmore.user.activate.already_active: 'Your account has already been activated!'
-ngmore.user.activate.hash_expired: 'Provided hash key has expired. Please request a new one <a href=%path%>here</a>.'
+ngmore.user.activate.hash_expired: 'Provided hash key has expired. Please request a new one <a href="%path%">here</a>.'
 ngmore.user.activate.failure: 'There has been an error.'
-ngmore.user.activate.go_to_login: 'You can now <a href=%login_url%>log in here</a>.'
+ngmore.user.activate.go_to_login: 'You can now <a href="%login_url%">log in here</a>.'
 
 ngmore.user.activate.mail.subject: 'Activation mail'
 ngmore.user.activate.mail.thank_you_message: 'Thank you for registering at <a href="%site_url%">%site_name%</a>!'
@@ -51,9 +51,7 @@ ngmore.user.forgotten_password.title: 'Forgotten password?'
 ngmore.user.forgotten_password.text: 'No problem, enter your e-mail below and we will send you e-mail so you can reset it'
 ngmore.user.forgotten_password.email: 'E-mail'
 ngmore.user.forgotten_password.submit: 'Send mail'
-ngmore.user.forgotten_pasword.mail_sent: 'E-mail has been sent with further information about resetting your password. If you would like to enter different e-mail, simply <a href=%reloadLink%>reload</a> the page'
-ngmore.user.forgotten_password.wrong_hash: "I can't let you do that Dave"
-ngmore.user.forgotten_password.wrong_password: "You have entered wrong password."
+ngmore.user.forgotten_pasword.mail_sent: 'E-mail has been sent with further information about resetting your password. If you would like to enter different e-mail, simply <a href="%reloadLink%">reload</a> the page'
 
 ngmore.user.forgotten_password.mail.title: 'You have requested a password reset.'
 ngmore.user.forgotten_password.mail.change_requested.subject: 'Password change request'
