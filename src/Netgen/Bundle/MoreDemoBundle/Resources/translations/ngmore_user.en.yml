@@ -35,6 +35,7 @@ ngmore.user.activate.success: 'Your account has now been activated!'
 ngmore.user.activate.already_active: 'Your account has already been activated!'
 ngmore.user.activate.hash_expired: 'Provided hash key has expired. Please request a new one <a href="%path%">here</a>.'
 ngmore.user.activate.failure: 'There has been an error.'
+ngmore.user.register.activation.user_disabled: 'Your account has been previously disabled!'
 ngmore.user.activate.go_to_login: 'You can now <a href="%login_url%">log in here</a>.'
 
 ngmore.user.activate.mail.subject: 'Activation mail'
