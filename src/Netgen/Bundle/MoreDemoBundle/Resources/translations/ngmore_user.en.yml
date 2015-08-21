@@ -33,6 +33,7 @@ ngmore.user.register.mail.subject: 'Welcome!'
 ngmore.user.activate.title: 'Activate account'
 ngmore.user.activate.success: 'Your account has now been activated!'
 ngmore.user.activate.already_active: 'Your account has already been activated!'
+ngmore.user.activate.hash_expired: 'Provided hash key has expired. Please request a new one <a href=%path%>here</a>.'
 ngmore.user.activate.failure: 'There has been an error.'
 ngmore.user.activate.go_to_login: 'You can now <a href=%login_url%>log in here</a>.'
 

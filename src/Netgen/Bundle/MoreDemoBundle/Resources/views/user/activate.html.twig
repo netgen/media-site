@@ -12,16 +12,18 @@
                 </div>
 
                 <p>
-                    {% if account_activated %}
+                    {% if status == 'account_activated' %}
                         {{'ngmore.user.activate.success'|trans}}
-                    {% elseif already_active %}
+                    {% elseif status == 'already_active' %}
                         {{ 'ngmore.user.activate.already_active'|trans }}
+                     {% elseif status == 'hash_expired' %}
+                        {{ 'ngmore.user.activate.hash_expired'|trans( { '%path%': path( 'ngmore_resend_activation_mail' ) } )|raw }}
                     {% else %}
                         {{ 'ngmore.user.activate.failure'|trans }}
                     {% endif %}
                 </p>
 
-                {% if account_activated or already_active %}
+                {% if status == 'account_activated' or status == 'already_active' %}
                     <h3>{{ "ngmore.user.login.title"|trans }}</h3>
                     <p>{{ "ngmore.user.activate.go_to_login"|trans( { '%login_url%': path( 'login' ) } )|raw }}</p>
                 {% endif %}
