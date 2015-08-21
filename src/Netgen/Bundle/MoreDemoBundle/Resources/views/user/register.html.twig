@@ -10,10 +10,20 @@
                     <h1 class="title">{{ 'ngmore.user.register.title'|trans }}</h1>
                 </div>
 
-                {% if errorMessage is defined and errorMessage is not empty %}
-                    <div class="alert alert-danger">
-                        <p><strong>{{ errorMessage|raw }}</strong></p>
-                    </div>
+                {% if error is defined %}
+                    {% if error == 'email_in_use' %}
+
+                        <div class="alert alert-danger">
+                            <p><strong>{{ "ngmore.user.register.email_already_in_use"|trans }}</strong></p>
+                        </div>
+
+                    {% else if error == 'username_taken'  %}
+
+                        <div class="alert alert-danger">
+                            <p><strong>{{ "ngmore.user.register.username_taken"|trans }}</strong></p>
+                        </div>
+
+                    {% endif %}
                 {% endif %}
 
                 {% if form is defined %}
