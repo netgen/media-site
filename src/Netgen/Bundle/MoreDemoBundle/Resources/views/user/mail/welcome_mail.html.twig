@@ -1,6 +1,6 @@
 {% trans_default_domain "ngmore_user" %}
 
-<h1><a href="{{ base_url }}" target="_blank">{{ site_name }}</a></h1>
+<h1><a href="{{ site_url }}" target="_blank">{{ site_name }}</a></h1>
 <p>
     {{ "ngmore.user.register.mail.title"|trans }}
 </p>
@@ -13,5 +13,5 @@
 {% if return_url is defined and return_url is not empty %}
     <p><a href="{{ return_url }}">{{ return_url }}</a></p>
 {% else %}
-    <p><a href="{{ base_url }}">{{ site_name }}</a></p>
+    <p><a href="{{ site_url }}">{{ site_name }}</a></p>
 {% endif %}
