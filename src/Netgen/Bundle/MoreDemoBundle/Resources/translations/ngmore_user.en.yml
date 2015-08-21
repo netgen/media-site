@@ -52,7 +52,7 @@ ngmore.user.forgotten_password.text: 'No problem, enter your e-mail below and we
 ngmore.user.forgotten_password.email: 'E-mail'
 ngmore.user.forgotten_password.submit: 'Send mail'
 ngmore.user.forgotten_pasword.mail_sent: 'E-mail has been sent with further information about resetting your password. If you would like to enter different e-mail, simply <a href="%reloadLink%">reload</a> the page'
-
+ngmore.user.forgotten_password.wrong_hash: 'Provided hash key has expired. Please request a new one <a href="%path%">here</a>.'
 ngmore.user.forgotten_password.mail.title: 'You have requested a password reset.'
 ngmore.user.forgotten_password.mail.change_requested.subject: 'Password change request'
 ngmore.user.forgotten_password.mail.password_changed.subject: 'Password changed'
