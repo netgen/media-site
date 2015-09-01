@@ -1,5 +1,15 @@
+{% extends 'NetgenMoreDemoBundle:user/mail:layout.html.twig' %}
+
 {% trans_default_domain "ngmore_user" %}
 
-<p>{{ "ngmore.user.forgotten_password.mail.email_not_registered.text"|trans }}<br/></p>
+{% block title %}
+    <a href="{{ site_url }}" target="_blank">{{ site_name }}</a>
+{% endblock %}
 
-<p><a href="{{ site_url }}">{{ site_name }}</a></p>
+{% block content %}
+    {{ "ngmore.user.forgotten_password.mail.email_not_registered.text"|trans }}
+
+    <br>
+
+    <a href="{{ site_url }}">{{ site_name }}</a>
+{% endblock %}

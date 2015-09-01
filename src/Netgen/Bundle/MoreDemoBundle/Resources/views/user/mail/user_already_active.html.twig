@@ -1,18 +1,31 @@
+{% extends 'NetgenMoreDemoBundle:user/mail:layout.html.twig' %}
+
 {% trans_default_domain "ngmore_user" %}
 
-<h1><a href="{{ site_url }}" target="_blank">{{ site_name }}</a></h1>
+{% block title %}
+    <a href="{{ site_url }}" target="_blank">{{ site_name }}</a>
+{% endblock %}
 
-<p>
+{% block content %}
     {{ "ngmore.user.activate.mail.already_active.text"|trans }}
-</p>
 
-<p>{{ "ngmore.user.mail.account_information"|trans }}<br/>
-    {{ "ngmore.user.mail.username"|trans }}: {{ user.login }}<br/>
-    {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}<br/>
-</p>
+    <br>
 
-{% if return_url is defined and return_url is not empty %}
-    <p><a href="{{ return_url }}">{{ return_url }}</a></p>
-{% else %}
-    <p><a href="{{ site_url }}">{{ site_name }}</a></p>
-{% endif %}
+    {{ "ngmore.user.mail.account_information"|trans }}
+
+    <br>
+
+    {{ "ngmore.user.mail.username"|trans }}: {{ user.login }}
+
+    <br>
+
+    {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}
+
+    <br><br>
+
+    {% if return_url is defined and return_url is not empty %}
+        <a href="{{ return_url }}">{{ return_url }}</a>
+    {% else %}
+        <a href="{{ site_url }}">{{ site_name }}</a>
+    {% endif %}
+{% endblock %}
