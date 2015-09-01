@@ -3,27 +3,19 @@
 {% trans_default_domain "ngmore_user" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-12">
-        <div class="activate">
-
-            {% if form is defined %}
-
-                <div class="page-header">
-                    <h1 class="title">{{ 'ngmore.user.register.activation.form.title'|trans }}</h1>
-                </div>
-
-                {{ form_start( form, { 'attr': { 'class': 'form-horizontal' } } ) }}
-
-                {{ form_row( form.email, { 'label': 'ngmore.user.register.resend_activation.email', 'attr': { 'class': 'input-large col-xs-12' } } ) }}
-
-                <input type="submit" value="{{ 'ngmore.user.register.resend_activation.submit'|trans }}" class="btn btn-primary col-xs-12" />
-
-                {{ form_end( form ) }}
-
-            {% endif %}
-
-        </div>
+    <div class="page-header">
+        <h1>{{ 'ngmore.user.register.activation.form.title'|trans }}</h1>
     </div>
-</div>
+
+    {{ form_start( form ) }}
+
+    <fieldset>
+        <div class="form-group">
+            {{ form_row( form.email, { 'label': 'ngmore.user.register.resend_activation.email', 'attr': { 'class': 'form-control' } } ) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{ 'ngmore.user.register.resend_activation.submit'|trans }}</button>
+    </fieldset>
+
+    {{ form_end( form ) }}
 {% endblock %}
