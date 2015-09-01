@@ -46,6 +46,8 @@ ngmore.user.activate.mail.activation_mail_not_registered.subject: 'User activati
 ngmore.user.activate.mail.email_not_registered.text: 'You (or someone else) entered this e-mail to receive account activation link. However, this e-mail address has not been used to register on our site. If you were expecting this mail, please try registering again using this e-mail, or check other e-mail addresses you might have used during registration. Otherwise, please ignore this e-mail.'
 ngmore.user.activate.mail.user_already_active.subject: 'User activation attempt'
 ngmore.user.activate.mail.already_active.text: 'Your account is already active!'
+ngmore.user.activate.mail.user_disabled.subject: 'Account access attempted'
+ngmore.user.activate.mail.user_disabled.text: 'You have attempted to activate your account, but your account has been previously disabled!'
 
 # forgotten password
 ngmore.user.forgotten_password.title: 'Forgotten password?'

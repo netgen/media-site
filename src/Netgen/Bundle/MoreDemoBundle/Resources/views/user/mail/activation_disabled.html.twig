@@ -1,0 +1,23 @@
+{% extends 'NetgenMoreDemoBundle:user/mail:layout.html.twig' %}
+
+{% trans_default_domain "ngmore_user" %}
+
+{% block title %}
+    <a href="{{ site_url }}" target="_blank">{{ site_name }}</a>
+{% endblock %}
+
+{% block content %}
+    {{ "ngmore.user.activate.mail.user_disabled.text"|trans }}
+
+    <br>
+
+    {{ "ngmore.user.mail.account_information"|trans }}
+
+    <br>
+
+    {{ "ngmore.user.mail.username"|trans }}: {{ user.login }}
+
+    <br>
+
+    {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}
+{% endblock %}
