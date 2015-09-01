@@ -4,17 +4,17 @@
 
 {% block content %}
     <div class="page-header">
-        <h1>{{ 'ngmore.user.register.activation.form.title'|trans }}</h1>
+        <h1>{{ 'ngmore.user.activate.title'|trans }}</h1>
     </div>
 
     {{ form_start( form ) }}
 
     <fieldset>
         <div class="form-group">
-            {{ form_row( form.email, { 'label': 'ngmore.user.register.resend_activation.email', 'attr': { 'class': 'form-control' } } ) }}
+            {{ form_row( form.email, { 'label': 'ngmore.user.activate.email.label', 'attr': { 'class': 'form-control' } } ) }}
         </div>
 
-        <button type="submit" class="btn btn-primary">{{ 'ngmore.user.register.resend_activation.submit'|trans }}</button>
+        <button type="submit" class="btn btn-primary">{{ 'ngmore.user.activate.submit'|trans }}</button>
     </fieldset>
 
     {{ form_end( form ) }}

@@ -1,9 +1,9 @@
 {% extends 'NetgenMoreDemoBundle:user/mail:layout.html.twig' %}
 
-{% trans_default_domain "ngmore_user" %}
+{% trans_default_domain "ngmore_mail" %}
 
 {% block title %}
-    {{ "ngmore.user.register.mail.title"|trans }}
+    {{ "ngmore.user.welcome.mail.title"|trans }}
 {% endblock %}
 
 {% block content %}
@@ -19,9 +19,5 @@
 
     <br><br>
 
-    {% if return_url is defined and return_url is not empty %}
-        <a href="{{ return_url }}">{{ return_url }}</a>
-    {% else %}
-        <a href="{{ site_url }}">{{ site_name }}</a>
-    {% endif %}
+    <a href="{{ site_url }}">{{ site_name }}</a>
 {% endblock %}

@@ -3,7 +3,7 @@
 {% trans_default_domain "ngmore_mail" %}
 
 {% block title %}
-    {{ "ngmore.user.forgot_password.mail.title"|trans }}
+    {{ 'ngmore.user.activate.mail.title'|trans }}
 {% endblock %}
 
 {% block content %}
@@ -19,5 +19,5 @@
 
     <br><br>
 
-    {{ "ngmore.user.forgot_password.mail.text"|trans }} <a href="{{ url( 'ngmore_user_reset_password', { hash: hash } ) }}">{{ url( 'ngmore_user_reset_password', { hash: hash } ) }}</a>
+    {{ "ngmore.user.activate.mail.text"|trans }} <a href="{{ url( 'ngmore_user_activate', { hash: hash } ) }}">{{ url( 'ngmore_user_activate', { hash: hash } ) }}</a>
 {% endblock %}

@@ -9,9 +9,11 @@
 
     {% if error is defined %}
         {% if error == 'email_in_use' %}
-            <div class="alert alert-danger">{{ "ngmore.user.register.email_already_in_use"|trans }}</div>
+            <div class="alert alert-danger">{{ "ngmore.user.register.error.email_in_use"|trans }}</div>
         {% elseif error == 'username_taken' %}
-            <div class="alert alert-danger">{{ "ngmore.user.register.username_taken"|trans }}</div>
+            <div class="alert alert-danger">{{ "ngmore.user.register.error.username_taken"|trans }}</div>
+        {% else %}
+            <div class="alert alert-danger">{{ "ngmore.user.register.error.other"|trans }}</div>
         {% endif %}
     {% endif %}
 
@@ -24,7 +26,7 @@
             </div>
         {% endfor %}
 
-        <button type="submit" class="btn btn-primary">{{ 'ngmore.user.register.submit_label'|trans }}</button>
+        <button type="submit" class="btn btn-primary">{{ 'ngmore.user.register.submit'|trans }}</button>
     </fieldset>
 
     {{ form_end( form ) }}

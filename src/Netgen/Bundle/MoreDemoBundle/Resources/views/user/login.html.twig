@@ -16,12 +16,12 @@
             {% block login_fields %}
                 <fieldset>
                     <div class="form-group">
-                        <label for="username">{{ 'ngmore.user.login.label.username'|trans }}:</label>
-                        <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" required="required" autofocus="autofocus" autocomplete="on" placeholder="{{ 'ngmore.user.login.placeholder.username'|trans }}" />
+                        <label for="username">{{ 'ngmore.user.login.username.label'|trans }}:</label>
+                        <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" required="required" autofocus="autofocus" autocomplete="on" placeholder="{{ 'ngmore.user.login.username.placeholder'|trans }}" />
                     </div>
                     <div class="form-group{% if error %} has-error{% endif %}">
-                        <label for="password">{{ 'ngmore.user.login.label.password'|trans }}:</label>
-                        <input type="password" id="password" class="form-control" name="_password" required="required" placeholder="{{ 'ngmore.user.login.placeholder.password'|trans }}" />
+                        <label for="password">{{ 'ngmore.user.login.password.label'|trans }}:</label>
+                        <input type="password" id="password" class="form-control" name="_password" required="required" placeholder="{{ 'ngmore.user.login.password.placeholder'|trans }}" />
                     </div>
 
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -31,17 +31,17 @@
                         is redirected to on success (more details below)
                         <input type="hidden" name="_target_path" value="/account" />
                     #}
-                    <button name="login" type="submit" class="btn btn-primary">{{ "ngmore.user.login.submit_button"|trans }}</button>
+                    <button name="login" type="submit" class="btn btn-primary">{{ "ngmore.user.login.submit"|trans }}</button>
                 </fieldset>
             {% endblock %}
         </form>
 
         <h3>{{ "ngmore.user.login.forgot_password_text"|trans }}</h3>
-        <p>{{ "ngmore.user.login.forgot_password_link"|trans( { '%forgot_pass_url%': path( 'ngmore_user_forgot_password' ) } )|raw }}</p>
+        <p>{{ "ngmore.user.login.forgot_password_link"|trans( { '%link%': path( 'ngmore_user_forgot_password' ) } )|raw }}</p>
 
         <hr/>
 
-        <h3>{{ "ngmore.user.login.no_account"|trans }}</h3>
-        <p>{{ "ngmore.user.login.register_link"|trans( { '%register_url%': path( 'ngmore_user_register' ) } )|raw }}</p>
+        <h3>{{ "ngmore.user.login.register_text"|trans }}</h3>
+        <p>{{ "ngmore.user.login.register_link"|trans( { '%link%': path( 'ngmore_user_register' ) } )|raw }}</p>
     {% endblock %}
 {% endblock %}
