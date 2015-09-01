@@ -1,0 +1,15 @@
+{% trans_default_domain "ngmore_user" %}
+
+{% block body %}
+    <p>
+        {{ 'ngmore.user.activate.mail.thank_you_message'|trans( { '%site_url%': site_url, '%site_name%': site_name } )|raw }}
+    </p>
+
+    <p>{{ "ngmore.user.mail.account_information"|trans }}:<br/>
+        {{ "ngmore.user.mail.username"|trans }}: {{ user.login }}<br/>
+        {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}<br/>
+    </p>
+    <p>
+        {{ "ngmore.user.activate.mail.click_to_activate"|trans }} <a href="{{ url( 'ngmore_user_activate', { "hash": hash } ) }}">{{ url( 'ngmore_user_activate', { "hash": hash } ) }}</a>
+    </p>
+{% endblock %}

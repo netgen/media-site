@@ -1,0 +1,48 @@
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+
+{% trans_default_domain "ngmore_user" %}
+
+{% block content %}
+    <div class="row">
+        <div class="register-user">
+            <div class="login-box">
+                <div class="page-header">
+                    <h1 class="title">{{ 'ngmore.user.register.title'|trans }}</h1>
+                </div>
+
+                {% if error is defined %}
+                    {% if error == 'email_in_use' %}
+
+                        <div class="alert alert-danger">
+                            <p><strong>{{ "ngmore.user.register.email_already_in_use"|trans }}</strong></p>
+                        </div>
+
+                    {% else if error == 'username_taken'  %}
+
+                        <div class="alert alert-danger">
+                            <p><strong>{{ "ngmore.user.register.username_taken"|trans }}</strong></p>
+                        </div>
+
+                    {% endif %}
+                {% endif %}
+
+                {% if form is defined %}
+                    <div class="form">
+
+                        {{ form_start( form, { 'attr': { 'class': 'form-horizontal' } } ) }}
+
+                        {% for form_child in form.children %}
+                            {{ form_row( form_child, { 'attr': { 'class': 'input-large col-xs-12' } } ) }}
+                        {% endfor %}
+
+                        <input type="submit" value="{{ 'ngmore.user.register.submit_label'|trans }}" class="btn btn-primary col-xs-12" />
+
+                        {{ form_end( form ) }}
+
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
