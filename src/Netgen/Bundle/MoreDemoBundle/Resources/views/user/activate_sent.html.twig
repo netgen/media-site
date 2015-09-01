@@ -3,19 +3,9 @@
 {% trans_default_domain "ngmore_user" %}
 
 {% block content %}
-    {% if disabled is defined and disabled %}
+    <div class="page-header">
+        <h1>{{ 'ngmore.user.register.activation.sent.title'|trans }}</h1>
+    </div>
 
-        <div class="alert alert-danger">
-            {{ 'ngmore.user.register.activation.user_disabled'|trans }}
-        </div>
-
-    {% else %}
-
-        <div class="page-header">
-            <h1>{{ 'ngmore.user.register.activation.sent.title'|trans }}</h1>
-        </div>
-
-        <p>{{ 'ngmore.user.register.activation.sent.text'|trans( { '%path%': path( 'ngmore_resend_activation_mail' ) } )|raw }}</p>
-
-    {% endif %}
+    <p>{{ 'ngmore.user.register.activation.sent.text'|trans( { '%path%': path( 'ngmore_resend_activation_mail' ) } )|raw }}</p>
 {% endblock %}

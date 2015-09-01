@@ -7,19 +7,20 @@
         <h1>{{ 'ngmore.user.activate.title'|trans }}</h1>
     </div>
 
-    <p>
-        {% if status == 'account_activated' %}
-            {{ 'ngmore.user.activate.success'|trans }}
-        {% elseif status == 'already_active' %}
-            {{ 'ngmore.user.activate.already_active'|trans }}
-        {% elseif status == 'hash_expired' %}
-            {{ 'ngmore.user.activate.hash_expired'|trans( { '%path%': path( 'ngmore_resend_activation_mail' ) } )|raw }}
-        {% else %}
-            {{ 'ngmore.user.activate.failure'|trans }}
-        {% endif %}
-    </p>
+    {% if error is defined %}
+        {% if error == 'already_active' %}
+            <div class="alert alert-danger">{{ 'ngmore.user.activate.already_active'|trans }}</div>
 
-    {% if status == 'account_activated' or status == 'already_active' %}
+            <h3>{{ "ngmore.user.login.title"|trans }}</h3>
+            <p>{{ "ngmore.user.activate.go_to_login"|trans( { '%login_url%': path( 'login' ) } )|raw }}</p>
+        {% elseif error == 'hash_expired' %}
+            <div class="alert alert-danger">{{ 'ngmore.user.activate.hash_expired'|trans( { '%path%': path( 'ngmore_resend_activation_mail' ) } )|raw }}</div>
+        {% else %}
+            <div class="alert alert-danger">{{ 'ngmore.user.activate.failure'|trans }}</div>
+        {% endif %}
+    {% else %}
+        <p>{{ 'ngmore.user.activate.success'|trans }}</p>
+
         <h3>{{ "ngmore.user.login.title"|trans }}</h3>
         <p>{{ "ngmore.user.activate.go_to_login"|trans( { '%login_url%': path( 'login' ) } )|raw }}</p>
     {% endif %}
