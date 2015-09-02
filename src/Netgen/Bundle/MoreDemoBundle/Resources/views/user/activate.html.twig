@@ -1,0 +1,23 @@
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+
+{% trans_default_domain "ngmore_user" %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>{{ 'ngmore.user.activate.title'|trans }}</h1>
+    </div>
+
+    <p>{{ "ngmore.user.activate.text"|trans }}</p>
+
+    {{ form_start( form ) }}
+
+    <fieldset>
+        <div class="form-group">
+            {{ form_row( form.email, { 'label': 'ngmore.user.activate.email.label', 'attr': { 'class': 'form-control' } } ) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{ 'ngmore.user.activate.submit'|trans }}</button>
+    </fieldset>
+
+    {{ form_end( form ) }}
+{% endblock %}

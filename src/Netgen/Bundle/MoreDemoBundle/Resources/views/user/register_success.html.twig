@@ -1,0 +1,11 @@
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+
+{% trans_default_domain "ngmore_user" %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>{{ 'ngmore.user.register.success.title'|trans }}</h1>
+    </div>
+
+    <p>{{ 'ngmore.user.register.success.text'|trans( { '%link%': path( 'login' ) } )|raw }}</p>
+{% endblock %}

@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: templates.yml }
     - { resource: override.yml }
     - { resource: ezpage.yml }
     - { resource: image.yml }
@@ -11,6 +12,7 @@ ezpublish:
         frontend_group:
             user:
                 layout: %ngmore.default.pagelayout%
+                login_template: 'NetgenMoreDemoBundle:user:login.html.twig'
 
 ez_publish_legacy:
     system:
