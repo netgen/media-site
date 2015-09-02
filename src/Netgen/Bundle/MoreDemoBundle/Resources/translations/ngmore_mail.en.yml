@@ -1,5 +1,5 @@
-ngmore.user.welcome.title: 'Thank you for registering at our site!'
 ngmore.user.welcome.subject: 'Welcome!'
+ngmore.user.welcome.text: 'Thank you for registering at our site!'
 
 ngmore.user.activate.subject: 'Activation mail'
 ngmore.user.activate.title: 'Thank you for registering!'

@@ -3,10 +3,14 @@
 {% trans_default_domain "ngmore_mail" %}
 
 {% block title %}
-    {{ "ngmore.user.welcome.title"|trans }}
+    <a href="{{ site_url }}" target="_blank">{{ site_name }}</a>
 {% endblock %}
 
 {% block content %}
+    {{ "ngmore.user.welcome.text"|trans }}
+
+    <br>
+
     {{ "ngmore.user.account_information"|trans }}
 
     <br>
