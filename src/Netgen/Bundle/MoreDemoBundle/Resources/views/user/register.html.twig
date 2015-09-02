@@ -1,5 +1,7 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
+{% form_theme form 'NetgenMoreDemoBundle:form:user_register.html.twig' %}
+
 {% trans_default_domain "ngmore_user" %}
 
 {% block content %}
@@ -21,9 +23,7 @@
 
     <fieldset>
         {% for form_child in form.children %}
-            <div class="form-group">
-                {{ form_row( form_child ) }}
-            </div>
+            {{ form_row( form_child, { attr: { class: 'form-control' } } ) }}
         {% endfor %}
 
         <button type="submit" class="btn btn-primary">{{ 'ngmore.user.register.submit'|trans }}</button>
