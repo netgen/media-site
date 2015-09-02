@@ -3,21 +3,21 @@
 {% trans_default_domain "ngmore_mail" %}
 
 {% block title %}
-    {{ 'ngmore.user.activate.mail.title'|trans }}
+    {{ 'ngmore.user.activate.title'|trans }}
 {% endblock %}
 
 {% block content %}
-    {{ "ngmore.user.mail.account_information"|trans }}
+    {{ "ngmore.user.account_information"|trans }}
 
     <br>
 
-    {{ "ngmore.user.mail.username"|trans }}: {{ user.login }}
+    {{ "ngmore.user.username"|trans }}: {{ user.login }}
 
     <br>
 
-    {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}
+    {{ "ngmore.user.email"|trans }}: {{ user.email }}
 
     <br><br>
 
-    {{ "ngmore.user.activate.mail.text"|trans }} <a href="{{ url( 'ngmore_user_activate', { hash: hash } ) }}">{{ url( 'ngmore_user_activate', { hash: hash } ) }}</a>
+    {{ "ngmore.user.activate.text"|trans }} <a href="{{ url( 'ngmore_user_activate', { hash: hash } ) }}">{{ url( 'ngmore_user_activate', { hash: hash } ) }}</a>
 {% endblock %}

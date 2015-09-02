@@ -3,19 +3,19 @@
 {% trans_default_domain "ngmore_mail" %}
 
 {% block title %}
-    {{ "ngmore.user.welcome.mail.title"|trans }}
+    {{ "ngmore.user.welcome.title"|trans }}
 {% endblock %}
 
 {% block content %}
-    {{ "ngmore.user.mail.account_information"|trans }}
+    {{ "ngmore.user.account_information"|trans }}
 
     <br>
 
-    {{ "ngmore.user.mail.username"|trans }}: {{ user.login }}
+    {{ "ngmore.user.username"|trans }}: {{ user.login }}
 
     <br>
 
-    {{ "ngmore.user.mail.email"|trans }}: {{ user.email }}
+    {{ "ngmore.user.email"|trans }}: {{ user.email }}
 
     <br><br>
 
