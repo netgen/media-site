@@ -20,6 +20,7 @@ class NetgenMoreDemoExtension extends Extension
 
         $loader = new Loader\YamlFileLoader( $container, new FileLocator( __DIR__ . '/../Resources/config' ) );
         $loader->load( 'parameters.yml' );
+        $loader->load( 'templates.yml' );
         $loader->load( 'services.yml' );
         $loader->load( 'legacy.yml' );
 
