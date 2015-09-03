@@ -5,7 +5,6 @@ GoogleAnalyticsCode=
 GoogleAnalyticsUniversal=enabled
 AddThisCode=
 TypeKitCode=pbp7qcg
-SublimeVideoCode=olha4y6v
 FacebookApi=disabled
 
 [GoogleMapsSettings]
