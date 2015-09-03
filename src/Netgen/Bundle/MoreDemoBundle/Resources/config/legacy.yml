@@ -123,5 +123,4 @@ netgen_more_legacy:
                     SiteSettings/GoogleAnalyticsUniversal: %ngmore.default.site_settings.google_analytics_universal%
                     SiteSettings/AddThisCode: %ngmore.default.site_settings.add_this_code%
                     SiteSettings/TypeKitCode: %ngmore.default.site_settings.typekit_code%
-                    SiteSettings/SublimeVideoCode: %ngmore.default.site_settings.sublime_video_code%
                     SiteSettings/FacebookApi: %ngmore.default.site_settings.facebook_api%
