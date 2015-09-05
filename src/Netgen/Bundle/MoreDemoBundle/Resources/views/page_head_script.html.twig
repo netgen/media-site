@@ -1,11 +1,12 @@
 {# jquery.ez.js is equivalent of legacy ezjsc::jqueryio, modified to work in eZ Publish 5 context #}
 {% javascripts filter='?uglifyjs2'
-    '@NetgenMoreDemoBundle/Resources/public/js/jquery-1.8.3.min.js'
+    '@NetgenMoreDemoBundle/Resources/public/bower/jquery/dist/jquery.js'
     '@NetgenMoreDemoBundle/Resources/public/js/jquery.ez.js'
-    '@NetgenMoreDemoBundle/Resources/public/js/bootstrap.min.js'
+    '@NetgenMoreDemoBundle/Resources/public/bower/bootstrap-sass/assets/javascripts/bootstrap.js'
     '@NetgenMoreDemoBundle/Resources/public/js/jquery.royalslider.min.js'
     '@NetgenMoreDemoBundle/Resources/public/js/ng_responsive_tables.js'
     '@NetgenMoreDemoBundle/Resources/public/js/jwplayer/jwplayer.js'
+    '@NetgenMoreDemoBundle/Resources/public/js/ngmore_default.js'
     '@NetgenMoreDemoBundle/Resources/public/js/app.js'
 %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -17,8 +18,8 @@
 
 <!--[if lt IE 9]>
 {% javascripts filter='?uglifyjs2'
-    '@NetgenMoreDemoBundle/Resources/public/js/html5shiv.js'
-    '@NetgenMoreDemoBundle/Resources/public/js/respond.min.js'
+    '@NetgenMoreDemoBundle/Resources/public/bower/html5shiv/dist/html5shiv.js'
+    '@NetgenMoreDemoBundle/Resources/public/bower/respond/dest/respond.src.js'
 %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
