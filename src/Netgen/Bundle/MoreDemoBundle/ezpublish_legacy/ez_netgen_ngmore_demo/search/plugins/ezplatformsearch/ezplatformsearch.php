@@ -1,10 +1,35 @@
 <?php
 
+use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 
 class eZPlatformSearch implements ezpSearchEngine
 {
+    /**
+     * @var \eZ\Publish\SPI\Search\Handler
+     */
+    protected $searchHandler;
+
+    /**
+     * @var \eZ\Publish\API\Repository\Repository
+     */
+    protected $repository;
+
+    /**
+     * @var string
+     */
+    protected $searchEngine;
+
+    public function __construct()
+    {
+        $serviceContainer = ezpKernel::instance()->getServiceContainer();
+
+        $this->searchHandler = $serviceContainer->get( 'ezpublish.spi.search' );
+        $this->repository = $serviceContainer->get( 'ezpublish.api.repository' );
+        $this->searchEngine = $serviceContainer->getParameter( 'search_engine' );
+    }
+
     /**
      * Whether a commit operation is required after adding/removing objects.
      *
@@ -13,7 +38,7 @@ class eZPlatformSearch implements ezpSearchEngine
      */
     public function needCommit()
     {
-        return false;
+        return method_exists( $this->searchHandler, 'commit' );
     }
 
     /**
@@ -24,7 +49,7 @@ class eZPlatformSearch implements ezpSearchEngine
      */
     public function needRemoveWithUpdate()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -37,6 +62,24 @@ class eZPlatformSearch implements ezpSearchEngine
      */
     public function addObject( $contentObject, $commit = true )
     {
+        // Indexing is not implemented in eZ Publish 5 legacy search engine
+        if ( $this->searchEngine == 'legacy' )
+        {
+            $searchEngine = new eZSearchEngine();
+            return $searchEngine->addObject( $contentObject, $commit );
+        }
+
+        $content = $this->repository->sudo(
+            function ( Repository $repository ) use ( $contentObject )
+            {
+                return $repository->getContentService()->loadContent(
+                    (int)$contentObject->attribute( 'id' )
+                );
+            }
+        );
+
+        $this->searchHandler->indexContent( $content );
+
         return true;
     }
 
@@ -52,7 +95,7 @@ class eZPlatformSearch implements ezpSearchEngine
      */
     public function removeObject( $contentObject, $commit = null )
     {
-        return true;
+        return $this->removeObjectById( $contentObject->attribute( 'id' ), $commit );
     }
 
     /**
@@ -67,6 +110,20 @@ class eZPlatformSearch implements ezpSearchEngine
      */
     public function removeObjectById( $contentObjectId, $commit = null )
     {
+        // Indexing is not implemented in eZ Publish 5 legacy search engine
+        if ( $this->searchEngine == 'legacy' )
+        {
+            $searchEngine = new eZSearchEngine();
+            return $searchEngine->removeObjectById( $contentObjectId, $commit );
+        }
+
+        $this->searchHandler->deleteContent( $contentObjectId );
+
+        if ( $commit && method_exists( $this->searchHandler, 'commit' ) )
+        {
+            $this->searchHandler->commit();
+        }
+
         return true;
     }
 
@@ -83,9 +140,6 @@ class eZPlatformSearch implements ezpSearchEngine
      */
     public function search( $searchText, $params = array(), $searchTypes = array() )
     {
-        $serviceContainer = ezpKernel::instance()->getServiceContainer();
-        $searchService = $serviceContainer->get( 'ezpublish.api.service.search' );
-
         $query = new LocationQuery();
 
         $criteria = array( new Criterion\FullText( $searchText ) );
@@ -112,7 +166,7 @@ class eZPlatformSearch implements ezpSearchEngine
         $query->limit = isset( $params['SearchLimit'] ) ? $params['SearchLimit'] : 10;
         $query->offset = isset( $params['SearchOffset'] ) ? $params['SearchOffset'] : 0;
 
-        $searchResult = $searchService->findLocations( $query, array(), false );
+        $searchResult = $this->repository->getSearchService()->findLocations( $query, array(), false );
 
         $nodeIds = array();
         foreach ( $searchResult->searchHits as $searchHit )
@@ -164,5 +218,9 @@ class eZPlatformSearch implements ezpSearchEngine
      */
     public function commit()
     {
+        if ( method_exists( $this->searchHandler, 'commit' ) )
+        {
+            $this->searchHandler->commit();
+        }
     }
 }
