@@ -140,13 +140,73 @@ class eZPlatformSearch implements ezpSearchEngine
      */
     public function search( $searchText, $params = array(), $searchTypes = array() )
     {
+        $doFullText = true;
         $query = new LocationQuery();
 
-        $criteria = array( new Criterion\FullText( $searchText ) );
+        $criteria = array();
 
-        if ( isset( $params['SearchSectionID'] ) && $params['SearchSectionID'] > 0 )
+        if ( isset( $params['SearchDate'] ) && (int)$params['SearchDate'] > 0 )
         {
-            $criteria[] = new Criterion\SectionId( $params['SearchSectionID'] );
+            $currentTimestamp = time();
+            $dateSearchType = (int)$params['SearchDate'];
+
+            $fromTimestamp = 0;
+            if ( $dateSearchType === 1 )
+            {
+                // Last day
+                $fromTimestamp = $currentTimestamp - 86400;
+            }
+            else if ( $dateSearchType === 2 )
+            {
+                // Last week
+                $fromTimestamp = $currentTimestamp - ( 7 * 86400 );
+            }
+            else if ( $dateSearchType === 3 )
+            {
+                // Last month
+                $fromTimestamp = $currentTimestamp - ( 30 * 86400 );
+            }
+            else if ( $dateSearchType === 4 )
+            {
+                // Last three months
+                $fromTimestamp = $currentTimestamp - ( 3 * 30 * 86400 );
+            }
+            else if ( $dateSearchType === 5 )
+            {
+                // Last year
+                $fromTimestamp = $currentTimestamp - ( 365 * 86400 );
+            }
+
+            $criteria[] = new Criterion\DateMetadata(
+                Criterion\DateMetadata::CREATED,
+                Criterion\Operator::GTE,
+                $fromTimestamp
+            );
+        }
+
+        if ( isset( $params['SearchSectionID'] ) && (int)$params['SearchSectionID'] > 0 )
+        {
+            $criteria[] = new Criterion\SectionId( (int)$params['SearchSectionID'] );
+        }
+
+        if ( isset( $params['SearchContentClassID'] ) && (int)$params['SearchContentClassID'] > 0 )
+        {
+            $criteria[] = new Criterion\ContentTypeId( (int)$params['SearchContentClassID'] );
+
+            if ( isset( $params['SearchContentClassAttributeID'] ) && (int)$params['SearchContentClassAttributeID'] > 0 )
+            {
+                $classAttribute = eZContentClassAttribute::fetch( $params['SearchContentClassAttributeID'] );
+                if ( $classAttribute instanceof eZContentClassAttribute )
+                {
+                    $criteria[] = new Criterion\Field(
+                        $classAttribute->attribute( 'identifier' ),
+                        null,
+                        $searchText
+                    );
+
+                    $doFullText = false;
+                }
+            }
         }
 
         if ( isset( $params['SearchSubTreeArray'] ) && !empty( $params['SearchSubTreeArray'] ) )
@@ -161,10 +221,15 @@ class eZPlatformSearch implements ezpSearchEngine
             $criteria[] = new Criterion\Subtree( $subTreeArrayCriteria );
         }
 
+        if ( $doFullText )
+        {
+            $criteria[] = new Criterion\FullText( $searchText );
+        }
+
         $query->query = new Criterion\LogicalAnd( $criteria );
 
-        $query->limit = isset( $params['SearchLimit'] ) ? $params['SearchLimit'] : 10;
-        $query->offset = isset( $params['SearchOffset'] ) ? $params['SearchOffset'] : 0;
+        $query->limit = isset( $params['SearchLimit'] ) ? (int)$params['SearchLimit'] : 10;
+        $query->offset = isset( $params['SearchOffset'] ) ? (int)$params['SearchOffset'] : 0;
 
         $searchResult = $this->repository->getSearchService()->findLocations( $query, array(), false );
 
