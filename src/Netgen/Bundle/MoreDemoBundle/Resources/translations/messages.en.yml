@@ -6,3 +6,7 @@ ngmore.layout.meta_generator: 'eZ Platform powered by Netgen'
 ngmore.layout.powered_by: 'Powered by'
 ngmore.layout.follow_us.title: 'Follow us'
 ngmore.layout.additional_menu.title: 'Menuet'
+
+ngmore.block.ajax_content_grid_dynamic.loading: 'Loading'
+ngmore.block.ajax_content_grid_dynamic.load_more: 'Load more'
+ngmore.block.ajax_content_grid_dynamic.no_more_results: 'No more results available'

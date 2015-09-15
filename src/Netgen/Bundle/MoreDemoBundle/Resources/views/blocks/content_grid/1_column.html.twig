@@ -1,13 +1,15 @@
 {% for valid_item in valid_items %}
-    {{ render(
-        controller(
-            'ez_content:viewLocation', {
-                'locationId': valid_item.locationId,
-                'viewType': block.customAttributes.advanced_block_item_viewtype,
-                'params': {
-                    'alias_name': 'i480'
+    {% if ajax_block is defined and ajax_block %}<div class="ajax-block-item-result-{{ block.id }}">{% endif %}
+        {{ render(
+            controller(
+                'ez_content:viewLocation', {
+                    'locationId': valid_item.locationId,
+                    'viewType': block.customAttributes.advanced_block_item_viewtype,
+                    'params': {
+                        'alias_name': 'i480'
+                    }
                 }
-            }
-        )
-    ) }}
+            )
+        ) }}
+    {% if ajax_block is defined and ajax_block %}</div>{% endif %}
 {% endfor %}

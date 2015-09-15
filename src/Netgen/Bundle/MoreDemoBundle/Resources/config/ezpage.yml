@@ -39,6 +39,8 @@ ezpublish:
                 name: 'Content grid'
             ContentGridDynamic:
                 name: 'Content grid (dynamic)'
+            AjaxContentGridDynamic:
+                name: 'Content grid (dynamic/ajax)'
             MenuDynamic:
                 name: 'Menu (dynamic)'
             TagsCloud:
@@ -48,5 +50,6 @@ ezpublish:
             - PageTitle
             - ContentGrid
             - ContentGridDynamic
+            - AjaxContentGridDynamic
             - MenuDynamic
             - TagsCloud

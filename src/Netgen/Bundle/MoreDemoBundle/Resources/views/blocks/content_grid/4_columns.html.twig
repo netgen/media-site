@@ -1,6 +1,6 @@
 <div class="row">
     {% for valid_item in valid_items %}
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-6 col-md-3 {% if ajax_block is defined and ajax_block %}ajax-block-item-result-{{ block.id }}{% endif %}">
             {{ render(
                 controller(
                     'ez_content:viewLocation', {

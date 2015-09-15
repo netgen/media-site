@@ -1,0 +1,71 @@
+{% set advanced_html_tag = block.customAttributes.advanced_html_tag|default( 'h2' ) %}
+{% set advanced_html_id = block.customAttributes.advanced_html_id|default( '' ) %}
+{% set advanced_html_class = block.customAttributes.advanced_html_class|default( '' ) %}
+
+{% set set_container = block.customAttributes.advanced_set_container|default( '0' ) == '1' %}
+{% set ajax_request = app.request.xmlHttpRequest %}
+
+{% if not ajax_request %}
+<div {% if advanced_html_id is not empty %} id="{{ advanced_html_id }}"{% endif %}
+    class="block-type-content-grid block-view-{{ block.view }} {{ advanced_html_class }} clearfix">
+
+    {% if set_container %}<div class="container">{% endif %}
+
+        {% if block.name is not empty %}
+            <div class="block-name">
+                <{{ advanced_html_tag }}>{{ block.name }}</{{ advanced_html_tag }}>
+            </div>
+        {% endif %}
+
+    <div class="results results-region-{{ block.id }}">
+{% endif %}
+
+        {% if valid_items|length > 0 %}
+            {% include 'NetgenMoreDemoBundle:blocks/content_grid:' ~ block.view ~ '.html.twig' ignore missing with { 'ajax_block': true } %}
+        {% endif %}
+
+        <div class="ajax-content-block-controls-{{ block.id }}">
+            <div class="ajax-content-block-{{ block.id }}" id="ajax-content-block"
+                data-url="{{ path( 'ngmore_ajax_content_grid_load_more', { id: block.id } ) }}"
+                data-block-id="{{ block.id }}"
+                data-loading-text="{{ 'ngmore.block.ajax_content_grid_dynamic.loading'|trans }}"
+                data-pagenb="{{ pager.getCurrentPage }}"
+                data-total-count="{{ pager.getNbResults }}"
+            >
+            </div>
+
+            <div class="ajax-status-reports-{{ block.id }}"></div>
+
+            {% if block.customAttributes.advanced_scroll_type == 'scroll' %}
+                <div class="ajax-load-on-type-{{ block.id }} load-on-scroll" data-block-id="{{ block.id }}"></div>
+            {% elseif block.customAttributes.advanced_scroll_type == 'button' %}
+                <div class="ajax-load-on-type load-on-button" data-block-id="{{ block.id }}">
+                    <button value="{{ block.id }}">{{ 'ngmore.block.ajax_content_grid_dynamic.load_more'|trans }}</button>
+                </div>
+            {% elseif block.customAttributes.advanced_scroll_type == 'paginate' %}
+                {% if pager.haveToPaginate() %}
+                    <div class="load-on-paginate ajax-content-grid-pagination-{{ block.id }}" data-block-id="{{ block.id }}">
+                        {{ pagerfanta(
+                            pager,
+                            'ngmore', {
+                                routeName: 'ngmore_ajax_content_grid_load_more',
+                                routeParams: {
+                                    id: block.id
+                                }
+                            }
+                        ) }}
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            <div class="ajax-status-no-results {{ block.id }}" style="display: none;">
+                <p>{{ 'ngmore.block.ajax_content_grid_dynamic.no_more_results'|trans }}</p>
+            </div>
+        </div>
+
+{% if not ajax_request %}
+    </div>
+
+    {% if set_container %}</div>{% endif %}
+</div>
+{% endif %}
