@@ -1,8 +1,8 @@
-{% set rootLocationPath = path( ezpublish.rootLocation ) %}
+{% set root_location_path = path( ezpublish.rootLocation ) %}
 
-<link rel="home" href="{{ rootLocationPath }}" title="{{ 'ngmore.layout.site_frontpage'|trans( { '%siteName%': siteName } ) }}" />
-<link rel="index" href="{{ rootLocationPath }}" />
-<link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="{{ 'ngmore.layout.search_site'|trans( { '%siteName%': siteName } ) }}" />
+<link rel="home" href="{{ root_location_path }}" title="{{ 'ngmore.layout.site_frontpage'|trans( { '%site_name%': site_name } ) }}" />
+<link rel="index" href="{{ root_location_path }}" />
+<link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="{{ 'ngmore.layout.search_site'|trans( { '%site_name%': site_name } ) }}" />
 
 <link rel="icon apple-touch-icon-precomposed" sizes="152x152" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-152.png' ) }}">
 <link rel="icon apple-touch-icon-precomposed" sizes="144x144" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-144.png' ) }}">
@@ -14,10 +14,10 @@
 
 <link rel="icon" href="{{ asset( 'bundles/netgenmoredemo/images/favicon.png' ) }}" type="image/x-icon" />
 
-{% if availableTranslations|length > 1 %}
-    {% set localeConversionMap = ezpublish.configResolver.getParameter( 'locale.conversion_map', 'ngmore' ) %}
+{% if available_translations|length > 1 %}
+    {% set locale_conversion_map = ezpublish.configResolver.getParameter( 'locale.conversion_map', 'ngmore' ) %}
 
-    {% for language, url in availableTranslations %}
-        <link rel="alternate" href="{{ url }}" hreflang="{{ localeConversionMap[language]|lower|replace( { '_': '-' } ) }}" />
+    {% for language, url in available_translations %}
+        <link rel="alternate" href="{{ url }}" hreflang="{{ locale_conversion_map[language]|lower|replace( { '_': '-' } ) }}" />
     {% endfor %}
 {% endif %}

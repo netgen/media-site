@@ -2,58 +2,58 @@
 
 {# SITE NAME #}
 
-{% set siteName = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
+{% set site_name = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
 
 {# PATH ARRAY #}
 
-{% if pathArray is not defined %}
+{% if path_array is not defined %}
     {% if content is defined and location is defined and not location.isDraft %}
-        {% set pathArray = ngmore_location_path( location.id ) %}
-        {% set mainCategoryLocationId = pathArray[1] is defined ? pathArray[1].locationId : pathArray[0].locationId %}
+        {% set path_array = ngmore_location_path( location.id ) %}
+        {% set main_category_location_id = path_array[1] is defined ? path_array[1].locationId : path_array[0].locationId %}
     {% else %}
-        {% set pathArray = [] %}
-        {% set mainCategoryLocationId = 0 %}
+        {% set path_array = [] %}
+        {% set main_category_location_id = 0 %}
     {% endif %}
 {% endif %}
 
 {# LAYOUT & CONTAINERS #}
 
-{% set disableLayoutRegions = disableLayoutRegions|default( false ) %}
-{% set disableContainers = disableContainers|default( false ) %}
+{% set disable_layout_regions = disable_layout_regions|default( false ) %}
+{% set disable_containers = disable_containers|default( false ) %}
 {% set layout = ngmore.layout|default( false ) %}
 
 {# LAYOUT REGIONS #}
 
-{% set disableTopRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_top_region' ).bool )  %}
-{% set disableRightRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_right_region' ).bool ) %}
-{% set disableLeftRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_left_region' ).bool )  %}
-{% set disableBottomRegion = ( disableLayoutRegions or not layout or ez_field_value( layout, 'disable_bottom_region' ).bool ) %}
+{% set disable_top_region = ( disable_layout_regions or not layout or ez_field_value( layout, 'disable_top_region' ).bool )  %}
+{% set disable_right_region = ( disable_layout_regions or not layout or ez_field_value( layout, 'disable_right_region' ).bool ) %}
+{% set disable_left_region = ( disable_layout_regions or not layout or ez_field_value( layout, 'disable_left_region' ).bool )  %}
+{% set disable_bottom_region = ( disable_layout_regions or not layout or ez_field_value( layout, 'disable_bottom_region' ).bool ) %}
 
 {# PLACEHOLDERS #}
 
-{% set _placeholderTopTop = block( 'placeholderTopTop' ) %}
-{% set _placeholderTopBottom = block( 'placeholderTopBottom' ) %}
-{% set _placeholderLeftTop = block( 'placeholderLeftTop' ) %}
-{% set _placeholderLeftBottom = block( 'placeholderLeftBottom' ) %}
-{% set _placeholderRightTop = block( 'placeholderRightTop' ) %}
-{% set _placeholderRightBottom = block( 'placeholderRightBottom' ) %}
-{% set _placeholderBottomTop = block( 'placeholderBottomTop' ) %}
-{% set _placeholderBottomBottom = block( 'placeholderBottomBottom' ) %}
+{% set _placeholder_top_top = block( 'placeholder_top_top' ) %}
+{% set _placeholder_top_bottom = block( 'placeholder_top_bottom' ) %}
+{% set _placeholder_left_top = block( 'placeholder_left_top' ) %}
+{% set _placeholder_left_bottom = block( 'placeholder_left_bottom' ) %}
+{% set _placeholder_right_top = block( 'placeholder_right_top' ) %}
+{% set _placeholder_right_bottom = block( 'placeholder_right_bottom' ) %}
+{% set _placeholder_bottom_top = block( 'placeholder_bottom_top' ) %}
+{% set _placeholder_bottom_bottom = block( 'placeholder_bottom_bottom' ) %}
 
-{% set leftColumnAvailable = ( _placeholderLeftTop is not empty or _placeholderLeftBottom is not empty or not disableLeftRegion ) %}
-{% set rightColumnAvailable = ( _placeholderRightTop is not empty or _placeholderRightBottom is not empty or not disableRightRegion ) %}
+{% set left_column_available = ( _placeholder_left_top is not empty or _placeholder_left_bottom is not empty or not disable_left_region ) %}
+{% set right_column_available = ( _placeholder_right_top is not empty or _placeholder_right_bottom is not empty or not disable_right_region ) %}
 
 {# AVAILABLE TRANSLATIONS #}
 
-{% set availableTranslations = [] %}
+{% set available_translations = [] %}
 
 {% if not ( status_code is defined or ( module_result is defined and module_result.errorCode is defined ) ) %}
     {% for language in ezpublish.availableLanguages %}
-        {% set translationSiteAccess = ezpublish.translationSiteAccess( language ) %}
+        {% set translation_site_access = ezpublish.translationSiteAccess( language ) %}
 
-        {% if translationSiteAccess is not empty %}
-            {% set url = url( ez_route( params={ 'siteaccess': translationSiteAccess } ) ) %}
-            {% set availableTranslations = availableTranslations|merge( { ( language ): url } ) %}
+        {% if translation_site_access is not empty %}
+            {% set url = url( ez_route( params={ 'siteaccess': translation_site_access } ) ) %}
+            {% set available_translations = available_translations|merge( { ( language ): url } ) %}
         {% endif %}
     {% endfor %}
 {% endif %}

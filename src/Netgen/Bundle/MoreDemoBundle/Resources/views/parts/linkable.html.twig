@@ -8,10 +8,10 @@
         {% set open_in_new_window = true %}
     {% endif %}
 {% elseif not ez_is_field_empty( content, 'related_object' ) %}
-    {% set relatedContentId = ez_field_value( content, 'related_object' ).destinationContentId %}
+    {% set related_content_id = ez_field_value( content, 'related_object' ).destinationContentId %}
 
-    {% if relatedContentId != content.id %} {# dead loop #}
-        {% set url = path( 'ez_urlalias', { 'contentId': relatedContentId } ) %}
+    {% if related_content_id != content.id %} {# dead loop #}
+        {% set url = path( 'ez_urlalias', { 'contentId': related_content_id } ) %}
     {% endif %}
 {% endif %}
 

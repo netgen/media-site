@@ -1,12 +1,12 @@
-{% if availableTranslations|length > 1 %}
-    {% set prioritizedLanguages = ezpublish.configResolver.getParameter( 'languages' ) %}
+{% if available_translations|length > 1 %}
+    {% set prioritized_languages = ezpublish.configResolver.getParameter( 'languages' ) %}
 
     <div id="lang-selector" class="transition-showed dropdown">
-        <a href="#lang-selector" data-toggle="dropdown" class="current-lang">{{ ngmore_language_name( prioritizedLanguages.0 ) }}&nbsp;<b class="caret"></b></a>
+        <a href="#lang-selector" data-toggle="dropdown" class="current-lang">{{ ngmore_language_name( prioritized_languages.0 ) }}&nbsp;<b class="caret"></b></a>
 
         <ul class="lang-select dropdown-menu">
-            {% for language, url in availableTranslations %}
-                {% if language != prioritizedLanguages.0 %}
+            {% for language, url in available_translations %}
+                {% if language != prioritized_languages.0 %}
                     <li><a href="{{ url }}">{{ ngmore_language_name( language ) }}</a></li>
                 {% else %}
                     <li class="current"><a href="#" data-toggle="dropdown">{{ ngmore_language_name( language ) }}</a></li>
