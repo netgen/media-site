@@ -4,7 +4,6 @@
 EmailReceiver=
 
 [SiteSettings]
-SiteName=NG More
 DefaultPage=content/dashboard
 LoginPage=custom
 

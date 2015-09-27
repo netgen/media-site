@@ -2,7 +2,7 @@
 
 {# SITE NAME #}
 
-{% set site_name = ezpublish.configResolver.getParameter( 'SiteSettings.SiteName' ) %}
+{% set site_name = ezpublish.configResolver.getParameter( 'site_settings.site_name', 'ngmore' ) %}
 
 {# PATH ARRAY #}
 

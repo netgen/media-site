@@ -2,12 +2,12 @@ netgen_open_graph:
     system:
         frontend_group:
             global_handlers:
-                - { handler: literal/text, tag: 'og:site_name', params: ['NG More'] }
+                - { handler: literal/text, tag: 'og:site_name', params: [ngmore.default.site_settings.site_name] }
             content_type_handlers:
                 ng_frontpage:
                     - { handler: literal/text, tag: 'og:type', params: ['website'] }
-                    - { handler: literal/text, tag: 'og:title', params: ['NG More'] }
-                    - { handler: literal/text, tag: 'og:description', params: ['NG More'] }
+                    - { handler: literal/text, tag: 'og:title', params: [%ngmore.default.site_settings.site_name%] }
+                    - { handler: literal/text, tag: 'og:description', params: [%ngmore.default.site_settings.site_name%] }
                     - { handler: literal/text, tag: 'og:image', params: ['http://%ngmore.default.site_domain%/bundles/netgenmoredemo/images/opengraph_default_image.png'] }
                 ng_landing_page:
                     - { handler: literal/text, tag: 'og:type', params: ['website'] }

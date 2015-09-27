@@ -1,6 +1,6 @@
 {% set meta_data = meta_data|default( [] ) %}
 
-{% set config_meta_data = ezpublish.configResolver.getParameter( 'SiteSettings.MetaDataArray' ) %}
+{% set config_meta_data = ezpublish.configResolver.getParameter( 'site_settings.meta_data', 'ngmore' ) %}
 {% set meta_data = config_meta_data|merge( meta_data ) %}
 
 {% if content is defined %}
@@ -18,7 +18,7 @@
     {% set site_title = site_name %}
 
     {% if path_array is not empty %}
-        {% if ezpublish.configResolver.getParameter( 'SeoSettings.ShowPathInTitle', 'ngmore' ) in ['false', false] %}
+        {% if not ezpublish.configResolver.getParameter( 'site_settings.show_path_in_title', 'ngmore' ) %}
             {% set site_title = path_array[path_array|length - 1].text ~ ' - ' ~ site_title %}
         {% elseif path_array|length > 1 %}
             {% for path_item in path_array %}

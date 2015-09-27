@@ -80,7 +80,9 @@ netgen_more_legacy:
                     SiteSettings/DefaultAccess: %ezpublish.siteaccess.default%
                     SiteSettings/SiteList: %ezpublish.siteaccess.list%
                     SiteSettings/RootNodeDepth: %ngmore_legacy.default.site_settings.root_node_depth%
+                    SiteSettings/SiteName: %ngmore.default.site_settings.site_name%
                     SiteSettings/SiteURL: %ngmore.default.site_domain%
+                    SiteSettings/MetaDataArray: %ngmore.default.site_settings.meta_data%
 
                     SiteAccessSettings/AvailableSiteAccessList: %ezpublish.siteaccess.list%
                     SiteAccessSettings/ForceVirtualHost: "true"
