@@ -36,39 +36,54 @@
     </xsl:template>
 
     <xsl:template match="table">
-        <xsl:element name="table" use-attribute-sets="ngmore-table">
-            <xsl:if test="@custom:caption != ''">
-                <caption>
-                    <xsl:value-of select="@custom:caption" />
-                </caption>
-            </xsl:if>
+        <xsl:choose>
+            <xsl:when test="@custom:responsive != ''">
+            <div class="table-responsive">
+                <xsl:element name="table" use-attribute-sets="ngmore-table">
+                    <xsl:if test="@custom:caption != ''">
+                        <caption>
+                            <xsl:value-of select="@custom:caption" />
+                        </caption>
+                    </xsl:if>
 
-            <xsl:apply-templates/>
-        </xsl:element>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </div>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:element name="table" use-attribute-sets="ngmore-table">
+                    <xsl:if test="@custom:caption != ''">
+                        <caption>
+                            <xsl:value-of select="@custom:caption" />
+                        </caption>
+                    </xsl:if>
+
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:attribute-set name="ngmore-table">
         <xsl:attribute name="class">
             <xsl:choose>
                 <xsl:when test="@class != ''">
-                    <xsl:value-of select="@class" />
+                    <xsl:value-of select="concat( 'table ', @class )" />
                     <xsl:if test="@align != ''">
                         <xsl:value-of select="concat( ' object-', @align )" />
                     </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>table</xsl:otherwise>
             </xsl:choose>
-            <xsl:if test="@custom:responsive != ''"> responsive</xsl:if>
         </xsl:attribute>
 
         <xsl:attribute name="style">
-            <xsl:if test="@width != ''">
+            <xsl:if test="@width != '100%'">
                 <xsl:value-of select="concat( 'width:', @width, ';' )" />
             </xsl:if>
-            <xsl:if test="@border != ''">
-                <xsl:value-of select="concat( 'border:', @border, ';' )" />
+            <xsl:if test="@border != '0'">
+                <xsl:value-of select="concat( 'border:', @border, 'px solid;' )" />
             </xsl:if>
-            <xsl:text>padding:2;border-spacing:0;border-collapse:collapse;</xsl:text>
         </xsl:attribute>
     </xsl:attribute-set>
 

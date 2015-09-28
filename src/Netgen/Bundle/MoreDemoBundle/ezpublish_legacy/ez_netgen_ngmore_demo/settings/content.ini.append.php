@@ -19,15 +19,17 @@ CustomAttributesDefaults[align]=right
 CustomAttributesDefaults[title]=factbox
 
 [table]
-AvailableClasses[]=list
-AvailableClasses[]=cols
-AvailableClasses[]=comparison
-AvailableClasses[]=default
+AvailableClasses[]=table-bordered
+AvailableClasses[]=table-striped
+AvailableClasses[]=table-hover
+AvailableClasses[]=table-condensed
+AvailableClasses[]=table-no-skin
 CustomAttributes[]=caption
-ClassDescription[list]=List
-ClassDescription[cols]=Timetable
-ClassDescription[comparison]=Comparison Table
-ClassDescription[default]=Default
+ClassDescription[table-bordered]=Bordered table
+ClassDescription[table-striped]=Striped table
+ClassDescription[table-hover]=Hover table
+ClassDescription[table-condensed]=Condensed table
+ClassDescription[table-no-skin]=No skin table
 Defaults[rows]=2
 Defaults[cols]=2
 Defaults[width]=100%
