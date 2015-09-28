@@ -201,6 +201,22 @@ header {
 }
 /* /EMBEDED OBJECTS */
 
+/* TABLES ----------------------------------------------------------------- */
+.table.table-no-skin thead > tr > th,
+.table.table-no-skin tbody > tr > th,
+.table.table-no-skin tfoot > tr > th,
+.table.table-no-skin thead > tr > td,
+.table.table-no-skin tbody > tr > td,
+.table.table-no-skin tfoot > tr > td {
+    border: none;
+    line-height: 1;
+    padding: 0;
+}
+.table th p:last-child, .table td p:last-child {
+    margin-bottom: 0;
+}
+
+/* /TABLES */
 
 /* Audio player */
 audio {
@@ -422,5 +438,3 @@ footer {
     }
 }
 /* <<<<< 479px */
-
-
