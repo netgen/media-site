@@ -16,7 +16,7 @@ ezpublish:
                     match:
                         Type: ContentGridDynamic
 
-            location_view:
+            content_view:
                 full:
                     ng_frontpage:
                         template: NetgenMoreDemoBundle:override/full:ng_frontpage.html.twig
@@ -24,17 +24,17 @@ ezpublish:
                             Identifier\ContentType: ng_frontpage
                     ng_category:
                         template: NetgenMoreDemoBundle:override/full:ng_category.html.twig
-                        controller: ngmore.controller.full_view:viewNgCategoryLocation
+                        controller: ngmore.controller.full_view:viewNgCategoryContent
                         match:
                             Identifier\ContentType: ng_category
                     ng_category_page:
                         template: NetgenMoreDemoBundle:override/full:ng_category_page.html.twig
-                        controller: ngmore.controller.full_view:viewNgCategoryPageLocation
+                        controller: ngmore.controller.full_view:viewNgCategoryPageContent
                         match:
                             Identifier\ContentType: ng_category_page
                     ng_landing_page:
                         template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
-                        controller: ngmore.controller.full_view:viewNgLandingPageLocation
+                        controller: ngmore.controller.full_view:viewNgLandingPageContent
                         match:
                             Identifier\ContentType: ng_landing_page
                     ng_article:
@@ -162,12 +162,6 @@ ezpublish:
                     listitem:
                         template: NetgenMoreDemoBundle:location/view:listitem.html.twig
                         match: ~
-                block_item:
-                    block_item:
-                        template: NetgenMoreDemoBundle:override/block_item:block_item.html.twig
-                        match: ~
-
-            content_view:
                 embed:
                     ng_frontpage:
                         template: NetgenMoreDemoBundle:override/embed:ng_frontpage.html.twig
