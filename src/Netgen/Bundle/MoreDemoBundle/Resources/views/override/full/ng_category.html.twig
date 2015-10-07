@@ -50,7 +50,15 @@
 
                 {% if list_output_type_empty or list_output_type_value.identifiers[0] == 'list_view' %}
                     {% for pager_item in pager %}
-                        {{ render( controller( 'ez_content:viewLocation', { 'locationId': pager_item.id, 'viewType': 'line' } ) ) }}
+                        {{ render(
+                            controller(
+                                'ez_content:viewContent', {
+                                    'contentId': pager_item.contentInfo.id,
+                                    'locationId': pager_item.id,
+                                    'viewType': 'line'
+                                }
+                            )
+                        ) }}
                     {% endfor %}
                 {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'grid_view' %}
                     <div class="row">
@@ -58,7 +66,8 @@
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 {{ render(
                                     controller(
-                                        'ez_content:viewLocation', {
+                                        'ez_content:viewContent', {
+                                            'contentId': pager_item.contentInfo.id,
                                             'locationId': pager_item.id,
                                             'viewType': 'block_item',
                                             'params': {
@@ -76,7 +85,17 @@
                 {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'listitem_view' %}
                     <ul>
                         {% for pager_item in pager %}
-                            <li>{{ render( controller( 'ez_content:viewLocation', { 'locationId': pager_item.id, 'viewType': 'listitem' } ) ) }}</li>
+                            <li>
+                                {{ render(
+                                    controller(
+                                        'ez_content:viewContent', {
+                                            'contentId': pager_item.contentInfo.id,
+                                            'locationId': pager_item.id,
+                                            'viewType': 'listitem'
+                                        }
+                                    )
+                                ) }}
+                            </li>
                         {% endfor %}
                     </ul>
                 {% endif %}

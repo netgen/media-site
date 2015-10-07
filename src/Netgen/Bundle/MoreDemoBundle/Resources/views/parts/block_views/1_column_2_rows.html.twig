@@ -17,7 +17,8 @@
         {% for valid_item in valid_items|slice( 0, 2 ) %}
             {{ render(
                 controller(
-                    'ez_content:viewLocation', {
+                    'ez_content:viewContent', {
+                        'contentId': valid_item.contentId,
                         'locationId': valid_item.locationId,
                         'viewType': 'block_item',
                         'params': {
