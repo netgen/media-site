@@ -45,17 +45,19 @@
 
 {# AVAILABLE TRANSLATIONS #}
 
-{% set available_translations = [] %}
+{% if available_translations is not defined %}
+    {% set available_translations = [] %}
 
-{% if not ( status_code is defined or ( module_result is defined and module_result.errorCode is defined ) ) %}
-    {% for language in ezpublish.availableLanguages %}
-        {% set translation_site_access = ezpublish.translationSiteAccess( language ) %}
+    {% if status_code is not defined %}
+        {% for language in ezpublish.availableLanguages %}
+            {% set translation_site_access = ezpublish.translationSiteAccess( language ) %}
 
-        {% if translation_site_access is not empty %}
-            {% set url = url( ez_route( params={ 'siteaccess': translation_site_access } ) ) %}
-            {% set available_translations = available_translations|merge( { ( language ): url } ) %}
-        {% endif %}
-    {% endfor %}
+            {% if translation_site_access is not empty %}
+                {% set url = url( ez_route( params={ 'siteaccess': translation_site_access } ), { 'language': language } ) %}
+                {% set available_translations = available_translations|merge( { ( language ): url } ) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 {% endif %}
 
 {% endspaceless %}{% block pagelayout_content %}{% endblock %}
