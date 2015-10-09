@@ -6,7 +6,7 @@
 
     {% if not ez_is_field_empty( content, 'file' ) %}
         <audio controls>
-            <source type="audio/mpeg" src="{{ path( 'ez_content_download_field_id', { 'contentId': content.id, 'fieldId': content.getField( 'file' ).id } ) }}" />
+            <source type="audio/mpeg" src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( 'file' ).id } ) }}" />
             Your browser does not support the audio element.
         </audio>
     {% endif %}
