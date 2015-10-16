@@ -9,7 +9,9 @@
 {% if path_array is not defined %}
     {% if content is defined and location is defined and location is not empty and not location.isDraft %}
         {% set path_array = ngmore_location_path( location.id ) %}
-        {% set main_category_location_id = path_array[1] is defined ? path_array[1].locationId : path_array[0].locationId %}
+        {% if path_array is not empty %}
+            {% set main_category_location_id = path_array[1] is defined ? path_array[1].locationId : path_array[0].locationId %}
+        {% endif %}
     {% else %}
         {% set path_array = [] %}
         {% set main_category_location_id = 0 %}
