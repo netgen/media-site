@@ -2,7 +2,7 @@
     {% for related_item in related_items %}
         {{ render(
             controller(
-                'ez_content:viewContent', {
+                'ez_content:viewAction', {
                     'contentId': related_item.contentInfo.id,
                     'locationId': related_item.id,
                     'viewType': view_type,
