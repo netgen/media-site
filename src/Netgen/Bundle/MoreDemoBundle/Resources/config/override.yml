@@ -12,7 +12,7 @@ ezpublish:
                         Type: ContentGrid
                 ContentGridDynamic:
                     template: NetgenMoreDemoBundle:override/block:content_grid_dynamic.html.twig
-                    controller: ngmore.controller.block_view:viewContentGridDynamicBlockById
+                    controller: ngmore.controller.block_view:viewContentGridDynamic
                     match:
                         Type: ContentGridDynamic
 
@@ -24,17 +24,17 @@ ezpublish:
                             Identifier\ContentType: ng_frontpage
                     ng_category:
                         template: NetgenMoreDemoBundle:override/full:ng_category.html.twig
-                        controller: ngmore.controller.full_view:viewNgCategoryContent
+                        controller: ngmore.controller.full_view:viewNgCategory
                         match:
                             Identifier\ContentType: ng_category
                     ng_category_page:
                         template: NetgenMoreDemoBundle:override/full:ng_category_page.html.twig
-                        controller: ngmore.controller.full_view:viewNgCategoryPageContent
+                        controller: ngmore.controller.full_view:viewNgCategoryPage
                         match:
                             Identifier\ContentType: ng_category_page
                     ng_landing_page:
                         template: NetgenMoreDemoBundle:override/full:ng_landing_page.html.twig
-                        controller: ngmore.controller.full_view:viewNgLandingPageContent
+                        controller: ngmore.controller.full_view:viewNgLandingPage
                         match:
                             Identifier\ContentType: ng_landing_page
                     ng_article:
@@ -233,7 +233,7 @@ ezpublish:
                             Identifier\ContentType: ng_banner_video
                     image:
                         template: NetgenMoreDemoBundle:override/embed:image.html.twig
-                        controller: ngmore.controller.embed_view:embedImageContent
+                        controller: ngmore.controller.embed_view:embedImage
                         match:
                             Identifier\ContentType: image
                     file:
