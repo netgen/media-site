@@ -109,8 +109,8 @@ netgen_more_legacy:
                     MailSettings/TransportPort: %mailer_port%
                     MailSettings/TransportUser: %mailer_user%
                     MailSettings/TransportPassword: %mailer_password%
-                    MailSettings/AdminEmail: %mailer_sender%
-                    MailSettings/EmailSender: %mailer_sender%
+                    MailSettings/AdminEmail: %ngmore.default.mail.sender_email%
+                    MailSettings/EmailSender: %ngmore.default.mail.sender_email%
 
                 ngmore.ini:
                     SpecialNodes/SiteInfoNode: %ngmore.default.locations.site_info.id%
