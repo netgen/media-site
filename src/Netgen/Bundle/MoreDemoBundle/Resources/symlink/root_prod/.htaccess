@@ -68,6 +68,9 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} \.svn|\.git
 RewriteRule .* / [L,R=301]
 
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^index\.php(/(.*)|$) /$2 [R=301,L]
+
 # START: Multisite rewrite rules for robots.txt
 
 # RewriteRule ^robots_site1.txt$ - [L]
