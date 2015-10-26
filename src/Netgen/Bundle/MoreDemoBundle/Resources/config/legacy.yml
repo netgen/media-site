@@ -99,6 +99,7 @@ netgen_more_legacy:
                         - module;ezinfo/about
                         - module;ezinfo/copyright
                         - module;content/advancedsearch
+                        - module;content/tipafriend
                         - module;settings/edit
                         - module;visual
 
