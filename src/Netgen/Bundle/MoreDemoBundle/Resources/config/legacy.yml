@@ -96,12 +96,17 @@ netgen_more_legacy:
                     SiteAccessRules/Rules:
                         - access;disable
                         - module;user/register
+                        - module;user/activate
+                        - module;user/unactivated
+                        - module;user/success
+                        - module;user/forgotpassword
                         - module;ezinfo/about
                         - module;ezinfo/copyright
                         - module;content/advancedsearch
                         - module;content/tipafriend
                         - module;settings/edit
                         - module;visual
+                        - module;shop
 
                     DesignSettings/DesignLocationCache: "enabled"
 
