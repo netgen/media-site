@@ -63,6 +63,7 @@ Rules[]=module;user/register
 Rules[]=module;ezinfo/about
 Rules[]=module;ezinfo/copyright
 Rules[]=module;content/advancedsearch
+Rules[]=module;content/tipafriend
 Rules[]=module;settings/edit
 Rules[]=module;visual
 
