@@ -1,23 +1,5 @@
 <?php /* #?ini charset="utf-8"?
 
-[file]
-Source=node/view/admin_preview.tpl
-MatchFile=admin_preview/file.tpl
-Subdir=templates
-Match[class_identifier]=file
-
-[folder]
-Source=node/view/admin_preview.tpl
-MatchFile=admin_preview/folder.tpl
-Subdir=templates
-Match[class_identifier]=folder
-
-[image]
-Source=node/view/admin_preview.tpl
-MatchFile=admin_preview/image.tpl
-Subdir=templates
-Match[class_identifier]=image
-
 [thumbnail_image]
 Source=node/view/thumbnail.tpl
 MatchFile=thumbnail/image.tpl
