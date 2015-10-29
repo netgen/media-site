@@ -23,7 +23,9 @@ ShowHiddenNodes=true
 SiteDesign=ngadminui
 AdditionalSiteDesignList[]
 AdditionalSiteDesignList[]=admin2
-AdditionalSiteDesignList[]=ezdemo
+AdditionalSiteDesignList[]=admin
+AdditionalSiteDesignList[]=standard
+AdditionalSiteDesignList[]=base
 
 [RegionalSettings]
 Locale=eng-GB
