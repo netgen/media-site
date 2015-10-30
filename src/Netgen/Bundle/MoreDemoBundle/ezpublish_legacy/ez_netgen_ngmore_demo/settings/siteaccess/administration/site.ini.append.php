@@ -26,11 +26,11 @@ AdditionalSiteDesignList[]=admin
 AdditionalSiteDesignList[]=ezdemo
 
 [RegionalSettings]
-Locale=eng-EU
-ContentObjectLocale=eng-EU
+Locale=eng-GB
+ContentObjectLocale=eng-GB
 ShowUntranslatedObjects=enabled
 SiteLanguageList[]
-SiteLanguageList[]=eng-EU
+SiteLanguageList[]=eng-GB
 SiteLanguageList[]=cro-HR
 TextTranslation=disabled
 
