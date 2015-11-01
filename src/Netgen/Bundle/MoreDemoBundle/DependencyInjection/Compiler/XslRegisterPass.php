@@ -2,6 +2,7 @@
 
 namespace Netgen\Bundle\MoreDemoBundle\DependencyInjection\Compiler;
 
+use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\ConfigResolver;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -17,22 +18,20 @@ class XslRegisterPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (
-            !$container->hasParameter('ezsettings.default.fieldtypes.ezxml.custom_xsl') ||
-            !$container->hasParameter('ezpublish.siteaccess.list')
-        ) {
-            return;
-        }
+        $scopes = array_merge(
+            array(ConfigResolver::SCOPE_DEFAULT),
+            $container->getParameter('ezpublish.siteaccess.list')
+        );
 
-        // Adding ezxml_tags.xsl to all declared siteaccesses.
-        foreach ($container->getParameter('ezpublish.siteaccess.list') as $siteAccess) {
-            if (!$container->hasParameter("ezsettings.$siteAccess.fieldtypes.ezxml.custom_xsl")) {
-                continue;
+        // Adding ezxml_tags.xsl to all scopes
+        foreach ($scopes as $scope) {
+            $xslConfig = array();
+            if ($container->hasParameter("ezsettings.$scope.fieldtypes.ezxml.custom_xsl")) {
+                $xslConfig = $container->getParameter("ezsettings.$scope.fieldtypes.ezxml.custom_xsl");
             }
 
-            $xslConfig = $container->getParameter("ezsettings.$siteAccess.fieldtypes.ezxml.custom_xsl");
             $xslConfig[] = array('path' => __DIR__ . '/../../Resources/xsl/ezxml_tags.xsl', 'priority' => 10000);
-            $container->setParameter("ezsettings.$siteAccess.fieldtypes.ezxml.custom_xsl", $xslConfig);
+            $container->setParameter("ezsettings.$scope.fieldtypes.ezxml.custom_xsl", $xslConfig);
         }
     }
 }
