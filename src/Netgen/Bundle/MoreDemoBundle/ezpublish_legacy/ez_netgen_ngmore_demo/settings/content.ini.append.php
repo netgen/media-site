@@ -52,4 +52,7 @@ CustomAttributesDefaults[autor]=Quote author
 
 [embed-type_images]
 AvailableClasses[]
+
+[ChildrenNodeList]
+ExcludedClasses[]
 */ ?>

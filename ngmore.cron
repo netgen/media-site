@@ -5,7 +5,7 @@ EZPUBLISHROOT=/path/to/the/ez/publish/directory
 EZPUBLISHSCRIPT=ezpublish/console ezpublish:legacy:script runcronjobs.php
 
 # Siteaccess used for operations
-SITEACCESS=eng
+SITEACCESS=administration
 
 # Location of the PHP Command Line Interface binary.
 PHP=/usr/bin/php

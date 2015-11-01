@@ -1,34 +1,48 @@
+## eZ Platform ENVIRONMENT variables, used for customizing index.php execution (not used by console commands)
+
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
-# Defaults to "prod" if omitted
-SetEnv ENVIRONMENT "prod"
+# Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
+#SetEnvIf REQUEST_URI ".*" ENVIRONMENT=prod
+
+# Whether to use custom ClassLoader (autoloader) file
+# Needs to be a valid path relative to root web/ directory
+# Defaults to bootstrap.php.cache, or autoload.php in debug; supported on 2015.01 and higher
+#SetEnv CUSTOM_CLASSLOADER_FILE "../ezpublish/autoload.php"
 
 # Whether to use Symfony's ApcClassLoader.
 # Possible values: 0 or 1
-# Defaults to 0 if omitted
+# Defaults to 0 if omitted, supported on 5.2 and higher
+#! Not supported as of 2015.01, use CUSTOM_CLASSLOADER_FILE instead for this.
 #SetEnv USE_APC_CLASSLOADER 0
 
 # Prefix used when USE_APC_CLASSLOADER is set to 1.
 # Use a unique prefix in order to prevent cache key conflicts
 # with other applications also using APC.
-# Defaults to "ezpublish" if omitted
+# Defaults to "ezpublish" if omitted, supported on 5.2 and higher
+#! Not supported as of 2015.01, use CUSTOM_CLASSLOADER_FILE instead for this.
 #SetEnv APC_CLASSLOADER_PREFIX "ezpublish"
 
 # Whether to use debugging.
 # Possible values: 0 or 1
-# Defaults to 0 if omitted, unless ENVIRONMENT is set to: "dev"
+# Defaults to 0 if omitted, unless ENVIRONMENT is set to: "dev"; supported on 5.2 and higher
 #SetEnv USE_DEBUGGING 0
 
 # Whether to use Symfony's HTTP Caching.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
 # Possible values: 0 or 1
-# Defaults to 1 if omitted, unless ENVIRONMENT is set to: "dev"
-#SetEnv USE_HTTP_CACHE 1
+# Defaults to 1 if omitted, unless ENVIRONMENT is set to: "dev"; supported on 5.2 and higher
+SetEnv USE_HTTP_CACHE 0
+
+# Whether to use custom HTTP Cache class if USE_HTTP_CACHE is enabled
+# Value must be a autoloadable cache class
+# Defaults to to use "EzPublishCache"; supported on 2015.01 and higher
+#SetEnv HTTP_CACHE_CLASS "\Vendor\Project\MyCache"
 
 # Defines the proxies to trust.
 # Separate entries by a comma
 # Example: "proxy1.example.com,proxy2.example.org"
-# By default, no trusted proxies are set
+# By default, no trusted proxies are set; supported on 5.2 and higher
 #SetEnv TRUSTED_PROXIES "127.0.0.1"
 
 AddOutputFilterByType DEFLATE text/plain
@@ -54,6 +68,9 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} \.svn|\.git
 RewriteRule .* / [L,R=301]
 
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^index\.php(/(.*)|$) /$2 [R=301,L]
+
 # START: Multisite rewrite rules for robots.txt
 
 # RewriteRule ^robots_site1.txt$ - [L]
@@ -75,9 +92,6 @@ RewriteRule .* / [L,R=301]
 
 # END: Maintenance mode
 
-# v1 rest API is on Legacy
-# RewriteRule ^api/[^/]+/v1/ /index_rest.php [L]
-
 RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
 RewriteRule ^var/([^/]+/)?cache/(texttoimage|public)/.* - [L]
 RewriteRule ^design/[^/]+/(stylesheets|images|fonts|javascript)/.* - [L]
@@ -87,13 +101,12 @@ RewriteRule ^extension/[^/]+/design/[^/]+/(stylesheets|flash|images|fonts|lib|ja
 RewriteRule ^favicon\.ico - [L]
 RewriteRule ^robots\.txt - [L]
 
-# Following rule is needed to correctly display assets from eZ Publish5 / Symfony bundles
+# The following rule is needed to correctly display assets from eZ Platform / Symfony bundles
 RewriteRule ^bundles/ - [L]
 
-# Additional Assetic rules for eZ Publish 5.1 / 2013.4 and higher:
-## Don't forget to run php ezpublish/console assetic:dump --env=prod
-## and make sure to comment these out in dev environment.
-RewriteRule ^css/.*\.css - [L]
-RewriteRule ^js/.*\.js - [L]
+# Additional Assetic rules for environments different from dev,
+# remember to run php ezpublish/console assetic:dump --env=prod
+RewriteCond %{ENV:ENVIRONMENT} !^(dev)
+RewriteRule ^(css|js|font)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
 
 RewriteRule .* index\.php
