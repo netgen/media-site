@@ -11,7 +11,7 @@ ezpublish:
     system:
         frontend_group:
             user:
-                layout: %ngmore.default.pagelayout%
+                layout: 'NetgenMoreDemoBundle::pagelayout.html.twig'
                 login_template: 'NetgenMoreDemoBundle:user:login.html.twig'
         administration_group:
             user:
