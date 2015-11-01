@@ -9,7 +9,7 @@ ezpublish:
                         template: 'NetgenMoreDemoBundle:zone:4_zones_a.html.twig'
                     4ZonesB:
                         template: 'NetgenMoreDemoBundle:zone:4_zones_b.html.twig'
-                   4ZonesC:
+                    4ZonesC:
                         template: 'NetgenMoreDemoBundle:zone:4_zones_c.html.twig'
                     6ZonesA:
                         template: 'NetgenMoreDemoBundle:zone:6_zones_a.html.twig'
