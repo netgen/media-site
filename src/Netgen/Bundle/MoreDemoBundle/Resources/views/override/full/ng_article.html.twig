@@ -19,8 +19,8 @@
                 controller(
                     'ngmore.controller.parts:viewRelatedMultimedia', {
                         'locationId': location.id,
-                        'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig',
-                        'includeChildrenImages': true
+                        'includeChildrenImages': true,
+                        'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig'
                     }
                 )
             ) }}
@@ -49,7 +49,7 @@
         {{ render(
             controller(
                 'ngmore.controller.parts:viewRelatedItems', {
-                    'contentId': location.contentInfo.id,
+                    'contentId': content.id,
                     'fieldDefinitionIdentifier': 'related_content',
                     'template': 'NetgenMoreDemoBundle:parts:related_items.html.twig'
                 }

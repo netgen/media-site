@@ -35,7 +35,6 @@
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
-
         {% set local_video_field = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
 
         {% set download_url = path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( local_video_field ).id } ) %}

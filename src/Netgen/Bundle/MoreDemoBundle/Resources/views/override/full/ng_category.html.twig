@@ -34,7 +34,7 @@
         {{ render(
             controller(
                 'ngmore.controller.parts:viewRelatedItems', {
-                    'contentId': location.contentInfo.id,
+                    'contentId': content.id,
                     'fieldDefinitionIdentifier': 'featured_content',
                     'template': 'NetgenMoreDemoBundle:parts:related_items.html.twig'
                 }
