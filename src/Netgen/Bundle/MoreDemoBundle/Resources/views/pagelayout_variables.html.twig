@@ -55,7 +55,7 @@
             {% set translation_site_access = ezpublish.translationSiteAccess( language ) %}
 
             {% if translation_site_access is not empty %}
-                {% set url = url( ez_route( params={ 'siteaccess': translation_site_access } ) ) %}
+                {% set url = url( ez_route( params={ 'siteaccess': translation_site_access } ), { 'language': language } ) %}
                 {% set available_translations = available_translations|merge( { ( language ): url } ) %}
             {% endif %}
         {% endfor %}
