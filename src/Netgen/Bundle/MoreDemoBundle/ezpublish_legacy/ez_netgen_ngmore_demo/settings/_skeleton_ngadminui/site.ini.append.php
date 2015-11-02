@@ -13,10 +13,9 @@ RegistrationEmail=
 [SiteAccessSettings]
 RequireUserLogin=true
 RelatedSiteAccessList[]
-RelatedSiteAccessList[]=eng
-RelatedSiteAccessList[]=cro
-RelatedSiteAccessList[]=administration
-RelatedSiteAccessList[]=administration2
+{% for siteAccess in relatedSiteAccessList %}
+RelatedSiteAccessList[]={{ siteAccess }}
+{% endfor %}
 ShowHiddenNodes=true
 
 [DesignSettings]
@@ -28,15 +27,16 @@ AdditionalSiteDesignList[]=standard
 AdditionalSiteDesignList[]=base
 
 [RegionalSettings]
-Locale=eng-GB
-ContentObjectLocale=eng-GB
+Locale={{ siteAccessLocale }}
+ContentObjectLocale={{ siteAccessLocale }}
 ShowUntranslatedObjects=enabled
 SiteLanguageList[]
-SiteLanguageList[]=eng-GB
-SiteLanguageList[]=cro-HR
+{% for languageCode in siteLanguageList %}
+SiteLanguageList[]={{ languageCode }}
+{% endfor %}
 TextTranslation=disabled
 
 [ContentSettings]
 CachedViewPreferences[full]=admin_navigation_content=1;admin_children_viewmode=list;admin_list_limit=1
-TranslationList=cro-HR
+TranslationList={{ translationList }}
 */ ?>

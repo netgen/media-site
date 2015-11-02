@@ -19,7 +19,7 @@ RelatedSiteAccessList[]
 RelatedSiteAccessList[]=eng
 RelatedSiteAccessList[]=cro
 RelatedSiteAccessList[]=administration
-RelatedSiteAccessList[]=administration2
+RelatedSiteAccessList[]=ngadminui
 ShowHiddenNodes=false
 
 [DesignSettings]
