@@ -1,0 +1,1 @@
+../administration/contentstructuremenu.ini.append.php
