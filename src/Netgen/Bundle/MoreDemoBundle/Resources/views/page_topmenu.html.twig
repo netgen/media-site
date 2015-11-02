@@ -9,12 +9,12 @@
             </button>
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            {% block pageMainMenu %}
+            {% block page_main_menu %}
                 {{ render_esi(
                     controller(
                         'ngmore.controller.page_layout:menu', {
                             menuName: 'ngmore_main_menu',
-                            activeItemId: mainCategoryLocationId is defined ? mainCategoryLocationId : 0
+                            activeItemId: main_category_location_id is defined ? main_category_location_id : 0
                         }
                     )
                 ) }}

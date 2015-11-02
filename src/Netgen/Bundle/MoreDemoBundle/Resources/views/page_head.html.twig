@@ -1,44 +1,44 @@
-{% set metaData = metaData|default( [] ) %}
+{% set meta_data = meta_data|default( [] ) %}
 
-{% set configMetaData = ezpublish.configResolver.getParameter( 'SiteSettings.MetaDataArray' ) %}
-{% set metaData = configMetaData|merge( metaData ) %}
+{% set config_meta_data = ezpublish.configResolver.getParameter( 'site_settings.meta_data', 'ngmore' ) %}
+{% set meta_data = config_meta_data|merge( meta_data ) %}
 
 {% if content is defined %}
     {% if content.fields.metadata is defined and not ez_is_field_empty( content, 'metadata' ) %}
-        {% set contentMetaData = ez_field_value( content, 'metadata' ) %}
-        {% for key in configMetaData|keys %}
-            {% if contentMetaData[key] is defined and contentMetaData[key] is not empty %}
-                {% set metaData = metaData|merge( { ( key ): contentMetaData[key] } ) %}
+        {% set content_meta_data = ez_field_value( content, 'metadata' ) %}
+        {% for key in config_meta_data|keys %}
+            {% if content_meta_data[key] is defined and content_meta_data[key] is not empty %}
+                {% set meta_data = meta_data|merge( { ( key ): content_meta_data[key] } ) %}
             {% endif %}
         {% endfor %}
     {% endif %}
 {% endif %}
 
-{% if siteTitle is not defined %}
-    {% set siteTitle = siteName %}
+{% if site_title is not defined %}
+    {% set site_title = site_name %}
 
-    {% if pathArray is not empty %}
+    {% if path_array is not empty %}
         {% if ezpublish.configResolver.getParameter( 'SeoSettings.ShowPathInTitle', 'ngmore' ) in ['false', false] %}
-            {% set siteTitle = pathArray[pathArray|length - 1].text ~ ' - ' ~ siteTitle %}
-        {% elseif pathArray|length > 1 %}
-            {% for pathItem in pathArray %}
+            {% set site_title = path_array[path_array|length - 1].text ~ ' - ' ~ site_title %}
+        {% elseif path_array|length > 1 %}
+            {% for path_item in path_array %}
                 {% if not loop.first %}
-                    {% set siteTitle = pathItem.text ~ ' - ' ~ siteTitle %}
+                    {% set site_title = path_item.text ~ ' - ' ~ site_title %}
                 {% endif %}
             {% endfor %}
         {% endif %}
     {% endif %}
 
-    {% if contentMetaData is defined and contentMetaData.title is defined and contentMetaData.title is not empty %}
-        {% set siteTitle = contentMetaData.title %}
+    {% if content_meta_data is defined and content_meta_data.title is defined and content_meta_data.title is not empty %}
+        {% set site_title = content_meta_data.title %}
     {% endif %}
 {% endif %}
 
-<title>{{ siteTitle }}</title>
+<title>{{ site_title }}</title>
 
-{% for key in configMetaData|keys %}
-    {% if metaData[key] is defined and metaData[key] is not empty %}
-        <meta name="{{ key }}" content="{{ metaData[key] }}" />
+{% for key in config_meta_data|keys %}
+    {% if meta_data[key] is defined and meta_data[key] is not empty %}
+        <meta name="{{ key }}" content="{{ meta_data[key] }}" />
     {% endif %}
 {% endfor %}
 

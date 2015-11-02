@@ -3,9 +3,9 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
 {% if not ez_is_field_empty( content, 'line_intro' ) %}
-    {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+    {% set meta_data = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
 {% elseif not ez_is_field_empty( content, 'description' ) %}
-    {% set metaData = { 'description': ez_field_value( content, 'description' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+    {% set meta_data = { 'description': ez_field_value( content, 'description' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
 {% endif %}
 
 {% block content %}

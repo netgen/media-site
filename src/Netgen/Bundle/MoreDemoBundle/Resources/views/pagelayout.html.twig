@@ -8,19 +8,19 @@
 
     {% include 'NetgenMoreBundle:parts:typekit.html.twig' %}
 
-    {% block pageHead %}
+    {% block page_head %}
         {% include 'NetgenMoreDemoBundle::page_head.html.twig' %}
     {% endblock %}
 
-    {% block pageHeadStyle %}
+    {% block page_head_style %}
         {% include 'NetgenMoreDemoBundle::page_head_style.html.twig' %}
     {% endblock %}
 
-    {% block pageHeadScript %}
+    {% block page_head_script %}
         {% include 'NetgenMoreDemoBundle::page_head_script.html.twig' %}
     {% endblock %}
 
-    {% block openGraph %}
+    {% block open_graph %}
         {% include 'NetgenMoreBundle:parts:opengraph.html.twig' %}
     {% endblock %}
 
@@ -34,52 +34,52 @@
 
 <div id="page">
 
-    {% block pageHeader %}
+    {% block page_header %}
         {% include 'NetgenMoreDemoBundle::page_header.html.twig' %}
     {% endblock %}
 
-    {% block pagePath %}
+    {% block page_path %}
         {% include 'NetgenMoreDemoBundle::page_path.html.twig' %}
     {% endblock %}
 
-    {% block regionTop %}
-        {% if _placeholderTopTop is not empty %}
-            <div class="placeholder placeholder-top-top">{{ _placeholderTopTop|raw }}</div>
+    {% block region_top %}
+        {% if _placeholder_top_top is not empty %}
+            <div class="placeholder placeholder-top-top">{{ _placeholder_top_top|raw }}</div>
         {% endif %}
 
-        {% if not disableTopRegion %}
+        {% if not disable_top_region %}
             {{ render_esi( controller( 'ngmore.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'top' } ) ) }}
         {% endif %}
 
-        {% if _placeholderTopBottom is not empty %}
-            <div class="placeholder placeholder-top-bottom">{{ _placeholderTopBottom|raw }}</div>
+        {% if _placeholder_top_bottom is not empty %}
+            <div class="placeholder placeholder-top-bottom">{{ _placeholder_top_bottom|raw }}</div>
         {% endif %}
     {% endblock %}
 
-    {% if not disableContainers %}<div class="container"><div class="row">{% endif %}
+    {% if not disable_containers %}<div class="container"><div class="row">{% endif %}
 
-    {% if not disableContainers and leftColumnAvailable %}<div class="col-lg-3 col-md-3 col-sm-3">{% endif %}
+    {% if not disable_containers and left_column_available %}<div class="col-lg-3 col-md-3 col-sm-3">{% endif %}
 
-    {% block regionLeft %}
-        {% if _placeholderLeftTop is not empty %}
-            <div class="placeholder placeholder-left-top">{{ _placeholderLeftTop|raw }}</div>
+    {% block region_left %}
+        {% if _placeholder_left_top is not empty %}
+            <div class="placeholder placeholder-left-top">{{ _placeholder_left_top|raw }}</div>
         {% endif %}
 
-        {% if not disableLeftRegion %}
+        {% if not disable_left_region %}
             {{ render_esi( controller( 'ngmore.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'left' } ) ) }}
         {% endif %}
 
-        {% if _placeholderLeftBottom is not empty %}
-            <div class="placeholder placeholder-left-bottom">{{ _placeholderLeftBottom|raw }}</div>
+        {% if _placeholder_left_bottom is not empty %}
+            <div class="placeholder placeholder-left-bottom">{{ _placeholder_left_bottom|raw }}</div>
         {% endif %}
     {% endblock %}
 
-    {% if not disableContainers and leftColumnAvailable %}</div>{% endif %}
+    {% if not disable_containers and left_column_available %}</div>{% endif %}
 
-    {% if not disableContainers %}
-        {% if leftColumnAvailable and rightColumnAvailable %}
+    {% if not disable_containers %}
+        {% if left_column_available and right_column_available %}
             <div class="col-lg-6 col-md-6 col-sm-6">
-        {% elseif leftColumnAvailable or rightColumnAvailable %}
+        {% elseif left_column_available or right_column_available %}
             <div class="col-lg-9 col-md-9 col-sm-9">
         {% else %}
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -90,49 +90,49 @@
         {% block content %}{% endblock %}
     </div>
 
-    {% if not disableContainers %}</div>{% endif %}
+    {% if not disable_containers %}</div>{% endif %}
 
-    {% if not disableContainers and rightColumnAvailable %}<div class="col-lg-3 col-md-3 col-sm-3">{% endif %}
+    {% if not disable_containers and right_column_available %}<div class="col-lg-3 col-md-3 col-sm-3">{% endif %}
 
-    {% block regionRight %}
-        {% if _placeholderRightTop is not empty %}
-            <div class="placeholder placeholder-right-top">{{ _placeholderRightTop|raw }}</div>
+    {% block region_right %}
+        {% if _placeholder_right_top is not empty %}
+            <div class="placeholder placeholder-right-top">{{ _placeholder_right_top|raw }}</div>
         {% endif %}
 
-        {% if not disableRightRegion %}
+        {% if not disable_right_region %}
             {{ render_esi( controller( 'ngmore.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'right' } ) ) }}
         {% endif %}
 
-        {% if _placeholderRightBottom is not empty %}
-            <div class="placeholder placeholder-right-bottom">{{ _placeholderRightBottom|raw }}</div>
+        {% if _placeholder_right_bottom is not empty %}
+            <div class="placeholder placeholder-right-bottom">{{ _placeholder_right_bottom|raw }}</div>
         {% endif %}
     {% endblock %}
 
-    {% if not disableContainers and rightColumnAvailable %}</div>{% endif %}
+    {% if not disable_containers and right_column_available %}</div>{% endif %}
 
-    {% if not disableContainers %}</div></div>{% endif %}
+    {% if not disable_containers %}</div></div>{% endif %}
 
-    {% block regionBottom %}
-        {% if _placeholderBottomTop is not empty %}
-            <div class="placeholder placeholder-bottom-top">{{ _placeholderBottomTop|raw }}</div>
+    {% block region_bottom %}
+        {% if _placeholder_bottom_top is not empty %}
+            <div class="placeholder placeholder-bottom-top">{{ _placeholder_bottom_top|raw }}</div>
         {% endif %}
 
-        {% if not disableBottomRegion %}
+        {% if not disable_bottom_region %}
             {{ render_esi( controller( 'ngmore.controller.page_layout:region', { 'layoutId': layout.id, 'region': 'bottom' } ) ) }}
         {% endif %}
 
-        {% if _placeholderBottomBottom is not empty %}
-            <div class="placeholder placeholder-bottom-bottom">{{ _placeholderBottomBottom|raw }}</div>
+        {% if _placeholder_bottom_bottom is not empty %}
+            <div class="placeholder placeholder-bottom-bottom">{{ _placeholder_bottom_bottom|raw }}</div>
         {% endif %}
     {% endblock %}
 
-    {% block pageFooter %}
+    {% block page_footer %}
         {% include 'NetgenMoreDemoBundle::page_footer.html.twig' %}
     {% endblock %}
 
 </div>
 
-{% block pageFooterScript %}
+{% block page_footer_script %}
     {% include 'NetgenMoreDemoBundle::page_footer_script.html.twig' %}
 {% endblock %}
 

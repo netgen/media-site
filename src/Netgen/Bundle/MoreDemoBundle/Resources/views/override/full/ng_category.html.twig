@@ -3,9 +3,9 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
 {% if not ez_is_field_empty( content, 'line_intro' ) %}
-    {% set metaData = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+    {% set meta_data = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
 {% elseif not ez_is_field_empty( content, 'full_intro' ) %}
-    {% set metaData = { 'description': ez_field_value( content, 'full_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+    {% set meta_data = { 'description': ez_field_value( content, 'full_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
 {% endif %}
 
 {% block content %}
@@ -50,7 +50,14 @@
 
                 {% if list_output_type_empty or list_output_type_value.identifiers[0] == 'list_view' %}
                     {% for pager_item in pager %}
-                        {{ render( controller( 'ez_content:viewLocation', { 'locationId': pager_item.id, 'viewType': 'line' } ) ) }}
+                        {{ render(
+                            controller(
+                                'ez_content:viewLocation', {
+                                    'locationId': pager_item.id,
+                                    'viewType': 'line'
+                                }
+                            )
+                        ) }}
                     {% endfor %}
                 {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'grid_view' %}
                     <div class="row">
@@ -76,7 +83,16 @@
                 {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'listitem_view' %}
                     <ul>
                         {% for pager_item in pager %}
-                            <li>{{ render( controller( 'ez_content:viewLocation', { 'locationId': pager_item.id, 'viewType': 'listitem' } ) ) }}</li>
+                            <li>
+                                {{ render(
+                                    controller(
+                                        'ez_content:viewLocation', {
+                                            'locationId': pager_item.id,
+                                            'viewType': 'listitem'
+                                        }
+                                    )
+                                ) }}
+                            </li>
                         {% endfor %}
                     </ul>
                 {% endif %}
