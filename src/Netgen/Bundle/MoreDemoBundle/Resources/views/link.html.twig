@@ -1,8 +1,8 @@
 {% set root_location_path = path( ezpublish.rootLocation ) %}
 
-<link rel="home" href="{{ root_location_path }}" title="{{ 'ngmore.layout.site_frontpage'|trans( { '%siteName%': siteName } ) }}" />
+<link rel="home" href="{{ root_location_path }}" title="{{ 'ngmore.layout.site_frontpage'|trans( { '%siteName%': site_name } ) }}" />
 <link rel="index" href="{{ root_location_path }}" />
-<link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="{{ 'ngmore.layout.search_site'|trans( { '%site_name%': siteName } ) }}" />
+<link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="{{ 'ngmore.layout.search_site'|trans( { '%site_name%': site_name } ) }}" />
 
 <link rel="icon apple-touch-icon-precomposed" sizes="152x152" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-152.png' ) }}">
 <link rel="icon apple-touch-icon-precomposed" sizes="144x144" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-144.png' ) }}">
