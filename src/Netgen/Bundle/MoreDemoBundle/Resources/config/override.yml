@@ -1,6 +1,6 @@
 ezpublish:
     system:
-        ngmore_frontend_group:
+        frontend_group:
             block_view:
                 PageTitle:
                     template: NetgenMoreDemoBundle:override/block:page_title.html.twig
