@@ -1,6 +1,6 @@
 {% set meta_data = meta_data|default( [] ) %}
 
-{% set config_meta_data = ezpublish.configResolver.getParameter( 'site_settings.meta_data', 'ngmore' ) %}
+{% set config_meta_data = ezpublish.configResolver.getParameter( 'SiteSettings.MetaDataArray' ) %}
 {% set meta_data = config_meta_data|merge( meta_data ) %}
 
 {% if content is defined %}
