@@ -13,10 +13,6 @@ ezpublish:
             user:
                 layout: %ngmore.default.pagelayout%
                 login_template: 'NetgenMoreDemoBundle:user:login.html.twig'
-        administration_group:
-            user:
-                layout: 'NetgenMoreAdminUIBundle::pagelayout_login.html.twig'
-                login_template: 'NetgenMoreAdminUIBundle:user:login.html.twig'
 
 ez_publish_legacy:
     system:
@@ -24,7 +20,3 @@ ez_publish_legacy:
             templating:
                 view_layout: 'NetgenMoreDemoBundle::pagelayout_legacy.html.twig'
                 module_layout: 'NetgenMoreDemoBundle::pagelayout_module.html.twig'
-        administration_group:
-            templating:
-                view_layout: 'NetgenMoreAdminUIBundle::pagelayout_legacy.html.twig'
-                module_layout: 'NetgenMoreAdminUIBundle::pagelayout_module.html.twig'
