@@ -1,6 +1,5 @@
 parameters:
     ngmore.default.pagelayout: 'NetgenMoreDemoBundle::pagelayout.html.twig'
-    ngmore.administration_group.pagelayout: 'NetgenMoreAdminUIBundle::pagelayout.html.twig'
 
     ngmore.default.site_settings.site_name: 'NG More'
     ngmore.default.site_settings.meta_data:
