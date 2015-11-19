@@ -1,26 +1,12 @@
-<div class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" type="button">
-                <span class="sr-only">{{ 'ngmore.layout.toggle_navigation'|trans }}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            {% block page_main_menu %}
-                {{ render_esi(
-                    controller(
-                        'ngmore.controller.page_layout:menu', {
-                            menuName: 'ngmore_main_menu',
-                            activeItemId: main_category_location_id is defined ? main_category_location_id : 0
-                        }
-                    )
-                ) }}
-            {% endblock %}
-
-            {% include 'NetgenMoreDemoBundle::page_header_searchbox.html.twig' %}
-        </nav>
-    </div>
-</div>
+<nav class="main-navigation" role="navigation">
+    {% block page_main_menu %}
+        {{ render_esi(
+            controller(
+                'ngmore.controller.page_layout:menu', {
+                    menuName: 'ngmore_main_menu',
+                    activeItemId: main_category_location_id is defined ? main_category_location_id : 0
+                }
+            )
+        ) }}
+    {% endblock %}
+</nav>
