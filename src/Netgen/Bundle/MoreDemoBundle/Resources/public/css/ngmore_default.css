@@ -63,7 +63,7 @@ h2{
 
 /* HEADER ---------------------------------------------------- */
 header {
-    background: rgba(27,117,187,1);
+    background: #009ac7;
 }
 #logo {
     float: left;
@@ -78,8 +78,12 @@ header {
     margin: 20px 0 20px 20px;
 }
 .current-lang {
-    color: #888;
+    color: #fff;
     text-transform: uppercase;
+}
+.current-lang:hover,
+.current-lang:focus {
+    color: #fff;
 }
 #main-nav {
     clear: both;
