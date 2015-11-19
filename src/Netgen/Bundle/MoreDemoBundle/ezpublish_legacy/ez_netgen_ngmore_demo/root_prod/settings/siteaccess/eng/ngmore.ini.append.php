@@ -4,7 +4,7 @@
 GoogleAnalyticsCode=
 GoogleAnalyticsUniversal=enabled
 AddThisCode=
-TypeKitCode=pbp7qcg
+TypeKitCode=
 FacebookApi=disabled
 
 [GoogleMapsSettings]
