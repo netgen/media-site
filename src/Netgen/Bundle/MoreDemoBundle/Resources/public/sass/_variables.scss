@@ -1,0 +1,15 @@
+// Variables file
+
+$headerHeight: 100px;
+$gutter: 15px;
+
+$mainColor: hsl(4, 85, 57);
+$headerActiveBg: hsl(348, 6, 13);
+
+%clearfix {
+	&:after {
+		clear:both;
+		display:table;
+		content:"";
+	}
+}
