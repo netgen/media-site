@@ -1,9 +1,17 @@
-// Variables file
+// responsive breakpoints
+$break-lg:1200px;
+$break-md:992px;
+$break-sm:768px;
+$break-xs:480px;
 
+// dimensions
 $headerHeight: 100px;
+$headerHeightSm: 70px;
 $gutter: 15px;
 
+// colours
 $mainColor: hsl(4, 85, 57);
+$headerBg: hsl(270, 2, 25);
 $headerActiveBg: hsl(348, 6, 13);
 
 %clearfix {

@@ -198,4 +198,15 @@ $(document).ready(function($) {
     }
     /* /ROYALSLIDER WITH JWPLAYER VIDEO  -----------------------------------------------*/
 
+    /* header actions */
+    $('#mainnav-toggle').on('click', function(e){
+        e.preventDefault();
+        $('#page').removeClass('searchbox-active').toggleClass('mainnav-active');
+    })
+    $('#searchbox-toggle').on('click', function(e){
+        e.preventDefault();
+        $('#page').removeClass('mainnav-active').toggleClass('searchbox-active');
+    })
+    /* /header actions */
+
 });
