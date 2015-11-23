@@ -1,9 +1,10 @@
-<a id="searchbox-toggle" href="#" title="Search">
-    <i class="fa fa-search"></i>
-</a>
 <div id="header-search">
+	<a id="searchbox-toggle" href="#" title="Search">
+	    <i class="fa fa-search"></i>
+	</a>
 	<form class="navbar-search" method="get" action="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" id="site-wide-search">
 	    <span class="hidden">{{ 'ngmore.layout.search'|trans }}</span>
 	    <input class="search-query" type="search" name="SearchText" id="site-wide-search-field" placeholder="{{ 'ngmore.layout.search'|trans }}" />
+	    <button type="submit" class="search-submit">Go</button>
 	</form>
 </div>
