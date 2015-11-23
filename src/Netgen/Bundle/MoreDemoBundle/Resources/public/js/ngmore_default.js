@@ -199,14 +199,40 @@ $(document).ready(function($) {
     /* /ROYALSLIDER WITH JWPLAYER VIDEO  -----------------------------------------------*/
 
     /* header actions */
-    $('#mainnav-toggle').on('click', function(e){
-        e.preventDefault();
-        $('#page').removeClass('searchbox-active').toggleClass('mainnav-active');
-    })
-    $('#searchbox-toggle').on('click', function(e){
-        e.preventDefault();
-        $('#page').removeClass('mainnav-active').toggleClass('searchbox-active');
-    })
+    (function($,c,b){$.map("click dblclick mousemove mousedown mouseup mouseover mouseout change select submit keydown keypress keyup".split(" "),function(d){a(d)});a("focusin","focus"+b);a("focusout","blur"+b);$.addOutsideEvent=a;function a(g,e){e=e||g+b;var d=$(),h=g+"."+e+"-special-event";$.event.special[e]={setup:function(){d=d.add(this);if(d.length===1){$(c).bind(h,f)}},teardown:function(){d=d.not(this);if(d.length===0){$(c).unbind(h)}},add:function(i){var j=i.handler;i.handler=function(l,k){l.target=k;j.apply(this,arguments)}}};function f(i){$(d).each(function(){var j=$(this);if(this!==i.target&&!j.has(i.target).length){j.triggerHandler(e,[i.target])}})}}})(jQuery,document,"outside"); //plugin for click outside
+    (function(){
+        var page = $('#page'),
+            navToggle = $('#mainnav-toggle'),
+            searchToggle = $('#searchbox-toggle'),
+            searchForm = $('#header-search'),
+            searchInput = searchForm.find('input.search-query'),
+            pageToggleClass = function(e, classToToggle, classToRemove) {
+                e.preventDefault();
+                page.toggleClass(classToToggle);
+                if(classToRemove) {
+                    page.removeClass(classToRemove);
+                }
+            };
+        navToggle.on('click', function(e){
+            pageToggleClass(e, 'mainnav-active');
+        });
+        searchToggle.on('click', function(e){
+            pageToggleClass(e, 'searchbox-active', 'mainnav-active');
+            searchInput.focus();
+        });
+        searchForm.on('clickoutside', function(e){
+            page.removeClass('searchbox-active');
+        });
+
+        searchInput.on('input', function(){
+            if($(this).val() != ''){
+                searchForm.addClass('filled');
+            } else {
+                searchForm.removeClass('filled');
+            }
+        });
+    })();
+
     /* /header actions */
 
 });
