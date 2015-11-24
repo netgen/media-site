@@ -6,4 +6,27 @@ body {
 
 a {
 	transition:background 150ms, color 150ms;
+	&,
+	&:hover,
+	&:focus {
+		outline:none;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+p {
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
 }
