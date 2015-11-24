@@ -1,0 +1,205 @@
+/* SPECIFIC -----------------------------------------------------*/
+.google-maps img {
+    max-width: none;
+}
+/* /SPECIFIC */
+
+/* royalslider */
+.royalSlider {
+    width: 100%;
+}
+.rsWebkit3d * { /* resolved bug with blocking slider after initial sliding on android stock browser */
+    -webkit-transform: translateZ(0);
+}
+/* /royalslider */
+
+.content-view-block-item {
+    margin-bottom:20px;
+}
+
+.ng-video-external.content-view-full .video-vimeo,
+.ng-video-external.content-view-embed .video-vimeo {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+.ng-video-external.content-view-full .video-vimeo iframe,
+.ng-video-external.content-view-embed .video-vimeo iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+/* EMBEDED OBJECTS ----------------------------------------------------- */
+.object-left,
+.half-left {
+    float: left;
+    clear: left;
+    margin-right: 2.5%;
+}
+.object-right,
+.half-right {
+    float: right;
+    clear: right;
+    margin-left: 2.5%;
+}
+.half-left,
+.half-right {
+    width:47.5%;
+}
+.object-left,
+.object-right {
+    max-width: 47.5%;
+}
+.object-center .content-view-embed {
+    max-width: 75%;
+}
+.object-center .content-view-embed,
+.object-center .content-view-embed.image .att-image {
+    margin: 0 auto;
+}
+.content-view-embed.image {
+    margin-bottom: 2.5%;
+}
+.content-view-embed.image .att-image {
+    display: table;
+}
+.content-view-embed.image .att-image img {
+    width: 100%;
+}
+.content-view-embed.image .att-caption {
+    font-size: 0.8em;
+}
+.content-view-embed.image .att-caption p {
+    margin: 0;
+}
+.clear {
+    clear:both;
+}
+/* /EMBEDED OBJECTS */
+
+/* TABLES ----------------------------------------------------------------- */
+.table.table-no-skin thead > tr > th,
+.table.table-no-skin tbody > tr > th,
+.table.table-no-skin tfoot > tr > th,
+.table.table-no-skin thead > tr > td,
+.table.table-no-skin tbody > tr > td,
+.table.table-no-skin tfoot > tr > td {
+    border: none;
+    line-height: 1;
+    padding: 0;
+}
+.table th p:last-child, .table td p:last-child {
+    margin-bottom: 0;
+}
+
+/* /TABLES */
+
+/* Audio player */
+audio {
+    width: 100%;
+}
+
+/* Video player */
+.video-config {
+    display: none;
+}
+
+/* SEARCH */
+
+#facet-list ul {
+    padding-left: 28px;
+}
+
+#facet-list a:hover {
+    text-decoration: none;
+}
+
+.score.progress .bar {
+    background:#1B75BB;
+    color:white;
+    text-align: center;
+}
+
+.score.progress{
+    background:#ddd;
+}
+
+.form-search .control-group {
+    margin-bottom: 20px;
+}
+
+#search-result > div {
+    background: none repeat scroll 0 0 #F0F0F0;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+#search-result .add-line {
+    border-right: 1px solid #ccc;
+}
+
+#search-result .additional-info .type {
+    margin-bottom: 10px;
+}
+
+#Search {
+    width:250px;
+}
+
+/* /SEARCH */
+
+@media (max-width: 1200px) {
+    #debug{
+        display: none;
+    }
+    #search-result .add-line {
+        border-right: none;
+    }
+    #search-result .additional-info {
+        border-top: 1px solid #CCCCCC;
+        margin-top: 20px;
+        padding-top: 10px;
+    }
+    .score.progress{
+        width:50%;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .score.progress{
+        width:100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .progress {
+        margin-top: 10px;
+    }
+    .control-group input[type="text"] {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 479px) {
+    .control-group input[type="text"] {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .object-left,
+    .object-right,
+    .half-left,
+    .half-right {
+        width:100%;
+        max-width:100%;
+        margin-left:0;
+        margin-right:0;
+    }
+    .object-center .content-view-embed {
+        max-width:100%;
+    }
+}
