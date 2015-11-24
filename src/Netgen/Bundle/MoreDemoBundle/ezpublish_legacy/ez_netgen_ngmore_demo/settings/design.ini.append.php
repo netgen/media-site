@@ -8,6 +8,7 @@ DesignExtensions[]=ez_netgen_ngmore_demo
 SiteCSS=
 ClassesCSS=
 CSSFileList[]
+EditorCSSFileList[]=ngmore_ezoe.css
 
 [JavaScriptSettings]
 # deprecated settings, do not use
