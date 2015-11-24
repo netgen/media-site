@@ -213,9 +213,11 @@ $(document).ready(function($) {
                     page.removeClass(classToRemove);
                 }
             };
+        /* toggle mobile menu */
         navToggle.on('click', function(e){
             pageToggleClass(e, 'mainnav-active');
         });
+        /* toggle searchbox */
         searchToggle.on('click', function(e){
             pageToggleClass(e, 'searchbox-active', 'mainnav-active');
             searchInput.focus();
@@ -223,13 +225,20 @@ $(document).ready(function($) {
         searchForm.on('clickoutside', function(e){
             page.removeClass('searchbox-active');
         });
-
         searchInput.on('input', function(){
             if($(this).val() != ''){
                 searchForm.addClass('filled');
             } else {
                 searchForm.removeClass('filled');
             }
+        });
+
+        /* toggle mobile sumbmenu */
+        var mainNav = $('#main-nav').find('ul.navbar-nav'),
+            submenuTrigContent = $('<i class="submenu-trigger"></i>');
+        mainNav.find('.menu_level_1').before(submenuTrigContent).parent('li').attr('data-submenu', 'true');
+        mainNav.on('click', 'i.submenu-trigger', function(){
+            $(this).parent('li').toggleClass('submenu-active');
         });
     })();
 
