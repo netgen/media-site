@@ -49,7 +49,7 @@ function jwplayer_init( videoObjectClass, videoObject ){
 
         jwplayer(videoId).setup({
             primary: 'flash',
-            width: width,
+            width: '100%',
             height: height,
             aspectratio: aspectRatio,
             autostart: videoObject.data('autostart'),
@@ -148,52 +148,34 @@ $(document).ready(function($) {
     /* /ROYALSLIDER -------------------------------------------------------------------*/
 
     /* ROYALSLIDER WITH JWPLAYER VIDEO  -----------------------------------------------*/
+    var sliderVideoInit = function (sliderObject) {
+        var sliderId = sliderObject.slider.context.id;
+        sliderObject.ev.on('rsOnCreateVideoElement', function (e, videoObjectClass) {
+            var videoObject = $( "#" + sliderId + " ." + videoObjectClass );
+            if (videoObject.length) {
+                var videoPlayerId = videoObject.data('video_player_id');
+                sliderObject.videoObj = $('<div id="' + videoPlayerId + '" class="rsVideoObj">Loading the player ...</div>');
+
+                setTimeout(function () {
+                    jwplayer_init(videoObjectClass, videoObject);
+                }, 50);
+
+                $( "#" + sliderId ).addClass("rsNoDrag");
+            }
+        });
+        sliderObject.ev.on('rsOnDestroyVideoElement', function (e) {
+            $( "#" + sliderId ).removeClass("rsNoDrag");
+        });
+    };
+
     if($(".block-view-campaign .royalSlider").length > 0) { // Only if at least one campaign royalslider exists
-        $.each(campaignSlider, function (index, sliderObject) {
-            var sliderId = sliderObject.slider.context.id;
-
-            sliderObject.ev.on('rsOnCreateVideoElement', function (e, videoObjectClass) {
-                var videoObject = $( "#" + sliderId + " ." + videoObjectClass );
-
-                if (videoObject.length) {
-                    var videoPlayerId = videoObject.data('video_player_id');
-                    sliderObject.videoObj = $('<div id="' + videoPlayerId + '" class="rsVideoObj">Loading the player ...</div>');
-
-                    setTimeout(function () {
-                        jwplayer_init(videoObjectClass, videoObject);
-                    }, 50);
-
-                    $( "#" + sliderId ).addClass("rsNoDrag");
-                }
-            });
-
-            sliderObject.ev.on('rsOnDestroyVideoElement', function (e) {
-                $( "#" + sliderId ).removeClass("rsNoDrag");
-            });
+        $.each(campaignSlider, function(index, sliderObject){
+            sliderVideoInit(sliderObject);
         });
     }
-
     if( $(".royalSlider.relatedMultimediaSlides").length > 0) { // Only if at least one instance of related multimedia royalslider exists
-        $.each(relatedMultimediaSlider, function (index, sliderObject) {
-            var sliderId = sliderObject.slider.context.id;
-            sliderObject.ev.on('rsOnCreateVideoElement', function (e, videoObjectClass) {
-                var videoObject = $( "#" + sliderId + " ." + videoObjectClass );
-
-                if (videoObject.length) {
-                    var videoPlayerId = videoObject.data('video_player_id');
-                    sliderObject.videoObj = $('<div id="' + videoPlayerId + '" class="rsVideoObj">Loading the player ...</div>');
-
-                    setTimeout(function () {
-                        jwplayer_init(videoObjectClass, videoObject);
-                    }, 50);
-
-                    $( "#" + sliderId ).addClass("rsNoDrag");
-                }
-            });
-
-            sliderObject.ev.on('rsOnDestroyVideoElement', function (e) {
-                $( "#" + sliderId ).removeClass("rsNoDrag");
-            });
+        $.each(relatedMultimediaSlider, function(index, sliderObject){
+            sliderVideoInit(sliderObject);
         });
     }
     /* /ROYALSLIDER WITH JWPLAYER VIDEO  -----------------------------------------------*/
