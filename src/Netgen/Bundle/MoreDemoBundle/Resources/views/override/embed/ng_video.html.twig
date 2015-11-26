@@ -10,10 +10,6 @@
 
 <div class="content-view-embed ng-video">
 
-    {% if not ez_is_field_empty( content, 'name' ) %}
-        <h2 class="att-name">{{ ez_render_field( content, 'name' ) }}</h2>
-    {% endif %}
-
     {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
         {% set local_video_field = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
         {% set video_type = ez_field_value( content, 'video_type' ) %}
@@ -56,6 +52,10 @@
                 <iframe frameborder="0" class="embed-responsive-item" src="//www.dailymotion.com/embed/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% endif %}
+    {% endif %}
+
+    {% if not ez_is_field_empty( content, 'name' ) %}
+        <h4 class="att-name">{{ ez_render_field( content, 'name' ) }}</h4>
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'line_intro' ) %}
