@@ -2,18 +2,28 @@
 
 {% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
 
-{% block content %}
-    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-video">
+{% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
+{% set video_type = ez_field_value( content, 'video_type' ) %}
 
-        <h2 class="att-name"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-video vl">
 
         {% if not ez_is_field_empty( content, 'poster' ) %}
-            <div class="att-poster">
-                <a href="{{ location_path }}">
-                    {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'ng_image_block_item' } } ) }}
-                </a>
-            </div>
+            <a href="{{ location_path }}" class="att-poster image">
+                {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'ng_image_block_item' } } ) }}
+            </a>
+        {% elseif 'youtube' in video_type.identifiers %}
+            <a href="{{ location_path }}" class="att-poster image">
+                <img src="http://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
+            </a>
+        {% elseif 'vimeo' in video_type.identifiers %}
+            <a href="{{ location_path }}" class="att-poster image">
+                <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
+            </a>
         {% endif %}
 
+        <div class="info">
+            <h2 class="att-name title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
+        </div>
     </div>
 {% endblock %}

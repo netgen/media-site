@@ -226,4 +226,20 @@ $(document).ready(function($) {
 
     /* /header actions */
 
+    /* get vimeo poster */
+    $('div.vimeo-poster').each(function(){
+        var el = $(this),
+            videoID = el.attr('data-id');
+        $.ajax({
+            type:'GET',
+            url: 'http://vimeo.com/api/v2/video/' + videoID + '.json',
+            jsonp: 'callback',
+            dataType: 'jsonp',
+            success: function(data){
+                var thumbnail_src = data[0].thumbnail_large;
+                el.append('<img src="' + thumbnail_src + '">');
+            }
+        });
+    });
+    /* /get vimeo poster */
 });
