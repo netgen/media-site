@@ -3,5 +3,33 @@
 {% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
 
 {% block content %}
-    <a class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-article" href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a>
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-article vl t3 clearfix">
+
+        {% if not ez_is_field_empty( content, 'line_image' ) %}
+            {{ ez_render_field(
+                content,
+                'line_image', {
+                    'parameters': {
+                        'alias': 'i480',
+                        'link_class': 'att-image image',
+                        'link_href': location_path
+                    }
+                }
+            ) }}
+        {% elseif not ez_is_field_empty( content, 'image' ) %}
+            {{ ez_render_field(
+                content,
+                'image', {
+                    'parameters': {
+                        'alias': 'i480',
+                        'link_class': 'att-image image',
+                        'link_href': location_path
+                    }
+                }
+            ) }}
+        {% endif %}
+        <div class="info">
+            <h2 class="att-title title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        </div>
+    </div>
 {% endblock %}

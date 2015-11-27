@@ -157,6 +157,123 @@ audio {
 
 /* /SEARCH */
 
+/* block views --------------------- */
+.vl {          // default view
+    margin:0 0 2.5em;
+    .image {
+        display:block;
+        margin:0 0 1em;
+        img {
+            width:100%;
+        }
+    }
+    .info {
+        .title {
+            font-size:19px;
+            margin:0 0 0.75em;
+            font-weight:700;
+            a {
+                color:inherit;
+            }
+        }
+    }
+    &.t1 {      // overlay view
+        position:relative;
+        .info {
+            position:absolute;
+            left:15px;
+            right:15px;
+            bottom:15px;
+            text-shadow:0 0 6px hsla(0,0,0,0.25);
+            color:#fff;
+            .title {
+                color:#fff;
+                margin:0;
+                font-size:22px;
+            }
+        }
+    }
+    &.t2 {      // line-view
+        .image {
+            float:left;
+            width:46.5%;
+            margin:0 3.5% 0 0;
+        }
+        .info {
+            float:left;
+            width:50%;
+            .title {
+                font-size:25px;
+            }
+        }
+        @media screen and (max-width:$break-xs) {
+            & {
+                .image,
+                .info {
+                    width:100%;
+                }
+                .image {
+                    margin:0 0 0.5em;
+                }
+            }
+        }
+    }
+    &.t3 {      // mini-view
+        .image {
+            float:left;
+            width:30%;
+            margin:0 4% 0 0;
+        }
+        .info {
+            float:left;
+            width:66%;
+            .title {
+                margin:0;
+                font-size:18px;
+            }
+        }
+        @media screen and (max-width:$break-xs) {
+            & {
+                .image,
+                .info {
+                    width:100%;
+                }
+                .image {
+                    margin:0 0 0.5em;
+                }
+            }
+        }
+    }
+}
+
+/* campaign view */
+.vl2 {
+    position:relative;
+    .info {
+        position:absolute;
+        left:30px;
+        right:30px;
+        top:auto;
+        bottom:30px;
+        color:#fff;
+        .title {
+            display:inline;
+            margin:0;
+            font-size:25px;
+            line-height:1.76;
+            font-weight:700;
+            padding:7px 0;
+            a {
+                display:inline;
+                background:hsla(0, 0, 0, 0.75);
+                box-decoration-break:clone;
+                padding:7px 15px;
+                color:inherit;
+            }
+        }
+    }
+}
+
 @media (max-width: 1200px) {
     #debug{
         display: none;
