@@ -1,0 +1,42 @@
+{# ng_news - block_item default view type #}
+
+{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
+
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-news vl t1 clearfix">
+
+        {% if not ez_is_field_empty( content, 'line_image' ) %}
+            <div class="att-image image">
+                {{ ez_render_field(
+                    content,
+                    'line_image', {
+                        'parameters': {
+                            'alias': 'ng_image_block_item',
+                            'image_class': 'img-responsive',
+                            'link_href': location_path
+                        }
+                    }
+                ) }}
+            </div>
+        {% elseif not ez_is_field_empty( content, 'image' ) %}
+            <div class="att-image image">
+                {{ ez_render_field(
+                    content,
+                    'image', {
+                        'parameters': {
+                            'alias': 'ng_image_block_item',
+                            'image_class': 'img-responsive',
+                            'link_href': location_path
+                        }
+                    }
+                ) }}
+            </div>
+        {% endif %}
+        <div class="info">
+            <div class="att-publish-date date">
+                {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
+            </div>
+            <h2 class="att-title title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        </div>
+    </div>
+{% endblock %}
