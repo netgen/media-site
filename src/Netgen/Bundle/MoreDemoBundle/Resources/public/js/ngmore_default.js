@@ -77,6 +77,22 @@ $(document).ready(function($) {
         });
     /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
 
+    /* idangero.us swiper */
+    var campaignSwiper = [];
+    $('.block-view-campaign .swiper-container').each(function(index) {
+        $(this).attr('id', 'campaignSwiper-' + (index + 1).toString());
+        campaignSwiper.push(
+            new Swiper($(this), {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                setWrapperSize: true
+            })
+        );
+    });
+    /* /idangero.us swiper */
+
     /* ROYALSLIDER ----------------------------------------------------------------*/
     $(".royalSlider.gallery").royalSlider({ /* Default gallery slider */
         fullscreen: {
