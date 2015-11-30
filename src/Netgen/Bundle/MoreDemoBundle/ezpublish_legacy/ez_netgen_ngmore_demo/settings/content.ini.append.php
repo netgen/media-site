@@ -18,21 +18,6 @@ CustomAttributes[]=title
 CustomAttributesDefaults[align]=right
 CustomAttributesDefaults[title]=factbox
 
-[header]
-AvailableClasses[]=clear
-AvailableClasses[]=half-left
-AvailableClasses[]=half-right
-
-[paragraph]
-AvailableClasses[]=clear
-AvailableClasses[]=half-left
-AvailableClasses[]=half-right
-
-[ul]
-AvailableClasses[]=clear
-AvailableClasses[]=half-left
-AvailableClasses[]=half-right
-
 [table]
 AvailableClasses[]=table-bordered
 AvailableClasses[]=table-striped
