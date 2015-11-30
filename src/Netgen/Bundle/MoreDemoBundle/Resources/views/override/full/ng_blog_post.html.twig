@@ -56,10 +56,10 @@
     <div class="att-related-content">
         {{ render(
             controller(
-                'ngmore.controller.parts:viewRelatedItems', {
-                    'contentId': content.id,
-                    'fieldDefinitionIdentifier': 'related_content',
-                    'template': 'NetgenMoreDemoBundle:parts:related_items.html.twig'
+                'ngmore.controller.parts:viewRelatedMultimedia', {
+                    'locationId': location.id,
+                    'includeChildrenImages': true,
+                    'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig'
                 }
             )
         ) }}
