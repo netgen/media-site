@@ -67,12 +67,12 @@
                 <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
             </div>
         {% elseif 'vimeo' in video_type.identifiers %}
-            <div class="video-vimeo">
-                <iframe frameborder="0" src="//player.vimeo.com/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            <div class="video-vimeo embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="//player.vimeo.com/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'dailymotion' in video_type.identifiers %}
-            <div class="video-dailymotion">
-                <iframe frameborder="0" src="//www.dailymotion.com/embed/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            <div class="video-dailymotion embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="//www.dailymotion.com/embed/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% endif %}
     {% endif %}
