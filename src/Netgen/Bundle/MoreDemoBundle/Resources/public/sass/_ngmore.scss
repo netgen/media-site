@@ -163,8 +163,38 @@ audio {
     .image {
         display:block;
         margin:0 0 1em;
+        position:relative;
         img {
             width:100%;
+        }
+        .fa {
+            position:absolute;
+            bottom:0;
+            left:0;
+            background:#fff;
+            width:40px;
+            height:30px;
+            line-height:30px;
+            text-align:center;
+            z-index:2;
+            font-size:20px;
+        }
+    }
+    &.ng-video {
+        .image {
+            height:0;
+            padding-bottom:56.25%;
+            overflow:hidden;
+            background:hsla(0, 0, 0, 0.05);
+            img {
+                left:-100%;
+                right:-100%;
+                top:-100%;
+                bottom:-100%;
+                margin:auto;
+                width:100%;
+                height:auto;
+            }
         }
     }
     .info {
@@ -175,6 +205,10 @@ audio {
             a {
                 color:inherit;
             }
+        }
+        .date {
+            font-size:14px;
+            margin:0 0 0.75em;
         }
     }
     &.t1 {      // overlay view
@@ -274,18 +308,6 @@ audio {
     }
 }
 
-.vimeo-poster {
-    position:relative;
-    height:0;
-    padding-bottom:56.25%;
-    img {
-        position:absolute;
-        left:0;
-        right:0;
-        top:0;
-        bottom:0;
-    }
-}
 @media (max-width: 1200px) {
     #debug{
         display: none;
