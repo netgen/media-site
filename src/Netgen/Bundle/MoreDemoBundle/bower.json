@@ -5,6 +5,7 @@
     "Marko Žabčić <marko@effectiva.hr>"
   ],
   "dependencies": {
+    "Swiper": "swiper#~3.2.5",
     "bootstrap-sass": "~3.3.5",
     "components-font-awesome": "~4.4.0",
     "detect_layout": "https://bitbucket.org/effectiva/jquery_detect_layout.git#~1.x",
