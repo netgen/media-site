@@ -5,7 +5,8 @@
     "Marko Žabčić <marko@effectiva.hr>"
   ],
   "dependencies": {
-    "Swiper": "swiper#~3.2.5",
+    "swiper": "~3.2.6",
+    "jwplayer-official": "~7.2.3",
     "bootstrap-sass": "~3.3.5",
     "components-font-awesome": "~4.4.0",
     "html5shiv": "~3.7.3",
