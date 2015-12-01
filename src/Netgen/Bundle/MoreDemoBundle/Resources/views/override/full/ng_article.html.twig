@@ -17,9 +17,9 @@
         <div class="images media">
             {{ render(
                 controller(
-                    'ngmore.controller.parts:viewRelatedMultimedia', {
+                    'ngmore.controller.parts:viewRelatedMultimediaItems', {
                         'locationId': location.id,
-                        'includeChildrenImages': true,
+                        'includeChildren': true,
                         'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig'
                     }
                 )
