@@ -27,7 +27,7 @@
     if the following file is found: '../EZP_APP_FOLDER_NAME/autoload.php'
     Default EZP_APP_FOLDER_NAME value is "ezpublish" and this constant gives you possibility to change it.
 */
-//define( 'EZP_APP_FOLDER_NAME', 'app' );
+define( 'EZP_APP_FOLDER_NAME', 'app' );
 
 /*
     USING BUNDLED COMPONENTS

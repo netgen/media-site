@@ -1,49 +1,36 @@
-## eZ Platform ENVIRONMENT variables, used for customizing index.php execution (not used by console commands)
+## eZ Platform ENVIRONMENT variables, used for customizing app.php execution (not used by console commands)
 
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
 # Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
-SetEnvIf REQUEST_URI ".*" ENVIRONMENT=dev
+SetEnvIf REQUEST_URI ".*" SYMFONY_ENV=dev
 
 # Whether to use custom ClassLoader (autoloader) file
 # Needs to be a valid path relative to root web/ directory
-# Defaults to bootstrap.php.cache, or autoload.php in debug; supported on 2015.01 and higher
-#SetEnv CUSTOM_CLASSLOADER_FILE "../ezpublish/autoload.php"
-
-# Whether to use Symfony's ApcClassLoader.
-# Possible values: 0 or 1
-# Defaults to 0 if omitted, supported on 5.2 and higher
-#! Not supported as of 2015.01, use CUSTOM_CLASSLOADER_FILE instead for this.
-#SetEnv USE_APC_CLASSLOADER 0
-
-# Prefix used when USE_APC_CLASSLOADER is set to 1.
-# Use a unique prefix in order to prevent cache key conflicts
-# with other applications also using APC.
-# Defaults to "ezpublish" if omitted, supported on 5.2 and higher
-#! Not supported as of 2015.01, use CUSTOM_CLASSLOADER_FILE instead for this.
-#SetEnv APC_CLASSLOADER_PREFIX "ezpublish"
+# Defaults to bootstrap.php.cache, or autoload.php in debug
+#SetEnv SYMFONY_CLASSLOADER_FILE "../app/autoload.php"
 
 # Whether to use debugging.
 # Possible values: 0 or 1
-# Defaults to 0 if omitted, unless ENVIRONMENT is set to: "dev"; supported on 5.2 and higher
-#SetEnv USE_DEBUGGING 0
+# Defaults to 0 if omitted, unless SYMFONY_ENV is set to: "dev"
+#SetEnv SYMFONY_DEBUG 0
 
 # Whether to use Symfony's HTTP Caching.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
 # Possible values: 0 or 1
-# Defaults to 1 if omitted, unless ENVIRONMENT is set to: "dev"; supported on 5.2 and higher
-#SetEnv USE_HTTP_CACHE 1
+# Defaults to 1 if omitted, unless SYMFONY_ENV is set to: "dev"
+#SetEnv SYMFONY_HTTP_CACHE 1
 
-# Whether to use custom HTTP Cache class if USE_HTTP_CACHE is enabled
+# Whether to use custom HTTP Cache class if SYMFONY_HTTP_CACHE is enabled
 # Value must be a autoloadable cache class
-# Defaults to to use "EzPublishCache"; supported on 2015.01 and higher
-#SetEnv HTTP_CACHE_CLASS "\Vendor\Project\MyCache"
+# Defaults to to use "AppCache"
+#SetEnv SYMFONY_HTTP_CACHE_CLASS "\Vendor\Project\MyCache"
 
 # Defines the proxies to trust.
 # Separate entries by a comma
 # Example: "proxy1.example.com,proxy2.example.org"
-# By default, no trusted proxies are set; supported on 5.2 and higher
-#SetEnv TRUSTED_PROXIES "127.0.0.1"
+# By default, no trusted proxies are set
+#SetEnv SYMFONY_TRUSTED_PROXIES "127.0.0.1"
 
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html
@@ -58,7 +45,7 @@ AddOutputFilterByType DEFLATE application/x-javascript
 
 AddDefaultCharset UTF-8
 
-DirectoryIndex index.php
+DirectoryIndex app.php
 
 Options +FollowSymlinks
 Options -Indexes
@@ -69,7 +56,7 @@ RewriteCond %{REQUEST_URI} \.svn|\.git
 RewriteRule .* / [L,R=301]
 
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^index\.php(/(.*)|$) /$2 [R=301,L]
+RewriteRule ^app\.php(/(.*)|$) /$2 [R=301,L]
 
 # START: Multisite rewrite rules for robots.txt
 
@@ -105,8 +92,8 @@ RewriteRule ^robots\.txt - [L]
 RewriteRule ^bundles/ - [L]
 
 # Additional Assetic rules for environments different from dev,
-# remember to run php ezpublish/console assetic:dump --env=prod
-RewriteCond %{ENV:ENVIRONMENT} !^(dev)
+# remember to run php app/console assetic:dump --env=prod
+RewriteCond %{ENV:SYMFONY_ENV} !^(dev)
 RewriteRule ^(css|js|font)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
 
-RewriteRule .* index\.php
+RewriteRule .* app\.php
