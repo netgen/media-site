@@ -221,10 +221,6 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/embed:ng_banner.html.twig
                         match:
                             Identifier\ContentType: ng_banner
-                    ng_banner_video:
-                        template: NetgenMoreDemoBundle:override/embed:ng_banner_video.html.twig
-                        match:
-                            Identifier\ContentType: ng_banner_video
                     image:
                         template: NetgenMoreDemoBundle:override/embed:image.html.twig
                         controller: ngmore.controller.embed_view:embedImageContent
