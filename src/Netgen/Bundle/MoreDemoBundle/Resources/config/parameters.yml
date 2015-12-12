@@ -6,7 +6,3 @@ parameters:
         author: 'Netgen'
         description: 'NG More'
         keywords: 'NG More'
-
-    # Disable handling of Legacy Stack fallback error responses through Symfony exceptions
-    # for 'ngadminui' siteaccess
-    ngmore.ngadminui.content_view.handle_legacy_fallback_error_result: false
