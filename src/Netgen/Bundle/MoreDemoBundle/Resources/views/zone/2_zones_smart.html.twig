@@ -1,0 +1,23 @@
+{# SMART zone #}
+
+<div class="zone-layout-{{ zone_layout|lower }} smart">
+
+    {% if zones[0].blocks is not empty %}
+        <section class="zone zone-{{ zones[0].identifier|lower }}">
+            {% include 'PrimePlaneteSanteBundle:parts:zone_content_smart.html.twig' with { 'zone': zones[0] } %}
+        </section>
+    {% endif %}
+
+    <div class="main-content-block">
+        <div class="container bg-gray">
+
+            {% if zones[1].blocks is not empty %}
+                <section class="zone zone-{{ zones[0].identifier|lower }}">
+                    {% include 'PrimePlaneteSanteBundle:parts:zone_content_smart.html.twig' with { 'zone': zones[1] } %}
+                </section>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
