@@ -11,3 +11,6 @@ ezpublish:
                 template: 'NetgenMoreDemoBundle:zone:4_zones_c.html.twig'
             6ZonesA:
                 template: 'NetgenMoreDemoBundle:zone:6_zones_a.html.twig'
+            2ZonesSmart:
+                name: '2 zones Smart'
+                template: 'NetgenMoreDemoBundle:zone:2_zones_smart.html.twig'
