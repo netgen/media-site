@@ -69,10 +69,6 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/full:ng_htmlbox.html.twig
                         match:
                             Identifier\ContentType: ng_htmlbox
-                    ng_infobox:
-                        template: NetgenMoreDemoBundle:override/full:ng_infobox.html.twig
-                        match:
-                            Identifier\ContentType: ng_infobox
                 line:
                     ng_frontpage:
                         template: NetgenMoreDemoBundle:override/line:ng_frontpage.html.twig
@@ -122,10 +118,6 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/line:ng_htmlbox.html.twig
                         match:
                             Identifier\ContentType: ng_htmlbox
-                    ng_infobox:
-                        template: NetgenMoreDemoBundle:override/line:ng_infobox.html.twig
-                        match:
-                            Identifier\ContentType: ng_infobox
                     ng_feedback_form:
                         template: NetgenMoreDemoBundle:override/line:ng_feedback_form.html.twig
                         match:
@@ -217,10 +209,6 @@ ezpublish:
                         template: NetgenMoreDemoBundle:override/embed:ng_htmlbox.html.twig
                         match:
                             Identifier\ContentType: ng_htmlbox
-                    ng_infobox:
-                        template: NetgenMoreDemoBundle:override/embed:ng_infobox.html.twig
-                        match:
-                            Identifier\ContentType: ng_infobox
                     ng_feedback_form:
                         template: NetgenMoreDemoBundle:override/embed:ng_feedback_form.html.twig
                         match:

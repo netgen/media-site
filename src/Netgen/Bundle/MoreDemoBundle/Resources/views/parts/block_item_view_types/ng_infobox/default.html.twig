@@ -1,9 +1,0 @@
-{# ng_infobox - block_item default view type #}
-
-{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
-
-{% block content %}
-    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-infobox">
-        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
-    </div>
-{% endblock %}
