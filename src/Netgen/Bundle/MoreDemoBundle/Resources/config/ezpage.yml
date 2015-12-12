@@ -13,4 +13,4 @@ ezpublish:
                 template: 'NetgenMoreDemoBundle:zone:6_zones_a.html.twig'
             2ZonesSmart:
                 name: '2 zones Smart'
-                template: 'PrimePlaneteSanteBundle:zone:2_zones_smart.html.twig'
+                template: 'NetgenMoreDemoBundle:zone:2_zones_smart.html.twig'
