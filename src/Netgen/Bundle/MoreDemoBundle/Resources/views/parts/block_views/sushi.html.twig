@@ -8,9 +8,9 @@
     class="block-type-{{ block_type }} block-view-{{ block.view }} {{ advanced_html_class }} clearfix">
     {% if set_container %}<div class="container">{% endif %}
         {% if block.name is not empty %}
-        <div class="block-name">
-            <{{ advanced_html_tag }}>{{ block.name }}</{{ advanced_html_tag }}>
-        </div>
+            <div class="block-name">
+                <{{ advanced_html_tag }}>{{ block.name }}</{{ advanced_html_tag }}>
+            </div>
         {% endif %}
 
         <div class="swiper-container">
@@ -32,9 +32,11 @@
                     </div>
                 {% endfor %}
             </div>
+
             <a class="arrow arrow-left" href="#">
                 <i class="fa fa-angle-left"></i>
             </a>
+
             <a class="arrow arrow-right" href="#">
                 <i class="fa fa-angle-right"></i>
             </a>
