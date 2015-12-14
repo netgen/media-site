@@ -17,18 +17,21 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for valid_item in valid_items %}
-                    {{ render(
-                        controller(
-                            'ez_content:viewLocation', {
-                                'locationId': valid_item.locationId,
-                                'viewType': 'block_item',
-                                'params': {
-                                    'alias_name': 'original',
-                                    'view_type': 'campaign'
+                    <div class="swiper-slide">
+                        {{ render(
+                            controller(
+                                'ez_content:viewLocation', {
+                                    'locationId': valid_item.locationId,
+                                    'viewType': 'block_item',
+                                    'params': {
+                                        'alias_name': 'i1140',
+                                        'view_type': 'slide',
+                                        'use_lazy_load': true
+                                    }
                                 }
-                            }
-                        )
-                    ) }}
+                            )
+                        ) }}
+                    </div>
                 {% endfor %}
             </div>
             <div class="swiper-pagination"></div>

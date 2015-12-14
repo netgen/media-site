@@ -1,21 +1,22 @@
-{# ng_video - block_item campaign view type #}
+{# ng_video - block_item slide view type #}
 
 {% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
 
 {% set content_name = ez_content_name( content ) %}
 {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
 {% set video_type = ez_field_value( content, 'video_type' ) %}
+{% set use_lazy_load = use_lazy_load|default( false ) %}
 
 {% block content %}
-    <div class="swiper-slide vl2">
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-video vl2">
         {% if not ez_is_field_empty( content, 'poster' ) %}
-            {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'ng_image_block_item' } } ) }}
+            {% include 'NetgenMoreDemoBundle:parts/block_item_view_types:slide.html.twig' with { field_name: 'poster', alias_name: 'ng_image_block_item' } %}
         {% elseif 'youtube' in video_type.identifiers %}
-            <img src="http://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="http://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
         {% elseif 'vimeo' in video_type.identifiers %}
             <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
         {% elseif 'dailymotion' in video_type.identifiers %}
-            <img src="http://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" >
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="http://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" >
         {% endif %}
 
         <div class="info">

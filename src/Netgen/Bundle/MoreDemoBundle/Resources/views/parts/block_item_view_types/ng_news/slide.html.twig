@@ -1,0 +1,20 @@
+{# ng_news - block_item slide view type #}
+
+{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
+
+{% set content_name = ez_content_name( content ) %}
+{% set image_alias = ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, alias_name|default( 'original' ) ) %}
+{% set use_lazy_load = use_lazy_load|default( false ) %}
+
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-news vl2">
+        {% include 'NetgenMoreDemoBundle:parts/block_item_view_types:slide.html.twig' %}
+
+        <div class="info">
+            <div class="att-publish-date date">
+                {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
+            </div>
+            <h2 class="title"><a href={{ location_path }}>{{ content_name }}</a></h2>
+        </div>
+    </div>
+{% endblock %}
