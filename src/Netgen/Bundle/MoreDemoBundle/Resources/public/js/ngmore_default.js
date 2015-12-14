@@ -53,7 +53,6 @@ function jwplayer_init( videoObjectClass, videoObject ){
             height: height,
             aspectratio: aspectRatio,
             autostart: videoObject.data('autostart'),
-            base: '/bundles/netgenmoredemo/js/jwplayer/',
             controlbar: [{ idlehide: 'true' }],
             playlist: [{
                 sources: sources
@@ -67,9 +66,10 @@ $(document).ready(function($) {
 
     /* JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
         $('div.video-container').each(function(){
-            if( $(this).prev().hasClass('video-config') && $(this).prev().hasClass( $(this).attr('id') ) )
+            var videoObjectClass = $(this).attr('id');
+            if( $(this).prev().hasClass('video-config') && $(this).prev().hasClass( videoObjectClass ) )
             {
-                jwplayer_init("." + $(this).attr('id'), false);
+                jwplayer_init("." + videoObjectClass, false);
             }
             else{
                 $(this).remove();
@@ -258,4 +258,5 @@ $(document).ready(function($) {
         });
     });
     /* /get vimeo poster */
+
 });
