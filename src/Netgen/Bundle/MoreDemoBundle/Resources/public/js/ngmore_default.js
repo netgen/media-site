@@ -87,7 +87,9 @@ $(document).ready(function($) {
                 paginationClickable: true,
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev',
-                setWrapperSize: true
+                setWrapperSize: true,
+                lazyLoading: true,
+                lazyLoadingInPrevNext: true
             })
         );
     });
