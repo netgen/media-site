@@ -27,9 +27,10 @@
     <div class="images">
         {{ render(
             controller(
-                'ngmore.controller.parts:viewGallery', {
+                'ngmore.controller.parts:viewRelatedMultimediaItems', {
                     'locationId': location.id,
-                    'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
+                    'includeChildren': true,
+                    'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig'
                 }
             )
         ) }}

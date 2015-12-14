@@ -3,9 +3,10 @@
 <div class="content-view-embed ng-gallery {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
     {{ render(
         controller(
-            'ngmore.controller.parts:viewGallery', {
+            'ngmore.controller.parts:viewRelatedMultimediaItems', {
                 'locationId': content.contentInfo.mainLocationId,
-                'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
+                'includeChildren': true,
+                'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig'
             }
         )
     ) }}
