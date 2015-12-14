@@ -1,5 +1,6 @@
 ngmore.layout.toggle_navigation: 'Toggle navigation'
 ngmore.layout.search: 'Search'
+ngmore.layout.search.button: 'Go'
 ngmore.layout.search_site: 'Search %site_name%'
 ngmore.layout.site_frontpage: '%site_name% front page'
 ngmore.layout.meta_generator: 'eZ Platform powered by Netgen'
