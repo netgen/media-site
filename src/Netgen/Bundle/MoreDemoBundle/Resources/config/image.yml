@@ -72,6 +72,11 @@ ezpublish:
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [960] }
                         - { name: strip }
+                i1140:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [1140] }
+                        - { name: strip }
                 i1540:
                     reference: original
                     filters:
