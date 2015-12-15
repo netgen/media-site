@@ -13,18 +13,16 @@
     {% endif %}
 
     {% for multimedia_item in multimedia_items %}
-        <div class="swiper-slide">
-            {% include
-                'NetgenMoreDemoBundle:parts/related_multimedia_items:' ~ multimedia_item.type ~ '.html.twig'
-                ignore missing
-                with {
-                    'content': multimedia_item.content,
-                    'is_slider': is_slider,
-                    'alias_name': 'i1140',
-                    'use_lazy_load': true
-                }
-            %}
-        </div>
+        {% include
+            'NetgenMoreDemoBundle:parts/related_multimedia_items:' ~ multimedia_item.type ~ '.html.twig'
+            ignore missing
+            with {
+                'content': multimedia_item.content,
+                'is_slider': is_slider,
+                'alias_name': 'i1140',
+                'use_lazy_load': true
+            }
+        %}
     {% endfor %}
 
     {% if is_slider %}

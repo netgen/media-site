@@ -1,7 +1,10 @@
 {% if not ez_is_field_empty( content, 'image' ) %}
     {% set alias_name = alias_name|default( 'original' ) %}
+    {% set is_slider = is_slider|default( false ) %}
     {% set use_lazy_load = use_lazy_load|default( false ) %}
     {% set image = ngmore_field( content, 'image' ) %}
 
-    <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ ez_image_alias( image, content.versionInfo, alias_name ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
+    {% if is_slider %}<div class="swiper-slide">{% endif %}
+        <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ ez_image_alias( image, content.versionInfo, alias_name ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
+    {% if is_slider %}</div>{% endif %}
 {% endif %}
