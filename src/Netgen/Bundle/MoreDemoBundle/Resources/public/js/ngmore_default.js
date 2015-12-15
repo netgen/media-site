@@ -80,13 +80,30 @@ $(document).ready(function($) {
     /* idangero.us swiper */
     var campaignSwiper = [];
     $('.block-view-campaign .swiper-container').each(function(index) {
-        $(this).attr('id', 'campaignSwiper-' + (index + 1).toString());
+        var swiperId = 'campaignSwiper-' + (index + 1).toString();
+        $(this).attr('id', swiperId);
         campaignSwiper.push(
             new Swiper($(this), {
-                pagination: '.swiper-pagination',
+                pagination: '#' + swiperId + ' .swiper-pagination',
                 paginationClickable: true,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
+                nextButton: '#' + swiperId + ' .swiper-button-next',
+                prevButton: '#' + swiperId + ' .swiper-button-prev',
+                setWrapperSize: true,
+                lazyLoading: true,
+                lazyLoadingInPrevNext: true
+            })
+        );
+    });
+    var relatedSwiper = [];
+    $('.relatedMultimedia.swiper-container').each(function(index) {
+        var swiperId = 'relatedMultimediaSwiper-' + (index + 1).toString();
+        $(this).attr('id', swiperId);
+        campaignSwiper.push(
+            new Swiper($(this), {
+                pagination: '#' + swiperId + ' .swiper-pagination',
+                paginationClickable: true,
+                nextButton: '#' + swiperId + ' .swiper-button-next',
+                prevButton: '#' + swiperId + ' .swiper-button-prev',
                 setWrapperSize: true,
                 lazyLoading: true,
                 lazyLoadingInPrevNext: true

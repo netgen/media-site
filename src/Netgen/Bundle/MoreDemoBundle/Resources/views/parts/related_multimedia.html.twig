@@ -6,21 +6,33 @@
     {% endif %}
 
     {% if is_slider %}
-        <div class="relatedMultimediaSlides royalSlider rsDefault fwImage">
+        <div class="relatedMultimedia swiper-container">
+            <div class="swiper-wrapper">
     {% else %}
         <div class="noSlider">
     {% endif %}
 
     {% for multimedia_item in multimedia_items %}
-        {% include
-            'NetgenMoreDemoBundle:parts/related_multimedia_items:' ~ multimedia_item.type ~ '.html.twig'
-            ignore missing
-            with {
-                'content': multimedia_item.content,
-                'is_slider': is_slider,
-                'alias_name': alias_name
-            }
-        %}
+        <div class="swiper-slide">
+            {% include
+                'NetgenMoreDemoBundle:parts/related_multimedia_items:' ~ multimedia_item.type ~ '.html.twig'
+                ignore missing
+                with {
+                    'content': multimedia_item.content,
+                    'is_slider': is_slider,
+                    'alias_name': 'i1140',
+                    'use_lazy_load': true
+                }
+            %}
+        </div>
     {% endfor %}
+
+    {% if is_slider %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    {% endif %}
+
     </div>
 {% endif %}

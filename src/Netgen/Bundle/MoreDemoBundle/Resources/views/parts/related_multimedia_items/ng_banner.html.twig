@@ -1,21 +1,11 @@
-{% if is_slider is not defined %}
-    {% set is_slider = false %}
-{% endif %}
+{% set alias_name = alias_name|default( 'original' ) %}
+{% set use_lazy_load = use_lazy_load|default( false ) %}
 
-{% if alias_name is not defined or alias_name is empty %}
-    {% set alias_name = 'gallerylarge' %}
-{% endif %}
-
-<div class="{% if is_slider %}rsContent{% else %}multimediaContent{% endif %}">
-    <a href="{{ path( "ez_urlalias", { "contentId": content.id } ) }}">
-        <img class="img-responsive {% if is_slider %}rsImg{% endif %}" src="{{ ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, alias_name ).uri }}" />
-    </a>
-
+<div class="vl2">
+    <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, alias_name ).uri }}" />
     {% if not ez_is_field_empty( content, 'title' ) %}
-        <div class="bContainer">
-            <div class="rsABlock txtCent">
-                <p class="att-title">{{ ez_field_value( content, 'title' ).text }} </p>
-            </div>
+        <div class="info">
+            <h2 class="att-title title"><a href="{{ path( "ez_urlalias", { "contentId": content.id } ) }}">{{ ez_field_value( content, 'title' ).text }}</a></h2>
         </div>
     {% endif %}
 </div>
