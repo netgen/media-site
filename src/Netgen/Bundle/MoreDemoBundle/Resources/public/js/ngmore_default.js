@@ -78,19 +78,46 @@ $(document).ready(function($) {
     /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
 
     /* idangero.us swiper */
-    var campaignSwiper = [];
-    $('.block-view-campaign .swiper-container').each(function(index) {
-        var swiperId = 'campaignSwiper-' + (index + 1).toString();
+    var sushiSwiper = [];
+    $('.sushiSwiper.swiper-container').each(function(index) {
+        var swiperId = 'sushiSwiper-' + (index + 1).toString();
         $(this).attr('id', swiperId);
-        campaignSwiper.push(
+        sushiSwiper.push(
             new Swiper($(this), {
                 pagination: '#' + swiperId + ' .swiper-pagination',
                 paginationClickable: true,
                 nextButton: '#' + swiperId + ' .swiper-button-next',
                 prevButton: '#' + swiperId + ' .swiper-button-prev',
-                setWrapperSize: true,
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 30,
+                breakpoints: {
+                    991: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2
+                    },
+                    480: {
+                        slidesPerView: 1,
+                        slidesPerGroup: 1
+                    }
+                }
+            })
+        );
+    });
+    var defaultSwiper = [];
+    $('.default-swiper.swiper-container').each(function(index) {
+        var swiperId = 'campaignSwiper-' + (index + 1).toString();
+        $(this).attr('id', swiperId);
+        defaultSwiper.push(
+            new Swiper($(this), {
+                pagination: '#' + swiperId + ' .swiper-pagination',
+                paginationClickable: true,
+                nextButton: '#' + swiperId + ' .swiper-button-next',
+                prevButton: '#' + swiperId + ' .swiper-button-prev',
+                preloadImages: false,
                 lazyLoading: true,
-                lazyLoadingInPrevNext: true
+                lazyLoadingInPrevNext: true,
+                lazyLoadingOnTransitionStart: true
             })
         );
     });
@@ -98,15 +125,16 @@ $(document).ready(function($) {
     $('.relatedMultimedia.swiper-container').each(function(index) {
         var swiperId = 'relatedMultimediaSwiper-' + (index + 1).toString();
         $(this).attr('id', swiperId);
-        campaignSwiper.push(
+        relatedSwiper.push(
             new Swiper($(this), {
                 pagination: '#' + swiperId + ' .swiper-pagination',
                 paginationClickable: true,
                 nextButton: '#' + swiperId + ' .swiper-button-next',
                 prevButton: '#' + swiperId + ' .swiper-button-prev',
-                setWrapperSize: true,
+                preloadImages: false,
                 lazyLoading: true,
-                lazyLoadingInPrevNext: true
+                lazyLoadingInPrevNext: true,
+                lazyLoadingOnTransitionStart: true
             })
         );
     });

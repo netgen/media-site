@@ -13,7 +13,7 @@
             </div>
         {% endif %}
 
-        <div class="swiper-container">
+        <div class="sushiSwiper swiper-container">
             <div class="swiper-wrapper">
                 {% for valid_item in valid_items %}
                     <div class="swiper-slide">
@@ -33,13 +33,9 @@
                 {% endfor %}
             </div>
 
-            <a class="arrow arrow-left" href="#">
-                <i class="fa fa-angle-left"></i>
-            </a>
-
-            <a class="arrow arrow-right" href="#">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     {% if set_container %}</div>{% endif %}
 </div>
