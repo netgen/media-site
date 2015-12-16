@@ -10,15 +10,6 @@
 }
 /* /SPECIFIC */
 
-/* royalslider */
-.royalSlider {
-    width: 100%;
-}
-.rsWebkit3d * { /* resolved bug with blocking slider after initial sliding on android stock browser */
-    -webkit-transform: translateZ(0);
-}
-/* /royalslider */
-
 .content-view-block-item {
     margin-bottom:20px;
 }
@@ -49,6 +40,9 @@
     .content-view-block-item {
         margin-bottom:0;
     }
+}
+.swiper-video-play {
+    background-size:cover;
 }
 /* /swiper slider */
 
