@@ -24,3 +24,8 @@ parameters:
     ngmore.default.template.user.mail.forgot_password_password_changed: 'NetgenMoreDemoBundle:user/mail:forgot_password_password_changed.html.twig'
 
     ngmore.default.template.user.mail.welcome: 'NetgenMoreDemoBundle:user/mail:welcome.html.twig'
+
+    ngmore.default.template.errors.403: 'NetgenMoreDemoBundle::errors/403.html.twig'
+    ngmore.default.template.errors.404: 'NetgenMoreDemoBundle::errors/404.html.twig'
+    ngmore.default.template.errors.500: 'NetgenMoreDemoBundle::errors/500.html.twig'
+    ngmore.default.template.errors.default: 'NetgenMoreDemoBundle::errors/default.html.twig'
