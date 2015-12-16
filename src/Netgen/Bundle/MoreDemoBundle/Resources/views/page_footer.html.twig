@@ -1,7 +1,41 @@
+{% set site_info = ngmore.siteInfoContent %}
+
 <footer>
     <div class="container">
         <address>
-            {{ 'ngmore.layout.powered_by'|trans }} <a href="http://www.netgenlabs.com/What-we-do" title="Netgen">Netgen &amp; eZ Platform</a>
+            {{ 'ngmore.layout.powered_by'|trans }} <a href="http://www.netgenlabs.com/What-we-do">Netgen &amp; eZ Platform</a>
         </address>
+
+        {% if not ez_is_field_empty( site_info, 'footer_block' ) %}
+            <div>
+                {{ ez_render_field( site_info, 'footer_block' ) }}
+            </div>
+        {% endif %}
+
+        <div
+            <h2>{{ 'ngmore.layout.follow_us'|trans }}</h2>
+
+            <ul>
+                {% if not ez_is_field_empty( site_info, 'facebook' ) %}
+                    <li><a href="{{ ez_field_value( site_info, 'facebook' ).link }}">Facebook</a></li>
+                {% endif %}
+
+                {% if not ez_is_field_empty( site_info, 'twitter' ) %}
+                    <li><a href="{{ ez_field_value( site_info, 'twitter' ).link }}">Twitter</a></li>
+                {% endif %}
+
+                {% if not ez_is_field_empty( site_info, 'instagram' ) %}
+                    <li><a href="{{ ez_field_value( site_info, 'instagram' ).link }}">Instagram</a></li>
+                {% endif %}
+
+                {% if not ez_is_field_empty( site_info, 'gplus' ) %}
+                    <li><a href="{{ ez_field_value( site_info, 'gplus' ).link }}">Google+</a></li>
+                {% endif %}
+
+                {% if not ez_is_field_empty( site_info, 'linkedin' ) %}
+                    <li><a href="{{ ez_field_value( site_info, 'linkedin' ).link }}">LinkedIn</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </footer>
