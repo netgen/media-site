@@ -1,3 +1,9 @@
+/* GENERAL ------------------------------------------------------ */
+.text-center { /* this is usually bootstrap class but it seems that is missing in current bootstrap version 3.3.6. Remove if not needed or redundant in the future */
+  text-align: center;
+}
+/* /GENERAL */
+
 /* SPECIFIC -----------------------------------------------------*/
 .google-maps img {
     max-width: none;
