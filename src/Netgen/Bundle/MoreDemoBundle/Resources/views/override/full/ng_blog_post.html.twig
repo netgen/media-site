@@ -24,16 +24,18 @@
         </small></p>
     </div>
 
-    <div class="images">
-        {{ render(
-            controller(
-                'ngmore.controller.parts:viewGallery', {
-                    'locationId': location.id,
-                    'template': 'NetgenMoreDemoBundle:parts:gallery.html.twig'
+    {% if not ez_is_field_empty( content, 'image' ) %}
+        <div class="image att-image">
+            {{ ez_render_field(
+                content,
+                'image', {
+                    'parameters': {
+                        'alias': 'i1140'
+                    }
                 }
-            )
-        ) }}
-    </div>
+            ) }}
+        </div>
+    {% endif %}
 
     {% if not ez_is_field_empty( content, 'full_intro' ) %}
         <div class="att-full-intro">
@@ -52,18 +54,6 @@
             {{ ez_render_field( content, 'location' ) }}
         </div>
     {% endif %}
-
-    <div class="att-related-content">
-        {{ render(
-            controller(
-                'ngmore.controller.parts:viewRelatedMultimediaItems', {
-                    'locationId': location.id,
-                    'includeChildren': true,
-                    'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig'
-                }
-            )
-        ) }}
-    </div>
 
 </div>
 {% endblock %}
