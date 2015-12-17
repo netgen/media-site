@@ -9,10 +9,6 @@
     <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
-<script type="text/javascript">
-    $.ez.root_url = '{{ path( ezpublish.rootLocation ) }}';
-</script>
-
 <!--[if lt IE 9]>
 {% javascripts filter='?uglifyjs2'
     '@NetgenMoreDemoBundle/Resources/public/bower/html5shiv/dist/html5shiv.js'
