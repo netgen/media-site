@@ -1,15 +1,16 @@
-{# SMART zone #}
+{# Smart zone #}
 
 <div class="zone-layout-{{ zone_layout|lower }} smart">
-
-    {% if zones[0].blocks is not empty %}
-        <section class="zone zone-{{ zones[0].identifier|lower }}">
-            {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[0] } %}
-        </section>
-    {% endif %}
+    <div class="top-content-block">
+        {% if zones[0].blocks is not empty %}
+            <section class="zone zone-{{ zones[0].identifier|lower }}">
+                {% include 'NetgenMoreBundle:parts:zone_content.html.twig' with { 'zone': zones[0] } %}
+            </section>
+        {% endif %}
+    </div>
 
     <div class="main-content-block">
-        <div class="container bg-gray">
+        <div class="container">
 
             {% if zones[1].blocks is not empty %}
                 <section class="zone zone-{{ zones[0].identifier|lower }}">
@@ -19,5 +20,4 @@
 
         </div>
     </div>
-
 </div>
