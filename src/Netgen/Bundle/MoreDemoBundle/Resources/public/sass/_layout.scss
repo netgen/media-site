@@ -506,3 +506,107 @@ header {
       color:inherit;
     }
 }
+
+footer {
+    background:$headerActiveBg;
+    color:hsl(210, 2, 75);
+    font-size:14px;
+    line-height:1.42857;
+    a {
+        color:hsl(210, 2, 75);
+        text-decoration:none;
+        &:hover {
+            color:#fff;
+            text-decoration:none;
+        }
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        color:#fff;
+    }
+    h3 {
+        text-transform:uppercase;
+        margin:0 0 0.75em;
+        font-size:16px;
+    }
+    > .container {
+        
+    }
+    .footer-cell {
+        display:table-cell;
+        padding:24px 20px;
+    }
+    .footer-menu {
+        background:hsl(269, 3, 25);
+        width:175px;
+        > ul {
+            padding:0;
+            margin:0;
+            list-style-type:none;
+            > li {
+                text-transform:uppercase;
+                margin:0 0 6px;
+            }
+        }
+    }
+    .footer-info {
+        a {
+            color:#fff;
+            &:hover {
+                text-decoration:underline;
+            }
+        }
+    }
+    .footer-social {
+        width:30%;
+        > ul {
+            list-style-type:none;
+            @extend %clearfix;
+            padding:0;
+            margin:0 0 10px;
+            > li {
+                float:left; margin:0 14px 14px 0;
+                a {
+                    display:block;
+                    width:45px;
+                    height:45px;
+                    line-height:41px;
+                    text-align:center;
+                    overflow:hidden;
+                    border:2px solid currentColor;
+                    border-radius:500em;
+                    font-size:20px;
+                    .tt {
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width:600px) {
+        & {
+            .footer-cell {
+                display:block;
+                text-align:center;
+            }
+            .footer-menu {
+                width:auto;
+                margin-left:-15px;
+                margin-right:-15px;
+            }
+            .footer-social {
+                width:auto;
+                > ul {
+                    > li {
+                        float:none;
+                        display:inline-block;
+                        margin:0 7px 14px;
+                    }
+                }
+            }
+        }
+    }
+}

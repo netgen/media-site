@@ -41,8 +41,36 @@
         margin-bottom:0;
     }
 }
-.swiper-video-play {
+
+.swiper-video-play-toggle {
+    display:block;
+    height:0;
+    padding-bottom:56.25%;
     background-size:cover;
+    position:relative;
+    color:#fff;
+    text-decoration:none;
+    .fa {
+        font-size:10px;
+        cursor:pointer;
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%, -50%);
+        width:7em;
+        height:6em;
+        line-height:6em;
+        padding-left:0.7em;
+        text-align:center;
+        background:hsla(0, 0, 0, 0.6);
+        border-radius:0.4em;
+        &:before {
+            font-size:3em;
+        }
+    }
+    &:hover {
+        color:#F3FF9F;
+    }
 }
 /* /swiper slider */
 
