@@ -106,7 +106,7 @@ $(document).ready(function($) {
     });
     var defaultSwiper = [];
     $('.default-swiper.swiper-container').each(function(index) {
-        var swiperId = 'campaignSwiper-' + (index + 1).toString();
+        var swiperId = 'defaultSwiper-' + (index + 1).toString();
         $(this).attr('id', swiperId);
         defaultSwiper.push(
             new Swiper($(this), {
@@ -231,7 +231,7 @@ $(document).ready(function($) {
         });
     };
 
-    if($(".block-view-slider .royalSlider").length > 0) { // Only if at least one campaign royalslider exists
+    if($(".block-view-slider .royalSlider").length > 0) { // Only if at least one block view royalslider exists
         $.each(blockViewSlider, function(index, sliderObject){
             sliderVideoInit(sliderObject);
         });
