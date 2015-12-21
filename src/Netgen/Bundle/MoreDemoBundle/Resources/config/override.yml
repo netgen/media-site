@@ -140,7 +140,7 @@ ezpublish:
                         match:
                             Identifier\ContentType: ng_shortcut
                     listitem:
-                        template: NetgenMoreDemoBundle:location/view:listitem.html.twig
+                        template: NetgenMoreDemoBundle:override/listitem:listitem.html.twig
                         match: ~
                 block_item:
                     block_item:
