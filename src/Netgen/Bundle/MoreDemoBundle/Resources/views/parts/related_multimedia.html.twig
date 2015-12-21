@@ -14,7 +14,7 @@
 
     {% for multimedia_item in multimedia_items %}
         {% include
-            'NetgenMoreDemoBundle:parts/related_multimedia_items:' ~ multimedia_item.type ~ '.html.twig'
+            'NetgenMoreDemoBundle:parts/related_multimedia:' ~ multimedia_item.type ~ '.html.twig'
             ignore missing
             with {
                 'content': multimedia_item.content,
