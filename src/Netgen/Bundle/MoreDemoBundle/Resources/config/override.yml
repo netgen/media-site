@@ -11,7 +11,7 @@ ezpublish:
                     match:
                         Type: ContentGrid
                 content_grid_dynamic:
-                    template: NetgenMoreDemoBundle:blocks:content_grid_dynamic.html.twig
+                    template: NetgenMoreDemoBundle:blocks:content_grid.html.twig
                     controller: ngmore.controller.block_view:viewContentGridDynamicBlockById
                     match:
                         Type: ContentGridDynamic
