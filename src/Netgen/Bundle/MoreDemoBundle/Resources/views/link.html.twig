@@ -1,5 +1,9 @@
 {% set root_location_path = path( ezpublish.rootLocation ) %}
 
+{% if canonical_url is defined and canonical_url is not empty %}
+    <link rel="canonical" href="{{ canonical_url }}" />
+{% endif %}
+
 <link rel="home" href="{{ root_location_path }}" title="{{ 'ngmore.layout.site_frontpage'|trans( { '%site_name%': site_name } ) }}" />
 <link rel="index" href="{{ root_location_path }}" />
 <link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="{{ 'ngmore.layout.search_site'|trans( { '%site_name%': site_name } ) }}" />

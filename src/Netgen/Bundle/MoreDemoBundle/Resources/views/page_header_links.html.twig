@@ -1,9 +1,0 @@
-{% if related_items|length > 0 %}
-    <div id="links">
-        <ul class="clearfix">
-            {% for related_item in related_items %}
-                <li{% if loop.first %} class="first"{% endif %}><a href="{{ path( related_item ) }}">{{ ez_content_name( related_item.contentInfo ) }}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
-{% endif %}
