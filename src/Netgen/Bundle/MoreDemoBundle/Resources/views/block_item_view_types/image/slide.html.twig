@@ -1,0 +1,11 @@
+{# image - slide view type #}
+
+{% extends 'NetgenMoreDemoBundle:block_item_view_types:block_item.html.twig' %}
+
+{% set content_name = ez_field_value( content, 'name' ).text %}
+
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} image vl2">
+        {% include 'NetgenMoreDemoBundle:block_item_view_types:slide.html.twig' %}
+    </div>
+{% endblock %}

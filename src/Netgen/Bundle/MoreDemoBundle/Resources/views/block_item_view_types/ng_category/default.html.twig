@@ -1,0 +1,27 @@
+{# ng_category - default view type #}
+
+{% extends 'NetgenMoreDemoBundle:block_item_view_types:block_item.html.twig' %}
+
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-category">
+
+        {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
+            {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
+
+            <div class="att-image">
+                {{ ez_render_field(
+                    content,
+                    image_field, {
+                        'parameters': {
+                            'alias': 'ng_image_block_item',
+                            'link_href': location_path
+                        }
+                    }
+                ) }}
+            </div>
+        {% endif %}
+
+        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+
+    </div>
+{% endblock %}

@@ -1,9 +1,0 @@
-{# ng_landing_page - default view type #}
-
-{% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
-
-{% block content %}
-    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-landing-page clearfix">
-        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
-    </div>
-{% endblock %}

@@ -1,0 +1,9 @@
+{# ng_feedback_form - default view type #}
+
+{% extends 'NetgenMoreDemoBundle:block_item_view_types:block_item.html.twig' %}
+
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-feedback-form">
+        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    </div>
+{% endblock %}

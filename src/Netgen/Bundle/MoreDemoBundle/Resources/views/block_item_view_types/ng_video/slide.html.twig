@@ -1,0 +1,26 @@
+{# ng_video - slide view type #}
+
+{% extends 'NetgenMoreDemoBundle:block_item_view_types:block_item.html.twig' %}
+
+{% set content_name = ez_field_value( content, 'name' ).text %}
+{% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
+{% set video_type = ez_field_value( content, 'video_type' ) %}
+{% set use_lazy_load = use_lazy_load|default( false ) %}
+
+{% block content %}
+    <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-video vl2">
+        {% if not ez_is_field_empty( content, 'poster' ) %}
+            {% include 'NetgenMoreDemoBundle:block_item_view_types:slide.html.twig' with { field_name: 'poster', alias_name: 'ng_image_block_item' } %}
+        {% elseif 'youtube' in video_type.identifiers %}
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
+        {% elseif 'vimeo' in video_type.identifiers %}
+            <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
+        {% elseif 'dailymotion' in video_type.identifiers %}
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" >
+        {% endif %}
+
+        <div class="info">
+            <h2 class="title"><a href={{ location_path }}><i class="fa fa-play-circle"></i>{{ content_name }}</a></h2>
+        </div>
+    </div>
+{% endblock %}
