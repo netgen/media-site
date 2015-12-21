@@ -26,11 +26,13 @@
     {% endfor %}
 
     {% if is_slider %}
+            </div>
         </div>
+
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
+    {% else %}
+        </div>
     {% endif %}
-
-    </div>
 {% endif %}
