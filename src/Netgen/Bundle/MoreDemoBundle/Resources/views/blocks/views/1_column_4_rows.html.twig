@@ -1,7 +1,7 @@
-{% extends 'NetgenMoreDemoBundle:parts/block_views:block_view.html.twig' %}
+{% extends 'NetgenMoreDemoBundle:blocks/views:block_view.html.twig' %}
 
 {% block block_items %}
-    {% for valid_item in valid_items|slice( 0, 2 ) %}
+    {% for valid_item in valid_items|slice( 0, 4 ) %}
         {{ render(
             controller(
                 'ez_content:viewLocation', {

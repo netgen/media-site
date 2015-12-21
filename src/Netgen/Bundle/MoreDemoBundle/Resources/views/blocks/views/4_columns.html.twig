@@ -1,9 +1,9 @@
-{% extends 'NetgenMoreDemoBundle:parts/block_views:block_view.html.twig' %}
+{% extends 'NetgenMoreDemoBundle:blocks/views:block_view.html.twig' %}
 
 {% block block_items %}
     <div class="row">
         {% for valid_item in valid_items %}
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
                 {{ render(
                     controller(
                         'ez_content:viewLocation', {
@@ -18,8 +18,8 @@
                 ) }}
             </div>
             {% if loop.index0 % 2 == 1 %}<div class="clearfix visible-sm-block"></div>{% endif %}
-            {% if loop.index0 % 3 == 2 %}<div class="clearfix visible-md-block"></div>{% endif %}
-            {% if loop.index0 % 3 == 2 %}<div class="clearfix visible-lg-block"></div>{% endif %}
+            {% if loop.index0 % 4 == 3 %}<div class="clearfix visible-md-block"></div>{% endif %}
+            {% if loop.index0 % 4 == 3 %}<div class="clearfix visible-lg-block"></div>{% endif %}
         {% endfor %}
     </div>
 {% endblock %}

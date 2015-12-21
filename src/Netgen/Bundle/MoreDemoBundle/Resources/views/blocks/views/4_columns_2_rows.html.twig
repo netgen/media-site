@@ -1,8 +1,8 @@
-{% extends 'NetgenMoreDemoBundle:parts/block_views:block_view.html.twig' %}
+{% extends 'NetgenMoreDemoBundle:blocks/views:block_view.html.twig' %}
 
 {% block block_items %}
     <div class="row">
-        {% for valid_item in valid_items|slice( 0, 4 ) %}
+        {% for valid_item in valid_items|slice( 0, 8 ) %}
             <div class="col-sm-6 col-md-3">
                 {{ render(
                     controller(
