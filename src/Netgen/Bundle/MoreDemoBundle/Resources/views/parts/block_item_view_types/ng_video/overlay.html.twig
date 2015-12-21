@@ -13,11 +13,11 @@
                 {% if not ez_is_field_empty( content, 'poster' ) %}
                     {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'ng_image_block_item' } } ) }}
                 {% elseif 'youtube' in video_type.identifiers %}
-                    <img src="http://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
+                    <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
                 {% elseif 'vimeo' in video_type.identifiers %}
                     <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
                 {% elseif 'dailymotion' in video_type.identifiers %}
-                    <img src="http://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" >
+                    <img src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" >
                 {% endif %}
             </a>
         </div>

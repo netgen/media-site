@@ -12,11 +12,11 @@
         {% if not ez_is_field_empty( content, 'poster' ) %}
             {% include 'NetgenMoreDemoBundle:parts/block_item_view_types:slide.html.twig' with { field_name: 'poster', alias_name: 'ng_image_block_item' } %}
         {% elseif 'youtube' in video_type.identifiers %}
-            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="http://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
         {% elseif 'vimeo' in video_type.identifiers %}
             <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
         {% elseif 'dailymotion' in video_type.identifiers %}
-            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="http://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" >
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" >
         {% endif %}
 
         <div class="info">

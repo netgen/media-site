@@ -295,7 +295,7 @@ $(document).ready(function($) {
             videoID = el.attr('data-id');
         $.ajax({
             type:'GET',
-            url: 'http://vimeo.com/api/v2/video/' + videoID + '.json',
+            url: 'https://vimeo.com/api/v2/video/' + videoID + '.json',
             jsonp: 'callback',
             dataType: 'jsonp',
             success: function(data){
