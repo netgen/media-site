@@ -160,12 +160,12 @@ $(document).ready(function($) {
         }
     });
 
-    var campaignSlider = [];
-    $(".block-view-campaign .royalSlider").each(function(index) {
-        $(this).attr('id', 'campaignSlider-' + (index + 1).toString() );
-        campaignSlider.push(
+    var blockViewSlider = [];
+    $(".block-view-slider .royalSlider").each(function(index) {
+        $(this).attr('id', 'blockViewSlider-' + (index + 1).toString() );
+        blockViewSlider.push(
             $(this).royalSlider({
-                /* Campaign slider */
+                /* Block view slider */
                 autoScaleSlider: true,
                 autoScaleSliderWidth: 1170,
                 autoScaleSliderHeight: 658,
@@ -231,8 +231,8 @@ $(document).ready(function($) {
         });
     };
 
-    if($(".block-view-campaign .royalSlider").length > 0) { // Only if at least one campaign royalslider exists
-        $.each(campaignSlider, function(index, sliderObject){
+    if($(".block-view-slider .royalSlider").length > 0) { // Only if at least one campaign royalslider exists
+        $.each(blockViewSlider, function(index, sliderObject){
             sliderVideoInit(sliderObject);
         });
     }
