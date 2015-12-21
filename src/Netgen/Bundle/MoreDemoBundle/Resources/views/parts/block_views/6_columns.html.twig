@@ -5,7 +5,7 @@
 {% set set_container = block.customAttributes.advanced_set_container|default( '0' ) == '1' %}
 
 <div {% if advanced_html_id is not empty %} id="{{ advanced_html_id }}"{% endif %}
-    class="block-type-{{ block_type }} block-view-{{  block.view }} {{ advanced_html_class }} clearfix">
+    class="block-type-{{ block_type }} block-view-{{ block.view }} {{ advanced_html_class }} clearfix">
 
     {% if set_container %}<div class="container">{% endif %}
         {% if block.name is not empty %}
