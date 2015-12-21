@@ -1,11 +1,11 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
-{% block content %}
-    <h1>x Oolala! An Error Occurred</h1>
-    <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+{% trans_default_domain "ngmore_errors" %}
 
-    <div>
-        Something is broken. Please let us know what you were doing when this error occurred.
-        We will fix it as soon as possible. Sorry for any inconvenience caused.
-    </div>
+{% set site_title = 'ngmore.errors.default.title'|trans %}
+
+{% block content %}
+    <h1>{{ 'ngmore.errors.default.title'|trans }}</h1>
+
+    <div>{{ 'ngmore.errors.default.message'|trans }}</div>
 {% endblock %}
