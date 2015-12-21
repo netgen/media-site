@@ -2,15 +2,15 @@ ezpublish:
     system:
         frontend_group:
             block_view:
-                PageTitle:
+                page_title:
                     template: NetgenMoreDemoBundle:override/block:page_title.html.twig
                     match:
                         Type: PageTitle
-                ContentGrid:
+                content_grid:
                     template: NetgenMoreDemoBundle:override/block:content_grid.html.twig
                     match:
                         Type: ContentGrid
-                ContentGridDynamic:
+                content_grid_dynamic:
                     template: NetgenMoreDemoBundle:override/block:content_grid_dynamic.html.twig
                     controller: ngmore.controller.block_view:viewContentGridDynamicBlockById
                     match:
