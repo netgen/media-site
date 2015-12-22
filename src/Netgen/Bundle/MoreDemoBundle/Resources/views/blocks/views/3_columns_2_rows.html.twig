@@ -1,25 +1,7 @@
-{% extends 'NetgenMoreDemoBundle:blocks/views:block_view.html.twig' %}
+{% extends 'NetgenMoreDemoBundle:blocks/views:3_columns.html.twig' %}
 
 {% block block_items %}
-    <div class="row">
-        {% for valid_item in valid_items|slice( 0, 6 ) %}
-            <div class="col-sm-6 col-md-4">
-                {{ render(
-                    controller(
-                        'ez_content:viewLocation', {
-                            'locationId': valid_item.locationId,
-                            'viewType': 'block_item',
-                            'params': {
-                                'alias_name': 'contentgrid',
-                                'view_type': block.customAttributes.advanced_block_item_viewtype
-                            }
-                        }
-                    )
-                ) }}
-            </div>
-            {% if loop.index0 % 2 == 1 %}<div class="clearfix visible-sm-block"></div>{% endif %}
-            {% if loop.index0 % 3 == 2 %}<div class="clearfix visible-md-block"></div>{% endif %}
-            {% if loop.index0 % 3 == 2 %}<div class="clearfix visible-lg-block"></div>{% endif %}
-        {% endfor %}
-    </div>
+    {% set valid_items = valid_items|slice( 0, 6 ) %}
+
+    {{ parent() }}
 {% endblock %}
