@@ -1,5 +1,7 @@
 {# ng_banner - slide view type #}
 
+{% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
+
 {% block content %}
     <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-banner vl2{% if not ez_is_field_empty( content, 'css_class' ) %} {{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
         {% include 'NetgenMoreDemoBundle:parts:slide.html.twig' with { alias_name: 'i1140' } %}

@@ -1,8 +1,9 @@
 {# ng_shortcut - default view type #}
 
+{% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
+
 {% block content %}
     <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-shortcut">
-
         <h2 class="att-title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
         {% if not ez_is_field_empty( content, 'line_image' ) %}
