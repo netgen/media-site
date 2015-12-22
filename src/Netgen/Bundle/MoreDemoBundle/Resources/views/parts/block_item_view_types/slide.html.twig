@@ -1,7 +1,8 @@
-{% set content_name = ez_content_name( content ) %}
+{% set content_name = content_name|default( ez_content_name( content ) ) %}
 {% set field_name = field_name|default( 'image' ) %}
-{% set image_alias = ez_image_alias( ngmore_field( content, field_name ), content.versionInfo, alias_name|default( 'original' ) ) %}
 {% set use_lazy_load = use_lazy_load|default( false ) %}
+
+{% set image_alias = ez_image_alias( ngmore_field( content, field_name ), content.versionInfo, alias_name|default( 'original' ) ) %}
 
 {% if use_lazy_load %}
     {{ ez_render_field(
