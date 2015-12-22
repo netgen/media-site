@@ -1,6 +1,6 @@
 {# ng_audio - default view type #}
 
-{% extends 'NetgenMoreDemoBundle:block_item_view_types:block_item.html.twig' %}
+{% set location_path = path( location ) %}
 
 {% block content %}
     <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-audio">

@@ -1,7 +1,6 @@
 {# ng_video - default view type #}
 
-{% extends 'NetgenMoreDemoBundle:block_item_view_types:block_item.html.twig' %}
-
+{% set location_path = path( location ) %}
 {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
 {% set video_type = ez_field_value( content, 'video_type' ) %}
 

@@ -1,6 +1,6 @@
 {# ng_news - slide view type #}
 
-{% extends 'NetgenMoreDemoBundle:block_item_view_types:block_item.html.twig' %}
+{% set location_path = path( location ) %}
 
 {% set content_name = ez_field_value( content, 'title' ).text %}
 
