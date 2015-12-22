@@ -16,7 +16,6 @@ AliasList[]=ng_image_embed
 AliasList[]=ng_image_block_item
 AliasList[]=gallerylarge
 AliasList[]=galleryfull
-AliasList[]=gallerythumbnail
 
 # ngresponsiveimages aliases
 
@@ -60,13 +59,6 @@ Filters[]=geometry/scalewidth=770
 Reference=original
 Filters[]
 Filters[]=geometry/scalewidthdownonly=1800
-
-[gallerythumbnail]
-Reference=original
-Filters[]
-Filters[]=thumb=182
-Filters[]=centerimg=96;72
-Filters[]=strip=
 
 [imagefull]
 Reference=original

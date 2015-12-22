@@ -42,11 +42,6 @@ ezpublish:
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1800] }
                         - { name: strip }
-                gallerythumbnail:
-                    reference: original
-                    filters:
-                        - { name: ngmore/thumbnail, params: [96, 72, 'outbound'] }
-                        - { name: strip }
                 imagefull:
                     reference: original
                     filters:
