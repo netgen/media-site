@@ -1,7 +1,7 @@
-{% extends 'NetgenMoreDemoBundle:blocks/views:block_view.html.twig' %}
+{% extends 'NetgenMoreDemoBundle:blocks/content_grid:block_view.html.twig' %}
 
 {% block block_items %}
-    {% for valid_item in valid_items %}
+    {% for valid_item in valid_items|slice( 0, 1 ) %}
         {{ render(
             controller(
                 'ez_content:viewLocation', {
@@ -9,7 +9,7 @@
                     'viewType': 'block_item',
                     'params': {
                         'alias_name': 'contentgrid',
-                        'view_type': block.customAttributes.advanced_block_item_viewtype
+                        'view_type': 'slide'
                     }
                 }
             )
