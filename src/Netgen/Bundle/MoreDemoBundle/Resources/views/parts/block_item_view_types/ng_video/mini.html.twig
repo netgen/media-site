@@ -22,7 +22,7 @@
         </div>
         <div class="info with-icon">
             <a href="{{ location_path }}"><i class="fa fa-play-circle"></i></a>
-            <h2 class="att-name title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
+            <h2 class="att-name title"><a href="{{ location_path }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
         </div>
     </div>
 {% endblock %}

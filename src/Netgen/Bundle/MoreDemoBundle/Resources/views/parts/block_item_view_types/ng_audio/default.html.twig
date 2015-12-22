@@ -11,7 +11,7 @@
             </div>
         {% endif %}
 
-        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
+        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
 
     </div>
 {% endblock %}
