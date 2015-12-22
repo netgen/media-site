@@ -2,8 +2,6 @@
 
 {% extends 'NetgenMoreDemoBundle:parts/block_item_view_types:block_item.html.twig' %}
 
-{% set content_name = ez_content_name( content ) %}
-
 {% block content %}
     <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} image vl2">
         {% include 'NetgenMoreDemoBundle:parts/block_item_view_types:slide.html.twig' %}

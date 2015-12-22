@@ -2,11 +2,9 @@
 
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
-{% set image_alias = ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, 'i1140' ) %}
-
 {% block content %}
     <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-banner vl2{% if not ez_is_field_empty( content, 'css_class' ) %} {{ ez_field_value( content, 'css_class' ).text }}{% endif %}">
-        {% include 'NetgenMoreDemoBundle:parts/block_item_view_types:slide.html.twig' %}
+        {% include 'NetgenMoreDemoBundle:parts/block_item_view_types:slide.html.twig' with { alias_name: 'i1140' } %}
 
         <div class="info">
             {% if not ez_is_field_empty( content, 'title' ) %}
