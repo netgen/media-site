@@ -3,26 +3,15 @@
 {% set location_path = path( 'ez_urlalias', { 'locationId': content.contentInfo.mainLocationId } ) %}
 
 <div class="content-view-embed ng-category">
-
     <h3><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
 
-    {% if not ez_is_field_empty( content, 'line_image' ) %}
+    {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
+        {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
+
         <div class="att-image">
             {{ ez_render_field(
                 content,
-                'line_image', {
-                    'parameters': {
-                        'alias': 'ng_image_embed',
-                        'link_href': location_path
-                    }
-                }
-            ) }}
-        </div>
-    {% elseif not ez_is_field_empty( content, 'image' ) %}
-        <div class="att-image">
-            {{ ez_render_field(
-                content,
-                'image', {
+                image_field, {
                     'parameters': {
                         'alias': 'ng_image_embed',
                         'link_href': location_path
@@ -31,5 +20,4 @@
             ) }}
         </div>
     {% endif %}
-
 </div>

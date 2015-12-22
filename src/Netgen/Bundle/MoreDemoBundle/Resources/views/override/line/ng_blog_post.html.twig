@@ -17,21 +17,12 @@
         </small></p>
     </div>
 
-    {% if not ez_is_field_empty( content, 'line_image' ) %}
+    {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
+        {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
+
         {{ ez_render_field(
             content,
-            'line_image', {
-                'parameters': {
-                    'alias': 'ng_image_line',
-                    'link_href': location_path,
-                    'link_class': 'att-image pull-left'
-                }
-            }
-        ) }}
-    {% elseif not ez_is_field_empty( content, 'image' ) %}
-        {{ ez_render_field(
-            content,
-            'image', {
+            image_field, {
                 'parameters': {
                     'alias': 'ng_image_line',
                     'link_href': location_path,

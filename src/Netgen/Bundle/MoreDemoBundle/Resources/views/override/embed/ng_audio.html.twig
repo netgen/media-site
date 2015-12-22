@@ -1,7 +1,6 @@
 {# NG audio - embed view #}
 
 <div class="content-view-embed ng-audio">
-
     <h2 class="att-name">{{ ez_render_field( content, 'name' ) }}</h2>
 
     {% if not ez_is_field_empty( content, 'file' ) %}
@@ -16,5 +15,4 @@
             {{ ez_render_field( content, 'description' ) }}
         </div>
     {% endif %}
-
 </div>
