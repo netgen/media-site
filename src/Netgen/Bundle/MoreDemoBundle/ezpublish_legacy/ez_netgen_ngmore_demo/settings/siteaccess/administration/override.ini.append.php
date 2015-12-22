@@ -35,10 +35,4 @@ Source=node/view/browse_thumbnail.tpl
 MatchFile=thumbnail/image_browse.tpl
 Subdir=templates
 Match[class_identifier]=image
-
-[tiny_image]
-Source=content/view/tiny.tpl
-MatchFile=tiny_image.tpl
-Subdir=templates
-Match[class_identifier]=image
 */ ?>
