@@ -62,11 +62,6 @@ ezpublish:
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1540] }
                         - { name: strip }
-                medium:
-                    reference: original
-                    filters:
-                        - { name: geometry/scaledownonly, params: [200, 200] }
-                        - { name: strip }
                 contentgrid:
                     reference: original
                     filters:
@@ -74,7 +69,7 @@ ezpublish:
                         - { name: geometry/crop, params: [370, 160, 0, 0] }
                         - { name: strip }
                 opengraph:
-                    reference: null
+                    reference: original
                     filters:
                         - { name: geometry/scale, params: [200, 200] }
                         - { name: strip }
