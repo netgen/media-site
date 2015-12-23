@@ -2,7 +2,7 @@
 {% set content_type_identifier = ngmore_content_type_identifier( content.contentInfo.contentTypeId ) %}
 
 {% include [
-        'NetgenMoreDemoBundle:block_item_view_types/' ~ content_type_identifier ~ ':' ~ view_type ~ '.html.twig',
-        'NetgenMoreDemoBundle:block_item_view_types/' ~ content_type_identifier ~ ':standard.html.twig'
+        'NetgenMoreDemoBundle:block_item_view_types/' ~ view_type ~ ':' ~ content_type_identifier ~ '.html.twig',
+        'NetgenMoreDemoBundle:block_item_view_types/standard:' ~ content_type_identifier ~ '.html.twig'
     ] ignore missing
 %}
