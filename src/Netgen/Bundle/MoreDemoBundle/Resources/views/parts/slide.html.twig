@@ -3,30 +3,32 @@
 {% set use_lazy_load = use_lazy_load|default( false ) %}
 {% set alias_name = alias_name|default( 'original' ) %}
 
-{% set image_alias = ez_image_alias( ngmore_field( content, field_name ), content.versionInfo, alias_name ) %}
+{% if content.fields[field_name] is defined %}
+    {% set image_alias = ez_image_alias( ngmore_field( content, field_name ), content.versionInfo, alias_name ) %}
 
-{% if use_lazy_load %}
-    {{ ez_render_field(
-        content,
-        field_name, {
-            parameters: {
-                alt_text: content_name,
-                disable_src_attribute: true
-            },
-            attr: {
-                class: 'swiper-lazy',
-                'data-src': asset( image_alias.uri )
+    {% if use_lazy_load %}
+        {{ ez_render_field(
+            content,
+            field_name, {
+                parameters: {
+                    alt_text: content_name,
+                    disable_src_attribute: true
+                },
+                attr: {
+                    class: 'swiper-lazy',
+                    'data-src': asset( image_alias.uri )
+                }
             }
-        }
-    ) }}
-{% else %}
-    {{ ez_render_field(
-        content,
-        field_name, {
-            parameters: {
-                alias: alias_name,
-                alt_text: content_name
+        ) }}
+    {% else %}
+        {{ ez_render_field(
+            content,
+            field_name, {
+                parameters: {
+                    alias: alias_name,
+                    alt_text: content_name
+                }
             }
-        }
-    ) }}
+        ) }}
+    {% endif %}
 {% endif %}
