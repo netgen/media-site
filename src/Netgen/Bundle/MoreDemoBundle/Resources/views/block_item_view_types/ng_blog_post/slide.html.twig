@@ -11,7 +11,6 @@
             <h2 class="title"><a href={{ location_path }}>{{ content_name }}</a></h2>
 
             <div class="att-author">
-                By
                 <span class="author">
                     {% if not ez_is_field_empty( content, 'author_override' ) %}
                         {{ ez_render_field( content, 'author_override' ) }}

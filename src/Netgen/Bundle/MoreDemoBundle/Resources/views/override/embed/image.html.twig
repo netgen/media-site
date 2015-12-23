@@ -25,9 +25,7 @@
         {% if not ez_is_field_empty( content, 'caption' ) %}
             {% set image_alias = ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, objectParameters.size ) %}
             {% if image_alias.width is defined and image_alias.width is not empty %}
-                {% set image_width = image_alias.width %}
-
-                <div class="att-caption" style="width: {{ image_width }}px">
+                <div class="att-caption" style="width: {{ image_alias.width }}px">
                     {{ ez_render_field( content, 'caption' ) }}
                 </div>
             {% else %}
