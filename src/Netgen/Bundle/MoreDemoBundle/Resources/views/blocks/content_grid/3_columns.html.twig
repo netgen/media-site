@@ -8,10 +8,9 @@
                     controller(
                         'ez_content:viewLocation', {
                             'locationId': valid_item.locationId,
-                            'viewType': 'block_item',
+                            'viewType': block.customAttributes.advanced_block_item_viewtype,
                             'params': {
-                                'alias_name': 'i480',
-                                'view_type': block.customAttributes.advanced_block_item_viewtype
+                                'alias_name': 'i480'
                             }
                         }
                     )

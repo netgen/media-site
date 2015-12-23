@@ -1,0 +1,27 @@
+{% set location_path = path( location ) %}
+
+{% block content %}
+    <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-article vl t3 clearfix">
+
+        {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
+            {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
+
+            <div class="att-image image">
+                {{ ez_render_field(
+                    content,
+                    image_field, {
+                        'parameters': {
+                            'alias': 'i480',
+                            'image_class': 'img-responsive',
+                            'link_href': location_path
+                        }
+                    }
+                ) }}
+            </div>
+        {% endif %}
+
+        <div class="info">
+            <h2 class="att-title title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        </div>
+    </div>
+{% endblock %}

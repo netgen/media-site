@@ -1,0 +1,7 @@
+{% set content_name = ez_field_value( content, 'name' ).text %}
+
+{% block content %}
+    <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} image vl2">
+        {% include 'NetgenMoreDemoBundle:parts:slide.html.twig' %}
+    </div>
+{% endblock %}
