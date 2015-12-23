@@ -80,10 +80,6 @@ AvailableSiteAccessList[]=administration
 AvailableSiteAccessList[]=ngadminui
 MatchOrder=host_uri
 HostUriMatchMapItems[]
-HostUriMatchMapItems[]=ngmore.netgen.biz;cro;cro
-HostUriMatchMapItems[]=ngmore.netgen.biz;administration;administration
-HostUriMatchMapItems[]=ngmore.netgen.biz;ngadminui;ngadminui
-HostUriMatchMapItems[]=ngmore.netgen.biz;;eng
 HostMatchMapItems[]
 
 [DesignSettings]

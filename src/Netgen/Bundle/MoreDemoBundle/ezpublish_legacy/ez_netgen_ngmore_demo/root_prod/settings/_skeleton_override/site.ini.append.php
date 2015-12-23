@@ -77,9 +77,6 @@ AvailableSiteAccessList[]={{ siteAccess }}
 {% endfor %}
 MatchOrder=host_uri
 HostUriMatchMapItems[]
-{% for hostUriMatchMapItem in hostUriMatchMapItems %}
-HostUriMatchMapItems[]={{ hostUriMatchMapItem }}
-{% endfor %}
 HostMatchMapItems[]
 
 [DesignSettings]

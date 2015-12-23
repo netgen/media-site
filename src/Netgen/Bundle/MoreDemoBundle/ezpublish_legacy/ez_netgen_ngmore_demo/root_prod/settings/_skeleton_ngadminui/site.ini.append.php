@@ -1,8 +1,5 @@
 <?php /* #?ini charset="utf-8"?
 
-[SiteSettings]
-SiteURL={{ siteDomain }}/ngadminui
-
 [DatabaseSettings]
 SQLOutput=disabled
 
