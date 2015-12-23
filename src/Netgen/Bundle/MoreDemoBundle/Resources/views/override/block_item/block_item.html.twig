@@ -1,8 +1,8 @@
-{% set view_type = view_type|default( 'default' ) %}
+{% set view_type = view_type|default( 'standard' ) %}
 {% set content_type_identifier = ngmore_content_type_identifier( content.contentInfo.contentTypeId ) %}
 
 {% include [
         'NetgenMoreDemoBundle:block_item_view_types/' ~ content_type_identifier ~ ':' ~ view_type ~ '.html.twig',
-        'NetgenMoreDemoBundle:block_item_view_types/' ~ content_type_identifier ~ ':default.html.twig'
+        'NetgenMoreDemoBundle:block_item_view_types/' ~ content_type_identifier ~ ':standard.html.twig'
     ] ignore missing
 %}
