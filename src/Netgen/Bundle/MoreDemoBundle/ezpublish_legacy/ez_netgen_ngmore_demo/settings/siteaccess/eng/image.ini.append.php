@@ -17,8 +17,6 @@ AliasList[]=ng_image_block_item
 AliasList[]=gallerylarge
 AliasList[]=galleryfull
 
-# ngresponsiveimages aliases
-
 AliasList[]=imagefull
 AliasList[]=i320
 AliasList[]=i480

@@ -50,7 +50,6 @@ netgen_more_legacy:
                         - ez_netgen_ngmore_demo
                         - ngadminui
                         - ngsymfonytools
-                        - ngresponsiveimages
                         - ngmore
                         - ezfind
                         - ngclasslist
