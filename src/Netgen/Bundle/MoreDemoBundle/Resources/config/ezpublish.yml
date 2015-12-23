@@ -2,6 +2,7 @@ imports:
     - { resource: override.yml }
     - { resource: ezpage.yml }
     - { resource: image.yml }
+    - { resource: opengraph.yml }
 
 ezpublish:
     system:

@@ -20,7 +20,6 @@ ActiveExtensions[]=ngsymfonytools
 ActiveExtensions[]=ngresponsiveimages
 ActiveExtensions[]=ngmore
 ActiveExtensions[]=ezfind
-ActiveExtensions[]=ngopengraph
 ActiveExtensions[]=ngclasslist
 ActiveExtensions[]=xrowmetadata
 ActiveExtensions[]=bccie
