@@ -1,8 +1,5 @@
 <?php /* #?ini charset="utf-8"?
 
-[SiteSettings]
-SiteURL=ngmore.netgen.biz/ngadminui
-
 [DatabaseSettings]
 SQLOutput=disabled
 

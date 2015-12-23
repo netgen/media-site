@@ -2,4 +2,5 @@ parameters:
     ngmore_legacy.global.site:
         SiteSettings:
             SiteName: %ngmore.default.site_settings.site_name%
+            SiteURL: %ngmore.default.site_domain%
             MetaDataArray: %ngmore.default.site_settings.meta_data%
