@@ -125,7 +125,7 @@ ezpublish:
                         match:
                             Identifier\ContentType: ng_shortcut
                     listitem:
-                        template: NetgenMoreDemoBundle:content/listitem:listitem.html.twig
+                        template: NetgenMoreDemoBundle:content:listitem.html.twig
                         match: ~
                 standard:
                     ng_article:
@@ -188,6 +188,9 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/standard:image.html.twig
                         match:
                             Identifier\ContentType: image
+                    standard:
+                        template: NetgenMoreDemoBundle:content:standard.html.twig
+                        match: ~
                 mini:
                     ng_article:
                         template: NetgenMoreDemoBundle:content/mini:ng_article.html.twig
@@ -201,6 +204,9 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/mini:ng_video.html.twig
                         match:
                             Identifier\ContentType: ng_video
+                    mini:
+                        template: NetgenMoreDemoBundle:content:mini.html.twig
+                        match: ~
                 overlay:
                     ng_article:
                         template: NetgenMoreDemoBundle:content/overlay:ng_article.html.twig
@@ -214,6 +220,9 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/overlay:ng_video.html.twig
                         match:
                             Identifier\ContentType: ng_video
+                    overlay:
+                        template: NetgenMoreDemoBundle:content:overlay.html.twig
+                        match: ~
                 slide:
                     ng_article:
                         template: NetgenMoreDemoBundle:content/slide:ng_article.html.twig
@@ -239,6 +248,9 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/slide:image.html.twig
                         match:
                             Identifier\ContentType: image
+                    slide:
+                        template: NetgenMoreDemoBundle:content:slide.html.twig
+                        match: ~
 
             content_view:
                 embed:
