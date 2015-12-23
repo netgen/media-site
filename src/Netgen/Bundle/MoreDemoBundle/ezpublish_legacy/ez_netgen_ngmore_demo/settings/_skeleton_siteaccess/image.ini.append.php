@@ -10,8 +10,6 @@ AliasList[]=ng_image_line
 AliasList[]=ng_image_embed
 AliasList[]=ng_image_block_item
 
-# ngresponsiveimages aliases
-
 AliasList[]=i320
 AliasList[]=i480
 AliasList[]=i770
