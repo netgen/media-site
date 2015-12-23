@@ -7,13 +7,8 @@ EmailReceiver=
 SessionNamePerSiteAccess=disabled
 
 [SiteSettings]
-SiteName={{ siteName }}
 LoginPage=embedded
 AdditionalLoginFormActionURL=
-MetaDataArray[]
-MetaDataArray[author]=Netgen
-MetaDataArray[description]={{ siteName }}
-MetaDataArray[keywords]={{ siteName|lower }}
 
 [UserSettings]
 RegistrationEmail=

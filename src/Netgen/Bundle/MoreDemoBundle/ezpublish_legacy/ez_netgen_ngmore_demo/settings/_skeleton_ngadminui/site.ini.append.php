@@ -4,7 +4,6 @@
 EmailReceiver=
 
 [SiteSettings]
-SiteName={{ siteName }}
 DefaultPage=content/dashboard
 LoginPage=custom
 

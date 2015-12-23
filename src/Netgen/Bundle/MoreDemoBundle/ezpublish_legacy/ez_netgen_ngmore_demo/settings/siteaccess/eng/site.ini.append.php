@@ -7,13 +7,8 @@ EmailReceiver=
 SessionNamePerSiteAccess=disabled
 
 [SiteSettings]
-SiteName=NG More
 LoginPage=embedded
 AdditionalLoginFormActionURL=
-MetaDataArray[]
-MetaDataArray[author]=Netgen
-MetaDataArray[description]=NG More
-MetaDataArray[keywords]=NG More
 
 [UserSettings]
 RegistrationEmail=
