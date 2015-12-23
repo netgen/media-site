@@ -1,5 +1,3 @@
-{# NG video - embed view #}
-
 {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster_default.png' ) %}
 {% if not ez_is_field_empty( content, 'poster' ) %}
     {% set image_alias = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'original' ) %}

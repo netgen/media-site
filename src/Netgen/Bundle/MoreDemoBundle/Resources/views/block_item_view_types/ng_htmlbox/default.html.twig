@@ -1,5 +1,3 @@
-{# ng_htmlbox - default view type #}
-
 <div class="content-view-block-item view-type-{{ view_type|default( '' ) }} ng-htmlbox">
     {{ ez_field_value( content, 'html_code' ).text|raw }}
 </div>
