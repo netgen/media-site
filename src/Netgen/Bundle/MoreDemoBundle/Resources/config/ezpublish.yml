@@ -1,7 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: templates.yml }
-    - { resource: override.yml }
+    - { resource: block_view.yml }
+    - { resource: content_view.yml }
     - { resource: ezpage.yml }
     - { resource: image.yml }
     - { resource: opengraph.yml }

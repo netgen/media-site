@@ -1,0 +1,17 @@
+ezpublish:
+    system:
+        frontend_group:
+            block_view:
+                page_title:
+                    template: NetgenMoreDemoBundle:blocks:page_title.html.twig
+                    match:
+                        Type: PageTitle
+                content_grid:
+                    template: NetgenMoreDemoBundle:blocks:content_grid.html.twig
+                    match:
+                        Type: ContentGrid
+                content_grid_dynamic:
+                    template: NetgenMoreDemoBundle:blocks:content_grid.html.twig
+                    controller: ngmore.controller.block_view:viewContentGridDynamicBlockById
+                    match:
+                        Type: ContentGridDynamic
