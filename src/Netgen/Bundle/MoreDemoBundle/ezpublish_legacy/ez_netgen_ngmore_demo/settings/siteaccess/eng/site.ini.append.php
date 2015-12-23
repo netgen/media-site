@@ -62,7 +62,6 @@ SearchClasses[]=ng_feedback_form
 SearchClasses[]=ng_landing_page
 SearchClasses[]=ng_category_page
 SearchClasses[]=ng_video
-SearchClasses[]=ng_video_external
 SearchClasses[]=ng_audio
 SearchClasses[]=file
 */ ?>

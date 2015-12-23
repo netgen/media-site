@@ -103,17 +103,6 @@ ClearCacheMethod[]=object
 ClearCacheMethod[]=parent
 ClearCacheMethod[]=relating
 
-[ng_video_external]
-DependentClassIdentifier[]
-DependentClassIdentifier[]=ng_gallery
-DependentClassIdentifier[]=ng_article
-DependentClassIdentifier[]=ng_news
-DependentClassIdentifier[]=ng_blog_post
-ClearCacheMethod[]
-ClearCacheMethod[]=object
-ClearCacheMethod[]=parent
-ClearCacheMethod[]=relating
-
 [ng_audio]
 DependentClassIdentifier[]
 DependentClassIdentifier[]=ng_gallery
