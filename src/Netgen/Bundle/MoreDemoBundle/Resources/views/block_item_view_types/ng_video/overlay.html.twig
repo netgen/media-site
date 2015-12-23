@@ -10,7 +10,7 @@
             <a href="{{ location_path }}" class="image-16by9">
                 <i class="fa fa-play-circle"></i>
                 {% if not ez_is_field_empty( content, 'poster' ) %}
-                    {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'ng_image_block_item' } } ) }}
+                    {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'i320' } } ) }}
                 {% elseif 'youtube' in video_type.identifiers %}
                     <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
                 {% elseif 'vimeo' in video_type.identifiers %}

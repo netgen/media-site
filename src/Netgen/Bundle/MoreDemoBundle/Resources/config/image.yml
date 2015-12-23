@@ -2,26 +2,6 @@ ezpublish:
     system:
         frontend_group:
             image_variations:
-                ng_image_full:
-                    reference: original
-                    filters:
-                        - { name: geometry/scalewidthdownonly, params: [1170] }
-                        - { name: strip }
-                ng_image_line:
-                    reference: original
-                    filters:
-                        - { name: geometry/scalewidthdownonly, params: [330] }
-                        - { name: strip }
-                ng_image_embed:
-                    reference: original
-                    filters:
-                        - { name: geometry/scalewidthdownonly, params: [330] }
-                        - { name: strip }
-                ng_image_block_item:
-                    reference: original
-                    filters:
-                        - { name: geometry/scalewidthdownonly, params: [330] }
-                        - { name: strip }
                 i320:
                     reference: original
                     filters:
@@ -37,26 +17,10 @@ ezpublish:
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: strip }
-                i960:
-                    reference: original
-                    filters:
-                        - { name: geometry/scalewidthdownonly, params: [960] }
-                        - { name: strip }
                 i1140:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1140] }
-                        - { name: strip }
-                i1540:
-                    reference: original
-                    filters:
-                        - { name: geometry/scalewidthdownonly, params: [1540] }
-                        - { name: strip }
-                contentgrid:
-                    reference: original
-                    filters:
-                        - { name: geometry/scalewidthdownonly, params: [370] }
-                        - { name: geometry/crop, params: [370, 160, 0, 0] }
                         - { name: strip }
                 opengraph:
                     reference: original

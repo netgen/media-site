@@ -18,9 +18,9 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9{if $has_media} media{/if} add-line">
             {if and( is_set( $node.data_map.line_image ), $node.data_map.line_image.has_content )}
-                {attribute_view_gui image_class='ng_image_line' link_class='att-image pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.line_image}
+                {attribute_view_gui image_class='i320' link_class='att-image pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.line_image}
             {elseif and( is_set( $node.data_map.image ), $node.data_map.image.has_content )}
-                {attribute_view_gui image_class='ng_image_line' link_class='att-image pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.image}
+                {attribute_view_gui image_class='i320' link_class='att-image pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.image}
             {/if}
 
             <div class="att-line-intro">
