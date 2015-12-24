@@ -8,6 +8,7 @@ imports:
     - { resource: opengraph.yml }
     - { resource: legacy.yml }
     - { resource: legacy/solr.yml }
+    - { resource: legacy/site.yml }
 
 ezpublish:
     system:
