@@ -46,18 +46,6 @@ Source=content/datatype/view/ezxmltags/quote.tpl
 MatchFile=datatype/ezxmltext/quote.tpl
 Subdir=templates
 
-[table_cols]
-Source=content/datatype/view/ezxmltags/table.tpl
-MatchFile=datatype/ezxmltext/table_cols.tpl
-Subdir=templates
-Match[classification]=cols
-
-[table_comparison]
-Source=content/datatype/view/ezxmltags/table.tpl
-MatchFile=datatype/ezxmltext/table_comparison.tpl
-Subdir=templates
-Match[classification]=comparison
-
 ## DEFAULT OVERRIDE FOR CLASSES WITHOUT FULL TEMPLATES
 
 [not_overriden_content]
