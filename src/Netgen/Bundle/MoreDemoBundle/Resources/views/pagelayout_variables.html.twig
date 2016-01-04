@@ -6,6 +6,10 @@
 
 {# PATH ARRAY #}
 
+{% if show_path is not defined %}
+    {% set show_path = true %}
+{% endif %}
+
 {% if path_array is not defined %}
     {% if content is defined and location is defined and location is not empty and not location.isDraft %}
         {% set path_array = ngmore_location_path( location.id ) %}
