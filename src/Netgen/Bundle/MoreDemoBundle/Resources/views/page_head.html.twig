@@ -1,7 +1,5 @@
-{% set meta_data = meta_data|default( [] ) %}
-
 {% set config_meta_data = ezpublish.configResolver.getParameter( 'site_settings.meta_data', 'ngmore' ) %}
-{% set meta_data = config_meta_data|merge( meta_data ) %}
+{% set meta_data = config_meta_data|merge( meta_data|default( [] ) ) %}
 
 {% if content is defined %}
     {% if content.fields.metadata is defined and not ez_is_field_empty( content, 'metadata' ) %}
