@@ -9,7 +9,7 @@
             {% set field = 'video_file' %}
         {% endif %}
 
-        {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster_default.png' ) %}
+        {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
 
         {% if not ez_is_field_empty( content, 'poster' ) %}
             {% set image_alias = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'i1140' ) %}
