@@ -16,6 +16,7 @@ VarDir=var/ezdemo_site
 [ExtensionSettings]
 ActiveExtensions[]={{ extensionName }}
 ActiveExtensions[]=ngadminui
+ActiveExtensions[]=ngsymfonytools
 ActiveExtensions[]=ngmore
 ActiveExtensions[]=ezfind
 ActiveExtensions[]=ngclasslist
