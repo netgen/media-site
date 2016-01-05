@@ -8,29 +8,23 @@ function jwplayer_init( videoObjectClass, videoObject ){
     if(videoObject.length) {
         var sources = false,
             videoId = videoObject.data('video_player_id'),
-            royalSliderContainer = videoObject.parents('.royalSlider'),
             aspectRatio = 1.77, /* default for 16:9 */
             width = '100%',
             height = '100%';
 
-        if (royalSliderContainer.length) {
-            aspectRatio = royalSliderContainer.width() / royalSliderContainer.height();
+        if (typeof videoObject.data('width') !== 'undefined') {
+            width = videoObject.data('width');
+        } else {
+            width = videoObject.parent().width();
         }
-        else {
-            if (typeof videoObject.data('width') !== 'undefined') {
-                width = videoObject.data('width');
-            } else {
-                width = videoObject.parent().width();
-            }
-            if (typeof videoObject.data('height') !== 'undefined') {
-                height = videoObject.data('height');
-            } else {
-                height = videoObject.parent().height();
-            }
+        if (typeof videoObject.data('height') !== 'undefined') {
+            height = videoObject.data('height');
+        } else {
+            height = videoObject.parent().height();
+        }
 
-            if( width.toString().indexOf('%') < 0 || height.toString().indexOf('%') < 0  ){
-                aspectRatio = parseInt(width) / parseInt(height);
-            }
+        if( width.toString().indexOf('%') < 0 || height.toString().indexOf('%') < 0  ){
+            aspectRatio = parseInt(width) / parseInt(height);
         }
 
         aspectRatio += ':1';
@@ -50,7 +44,6 @@ function jwplayer_init( videoObjectClass, videoObject ){
         jwplayer(videoId).setup({
             primary: 'flash',
             width: '100%',
-            height: height,
             aspectratio: aspectRatio,
             autostart: videoObject.data('autostart'),
             controlbar: [{ idlehide: 'true' }],
@@ -139,109 +132,6 @@ $(document).ready(function($) {
         );
     });
     /* /idangero.us swiper */
-
-    /* ROYALSLIDER ----------------------------------------------------------------*/
-    $(".royalSlider.gallery").royalSlider({ /* Default gallery slider */
-        fullscreen: {
-            enabled: true,
-            nativeFS: true
-        },
-        controlNavigation: 'thumbnails',
-        autoScaleSlider: true,
-        autoScaleSliderWidth: 770,
-        autoScaleSliderHeight: 578,
-        imageScaleMode: 'fill',
-        imageAlignCenter: 'false',
-        arrowsNavHideOnTouch: true,
-        keyboardNavEnabled: true,
-        thumbs: {
-            autoCenter: false,
-            firstMargin: false
-        }
-    });
-
-    var blockViewSlider = [];
-    $(".block-view-slider .royalSlider").each(function(index) {
-        $(this).attr('id', 'blockViewSlider-' + (index + 1).toString() );
-        blockViewSlider.push(
-            $(this).royalSlider({
-                /* Block view slider */
-                autoScaleSlider: true,
-                autoScaleSliderWidth: 1170,
-                autoScaleSliderHeight: 658,
-                imageScaleMode: 'fill',
-                imageAlignCenter: 'false',
-                arrowsNavHideOnTouch: true,
-                keyboardNavEnabled: true,
-                navigateByClick: false,
-                controlNavigation: 'none',
-                video: {
-                    // video options go gere
-                    autoHideBlocks: true,
-                    autoHideArrows: true,
-                    autoHideControlNav: true
-                }
-            }).data('royalSlider')
-        );
-    });
-
-    var relatedMultimediaSlider = [];
-    $(".relatedMultimediaSlides.royalSlider").each(function(index) {
-        $(this).attr('id', 'relatedMultimediaSlider-' + (index + 1).toString() );
-        relatedMultimediaSlider.push(
-            $(this).royalSlider({
-                /* Related multimedia slider */
-                controlNavigation: 'bullets',
-                autoScaleSlider: true,
-                autoScaleSliderWidth: 505,
-                autoScaleSliderHeight: 337,
-                imageScaleMode: 'fill',
-                imageAlignCenter: 'false',
-                arrowsNavHideOnTouch: true,
-                keyboardNavEnabled: true,
-                navigateByClick: false,
-                video: {
-                    autoHideBlocks: true,
-                    autoHideArrows: true,
-                    autoHideControlNav: true
-                }
-            }).data('royalSlider')
-        );
-    });
-    /* /ROYALSLIDER -------------------------------------------------------------------*/
-
-    /* ROYALSLIDER WITH JWPLAYER VIDEO  -----------------------------------------------*/
-    var sliderVideoInit = function (sliderObject) {
-        var sliderId = sliderObject.slider.context.id;
-        sliderObject.ev.on('rsOnCreateVideoElement', function (e, videoObjectClass) {
-            var videoObject = $( "#" + sliderId + " ." + videoObjectClass );
-            if (videoObject.length) {
-                var videoPlayerId = videoObject.data('video_player_id');
-                sliderObject.videoObj = $('<div id="' + videoPlayerId + '" class="rsVideoObj">Loading the player ...</div>');
-
-                setTimeout(function () {
-                    jwplayer_init(videoObjectClass, videoObject);
-                }, 50);
-
-                $( "#" + sliderId ).addClass("rsNoDrag");
-            }
-        });
-        sliderObject.ev.on('rsOnDestroyVideoElement', function (e) {
-            $( "#" + sliderId ).removeClass("rsNoDrag");
-        });
-    };
-
-    if($(".block-view-slider .royalSlider").length > 0) { // Only if at least one block view royalslider exists
-        $.each(blockViewSlider, function(index, sliderObject){
-            sliderVideoInit(sliderObject);
-        });
-    }
-    if( $(".royalSlider.relatedMultimediaSlides").length > 0) { // Only if at least one instance of related multimedia royalslider exists
-        $.each(relatedMultimediaSlider, function(index, sliderObject){
-            sliderVideoInit(sliderObject);
-        });
-    }
-    /* /ROYALSLIDER WITH JWPLAYER VIDEO  -----------------------------------------------*/
 
     /* header actions */
     (function($,c,b){$.map("click dblclick mousemove mousedown mouseup mouseover mouseout change select submit keydown keypress keyup".split(" "),function(d){a(d)});a("focusin","focus"+b);a("focusout","blur"+b);$.addOutsideEvent=a;function a(g,e){e=e||g+b;var d=$(),h=g+"."+e+"-special-event";$.event.special[e]={setup:function(){d=d.add(this);if(d.length===1){$(c).bind(h,f)}},teardown:function(){d=d.not(this);if(d.length===0){$(c).unbind(h)}},add:function(i){var j=i.handler;i.handler=function(l,k){l.target=k;j.apply(this,arguments)}}};function f(i){$(d).each(function(){var j=$(this);if(this!==i.target&&!j.has(i.target).length){j.triggerHandler(e,[i.target])}})}}})(jQuery,document,"outside"); //plugin for click outside
