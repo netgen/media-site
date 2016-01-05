@@ -1,12 +1,10 @@
-{* NG Feedback form - Full view *}
-
 {if $node.data_map.line_intro.has_content}
     {ezpagedata_set( 'description', $node.data_map.line_intro.content.output.output_text|strip_tags|shorten(152))}
 {elseif $node.data_map.full_intro.has_content}
     {ezpagedata_set( 'description', $node.data_map.full_intro.content.output.output_text|strip_tags|shorten(152))}
 {/if}
 
-<div class="container content-view-full ng-feedback-form clearfix">
+<div class="content-view-full ng-feedback-form clearfix">
 
     <h1 class="att-title page-header">{attribute_view_gui attribute=$node.data_map.title}</h1>
 
