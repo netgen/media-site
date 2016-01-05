@@ -2,25 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="de_DE" sourcelanguage="en">
 <context>
-    <name>design/ngmore/collectedinfo/form</name>
-    <message>
-        <source>Form %formname</source>
-        <translation>Formular %formname</translation>
-    </message>
-    <message>
-        <source>Thank you for your feedback.</source>
-        <translation>Vielen Dank für Ihre Rückmeldung.</translation>
-    </message>
-    <message>
-        <source>Return to site</source>
-        <translation>Zur Site zurückkehren</translation>
-    </message>
-    <message>
-        <source>You have already submitted this form. The data you entered was:</source>
-        <translation>Sie haben dieses Formular bereits abgesendet. Der Inhalt war folgendermaßen:</translation>
-    </message>
-</context>
-<context>
     <name>design/ngmore/content/search</name>
     <message>
         <source>Search</source>
@@ -69,43 +50,6 @@
     <message>
         <source>Send form</source>
         <translation>Formular abschicken</translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/link</name>
-    <message>
-        <source>%sitetitle front page</source>
-        <translation>%sitetitle Startseite</translation>
-    </message>
-    <message>
-        <source>Search %sitetitle</source>
-        <translation>Suche %sitetitle</translation>
-    </message>
-    <message>
-        <source>Printable version</source>
-        <translation>Druckversion</translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/pagelayout</name>
-    <message>
-        <source>Search</source>
-        <translation>Suchen</translation>
-    </message>
-    <message>
-        <source>Skip to main content</source>
-        <translation>Zu Hauptinhalt springen</translation>
-    </message>
-    <message>
-        <source>Search text:</source>
-        <translation>Suchtext:</translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/view/sitemap</name>
-    <message>
-        <source>Site map</source>
-        <translation>Inhaltsübersicht</translation>
     </message>
 </context>
 </TS>

@@ -2,25 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>design/ngmore/collectedinfo/form</name>
-    <message>
-        <source>Form %formname</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Thank you for your feedback.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You have already submitted this form. The data you entered was:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Return to site</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>design/ngmore/content/search</name>
     <message>
         <source>Search</source>
@@ -68,83 +49,6 @@
     <name>design/ngmore/full/feedback_form</name>
     <message>
         <source>Send form</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/link</name>
-    <message>
-        <source>%sitetitle front page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search %sitetitle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Printable version</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/pagelayout</name>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Skip to main content</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search text:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tag cloud</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Site map</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shopping basket</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>My profile</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Register</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Forgot your password?</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/view/sitemap</name>
-    <message>
-        <source>Site map</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

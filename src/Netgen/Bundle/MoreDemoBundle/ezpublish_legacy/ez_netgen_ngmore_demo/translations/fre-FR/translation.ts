@@ -2,25 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="fr_FR">
 <context>
-    <name>design/ngmore/collectedinfo/form</name>
-    <message>
-        <source>Form %formname</source>
-        <translation>Formulaire %formname</translation>
-    </message>
-    <message>
-        <source>Thank you for your feedback.</source>
-        <translation>Merci pour votre retour.</translation>
-    </message>
-    <message>
-        <source>You have already submitted this form. The data you entered was:</source>
-        <translation>Vous avez déjà répondu à ce formulaire. Les données que vous avez tapé étaient :</translation>
-    </message>
-    <message>
-        <source>Return to site</source>
-        <translation>Retournez au site</translation>
-    </message>
-</context>
-<context>
     <name>design/ngmore/content/search</name>
     <message>
         <source>Search</source>
@@ -69,43 +50,6 @@
     <message>
         <source>Send form</source>
         <translation>Formulaire d&apos;envoi</translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/link</name>
-    <message>
-        <source>%sitetitle front page</source>
-        <translation>Page d&apos;accueil de %sitetitle</translation>
-    </message>
-    <message>
-        <source>Search %sitetitle</source>
-        <translation>Recherche %sitetitle</translation>
-    </message>
-    <message>
-        <source>Printable version</source>
-        <translation>Version imprimable</translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/pagelayout</name>
-    <message>
-        <source>Search</source>
-        <translation>Recherche</translation>
-    </message>
-    <message>
-        <source>Skip to main content</source>
-        <translation>Aller au contenu principal</translation>
-    </message>
-    <message>
-        <source>Search text:</source>
-        <translation>Texte à rechercher :</translation>
-    </message>
-</context>
-<context>
-    <name>design/ngmore/view/sitemap</name>
-    <message>
-        <source>Site map</source>
-        <translation>Plan du site</translation>
     </message>
 </context>
 </TS>
