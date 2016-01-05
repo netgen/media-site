@@ -5,7 +5,9 @@
 {% set site_title = 'ngmore.errors.500.title'|trans %}
 
 {% block content %}
-    <h1>{{ 'ngmore.errors.500.title'|trans }}</h1>
+	<div class="site-error">
+		<h1>{{ 'ngmore.errors.500.title'|trans }}</h1>
 
-    <div>{{ 'ngmore.errors.500.message'|trans }}</div>
+		<div>{{ 'ngmore.errors.500.message'|trans }}</div>
+	</div>
 {% endblock %}
