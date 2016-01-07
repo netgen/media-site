@@ -5,7 +5,9 @@
 
     <h2 class="att-name"><a href="{{ path( location ) }}">{{ ez_content_name( content ) }}</a></h2>
 
-    {{ video.poster( content, location ) }}
+    <div class="att-poster image">
+        {{ video.poster( content, location ) }}
+    </div>
 
     {% if not ez_is_field_empty( content, 'line_intro' ) %}
         <div class="att-line-intro">

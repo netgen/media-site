@@ -4,7 +4,9 @@
 
 {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
     <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-video vl t3 clearfix">
-        {{ video.poster( content, location ) }}
+        <div class="att-poster image">
+            {{ video.poster( content, location ) }}
+        </div>
 
         <div class="info with-icon">
             <a href="{{ location_path }}"><i class="fa fa-play-circle"></i></a>
