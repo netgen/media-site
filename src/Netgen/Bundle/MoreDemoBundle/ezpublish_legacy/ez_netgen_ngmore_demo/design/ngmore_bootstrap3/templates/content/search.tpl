@@ -80,7 +80,7 @@
 
     <form action={"/content/search/"|ezurl} method="get" class="form-search">
 
-        <h1 class="att-title">{"Search"|i18n( "design/ngmore/content/search" )}</h1>
+        <h1 class="page-header">{"Search"|i18n( "design/ngmore/content/search" )}</h1>
 
         <div class="row">
             <div class="col-xs-12">

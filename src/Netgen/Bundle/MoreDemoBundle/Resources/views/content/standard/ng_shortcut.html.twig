@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="view-type view-type-{{ viewType }} ng-shortcut clearfix">
-        <h2 class="att-title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        <h2 class="title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
         {% if not ez_is_field_empty( content, 'line_image' ) %}
             {{ ez_render_field(
@@ -10,15 +10,14 @@
                 'line_image', {
                     'parameters': {
                         'alias': 'i320',
-                        'link_href': url,
-                        'link_class': 'att-image'
+                        'link_href': url
                     }
                 }
             ) }}
         {% endif %}
 
         {% if not ez_is_field_empty( content, 'line_intro' ) %}
-            <div class="att-line-intro">{{ ez_render_field( content, 'line_intro' ) }}</div>
+            <div class="short">{{ ez_render_field( content, 'line_intro' ) }}</div>
         {% endif %}
     </div>
 {% endblock %}

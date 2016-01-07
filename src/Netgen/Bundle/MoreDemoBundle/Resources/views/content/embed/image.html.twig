@@ -6,7 +6,7 @@
     {% endif %}
 
     <div class="view-type view-type-{{ viewType }} image">
-        <div class="att-image">
+        <div class="img-container">
             {{ ez_render_field(
                 content,
                 'image', {
@@ -25,11 +25,11 @@
         {% if not ez_is_field_empty( content, 'caption' ) %}
             {% set image_alias = ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, objectParameters.size ) %}
             {% if image_alias.width is defined and image_alias.width is not empty %}
-                <div class="att-caption" style="width: {{ image_alias.width }}px">
+                <div class="caption" style="width: {{ image_alias.width }}px">
                     {{ ez_render_field( content, 'caption' ) }}
                 </div>
             {% else %}
-                <div class="att-caption">
+                <div class="caption">
                     {{ ez_render_field( content, 'caption' ) }}
                 </div>
             {% endif %}

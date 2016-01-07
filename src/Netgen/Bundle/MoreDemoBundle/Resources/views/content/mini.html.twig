@@ -3,7 +3,7 @@
 <div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl t3 clearfix">
 
     {% if content.fields.image is defined and not ez_is_field_empty( content, 'image' ) %}
-        <div class="att-image image">
+        <div class="image">
             {{ ez_render_field(
                 content,
                 'image', {
@@ -18,7 +18,7 @@
     {% endif %}
 
     <div class="info">
-        <h2 class="att-title title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
+        <h2 class="title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
     </div>
 
 </div>

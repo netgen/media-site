@@ -6,7 +6,7 @@
     } %}
 
     <div class="info">
-        <div class="att-publish-date date">
+        <div class="date">
             {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
         </div>
         <h2 class="title"><a href={{ path( location ) }}>{{ content_name }}</a></h2>

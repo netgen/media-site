@@ -9,9 +9,9 @@
 {% block content %}
 <div class="view-type view-type-{{ viewType }} ng-blog-post {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
 
-    <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
+    <h1 class="page-header">{{ ez_render_field( content, 'title' ) }}</h1>
 
-    <div class="att-author">
+    <div class="author">
         <p><small>
             {% if not ez_is_field_empty( content, 'author_override' ) %}
                 {{ ez_render_field( content, 'author_override' ) }}
@@ -23,7 +23,7 @@
     </div>
 
     {% if not ez_is_field_empty( content, 'image' ) %}
-        <div class="image att-image">
+        <div class="image">
             {{ ez_render_field(
                 content,
                 'image', {
@@ -36,19 +36,19 @@
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'full_intro' ) %}
-        <div class="att-full-intro">
+        <div class="intro">
             {{ ez_render_field( content, 'full_intro' ) }}
         </div>
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'body' ) %}
-        <div class="att-body">
+        <div class="body">
             {{ ez_render_field( content, 'body' ) }}
         </div>
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'location' ) %}
-        <div class="att-location">
+        <div class="location">
             {{ ez_render_field( content, 'location' ) }}
         </div>
     {% endif %}

@@ -1,11 +1,11 @@
 <div class="view-type view-type-{{ viewType }} ng-audio clearfix">
 
     {% if not ez_is_field_empty( content, 'image' ) %}
-        <div class="att-image">
+        <div class="image">
             {{ ez_render_field( content, 'image' ) }}
         </div>
     {% endif %}
 
-    <h2 class="att-title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
+    <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
 
 </div>

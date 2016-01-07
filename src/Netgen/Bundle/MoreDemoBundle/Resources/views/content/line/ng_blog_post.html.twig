@@ -2,9 +2,9 @@
 
 <div class="view-type view-type-{{ viewType }} ng-blog-post media clearfix">
 
-    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
-    <div class="att-author">
+    <div class="author">
         <p><small>
             {% if not ez_is_field_empty( content, 'author_override' ) %}
                 {{ ez_render_field( content, 'author_override' ) }}
@@ -24,18 +24,18 @@
                 'parameters': {
                     'alias': 'i320',
                     'link_href': location_path,
-                    'link_class': 'att-image pull-left'
+                    'link_class': 'pull-left'
                 }
             }
         ) }}
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'line_intro' ) %}
-        <div class="att-line-intro">
+        <div class="short">
             {{ ez_render_field( content, 'line_intro' ) }}
         </div>
     {% elseif not ez_is_field_empty( content, 'full_intro' ) %}
-        <div class="att-line-intro">
+        <div class="short">
             {{ ez_render_field( content, 'full_intro' ) }}
         </div>
     {% endif %}

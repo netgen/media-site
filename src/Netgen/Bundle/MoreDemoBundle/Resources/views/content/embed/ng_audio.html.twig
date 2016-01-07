@@ -1,5 +1,5 @@
 <div class="view-type view-type-{{ viewType }} ng-audio">
-    <h2 class="att-name">{{ ez_render_field( content, 'name' ) }}</h2>
+    <h2 class="title">{{ ez_render_field( content, 'name' ) }}</h2>
 
     {% if not ez_is_field_empty( content, 'file' ) %}
         <audio controls>
@@ -9,7 +9,7 @@
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'description' ) %}
-        <div class="att-description">
+        <div class="short">
             {{ ez_render_field( content, 'description' ) }}
         </div>
     {% endif %}

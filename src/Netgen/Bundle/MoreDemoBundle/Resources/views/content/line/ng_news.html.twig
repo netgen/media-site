@@ -3,10 +3,10 @@
 <div class="view-type view-type-{{ viewType }} ng-news media clearfix">
 
     {% if not ez_is_field_empty( content, 'headline' ) %}
-        <h3 class="att-headline">{{ ez_render_field( content, 'headline' ) }}</h3>
+        <h3 class="headline">{{ ez_render_field( content, 'headline' ) }}</h3>
     {% endif %}
 
-    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
     {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
         {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
@@ -17,22 +17,22 @@
                 'parameters': {
                     'alias': 'i320',
                     'link_href': location_path,
-                    'link_class': 'att-image pull-left'
+                    'link_class': 'pull-left'
                 }
             }
         ) }}
     {% endif %}
 
-    <div class="att-publish-date">
+    <div class="date">
         {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
     </div>
 
     {% if not ez_is_field_empty( content, 'line_intro' ) %}
-        <div class="att-line-intro">
+        <div class="short">
             {{ ez_render_field( content, 'line_intro' ) }}
         </div>
     {% elseif not ez_is_field_empty( content, 'full_intro' ) %}
-        <div class="att-line-intro">
+        <div class="short">
             {{ ez_render_field( content, 'full_intro' ) }}
         </div>
     {% endif %}

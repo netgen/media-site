@@ -3,12 +3,12 @@
     <h2>{{ ez_content_name( content ) }}</h2>
 
     {% if not ez_is_field_empty( content, 'description' ) %}
-        <div class="att-description">
+        <div class="short">
             {{ ez_render_field( content, 'description' ) }}
         </div>
     {% endif %}
 
-    <div class="att-file mime-type-{{ ez_field_value( content, 'file' ).mimeType|replace( { '/': '-' } ) }}">
+    <div class="file mime-type-{{ ez_field_value( content, 'file' ).mimeType|replace( { '/': '-' } ) }}">
         {{ ez_render_field( content, 'file' ) }}
     </div>
 

@@ -10,17 +10,17 @@
 <div class="view-type view-type-{{ viewType }} ng-video clearfix">
 
     {% if not ez_is_field_empty( content, 'name' ) %}
-        <h1 class="att-name">{{ ez_render_field( content, 'name' ) }}</h1>
+        <h1 class="page-header">{{ ez_render_field( content, 'name' ) }}</h1>
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'line_intro' ) %}
-        <div class="att-line-intro">
+        <div class="short">
             {{ ez_render_field( content, 'line_intro' ) }}
         </div>
     {% endif %}
 
     {% if not ez_is_field_empty( content, 'description' ) %}
-        <div class="att-description">
+        <div class="body">
             {{ ez_render_field( content, 'description' ) }}
         </div>
     {% endif %}

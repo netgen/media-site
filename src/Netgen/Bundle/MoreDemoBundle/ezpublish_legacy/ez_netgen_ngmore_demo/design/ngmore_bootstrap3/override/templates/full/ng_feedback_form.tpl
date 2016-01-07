@@ -6,16 +6,16 @@
 
 <div class="view-type view-type-{$viewmode|wash} ng-feedback-form clearfix">
 
-    <h1 class="att-title page-header">{attribute_view_gui attribute=$node.data_map.title}</h1>
+    <h1 class="page-header">{attribute_view_gui attribute=$node.data_map.title}</h1>
 
     {if $node.data_map.full_intro.has_content}
-        <div class="att-full-intro">
+        <div class="intro">
             {attribute_view_gui attribute=$node.data_map.full_intro}
         </div>
     {/if}
 
     {if $node.data_map.body.has_content}
-        <div class="att-body">
+        <div class="body">
             {attribute_view_gui attribute=$node.data_map.body}
         </div>
     {/if}
@@ -27,22 +27,22 @@
     <form method="post" action={"content/action"|ezurl}>
 
         <h4>{$node.data_map.sender_name.contentclass_attribute.name}</h4>
-        <div class="att-sender-name">
+        <div class="sender-name">
                 {attribute_view_gui attribute=$node.data_map.sender_name}
         </div>
 
         <h4>{$node.data_map.email.contentclass_attribute.name}</h4>
-        <div class="att-email">
+        <div class="email">
             {attribute_view_gui attribute=$node.data_map.email}
         </div>
 
         <h4>{$node.data_map.subject.contentclass_attribute.name}</h4>
-        <div class="att-subject">
+        <div class="subject">
             {attribute_view_gui attribute=$node.data_map.subject}
         </div>
 
         <h4>{$node.data_map.message.contentclass_attribute.name}</h4>
-        <div class="att-message">
+        <div class="message">
             {attribute_view_gui attribute=$node.data_map.message}
         </div>
 

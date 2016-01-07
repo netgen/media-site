@@ -5,7 +5,7 @@
     {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
         {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
 
-        <div class="att-image">
+        <div class="image">
             {{ ez_render_field(
                 content,
                 image_field, {
@@ -18,11 +18,11 @@
         </div>
     {% endif %}
 
-    <div class="att-publish-date">
+    <div class="date">
         {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
     </div>
 
-    <div class="att-author">
+    <div class="author">
         {% if not ez_is_field_empty( content, 'author_override' ) %}
             {{ ez_render_field( content, 'author_override' ) }}
         {% else %}
@@ -30,6 +30,6 @@
         {% endif %}
     </div>
 
-    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
 </div>

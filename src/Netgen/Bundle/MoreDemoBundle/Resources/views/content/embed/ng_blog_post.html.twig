@@ -3,11 +3,11 @@
 <div class="view-type view-type-{{ viewType }} ng-blog-post">
     <h3><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
 
-    <div class="att-publish-date">
+    <div class="date">
         {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
     </div>
 
-    <div class="att-author">
+    <div class="author">
         {% if not ez_is_field_empty( content, 'author_override' ) %}
             {{ ez_render_field( content, 'author_override' ) }}
         {% else %}
@@ -18,7 +18,7 @@
     {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
         {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
 
-        <div class="att-image">
+        <div class="image">
             {{ ez_render_field(
                 content,
                 image_field, {

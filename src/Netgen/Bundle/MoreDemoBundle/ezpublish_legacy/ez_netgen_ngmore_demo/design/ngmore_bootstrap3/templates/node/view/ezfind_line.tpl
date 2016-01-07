@@ -6,7 +6,7 @@
 {* We don't want to use ezfind_line view mode, hence we use hardcoded "line" value *}
 <div class="view-type view-type-line {$node.class_identifier|explode( '_' )|implode( '-' )}">
 
-    <h2 class="att-title">
+    <h2 class="title">
         <a href={$node.url_alias|ezurl}>
             {if and( is_set( $node.data_map.title ), $node.data_map.title.has_content )}
                 {attribute_view_gui attribute=$node.data_map.title}
@@ -19,12 +19,12 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9{if $has_media} media{/if} add-line">
             {if and( is_set( $node.data_map.line_image ), $node.data_map.line_image.has_content )}
-                {attribute_view_gui image_class='i320' link_class='att-image pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.line_image}
+                {attribute_view_gui image_class='i320' link_class='pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.line_image}
             {elseif and( is_set( $node.data_map.image ), $node.data_map.image.has_content )}
-                {attribute_view_gui image_class='i320' link_class='att-image pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.image}
+                {attribute_view_gui image_class='i320' link_class='pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.image}
             {/if}
 
-            <div class="att-line-intro">
+            <div class="short">
                 {if and( is_set( $node.data_map.line_intro ), $node.data_map.line_intro.has_content )}
                     {attribute_view_gui attribute=$node.data_map.line_intro}
                 {elseif and( is_set( $node.data_map.full_intro ), $node.data_map.full_intro.has_content )}
