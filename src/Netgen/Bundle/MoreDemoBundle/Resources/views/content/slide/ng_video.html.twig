@@ -6,7 +6,7 @@
 
 <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-video vl2">
     {% if not ez_is_field_empty( content, 'poster' ) %}
-        {% include 'NetgenMoreDemoBundle:parts:slide.html.twig' with { field_name: 'poster', alias_name: 'i320' } %}
+        {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with { field_name: 'poster', alias_name: 'i320' } %}
     {% elseif 'youtube' in video_type.identifiers %}
         <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" >
     {% elseif 'vimeo' in video_type.identifiers %}
