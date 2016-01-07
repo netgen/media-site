@@ -21,7 +21,7 @@
 {% endmacro %}
 
 {% macro poster_slide( content, use_lazy_load ) %}
-    {% set content_name = ez_field_value( content, 'name' ).text %}
+    {% set content_name = ez_field_value( content, 'title' ).text %}
     {% set use_lazy_load = use_lazy_load|default( false ) %}
 
     {% if not ez_is_field_empty( content, 'poster' ) %}
