@@ -23,7 +23,7 @@
                 <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" />
             {% endif %}
         {% else %}
-                <img src="{{ asset( 'bundles/netgenmoredemo/images/video_poster.png' ) }}" />
+                <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset( 'bundles/netgenmoredemo/images/video_poster.png' ) }}" />
         {% endif %}
 
         <div class="info">
