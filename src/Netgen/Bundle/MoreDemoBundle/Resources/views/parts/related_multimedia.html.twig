@@ -6,15 +6,14 @@
     {% endif %}
 
     {% if is_slider %}
-        <div class="relatedMultimedia swiper-container">
+        <div class="related-multimedia swiper-container">
             <div class="swiper-wrapper">
     {% else %}
-        <div class="noSlider">
+        <div>
     {% endif %}
 
     {% for multimedia_item in multimedia_items %}
-        {% include
-            'NetgenMoreDemoBundle:parts/related_multimedia:' ~ multimedia_item.type ~ '.html.twig'
+        {% include 'NetgenMoreDemoBundle:parts/related_multimedia:' ~ multimedia_item.type ~ '.html.twig'
             ignore missing
             with {
                 'content': multimedia_item.content,

@@ -97,7 +97,7 @@ $(document).ready(function($) {
         );
     });
     var relatedSwiper = [];
-    $('.relatedMultimedia.swiper-container').each(function(index) {
+    $('.related-multimedia.swiper-container').each(function(index) {
         var swiperId = 'relatedMultimediaSwiper-' + (index + 1).toString();
         $(this).attr('id', swiperId);
         relatedSwiper.push(
