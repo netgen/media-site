@@ -1,25 +1,23 @@
 {% set location_path = path( location ) %}
 
-{% block content %}
-    <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-category">
+<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-category">
 
-        {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
-            {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
+    {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
+        {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
 
-            <div class="att-image">
-                {{ ez_render_field(
-                    content,
-                    image_field, {
-                        'parameters': {
-                            'alias': 'i320',
-                            'link_href': location_path
-                        }
+        <div class="att-image">
+            {{ ez_render_field(
+                content,
+                image_field, {
+                    'parameters': {
+                        'alias': 'i320',
+                        'link_href': location_path
                     }
-                ) }}
-            </div>
-        {% endif %}
+                }
+            ) }}
+        </div>
+    {% endif %}
 
-        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
-    </div>
-{% endblock %}
+</div>

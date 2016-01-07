@@ -1,15 +1,13 @@
 {% set location_path = path( location ) %}
 
-{% block content %}
-    <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-audio">
+<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-audio">
 
-        {% if not ez_is_field_empty( content, 'image' ) %}
-            <div class="att-image">
-                {{ ez_render_field( content, 'image' ) }}
-            </div>
-        {% endif %}
+    {% if not ez_is_field_empty( content, 'image' ) %}
+        <div class="att-image">
+            {{ ez_render_field( content, 'image' ) }}
+        </div>
+    {% endif %}
 
-        <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
+    <h2 class="att-title"><a href="{{ location_path }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
 
-    </div>
-{% endblock %}
+</div>

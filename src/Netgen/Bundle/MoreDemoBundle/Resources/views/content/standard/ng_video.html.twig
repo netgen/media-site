@@ -1,13 +1,11 @@
 {% import 'NetgenMoreDemoBundle:parts:video.html.twig' as video %}
 
-{% block content %}
-    {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
-        <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-video vl">
-            {{ video.poster( content, location ) }}
+{% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
+    <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-video vl">
+        {{ video.poster( content, location ) }}
 
-            <div class="info">
-                <h2 class="att-name title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
-            </div>
+        <div class="info">
+            <h2 class="att-name title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
         </div>
-    {% endif %}
-{% endblock %}
+    </div>
+{% endif %}
