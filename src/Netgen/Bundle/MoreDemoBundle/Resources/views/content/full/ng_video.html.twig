@@ -1,16 +1,9 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
+{% import 'NetgenMoreDemoBundle:parts:video.html.twig' as video %}
+
 {% if not ez_is_field_empty( content, 'line_intro' ) %}
     {% set meta_data = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
-{% endif %}
-
-{% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
-
-{% if not ez_is_field_empty( content, 'poster' ) %}
-    {% set image_alias = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'original' ) %}
-    {% if image_alias.uri is defined and image_alias.uri is not empty %}
-        {% set image_path = image_alias.uri %}
-    {% endif %}
 {% endif %}
 
 {% block content %}
@@ -32,39 +25,7 @@
         </div>
     {% endif %}
 
-    {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
-        {% set local_video_field = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
-        {% set video_type = ez_field_value( content, 'video_type' ) %}
-        {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
-
-        {% if 'upload' in video_type.identifiers %}
-            {% set download_url = path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( local_video_field ).id } ) %}
-            {% set mime_type = ez_field_value(content, local_video_field ).mimeType %}
-            <div class="video-config video-local-{{ content.id }}"
-                 data-video_player_id="video-local-{{ content.id }}"
-                 data-width="770"
-                 data-height="433"
-                 data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
-                 data-image="{{ image_path }}"
-                 data-file="{{ download_url }}"
-                 data-videotype="local"
-                 data-mimetype="{{ mime_type }}">
-            </div>
-            <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
-        {% elseif 'youtube' in video_type.identifiers %}
-            <div class="video-youtube embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
-            </div>
-        {% elseif 'vimeo' in video_type.identifiers %}
-            <div class="video-vimeo embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="//player.vimeo.com/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
-            </div>
-        {% elseif 'dailymotion' in video_type.identifiers %}
-            <div class="video-dailymotion embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="//www.dailymotion.com/embed/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
-            </div>
-        {% endif %}
-    {% endif %}
+    {{ video.player( content, false ) }}
 
 </div>
 {% endblock %}

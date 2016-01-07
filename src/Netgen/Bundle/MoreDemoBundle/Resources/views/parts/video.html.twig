@@ -21,3 +21,67 @@
         </a>
     </div>
 {% endmacro %}
+
+{% macro player( content, use_external_embed ) %}
+    {% set video_type = ez_field_value( content, 'video_type' ) %}
+    {% set use_external_embed = use_external_embed|default( true ) %}
+
+    {% if 'upload' in video_type.identifiers %}
+        {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
+            {% set local_video_field = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
+
+            {% if not ez_is_field_empty( content, 'poster' ) %}
+                {% set image_path = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'original' ).uri %}
+            {% else %}
+                {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
+            {% endif %}
+
+            <div class="video-config video-local-{{ content.id }}"
+                 data-video_player_id="video-local-{{ content.id }}"
+                 data-width="770"
+                 data-height="433"
+                 data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
+                 data-image="{{ image_path }}"
+                 data-file="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( local_video_field ).id } ) }}"
+                 data-videotype="local"
+                 data-mimetype="{{ ez_field_value( content, local_video_field ).mimeType }}">
+            </div>
+
+            <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
+        {% endif %}
+    {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
+        {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
+
+        {% if 'youtube' in video_type.identifiers %}
+            {% if use_external_embed %}
+                <div class="video-youtube embed-responsive embed-responsive-16by9">
+                    <iframe frameborder="0" class="embed-responsive-item" src="//www.youtube.com/embed/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+                </div>
+            {% else %}
+                <div class="video-youtube">
+                    <div class="video-config video-external-{{ content.id }}"
+                         data-video_player_id="video-external-{{ content.id }}"
+                         data-width="770"
+                         data-height="433"
+                         data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
+                         data-image="{{ image_path }}"
+                         data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
+                         data-videotype="youtube">
+                    </div>
+
+                    <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
+                </div>
+            {% endif %}
+        {% elseif 'vimeo' in video_type.identifiers %}
+            {# JW Player does not support Vimeo so only embed is available #}
+            <div class="video-vimeo embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="//player.vimeo.com/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            </div>
+        {% elseif 'dailymotion' in video_type.identifiers %}
+            {# JW Player does not support Daily Motion so only embed is available #}
+            <div class="video-dailymotion embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="//www.dailymotion.com/embed/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endmacro %}
