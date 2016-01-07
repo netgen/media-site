@@ -8,26 +8,8 @@ function jwplayer_init( videoObjectClass, videoObject ){
     if(videoObject.length) {
         var sources = false,
             videoId = videoObject.data('video_player_id'),
-            aspectRatio = 1.77, /* default for 16:9 */
-            width = '100%',
-            height = '100%';
-
-        if (typeof videoObject.data('width') !== 'undefined') {
-            width = videoObject.data('width');
-        } else {
-            width = videoObject.parent().width();
-        }
-        if (typeof videoObject.data('height') !== 'undefined') {
-            height = videoObject.data('height');
-        } else {
-            height = videoObject.parent().height();
-        }
-
-        if( width.toString().indexOf('%') < 0 || height.toString().indexOf('%') < 0  ){
-            aspectRatio = parseInt(width) / parseInt(height);
-        }
-
-        aspectRatio += ':1';
+            aspectRatio = '16:9',
+            width = '100%';
 
         if( videoObject.data('videotype') == 'local' ) {
             sources = [{
@@ -43,7 +25,7 @@ function jwplayer_init( videoObjectClass, videoObject ){
 
         jwplayer(videoId).setup({
             primary: 'flash',
-            width: '100%',
+            width: width,
             aspectratio: aspectRatio,
             autostart: videoObject.data('autostart'),
             controlbar: [{ idlehide: 'true' }],
