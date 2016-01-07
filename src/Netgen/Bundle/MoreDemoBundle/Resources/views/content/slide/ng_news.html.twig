@@ -1,12 +1,14 @@
-{% extends "NetgenMoreDemoBundle:content:slide.html.twig" %}
-
 {% set content_name = ez_field_value( content, 'title' ).text %}
 
-{% block info %}
-<div class="info">
-    <div class="date">
-        {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
+<div class="view-type view-type-{{ viewType }} ng-news vl2">
+    {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with {
+        content_name: content_name
+    } %}
+
+    <div class="info">
+        <div class="date">
+            {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
+        </div>
+        <h2 class="title"><a href={{ path( location ) }}>{{ content_name }}</a></h2>
     </div>
-    <h2 class="title"><a href={{ path( location ) }}>{{ content_name }}</a></h2>
 </div>
-{% endblock %}

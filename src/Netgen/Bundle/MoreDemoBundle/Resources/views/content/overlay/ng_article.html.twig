@@ -1,3 +1,25 @@
-{% extends "NetgenMoreDemoBundle:content:overlay.html.twig" %}
+{% set location_path = path( location ) %}
 
-{% set content_name = ez_field_value( content, 'title' ).text %}
+<div class="view-type view-type-{{ viewType }} ng-article vl t1 clearfix">
+
+    {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
+        {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
+
+        <div class="image">
+            {{ ez_render_field(
+                content,
+                image_field, {
+                    'parameters': {
+                        'alias': 'i320',
+                        'image_class': 'img-responsive',
+                        'link_href': location_path
+                    }
+                }
+            ) }}
+        </div>
+    {% endif %}
+
+    <div class="info">
+        <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    </div>
+</div>

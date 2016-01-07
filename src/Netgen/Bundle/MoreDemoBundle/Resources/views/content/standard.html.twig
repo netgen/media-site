@@ -1,43 +1,24 @@
-{% set location_path = location_path|default( path( location ) ) %}
-{% set content_name = content_name|default( ez_content_name( content ) ) %}
-{% set main_class = 'vl clearfix' %}
-{% set variation_name = 'i320' %}
+{% set location_path = path( location ) %}
 
-{% if image is not defined %}
-    {% if content.fields.line_image is defined and not ez_is_field_empty( content, 'line_image' ) %}
-        {% set image = 'line_image' %}
-    {% elseif content.fields.image is defined and not ez_is_field_empty( content, 'image' ) %}
-        {% set image = 'image' %}
-    {% else %}
-        {% set image = false %}
-    {% endif %}
-{% endif %}
+<div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl clearfix">
 
-{% block content %}
-<div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} {{ main_class }}">
-
-    {% block image %}
-        {% if image is not empty %}
-            <div class="image">
-                {{ ez_render_field(
-                    content,
-                    image, {
-                        'parameters': {
-                            'alias': variation_name,
-                            'image_class': 'img-responsive',
-                            'link_href': location_path
-                        }
+    {% if content.fields.image is defined and not ez_is_field_empty( content, 'image' ) %}
+        <div class="image">
+            {{ ez_render_field(
+                content,
+                'image', {
+                    'parameters': {
+                        'alias': 'i320',
+                        'image_class': 'img-responsive',
+                        'link_href': location_path
                     }
-                ) }}
-            </div>
-        {% endif %}
-    {% endblock %}
-
-    {% block info %}
-        <div class="info">
-            <h2 class="title"><a href="{{ location_path }}">{{ content_name }}</a></h2>
+                }
+            ) }}
         </div>
-    {% endblock %}
+    {% endif %}
+
+    <div class="info">
+        <h2 class="title"><a href="{{ location_path }}">{{ ez_content_name( content ) }}</a></h2>
+    </div>
 
 </div>
-{% endblock %}
