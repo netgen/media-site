@@ -20,6 +20,33 @@
     </a>
 {% endmacro %}
 
+{% macro poster_slide( content, use_lazy_load ) %}
+    {% set content_name = ez_field_value( content, 'name' ).text %}
+    {% set use_lazy_load = use_lazy_load|default( false ) %}
+
+    {% if not ez_is_field_empty( content, 'poster' ) %}
+        {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with {
+            content_name: content_name,
+            field_name: 'poster',
+            alias_name: 'i320',
+            use_lazy_load: use_lazy_load
+        } %}
+    {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
+        {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
+        {% set video_type = ez_field_value( content, 'video_type' ) %}
+
+        {% if 'youtube' in video_type.identifiers %}
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
+        {% elseif 'vimeo' in video_type.identifiers %}
+            <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
+        {% elseif 'dailymotion' in video_type.identifiers %}
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" />
+        {% endif %}
+    {% else %}
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset( 'bundles/netgenmoredemo/images/video_poster.png' ) }}" />
+    {% endif %}
+{% endmacro %}
+
 {% macro player( content, use_external_embed ) %}
     {% set video_type = ez_field_value( content, 'video_type' ) %}
     {% set use_external_embed = use_external_embed|default( true ) %}
