@@ -1,4 +1,4 @@
-{% set location_path = path( 'ez_urlalias', { 'locationId': content.contentInfo.mainLocationId } ) %}
+{% set location_path = path( content ) %}
 
 <div class="view-type view-type-{{ viewType }} ng-category">
     <h3><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
