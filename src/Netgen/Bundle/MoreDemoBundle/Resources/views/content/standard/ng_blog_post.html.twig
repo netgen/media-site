@@ -1,6 +1,6 @@
 {% set location_path = path( location ) %}
 
-<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-blog-post">
+<div class="view-type view-type-{{ viewType }} ng-blog-post">
 
     {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
         {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}

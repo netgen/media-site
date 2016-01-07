@@ -1,7 +1,7 @@
 {% set content_name = ez_field_value( content, 'title' ).text %}
 {% set location_path = path( location ) %}
 
-<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-article vl2">
+<div class="view-type view-type-{{ viewType }} ng-article vl2">
     {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with { alias_name: 'i1140' } %}
 
     <div class="info">

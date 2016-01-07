@@ -1,6 +1,6 @@
 {% set location_path = path( location ) %}
 
-<div class="content-view-line ng-news media clearfix">
+<div class="view-type view-type-{{ viewType }} ng-news media clearfix">
 
     {% if not ez_is_field_empty( content, 'headline' ) %}
         <h3 class="att-headline">{{ ez_render_field( content, 'headline' ) }}</h3>

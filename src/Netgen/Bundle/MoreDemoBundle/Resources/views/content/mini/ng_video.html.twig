@@ -3,7 +3,7 @@
 {% set location_path = path( location ) %}
 
 {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
-    <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-video vl t3 clearfix">
+    <div class="view-type view-type-{{ viewType }} ng-video vl t3 clearfix">
         <div class="att-poster image">
             {{ video.poster( content, location ) }}
         </div>

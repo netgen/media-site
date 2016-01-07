@@ -1,7 +1,7 @@
 {% set content_name = ez_content_name( content ) %}
 {% set location_path = path( location ) %}
 
-<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId ) }} vl2">
+<div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId ) }} vl2">
     {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with { alias_name: 'i1140' } %}
 
     <div class="info">

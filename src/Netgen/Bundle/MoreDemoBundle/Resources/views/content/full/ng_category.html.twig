@@ -7,7 +7,7 @@
 {% endif %}
 
 {% block content %}
-<div class="content-view-full ng-category {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
+<div class="view-type view-type-{{ viewType }} ng-category {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
     <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
 
     {% if not ez_is_field_empty( content, 'image' ) %}
@@ -41,7 +41,7 @@
     </div>
 
     {% if ez_field_value( content, 'show_children' ).bool %}
-        <div class="content-view-children">
+        <div class="children">
             {% if pager|length > 0 %}
                 {% set list_output_type_empty = ez_is_field_empty( content, 'list_output_type' ) %}
                 {% set list_output_type_value = ez_field_value( content, 'list_output_type' ) %}

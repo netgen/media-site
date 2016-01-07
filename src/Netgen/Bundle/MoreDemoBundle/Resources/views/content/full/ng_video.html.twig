@@ -7,7 +7,7 @@
 {% endif %}
 
 {% block content %}
-<div class="content-view-full ng-video">
+<div class="view-type view-type-{{ viewType }} ng-video">
 
     {% if not ez_is_field_empty( content, 'name' ) %}
         <h1 class="att-name">{{ ez_render_field( content, 'name' ) }}</h1>

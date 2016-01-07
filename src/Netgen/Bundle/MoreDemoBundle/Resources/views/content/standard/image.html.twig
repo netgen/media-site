@@ -1,6 +1,6 @@
 {% set content_name = ez_field_value( content, 'name' ).text %}
 
-<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} image">
+<div class="view-type view-type-{{ viewType }} image">
     {{ ez_render_field(
         content,
         'image', {

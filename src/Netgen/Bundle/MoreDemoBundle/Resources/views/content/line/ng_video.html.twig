@@ -1,7 +1,7 @@
 {% import 'NetgenMoreDemoBundle:parts:video.html.twig' as video %}
 
 {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
-<div class="content-view-line ng-video clearfix">
+<div class="view-type view-type-{{ viewType }} ng-video clearfix">
 
     <h2 class="att-name"><a href="{{ path( location ) }}">{{ ez_content_name( content ) }}</a></h2>
 

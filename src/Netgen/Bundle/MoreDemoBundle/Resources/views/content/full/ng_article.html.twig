@@ -7,7 +7,7 @@
 {% endif %}
 
 {% block content %}
-<div class="content-view-full ng-article {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
+<div class="view-type view-type-{{ viewType }} ng-article {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
 
     <h1 class="att-title page-header">{{ ez_render_field( content, 'title' ) }}</h1>
 

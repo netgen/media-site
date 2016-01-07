@@ -1,6 +1,6 @@
 {% set location_path = path( location ) %}
 
-<div class="content-view-line ng-article media vl t2 clearfix">
+<div class="view-type view-type-{{ viewType }} ng-article media vl t2 clearfix">
 
     {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
         {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}

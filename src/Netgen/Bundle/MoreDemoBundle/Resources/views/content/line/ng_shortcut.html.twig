@@ -1,7 +1,7 @@
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
 {% block content %}
-    <div class="content-view-line ng-shortcut media clearfix">
+    <div class="view-type view-type-{{ viewType }} ng-shortcut media clearfix">
 
         <h2 class="att-title"><a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 

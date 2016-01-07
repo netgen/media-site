@@ -1,6 +1,6 @@
 {% set location_path = path( location ) %}
 
-<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId ) }} vl t3 clearfix">
+<div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId ) }} vl t3 clearfix">
 
     {% if content.fields.image is defined and not ez_is_field_empty( content, 'image' ) %}
         <div class="att-image image">

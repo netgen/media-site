@@ -1,6 +1,6 @@
 {% set location_path = path( location ) %}
 
-<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-audio">
+<div class="view-type view-type-{{ viewType }} ng-audio">
 
     {% if not ez_is_field_empty( content, 'image' ) %}
         <div class="att-image">

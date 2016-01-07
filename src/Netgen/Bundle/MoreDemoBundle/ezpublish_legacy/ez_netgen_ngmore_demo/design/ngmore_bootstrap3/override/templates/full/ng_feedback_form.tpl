@@ -4,7 +4,8 @@
     {ezpagedata_set( 'description', $node.data_map.full_intro.content.output.output_text|strip_tags|shorten(152))}
 {/if}
 
-<div class="content-view-full ng-feedback-form clearfix">
+{* We don't want to use ezfind_line view mode, hence we use hardcoded "line" value *}
+<div class="view-type view-type-line ng-feedback-form clearfix">
 
     <h1 class="att-title page-header">{attribute_view_gui attribute=$node.data_map.title}</h1>
 

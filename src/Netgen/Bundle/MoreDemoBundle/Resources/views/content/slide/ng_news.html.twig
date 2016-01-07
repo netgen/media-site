@@ -1,7 +1,7 @@
 {% set location_path = path( location ) %}
 {% set content_name = ez_field_value( content, 'title' ).text %}
 
-<div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-news vl2">
+<div class="view-type view-type-{{ viewType }} ng-news vl2">
     {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' %}
 
     <div class="info">

@@ -3,7 +3,7 @@
     and( is_set( $node.data_map.image ), $node.data_map.image.has_content )
 )}
 
-<div class="content-view-line {$node.class_identifier|explode( '_' )|implode( '-' )}">
+<div class="view-type view-type-{$viewmode|wash} {$node.class_identifier|explode( '_' )|implode( '-' )}">
 
     <h2 class="att-title">
         <a href={$node.url_alias|ezurl}>

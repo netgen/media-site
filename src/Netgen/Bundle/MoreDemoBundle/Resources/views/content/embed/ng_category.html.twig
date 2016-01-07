@@ -1,6 +1,6 @@
 {% set location_path = path( 'ez_urlalias', { 'locationId': content.contentInfo.mainLocationId } ) %}
 
-<div class="content-view-embed ng-category">
+<div class="view-type view-type-{{ viewType }} ng-category">
     <h3><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
 
     {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}

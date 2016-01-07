@@ -1,7 +1,7 @@
 {% import "NetgenMoreDemoBundle:parts:video.html.twig" as video %}
 
 {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
-    <div class="content-view-block-item view-type-{{ viewType|default( '' ) }} ng-video vl2">
+    <div class="view-type view-type-{{ viewType }} ng-video vl2">
         {{ video.poster_slide( content, use_lazy_load|default( false ) ) }}
 
         <div class="info">
