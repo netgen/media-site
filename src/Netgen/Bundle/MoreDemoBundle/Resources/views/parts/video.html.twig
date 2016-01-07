@@ -48,7 +48,7 @@
 {% endmacro %}
 
 {% macro player( content, use_external_embed ) %}
-    {% set use_external_embed = use_external_embed|default( true ) %}
+    {% set use_external_embed = use_external_embed|default( false ) %}
 
     {% set video_type = ez_field_value( content, 'video_type' ) %}
     {% set autoplay = ez_field_value( content, 'autoplay' ).bool and not is_slider %}
@@ -113,7 +113,7 @@
 {% endmacro %}
 
 {% macro player_slide( content, use_external_embed ) %}
-    {% set use_external_embed = use_external_embed|default( true ) %}
+    {% set use_external_embed = use_external_embed|default( false ) %}
 
     {% set video_type = ez_field_value( content, 'video_type' ) %}
 
