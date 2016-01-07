@@ -4,10 +4,8 @@
     <div class="{% if is_slider %}swiper-slide{% endif %} vl2">
         <img class="swiper-lazy" data-src="{{ ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, 'i1140' ).uri }}" />
 
-        {% if not ez_is_field_empty( content, 'title' ) %}
-            <div class="info">
-                <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ez_render_field( content, 'title' ) }}</a></h2>
-            </div>
-        {% endif %}
+        <div class="info">
+            <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ez_render_field( content, 'title' ) }}</a></h2>
+        </div>
     </div>
 {% endblock %}

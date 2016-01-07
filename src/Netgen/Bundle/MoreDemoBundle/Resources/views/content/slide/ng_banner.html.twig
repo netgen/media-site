@@ -7,9 +7,7 @@
         } %}
 
         <div class="info">
-            {% if not ez_is_field_empty( content, 'title' ) %}
-                <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ez_render_field( content, 'title' ) }}</a></h2>
-            {% endif %}
+            <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ez_render_field( content, 'title' ) }}</a></h2>
         </div>
     </div>
 {% endblock %}
