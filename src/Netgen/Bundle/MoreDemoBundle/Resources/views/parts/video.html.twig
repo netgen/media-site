@@ -1,0 +1,23 @@
+{% macro poster( content, location ) %}
+    <div class="att-poster image">
+        <a href="{{ path( location ) }}" class="image-16by9">
+            <i class="fa fa-play-circle"></i>
+            {% if not ez_is_field_empty( content, 'poster' ) %}
+                {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'i320' } } ) }}
+            {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
+                {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
+                {% set video_type = ez_field_value( content, 'video_type' ) %}
+
+                {% if 'youtube' in video_type.identifiers %}
+                    <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
+                {% elseif 'vimeo' in video_type.identifiers %}
+                    <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
+                {% elseif 'dailymotion' in video_type.identifiers %}
+                    <img src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" />
+                {% endif %}
+            {% else %}
+                    <img src="{{ asset( 'bundles/netgenmoredemo/images/video_poster.png' ) }}" />
+            {% endif %}
+        </a>
+    </div>
+{% endmacro %}
