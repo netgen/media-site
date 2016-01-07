@@ -1,5 +1,5 @@
-<div class="view-type view-type-{{ viewType }} image vl2">
-    {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with {
-        content_name: ez_field_value( content, 'name' ).text
-    } %}
-</div>
+{% extends "NetgenMoreDemoBundle:content:slide.html.twig" %}
+
+{% set content_name = ez_field_value( content, 'name' ).text %}
+
+{% block info %}{% endblock %}

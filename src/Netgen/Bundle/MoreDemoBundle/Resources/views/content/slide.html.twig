@@ -1,12 +1,19 @@
-{% set content_name = ez_content_name( content ) %}
+{% extends "NetgenMoreDemoBundle:content:standard.html.twig" %}
 
-<div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl2">
+{% set location_path = location_path|default( path( location ) ) %}
+{% set content_name = content_name|default( ez_content_name( content ) ) %}
+{% set variation_name = 'i1140' %}
+{% set main_class = 'vl2' %}
+
+{% block image %}
     {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with {
         content_name: content_name,
-        alias_name: 'i1140'
+        alias_name: variation_name
     } %}
+{% endblock %}
 
+{% block info %}
     <div class="info">
         <h2 class="title"><a href={{ path( location ) }}>{{ content_name }}</a></h2>
     </div>
-</div>
+{% endblock %}

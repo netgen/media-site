@@ -1,11 +1,15 @@
+{% extends "NetgenMoreDemoBundle:content:slide.html.twig" %}
+
 {% import "NetgenMoreDemoBundle:parts:video.html.twig" as video %}
 
-{% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
-    <div class="view-type view-type-{{ viewType }} ng-video vl2">
-        {{ video.poster_slide( content, use_lazy_load|default( false ) ) }}
+{% set content_name = ez_field_value( content, 'name' ).text %}
 
-        <div class="info">
-            <h2 class="title"><a href={{ path( location ) }}><i class="fa fa-play-circle"></i>{{ ez_field_value( content, 'name' ).text }}</a></h2>
-        </div>
-    </div>
-{% endif %}
+{% block image %}
+{{ video.poster_slide( content, use_lazy_load|default( false ) ) }}
+{% endblock %}
+
+{% block info %}
+<div class="info">
+    <h2 class="title"><a href={{ path( location ) }}><i class="fa fa-play-circle"></i>{{ content_name }}</a></h2>
+</div>
+{% endblock %}

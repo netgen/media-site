@@ -1,13 +1,11 @@
+{% extends "NetgenMoreDemoBundle:content:overlay.html.twig" %}
+
 {% import 'NetgenMoreDemoBundle:parts:video.html.twig' as video %}
 
-{% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
-    <div class="view-type view-type-{{ viewType }} ng-video vl t1 clearfix">
-        <div class="image">
-            {{ video.poster( content, location ) }}
-        </div>
+{% set content_name = ez_field_value( content, 'name' ).text %}
 
-        <div class="info">
-            <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
-        </div>
-    </div>
-{% endif %}
+{% block image %}
+<div class="image">
+    {{ video.poster( content, location ) }}
+</div>
+{% endblock %}

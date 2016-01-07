@@ -1,28 +1,12 @@
-{% set location_path = path( location ) %}
+{% extends "NetgenMoreDemoBundle:content:mini.html.twig" %}
 
-<div class="view-type view-type-{{ viewType }} ng-news vl t3 clearfix">
+{% set content_name = ez_field_value( content, 'title' ).text %}
 
-    {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
-        {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
-
-        <div class="image">
-            {{ ez_render_field(
-                content,
-                image_field, {
-                    'parameters': {
-                        'alias': 'i320',
-                        'image_class': 'img-responsive',
-                        'link_href': location_path
-                    }
-                }
-            ) }}
-        </div>
-    {% endif %}
-
-    <div class="info">
-        <div class="date">
-            {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
-        </div>
-        <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+{% block info %}
+<div class="info">
+    <div class="date">
+        {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
     </div>
+    <h2 class="title"><a href="{{ location_path }}">{{ content_name }}</a></h2>
 </div>
+{% endblock %}
