@@ -1,3 +1,7 @@
-<div class="view-type view-type-{{ viewType }} ng-banner">
-    <h2 class="att-title"><a href="{{ path( content ) }}">{{ ez_content_name( content ) }}</a></h2>
-</div>
+{% extends "NetgenMoreDemoBundle:parts:linkable.html.twig" %}
+
+{% block content %}
+    <div class="view-type view-type-{{ viewType }} ng-banner">
+        <h2 class="att-title"><a href="{{ url }}">{{ ez_content_name( content ) }}</a></h2>
+    </div>
+{% endblock %}
