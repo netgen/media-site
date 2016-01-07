@@ -3,9 +3,9 @@
 {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
     <div{% if is_slider %} class="swiper-slide"{% endif %}>
         {% if is_slider %}
-            {{ video.player( content ) }}
-        {% else %}
             {{ video.player_slide( content ) }}
+        {% else %}
+            {{ video.player( content ) }}
         {% endif %}
     </div>
 {% endif %}
