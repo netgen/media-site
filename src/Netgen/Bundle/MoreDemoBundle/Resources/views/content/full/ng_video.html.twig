@@ -9,9 +9,7 @@
 {% block content %}
 <div class="view-type view-type-{{ viewType }} ng-video clearfix">
 
-    {% if not ez_is_field_empty( content, 'name' ) %}
-        <h1 class="page-header">{{ ez_render_field( content, 'name' ) }}</h1>
-    {% endif %}
+    <h1 class="page-header">{{ ez_render_field( content, 'title' ) }}</h1>
 
     {% if not ez_is_field_empty( content, 'line_intro' ) %}
         <div class="short">

@@ -3,7 +3,7 @@
 {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
 <div class="view-type view-type-{{ viewType }} ng-video clearfix">
 
-    <h2 class="title"><a href="{{ path( location ) }}">{{ ez_content_name( content ) }}</a></h2>
+    <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
     <div class="image">
         {{ video.poster( content, location ) }}
