@@ -1,7 +1,7 @@
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-banner">
+<div class="view-type view-type-{{ viewType }} ng-banner clearfix">
 
     {% if not ez_is_field_empty( content, 'image' ) %}
         <div class="att-image">

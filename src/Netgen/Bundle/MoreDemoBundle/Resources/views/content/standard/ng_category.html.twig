@@ -1,6 +1,6 @@
 {% set location_path = path( location ) %}
 
-<div class="view-type view-type-{{ viewType }} ng-category">
+<div class="view-type view-type-{{ viewType }} ng-category clearfix">
 
     {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
         {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}

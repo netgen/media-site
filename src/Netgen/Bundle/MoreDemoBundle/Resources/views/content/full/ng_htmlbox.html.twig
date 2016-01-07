@@ -1,7 +1,7 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-htmlbox">
+<div class="view-type view-type-{{ viewType }} ng-htmlbox clearfix">
     {{ ez_field_value( content, 'html_code' ).text|raw }}
 </div>
 {% endblock %}
