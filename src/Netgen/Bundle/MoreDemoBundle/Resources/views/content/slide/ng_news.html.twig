@@ -1,4 +1,3 @@
-{% set location_path = path( location ) %}
 {% set content_name = ez_field_value( content, 'title' ).text %}
 
 <div class="view-type view-type-{{ viewType }} ng-news vl2">
@@ -8,6 +7,6 @@
         <div class="att-publish-date date">
             {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
         </div>
-        <h2 class="title"><a href={{ location_path }}>{{ content_name }}</a></h2>
+        <h2 class="title"><a href={{ path( location ) }}>{{ content_name }}</a></h2>
     </div>
 </div>
