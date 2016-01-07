@@ -52,7 +52,7 @@
     {% set use_external_embed = use_external_embed|default( true ) %}
 
     {% if not ez_is_field_empty( content, 'poster' ) %}
-        {% set image_path = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'original' ).uri %}
+        {% set image_path = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'i1140' ).uri %}
     {% else %}
         {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
     {% endif %}
