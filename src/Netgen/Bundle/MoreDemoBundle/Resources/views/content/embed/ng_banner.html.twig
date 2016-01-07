@@ -2,6 +2,6 @@
 
 {% block content %}
     <div class="view-type view-type-{{ viewType }} ng-banner">
-        <h2 class="att-title"><a href="{{ url }}">{{ ez_content_name( content ) }}</a></h2>
+        <h2 class="att-title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ez_content_name( content ) }}</a></h2>
     </div>
 {% endblock %}
