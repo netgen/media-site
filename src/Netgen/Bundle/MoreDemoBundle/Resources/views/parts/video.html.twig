@@ -5,13 +5,13 @@
             {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'i320' } } ) }}
         {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
             {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
-            {% set video_type = ez_field_value( content, 'video_type' ) %}
+            {% set video_types = ez_field_value( content, 'video_type' ) %}
 
-            {% if 'youtube' in video_type.identifiers %}
+            {% if 'youtube' in video_types %}
                 <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
-            {% elseif 'vimeo' in video_type.identifiers %}
+            {% elseif 'vimeo' in video_types %}
                 <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
-            {% elseif 'dailymotion' in video_type.identifiers %}
+            {% elseif 'dailymotion' in video_types %}
                 <img src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" />
             {% endif %}
         {% else %}
@@ -33,13 +33,13 @@
         } %}
     {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
         {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
-        {% set video_type = ez_field_value( content, 'video_type' ) %}
+        {% set video_types = ez_field_value( content, 'video_type' ) %}
 
-        {% if 'youtube' in video_type.identifiers %}
+        {% if 'youtube' in video_types %}
             <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
-        {% elseif 'vimeo' in video_type.identifiers %}
+        {% elseif 'vimeo' in video_types %}
             <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
-        {% elseif 'dailymotion' in video_type.identifiers %}
+        {% elseif 'dailymotion' in video_types %}
             <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" />
         {% endif %}
     {% else %}
@@ -50,7 +50,7 @@
 {% macro player( content, use_external_embed ) %}
     {% set use_external_embed = use_external_embed|default( false ) %}
 
-    {% set video_type = ez_field_value( content, 'video_type' ) %}
+    {% set video_types = ez_field_value( content, 'video_type' ) %}
     {% set autoplay = ez_field_value( content, 'autoplay' ).bool and not is_slider %}
 
     {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
@@ -58,7 +58,7 @@
         {% set image_path = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'i1140' ).uri %}
     {% endif %}
 
-    {% if 'upload' in video_type.identifiers %}
+    {% if 'upload' in video_types %}
         {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
             {% set field_name = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
 
@@ -78,7 +78,7 @@
     {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
         {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
 
-        {% if 'youtube' in video_type.identifiers %}
+        {% if 'youtube' in video_types %}
             {% if use_external_embed %}
                 <div class="video-youtube embed-responsive embed-responsive-16by9">
                     <iframe frameborder="0" class="embed-responsive-item" src="//www.youtube.com/embed/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
@@ -98,12 +98,12 @@
                     <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
                 </div>
             {% endif %}
-        {% elseif 'vimeo' in video_type.identifiers %}
+        {% elseif 'vimeo' in video_types %}
             {# JW Player does not support Vimeo so only embed is available #}
             <div class="video-vimeo embed-responsive embed-responsive-16by9">
                 <iframe frameborder="0" class="embed-responsive-item" src="//player.vimeo.com/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
-        {% elseif 'dailymotion' in video_type.identifiers %}
+        {% elseif 'dailymotion' in video_types %}
             {# JW Player does not support Daily Motion so only embed is available #}
             <div class="video-dailymotion embed-responsive embed-responsive-16by9">
                 <iframe frameborder="0" class="embed-responsive-item" src="//www.dailymotion.com/embed/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
@@ -115,14 +115,14 @@
 {% macro player_slide( content, use_external_embed ) %}
     {% set use_external_embed = use_external_embed|default( false ) %}
 
-    {% set video_type = ez_field_value( content, 'video_type' ) %}
+    {% set video_types = ez_field_value( content, 'video_type' ) %}
 
     {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
     {% if not ez_is_field_empty( content, 'poster' ) %}
         {% set image_path = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'i1140' ).uri %}
     {% endif %}
 
-    {% if 'upload' in video_type.identifiers %}
+    {% if 'upload' in video_types %}
         {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
             {% set field_name = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
 
@@ -140,7 +140,7 @@
     {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
         {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
 
-        {% if 'youtube' in video_type.identifiers %}
+        {% if 'youtube' in video_types %}
             {% if use_external_embed %}
                 <div class="video-youtube embed-responsive embed-responsive-16by9">
                     <iframe frameborder="0" class="embed-responsive-item" src="//www.youtube.com/embed/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
@@ -158,12 +158,12 @@
                     <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
                 </div>
             {% endif %}
-        {% elseif 'vimeo' in video_type.identifiers %}
+        {% elseif 'vimeo' in video_types %}
             {# JW Player does not support Vimeo so only embed is available #}
             <div class="video-vimeo embed-responsive embed-responsive-16by9">
                 <iframe frameborder="0" class="embed-responsive-item" src="//player.vimeo.com/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
             </div>
-        {% elseif 'dailymotion' in video_type.identifiers %}
+        {% elseif 'dailymotion' in video_types %}
             {# JW Player does not support Daily Motion so only embed is available #}
             <div class="video-dailymotion embed-responsive embed-responsive-16by9">
                 <iframe frameborder="0" class="embed-responsive-item" src="//www.dailymotion.com/embed/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
