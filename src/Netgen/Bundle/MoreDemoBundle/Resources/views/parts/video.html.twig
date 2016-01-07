@@ -28,7 +28,7 @@
 
     {% if 'upload' in video_type.identifiers %}
         {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
-            {% set local_video_field = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
+            {% set field_name = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
 
             {% if not ez_is_field_empty( content, 'poster' ) %}
                 {% set image_path = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'original' ).uri %}
@@ -42,9 +42,9 @@
                  data-height="433"
                  data-autostart="{% if ez_field_value( content, 'autoplay' ).bool %}true{% else %}false{% endif %}"
                  data-image="{{ image_path }}"
-                 data-file="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( local_video_field ).id } ) }}"
+                 data-file="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( field_name ).id } ) }}"
                  data-videotype="local"
-                 data-mimetype="{{ ez_field_value( content, local_video_field ).mimeType }}">
+                 data-mimetype="{{ ez_field_value( content, field_name ).mimeType }}">
             </div>
 
             <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
