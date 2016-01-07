@@ -1,7 +1,9 @@
 {% set content_name = ez_field_value( content, 'title' ).text %}
 
 <div class="view-type view-type-{{ viewType }} ng-news vl2">
-    {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' %}
+    {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with {
+        content_name: content_name
+    } %}
 
     <div class="info">
         <div class="att-publish-date date">
