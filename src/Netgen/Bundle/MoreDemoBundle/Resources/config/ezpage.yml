@@ -4,25 +4,25 @@ ezpublish:
             ezpage:
                 layouts:
                     1ZonesA:
-                        name: 1 zone A
+                        name: '1 zone A'
                         template: 'NetgenMoreDemoBundle:layouts:1_zones_a.html.twig'
                     2ZonesSmart:
-                        name: 2 zones (smart)
+                        name: '2 zones (smart)'
                         template: 'NetgenMoreDemoBundle:layouts:2_zones_smart.html.twig'
                     4ZonesA:
-                        name: 4 zones A
+                        name: '4 zones A'
                         template: 'NetgenMoreDemoBundle:layouts:4_zones_a.html.twig'
                     4ZonesB:
-                        name: 4 zones B
+                        name: '4 zones B'
                         template: 'NetgenMoreDemoBundle:layouts:4_zones_b.html.twig'
                     4ZonesC:
-                        name: 4 zones C
+                        name: '4 zones C'
                         template: 'NetgenMoreDemoBundle:layouts:4_zones_c.html.twig'
                     6ZonesA:
-                        name: 6 zones A
+                        name: '6 zones A'
                         template: 'NetgenMoreDemoBundle:layouts:6_zones_a.html.twig'
                     NGRegionLayout:
-                        name: Region layout
+                        name: 'Region layout'
                         template: ~
 
                 enabledLayouts:
