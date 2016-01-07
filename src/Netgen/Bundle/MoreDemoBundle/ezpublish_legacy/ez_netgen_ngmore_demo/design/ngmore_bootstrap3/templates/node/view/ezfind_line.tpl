@@ -3,7 +3,8 @@
     and( is_set( $node.data_map.image ), $node.data_map.image.has_content )
 )}
 
-<div class="view-type view-type-{$viewmode|wash} {$node.class_identifier|explode( '_' )|implode( '-' )}">
+{* We don't want to use ezfind_line view mode, hence we use hardcoded "line" value *}
+<div class="view-type view-type-line {$node.class_identifier|explode( '_' )|implode( '-' )}">
 
     <h2 class="att-title">
         <a href={$node.url_alias|ezurl}>
