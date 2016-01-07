@@ -109,7 +109,11 @@ $(document).ready(function($) {
                 preloadImages: false,
                 lazyLoading: true,
                 lazyLoadingInPrevNext: true,
-                lazyLoadingOnTransitionStart: true
+                lazyLoadingOnTransitionStart: true,
+                autoHeight: true,
+                onLazyImageReady: function(swiper){
+                    swiper.updateAutoHeight();
+                }
             })
         );
     });
