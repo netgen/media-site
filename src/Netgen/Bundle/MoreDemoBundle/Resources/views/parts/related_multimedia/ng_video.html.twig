@@ -1,49 +1,11 @@
-{% set video_type = ez_field_value( content, 'video_type' ) %}
+{% import 'NetgenMoreDemoBundle:parts:video.html.twig' as video %}
 
-{% if not ez_is_field_empty( content, 'poster' ) %}
-    {% set image_path = ez_image_alias( ngmore_field( content, 'poster' ), content.versionInfo, 'i1140' ).uri %}
-{% else %}
-    {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
-{% endif %}
-
-{% if 'upload' in video_type.identifiers %}
-    {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
-        <div{% if is_slider %} class="swiper-slide"{% endif %}>
-            {% set field_name = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
-
-            <div class="video-config video-local-{{ content.id }}"
-                 style="display: none;"
-                 data-video_player_id="video-local-{{ content.id }}"
-                 data-autostart="{% if ez_field_value( content, 'autoplay' ).bool or is_slider %}true{% else %}false{% endif %}"
-                 data-image="{{ image_path }}"
-                 data-file="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( field_name ).id } ) }}"
-                 data-videotype="local"
-                 data-mimetype="{{ ez_field_value( content, field_name ).mimeType }}">
-            </div>
-
-            {% if is_slider %}
-                <a class="swiper-video-play-toggle" style="background-image:url('{{ image_path }}');" data-videoId="video-local-{{ content.id }}"><i class="fa fa-play"></i></a>
-            {% else %}
-                <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
-            {% endif %}
-        </div>
-    {% endif %}
-{% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
+{% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
     <div{% if is_slider %} class="swiper-slide"{% endif %}>
-        {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
-
-        {% elseif 'youtube' in video_type.identifiers %}
-            <div class="video-youtube embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="//www.youtube.com/embed/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
-            </div>
-        {% elseif 'vimeo' in video_type.identifiers %}
-            <div class="video-vimeo embed-responsive embed-responsive-16by9">
-                <iframe id="video-external-{{ content.id }}" class="embed-responsive-item" src="//player.vimeo.com/video/{{ video_identifier }}" ></iframe>
-            </div>
-        {% elseif 'dailymotion' in video_type.identifiers %}
-            <div class="video-dailymotion embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="//www.dailymotion.com/embed/video/{{ video_identifier }}{% if ez_field_value( content, 'autoplay' ).bool %}?autoplay=1{% endif %}" allowfullscreen></iframe>
-            </div>
+        {% if is_slider %}
+            {{ video.player( content ) }}
+        {% else %}
+            {{ video.player_slide( content ) }}
         {% endif %}
     </div>
 {% endif %}
