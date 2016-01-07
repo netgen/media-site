@@ -1,6 +1,6 @@
 <div class="view-type view-type-{{ viewType }} ng-landing-page clearfix">
 
-    <h2 class="title"><a href="{{ path( location ) }}">{{ ez_content_name( content ) }}</a></h2>
+    <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
     {% if not ez_is_field_empty( content, 'line_intro' ) %}
         <div class="short">
