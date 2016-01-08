@@ -84,9 +84,15 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <div class="control-group">
-                    <input class="input-xlarge" placeholder="{'Search'|i18n( 'design/ngmore/content/search' )}" type="text" name="SearchText" id="Search" value="{$search_text|wash}" />
-                    <button type="submit" class="btn" name="SearchButton">{'Search'|i18n('design/ngmore/content/search')}</button>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="{'Search'|i18n( 'design/ngmore/content/search' )}" type="text" name="SearchText" id="Search" value="{$search_text|wash}" />
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary" name="SearchButton">{'Search'|i18n('design/ngmore/content/search')}</button>
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 {if $search_text|ne( '' )}

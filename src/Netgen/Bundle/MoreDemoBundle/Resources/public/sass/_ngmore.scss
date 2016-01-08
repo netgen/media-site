@@ -118,7 +118,6 @@ audio {
 }
 
 /* SEARCH */
-
 #facet-list ul {
     padding-left: 28px;
 }
@@ -136,29 +135,6 @@ audio {
 .score.progress{
     background:#ddd;
 }
-
-.form-search .control-group {
-    margin-bottom: 20px;
-}
-
-#search-result > div {
-    background: none repeat scroll 0 0 #F0F0F0;
-    margin-bottom: 20px;
-    padding: 20px;
-}
-
-#search-result .add-line {
-    border-right: 1px solid #ccc;
-}
-
-#search-result .additional-info .type {
-    margin-bottom: 10px;
-}
-
-#Search {
-    width:250px;
-}
-
 /* /SEARCH */
 
 @media (max-width: 1200px) {

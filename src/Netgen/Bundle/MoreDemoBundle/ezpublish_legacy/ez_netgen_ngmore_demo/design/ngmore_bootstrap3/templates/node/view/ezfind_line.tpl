@@ -4,37 +4,39 @@
 )}
 
 {* We don't want to use ezfind_line view mode, hence we use hardcoded "line" value *}
-<div class="view-type view-type-line {$node.class_identifier|explode( '_' )|implode( '-' )}">
+<div class="view-type view-type-line {$node.class_identifier|explode( '_' )|implode( '-' )} vl3">
 
-    <h2 class="title">
-        <a href={$node.url_alias|ezurl}>
-            {if and( is_set( $node.data_map.title ), $node.data_map.title.has_content )}
-                {attribute_view_gui attribute=$node.data_map.title}
-            {else}
-                {$node.name|wash}
-            {/if}
-        </a>
-    </h2>
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9{if $has_media} media{/if} add-line">
             {if and( is_set( $node.data_map.line_image ), $node.data_map.line_image.has_content )}
-                {attribute_view_gui image_class='i320' link_class='pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.line_image}
+                {attribute_view_gui image_class='i320' link_class='image' href=$node.url_alias|ezurl attribute=$node.data_map.line_image}
             {elseif and( is_set( $node.data_map.image ), $node.data_map.image.has_content )}
-                {attribute_view_gui image_class='i320' link_class='pull-left' href=$node.url_alias|ezurl attribute=$node.data_map.image}
+                {attribute_view_gui image_class='i320' link_class='image' href=$node.url_alias|ezurl attribute=$node.data_map.image}
             {/if}
 
-            <div class="short">
-                {if and( is_set( $node.data_map.line_intro ), $node.data_map.line_intro.has_content )}
-                    {attribute_view_gui attribute=$node.data_map.line_intro}
-                {elseif and( is_set( $node.data_map.full_intro ), $node.data_map.full_intro.has_content )}
-                    {attribute_view_gui attribute=$node.data_map.full_intro}
-                {elseif and( is_set( $node.data_map.body ), $node.data_map.body.has_content )}
-                    {$node.data_map.body.content.output.output_text|strip_tags|shorten(210)}
-                {/if}
-            </div>
+            <div class="info">
+                <h2 class="title">
+                    <a href={$node.url_alias|ezurl}>
+                        {if and( is_set( $node.data_map.title ), $node.data_map.title.has_content )}
+                            {attribute_view_gui attribute=$node.data_map.title}
+                        {else}
+                            {$node.name|wash}
+                        {/if}
+                    </a>
+                </h2>
+                <div class="short">
+                    {if and( is_set( $node.data_map.line_intro ), $node.data_map.line_intro.has_content )}
+                        {attribute_view_gui attribute=$node.data_map.line_intro}
+                    {elseif and( is_set( $node.data_map.full_intro ), $node.data_map.full_intro.has_content )}
+                        {attribute_view_gui attribute=$node.data_map.full_intro}
+                    {elseif and( is_set( $node.data_map.body ), $node.data_map.body.has_content )}
+                        {$node.data_map.body.content.output.output_text|strip_tags|shorten(210)}
+                    {/if}
+                </div>
 
-            <div class="date">Last updated: {$node.object.current.modified|l10n( shortdatetime )}</div>
+                <div class="date">Last updated: {$node.object.current.modified|l10n( shortdatetime )}</div>
+            </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">

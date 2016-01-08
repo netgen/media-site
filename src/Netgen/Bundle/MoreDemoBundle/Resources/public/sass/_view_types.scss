@@ -176,3 +176,56 @@
         }
     }
 }
+
+/* search results view */
+.vl3 {
+    margin:0 0 2em;
+    background:hsla(0, 0, 95, 1);
+    padding:15px;
+    .add-line {
+        border-right:1px solid #ccc;
+    }
+    .additional-info {
+        .type {
+            margin-bottom:10px;
+        }
+    }
+    .image {
+        display:block;
+        float:left;
+        margin:0;
+        padding-right:15px;
+        width:30%;
+        img {
+            max-width:100%;
+            height:auto;
+        }
+        & + .info {
+            width:70%;
+            float:left;
+        }
+    }
+    .info {
+        .title {
+            margin:0 0 0.75em;
+            font-size:19px;
+            font-weight:700;
+            a {
+                color:inherit;
+            }
+        }
+        .date {
+            font-size:13px;
+        }
+    }
+    @media screen and (max-width:$break-xs) {
+        & {
+            .image {
+                display:none;
+                & + .info {
+                    width:100%;
+                }
+            }
+        }
+    }
+}
