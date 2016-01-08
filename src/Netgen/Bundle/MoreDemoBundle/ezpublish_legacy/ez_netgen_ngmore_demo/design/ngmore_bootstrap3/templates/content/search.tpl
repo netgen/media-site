@@ -34,8 +34,30 @@
             {/switch}
         {/if}
 
-        {def $filter_parameters = fetch( 'ezfind', 'filterParameters' )
-             $default_search_facets = fetch( 'ezfind', 'getDefaultSearchFacets' )}
+        {def
+            $filter_parameters = fetch( 'ezfind', 'filterParameters' )
+            $search_facets = array(
+                hash(
+                    'field', 'class',
+                    'name', 'Content type'|i18n( 'extension/ezfind/facets' ),
+                    'limit', 5
+                ),
+                hash(
+                    'field', 'author',
+                    'name', 'Author'|i18n( 'extension/ezfind/facets' ),
+                    'limit', 5
+                ),
+                hash(
+                    'range', hash(
+                        'field', 'published',
+                        'start', 'NOW/YEAR-3YEARS',
+                        'end', 'NOW/YEAR+1YEAR',
+                        'gap', '+1YEAR',
+                        'other', 'all'
+                    )
+                )
+            )
+        }
 
         {set $search = fetch(
             ezfind, search,
@@ -45,7 +67,7 @@
                 'class_id', ezini( 'SearchSettings', 'SearchClasses' ),
                 'limit', $page_limit,
                 'sort_by', hash( 'score', 'desc' ),
-                'facet', $default_search_facets,
+                'facet', $search_facets,
                 'filter', $filter_parameters,
                 'publish_date', $date_filter,
                 'spell_check', array( false() ),
@@ -182,21 +204,21 @@
 
                     <div id="active-facet-list">
                         <ul>
-                        {foreach $default_search_facets as $key => $default_facet}
-                            {if and( is_set( $default_facet.field ), is_set( $default_facet.name ) )}
-                                {if array_keys( $active_facet_parameters )|contains( concat( $default_facet.field, ':', $default_facet.name  ) )}
+                        {foreach $search_facets as $key => $facet}
+                            {if and( is_set( $facet.field ), is_set( $facet.name ) )}
+                                {if array_keys( $active_facet_parameters )|contains( concat( $facet.field, ':', $facet.name  ) )}
                                     {def $facet_data = $search_extras.facet_fields.$key}
                                     {foreach $facet_data.nameList as $key2 => $facet_name}
-                                        {if eq( $active_facet_parameters[concat( $default_facet.field, ':', $default_facet.name )], $facet_name )}
+                                        {if eq( $active_facet_parameters[concat( $facet.field, ':', $facet.name )], $facet_name )}
                                             {set $active_facets_count = sum( $key, 1 )}
                                             {set $suffix = $uri_suffix|
                                                 explode( concat( '&', 'filter[]'|rawurlencode, '=', $facet_data.fieldList[$key2]|rawurlencode, ':'|rawurlencode, '"'|rawurlencode, $key2|solr_quotes_escape|rawurlencode, '"'|rawurlencode ) )|implode( '' )|
-                                                explode( concat( '&', 'activeFacets['|rawurlencode, $default_facet.field|rawurlencode, ':'|rawurlencode, $default_facet.name|rawurlencode, ']'|rawurlencode, '=', $facet_name|rawurlencode ) )|implode( '' )
+                                                explode( concat( '&', 'activeFacets['|rawurlencode, $facet.field|rawurlencode, ':'|rawurlencode, $facet.name|rawurlencode, ']'|rawurlencode, '=', $facet_name|rawurlencode ) )|implode( '' )
                                             }
 
                                             <li>
                                                 <a class="btn btn-xs" href={concat( $base_uri, $suffix )|ezurl} title="{'Remove filter on '|i18n( 'design/ngmore/content/search' )}{$facet_name|wash}">
-                                                    &times; <strong>{$default_facet.name}:</strong> {$facet_name|wash}
+                                                    &times; <strong>{$facet.name}:</strong> {$facet_name|wash}
                                                 </a>
                                             </li>
                                         {/if}
@@ -230,13 +252,13 @@
                     </div>
 
                     <div id="facet-list">
-                        {foreach $default_search_facets as $key => $default_facet}
-                            {if and( is_set( $default_facet.field ), is_set( $default_facet.name ) )}
-                                {if array_keys( $active_facet_parameters )|contains( concat( $default_facet.field, ':', $default_facet.name ) )|not}
+                        {foreach $search_facets as $key => $facet}
+                            {if and( is_set( $facet.field ), is_set( $facet.name ) )}
+                                {if array_keys( $active_facet_parameters )|contains( concat( $facet.field, ':', $facet.name ) )|not}
                                     {def $facet_data = first_set( $search_extras.facet_fields.$key, array() )}
 
                                     {if and( is_set( $facet_data.nameList ), $facet_data.nameList|count )}
-                                        <p><strong>{$default_facet.name|wash}</strong></p>
+                                        <p><strong>{$facet.name|wash}</strong></p>
                                         <ul>
                                             {foreach $facet_data.nameList as $key2 => $facet_name}
                                                 {if ne( $key2, '' )}
@@ -244,7 +266,7 @@
                                                         <a href={concat(
                                                             $base_uri,
                                                             '&', 'filter[]'|rawurlencode, '=', $facet_data.fieldList[$key2]|rawurlencode, ':'|rawurlencode, '"'|rawurlencode, $key2|solr_quotes_escape|rawurlencode, '"'|rawurlencode,
-                                                            '&', 'activeFacets['|rawurlencode, $default_facet.field|rawurlencode, ':'|rawurlencode, $default_facet.name|rawurlencode, ']'|rawurlencode, '=', $facet_name|rawurlencode,
+                                                            '&', 'activeFacets['|rawurlencode, $facet.field|rawurlencode, ':'|rawurlencode, $facet.name|rawurlencode, ']'|rawurlencode, '=', $facet_name|rawurlencode,
                                                             $uri_suffix
                                                         )|ezurl}>
                                                         <span class="facet-count">{$facet_data.countList[$key2]|wash}</span>
