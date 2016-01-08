@@ -228,14 +228,14 @@
                                             {foreach $facet_data.nameList as $key2 => $facet_name}
                                                 {if ne( $key2, '' )}
                                                     <li>
-                                                        <span class="label facet-count">{$facet_data.countList[$key2]|wash}</span>
                                                         <a href={concat(
                                                             $base_uri,
                                                             '&', 'filter[]'|rawurlencode, '=', $facet_data.fieldList[$key2]|rawurlencode, ':'|rawurlencode, '"'|rawurlencode, $key2|solr_quotes_escape|rawurlencode, '"'|rawurlencode,
                                                             '&', 'activeFacets['|rawurlencode, $default_facet.field|rawurlencode, ':'|rawurlencode, $default_facet.name|rawurlencode, ']'|rawurlencode, '=', $facet_name|rawurlencode,
                                                             $uri_suffix
                                                         )|ezurl}>
-                                                        <span class="label facet-name">{$facet_name|wash}</span>
+                                                        <span class="facet-count">{$facet_data.countList[$key2]|wash}</span>
+                                                        <span class="facet-name">{$facet_name|wash}</span>
                                                         </a>
                                                     </li>
                                                 {/if}
@@ -253,19 +253,19 @@
                             <p><strong>{'Creation time'|i18n( 'extension/ezfind/facets' )}</strong></p>
                             <ul>
                                 <li>
-                                    <a href={concat( $base_uri, '&date_filter=1', $uri_suffix )|ezurl}><span class="label facet-name">{"Last day"|i18n( "design/standard/content/search" )}</span></a>
+                                    <a href={concat( $base_uri, '&date_filter=1', $uri_suffix )|ezurl}><span class="facet-name">{"Last day"|i18n( "design/standard/content/search" )}</span></a>
                                 </li>
                                 <li>
-                                    <a href={concat( $base_uri, '&date_filter=2', $uri_suffix )|ezurl}><span class="label facet-name">{"Last week"|i18n( "design/standard/content/search" )}</span></a>
+                                    <a href={concat( $base_uri, '&date_filter=2', $uri_suffix )|ezurl}><span class="facet-name">{"Last week"|i18n( "design/standard/content/search" )}</span></a>
                                 </li>
                                 <li>
-                                    <a href={concat( $base_uri, '&date_filter=3', $uri_suffix )|ezurl}><span class="label facet-name">{"Last month"|i18n( "design/standard/content/search" )}</span></a>
+                                    <a href={concat( $base_uri, '&date_filter=3', $uri_suffix )|ezurl}><span class="facet-name">{"Last month"|i18n( "design/standard/content/search" )}</span></a>
                                 </li>
                                 <li>
-                                    <a href={concat( $base_uri, '&date_filter=4', $uri_suffix )|ezurl}><span class="label facet-name">{"Last three months"|i18n( "design/standard/content/search" )}</span></a>
+                                    <a href={concat( $base_uri, '&date_filter=4', $uri_suffix )|ezurl}><span class="facet-name">{"Last three months"|i18n( "design/standard/content/search" )}</span></a>
                                 </li>
                                 <li>
-                                    <a href={concat( $base_uri, '&date_filter=5', $uri_suffix )|ezurl}><span class="label facet-name">{"Last year"|i18n( "design/standard/content/search" )}</span></a>
+                                    <a href={concat( $base_uri, '&date_filter=5', $uri_suffix )|ezurl}><span class="facet-name">{"Last year"|i18n( "design/standard/content/search" )}</span></a>
                                 </li>
                             </ul>
                         {/if}
