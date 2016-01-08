@@ -1,0 +1,178 @@
+.vl {          // default view
+    margin:0 0 2.5em;
+    .image {
+        display:block;
+        margin:0 0 1em;
+        position:relative;
+        img {
+            width:100%;
+        }
+        .fa {
+            position:absolute;
+            bottom:0;
+            left:0;
+            background:#fff;
+            width:40px;
+            height:30px;
+            line-height:30px;
+            text-align:center;
+            z-index:2;
+            font-size:20px;
+        }
+    }
+    .image-16by9 {
+        display:block;
+        position:relative;
+        height:0;
+        padding-bottom:56.25%;
+        overflow:hidden;
+        background:hsla(0, 0, 0, 0.05);
+        img {
+            left:-100%;
+            right:-100%;
+            top:-100%;
+            bottom:-100%;
+            margin:auto;
+            width:100%;
+            height:auto;
+            position:absolute;
+        }
+    }
+    .info {
+        .title {
+            font-size:19px;
+            margin:0 0 0.75em;
+            font-weight:700;
+            a {
+                color:inherit;
+            }
+        }
+        .date {
+            font-size:13px;
+            margin:0 0 0.75em;
+        }
+    }
+    &.t1 {      // overlay view
+        position:relative;
+        text-shadow:0 0 6px hsla(0,0,0,0.25);
+        .info {
+            position:absolute;
+            left:15px;
+            right:15px;
+            bottom:15px;
+            color:#fff;
+            .title {
+                color:#fff;
+                margin:0;
+                font-size:20px;
+            }
+        }
+        .image {
+            margin:0;
+            .fa {
+                top:4px;
+                bottom:auto;
+                background:transparent;
+                color:#fff;
+            }
+        }
+    }
+    &.t2 {      // line-view
+        .image {
+            float:left;
+            width:46.5%;
+            margin:0 3.5% 0 0;
+        }
+        .info {
+            float:left;
+            width:50%;
+            .title {
+                font-size:25px;
+            }
+        }
+        @media screen and (max-width:$break-xs) {
+            & {
+                .image,
+                .info {
+                    width:100%;
+                }
+                .image {
+                    margin:0 0 0.5em;
+                }
+            }
+        }
+    }
+    &.t3 {      // mini-view
+        .image {
+            float:left;
+            width:30%;
+            margin:0 4% 0 0;
+        }
+        .info {
+            float:left;
+            width:66%;
+            .title {
+                margin:0;
+                font-size:16px;
+            }
+            .date {
+                font-size:12px;
+            }
+            &.with-icon {
+                padding-left:24px;
+                position:relative;
+                .fa {
+                    position:absolute;
+                    left:0;
+                    top:0;
+                    font-size:1.1em;
+                }
+            }
+        }
+        @media screen and (max-width:$break-xs) {
+            & {
+                .image,
+                .info {
+                    width:100%;
+                }
+                .image {
+                    margin:0 0 0.5em;
+                }
+            }
+        }
+    }
+}
+
+/* slider view */
+.vl2 {
+    position:relative;
+    img {
+        width:100%;
+    }
+    .info {
+        position:absolute;
+        left:30px;
+        right:30px;
+        top:auto;
+        bottom:30px;
+        color:#fff;
+        .title {
+            display:inline;
+            margin:0;
+            font-size:25px;
+            line-height:1.76;
+            font-weight:700;
+            padding:7px 0;
+            a {
+                display:inline;
+                background:hsla(0, 0, 0, 0.75);
+                box-decoration-break:clone;
+                padding:7px 15px;
+                color:inherit;
+            }
+        }
+        .fa {
+            margin-right:0.5em;
+        }
+    }
+}
