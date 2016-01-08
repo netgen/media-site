@@ -251,6 +251,10 @@ ezpublish:
                     slide:
                         template: NetgenMoreDemoBundle:content:slide.html.twig
                         match: ~
+                search:
+                    search:
+                        template: NetgenMoreDemoBundle:content:search.html.twig
+                        match: ~
 
             content_view:
                 embed:

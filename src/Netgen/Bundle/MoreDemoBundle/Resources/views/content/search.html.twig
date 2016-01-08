@@ -1,0 +1,72 @@
+{% set image_field = false %}
+
+{% if content.fields.line_image is defined and not ez_is_field_empty( content, 'line_image' ) %}
+    {% set image_field = 'line_image' %}
+{% elseif content.fields.image is defined and not ez_is_field_empty( content, 'image' ) %}
+    {% set image_field = 'image' %}
+{% endif %}
+
+{% set location_path = path( location ) %}
+
+<div class="view-type view-type-search {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl3">
+
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9{% if image_field %} media{% endif %} add-line">
+            {% if image_field %}
+                <div class="image">
+                    {{ ez_render_field(
+                        content,
+                        image_field, {
+                            'parameters': {
+                                'alias': 'i320',
+                                'image_class': 'img-responsive',
+                                'link_href': location_path
+                            }
+                        }
+                    ) }}
+                </div>
+            {% endif %}
+
+            <div class="info">
+                <h2 class="title">
+                    <a href="{{ location_path }}">
+                        {% if content.fields.title is defined and not ez_is_field_empty( content, 'title' ) %}
+                            {{ ez_render_field( content, 'title' ) }}
+                        {% else %}
+                            {{ ez_content_name( content ) }}
+                        {% endif %}
+                    </a>
+                </h2>
+
+                <div class="short">
+                    {% if content.fields.line_intro is defined and not ez_is_field_empty( content, 'line_intro' ) %}
+                        {{ ez_render_field( content, 'line_intro' ) }}
+                    {% elseif content.fields.full_intro is defined and not ez_is_field_empty( content, 'full_intro' ) %}
+                        {{ ez_render_field( content, 'full_intro' ) }}
+                    {% elseif content.fields.body is defined and not ez_is_field_empty( content, 'body' ) %}
+                        {{ ez_field_value( content, 'body' ).xml.saveXML()|striptags|trim|truncate( 210 ) }}
+                    {% endif %}
+                </div>
+
+                <div class="date">Last updated: {{ content.contentInfo.modificationDate|date( 'F j, Y H:i' ) }}</div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div class="additional-info">
+                <div class="type">
+                    <label>
+                        Type:
+                    </label>
+                    {{ ngmore_content_type_name( content.contentInfo.contentTypeId ) }}
+                </div>
+                <div class="score progress">
+                    <div class="bar" style="width:{{ score_percent }}%">{{ score_percent }}%</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
