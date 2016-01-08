@@ -141,7 +141,18 @@
 
                         <div id="search-result">
                             {foreach $search_result as $result}
-                                {node_view_gui view = 'ezfind_line' content_node = $result}
+                                {symfony_render(
+                                    symfony_controller(
+                                        'ez_content:viewLocation',
+                                        hash(
+                                            'locationId', $result.node_id,
+                                            'viewType', 'search',
+                                            'params', hash(
+                                                'score_percent', $result.score_percent
+                                            )
+                                        )
+                                    )
+                                )}
                             {/foreach}
                         </div>
 
