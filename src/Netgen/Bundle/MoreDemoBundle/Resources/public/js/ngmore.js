@@ -54,7 +54,7 @@ $(document).ready(function($) {
 
     /* idangero.us swiper */
     var sushiSwiper = [];
-    $('.sushiSwiper.swiper-container').each(function(index) {
+    $('.sushi-swiper.swiper-container').each(function(index) {
         var swiperId = 'sushiSwiper-' + (index + 1).toString();
         $(this).attr('id', swiperId);
         sushiSwiper.push(
