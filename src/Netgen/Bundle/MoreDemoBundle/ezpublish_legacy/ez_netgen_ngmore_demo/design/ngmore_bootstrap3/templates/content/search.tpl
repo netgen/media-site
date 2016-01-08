@@ -1,5 +1,13 @@
 {ezpagedata_set( 'show_path', false() )}
 
+{def $date_filter_labels = array(
+    "Last day"|i18n( "design/standard/content/search" ),
+    "Last week"|i18n( "design/standard/content/search" ),
+    "Last month"|i18n( "design/standard/content/search" ),
+    "Last three months"|i18n( "design/standard/content/search" ),
+    "Last year"|i18n( "design/standard/content/search" )
+)}
+
 {def $search = false()}
 {set $search_text = $search_text|trim}
 
@@ -15,23 +23,6 @@
         {def $date_filter = 0}
         {if ezhttp_hasvariable( 'date_filter', 'get' )}
             {set $date_filter = ezhttp( 'date_filter', 'get' )}
-            {switch match = $date_filter}
-                {case match = 1}
-                    {def $date_filter_label = "Last day"|i18n( "design/standard/content/search" )}
-                {/case}
-                {case match = 2}
-                    {def $date_filter_label = "Last week"|i18n( "design/standard/content/search" )}
-                {/case}
-                {case match = 3}
-                    {def $date_filter_label = "Last month"|i18n( "design/standard/content/search" )}
-                {/case}
-                {case match = 4}
-                    {def $date_filter_label = "Last three months"|i18n( "design/standard/content/search" )}
-                {/case}
-                {case match = 5}
-                    {def $date_filter_label = "Last year"|i18n( "design/standard/content/search" )}
-                {/case}
-            {/switch}
         {/if}
 
         {def
@@ -93,7 +84,7 @@
         {set $uri_suffix = concat( $uri_suffix, '&', 'filter[]'|rawurlencode, '=', $name|rawurlencode, ':'|rawurlencode, '"'|rawurlencode, $value|trim( '"' )|solr_quotes_escape|rawurlencode, '"'|rawurlencode )}
     {/foreach}
 
-    {if gt( $date_filter, 0 )}
+    {if $date_filter|gt( 0 )}
         {set $uri_suffix = concat( $uri_suffix, '&date_filter=', $date_filter|rawurlencode )}
     {/if}
 {/if}
@@ -209,15 +200,15 @@
                                 {if array_keys( $active_facet_parameters )|contains( concat( $facet.field, ':', $facet.name  ) )}
                                     {def $facet_data = $search_extras.facet_fields.$key}
                                     {foreach $facet_data.nameList as $key2 => $facet_name}
-                                        {if eq( $active_facet_parameters[concat( $facet.field, ':', $facet.name )], $facet_name )}
-                                            {set $active_facets_count = sum( $key, 1 )}
+                                        {if $active_facet_parameters[concat( $facet.field, ':', $facet.name )]|eq( $facet_name )}
+                                            {set $active_facets_count = $key|sum( 1 )}
                                             {set $suffix = $uri_suffix|
                                                 explode( concat( '&', 'filter[]'|rawurlencode, '=', $facet_data.fieldList[$key2]|rawurlencode, ':'|rawurlencode, '"'|rawurlencode, $key2|solr_quotes_escape|rawurlencode, '"'|rawurlencode ) )|implode( '' )|
                                                 explode( concat( '&', 'activeFacets['|rawurlencode, $facet.field|rawurlencode, ':'|rawurlencode, $facet.name|rawurlencode, ']'|rawurlencode, '=', $facet_name|rawurlencode ) )|implode( '' )
                                             }
 
                                             <li>
-                                                <a class="btn btn-xs" href={concat( $base_uri, $suffix )|ezurl} title="{'Remove filter on '|i18n( 'design/ngmore/content/search' )}{$facet_name|wash}">
+                                                <a class="btn btn-xs" href={concat( $base_uri, $suffix )|ezurl}>
                                                     &times; <strong>{$facet.name}:</strong> {$facet_name|wash}
                                                 </a>
                                             </li>
@@ -230,21 +221,21 @@
                         </ul>
 
                         {* handle date filter here, manually for now. Should be a facet later on *}
-                        {if gt( $date_filter, 0 )}
+                        {if $date_filter|gt( 0 )}
                             {set $active_facets_count = $active_facets_count|inc}
                             {set $suffix = $uri_suffix|explode( concat( '&date_filter=', $date_filter|rawurlencode ) )|implode( '' )}
                             <ul>
                                 <li>
-                                    <a class="btn btn-xs" href={concat( $base_uri, $suffix )|ezurl} title="{'Remove filter on '|i18n( 'design/ngmore/content/search' )}'{$date_filter_label}'">
-                                        &times; <strong>{'Creation time'|i18n( 'extension/ezfind/facets' )}:</strong> {$date_filter_label|wash}
+                                    <a class="btn btn-xs" href={concat( $base_uri, $suffix )|ezurl}>
+                                        &times; <strong>{'Creation time'|i18n( 'extension/ezfind/facets' )}:</strong> {$date_filter_labels[$date_filter|dec]|wash}
                                     </a>
                                 </li>
                             </ul>
                         {/if}
 
-                        {if ge( $active_facets_count, 2 )}
+                        {if $active_facets_count|ge( 2 )}
                             <p class="clear-all">
-                                <a class="btn btn-mini btn-info" href={$base_uri|ezurl} title="{'Clear all'|i18n( 'extension/ezfind/facets' )}">
+                                <a class="btn btn-mini btn-info" href={$base_uri|ezurl}>
                                     &times; <strong>{'Clear all filters'|i18n( 'extension/ezfind/facets' )}</strong>
                                 </a>
                             </p>
@@ -261,7 +252,7 @@
                                         <p><strong>{$facet.name|wash}</strong></p>
                                         <ul>
                                             {foreach $facet_data.nameList as $key2 => $facet_name}
-                                                {if ne( $key2, '' )}
+                                                {if $key2|ne( '' )}
                                                     <li>
                                                         <a href={concat(
                                                             $base_uri,
@@ -284,24 +275,14 @@
                         {/foreach}
 
                         {* date filtering here. Using a simple filter for now. Should use the date facets later on *}
-                        {if eq( $date_filter, 0 )}
+                        {if $date_filter|eq( 0 )}
                             <p><strong>{'Creation time'|i18n( 'extension/ezfind/facets' )}</strong></p>
                             <ul>
-                                <li>
-                                    <a href={concat( $base_uri, '&date_filter=1', $uri_suffix )|ezurl}><span class="facet-name">{"Last day"|i18n( "design/standard/content/search" )}</span></a>
-                                </li>
-                                <li>
-                                    <a href={concat( $base_uri, '&date_filter=2', $uri_suffix )|ezurl}><span class="facet-name">{"Last week"|i18n( "design/standard/content/search" )}</span></a>
-                                </li>
-                                <li>
-                                    <a href={concat( $base_uri, '&date_filter=3', $uri_suffix )|ezurl}><span class="facet-name">{"Last month"|i18n( "design/standard/content/search" )}</span></a>
-                                </li>
-                                <li>
-                                    <a href={concat( $base_uri, '&date_filter=4', $uri_suffix )|ezurl}><span class="facet-name">{"Last three months"|i18n( "design/standard/content/search" )}</span></a>
-                                </li>
-                                <li>
-                                    <a href={concat( $base_uri, '&date_filter=5', $uri_suffix )|ezurl}><span class="facet-name">{"Last year"|i18n( "design/standard/content/search" )}</span></a>
-                                </li>
+                                {foreach $date_filter_labels as $key => $label}
+                                    <li>
+                                        <a href={concat( $base_uri, '&date_filter=', $key|inc, $uri_suffix )|ezurl}><span class="facet-name">{$label|wash}</span></a>
+                                    </li>
+                                {/foreach}
                             </ul>
                         {/if}
                     </div>
