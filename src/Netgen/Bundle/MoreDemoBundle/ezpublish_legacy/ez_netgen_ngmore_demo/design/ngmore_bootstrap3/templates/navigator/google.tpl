@@ -34,43 +34,43 @@
 
      {switch match=$:item_previous|lt(0) }
        {case match=0}
-      <li><a rel="prev" href={concat($page_uri,$:item_previous|gt(0)|choose('',concat($:offset_text,$:item_previous)),$:view_parameter_text,$page_uri_suffix)|ezurl}>&laquo;&nbsp;</a></li>
+      <li><a href={concat($page_uri,$:item_previous|gt(0)|choose('',concat($:offset_text,$:item_previous)),$:view_parameter_text,$page_uri_suffix)|ezurl}><i class="fa fa-angle-left"></i></a></li>
        {/case}
        {case match=1}
        {/case}
      {/switch}
 
 {if $:current_page|gt($:left_max)}
-<li><a href={concat($page_uri,$:view_parameter_text,$page_uri_suffix)|ezurl}>1</a></li>
+<li class="hidden-xs"><a href={concat($page_uri,$:view_parameter_text,$page_uri_suffix)|ezurl}>1</a></li>
 {if sub($:current_page,$:left_length)|gt(1)}
-<li class="disabled"><a href="#">...</a></li>
+<li class="disabled hidden-xs"><a>...</a></li>
 {/if}
 {/if}
 
     {section loop=$:left_length}
         {let page_offset=sum(sub($ViewParameter:current_page,$ViewParameter:left_length),$:index)}
-          <li><a href={concat($page_uri,$:page_offset|gt(0)|choose('',concat($:offset_text,mul($:page_offset,$item_limit))),$ViewParameter:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_offset|inc}</a></li>
+          <li class="hidden-xs"><a href={concat($page_uri,$:page_offset|gt(0)|choose('',concat($:offset_text,mul($:page_offset,$item_limit))),$ViewParameter:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_offset|inc}</a></li>
         {/let}
     {/section}
 
-        <li class="active"><a href="#">{$:current_page|inc}</a></li>
+        <li class="active"><a>{$:current_page|inc}<span class="visible-xs-inline"> of {$:page_count}</span></a></li>
 
     {section loop=$:right_length}
         {let page_offset=sum($ViewParameter:current_page,1,$:index)}
-          <li><a href={concat($page_uri,$:page_offset|gt(0)|choose('',concat($:offset_text,mul($:page_offset,$item_limit))),$ViewParameter:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_offset|inc}</a></li>
+          <li class="hidden-xs"><a href={concat($page_uri,$:page_offset|gt(0)|choose('',concat($:offset_text,mul($:page_offset,$item_limit))),$ViewParameter:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_offset|inc}</a></li>
         {/let}
     {/section}
 
 {if $:page_count|gt(sum($:current_page,$:right_max,1))}
 {if sum($:current_page,$:right_max,2)|lt($:page_count)}
-<li class="disabled"><a href="#">...</a></li>
+<li class="disabled hidden-xs"><a>...</a></li>
 {/if}
-<li><a href={concat($page_uri,$:page_count|dec|gt(0)|choose('',concat($:offset_text,mul($:page_count|dec,$item_limit))),$:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_count}</a></li>
+<li class="hidden-xs"><a href={concat($page_uri,$:page_count|dec|gt(0)|choose('',concat($:offset_text,mul($:page_count|dec,$item_limit))),$:view_parameter_text,$page_uri_suffix)|ezurl}>{$:page_count}</a></li>
 {/if}
 
     {switch match=$:item_next|lt($item_count)}
       {case match=1}
-        <li><a rel="next" href={concat($page_uri,$:offset_text,$:item_next,$:view_parameter_text,$page_uri_suffix)|ezurl}>&nbsp;&raquo;</a></li>
+        <li><a href={concat($page_uri,$:offset_text,$:item_next,$:view_parameter_text,$page_uri_suffix)|ezurl}><i class="fa fa-angle-right"></i></a></li>
       {/case}
       {case}
       {/case}
