@@ -34,15 +34,15 @@ ezpublish:
 
         blocks:
             PageTitle:
-                name: Page title
+                name: 'Page title'
             ContentGrid:
-                name: Content grid
+                name: 'Content grid'
             ContentGridDynamic:
-                name: Content grid (dynamic)
+                name: 'Content grid (dynamic)'
             MenuDynamic:
-                name: Menu (dynamic)
+                name: 'Menu (dynamic)'
             TagsCloud:
-                name: Tags cloud
+                name: 'Tags cloud'
 
         enabledBlocks:
             - PageTitle
