@@ -141,6 +141,23 @@ audio {
         }
     }
 }
+#active-facet-list {
+    margin:0 0 2em;
+    ul {
+        list-style-type:none;
+        padding:0;
+        li {
+            margin:0 0 4px;
+        }
+        .btn {
+            background:hsl(0, 0, 50);
+            color:#fff;
+            &:hover {
+                background:hsl(0, 0, 60);
+            }
+        }
+    }
+}
 
 .score.progress .bar {
     background:#1B75BB;

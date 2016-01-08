@@ -170,11 +170,11 @@
                     {def $suffix = ''}
 
                     <div id="active-facet-list">
+                        <ul>
                         {foreach $default_search_facets as $key => $default_facet}
                             {if and( is_set( $default_facet.field ), is_set( $default_facet.name ) )}
                                 {if array_keys( $active_facet_parameters )|contains( concat( $default_facet.field, ':', $default_facet.name  ) )}
                                     {def $facet_data = $search_extras.facet_fields.$key}
-
                                     {foreach $facet_data.nameList as $key2 => $facet_name}
                                         {if eq( $active_facet_parameters[concat( $default_facet.field, ':', $default_facet.name )], $facet_name )}
                                             {set $active_facets_count = sum( $key, 1 )}
@@ -183,28 +183,30 @@
                                                 explode( concat( '&', 'activeFacets['|rawurlencode, $default_facet.field|rawurlencode, ':'|rawurlencode, $default_facet.name|rawurlencode, ']'|rawurlencode, '=', $facet_name|rawurlencode ) )|implode( '' )
                                             }
 
-                                            <p>
-                                                <a class="btn btn-mini" href={concat( $base_uri, $suffix )|ezurl} title="{'Remove filter on '|i18n( 'design/ngmore/content/search' )}{$facet_name|wash}">
+                                            <li>
+                                                <a class="btn btn-xs" href={concat( $base_uri, $suffix )|ezurl} title="{'Remove filter on '|i18n( 'design/ngmore/content/search' )}{$facet_name|wash}">
                                                     &times; <strong>{$default_facet.name}:</strong> {$facet_name|wash}
                                                 </a>
-                                            </p>
+                                            </li>
                                         {/if}
                                     {/foreach}
-
                                     {undef $facet_data}
                                 {/if}
                             {/if}
                         {/foreach}
+                        </ul>
 
                         {* handle date filter here, manually for now. Should be a facet later on *}
                         {if gt( $date_filter, 0 )}
                             {set $active_facets_count = $active_facets_count|inc}
                             {set $suffix = $uri_suffix|explode( concat( '&date_filter=', $date_filter|rawurlencode ) )|implode( '' )}
-                            <p>
-                                <a class="btn btn-mini" href={concat( $base_uri, $suffix )|ezurl} title="{'Remove filter on '|i18n( 'design/ngmore/content/search' )}'{$date_filter_label}'">
-                                    &times; <strong>{'Creation time'|i18n( 'extension/ezfind/facets' )}:</strong> {$date_filter_label|wash}
-                                </a>
-                            </p>
+                            <ul>
+                                <li>
+                                    <a class="btn btn-xs" href={concat( $base_uri, $suffix )|ezurl} title="{'Remove filter on '|i18n( 'design/ngmore/content/search' )}'{$date_filter_label}'">
+                                        &times; <strong>{'Creation time'|i18n( 'extension/ezfind/facets' )}:</strong> {$date_filter_label|wash}
+                                    </a>
+                                </li>
+                            </ul>
                         {/if}
 
                         {if ge( $active_facets_count, 2 )}
