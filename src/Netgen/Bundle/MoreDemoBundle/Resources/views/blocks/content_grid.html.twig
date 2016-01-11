@@ -1,10 +1,24 @@
-{% if valid_items|length > 0 %}
-    {% include
-        'NetgenMoreDemoBundle:blocks/content_grid:' ~ block.view ~ '.html.twig' ignore missing
-         with {
-            'valid_items': valid_items,
-            'block_type': 'content-grid',
-            'block': block
-        }
-    %}
-{% endif %}
+{% set advanced_html_tag = block.customAttributes.advanced_html_tag|default( 'h2' ) %}
+{% set advanced_html_id = block.customAttributes.advanced_html_id|default( '' ) %}
+{% set advanced_html_class = block.customAttributes.advanced_html_class|default( '' ) %}
+
+{% set set_container = block.customAttributes.advanced_set_container|default( '0' ) == '1' %}
+
+<div {% if advanced_html_id is not empty %} id="{{ advanced_html_id }}"{% endif %}
+    class="block-type-content-grid block-view-{{ block.view }} {{ advanced_html_class }} clearfix">
+
+    {% if set_container %}<div class="container">{% endif %}
+
+        {% if block.name is not empty %}
+            <div class="block-name">
+                <{{ advanced_html_tag }}>{{ block.name }}</{{ advanced_html_tag }}>
+            </div>
+        {% endif %}
+
+        {% if valid_items|length > 0 %}
+            {% include 'NetgenMoreDemoBundle:blocks/content_grid:' ~ block.view ~ '.html.twig' ignore missing %}
+        {% endif %}
+
+    {% if set_container %}</div>{% endif %}
+
+</div>

@@ -1,17 +1,13 @@
-{% extends 'NetgenMoreDemoBundle:blocks/content_grid:block_view.html.twig' %}
-
-{% block block_items %}
-    {% for valid_item in valid_items|slice( 0, 1 ) %}
-        {{ render(
-            controller(
-                'ez_content:viewLocation', {
-                    'locationId': valid_item.locationId,
-                    'viewType': 'slide',
-                    'params': {
-                        'alias_name': 'i480'
-                    }
+{% for valid_item in valid_items|slice( 0, 1 ) %}
+    {{ render(
+        controller(
+            'ez_content:viewLocation', {
+                'locationId': valid_item.locationId,
+                'viewType': 'slide',
+                'params': {
+                    'alias_name': 'i480'
                 }
-            )
-        ) }}
-    {% endfor %}
-{% endblock %}
+            }
+        )
+    ) }}
+{% endfor %}

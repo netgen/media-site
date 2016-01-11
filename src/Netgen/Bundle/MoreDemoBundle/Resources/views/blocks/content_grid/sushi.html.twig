@@ -1,27 +1,23 @@
-{% extends 'NetgenMoreDemoBundle:blocks/content_grid:block_view.html.twig' %}
-
-{% block block_items %}
-    <div class="sushi-swiper swiper-container">
-        <div class="swiper-wrapper">
-            {% for valid_item in valid_items %}
-                <div class="swiper-slide">
-                    {{ render(
-                        controller(
-                            'ez_content:viewLocation', {
-                                'locationId': valid_item.locationId,
-                                'viewType': block.customAttributes.advanced_block_item_viewtype,
-                                'params': {
-                                    'alias_name': 'i480'
-                                }
+<div class="sushi-swiper swiper-container">
+    <div class="swiper-wrapper">
+        {% for valid_item in valid_items %}
+            <div class="swiper-slide">
+                {{ render(
+                    controller(
+                        'ez_content:viewLocation', {
+                            'locationId': valid_item.locationId,
+                            'viewType': block.customAttributes.advanced_block_item_viewtype,
+                            'params': {
+                                'alias_name': 'i480'
                             }
-                        )
-                    ) }}
-                </div>
-            {% endfor %}
-        </div>
-
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+                        }
+                    )
+                ) }}
+            </div>
+        {% endfor %}
     </div>
-{% endblock %}
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>

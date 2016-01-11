@@ -1,22 +1,18 @@
-{% extends 'NetgenMoreDemoBundle:blocks/content_grid:block_view.html.twig' %}
-
-{% block block_items %}
-    <div class="row">
-        {% for valid_item in valid_items %}
-            <div class="col-sm-6">
-                {{ render(
-                    controller(
-                        'ez_content:viewLocation', {
-                            'locationId': valid_item.locationId,
-                            'viewType': block.customAttributes.advanced_block_item_viewtype,
-                            'params': {
-                                'alias_name': 'i480'
-                            }
+<div class="row">
+    {% for valid_item in valid_items %}
+        <div class="col-sm-6">
+            {{ render(
+                controller(
+                    'ez_content:viewLocation', {
+                        'locationId': valid_item.locationId,
+                        'viewType': block.customAttributes.advanced_block_item_viewtype,
+                        'params': {
+                            'alias_name': 'i480'
                         }
-                    )
-                ) }}
-            </div>
-            {% if loop.index0 % 2 == 1 %}<div class="clearfix hidden-xs-block"></div>{% endif %}
-        {% endfor %}
-    </div>
-{% endblock %}
+                    }
+                )
+            ) }}
+        </div>
+        {% if loop.index0 % 2 == 1 %}<div class="clearfix hidden-xs-block"></div>{% endif %}
+    {% endfor %}
+</div>
