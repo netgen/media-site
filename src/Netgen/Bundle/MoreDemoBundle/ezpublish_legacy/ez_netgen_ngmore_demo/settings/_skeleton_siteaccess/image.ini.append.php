@@ -9,10 +9,7 @@ AliasList[]=i320
 AliasList[]=i480
 AliasList[]=i770
 AliasList[]=i1140
-
-# Used as a preview in eZ Online Editor
-
-AliasList[]=medium
+AliasList[]=opengraph
 
 [i320]
 Reference=original
@@ -33,4 +30,9 @@ Filters[]=geometry/scalewidthdownonly=770
 Reference=original
 Filters[]
 Filters[]=geometry/scalewidthdownonly=1140
+
+[opengraph]
+Reference=original
+Filters[]
+Filters[]=geometry/scale=200;200
 */ ?>
