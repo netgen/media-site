@@ -10,21 +10,6 @@
 }
 /* /SPECIFIC */
 
-.ng-video-external.view-type-full .video-vimeo,
-.ng-video-external.view-type-embed .video-vimeo {
-    height: 0;
-    padding-bottom: 56.25%;
-    position: relative;
-}
-.ng-video-external.view-type-full .video-vimeo iframe,
-.ng-video-external.view-type-embed .video-vimeo iframe {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%
-}
-
 /* swiper slider */
 .swiper-container {
     margin-bottom:40px;
