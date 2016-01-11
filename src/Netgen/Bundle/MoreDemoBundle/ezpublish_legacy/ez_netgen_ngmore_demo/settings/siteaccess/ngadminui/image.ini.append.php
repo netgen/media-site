@@ -1,1 +1,0 @@
-../administration/image.ini.append.php
