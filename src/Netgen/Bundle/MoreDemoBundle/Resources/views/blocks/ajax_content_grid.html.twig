@@ -36,13 +36,13 @@
 
             <div class="ajax-status-reports-{{ block.id }}"></div>
 
-            {% if block.customAttributes.advanced_scroll_type == 'scroll' %}
+            {% if block.customAttributes.advanced_load_more_type == 'scroll' %}
                 <div class="ajax-load-on-type-{{ block.id }} load-on-scroll" data-block-id="{{ block.id }}"></div>
-            {% elseif block.customAttributes.advanced_scroll_type == 'button' %}
+            {% elseif block.customAttributes.advanced_load_more_type == 'button' %}
                 <div class="ajax-load-on-type load-on-button" data-block-id="{{ block.id }}">
                     <button value="{{ block.id }}">{{ 'ngmore.block.ajax_content_grid_dynamic.load_more'|trans }}</button>
                 </div>
-            {% elseif block.customAttributes.advanced_scroll_type == 'paginate' %}
+            {% elseif block.customAttributes.advanced_load_more_type == 'paginate' %}
                 {% if pager.haveToPaginate() %}
                     <div class="load-on-paginate ajax-content-grid-pagination-{{ block.id }}" data-block-id="{{ block.id }}">
                         {{ pagerfanta(
