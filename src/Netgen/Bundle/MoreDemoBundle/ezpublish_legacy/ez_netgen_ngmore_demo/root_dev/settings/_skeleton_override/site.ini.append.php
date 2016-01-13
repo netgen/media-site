@@ -11,7 +11,7 @@ Charset=
 Socket=disabled
 
 [FileSettings]
-VarDir=var/ezdemo_site
+VarDir=var/site
 
 [ExtensionSettings]
 ActiveExtensions[]={{ extensionName }}
