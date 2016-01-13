@@ -29,8 +29,8 @@
                 data-url="{{ path( 'ngmore_ajax_content_grid_load_more', { id: block.id } ) }}"
                 data-block-id="{{ block.id }}"
                 data-loading-text="{{ 'ngmore.block.ajax_content_grid_dynamic.loading'|trans }}"
-                data-pagenb="{{ pager.getCurrentPage }}"
-                data-total-count="{{ pager.getNbResults }}"
+                data-pagenb="{{ pager.currentPage }}"
+                data-total-count="{{ pager.nbResults }}"
             >
             </div>
 
