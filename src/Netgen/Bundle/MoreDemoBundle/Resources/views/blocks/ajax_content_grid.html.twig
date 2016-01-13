@@ -3,9 +3,9 @@
 {% set advanced_html_class = block.customAttributes.advanced_html_class|default( '' ) %}
 
 {% set set_container = block.customAttributes.advanced_set_container|default( '0' ) == '1' %}
-{% set ajax_request = app.request.xmlHttpRequest %}
+{% set is_ajax_request = app.request.isXmlHttpRequest() %}
 
-{% if not ajax_request %}
+{% if not is_ajax_request %}
 <div {% if advanced_html_id is not empty %} id="{{ advanced_html_id }}"{% endif %}
     class="block-type-content-grid block-view-{{ block.view }} {{ advanced_html_class }} clearfix">
 
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-{% if not ajax_request %}
+{% if not is_ajax_request %}
     </div>
 
     {% if set_container %}</div>{% endif %}
