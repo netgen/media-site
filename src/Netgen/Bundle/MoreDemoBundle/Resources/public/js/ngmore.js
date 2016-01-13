@@ -209,22 +209,41 @@ $(document).ready(function($) {
 
     /* /header actions */
 
-    /* get vimeo poster */
-    $('div.vimeo-poster').each(function(){
-        var el = $(this),
-            videoID = el.attr('data-id');
+    /* get video poster */
+    var getVideoPoster = function(el, service){
+        var videoID = el.attr('data-id'),
+            thumbname = el.attr('data-thumbname');
+        switch (service) {
+            case 'dailymotion':
+                var url = 'https://api.dailymotion.com/video/' + videoID + '?fields=' + thumbname;
+                var getUrl = function(obj){
+                    return obj[thumbname];
+                };
+                break;
+            case 'vimeo':
+                var url = 'https://vimeo.com/api/v2/video/' + videoID + '.json';
+                var getUrl = function(obj){
+                    return obj[0][thumbname];
+                };
+                break;
+        }
         $.ajax({
             type:'GET',
-            url: 'https://vimeo.com/api/v2/video/' + videoID + '.json',
+            url: url,
             jsonp: 'callback',
             dataType: 'jsonp',
             success: function(data){
-                var thumbnail_src = data[0].thumbnail_large;
-                el.append('<img src="' + thumbnail_src + '">');
+                el.attr('src', getUrl(data));
             }
         });
+    };
+    $('img.vimeo-poster').each(function(){
+        getVideoPoster($(this), 'vimeo');
     });
-    /* /get vimeo poster */
+    $('img.dailymotion-poster').each(function(){
+        getVideoPoster($(this), 'dailymotion');
+    });
+    /* /get video poster */
 
     /* AJAX CONTENT GRID COLLECT ALL SETTINGS---------------------------------------------*/
     function getAllSettingsForAjaxContentGrid(id){

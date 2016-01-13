@@ -10,9 +10,9 @@
             {% if 'youtube' in video_types %}
                 <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
             {% elseif 'vimeo' in video_types %}
-                <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
+                <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" />
             {% elseif 'dailymotion' in video_types %}
-                <img src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" />
+                <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" />
             {% endif %}
         {% else %}
                 <img src="{{ asset( 'bundles/netgenmoredemo/images/video_poster.png' ) }}" />
@@ -38,9 +38,9 @@
         {% if 'youtube' in video_types %}
             <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
         {% elseif 'vimeo' in video_types %}
-            <div class="vimeo-poster" data-id="{{ video_identifier }}"></div>
+            <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" />
         {% elseif 'dailymotion' in video_types %}
-            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://www.dailymotion.com/thumbnail/video/{{ video_identifier }}" />
+            <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" />
         {% endif %}
     {% else %}
             <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset( 'bundles/netgenmoredemo/images/video_poster.png' ) }}" />
