@@ -16,7 +16,7 @@
     <h1 class="page-header">{{ ez_render_field( content, 'title' ) }}</h1>
 
     <div class="date">
-        <p><small>{{ ez_field_value( content, 'publish_date' ).value|date( 'F d, Y.' ) }}</small></p>
+        <p><small>{{ ez_field_value( content, 'publish_date' ).value|date( 'F j, Y.' ) }}</small></p>
     </div>
 
     {% if not ez_is_field_empty( content, 'full_intro' ) %}

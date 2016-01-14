@@ -1,3 +1,3 @@
 {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
-<a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a> <span class="date">{{ ez_field_value( content, 'publish_date' ).value|date( 'd. m. Y.' ) }}</span>
+<a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a> <span class="date">{{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}</span>
