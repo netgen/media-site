@@ -1,5 +1,5 @@
 {% import 'NetgenMoreDemoBundle:parts:slide.html.twig' as slide %}
 
 <div class="view-type view-type-{{ viewType }} image vl2">
-    {{ slide.image( content ) }}
+    {{ slide.image( content, 'image', alias_name|default( 'i1140' ) ) }}
 </div>
