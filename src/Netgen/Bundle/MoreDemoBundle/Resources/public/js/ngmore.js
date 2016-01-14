@@ -9,7 +9,6 @@
         }
 
         var rect = el.getBoundingClientRect();
-
         return (
             rect.top >= 0 &&
             rect.left >= 0 &&
@@ -17,6 +16,8 @@
             rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
         );
     }
+
+    window.isElementInViewport = isElementInViewport;
 
     var to;
     $(window).on('scroll', function(){
@@ -29,6 +30,7 @@
     $.fn.in_viewport = function(cb){
         return $(this).each(function(){
             var $this = $(this);
+
             if($this.hasClass('in_viewport')){return;}
             $(window).on('scroll:end', function(){
                 if(isElementInViewport($this)){
@@ -245,117 +247,92 @@ $(document).ready(function($) {
     });
     /* /get video poster */
 
-    /* AJAX CONTENT GRID COLLECT ALL SETTINGS---------------------------------------------*/
+    /* AJAX CONTENT BLOCKS ---------------------------------------------------------------*/
+    /* Ajax collect settings */
     function getAllSettingsForAjaxContentGrid(id){
-        var $ajaxContentBlockData = $('.ajax-content-block-'+id);
-        var ajaxURL = $ajaxContentBlockData.data("url");
-        var ajaxData = {
-            page: parseInt($ajaxContentBlockData.data("pagenb")),
-            loadingText: $ajaxContentBlockData.data("loading-text"),
-            totalCount: $ajaxContentBlockData.data('total-count')
-        };
+        var $ajaxContentBlockData = $('.ajax-content-block-'+id),
+            ajaxURL = $ajaxContentBlockData.data('url'),
+            ajaxData = {
+                page: parseInt($ajaxContentBlockData.data('pagenb')),
+                totalCount: $ajaxContentBlockData.data('total-count'),
+                itemsPerPage: $ajaxContentBlockData.data('items-per-page'),
+                get loadsAvailable() {
+                    return this.totalCount / this.itemsPerPage;
+                }
+            },
+            nextPage = ajaxData.page + 1;
 
-        var nextPage = ajaxData.page + 1;
-
-        if(ajaxData.page) {
+        if (ajaxData.page){
             ajaxURL = ajaxURL + '?page=' + nextPage;
         }
 
         return { 'ajaxURL': ajaxURL, 'ajaxData': ajaxData };
     }
-    /* /AJAX CONTENT GRID COLLECT ALL SETTINGS--------------------------------------------*/
 
+    /* Run ajax on grids */
+    function runAjaxOnGrids($element){
+        var id = $element.data('block-id'),
+            data = getAllSettingsForAjaxContentGrid(id),
+            $ajaxStatusReports = $('.ajax-status-reports-' + id),
+            $resultsRegion = $('.ajax-results-region-' + id),
+            loadsAvailable = data.ajaxData.loadsAvailable;
 
-    /* RUN AJAX ON GRIDS ------------------------------------------------------------*/
-    function runAjaxOnGrids(id){
-        var data = getAllSettingsForAjaxContentGrid(id);
-        var resultsDisplayedCount = $('.ajax-block-item-result-'+id).length;
-        var ajaxBlock = $('.ajax-content-block-'+id);
-        var ajaxStatusReports = $('.ajax-status-reports-'+id);
-        var resultsRegion = $('.results-region-'+id);
-        var loadOn = $('.ajax-load-on-type-'+id);
-
-        if (ajaxStatusReports.data('no-more') === 'true' || ajaxStatusReports.hasClass('loading')) {
+        if ($ajaxStatusReports.data('no-more') === 'true' || $ajaxStatusReports.hasClass('ajax-loading')) {
             return;
         }
-
-        if (resultsDisplayedCount >= data.ajaxData.totalCount){
-            ajaxStatusReports.data('no-more', 'true');
-            return;
-        }
-
-        ajaxStatusReports.addClass('loading');
 
         $.ajax(data.ajaxURL, {
             type: 'get',
             dataType: 'html',
-            beforeSend: function()
-            {
-                if (loadOn) {
-                    loadOn.hide();
-                }
-                $.blockUI({message: '<h3 class="loading-spinner">'+ data.ajaxData.loadingText +'</h3>'});
+            beforeSend: function() {
+                $ajaxStatusReports.addClass('ajax-loading');
             },
-            success: function(results)
-            {
-                $.unblockUI();
+            success: function(results) {
+                $('.ajax-content-block-controls-' + id).remove();
+                $resultsRegion.append(results);
 
-                $('.ajax-content-block-controls-'+id).remove();
-                resultsRegion.append(results);
+                $('.ajax-content-block-' + id).data('pagenb', data.ajaxData.page + 1);
 
-                var currentlyDisplayedCount = $('.ajax-block-item-result-'+id).length;
-                ajaxBlock.data('pagenb', data.ajaxData.page + 1);
-
-                if ( currentlyDisplayedCount >= data.ajaxData.totalCount){
-                    $('.'+id).show();
-                    ajaxStatusReports.data('no-more', 'true');
+                if (data.ajaxData.page + 1 >= loadsAvailable){
+                    $resultsRegion.find('.ajax-load-on-type').remove();
+                    $ajaxStatusReports.data('no-more', 'true');
                     return;
-                }
-                ajaxStatusReports.removeClass('loading');
-
-                if (loadOn) {
-                    loadOn.show();
                 }
             }
         });
     }
-    /* /RUN AJAX ON GRIDS ----------------------------------------------------------*/
-    /* AJAX SEARCH LOAD MORE ON SCROLL---------------------------------------------*/
-    $('.load-on-scroll').in_viewport(function(){
-        var blockId = $(this).data('block-id');
-        runAjaxOnGrids(blockId);
-    });
-    /* /AJAX SEARCH LOAD MORE ON SCROLL--------------------------------------------*/
 
-    /* AJAX SEARCH LOAD MORE ON BUTTON---------------------------------------------*/
+    /* Ajax load more on scroll */
+    $(window).on('scroll:end', function (){
+        $('.load-on-scroll').each(function (){
+            if(isElementInViewport($(this))){
+                runAjaxOnGrids($(this));
+            }
+        })
+    });
+
+    /* Ajax load more on button */
     $(document).on('click', '.load-on-button', function(){
-        var blockId = $(this).data('block-id');
-        runAjaxOnGrids(blockId);
+        runAjaxOnGrids($(this));
     });
-    /* /AJAX SEARCH LOAD MORE ON BUTTON---------------------------------------------*/
 
-    /* AJAX SEARCH LOAD MORE WITH PAGINATION----------------------------------------*/
+    /* Ajax load more with pagination */
     $(document).on('click', '.load-on-paginate li', function(event){
         event.preventDefault();
-        var selectedPage = $(this);
-        var ajaxUrl = selectedPage.find('a:first').attr('href');
-        var pagerDiv = selectedPage.closest('div .load-on-paginate');
-        var blockId = pagerDiv.data('block-id');
-
-        var loadingText = $('.ajax-content-block-'+blockId).data("loading-text")
+        var selectedPage = $(this),
+            ajaxUrl = selectedPage.find('a:first').attr('href'),
+            pagerDiv = selectedPage.closest('div.load-on-paginate'),
+            blockId = pagerDiv.data('block-id'),
+            resultsRegion = $('.ajax-results-region-'+blockId);
 
         $.ajax(ajaxUrl, {
             type: 'get',
             dataType: 'html',
-            beforeSend: function()
-            {
-                $.blockUI({message: '<h3 class="loading-spinner">'+ loadingText +'</h3>'});
+            beforeSend: function() {
+                resultsRegion.addClass('ajax-loading');
             },
-            success: function(results)
-            {
-                var resultsRegion = $('.results-region-'+blockId);
-                //pagerDiv.html(results.pagerHtml);
-                $.unblockUI();
+            success: function(results) {
+                resultsRegion.removeClass('ajax-loading');
                 resultsRegion.html(results);
                 resultsRegion.addClass('displayed-'+blockId);
                 resultsRegion.removeClass('hidden');
@@ -363,5 +340,6 @@ $(document).ready(function($) {
         });
 
     });
-    /* /AJAX SEARCH LOAD MORE WITH PAGINATION---------------------------------------*/
+    /* /AJAX CONTENT BLOCKS ---------------------------------------------------------------*/
+
 });

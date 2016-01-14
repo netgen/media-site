@@ -155,6 +155,57 @@ audio {
 }
 /* /SEARCH */
 
+.load-on-button {
+    margin:0 0 2em;
+    text-align:center;
+}
+.ajax-status-no-results {
+    margin:0 0 2em;
+    p {
+        margin:0;
+        text-align:center;
+        font-style:italic;
+        font-size:0.9375em;
+        &:before,
+        &:after {
+            content:"–";
+            display:inline-block;
+            margin:0 4px;
+        }
+    }
+}
+.ajax-loading {
+    & > * {
+        opacity:0.2 !important;
+    }
+    position:relative;
+    &:before {
+        @extend %fontawesome;
+        content:"\f021";
+        position:absolute;
+        z-index:100;
+        left:50%;
+        top:50%;
+        width:40px;
+        height:40px;
+        line-height:40px;
+        text-align:center;
+        margin:-20px 0 0 -20px;
+        color:#333;
+        font-size:32px;
+        animation:ajaxLoader 1s infinite linear;
+    }
+}
+@keyframes ajaxLoader {
+    100% {
+        transform:rotate(360deg);
+    }
+}
+div[class^="ajax-status-reports-"].ajax-loading {
+    min-height:40px;
+    margin:0 0 2em;
+}
+
 @media (max-width: 1200px) {
     #debug{
         display: none;
