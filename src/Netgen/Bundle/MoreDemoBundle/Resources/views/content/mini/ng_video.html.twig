@@ -1,4 +1,5 @@
 {% import 'NetgenMoreDemoBundle:parts:video.html.twig' as video %}
+{% import 'NetgenMoreDemoBundle:parts:content.html.twig' as content %}
 
 {% set location_path = path( location ) %}
 
@@ -10,7 +11,7 @@
 
         <div class="info with-icon">
             <a href="{{ location_path }}"><i class="fa fa-play-circle"></i></a>
-            <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+            <h2 class="title"><a href="{{ location_path }}">{{ content.name( content ) }}</a></h2>
         </div>
     </div>
 {% endif %}
