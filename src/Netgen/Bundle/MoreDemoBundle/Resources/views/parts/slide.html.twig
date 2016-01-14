@@ -1,6 +1,6 @@
-{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
-
 {% macro image( content, field_name, alias_name, use_lazy_load ) %}
+    {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
+
     {% set field_name = field_name|default( 'image' ) %}
     {% set alias_name = alias_name|default( 'i1140' ) %}
     {% set use_lazy_load = use_lazy_load|default( false ) %}
