@@ -1,11 +1,5 @@
 <?php /* #?ini charset="utf-8"?
 
-[SiteSettings]
-GoogleAnalyticsCode=
-GoogleAnalyticsUniversal=enabled
-AddThisCode=
-FacebookApi=disabled
-
 [GoogleMapsSettings]
 DefaultLatitude=45.79849
 DefaultLongitude=15.90777
@@ -14,6 +8,5 @@ DefaultZoom=13
 DefaultMapType=ROADMAP
 
 [SpecialNodes]
-SiteInfoNode=65
 SidebarsParentNode=83
 */ ?>
