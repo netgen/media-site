@@ -1,13 +1,13 @@
-{% import 'NetgenMoreDemoBundle:parts:content.html.twig' as content %}
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ viewType }} ng-news vl t3 clearfix">
 
-    {{ content.image( content, location ) }}
+    {{ content_fields.image( content, location ) }}
 
     <div class="info">
         <div class="date">
             {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
         </div>
-        <h2 class="title"><a href="{{ path( location ) }}">{{ content.name( content ) }}</a></h2>
+        <h2 class="title"><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h2>
     </div>
 </div>

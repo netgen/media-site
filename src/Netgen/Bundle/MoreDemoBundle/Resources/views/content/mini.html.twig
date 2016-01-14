@@ -1,11 +1,11 @@
-{% import 'NetgenMoreDemoBundle:parts:content.html.twig' as content %}
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl t3 clearfix">
 
-    {{ content.image( content, location ) }}
+    {{ content_fields.image( content, location ) }}
 
     <div class="info">
-        <h2 class="title"><a href="{{ path( location ) }}">{{ content.name( content ) }}</a></h2>
+        <h2 class="title"><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h2>
     </div>
 
 </div>
