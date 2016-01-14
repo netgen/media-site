@@ -1,3 +1,5 @@
+{% import 'NetgenMoreDemoBundle:parts:slide.html.twig' as slide %}
+
 {% macro poster( content, location ) %}
     <a href="{{ path( location ) }}" class="image-16by9">
         <i class="fa fa-play-circle"></i>
@@ -24,10 +26,7 @@
     {% set use_lazy_load = use_lazy_load|default( false ) %}
 
     {% if not ez_is_field_empty( content, 'poster' ) %}
-        {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with {
-            field_name: 'poster',
-            use_lazy_load: use_lazy_load
-        } %}
+        {{ slide.image( content, 'poster', 'i1140', use_lazy_load ) }}
     {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
         {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
         {% set video_types = ez_field_value( content, 'video_type' ).identifiers %}

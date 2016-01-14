@@ -1,5 +1,7 @@
+{% import 'NetgenMoreDemoBundle:parts:slide.html.twig' as slide %}
+
 <div class="view-type view-type-{{ viewType }} ng-news vl2">
-    {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' %}
+    {{ slide.image( content ) }}
 
     <div class="info">
         <div class="date">
