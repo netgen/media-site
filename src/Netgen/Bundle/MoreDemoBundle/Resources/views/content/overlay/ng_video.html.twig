@@ -1,4 +1,5 @@
 {% import 'NetgenMoreDemoBundle:parts:video.html.twig' as video %}
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
 {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
     <div class="view-type view-type-{{ viewType }} ng-video vl t1 clearfix">
@@ -7,7 +8,7 @@
         </div>
 
         <div class="info">
-            <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+            <h2 class="title"><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h2>
         </div>
     </div>
 {% endif %}
