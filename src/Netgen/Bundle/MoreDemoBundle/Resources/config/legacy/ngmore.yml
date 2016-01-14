@@ -1,0 +1,4 @@
+parameters:
+    ngmore_legacy.default.ngmore:
+        SpecialNodes:
+            SidebarsParentNode: %ngmore.default.locations.sidebars_parent.id%
