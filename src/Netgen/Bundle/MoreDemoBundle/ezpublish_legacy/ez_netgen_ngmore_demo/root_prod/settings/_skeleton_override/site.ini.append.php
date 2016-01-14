@@ -35,7 +35,6 @@ ActiveExtensions[]=ezjscore
 ActiveExtensions[]=ezstarrating
 ActiveExtensions[]=ezgmaplocation
 ActiveExtensions[]=ezdemo
-ActiveExtensions[]=ezwt
 ActiveExtensions[]=ezflow
 ActiveExtensions[]=ezoe
 
