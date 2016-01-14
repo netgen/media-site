@@ -68,7 +68,6 @@ netgen_more_legacy:
                         - ezstarrating
                         - ezgmaplocation
                         - ezdemo
-                        - ezwt
                         - ezflow
                         - ezoe
 
