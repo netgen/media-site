@@ -35,3 +35,13 @@
     {% endif %}
 {% endspaceless %}
 {% endmacro %}
+
+{% macro publish_date( content, format ) %}
+{% spaceless %}
+    {% set format = format|default( 'j. n. Y.' ) %}
+
+    {% if content.fields.publish_date is defined and not ez_is_field_empty( content, 'publish_date' ) %}
+        {{ ez_field_value( content, 'publish_date' ).value|date( format ) }}
+    {% endif %}
+{% endspaceless %}
+{% endmacro %}
