@@ -1,5 +1,5 @@
-{% macro image( content, location, image_alias ) %}
-    {% set image_alias = image_alias|default( 'i480' ) %}
+{% macro image( content, location, alias_name ) %}
+    {% set alias_name = alias_name|default( 'i480' ) %}
 
     {% set image_field = false %}
     {% if content.fields.line_image is defined and not ez_is_field_empty( content, 'line_image' ) %}
@@ -14,7 +14,7 @@
                 content,
                 image_field, {
                     'parameters': {
-                        'alias': image_alias,
+                        'alias': alias_name,
                         'image_class': 'img-responsive',
                         'link_href': path( location )
                     }
@@ -22,7 +22,6 @@
             ) }}
         </div>
     {% endif %}
-
 {% endmacro %}
 
 {% macro name( content ) %}
