@@ -1,4 +1,5 @@
-{% set content_name = content_name|default( ez_content_name( content ) ) %}
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
+
 {% set field_name = field_name|default( 'image' ) %}
 {% set use_lazy_load = use_lazy_load|default( false ) %}
 {% set alias_name = alias_name|default( 'i1140' ) %}
@@ -11,7 +12,7 @@
             content,
             field_name, {
                 parameters: {
-                    alt_text: content_name,
+                    alt_text: content_fields.name( content ),
                     disable_src_attribute: true
                 },
                 attr: {
@@ -26,7 +27,7 @@
             field_name, {
                 parameters: {
                     alias: alias_name,
-                    alt_text: content_name
+                    alt_text: content_fields.name( content )
                 }
             }
         ) }}
