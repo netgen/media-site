@@ -1,23 +1,9 @@
-{% set location_path = path( content ) %}
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' %}
 
 <div class="view-type view-type-{{ viewType }} ng-article">
 
-    <h3><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
+    <h3><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h3>
 
-    {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
-        {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
-
-        <div class="image">
-            {{ ez_render_field(
-                content,
-                image_field, {
-                    'parameters': {
-                        'alias': 'i320',
-                        'link_href': location_path
-                    }
-                }
-            ) }}
-        </div>
-    {% endif %}
+    {{ content_fields.image( content, location, 'i320' ) }}
 
 </div>
