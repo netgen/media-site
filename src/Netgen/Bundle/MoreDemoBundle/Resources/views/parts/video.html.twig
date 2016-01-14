@@ -28,7 +28,6 @@
         {% include 'NetgenMoreDemoBundle:parts:slide_image.html.twig' with {
             content_name: content_name,
             field_name: 'poster',
-            alias_name: 'i320',
             use_lazy_load: use_lazy_load
         } %}
     {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
