@@ -4,6 +4,6 @@
 
     {{ content_fields.image( content, location ) }}
 
-    <h2 class="title"><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h2>
+    <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
 </div>

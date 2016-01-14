@@ -1,7 +1,7 @@
 {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' %}
 
 <div class="view-type view-type-{{ viewType }} ng-blog-post">
-    <h3><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h3>
+    <h3><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
 
     <div class="date">
         {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
