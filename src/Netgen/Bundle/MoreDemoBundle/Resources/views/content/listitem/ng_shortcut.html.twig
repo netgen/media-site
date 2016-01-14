@@ -1,5 +1,7 @@
 {% extends 'NetgenMoreDemoBundle:parts:linkable.html.twig' %}
 
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
+
 {% block content %}
-    <a href="{{ url }}">{{ ez_render_field( content, 'title' ) }}</a>
+    <a href="{{ url }}">{{ content_fields.name( content ) }}</a>
 {% endblock %}
