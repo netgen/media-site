@@ -1,17 +1,11 @@
 {% if not ez_is_field_empty( content, 'image' ) %}
-    {% set alias_name = 'i1140' %}
-
-    {% if objectParameters.align|default( '' ) is not empty %}
-        {% set alias_name = 'i770' %}
-    {% endif %}
-
     <div class="view-type view-type-{{ viewType }} image">
         <div class="img-container">
             {{ ez_render_field(
                 content,
                 'image', {
                     'parameters': {
-                        'alias': alias_name,
+                        'alias': objectParameters.align|default( '' ) is not empty ? 'i770' : 'i1140',
                         'link_href': link_href|default( '' ),
                         'link_class': objectParameters.link_class|default( '' ),
                         'link_id': objectParameters.link_id|default( '' ),
