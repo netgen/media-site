@@ -1,22 +1,9 @@
-{% set location_path = path( location ) %}
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ viewType }} ng-blog-post vl clearfix">
 
-    {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
-        {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
+    {{ content_fields.image( content, location ) }}
 
-        <div class="image">
-            {{ ez_render_field(
-                content,
-                image_field, {
-                    'parameters': {
-                        'alias': 'i320',
-                        'link_href': location_path
-                    }
-                }
-            ) }}
-        </div>
-    {% endif %}
     <div class="info">
         <div class="date">
             <span class="author">
@@ -27,6 +14,6 @@
                 {% endif %}
             </span> on {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
         </div>
-        <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        <h2 class="title"><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h2>
     </div>
 </div>
