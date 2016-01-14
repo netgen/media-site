@@ -119,16 +119,4 @@ netgen_more_legacy:
                     MailSettings/EmailSender: %ngmore.default.mail.sender_email%
 
                 ngmore.ini:
-                    SpecialNodes/SiteInfoNode: %ngmore.default.locations.site_info.id%
                     SpecialNodes/SidebarsParentNode: %ngmore.default.locations.sidebars_parent.id%
-
-                    GoogleMapsSettings/DefaultLatitude: %ngmore.default.google_maps.latitude%
-                    GoogleMapsSettings/DefaultLongitude: %ngmore.default.google_maps.longitude%
-                    GoogleMapsSettings/DefaultZoom: %ngmore.default.google_maps.zoom%
-                    GoogleMapsSettings/DefaultMapType: %ngmore.default.google_maps.map_type%
-
-                    SiteSettings/GoogleAnalyticsCode: %ngmore.default.site_settings.google_analytics_code%
-                    SiteSettings/GoogleAnalyticsUniversal: %ngmore.default.site_settings.google_analytics_universal%
-                    SiteSettings/AddThisCode: %ngmore.default.site_settings.add_this_code%
-                    SiteSettings/TypeKitCode: %ngmore.default.site_settings.typekit_code%
-                    SiteSettings/FacebookApi: %ngmore.default.site_settings.facebook_api%
