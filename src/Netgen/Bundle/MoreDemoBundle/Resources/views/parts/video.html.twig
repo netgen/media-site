@@ -1,8 +1,10 @@
-{% macro poster( content, location ) %}
+{% macro poster( content, location, alias_name ) %}
+    {% set alias_name = alias_name|default( 'i480' ) %}
+
     <a href="{{ path( location ) }}" class="image-16by9">
         <i class="fa fa-play-circle"></i>
         {% if not ez_is_field_empty( content, 'poster' ) %}
-            {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': 'i320' } } ) }}
+            {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': alias_name } } ) }}
         {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
             {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
             {% set video_types = ez_field_value( content, 'video_type' ).identifiers %}
