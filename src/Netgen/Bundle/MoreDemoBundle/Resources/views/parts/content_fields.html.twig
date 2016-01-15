@@ -36,12 +36,14 @@
 {% endspaceless %}
 {% endmacro %}
 
-{% macro publish_date( content, format ) %}
-{% spaceless %}
-    {% set format = format|default( 'j. n. Y.' ) %}
-
-    {% if content.fields.publish_date is defined and not ez_is_field_empty( content, 'publish_date' ) %}
-        {{ ez_field_value( content, 'publish_date' ).value|date( format ) }}
+{% macro intro( content ) %}
+    {% if content.fields.line_intro is defined and not ez_is_field_empty( content, 'line_intro' ) %}
+        <div class="short">
+            {{ ez_render_field( content, 'line_intro' ) }}
+        </div>
+    {% elseif content.fields.full_intro is defined and not ez_is_field_empty( content, 'full_intro' ) %}
+        <div class="short">
+            {{ ez_render_field( content, 'full_intro' ) }}
+        </div>
     {% endif %}
-{% endspaceless %}
 {% endmacro %}

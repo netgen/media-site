@@ -111,6 +111,9 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/line:file.html.twig
                         match:
                             Identifier\ContentType: file
+                    line:
+                        template: NetgenMoreDemoBundle:content:line.html.twig
+                        match: ~
                 listitem:
                     ng_news:
                         template: NetgenMoreDemoBundle:content/listitem:ng_news.html.twig
