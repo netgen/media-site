@@ -22,7 +22,6 @@ netgen_open_graph:
                     - { handler: literal/text, tag: 'og:type', params: ['website'] }
                     - { handler: field_type/ezstring, tag: 'og:title', params: ['title'] }
                     - { handler: field_type/ezxmltext, tag: 'og:description', params: ['full_intro'] }
-                    - { handler: field_type/ezimage, tag: 'og:image', params: ['image'] }
                 ng_article:
                     - { handler: literal/text, tag: 'og:type', params: ['article'] }
                     - { handler: field_type/ezstring, tag: 'og:title', params: ['title'] }
