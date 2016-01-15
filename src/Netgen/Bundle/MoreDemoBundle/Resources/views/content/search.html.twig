@@ -1,42 +1,15 @@
-{% set image_field = false %}
-
-{% if content.fields.line_image is defined and not ez_is_field_empty( content, 'line_image' ) %}
-    {% set image_field = 'line_image' %}
-{% elseif content.fields.image is defined and not ez_is_field_empty( content, 'image' ) %}
-    {% set image_field = 'image' %}
-{% endif %}
-
-{% set location_path = path( location ) %}
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-search {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl3">
 
     <div class="row">
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9{% if image_field %} media{% endif %} add-line">
-            {% if image_field %}
-                <div class="image">
-                    {{ ez_render_field(
-                        content,
-                        image_field, {
-                            'parameters': {
-                                'alias': 'i320',
-                                'image_class': 'img-responsive',
-                                'link_href': location_path
-                            }
-                        }
-                    ) }}
-                </div>
-            {% endif %}
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 add-line">
+            {{ content_fields.image( content, location, 'i320' ) }}
 
             <div class="info">
                 <h2 class="title">
-                    <a href="{{ location_path }}">
-                        {% if content.fields.title is defined and not ez_is_field_empty( content, 'title' ) %}
-                            {{ ez_render_field( content, 'title' ) }}
-                        {% else %}
-                            {{ ez_content_name( content ) }}
-                        {% endif %}
-                    </a>
+                    <a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a>
                 </h2>
 
                 <div class="short">
