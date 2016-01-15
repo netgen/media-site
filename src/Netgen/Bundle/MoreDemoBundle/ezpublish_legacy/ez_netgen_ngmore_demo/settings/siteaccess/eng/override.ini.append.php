@@ -34,18 +34,6 @@ MatchFile=block/tags_cloud.tpl
 Subdir=templates
 Match[type]=TagsCloud
 
-# EZXML TAGS
-
-[factbox]
-Source=content/datatype/view/ezxmltags/factbox.tpl
-MatchFile=datatype/ezxmltext/factbox.tpl
-Subdir=templates
-
-[quote]
-Source=content/datatype/view/ezxmltags/quote.tpl
-MatchFile=datatype/ezxmltext/quote.tpl
-Subdir=templates
-
 ## DEFAULT OVERRIDE FOR CLASSES WITHOUT FULL TEMPLATES
 
 [not_overriden_content]
