@@ -5,6 +5,7 @@ body {
 }
 
 a {
+    color:$linkColor;
     transition:background 150ms, color 150ms;
     &,
     &:hover,

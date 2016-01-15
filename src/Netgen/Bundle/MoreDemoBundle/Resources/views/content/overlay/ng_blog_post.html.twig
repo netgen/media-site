@@ -1,11 +1,10 @@
-{% import 'NetgenMoreDemoBundle:parts:slide.html.twig' as slide %}
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} ng-blog-post vl2">
-    {{ slide.image( content ) }}
+<div class="view-type view-type-{{ viewType }} ng-blog-post vl t1 clearfix">
+
+    {{ content_fields.image( content, location ) }}
 
     <div class="info">
-        <h2 class="title"><a href={{ path( location ) }}>{{ ez_render_field( content, 'title' ) }}</a></h2>
-
         <div class="date">
             <span class="author">
                 {% if not ez_is_field_empty( content, 'author_override' ) %}
@@ -15,5 +14,6 @@
                 {% endif %}
             </span> | {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
         </div>
+        <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
     </div>
 </div>

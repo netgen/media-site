@@ -1,0 +1,13 @@
+{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
+
+{% set location_path = path( location ) %}
+
+<div class="view-type view-type-{{ viewType }} ng-audio vl t3 clearfix">
+
+    {{ content_fields.image( content, location ) }}
+
+    <div class="info with-icon">
+        <a href="{{ location_path }}"><i class="fa fa-volume-up"></i></a>
+        <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    </div>
+</div>

@@ -1,23 +1,5 @@
-{% set location_path = path( location ) %}
-
-<div class="view-type view-type-{{ viewType }} ng-category clearfix">
-
-    {% if not ez_is_field_empty( content, 'line_image' ) or not ez_is_field_empty( content, 'image' ) %}
-        {% set image_field = not ez_is_field_empty( content, 'line_image' ) ? 'line_image' : 'image' %}
-
-        <div class="image">
-            {{ ez_render_field(
-                content,
-                image_field, {
-                    'parameters': {
-                        'alias': 'i480',
-                        'link_href': location_path
-                    }
-                }
-            ) }}
-        </div>
-    {% endif %}
-
-    <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
-
+<div class="view-type view-type-{{ viewType }} ng-category vl clearfix">
+    <div class="info">
+        <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+    </div>
 </div>

@@ -51,10 +51,6 @@ ezpublish:
                         match:
                             Identifier\ContentType: ng_htmlbox
                 line:
-                    ng_frontpage:
-                        template: NetgenMoreDemoBundle:content/line:ng_frontpage.html.twig
-                        match:
-                            Identifier\ContentType: ng_frontpage
                     ng_category:
                         template: NetgenMoreDemoBundle:content/line:ng_category.html.twig
                         match:
@@ -99,10 +95,6 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/line:ng_feedback_form.html.twig
                         match:
                             Identifier\ContentType: ng_feedback_form
-                    ng_shortcut:
-                        template: NetgenMoreDemoBundle:content/line:ng_shortcut.html.twig
-                        match:
-                            Identifier\ContentType: ng_shortcut
                     image:
                         template: NetgenMoreDemoBundle:content/line:image.html.twig
                         match:
@@ -187,6 +179,10 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/standard:ng_video.html.twig
                         match:
                             Identifier\ContentType: ng_video
+                    file:
+                        template: NetgenMoreDemoBundle:content/standard:file.html.twig
+                        match:
+                            Identifier\ContentType: file
                     image:
                         template: NetgenMoreDemoBundle:content/standard:image.html.twig
                         match:
@@ -203,10 +199,22 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/mini:ng_news.html.twig
                         match:
                             Identifier\ContentType: ng_news
+                    ng_blog_post:
+                        template: NetgenMoreDemoBundle:content/mini:ng_blog_post.html.twig
+                        match:
+                            Identifier\ContentType: ng_blog_post
                     ng_video:
                         template: NetgenMoreDemoBundle:content/mini:ng_video.html.twig
                         match:
                             Identifier\ContentType: ng_video
+                    ng_audio:
+                        template: NetgenMoreDemoBundle:content/mini:ng_audio.html.twig
+                        match:
+                            Identifier\ContentType: ng_audio
+                    file:
+                        template: NetgenMoreDemoBundle:content/mini:file.html.twig
+                        match:
+                            Identifier\ContentType: file
                     mini:
                         template: NetgenMoreDemoBundle:content:mini.html.twig
                         match: ~
@@ -223,6 +231,14 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/overlay:ng_video.html.twig
                         match:
                             Identifier\ContentType: ng_video
+                    ng_blog_post:
+                        template: NetgenMoreDemoBundle:content/overlay:ng_blog_post.html.twig
+                        match:
+                            Identifier\ContentType: ng_blog_post
+                    ng_banner:
+                        template: NetgenMoreDemoBundle:content/overlay:ng_banner.html.twig
+                        match:
+                            Identifier\ContentType: ng_banner
                     overlay:
                         template: NetgenMoreDemoBundle:content:overlay.html.twig
                         match: ~

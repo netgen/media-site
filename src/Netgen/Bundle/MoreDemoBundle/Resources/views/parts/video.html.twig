@@ -2,7 +2,6 @@
     {% set alias_name = alias_name|default( 'i480' ) %}
 
     <a href="{{ path( location ) }}" class="image-16by9">
-        <i class="fa fa-play-circle"></i>
         {% if not ez_is_field_empty( content, 'poster' ) %}
             {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': alias_name } } ) }}
         {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}

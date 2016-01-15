@@ -46,10 +46,46 @@
             a {
                 color:inherit;
             }
+            &.with-icon {
+                padding-left:1.3em;
+                position:relative;
+                .fa {
+                    position:absolute;
+                    left:0;
+                    line-height:inherit;
+                    color:$linkColor;
+                }
+            }
         }
         .date {
             font-size:13px;
             margin:0 0 0.75em;
+        }
+    }
+    &.video-icon,
+    &.photo-icon {
+        .image > a:before {
+            @extend %fontawesome;
+            position:absolute;
+            bottom:0;
+            left:0;
+            background:#fff;
+            width:40px;
+            height:30px;
+            line-height:30px;
+            text-align:center;
+            z-index:2;
+            font-size:20px;
+        }
+    }
+    &.video-icon {
+        .image > a:before {
+            content:"\f144";
+        }
+    }
+    &.photo-icon {
+        .image > a:before {
+            content:"\f030";
         }
     }
     &.t1 {      // overlay view
@@ -76,16 +112,32 @@
                 color:#fff;
             }
         }
+        &.video-icon,
+        &.photo-icon {
+            .image > a:before {
+                left:15px;
+                top:12px;
+                bottom:auto;
+                background:transparent;
+                width:auto;
+                height:auto;
+                line-height:1;
+                color:#fff;
+                font-size:1.5em;
+            }
+        }
     }
     &.t2 {      // line-view
         .image {
             float:left;
             width:46.5%;
             margin:0 3.5% 0 0;
+            + .info {
+                width:50%;
+            }
         }
         .info {
             float:left;
-            width:50%;
             .title {
                 font-size:25px;
             }
@@ -93,7 +145,7 @@
         @media screen and (max-width:$break-xs) {
             & {
                 .image,
-                .info {
+                .image + .info {
                     width:100%;
                 }
                 .image {
@@ -107,10 +159,12 @@
             float:left;
             width:30%;
             margin:0 4% 0 0;
+            + .info {
+                width:60%;
+            }
         }
         .info {
             float:left;
-            width:66%;
             .title {
                 margin:0;
                 font-size:16px;
@@ -132,7 +186,7 @@
         @media screen and (max-width:$break-xs) {
             & {
                 .image,
-                .info {
+                .image + .info {
                     width:100%;
                 }
                 .image {
@@ -157,19 +211,22 @@
         bottom:30px;
         color:#fff;
         .title {
-            display:inline;
             margin:0;
             font-size:25px;
-            line-height:1.76;
+            line-height:1.5;
             font-weight:700;
-            padding:7px 0;
             a {
-                display:inline;
+                display:inline-block;
                 background:hsla(0, 0, 0, 0.75);
-                box-decoration-break:clone;
-                padding:7px 15px;
+                padding:4px 15px;
                 color:inherit;
             }
+        }
+        .date {
+            display:inline-block;
+            background:hsla(0, 0, 0, 0.75);
+            padding:8px 15px;
+            font-size:14px;
         }
         .fa {
             margin-right:0.5em;

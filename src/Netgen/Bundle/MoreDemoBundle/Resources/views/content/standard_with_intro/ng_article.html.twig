@@ -1,12 +1,10 @@
 {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} ng-article vl t2 clearfix">
+<div class="view-type view-type-{{ viewType }} ng-article vl clearfix">
 
-    {{ content_fields.image( content, location, 'i320' ) }}
+    {{ content_fields.image( content, location ) }}
 
     <div class="info">
         <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
-
-        {{ content_fields.intro( content ) }}
     </div>
 </div>

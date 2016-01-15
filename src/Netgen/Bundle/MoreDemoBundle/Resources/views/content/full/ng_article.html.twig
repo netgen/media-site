@@ -12,7 +12,7 @@
     <h1 class="page-header">{{ ez_render_field( content, 'title' ) }}</h1>
 
     {% if not ez_is_field_empty( content, 'image' ) or not ez_is_field_empty( content, 'related_multimedia' ) %}
-        <div class="images media">
+        <div class="images">
             {{ render(
                 controller(
                     'ngmore.controller.parts:viewRelatedMultimediaItems', {

@@ -1,30 +1,21 @@
 {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} ng-blog-post media clearfix">
-
-    <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
-
-    <div class="author">
-        <p><small>
-            {% if not ez_is_field_empty( content, 'author_override' ) %}
-                {{ ez_render_field( content, 'author_override' ) }}
-            {% else %}
-                {{ ez_content_name( ngmore_owner( content ) ) }}
-            {% endif %}
-            on {{ ez_field_value( content, 'publish_date' ).value|date( 'F j, Y.' ) }}
-        </small></p>
-    </div>
+<div class="view-type view-type-{{ viewType }} ng-blog-post vl t2 clearfix">
 
     {{ content_fields.image( content, location, 'i320' ) }}
 
-    {% if not ez_is_field_empty( content, 'line_intro' ) %}
-        <div class="short">
-            {{ ez_render_field( content, 'line_intro' ) }}
+    <div class="info">
+        <div class="date">
+            <span class="author">
+                {% if not ez_is_field_empty( content, 'author_override' ) %}
+                    {{ ez_render_field( content, 'author_override' ) }}
+                {% else %}
+                    {{ ez_content_name( ngmore_owner( content ) ) }}
+                {% endif %}
+            </span> | {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
         </div>
-    {% elseif not ez_is_field_empty( content, 'full_intro' ) %}
-        <div class="short">
-            {{ ez_render_field( content, 'full_intro' ) }}
-        </div>
-    {% endif %}
+        <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
 
+        {{ content_fields.intro( content ) }}
+    </div>
 </div>
