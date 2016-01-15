@@ -1,7 +1,7 @@
 ezpublish:
     system:
         frontend_group:
-            location_view:
+            content_view:
                 full:
                     ng_frontpage:
                         template: NetgenMoreDemoBundle:content/full:ng_frontpage.html.twig
@@ -9,17 +9,17 @@ ezpublish:
                             Identifier\ContentType: ng_frontpage
                     ng_category:
                         template: NetgenMoreDemoBundle:content/full:ng_category.html.twig
-                        controller: ngmore.controller.full_view:viewNgCategoryLocation
+                        controller: ngmore.controller.full_view:viewNgCategory
                         match:
                             Identifier\ContentType: ng_category
                     ng_category_page:
                         template: NetgenMoreDemoBundle:content/full:ng_category_page.html.twig
-                        controller: ngmore.controller.full_view:viewNgCategoryPageLocation
+                        controller: ngmore.controller.full_view:viewNgCategoryPage
                         match:
                             Identifier\ContentType: ng_category_page
                     ng_landing_page:
                         template: NetgenMoreDemoBundle:content/full:ng_landing_page.html.twig
-                        controller: ngmore.controller.full_view:viewNgLandingPageLocation
+                        controller: ngmore.controller.full_view:viewNgLandingPage
                         match:
                             Identifier\ContentType: ng_landing_page
                     ng_article:
@@ -270,12 +270,6 @@ ezpublish:
                     slide:
                         template: NetgenMoreDemoBundle:content:slide.html.twig
                         match: ~
-                search:
-                    search:
-                        template: NetgenMoreDemoBundle:content:search.html.twig
-                        match: ~
-
-            content_view:
                 embed:
                     ng_frontpage:
                         template: NetgenMoreDemoBundle:content/embed:ng_frontpage.html.twig
@@ -335,10 +329,14 @@ ezpublish:
                             Identifier\ContentType: ng_banner
                     image:
                         template: NetgenMoreDemoBundle:content/embed:image.html.twig
-                        controller: ngmore.controller.embed_view:embedImageContent
+                        controller: ngmore.controller.embed_view:embedImage
                         match:
                             Identifier\ContentType: image
                     file:
                         template: NetgenMoreDemoBundle:content/embed:file.html.twig
                         match:
                             Identifier\ContentType: file
+                search:
+                    search:
+                        template: NetgenMoreDemoBundle:content:search.html.twig
+                        match: ~

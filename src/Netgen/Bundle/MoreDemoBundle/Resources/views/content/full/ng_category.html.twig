@@ -44,7 +44,8 @@
                     {% for pager_item in pager %}
                         {{ render(
                             controller(
-                                'ez_content:viewLocation', {
+                                'ez_content:viewAction', {
+                                    'contentId': pager_item.contentInfo.id,
                                     'locationId': pager_item.id,
                                     'viewType': 'line'
                                 }
@@ -57,7 +58,8 @@
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 {{ render(
                                     controller(
-                                        'ez_content:viewLocation', {
+                                        'ez_content:viewAction', {
+                                            'contentId': pager_item.contentInfo.id,
                                             'locationId': pager_item.id,
                                             'viewType': 'standard'
                                         }
@@ -75,7 +77,8 @@
                             <li>
                                 {{ render(
                                     controller(
-                                        'ez_content:viewLocation', {
+                                        'ez_content:viewAction', {
+                                            'contentId': pager_item.contentInfo.id,
                                             'locationId': pager_item.id,
                                             'viewType': 'listitem'
                                         }

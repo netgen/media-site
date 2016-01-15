@@ -1,5 +1,3 @@
 parameters:
 
 services:
-    ezpublish_legacy.legacy_bundles_mapper:
-        synthetic: true

@@ -7,9 +7,6 @@ imports:
     - { resource: image.yml }
     - { resource: opengraph.yml }
     - { resource: legacy.yml }
-    - { resource: legacy/solr.yml }
-    - { resource: legacy/site.yml }
-    - { resource: legacy/ngmore.yml }
 
 ezpublish:
     system:

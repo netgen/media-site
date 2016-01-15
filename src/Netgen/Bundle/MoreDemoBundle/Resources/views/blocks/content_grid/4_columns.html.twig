@@ -3,7 +3,8 @@
         <div class="col-sm-6 col-md-3">
             {{ render(
                 controller(
-                    'ez_content:viewLocation', {
+                    'ez_content:viewAction', {
+                        'contentId': valid_item.contentId,
                         'locationId': valid_item.locationId,
                         'viewType': block.customAttributes.advanced_block_item_view_type
                     }

@@ -28,7 +28,7 @@
     Default EZP_APP_FOLDER_NAME value is "app" and this constant gives you possibility to change it.
     In eZ Publish 5.x, default value of EZP_APP_FOLDER_NAME was "ezpublish".
 */
-//define( 'EZP_APP_FOLDER_NAME', 'my_app' );
+define( 'EZP_APP_FOLDER_NAME', 'app' );
 
 /*
     USING BUNDLED COMPONENTS

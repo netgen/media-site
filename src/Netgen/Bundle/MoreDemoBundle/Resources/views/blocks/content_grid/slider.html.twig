@@ -4,7 +4,8 @@
             <div class="swiper-slide">
                 {{ render(
                     controller(
-                        'ez_content:viewLocation', {
+                        'ez_content:viewAction', {
+                            'contentId': valid_item.contentId,
                             'locationId': valid_item.locationId,
                             'viewType': 'slide',
                             'params': {

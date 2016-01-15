@@ -12,11 +12,11 @@ ezpublish:
                         Type: ContentGrid
                 content_grid_dynamic:
                     template: NetgenMoreDemoBundle:blocks:content_grid.html.twig
-                    controller: ngmore.controller.block_view:viewContentGridDynamicBlockById
+                    controller: ngmore.controller.block_view:viewContentGridDynamic
                     match:
                         Type: ContentGridDynamic
                 ajax_content_grid_dynamic:
                     template: NetgenMoreDemoBundle:blocks:ajax_content_grid.html.twig
-                    controller: ngmore.controller.block_view:viewContentGridDynamicBlockById
+                    controller: ngmore.controller.block_view:viewContentGridDynamic
                     match:
                         Type: AjaxContentGridDynamic
