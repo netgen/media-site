@@ -38,29 +38,27 @@
             position:absolute;
         }
     }
-    .info {
-        .title {
-            font-size:19px;
-            margin:0 0 0.75em;
-            font-weight:700;
-            a {
-                color:inherit;
-            }
-            &.with-icon {
-                padding-left:1.3em;
-                position:relative;
-                .fa {
-                    position:absolute;
-                    left:0;
-                    line-height:inherit;
-                    color:$linkColor;
-                }
+    .title {
+        font-size:19px;
+        margin:0 0 0.75em;
+        font-weight:700;
+        a {
+            color:inherit;
+        }
+        &.with-icon {
+            padding-left:1.3em;
+            position:relative;
+            .fa {
+                position:absolute;
+                left:0;
+                line-height:inherit;
+                color:$linkColor;
             }
         }
-        .date {
-            font-size:13px;
-            margin:0 0 0.75em;
-        }
+    }
+    .date {
+        font-size:13px;
+        margin:0 0 0.75em;
     }
     &.video-icon,
     &.photo-icon {
@@ -97,11 +95,11 @@
             right:15px;
             bottom:15px;
             color:#fff;
-            .title {
-                color:#fff;
-                margin:0;
-                font-size:20px;
-            }
+        }
+        .title {
+            color:#fff;
+            margin:0;
+            font-size:20px;
         }
         .image {
             margin:0;
@@ -138,9 +136,9 @@
         }
         .info {
             float:left;
-            .title {
-                font-size:25px;
-            }
+        }
+        .title {
+            font-size:25px;
         }
         @media screen and (max-width:$break-xs) {
             & {
@@ -165,13 +163,6 @@
         }
         .info {
             float:left;
-            .title {
-                margin:0;
-                font-size:16px;
-            }
-            .date {
-                font-size:12px;
-            }
             &.with-icon {
                 padding-left:24px;
                 position:relative;
@@ -183,6 +174,13 @@
                 }
             }
         }
+        .title {
+            margin:0;
+            font-size:16px;
+        }
+        .date {
+            font-size:12px;
+        }
         @media screen and (max-width:$break-xs) {
             & {
                 .image,
@@ -193,6 +191,19 @@
                     margin:0 0 0.5em;
                 }
             }
+        }
+    }
+    &.t4 {
+        margin:0 0 1em;
+        .info {
+            float:left;
+        }
+        .title {
+            font-size:16px;
+            margin:0;
+        }
+        .date {
+            margin:0 0 0.375em;
         }
     }
 }
@@ -210,27 +221,27 @@
         top:auto;
         bottom:30px;
         color:#fff;
-        .title {
-            margin:0;
-            font-size:25px;
-            line-height:1.5;
-            font-weight:700;
-            a {
-                display:inline-block;
-                background:hsla(0, 0, 0, 0.75);
-                padding:4px 15px;
-                color:inherit;
-            }
-        }
-        .date {
-            display:inline-block;
-            background:hsla(0, 0, 0, 0.75);
-            padding:8px 15px;
-            font-size:14px;
-        }
         .fa {
             margin-right:0.5em;
         }
+    }
+    .title {
+        margin:0;
+        font-size:25px;
+        line-height:1.5;
+        font-weight:700;
+        a {
+            display:inline-block;
+            background:hsla(0, 0, 0, 0.75);
+            padding:4px 15px;
+            color:inherit;
+        }
+    }
+    .date {
+        display:inline-block;
+        background:hsla(0, 0, 0, 0.75);
+        padding:8px 15px;
+        font-size:14px;
     }
 }
 
@@ -262,18 +273,16 @@
             float:left;
         }
     }
-    .info {
-        .title {
-            margin:0 0 0.75em;
-            font-size:19px;
-            font-weight:700;
-            a {
-                color:inherit;
-            }
+    .title {
+        margin:0 0 0.75em;
+        font-size:19px;
+        font-weight:700;
+        a {
+            color:inherit;
         }
-        .date {
-            font-size:13px;
-        }
+    }
+    .date {
+        font-size:13px;
     }
     @media screen and (max-width:$break-xs) {
         & {

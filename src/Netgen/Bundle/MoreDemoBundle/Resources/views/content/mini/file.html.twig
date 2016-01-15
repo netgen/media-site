@@ -1,11 +1,6 @@
-{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
-
 {% set location_path = path( location ) %}
 
 <div class="view-type view-type-{{ viewType }} file vl t3 clearfix">
-
-    {{ content_fields.image( content, location ) }}
-
     <div class="info with-icon">
         <a href="{{ location_path }}"><i class="fa fa-file-o"></i></a>
         <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'name' ) }}</a></h2>

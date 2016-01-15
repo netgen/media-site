@@ -1,3 +1,5 @@
 {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
-<a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a>
+<div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl t4 clearfix">
+	<h2 class="title"><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h2>
+</div>

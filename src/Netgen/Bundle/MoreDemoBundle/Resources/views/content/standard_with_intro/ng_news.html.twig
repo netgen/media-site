@@ -9,5 +9,6 @@
             {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
         </div>
         <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        {{ content_fields.intro( content ) }}
     </div>
 </div>

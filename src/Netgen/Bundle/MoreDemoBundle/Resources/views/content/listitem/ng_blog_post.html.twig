@@ -1,0 +1,12 @@
+<div class="view-type view-type-{{ viewType }} ng-blog-post vl t4 clearfix">
+    <div class="date">
+        <span class="author">
+            {% if not ez_is_field_empty( content, 'author_override' ) %}
+                {{ ez_render_field( content, 'author_override' ) }}
+            {% else %}
+                {{ ez_content_name( ngmore_owner( content ) ) }}
+            {% endif %}
+        </span> | {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
+    </div>
+    <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+</div>

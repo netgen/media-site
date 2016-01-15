@@ -107,6 +107,14 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content:line.html.twig
                         match: ~
                 listitem:
+                    ng_audio:
+                        template: NetgenMoreDemoBundle:content/listitem:ng_audio.html.twig
+                        match:
+                            Identifier\ContentType: ng_audio
+                    ng_blog_post:
+                        template: NetgenMoreDemoBundle:content/listitem:ng_blog_post.html.twig
+                        match:
+                            Identifier\ContentType: ng_blog_post
                     ng_news:
                         template: NetgenMoreDemoBundle:content/listitem:ng_news.html.twig
                         match:
@@ -115,10 +123,10 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/listitem:ng_video.html.twig
                         match:
                             Identifier\ContentType: ng_video
-                    ng_shortcut:
-                        template: NetgenMoreDemoBundle:content/listitem:ng_shortcut.html.twig
+                    file:
+                        template: NetgenMoreDemoBundle:content/listitem:file.html.twig
                         match:
-                            Identifier\ContentType: ng_shortcut
+                            Identifier\ContentType: file
                     listitem:
                         template: NetgenMoreDemoBundle:content:listitem.html.twig
                         match: ~
@@ -189,6 +197,38 @@ ezpublish:
                             Identifier\ContentType: image
                     standard:
                         template: NetgenMoreDemoBundle:content:standard.html.twig
+                        match: ~
+                standard_with_intro:
+                    ng_article:
+                        template: NetgenMoreDemoBundle:content/standard_with_intro:ng_article.html.twig
+                        match:
+                            Identifier\ContentType: ng_article
+                    ng_audio:
+                        template: NetgenMoreDemoBundle:content/standard_with_intro:ng_audio.html.twig
+                        match:
+                            Identifier\ContentType: ng_audio
+                    ng_banner:
+                        template: NetgenMoreDemoBundle:content/standard_with_intro:ng_banner.html.twig
+                        match:
+                            Identifier\ContentType: ng_banner
+                    ng_blog_post:
+                        template: NetgenMoreDemoBundle:content/standard_with_intro:ng_blog_post.html.twig
+                        match:
+                            Identifier\ContentType: ng_blog_post
+                    ng_gallery:
+                        template: NetgenMoreDemoBundle:content/standard_with_intro:ng_gallery.html.twig
+                        match:
+                            Identifier\ContentType: ng_gallery
+                    ng_news:
+                        template: NetgenMoreDemoBundle:content/standard_with_intro:ng_news.html.twig
+                        match:
+                            Identifier\ContentType: ng_news
+                    ng_video:
+                        template: NetgenMoreDemoBundle:content/standard_with_intro:ng_video.html.twig
+                        match:
+                            Identifier\ContentType: ng_video
+                    standard_with_intro:
+                        template: NetgenMoreDemoBundle:content:standard_with_intro.html.twig
                         match: ~
                 mini:
                     ng_article:
