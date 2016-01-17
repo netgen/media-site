@@ -8,15 +8,15 @@
 <link rel="index" href="{{ root_location_path }}" />
 <link rel="search" href="{{ path( 'ez_legacy', { 'module_uri': '/content/search' } ) }}" title="{{ 'ngmore.layout.search_site'|trans( { '%site_name%': site_name } ) }}" />
 
-<link rel="icon apple-touch-icon-precomposed" sizes="152x152" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-152.png' ) }}">
-<link rel="icon apple-touch-icon-precomposed" sizes="144x144" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-144.png' ) }}">
-<link rel="icon apple-touch-icon-precomposed" sizes="120x120" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-120.png' ) }}">
-<link rel="icon apple-touch-icon-precomposed" sizes="114x114" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-114.png' ) }}">
-<link rel="icon apple-touch-icon-precomposed" sizes="76x76" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-76.png' ) }}">
-<link rel="icon apple-touch-icon-precomposed" sizes="72x72" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-72.png' ) }}">
-<link rel="icon apple-touch-icon-precomposed" href="{{ asset( 'bundles/netgenmoredemo/images/favicon-57.png' ) }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="152x152" href="{{ asset( 'bundles/netgenmoredemo/images/favicon/favicon-152.png' ) }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="144x144" href="{{ asset( 'bundles/netgenmoredemo/images/favicon/favicon-144.png' ) }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="120x120" href="{{ asset( 'bundles/netgenmoredemo/images/favicon/favicon-120.png' ) }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="114x114" href="{{ asset( 'bundles/netgenmoredemo/images/favicon/favicon-114.png' ) }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="76x76" href="{{ asset( 'bundles/netgenmoredemo/images/favicon/favicon-76.png' ) }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="72x72" href="{{ asset( 'bundles/netgenmoredemo/images/favicon/favicon-72.png' ) }}">
+<link rel="icon apple-touch-icon-precomposed" href="{{ asset( 'bundles/netgenmoredemo/images/favicon/favicon-57.png' ) }}">
 
-<link rel="icon" href="{{ asset( 'bundles/netgenmoredemo/images/favicon.png' ) }}" type="image/x-icon" />
+<link rel="icon" href="{{ asset( 'bundles/netgenmoredemo/images/favicon/favicon.png' ) }}" type="image/x-icon" />
 
 {% if available_translations|length > 1 %}
     {% set locale_conversion_map = ezpublish.configResolver.getParameter( 'locale.conversion_map', 'ngmore' ) %}
