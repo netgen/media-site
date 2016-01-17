@@ -1,14 +1,8 @@
 <?php /* #?ini charset="utf-8"?
 
-[InformationCollectionSettings]
-EmailReceiver=
-
 [SiteSettings]
 DefaultPage=content/dashboard
 LoginPage=custom
-
-[UserSettings]
-RegistrationEmail=
 
 [SiteAccessSettings]
 RequireUserLogin=true

@@ -1,17 +1,7 @@
 <?php /* #?ini charset="utf-8"?
 
-[InformationCollectionSettings]
-EmailReceiver=
-
 [Session]
 SessionNamePerSiteAccess=disabled
-
-[SiteSettings]
-LoginPage=embedded
-AdditionalLoginFormActionURL=
-
-[UserSettings]
-RegistrationEmail=
 
 [SiteAccessSettings]
 RequireUserLogin=false
