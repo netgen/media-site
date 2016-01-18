@@ -87,18 +87,10 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/line:ng_video.html.twig
                         match:
                             Identifier\ContentType: ng_video
-                    ng_htmlbox:
-                        template: NetgenMoreDemoBundle:content/line:ng_htmlbox.html.twig
-                        match:
-                            Identifier\ContentType: ng_htmlbox
                     ng_feedback_form:
                         template: NetgenMoreDemoBundle:content/line:ng_feedback_form.html.twig
                         match:
                             Identifier\ContentType: ng_feedback_form
-                    image:
-                        template: NetgenMoreDemoBundle:content/line:image.html.twig
-                        match:
-                            Identifier\ContentType: image
                     file:
                         template: NetgenMoreDemoBundle:content/line:file.html.twig
                         match:
@@ -179,10 +171,6 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/standard:ng_news.html.twig
                         match:
                             Identifier\ContentType: ng_news
-                    ng_shortcut:
-                        template: NetgenMoreDemoBundle:content/standard:ng_shortcut.html.twig
-                        match:
-                            Identifier\ContentType: ng_shortcut
                     ng_video:
                         template: NetgenMoreDemoBundle:content/standard:ng_video.html.twig
                         match:
