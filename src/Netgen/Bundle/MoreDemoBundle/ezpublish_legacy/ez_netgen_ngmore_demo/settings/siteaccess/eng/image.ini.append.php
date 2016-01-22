@@ -34,5 +34,5 @@ Filters[]=geometry/scalewidthdownonly=1140
 [opengraph]
 Reference=original
 Filters[]
-Filters[]=geometry/scale=200;200
+Filters[]=geometry/scale=600;315
 */ ?>

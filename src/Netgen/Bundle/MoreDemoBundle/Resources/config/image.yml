@@ -25,7 +25,7 @@ ezpublish:
                 opengraph:
                     reference: original
                     filters:
-                        - { name: geometry/scale, params: [200, 200] }
+                        - { name: geometry/scale, params: [600, 315] }
                         - { name: strip }
         administration_group:
             image_variations:
