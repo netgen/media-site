@@ -3,5 +3,10 @@
 <div class="view-type view-type-{{ viewType }} ng-gallery vl clearfix">
     <div class="info">
         <h2 class="title"><a href="{{ location_path }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        {% if not ez_is_field_empty( content, 'line_intro' ) %}
+	        <div class="short">
+	            {{ ez_render_field( content, 'line_intro' ) }}
+	        </div>
+	    {% endif %}
     </div>
 </div>

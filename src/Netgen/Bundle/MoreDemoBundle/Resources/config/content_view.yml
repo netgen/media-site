@@ -115,6 +115,10 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/listitem:ng_video.html.twig
                         match:
                             Identifier\ContentType: ng_video
+                    ng_gallery:
+                        template: NetgenMoreDemoBundle:content/listitem:ng_gallery.html.twig
+                        match:
+                            Identifier\ContentType: ng_gallery
                     file:
                         template: NetgenMoreDemoBundle:content/listitem:file.html.twig
                         match:
@@ -239,6 +243,10 @@ ezpublish:
                         template: NetgenMoreDemoBundle:content/mini:ng_audio.html.twig
                         match:
                             Identifier\ContentType: ng_audio
+                    ng_gallery:
+                        template: NetgenMoreDemoBundle:content/mini:ng_gallery.html.twig
+                        match:
+                            Identifier\ContentType: ng_gallery
                     file:
                         template: NetgenMoreDemoBundle:content/mini:file.html.twig
                         match:
