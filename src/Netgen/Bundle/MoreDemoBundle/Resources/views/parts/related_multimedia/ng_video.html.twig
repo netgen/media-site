@@ -1,11 +1,13 @@
 {% import 'NetgenMoreDemoBundle:parts:video.html.twig' as video %}
 
 {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) or not ez_is_field_empty( content, 'video_identifier' ) %}
-    {% if is_slider %}<div class="swiper-slide">{% endif %}
-        {% if is_slider %}
+
+    {% if is_slider %}
+        <div class="swiper-slide">
             {{ video.player_slide( content, true ) }}
-        {% else %}
-            {{ video.player( content, true ) }}
-        {% endif %}
-    {% if is_slider %}</div>{% endif %}
+        </div>
+    {% else %}
+        {{ video.player( content, true ) }}
+    {% endif %}
+
 {% endif %}

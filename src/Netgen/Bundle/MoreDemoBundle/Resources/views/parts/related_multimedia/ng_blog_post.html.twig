@@ -1,7 +1,12 @@
 {% if not ez_is_field_empty( content, 'image' ) %}
     {% set image = ngmore_field( content, 'image' ) %}
 
-    {% if is_slider %}<div class="swiper-slide">{% endif %}
-        <img class="swiper-lazy" data-src="{{ ez_image_alias( image, content.versionInfo, 'i1140' ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
-    {% if is_slider %}</div>{% endif %}
+    {% if is_slider %}
+        <div class="swiper-slide">
+            <img class="swiper-lazy" data-src="{{ ez_image_alias( image, content.versionInfo, 'i1140' ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
+        </div>
+    {% else %}
+        <img src="{{ ez_image_alias( image, content.versionInfo, 'i1140' ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
+    {% endif %}
+
 {% endif %}
