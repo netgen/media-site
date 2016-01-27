@@ -62,7 +62,7 @@
     }
     &.video-icon,
     &.photo-icon {
-        .image > a:before {
+        .image > a::before {
             @extend %fontawesome;
             position:absolute;
             bottom:0;
@@ -77,12 +77,12 @@
         }
     }
     &.video-icon {
-        .image > a:before {
+        .image > a::before {
             content:"\f144";
         }
     }
     &.photo-icon {
-        .image > a:before {
+        .image > a::before {
             content:"\f030";
         }
     }
@@ -112,7 +112,7 @@
         }
         &.video-icon,
         &.photo-icon {
-            .image > a:before {
+            .image > a::before {
                 left:15px;
                 top:12px;
                 bottom:auto;

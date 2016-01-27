@@ -166,8 +166,8 @@ audio {
         text-align:center;
         font-style:italic;
         font-size:0.9375em;
-        &:before,
-        &:after {
+        &::before,
+        &::after {
             content:"–";
             display:inline-block;
             margin:0 4px;
@@ -179,7 +179,7 @@ audio {
         opacity:0.2 !important;
     }
     position:relative;
-    &:before {
+    &::before {
         @extend %fontawesome;
         content:"\f021";
         position:absolute;
