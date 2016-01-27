@@ -214,13 +214,13 @@ header {
                         background:hsl(0, 0, 35);
                         font-size:26px;
                         cursor:pointer;
-                        &:before {
+                        &::before {
                             display:inline-block;
                             content:"\f107";
                         }
                     }
                     &.submenu-active {
-                        > .submenu-trigger:before {
+                        > .submenu-trigger::before {
                             content:"\f106";
                         }
                         .menu_level_1 {
@@ -369,8 +369,8 @@ header {
             height:$headerHeightSm;
             width:$headerHeightSm + 1px;
             line-height:$headerHeightSm;
-            &:before,
-            &:after {
+            &::before,
+            &::after {
                 content:"";
                 display:block;
                 width:20px;
@@ -383,7 +383,7 @@ header {
                 opacity:0;
                 transform:translate(-50%, -50%) rotate(0);
             }
-            &:after {
+            &::after {
                 transform:translate(-50%, -50%) rotate(0);
             }
             i.fa {
@@ -398,12 +398,12 @@ header {
                     transition:all 150ms;
                     transform:rotateY(90deg);
                 }
-                &:before,
-                &:after {
+                &::before,
+                &::after {
                     opacity:1;
                     transform:translate(-50%, -50%) rotate(135deg);
                 }
-                &:after {
+                &::after {
                     transform:translate(-50%, -50%) rotate(-135deg);
                 }
             }
@@ -423,8 +423,8 @@ header {
         top:50%;
         margin:-1px 0 0 -10px;
         transition:background 400ms ease-out 200ms;
-        &:before,
-        &:after {
+        &::before,
+        &::after {
             display:block;
             content:"";
             width:100%;
@@ -433,10 +433,10 @@ header {
             background:#fff;
             transition:all 400ms;
         }
-        &:before {
+        &::before {
             top:-6px;
         }
-        &:after {
+        &::after {
             bottom:-6px;
         }
     }
@@ -445,10 +445,10 @@ header {
         .hamburger {
             background:transparent;
             transition:background 100ms ease-out;
-            &:before {
+            &::before {
                 transform:translate(0, 6px) rotate(135deg);
             }
-            &:after {
+            &::after {
                 transform:translate(0, -6px) rotate(-135deg);
             }
         }
