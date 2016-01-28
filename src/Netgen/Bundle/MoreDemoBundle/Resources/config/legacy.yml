@@ -24,6 +24,12 @@ netgen_more_legacy:
                     DebugSettings/DebugOutput: %ngmore.frontend_group.legacy.debug_settings.debug_output%
                     DebugSettings/DebugRedirection: %ngmore.frontend_group.legacy.debug_settings.debug_redirection%
 
+            injected_merge_settings:
+                site.ini:
+                    SiteAccessRules/Rules:
+                        - access;disable
+                        - module;content/advancedsearch
+
         administration_group:
             injected_settings:
                 site.ini:
@@ -100,7 +106,6 @@ netgen_more_legacy:
                         - module;user/forgotpassword
                         - module;ezinfo/about
                         - module;ezinfo/copyright
-                        - module;content/advancedsearch
                         - module;content/tipafriend
                         - module;settings/edit
                         - module;visual
