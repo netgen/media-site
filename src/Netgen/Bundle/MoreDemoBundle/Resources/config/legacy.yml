@@ -1,6 +1,7 @@
 netgen_more_legacy:
     enabled_legacy_settings:
         - solr.ini
+        - content.ini
         - ngmore.ini
         - site.ini
 
@@ -80,6 +81,10 @@ netgen_more_legacy:
             injected_settings:
                 solr.ini:
                     SolrBase/SearchServerURI: %ezpublish.solr_server%
+
+                content.ini:
+                    ClassGroupIDs/Media: 2
+                    ClassGroupIDs/Users: 3
 
                 site.ini:
                     SiteSettings/DefaultAccess: %ezpublish.siteaccess.default%
