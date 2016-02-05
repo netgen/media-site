@@ -3,9 +3,9 @@
 {% block content %}
     <div class="{% if is_slider %}swiper-slide{% endif %} vl2">
         {% if is_slider %}
-            <img class="swiper-lazy" data-src="{{ ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, 'i1140' ).uri }}" />
+            <img class="swiper-lazy" data-src="{{ ez_image_alias( ez_field( content, 'image' ), content.versionInfo, 'i1140' ).uri }}" />
         {% else %}
-            <img src="{{ ez_image_alias( ngmore_field( content, 'image' ), content.versionInfo, 'i1140' ).uri }}" />
+            <img src="{{ ez_image_alias( ez_field( content, 'image' ), content.versionInfo, 'i1140' ).uri }}" />
         {% endif %}
 
         <div class="info">

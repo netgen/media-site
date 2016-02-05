@@ -1,5 +1,5 @@
 {% if not ez_is_field_empty( content, 'image' ) %}
-    {% set image = ngmore_field( content, 'image' ) %}
+    {% set image = ez_field( content, 'image' ) %}
 
     {% if is_slider %}
         <div class="swiper-slide">

@@ -6,7 +6,7 @@
     {% set use_lazy_load = use_lazy_load|default( false ) %}
 
     {% if content.fields[field_name] is defined and not ez_is_field_empty( content, field_name ) %}
-        {% set image_alias = ez_image_alias( ngmore_field( content, field_name ), content.versionInfo, alias_name ) %}
+        {% set image_alias = ez_image_alias( ez_field( content, field_name ), content.versionInfo, alias_name ) %}
 
         {% if use_lazy_load %}
             {{ ez_render_field(
