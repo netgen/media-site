@@ -27,6 +27,8 @@ ngmore.user.activate.done.title: 'Account activation'
 ngmore.user.activate.done.text: 'Your account has been activated. You can now <a href="%link%">log in here</a>.'
 ngmore.user.activate.done.error.hash_expired: 'Provided hash key has expired. Please request a new one <a href="%link%">here</a>.'
 ngmore.user.activate.done.error.other: 'Unspecified error occurred.'
+ngmore.user.activate.admin_activation_pending.title: 'Account activation'
+ngmore.user.activate.admin_activation_pending.text: 'Your account was successfully created. Before you can log into the site, your account must be activated by the site administrator. You will receive an email confirming activation of your account soon.'
 
 ngmore.user.forgot_password.title: 'Forgot password?'
 ngmore.user.forgot_password.text: 'Enter your e-mail address below and we will send you an e-mail so you can reset your password.'
