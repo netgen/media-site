@@ -7,12 +7,3 @@
 %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
-
-<!--[if lt IE 9]>
-{% javascripts filter='?uglifyjs2'
-    '@NetgenMoreDemoBundle/Resources/public/bower/html5shiv/dist/html5shiv.js'
-    '@NetgenMoreDemoBundle/Resources/public/bower/respond/dest/respond.src.js'
-%}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
-<![endif]-->
