@@ -89,7 +89,7 @@
     {/if}
 {/if}
 
-<div class="container content-search clearfix">
+<div class="content-search clearfix">
 
     <form action={"/content/search/"|ezurl} method="get" class="form-search">
 
