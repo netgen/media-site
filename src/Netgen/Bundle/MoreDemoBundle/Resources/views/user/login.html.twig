@@ -24,7 +24,9 @@
                         <input type="password" id="password" class="form-control" name="_password" required="required" placeholder="{{ 'ngmore.user.login.password.placeholder'|trans }}" />
                     </div>
 
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token( "authenticate" ) }}" />
+                    {% if app.request.attributes.get( "csrf_enabled" ) %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token( "authenticate" ) }}" />
+                    {% endif %}
 
                     {#
                         If you want to control the URL the user
