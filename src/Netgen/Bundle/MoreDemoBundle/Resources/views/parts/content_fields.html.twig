@@ -16,7 +16,7 @@
                     'parameters': {
                         'alias': alias_name,
                         'image_class': 'img-responsive',
-                        'link_href': path( location )
+                        'link_href': path( location is not empty ? location : content )
                     }
                 }
             ) }}

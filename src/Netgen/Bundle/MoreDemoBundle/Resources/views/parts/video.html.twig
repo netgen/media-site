@@ -1,7 +1,7 @@
 {% macro poster( content, location, alias_name ) %}
     {% set alias_name = alias_name|default( 'i480' ) %}
 
-    <a href="{{ path( location ) }}" class="image-16by9">
+    <a href="{{ path( location is not empty ? location : content ) }}" class="image-16by9">
         {% if not ez_is_field_empty( content, 'poster' ) %}
             {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': alias_name } } ) }}
         {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}

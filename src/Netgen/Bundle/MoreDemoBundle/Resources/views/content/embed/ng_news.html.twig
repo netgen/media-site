@@ -2,8 +2,8 @@
 
 <div class="view-type view-type-{{ viewType }} ng-news">
 
-    {{ content_fields.image( content, location, 'i320' ) }}
+    {{ content_fields.image( content, null, 'i320' ) }}
 
-    <h3><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
+    <h3><a href="{{ path( content ) }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
 
 </div>
