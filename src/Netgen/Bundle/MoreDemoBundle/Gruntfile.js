@@ -54,7 +54,7 @@ module.exports = function (grunt) {
     sass: {
       options: {
         sourceMap: true,
-        sourceMapEmbed: false,
+        sourceMapEmbed: true,
         sourceMapContents: true,
         includePaths: ['.']
       },
