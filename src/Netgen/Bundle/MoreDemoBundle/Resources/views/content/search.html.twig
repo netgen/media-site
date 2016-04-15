@@ -34,9 +34,12 @@
                     </label>
                     {{ ngmore_content_type_name( content.contentInfo.contentTypeId ) }}
                 </div>
-                <div class="score progress">
-                    <div class="bar" style="width:{{ score_percent }}%">{{ score_percent }}%</div>
-                </div>
+
+                {% if score_percent is defined %}
+                    <div class="score progress">
+                        <div class="bar" style="width:{{ score_percent }}%">{{ score_percent }}%</div>
+                    </div>
+                {% endif %}
             </div>
         </div>
 
