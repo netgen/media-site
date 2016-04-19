@@ -9,21 +9,21 @@ netgen_more_legacy:
         frontend_group:
             injected_settings:
                 site.ini:
-                    DatabaseSettings/SQLOutput: %ngmore.frontend_group.legacy.database_settings.sql_output%
+                    DatabaseSettings/SQLOutput: "%ngmore.frontend_group.legacy.database_settings.sql_output%"
 
-                    ContentSettings/ViewCaching: %ngmore.frontend_group.legacy.content_settings.view_caching%
+                    ContentSettings/ViewCaching: "%ngmore.frontend_group.legacy.content_settings.view_caching%"
 
-                    OverrideSettings/Cache: %ngmore.frontend_group.legacy.override_settings.cache%
+                    OverrideSettings/Cache: "%ngmore.frontend_group.legacy.override_settings.cache%"
 
-                    TemplateSettings/Debug: %ngmore.frontend_group.legacy.template_settings.debug%
-                    TemplateSettings/DevelopmentMode: %ngmore.frontend_group.legacy.template_settings.development_mode%
-                    TemplateSettings/TemplateCache: %ngmore.frontend_group.legacy.template_settings.template_cache%
-                    TemplateSettings/TemplateCompile: %ngmore.frontend_group.legacy.template_settings.template_compile%
-                    TemplateSettings/ShowUsedTemplates: %ngmore.frontend_group.legacy.template_settings.show_used_templates%
-                    TemplateSettings/ShowXHTMLCode: %ngmore.frontend_group.legacy.template_settings.show_xhtml_code%
+                    TemplateSettings/Debug: "%ngmore.frontend_group.legacy.template_settings.debug%"
+                    TemplateSettings/DevelopmentMode: "%ngmore.frontend_group.legacy.template_settings.development_mode%"
+                    TemplateSettings/TemplateCache: "%ngmore.frontend_group.legacy.template_settings.template_cache%"
+                    TemplateSettings/TemplateCompile: "%ngmore.frontend_group.legacy.template_settings.template_compile%"
+                    TemplateSettings/ShowUsedTemplates: "%ngmore.frontend_group.legacy.template_settings.show_used_templates%"
+                    TemplateSettings/ShowXHTMLCode: "%ngmore.frontend_group.legacy.template_settings.show_xhtml_code%"
 
-                    DebugSettings/DebugOutput: %ngmore.frontend_group.legacy.debug_settings.debug_output%
-                    DebugSettings/DebugRedirection: %ngmore.frontend_group.legacy.debug_settings.debug_redirection%
+                    DebugSettings/DebugOutput: "%ngmore.frontend_group.legacy.debug_settings.debug_output%"
+                    DebugSettings/DebugRedirection: "%ngmore.frontend_group.legacy.debug_settings.debug_redirection%"
 
             injected_merge_settings:
                 site.ini:
@@ -34,21 +34,21 @@ netgen_more_legacy:
         administration_group:
             injected_settings:
                 site.ini:
-                    DatabaseSettings/SQLOutput: %ngmore.default.legacy.database_settings.sql_output%
+                    DatabaseSettings/SQLOutput: "%ngmore.default.legacy.database_settings.sql_output%"
 
-                    ContentSettings/ViewCaching: %ngmore.default.legacy.content_settings.view_caching%
+                    ContentSettings/ViewCaching: "%ngmore.default.legacy.content_settings.view_caching%"
 
-                    OverrideSettings/Cache: %ngmore.default.legacy.override_settings.cache%
+                    OverrideSettings/Cache: "%ngmore.default.legacy.override_settings.cache%"
 
-                    TemplateSettings/Debug: %ngmore.default.legacy.template_settings.debug%
-                    TemplateSettings/DevelopmentMode: %ngmore.default.legacy.template_settings.development_mode%
-                    TemplateSettings/TemplateCache: %ngmore.default.legacy.template_settings.template_cache%
-                    TemplateSettings/TemplateCompile: %ngmore.default.legacy.template_settings.template_compile%
-                    TemplateSettings/ShowUsedTemplates: %ngmore.default.legacy.template_settings.show_used_templates%
-                    TemplateSettings/ShowXHTMLCode: %ngmore.default.legacy.template_settings.show_xhtml_code%
+                    TemplateSettings/Debug: "%ngmore.default.legacy.template_settings.debug%"
+                    TemplateSettings/DevelopmentMode: "%ngmore.default.legacy.template_settings.development_mode%"
+                    TemplateSettings/TemplateCache: "%ngmore.default.legacy.template_settings.template_cache%"
+                    TemplateSettings/TemplateCompile: "%ngmore.default.legacy.template_settings.template_compile%"
+                    TemplateSettings/ShowUsedTemplates: "%ngmore.default.legacy.template_settings.show_used_templates%"
+                    TemplateSettings/ShowXHTMLCode: "%ngmore.default.legacy.template_settings.show_xhtml_code%"
 
-                    DebugSettings/DebugOutput: %ngmore.default.legacy.debug_settings.debug_output%
-                    DebugSettings/DebugRedirection: %ngmore.default.legacy.debug_settings.debug_redirection%
+                    DebugSettings/DebugOutput: "%ngmore.default.legacy.debug_settings.debug_output%"
+                    DebugSettings/DebugRedirection: "%ngmore.default.legacy.debug_settings.debug_redirection%"
 
         default:
             injected_merge_settings:
@@ -80,21 +80,21 @@ netgen_more_legacy:
 
             injected_settings:
                 solr.ini:
-                    SolrBase/SearchServerURI: %ezpublish.solr_server%
+                    SolrBase/SearchServerURI: "%ezpublish.solr_server%"
 
                 content.ini:
                     ClassGroupIDs/Media: 2
                     ClassGroupIDs/Users: 3
 
                 site.ini:
-                    SiteSettings/DefaultAccess: %ezpublish.siteaccess.default%
-                    SiteSettings/SiteList: %ezpublish.siteaccess.list%
-                    SiteSettings/RootNodeDepth: %ngmore.default.legacy.site_settings.root_node_depth%
-                    SiteSettings/SiteName: %ngmore.default.site_settings.site_name%
-                    SiteSettings/SiteURL: %ngmore.default.site_domain%
-                    SiteSettings/MetaDataArray: %ngmore.default.site_settings.meta_data%
+                    SiteSettings/DefaultAccess: "%ezpublish.siteaccess.default%"
+                    SiteSettings/SiteList: "%ezpublish.siteaccess.list%"
+                    SiteSettings/RootNodeDepth: "%ngmore.default.legacy.site_settings.root_node_depth%"
+                    SiteSettings/SiteName: "%ngmore.default.site_settings.site_name%"
+                    SiteSettings/SiteURL: "%ngmore.default.site_domain%"
+                    SiteSettings/MetaDataArray: "%ngmore.default.site_settings.meta_data%"
 
-                    SiteAccessSettings/AvailableSiteAccessList: %ezpublish.siteaccess.list%
+                    SiteAccessSettings/AvailableSiteAccessList: "%ezpublish.siteaccess.list%"
                     SiteAccessSettings/ForceVirtualHost: "true"
                     SiteAccessSettings/RemoveSiteAccessIfDefaultAccess: enabled
                     SiteAccessSettings/CheckValidity: "false"
@@ -118,19 +118,19 @@ netgen_more_legacy:
 
                     DesignSettings/DesignLocationCache: "enabled"
 
-                    MailSettings/Transport: %mailer_transport%
-                    MailSettings/TransportServer: %mailer_host%
-                    MailSettings/TransportConnectionType: %swiftmailer.mailer.default.transport.smtp.encryption%
-                    MailSettings/TransportPort: %mailer_port%
-                    MailSettings/TransportUser: %mailer_user%
-                    MailSettings/TransportPassword: %mailer_password%
-                    MailSettings/AdminEmail: %ngmore.default.mail.sender_email%
-                    MailSettings/EmailSender: %ngmore.default.mail.sender_email%
+                    MailSettings/Transport: "%mailer_transport%"
+                    MailSettings/TransportServer: "%mailer_host%"
+                    MailSettings/TransportConnectionType: "%swiftmailer.mailer.default.transport.smtp.encryption%"
+                    MailSettings/TransportPort: "%mailer_port%"
+                    MailSettings/TransportUser: "%mailer_user%"
+                    MailSettings/TransportPassword: "%mailer_password%"
+                    MailSettings/AdminEmail: "%ngmore.default.mail.sender_email%"
+                    MailSettings/EmailSender: "%ngmore.default.mail.sender_email%"
 
                 ngmore.ini:
-                    SpecialNodes/SidebarsParentNode: %ngmore.default.locations.sidebars_parent.id%
+                    SpecialNodes/SidebarsParentNode: "%ngmore.default.locations.sidebars_parent.id%"
 
-                    GoogleMapsSettings/DefaultLatitude: %ngmore.default.google_maps.latitude%
-                    GoogleMapsSettings/DefaultLongitude: %ngmore.default.google_maps.longitude%
-                    GoogleMapsSettings/DefaultZoom: %ngmore.default.google_maps.zoom%
-                    GoogleMapsSettings/DefaultMapType: %ngmore.default.google_maps.map_type%
+                    GoogleMapsSettings/DefaultLatitude: "%ngmore.default.google_maps.latitude%"
+                    GoogleMapsSettings/DefaultLongitude: "%ngmore.default.google_maps.longitude%"
+                    GoogleMapsSettings/DefaultZoom: "%ngmore.default.google_maps.zoom%"
+                    GoogleMapsSettings/DefaultMapType: "%ngmore.default.google_maps.map_type%"
