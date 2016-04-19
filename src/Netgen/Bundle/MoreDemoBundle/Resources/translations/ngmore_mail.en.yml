@@ -1,32 +1,32 @@
-ngmore.user.welcome.subject: 'Welcome'
-ngmore.user.welcome.text: 'Thank you for registering at our site.'
+ngmore.user.welcome.subject: "Welcome"
+ngmore.user.welcome.text: "Thank you for registering at our site."
 
-ngmore.user.activate.subject: 'Account activation'
-ngmore.user.activate.text: 'Click the following link to activate your account:'
-ngmore.user.activate.already_active.subject: 'Account activation attempt'
-ngmore.user.activate.already_active.text: 'Your account is already active.'
-ngmore.user.activate.disabled.subject: 'Account activation attempt'
-ngmore.user.activate.disabled.text: 'You have attempted to activate your account, but your account has been previously disabled.'
-ngmore.user.activate.not_registered.subject: 'Account activation attempt'
-ngmore.user.activate.not_registered.text: 'You (or someone else) entered this e-mail address to receive an account activation link. However, this e-mail address is not registered on our site. If this was you, you probably used some other e-mail address during registration. If not, please ignore this e-mail.'
+ngmore.user.activate.subject: "Account activation"
+ngmore.user.activate.text: "Click the following link to activate your account:"
+ngmore.user.activate.already_active.subject: "Account activation attempt"
+ngmore.user.activate.already_active.text: "Your account is already active."
+ngmore.user.activate.disabled.subject: "Account activation attempt"
+ngmore.user.activate.disabled.text: "You have attempted to activate your account, but your account has been previously disabled."
+ngmore.user.activate.not_registered.subject: "Account activation attempt"
+ngmore.user.activate.not_registered.text: "You (or someone else) entered this e-mail address to receive an account activation link. However, this e-mail address is not registered on our site. If this was you, you probably used some other e-mail address during registration. If not, please ignore this e-mail."
 
-ngmore.user.activate.admin_activation_pending.subject: 'Account activation pending'
-ngmore.user.activate.admin_activation_pending.text: 'Your account is waiting activation'
+ngmore.user.activate.admin_activation_pending.subject: "Account activation pending"
+ngmore.user.activate.admin_activation_pending.text: "Your account is waiting activation"
 
-ngmore.user.activate.admin_activation_required.subject: 'Account activation required'
-ngmore.user.activate.admin_activation_required.text: 'This account is waiting for your activation'
+ngmore.user.activate.admin_activation_required.subject: "Account activation required"
+ngmore.user.activate.admin_activation_required.text: "This account is waiting for your activation"
 
-ngmore.user.forgot_password.subject: 'Password reset'
-ngmore.user.forgot_password.text: 'Click the following link to reset your password:'
-ngmore.user.forgot_password.disabled.subject: 'Password reset attempt'
-ngmore.user.forgot_password.disabled.text: 'You have attempted to reset your password, but your account has been previously disabled.'
-ngmore.user.forgot_password.not_active.subject: 'Password reset attempt'
-ngmore.user.forgot_password.not_active.text: 'You have attempted to reset your password, but your account is not active yet.'
-ngmore.user.forgot_password.not_registered.subject: 'Password reset attempt'
-ngmore.user.forgot_password.not_registered.text: 'You (or someone else) entered this e-mail address to receive a password reset link. However, this e-mail address is not registered on our site. If this was you, you probably used some other e-mail address during registration. If not, please ignore this e-mail.'
-ngmore.user.forgot_password.password_changed.subject: 'Password changed'
-ngmore.user.forgot_password.password_changed.text: 'Your password has been successfully changed.'
+ngmore.user.forgot_password.subject: "Password reset"
+ngmore.user.forgot_password.text: "Click the following link to reset your password:"
+ngmore.user.forgot_password.disabled.subject: "Password reset attempt"
+ngmore.user.forgot_password.disabled.text: "You have attempted to reset your password, but your account has been previously disabled."
+ngmore.user.forgot_password.not_active.subject: "Password reset attempt"
+ngmore.user.forgot_password.not_active.text: "You have attempted to reset your password, but your account is not active yet."
+ngmore.user.forgot_password.not_registered.subject: "Password reset attempt"
+ngmore.user.forgot_password.not_registered.text: "You (or someone else) entered this e-mail address to receive a password reset link. However, this e-mail address is not registered on our site. If this was you, you probably used some other e-mail address during registration. If not, please ignore this e-mail."
+ngmore.user.forgot_password.password_changed.subject: "Password changed"
+ngmore.user.forgot_password.password_changed.text: "Your password has been successfully changed."
 
-ngmore.user.account_information: 'Your account information'
-ngmore.user.username: 'Username'
-ngmore.user.email: 'E-mail'
+ngmore.user.account_information: "Your account information"
+ngmore.user.username: "Username"
+ngmore.user.email: "E-mail"

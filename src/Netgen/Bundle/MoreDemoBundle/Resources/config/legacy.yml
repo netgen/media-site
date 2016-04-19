@@ -95,8 +95,10 @@ netgen_more_legacy:
                     SiteSettings/MetaDataArray: "%ngmore.default.site_settings.meta_data%"
 
                     SiteAccessSettings/AvailableSiteAccessList: "%ezpublish.siteaccess.list%"
-                    SiteAccessSettings/ForceVirtualHost: "true"
                     SiteAccessSettings/RemoveSiteAccessIfDefaultAccess: enabled
+                    # The following two parameters need to be "true" and "false" strings
+                    # since eZ legacy config uses those, as opposed to booleans
+                    SiteAccessSettings/ForceVirtualHost: "true"
                     SiteAccessSettings/CheckValidity: "false"
 
                     Session/SessionNameHandler: custom
@@ -116,7 +118,7 @@ netgen_more_legacy:
                         - module;visual
                         - module;shop
 
-                    DesignSettings/DesignLocationCache: "enabled"
+                    DesignSettings/DesignLocationCache: enabled
 
                     MailSettings/Transport: "%mailer_transport%"
                     MailSettings/TransportServer: "%mailer_host%"

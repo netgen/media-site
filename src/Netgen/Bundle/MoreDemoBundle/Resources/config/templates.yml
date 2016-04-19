@@ -1,34 +1,34 @@
 parameters:
-    ngmore.default.template.user.activate: 'NetgenMoreDemoBundle:user:activate.html.twig'
-    ngmore.default.template.user.activate_done: 'NetgenMoreDemoBundle:user:activate_done.html.twig'
-    ngmore.default.template.user.activate_sent: 'NetgenMoreDemoBundle:user:activate_sent.html.twig'
-    ngmore.default.template.user.activate_admin_activation_pending: 'NetgenMoreDemoBundle:user:activate_admin_activation_pending.html.twig'
+    ngmore.default.template.user.activate: "NetgenMoreDemoBundle:user:activate.html.twig"
+    ngmore.default.template.user.activate_done: "NetgenMoreDemoBundle:user:activate_done.html.twig"
+    ngmore.default.template.user.activate_sent: "NetgenMoreDemoBundle:user:activate_sent.html.twig"
+    ngmore.default.template.user.activate_admin_activation_pending: "NetgenMoreDemoBundle:user:activate_admin_activation_pending.html.twig"
 
-    ngmore.default.template.user.forgot_password: 'NetgenMoreDemoBundle:user:forgot_password.html.twig'
-    ngmore.default.template.user.forgot_password_sent: 'NetgenMoreDemoBundle:user:forgot_password_sent.html.twig'
+    ngmore.default.template.user.forgot_password: "NetgenMoreDemoBundle:user:forgot_password.html.twig"
+    ngmore.default.template.user.forgot_password_sent: "NetgenMoreDemoBundle:user:forgot_password_sent.html.twig"
 
-    ngmore.default.template.user.register: 'NetgenMoreDemoBundle:user:register.html.twig'
-    ngmore.default.template.user.register_success: 'NetgenMoreDemoBundle:user:register_success.html.twig'
+    ngmore.default.template.user.register: "NetgenMoreDemoBundle:user:register.html.twig"
+    ngmore.default.template.user.register_success: "NetgenMoreDemoBundle:user:register_success.html.twig"
 
-    ngmore.default.template.user.reset_password: 'NetgenMoreDemoBundle:user:reset_password.html.twig'
-    ngmore.default.template.user.reset_password_done: 'NetgenMoreDemoBundle:user:reset_password_done.html.twig'
+    ngmore.default.template.user.reset_password: "NetgenMoreDemoBundle:user:reset_password.html.twig"
+    ngmore.default.template.user.reset_password_done: "NetgenMoreDemoBundle:user:reset_password_done.html.twig"
 
-    ngmore.default.template.user.mail.activate: 'NetgenMoreDemoBundle:user/mail:activate.html.twig'
-    ngmore.default.template.user.mail.activate_already_active: 'NetgenMoreDemoBundle:user/mail:activate_already_active.html.twig'
-    ngmore.default.template.user.mail.activate_disabled: 'NetgenMoreDemoBundle:user/mail:activate_disabled.html.twig'
-    ngmore.default.template.user.mail.activate_not_registered: 'NetgenMoreDemoBundle:user/mail:activate_not_registered.html.twig'
-    ngmore.default.template.user.mail.activate_admin_activation_pending: 'NetgenMoreDemoBundle:user/mail:activate_admin_activation_pending.html.twig'
-    ngmore.default.template.user.mail.activate_admin_activation_required: 'NetgenMoreDemoBundle:user/mail:activate_admin_activation_required.html.twig'
+    ngmore.default.template.user.mail.activate: "NetgenMoreDemoBundle:user/mail:activate.html.twig"
+    ngmore.default.template.user.mail.activate_already_active: "NetgenMoreDemoBundle:user/mail:activate_already_active.html.twig"
+    ngmore.default.template.user.mail.activate_disabled: "NetgenMoreDemoBundle:user/mail:activate_disabled.html.twig"
+    ngmore.default.template.user.mail.activate_not_registered: "NetgenMoreDemoBundle:user/mail:activate_not_registered.html.twig"
+    ngmore.default.template.user.mail.activate_admin_activation_pending: "NetgenMoreDemoBundle:user/mail:activate_admin_activation_pending.html.twig"
+    ngmore.default.template.user.mail.activate_admin_activation_required: "NetgenMoreDemoBundle:user/mail:activate_admin_activation_required.html.twig"
 
-    ngmore.default.template.user.mail.forgot_password: 'NetgenMoreDemoBundle:user/mail:forgot_password.html.twig'
-    ngmore.default.template.user.mail.forgot_password_disabled: 'NetgenMoreDemoBundle:user/mail:forgot_password_disabled.html.twig'
-    ngmore.default.template.user.mail.forgot_password_not_active: 'NetgenMoreDemoBundle:user/mail:forgot_password_not_active.html.twig'
-    ngmore.default.template.user.mail.forgot_password_not_registered: 'NetgenMoreDemoBundle:user/mail:forgot_password_not_registered.html.twig'
-    ngmore.default.template.user.mail.forgot_password_password_changed: 'NetgenMoreDemoBundle:user/mail:forgot_password_password_changed.html.twig'
+    ngmore.default.template.user.mail.forgot_password: "NetgenMoreDemoBundle:user/mail:forgot_password.html.twig"
+    ngmore.default.template.user.mail.forgot_password_disabled: "NetgenMoreDemoBundle:user/mail:forgot_password_disabled.html.twig"
+    ngmore.default.template.user.mail.forgot_password_not_active: "NetgenMoreDemoBundle:user/mail:forgot_password_not_active.html.twig"
+    ngmore.default.template.user.mail.forgot_password_not_registered: "NetgenMoreDemoBundle:user/mail:forgot_password_not_registered.html.twig"
+    ngmore.default.template.user.mail.forgot_password_password_changed: "NetgenMoreDemoBundle:user/mail:forgot_password_password_changed.html.twig"
 
-    ngmore.default.template.user.mail.welcome: 'NetgenMoreDemoBundle:user/mail:welcome.html.twig'
+    ngmore.default.template.user.mail.welcome: "NetgenMoreDemoBundle:user/mail:welcome.html.twig"
 
-    ngmore.default.template.errors.403: 'NetgenMoreDemoBundle:errors:403.html.twig'
-    ngmore.default.template.errors.404: 'NetgenMoreDemoBundle:errors:404.html.twig'
-    ngmore.default.template.errors.500: 'NetgenMoreDemoBundle:errors:500.html.twig'
-    ngmore.default.template.errors.default: 'NetgenMoreDemoBundle:errors:default.html.twig'
+    ngmore.default.template.errors.403: "NetgenMoreDemoBundle:errors:403.html.twig"
+    ngmore.default.template.errors.404: "NetgenMoreDemoBundle:errors:404.html.twig"
+    ngmore.default.template.errors.500: "NetgenMoreDemoBundle:errors:500.html.twig"
+    ngmore.default.template.errors.default: "NetgenMoreDemoBundle:errors:default.html.twig"

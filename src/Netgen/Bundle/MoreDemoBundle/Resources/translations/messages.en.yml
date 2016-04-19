@@ -1,10 +1,10 @@
-ngmore.layout.search: 'Search'
-ngmore.layout.search.button: 'Go'
-ngmore.layout.search_site: 'Search %site_name%'
-ngmore.layout.site_frontpage: '%site_name% front page'
-ngmore.layout.meta_generator: 'eZ Platform powered by Netgen'
-ngmore.layout.powered_by: 'Powered by'
-ngmore.layout.follow_us.title: 'Follow us'
-ngmore.layout.additional_menu.title: 'Menuet'
+ngmore.layout.search: "Search"
+ngmore.layout.search.button: "Go"
+ngmore.layout.search_site: "Search %site_name%"
+ngmore.layout.site_frontpage: "%site_name% front page"
+ngmore.layout.meta_generator: "eZ Platform powered by Netgen"
+ngmore.layout.powered_by: "Powered by"
+ngmore.layout.follow_us.title: "Follow us"
+ngmore.layout.additional_menu.title: "Menuet"
 
-ngmore.block.ajax_content_grid_dynamic.load_more: 'Load more'
+ngmore.block.ajax_content_grid_dynamic.load_more: "Load more"
