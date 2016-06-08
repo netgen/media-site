@@ -13,11 +13,11 @@ ezpublish:
         frontend_group:
             user:
                 layout: "%ngmore.default.pagelayout%"
-                login_template: NetgenMoreDemoBundle:user:login.html.twig
+                login_template: "NetgenMoreDemoBundle:user:login.html.twig"
 
 ez_publish_legacy:
     system:
         frontend_group:
             templating:
-                view_layout: NetgenMoreDemoBundle::pagelayout_legacy.html.twig
-                module_layout: NetgenMoreDemoBundle::pagelayout_module.html.twig
+                view_layout: "NetgenMoreDemoBundle::pagelayout_legacy.html.twig"
+                module_layout: "NetgenMoreDemoBundle::pagelayout_module.html.twig"
