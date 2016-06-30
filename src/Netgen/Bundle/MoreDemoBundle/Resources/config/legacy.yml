@@ -80,7 +80,7 @@ netgen_more_legacy:
 
             injected_settings:
                 solr.ini:
-                    SolrBase/SearchServerURI: "%ezpublish.solr_server%"
+                    SolrBase/SearchServerURI: "%ezpublish.default.legacy.solr_server%"
 
                 content.ini:
                     ClassGroupIDs/Media: 2

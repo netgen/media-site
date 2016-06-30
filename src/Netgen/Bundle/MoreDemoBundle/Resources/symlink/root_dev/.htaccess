@@ -15,7 +15,7 @@ SetEnvIf REQUEST_URI ".*" SYMFONY_ENV=dev
 # Defaults to 0 if omitted, unless SYMFONY_ENV is set to: "dev"
 #SetEnv SYMFONY_DEBUG 0
 
-# Whether to use Symfony's HTTP Caching.
+# Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
 # Possible values: 0 or 1
 # Defaults to 1 if omitted, unless SYMFONY_ENV is set to: "dev"
@@ -88,12 +88,13 @@ RewriteRule ^extension/[^/]+/design/[^/]+/(stylesheets|flash|images|fonts|lib|ja
 RewriteRule ^favicon\.ico - [L]
 RewriteRule ^robots\.txt - [L]
 
-# The following rule is needed to correctly display assets from eZ Platform / Symfony bundles
+# The following rule is needed to correctly display bundle and project assets
 RewriteRule ^bundles/ - [L]
+RewriteRule ^/assets/ - [L]
 
 # Additional Assetic rules for environments different from dev,
 # remember to run php app/console assetic:dump --env=prod
 RewriteCond %{ENV:SYMFONY_ENV} !^(dev)
-RewriteRule ^(css|js|font)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
+RewriteRule ^(css|js|fonts?)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
 
 RewriteRule .* app\.php
