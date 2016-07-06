@@ -1,4 +1,4 @@
-{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+{% extends ezpublish.configResolver.parameter('pagelayout') %}
 
 {% if not ez_is_field_empty( content, 'line_intro' ) %}
     {% set meta_data = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}

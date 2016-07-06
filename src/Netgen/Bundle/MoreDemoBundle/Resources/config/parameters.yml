@@ -1,6 +1,4 @@
 parameters:
-    ngmore.default.pagelayout: "NetgenMoreDemoBundle::pagelayout.html.twig"
-
     ngmore.default.site_settings.site_name: "Netgen More"
     ngmore.default.site_settings.meta_data:
         author: Netgen
