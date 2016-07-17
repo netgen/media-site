@@ -11,8 +11,8 @@ imports:
 ezpublish:
     system:
         frontend_group:
-            pagelayout: "NetgenMoreDemoBundle::pagelayout.html.twig"
             user:
+                layout: "%ngmore.default.pagelayout%"
                 login_template: "NetgenMoreDemoBundle:user:login.html.twig"
 
 ez_publish_legacy:
