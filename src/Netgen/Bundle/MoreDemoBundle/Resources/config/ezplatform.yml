@@ -5,6 +5,8 @@ imports:
     - { resource: image.yml }
     - { resource: opengraph.yml }
     - { resource: legacy.yml }
+    - { resource: block_manager/block_definitions.yml }
+    - { resource: block_manager/block_view.yml }
 
 ezpublish:
     system:

@@ -1,0 +1,25 @@
+netgen_block_manager:
+    block_definitions:
+        title:
+            view_types:
+                title:
+                    name: 'Title'
+                section:
+                    name: 'Section'
+                section_gray:
+                    name: 'Section gray'
+        list:
+            view_types:
+                list:
+                    name: 'List'
+                    item_view_types: &list_item_view_types
+                        standard:
+                            name: 'Standard'
+                        listitem:
+                            name: 'List item'
+                list_numbered:
+                    name: 'List (numbered)'
+                    item_view_types: *list_item_view_types
+                grid:
+                    name: 'Grid'
+                    item_view_types: *list_item_view_types

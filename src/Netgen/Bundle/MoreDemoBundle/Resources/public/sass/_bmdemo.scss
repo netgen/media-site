@@ -1,0 +1,33 @@
+.section-red{background-color: #fcc;}
+.section-blue{background-color: #99f;}
+.section-gray{background-color: #eee;}
+
+.bg-gray{background-color: #777}
+.section-title, .section-gray-title{
+  border-bottom:1px solid #999; margin-bottom:30px;
+  .title{display:inline-block; color:red; border-bottom:3px solid red; margin-bottom:-1px; padding-bottom:20px; margin-top:20px;}
+}
+
+.section-gray-title .title{border-color:#999; color:#900;}
+
+
+.main-content-block .zone-right{background-color:#eee; padding:20px;}
+
+.ad-container{
+  margin-bottom:30px;
+  img{width:100%;}
+}
+
+
+.list-numbered{
+  //img{display:none;}
+  counter-reset: my-counter;
+
+  .list-item::before {
+    counter-increment: my-counter;
+    content: counter(my-counter);
+    display: block;
+    font-size:20px;
+  }
+
+}

@@ -1,0 +1,35 @@
+netgen_block_manager:
+    system:
+        default:
+            view:
+                block_view:
+                    default:
+                        title\section:
+                            template: "NetgenMoreDemoBundle:block/title:section.html.twig"
+                            match:
+                                block\definition: title
+                                block\view_type: section
+
+                        title\section_gray:
+                            template: "NetgenMoreDemoBundle:block/title:section_gray.html.twig"
+                            match:
+                                block\definition: title
+                                block\view_type: section_gray
+
+                        title:
+                            template: "NetgenBlockManagerBundle:block:title.html.twig"
+                            match:
+                                block\definition: title
+                                block\view_type: title
+
+                        list\numbered:
+                            template: "NetgenMoreDemoBundle:block/list:numbered.html.twig"
+                            match:
+                                block\definition: list
+                                block\view_type: list_numbered
+
+                        list\list:
+                            template: "NetgenBlockManagerBundle:block/list:list.html.twig"
+                            match:
+                                block\definition: list
+                                block\view_type: list
