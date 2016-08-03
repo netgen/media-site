@@ -1,4 +1,4 @@
-{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+{% extends ngbm.layoutTemplate %}
 
 {# PERSISTENT VARIABLE #}
 
@@ -21,82 +21,6 @@
 {% if persistent_variable.show_path is defined and not persistent_variable.show_path %}
     {% set show_path = false %}
 {% endif %}
-
-{# OPTIONS TO DISABLE LAYOUT REGIONS OR CONTAINERS #}
-
-{% if persistent_variable.disable_layout_regions is defined and persistent_variable.disable_layout_regions %}
-    {% set disable_layout_regions = true %}
-{% endif %}
-
-{% if persistent_variable.disable_containers is defined and persistent_variable.disable_containers %}
-    {% set disable_containers = true %}
-{% endif %}
-
-{# PLACEHOLDER BLOCKS #}
-
-{% block placeholder_top_top %}
-{% spaceless %}
-    {% if persistent_variable.placeholder_top_top is defined %}
-        {{ persistent_variable.placeholder_top_top|raw }}
-    {% endif %}
-{% endspaceless %}
-{% endblock %}
-
-{% block placeholder_top_bottom %}
-{% spaceless %}
-    {% if persistent_variable.placeholder_top_bottom is defined %}
-        {{ persistent_variable.placeholder_top_bottom|raw }}
-    {% endif %}
-{% endspaceless %}
-{% endblock %}
-
-{% block placeholder_left_top %}
-{% spaceless %}
-    {% if persistent_variable.placeholder_left_top is defined %}
-        {{ persistent_variable.placeholder_left_top|raw }}
-    {% endif %}
-{% endspaceless %}
-{% endblock %}
-
-{% block placeholder_left_bottom %}
-{% spaceless %}
-    {% if persistent_variable.placeholder_left_bottom is defined %}
-        {{ persistent_variable.placeholder_left_bottom|raw }}
-    {% endif %}
-{% endspaceless %}
-{% endblock %}
-
-{% block placeholder_right_top %}
-{% spaceless %}
-    {% if persistent_variable.placeholder_right_top is defined %}
-        {{ persistent_variable.placeholder_right_top|raw }}
-    {% endif %}
-{% endspaceless %}
-{% endblock %}
-
-{% block placeholder_right_bottom %}
-{% spaceless %}
-    {% if persistent_variable.placeholder_right_bottom is defined %}
-        {{ persistent_variable.placeholder_right_bottom|raw }}
-    {% endif %}
-{% endspaceless %}
-{% endblock %}
-
-{% block placeholder_bottom_top %}
-{% spaceless %}
-    {% if persistent_variable.placeholder_bottom_top is defined %}
-        {{ persistent_variable.placeholder_bottom_top|raw }}
-    {% endif %}
-{% endspaceless %}
-{% endblock %}
-
-{% block placeholder_bottom_bottom %}
-{% spaceless %}
-    {% if persistent_variable.placeholder_bottom_bottom is defined %}
-        {{ persistent_variable.placeholder_bottom_bottom|raw }}
-    {% endif %}
-{% endspaceless %}
-{% endblock %}
 
 {# OPENGRAPH #}
 

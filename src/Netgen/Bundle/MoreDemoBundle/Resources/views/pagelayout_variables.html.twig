@@ -22,33 +22,6 @@
     {% endif %}
 {% endif %}
 
-{# LAYOUT & CONTAINERS #}
-
-{% set disable_layout_regions = disable_layout_regions|default( false ) %}
-{% set disable_containers = disable_containers|default( false ) %}
-{% set layout = ngmore.layout|default( false ) %}
-
-{# LAYOUT REGIONS #}
-
-{% set disable_top_region = ( disable_layout_regions or not layout or layout.fields.disable_top_region.value.bool )  %}
-{% set disable_right_region = ( disable_layout_regions or not layout or layout.fields.disable_right_region.value.bool ) %}
-{% set disable_left_region = ( disable_layout_regions or not layout or layout.fields.disable_left_region.value.bool )  %}
-{% set disable_bottom_region = ( disable_layout_regions or not layout or layout.fields.disable_bottom_region.value.bool ) %}
-
-{# PLACEHOLDERS #}
-
-{% set _placeholder_top_top = block( 'placeholder_top_top' ) %}
-{% set _placeholder_top_bottom = block( 'placeholder_top_bottom' ) %}
-{% set _placeholder_left_top = block( 'placeholder_left_top' ) %}
-{% set _placeholder_left_bottom = block( 'placeholder_left_bottom' ) %}
-{% set _placeholder_right_top = block( 'placeholder_right_top' ) %}
-{% set _placeholder_right_bottom = block( 'placeholder_right_bottom' ) %}
-{% set _placeholder_bottom_top = block( 'placeholder_bottom_top' ) %}
-{% set _placeholder_bottom_bottom = block( 'placeholder_bottom_bottom' ) %}
-
-{% set left_column_available = ( _placeholder_left_top is not empty or _placeholder_left_bottom is not empty or not disable_left_region ) %}
-{% set right_column_available = ( _placeholder_right_top is not empty or _placeholder_right_bottom is not empty or not disable_right_region ) %}
-
 {# AVAILABLE TRANSLATIONS #}
 
 {% if available_translations is not defined %}

@@ -1,4 +1,4 @@
-{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+{% extends ngbm.layoutTemplate %}
 
 {% if not content.fields.line_intro.empty %}
     {% set meta_data = { 'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
