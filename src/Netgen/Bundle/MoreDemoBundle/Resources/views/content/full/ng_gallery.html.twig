@@ -7,6 +7,7 @@
 {% endif %}
 
 {% block content %}
+<div class="container">
 <div class="view-type view-type-{{ viewType }} ng-gallery {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} clearfix">
     {{ render(
         controller(
@@ -18,5 +19,6 @@
             }
         )
     ) }}
+</div>
 </div>
 {% endblock %}

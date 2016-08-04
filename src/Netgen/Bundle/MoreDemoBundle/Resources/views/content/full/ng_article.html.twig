@@ -7,6 +7,7 @@
 {% endif %}
 
 {% block content %}
+<div class="container">
 <div class="view-type view-type-{{ viewType }} ng-article {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} clearfix">
 
     <h1 class="page-header">{{ ng_render_field( content.fields.title ) }}</h1>
@@ -56,5 +57,6 @@
         ) }}
     </div>
 
+</div>
 </div>
 {% endblock %}

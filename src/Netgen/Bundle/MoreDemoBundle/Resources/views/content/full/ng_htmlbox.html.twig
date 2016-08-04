@@ -1,7 +1,9 @@
 {% extends ngbm.layoutTemplate %}
 
 {% block content %}
+<div class="container">
 <div class="view-type view-type-{{ viewType }} ng-htmlbox clearfix">
     {{ content.fields.html_code.value.text|raw }}
+</div>
 </div>
 {% endblock %}

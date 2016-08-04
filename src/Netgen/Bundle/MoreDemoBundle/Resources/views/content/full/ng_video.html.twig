@@ -7,6 +7,7 @@
 {% endif %}
 
 {% block content %}
+<div class="container">
 <div class="view-type view-type-{{ viewType }} ng-video clearfix">
 
     <h1 class="page-header">{{ ng_render_field( content.fields.title ) }}</h1>
@@ -25,5 +26,6 @@
 
     {{ video.player( content ) }}
 
+</div>
 </div>
 {% endblock %}

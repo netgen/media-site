@@ -5,6 +5,7 @@
 {% endif %}
 
 {% block content %}
+<div class="container">
 <div class="view-type view-type-{{ viewType }} ng-audio clearfix">
 
     <h1 class="page-header">{{ ng_render_field( content.fields.title ) }}</h1>
@@ -28,5 +29,6 @@
         </div>
     {% endif %}
 
+</div>
 </div>
 {% endblock %}
