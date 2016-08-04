@@ -8,6 +8,7 @@ netgen_block_manager:
                     name: 'Section'
                 section_gray:
                     name: 'Section gray'
+
         list:
             view_types:
                 list:
@@ -15,6 +16,16 @@ netgen_block_manager:
                     item_view_types: &list_item_view_types
                         standard:
                             name: 'Standard'
+                        standard_with_intro:
+                            name: 'Standard (with intro)'
+                        overlay:
+                            name: 'Overlay'
+                        line:
+                            name: 'Line'
+                        mini:
+                            name: 'Mini'
+                        list:
+                            name: 'List'
                         listitem:
                             name: 'List item'
                 list_numbered:
@@ -23,3 +34,18 @@ netgen_block_manager:
                 grid:
                     name: 'Grid'
                     item_view_types: *list_item_view_types
+
+        gallery:
+            view_types:
+                slider:
+                    name: 'Slider'
+                    item_view_types:
+                        slide:
+                            name: 'Slide'
+                thumb_gallery:
+                    name: 'Thumb gallery'
+                grid_gallery:
+                    name: 'Grid gallery'
+                sushi_bar:
+                    name: 'Sushi bar'
+
