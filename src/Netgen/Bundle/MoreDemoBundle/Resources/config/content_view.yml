@@ -117,6 +117,10 @@ ezpublish:
                     listitem:
                         template: "NetgenMoreDemoBundle:content:listitem.html.twig"
                         match: ~
+                listitem_with_intro:
+                    listitem_with_intro:
+                        template: "NetgenMoreDemoBundle:content:listitem_with_intro.html.twig"
+                        match: ~
                 standard:
                     ng_article:
                         template: "NetgenMoreDemoBundle:content/standard:ng_article.html.twig"

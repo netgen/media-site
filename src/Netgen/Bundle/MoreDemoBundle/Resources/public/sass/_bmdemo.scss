@@ -46,9 +46,18 @@
     counter-increment: my-counter;
     content: counter(my-counter);
     display: block;
-    font-size:20px;
+    font-size:3em;
+    color:#900
   }
 
 }
 
 .swiper-container{margin:0}
+
+
+
+
+.vl.t4 .short .ezxmltext-field p{
+  margin-top:0.5em;
+  margin-bottom:0;
+}

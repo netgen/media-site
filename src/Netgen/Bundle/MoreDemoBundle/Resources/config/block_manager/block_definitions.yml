@@ -24,10 +24,10 @@ netgen_block_manager:
                             name: 'Line'
                         mini:
                             name: 'Mini'
-                        list:
-                            name: 'List'
                         listitem:
                             name: 'List item'
+                        listitem_with_intro:
+                            name: 'List item (with intro)'
                 list_numbered:
                     name: 'List (numbered)'
                     item_view_types: *list_item_view_types
