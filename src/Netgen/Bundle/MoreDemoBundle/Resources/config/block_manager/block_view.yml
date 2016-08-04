@@ -28,12 +28,6 @@ netgen_block_manager:
                                 block\definition: list
                                 block\view_type: list_numbered
 
-                        list\list:
-                            template: "NetgenBlockManagerBundle:block/list:list.html.twig"
-                            match:
-                                block\definition: list
-                                block\view_type: list
-
     view:
         block_view:
             api:
