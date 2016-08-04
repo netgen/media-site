@@ -33,3 +33,9 @@ netgen_block_manager:
                             match:
                                 block\definition: list
                                 block\view_type: list
+                    api:
+                        list\numbered:
+                            template: "NetgenBlockManagerBundle:api/block/list:list.html.twig"
+                            match:
+                                block\definition: list
+                                block\view_type: list_numbered
