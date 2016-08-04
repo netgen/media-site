@@ -1,6 +1,6 @@
 netgen_block_manager:
     system:
-        default:
+        frontend_group:
             view:
                 block_view:
                     default:
@@ -33,9 +33,12 @@ netgen_block_manager:
                             match:
                                 block\definition: list
                                 block\view_type: list
-                    api:
-                        list\numbered:
-                            template: "NetgenBlockManagerBundle:api/block/list:list.html.twig"
-                            match:
-                                block\definition: list
-                                block\view_type: list_numbered
+
+    view:
+        block_view:
+            api:
+                list\numbered:
+                    template: "NetgenBlockManagerBundle:api/block/list:list.html.twig"
+                    match:
+                        block\definition: list
+                        block\view_type: list_numbered
