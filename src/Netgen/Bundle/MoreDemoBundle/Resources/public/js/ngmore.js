@@ -102,6 +102,7 @@ $(document).ready(function($) {
     var sushiSwiper = [];
     $('.sushi-swiper.swiper-container').each(function(index) {
         var swiperId = 'sushiSwiper-' + (index + 1).toString();
+        var data = $(this).data();
         $(this).attr('id', swiperId);
         sushiSwiper.push(
             new Swiper($(this), {
@@ -112,6 +113,9 @@ $(document).ready(function($) {
                 slidesPerView: 3,
                 slidesPerGroup: 3,
                 spaceBetween: 30,
+                loop: data.loop,
+                effect: data.effect,
+                autoplay: data.autoplay*1000,
                 breakpoints: {
                     991: {
                         slidesPerView: 2,
@@ -128,6 +132,7 @@ $(document).ready(function($) {
     var defaultSwiper = [];
     $('.default-swiper.swiper-container').each(function(index) {
         var swiperId = 'defaultSwiper-' + (index + 1).toString();
+        var data = $(this).data();
         $(this).attr('id', swiperId);
         defaultSwiper.push(
             new Swiper($(this), {
@@ -136,6 +141,9 @@ $(document).ready(function($) {
                 nextButton: '#' + swiperId + ' .swiper-button-next',
                 prevButton: '#' + swiperId + ' .swiper-button-prev',
                 preloadImages: false,
+                loop: data.loop,
+                effect: data.effect,
+                autoplay: data.autoplay*1000,
                 lazyLoading: true,
                 lazyLoadingInPrevNext: true,
                 lazyLoadingOnTransitionStart: true
@@ -145,6 +153,7 @@ $(document).ready(function($) {
     var relatedSwiper = [];
     $('.related-multimedia.swiper-container').each(function(index) {
         var swiperId = 'relatedMultimediaSwiper-' + (index + 1).toString();
+        var data = $(this).data();
         $(this).attr('id', swiperId);
         relatedSwiper.push(
             new Swiper($(this), {
@@ -153,6 +162,9 @@ $(document).ready(function($) {
                 nextButton: '#' + swiperId + ' .swiper-button-next',
                 prevButton: '#' + swiperId + ' .swiper-button-prev',
                 preloadImages: false,
+                loop: data.loop,
+                effect: data.effect,
+                autoplay: data.autoplay*1000,
                 lazyLoading: true,
                 lazyLoadingInPrevNext: true,
                 lazyLoadingOnTransitionStart: true,
