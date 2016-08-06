@@ -1,3 +1,21 @@
+.bm-block {
+    margin:$gap 0;
+    &[class*="bg-"] {
+        padding:$gap 0;
+    }
+}
+.zone-left,
+.main-content-block .zone-right {
+  .bm-block:first-child {
+    margin-top:0;
+  }
+}
+.zone-post_header {
+    .bm-block[class*="bg-"]:first-child {
+        margin-top:0;
+    }
+}
+
 .vl {          // default view
     margin:0 0 2.5em;
     .image {
@@ -39,8 +57,9 @@
         }
     }
     .title {
-        font-size:19px;
-        margin:0 0 0.75em;
+        font-size:24px;
+        line-height:1.25;
+        margin:0 0 0.5em;
         font-weight:700;
         a {
             color:inherit;
@@ -57,17 +76,22 @@
         }
     }
     .date {
-        font-size:13px;
-        margin:0 0 0.75em;
+        font-size:14px;
+        margin:0 0 0.25em;
+        color:hsl(0, 0, 50);
+    }
+    .author {
+        color:$mainColor;
     }
     &.video-icon,
     &.photo-icon {
         .image > a::before {
             @extend %fontawesome;
             position:absolute;
-            bottom:0;
-            left:0;
-            background:#fff;
+            bottom:$gutter*0.8;
+            left:$gutter;
+            background:$mainColor;
+            color:#fff;
             width:40px;
             height:30px;
             line-height:30px;
@@ -100,9 +124,23 @@
             color:#fff;
             margin:0;
             font-size:20px;
+            line-height:1.2;
         }
         .image {
             margin:0;
+            a {
+                position:relative;
+                display:block;
+                &::after {
+                    content:"";
+                    position:absolute;
+                    left:0;
+                    top:0;
+                    width:100%;
+                    height:100%;
+                    background:hsla(0, 0, 0, 0.6);
+                }
+            }
             .fa {
                 top:4px;
                 bottom:auto;
@@ -110,18 +148,18 @@
                 color:#fff;
             }
         }
+        .date {
+            color:#fff;
+        }
+        .author {
+            color:#fff;
+        }
         &.video-icon,
         &.photo-icon {
             .image > a::before {
-                left:15px;
-                top:12px;
+                top:$gutter*0.8;
                 bottom:auto;
-                background:transparent;
-                width:auto;
-                height:auto;
-                line-height:1;
-                color:#fff;
-                font-size:1.5em;
+                z-index:3;
             }
         }
     }
@@ -137,8 +175,12 @@
         .info {
             float:left;
         }
+        .date {
+            font-weight:700;
+        }
         .title {
             font-size:25px;
+            margin:0 0 0.25em;
         }
         @media screen and (max-width:$break-xs) {
             & {
@@ -204,6 +246,13 @@
         }
         .date {
             margin:0 0 0.375em;
+        }
+        .short {
+            p {
+                margin-top:0.5em;
+                margin-bottom:0;
+                font-size:0.875em;
+            }
         }
     }
 }

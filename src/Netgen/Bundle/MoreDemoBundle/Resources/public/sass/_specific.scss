@@ -1,0 +1,32 @@
+// Specific style file
+
+.section-red {background-color: #fcc;}
+.section-blue {background-color: #99f;}
+.section-gray {background-color: #eee;}
+
+.bg-gray {background-color:hsl(220, 2, 35);}
+.bg-gray-light {background-color:hsl(180, 4, 95);}
+
+.bg-gray, .bg-gray-light {
+    & + & {margin-top:-$gap; padding-top:$gap;}
+}
+
+.main-content-block .zone-right {
+    background-color:hsl(0, 0, 95);
+    padding:20px;
+    border:1px solid hsl(0, 0, 80);
+}
+
+.list-numbered {
+    counter-reset: my-counter;
+    .list-item::before {
+        counter-increment: my-counter;
+        content: counter(my-counter);
+        display: block;
+        font-size:1.75em;
+        font-weight:700;
+        color:$mainColor;
+    }
+}
+
+.swiper-container {margin:0}
