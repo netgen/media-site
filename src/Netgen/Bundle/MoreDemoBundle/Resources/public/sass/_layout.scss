@@ -29,6 +29,10 @@ header {
     background-size:118px auto;
     overflow:hidden;
     text-indent:-999em;
+    @media screen and (max-width:$break-md) {
+        width:125px;
+        background-size:98px auto;
+    }
     @media screen and (max-width:$break-sm) {
         & {
             left:0;
@@ -81,6 +85,9 @@ header {
                 }
             }
         }
+    }
+    @media screen and (max-width:$break-md) {
+        padding-left:125px;
     }
     @media screen and (max-width:$break-sm) {
         & {
@@ -156,6 +163,15 @@ header {
                     &:focus {
                         color:$mainColor;
                     }
+                }
+            }
+        }
+    }
+    @media (max-width:$break-md) {
+        .navbar-nav {
+            > li {
+                > a {
+                    font-size:12px;
                 }
             }
         }

@@ -344,3 +344,230 @@
         }
     }
 }
+
+
+.article-title {
+    font-size:50px;
+    font-weight:700;
+    margin:0.375em 0 0.125em;
+}
+.article-intro {
+    font-size:25px;
+    font-weight:700;
+    margin:0 0 3*$gutter;
+    p {
+        color:inherit;
+    }
+}
+.article-image {
+    margin:0 0 3*$gutter;
+    img {
+        max-width:100%;
+    }
+}
+.article-body {
+    h2 {
+        font-size:28px;
+        text-transform:uppercase;
+        margin:0.75em 0 0.25em;
+    }
+}
+.article-date {
+    margin:0 0 2*$gutter;
+    .author {
+        color:$mainColor;
+    }
+}
+@media screen and (max-width:$break-sm) {
+    .article-title {
+        font-size:34px;
+    }
+    .article-body {
+        h2 {
+            font-size:24px;
+        }
+    }
+}
+@media screen and (max-width:$break-xs) {
+    .article-body {
+        h2 {
+            font-size:21px;
+        }
+    }
+}
+.vf1 {    // ng_news full view
+    .article-header {
+        position:relative;
+        background-repeat:no-repeat;
+        background-position:center center;
+        background-size:cover;
+        &::before {
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:1;
+            background:hsla(0, 0, 0, 0.6);
+        }
+        .article-image {
+            height:0;
+            margin:0;
+            padding-bottom:56.25%;
+            img {
+                display:none;
+            }
+        }
+        .article-header-info {
+            position:absolute;
+            top:50%;
+            padding:0 10%;
+            transform:translateY(-50%);
+            width:100%;
+            z-index:2;
+            color:#fff;
+            > .container {
+                max-width:980px;
+            }
+            .article-title {
+                font-size:60px;
+                margin:0 0 0.125em;
+            }
+            .article-intro {
+                font-size:21px;
+                font-weight:400;
+                margin:0;
+                p {
+                    color:inherit;
+                }
+            }
+        }
+    }
+    .article-content {
+        padding:2*$gutter 16%;
+        .article-body {
+            h2 {
+                font-size:44px;
+            }
+        }
+    }
+    .article-date {
+        text-transform:uppercase;
+        margin:0 0 3*$gutter;
+        .author {
+            font-weight:700;
+        }
+    }
+    .article-footer {
+        border-top:1px solid hsl(0, 0, 80);
+        padding-top:3*$gutter;
+        margin-top:3*$gutter;
+    }
+    @media screen and (max-width:$break-sm) {
+        .article-content {
+            padding-left:0;
+            padding-right:0;
+            .article-body {
+                h2 {
+                    font-size:36px;
+                }
+            }
+        }
+        .article-header {
+            .article-header-info {
+                padding:0;
+                .article-title {
+                    font-size:6vw;
+                }
+                .article-intro {
+                    font-size:18px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:$break-xs) {
+        .article-content {
+            .article-body {
+                h2 {
+                    font-size:28px;
+                }
+            }
+        }
+    }
+}
+
+.newsletter-box {
+    background:hsl(0, 0, 90);
+    border:1px solid hsl(0, 0, 80);
+    margin:0 0 3*$gutter;
+    padding:5%;
+    text-align:center;
+    h3 {
+        font-size:34px;
+        margin:0 0 0.3em;
+    }
+    p {
+        font-size:21px;
+        color:hsl(0, 0, 45);
+        margin:0 0 1.5em;
+    }
+    form {
+        display:flex;
+        .form-control {
+            margin-right:20px;
+            flex:1;
+            border-color:hsl(0, 0, 80);
+            background:hsl(0, 0, 95);
+            height:54px;
+            box-shadow:none;
+            font-size:19px;
+        }
+        button {
+            height:54px;
+            line-height:54px;
+            background:$mainColor;
+            color:#fff;
+            border:none;
+            font-size:19px;
+            text-transform:uppercase;
+            font-weight:700;
+            padding:0 1em;
+            border-radius:4px;
+        }
+    }
+    @media screen and (max-width:$break-sm) {
+        h3 {
+            font-size:28px;
+        }
+        p {
+            font-size:18px;
+        }
+        form {
+            display:block;
+            text-align:left;
+            &::after {
+                content:"";
+                display:table;
+                clear:both;
+            }
+            .form-control {
+                margin:0 0 1em;
+                height:38px;
+                font-size:18px;
+            }
+            button {
+                height:38px;
+                line-height:38px;
+                font-size:18px;
+                float:right;
+            }
+        }
+    }
+}
+
+.container .container {
+    margin-left:-15px;
+    margin-right:-15px;
+    width:auto;
+}
