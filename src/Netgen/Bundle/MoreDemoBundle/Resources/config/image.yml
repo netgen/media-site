@@ -1,6 +1,6 @@
 ezpublish:
     system:
-        frontend_group:
+        default:
             image_variations:
                 i320:
                     reference: original
