@@ -5,9 +5,9 @@ netgen_block_manager:
                 title:
                     name: 'Title'
                 section:
-                    name: 'Section'
+                    name: 'Title (section)'
                 section_gray:
-                    name: 'Section gray'
+                    name: 'Title (section gray)'
 
         list:
             view_types:
