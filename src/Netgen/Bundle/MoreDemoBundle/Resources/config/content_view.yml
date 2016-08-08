@@ -363,3 +363,35 @@ ezpublish:
                     search:
                         template: "NetgenMoreDemoBundle:content:search.html.twig"
                         match: ~
+
+        default:
+            content_view:
+                ngcb_preview:
+                    ng_article:
+                        template: "NetgenMoreDemoBundle:content/ngcb_preview:ng_article.html.twig"
+                        match:
+                            Identifier\ContentType: ng_article
+                    ng_audio:
+                        template: "NetgenMoreDemoBundle:content/ngcb_preview:ng_audio.html.twig"
+                        match:
+                            Identifier\ContentType: ng_audio
+                    ng_banner:
+                        template: "NetgenMoreDemoBundle:content/ngcb_preview:ng_banner.html.twig"
+                        match:
+                            Identifier\ContentType: ng_banner
+                    ng_blog_post:
+                        template: "NetgenMoreDemoBundle:content/ngcb_preview:ng_blog_post.html.twig"
+                        match:
+                            Identifier\ContentType: ng_blog_post
+                    ng_gallery:
+                        template: "NetgenMoreDemoBundle:content/ngcb_preview:ng_gallery.html.twig"
+                        match:
+                            Identifier\ContentType: ng_gallery
+                    ng_news:
+                        template: "NetgenMoreDemoBundle:content/ngcb_preview:ng_news.html.twig"
+                        match:
+                            Identifier\ContentType: ng_news
+                    ng_video:
+                        template: "NetgenMoreDemoBundle:content/ngcb_preview:ng_video.html.twig"
+                        match:
+                            Identifier\ContentType: ng_video
