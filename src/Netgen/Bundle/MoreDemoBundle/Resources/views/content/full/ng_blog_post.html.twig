@@ -78,7 +78,7 @@
                                     {% else %}
                                         {{ ngmore_owner( content ).name }}
                                     {% endif %}
-                                </span> - {{ content.fields.publish_date.value.value|date( 'F j. Y.' ) }}
+                                </span> - {{ content.fields.publish_date.value.value|date( 'F j, Y' ) }}
                             </div>
                         </div>
                     {% endblock %}
