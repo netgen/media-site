@@ -1,4 +1,12 @@
 netgen_block_manager:
+    block_types:
+        slider:
+            name: 'Slider'
+            definition_identifier: gallery
+            defaults:
+                view_type: slider
+                item_view_type: slide
+
     block_definitions:
         title:
             view_types:
