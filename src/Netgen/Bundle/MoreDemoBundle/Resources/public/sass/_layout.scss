@@ -29,7 +29,7 @@ header {
     background-size:118px auto;
     overflow:hidden;
     text-indent:-999em;
-    @media screen and (max-width:$break-md) {
+    @media screen and (max-width:$break-lg) {
         width:125px;
         background-size:98px auto;
     }
@@ -86,8 +86,13 @@ header {
             }
         }
     }
-    @media screen and (max-width:$break-md) {
+    @media screen and (max-width:$break-lg) {
         padding-left:125px;
+        #lang-selector {
+            .current-lang {
+                font-size:13px;
+            }
+        }
     }
     @media screen and (max-width:$break-sm) {
         & {
@@ -163,6 +168,15 @@ header {
                     &:focus {
                         color:$mainColor;
                     }
+                }
+            }
+        }
+    }
+    @media (max-width:$break-lg) {
+        .navbar-nav {
+            > li {
+                > a {
+                    font-size:13px;
                 }
             }
         }
