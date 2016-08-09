@@ -2,32 +2,28 @@
 
 {% block content %}
     {% if collections['default'] is defined %}
-       {% set items = collections['default'].results %}
+       {% set result = collections['default'].results %}
 
         <div class="vl4">
-
             <div class="main-item">
-                {% if items[0] is defined %}
-                   {{ ngbm_render_item(items[0].item, block.itemViewType, [], view_context) }}
+                {% if result[0] is defined %}
+                   {{ ngbm_render_item(result[0].item, block.itemViewType, [], view_context) }}
                 {% endif %}
             </div>
-
 
             <div class="secondary-items">
-                {% if items[1] is defined %}
+                {% if result[1] is defined %}
                     <div class="secondary-item">
-                        {{ ngbm_render_item(items[1].item, block.itemViewType, [], view_context) }}
+                        {{ ngbm_render_item(result[1].item, block.itemViewType, [], view_context) }}
                     </div>
                 {% endif %}
 
-                {% if items[2] is defined %}
+                {% if result[2] is defined %}
                     <div class="secondary-item">
-                        {{ ngbm_render_item(items[2].item, block.itemViewType, [], view_context) }}
+                        {{ ngbm_render_item(result[2].item, block.itemViewType, [], view_context) }}
                     </div>
                 {% endif %}
             </div>
-
         </div>
-
     {% endif %}
 {% endblock %}

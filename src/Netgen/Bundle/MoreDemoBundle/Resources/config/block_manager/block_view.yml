@@ -28,8 +28,7 @@ netgen_block_manager:
                                 block\definition: list
                                 block\view_type: list_numbered
 
-
-                        grid\featured:
+                        list\grid_featured:
                             template: "NetgenMoreDemoBundle:block/list:grid_featured.html.twig"
                             match:
                                 block\definition: list
