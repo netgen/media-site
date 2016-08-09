@@ -345,6 +345,107 @@
     }
 }
 
+.vl4 {      // grid featured
+    display:flex;
+    margin:-2px;
+    .main-item {
+        width:66.6666666%;
+        position:relative;
+        .vl.t1 {
+            height:0;
+            padding-bottom:56.25%;
+            .title {
+                font-size:38px;
+            }
+        }
+    }
+    .secondary-items {
+        flex:1;
+        display:flex;
+        flex-direction:column;
+    }
+    .secondary-item {
+        display:flex;
+        flex:1;
+    }
+    .vl.t1 {
+        margin:0;
+        flex:1;
+        .image {
+            overflow:hidden;
+            position:absolute;
+            left:2px;
+            top:2px;
+            bottom:2px;
+            right:2px;
+        }
+        .date {
+            text-transform:uppercase;
+            font-weight:bold;
+            font-size:16px;
+            text-shadow:0 0 6px hsla(0, 0, 0, 0.75);
+        }
+        .image a::after {
+            display:none;
+        }
+        .info {
+            left:2*$gutter;
+            right:2*$gutter;
+            bottom:2*$gutter;
+        }
+        .title {
+            font-size:24px;
+            line-height:1.4;
+            display:inline;
+            background:$mainColor;
+            color:#fff;
+        }
+    }
+    @media screen and (max-width:$break-md) {
+        display:block;
+        .main-item {
+            width:100%;
+        }
+        .secondary-items {
+            flex-direction:row;
+        }
+        .secondary-item {
+            .vl.t1 {
+                height:0;
+                padding-bottom:56.25%;
+            }
+        }
+    }
+    @media screen and (max-width:$break-sm) {
+        .secondary-items {
+            display:block;
+        }
+        .main-item .vl.t1,
+        .vl.t1 {
+            height:auto;
+            padding:2px;
+            .image {
+                position:relative;
+                left:0;
+                top:0;
+                bottom:0;
+                right:0;
+            }
+            .title {
+                font-size:24px;
+            }
+        }
+    }
+    @media screen and (max-width:$break-xs) {
+        .vl.t1 {
+            .info {
+                left:$gutter;
+                bottom:$gutter;
+                right:$gutter;
+            }
+        }
+    }
+}
 
 .article-title {
     font-size:50px;
