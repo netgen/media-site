@@ -34,6 +34,9 @@ netgen_block_manager:
                 grid:
                     name: 'Grid'
                     item_view_types: *list_item_view_types
+                grid_featured:
+                    name: 'Grid (featured)'
+                    item_view_types: *list_item_view_types
 
         gallery:
             view_types:

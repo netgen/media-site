@@ -1,0 +1,29 @@
+{% extends 'NetgenBlockManagerBundle:block:block.html.twig' %}
+
+{% block content %}
+    {% if collections['default'] is defined %}
+       {% set items = collections['default'].results %}
+
+        <div class="row">
+
+            <div class="col-md-8">
+                {% if items[0] is defined %}
+                   {{ ngbm_render_item(items[0].item, block.itemViewType, [], view_context) }}
+                {% endif %}
+            </div>
+
+
+            <div class="col-md-4">
+                {% if items[1] is defined %}
+                    {{ ngbm_render_item(items[1].item, block.itemViewType, [], view_context) }}
+                {% endif %}
+
+                {% if items[2] is defined %}
+                    {{ ngbm_render_item(items[2].item, block.itemViewType, [], view_context) }}
+                {% endif %}
+            </div>
+
+        </div>
+
+    {% endif %}
+{% endblock %}

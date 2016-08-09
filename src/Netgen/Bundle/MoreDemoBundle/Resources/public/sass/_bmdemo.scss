@@ -1,0 +1,37 @@
+
+.bm-vt-grid_featured{
+
+  @media screen and (min-width:991px) {
+    .col-md-8{
+      padding-right:4px;
+    }
+
+    .col-md-4{
+      padding-left:0;
+    }
+  }
+
+  .vl{
+    margin:0 0 4px 0;
+    .date{text-transform:uppercase; font-weight:bold;}
+    .image a::after{display:none;}
+    .title{display:inline; background:#CF4C3D; color:#fff;}
+  }
+
+
+  @media screen and (min-width:601px) and (max-width:990px) {
+    .col-md-8 > div{margin-left:-2px; margin-right:-2px;}
+    .col-md-4 > div{width:50%; float:left; margin-right:4px; margin-left:-2px;}
+    .col-md-4 > div:last-child{float:right; margin-right:-2px;}
+  }
+
+  @media screen and (min-width:400px) and (max-width:600px){
+    .col-md-4 > div{height:130px; overflow:hidden;
+      .image{margin-top:-65px;}
+    }
+  }
+
+}
+
+
+
