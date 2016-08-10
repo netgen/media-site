@@ -9,18 +9,19 @@
         {% set image_alias = ng_image_alias( content.fields[field_name], alias_name ) %}
 
         {% if use_lazy_load %}
-            {{ ng_render_field(
-                content.fields[field_name], {
-                    parameters: {
-                        alt_text: content_fields.name( content ),
-                        disable_src_attribute: true
-                    },
-                    attr: {
-                        class: 'swiper-lazy',
-                        'data-src': asset( image_alias.uri )
+            {% if image_alias %}
+                {{ ng_render_field(
+                    content.fields[field_name], {
+                        parameters: {
+                            alt_text: content_fields.name( content ),
+                            disable_src_attribute: true
+                        },
+                        attr: {
+                            class: 'swiper-lazy',
+                            'data-src': asset( image_alias.uri )
                     }
-                }
-            ) }}
+                ) }}
+            {% endif %}
         {% else %}
             {{ ng_render_field(
                 content.fields[field_name], {

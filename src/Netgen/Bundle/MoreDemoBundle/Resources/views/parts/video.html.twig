@@ -52,7 +52,11 @@
 
     {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
     {% if not content.fields.poster.empty %}
-        {% set image_path = ng_image_alias( content.fields.poster, 'i1140' ).uri %}
+        {% set poster_alias = ng_image_alias( content.fields.poster, 'i1140' ) %}
+
+        {% if poster_alias %}
+            {% set image_path = asset( poster_alias.uri ) %}
+        {% endif %}
     {% endif %}
 
     {% if 'upload' in video_types %}
@@ -116,7 +120,11 @@
 
     {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
     {% if not content.fields.poster.empty %}
-        {% set image_path = ng_image_alias( content.fields.poster, 'i1140' ).uri %}
+        {% set poster_alias = ng_image_alias( content.fields.poster, 'i1140' ) %}
+
+        {% if poster_alias %}
+            {% set image_path = asset( poster_alias.uri ) %}
+        {% endif %}
     {% endif %}
 
     {% if 'upload' in video_types %}

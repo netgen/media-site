@@ -46,3 +46,21 @@
         </div>
     {% endif %}
 {% endmacro %}
+
+{% macro background_poster(content, field, alias_name) %}
+{% spaceless %}
+    {% set alias_name = alias_name|default( 'original' ) %}
+    {% set field = field|default( 'image' ) %}
+
+    {% set poster_image = '' %}
+    {% if not content.fields[field].empty %}
+        {% set poster_alias = ng_image_alias( content.fields[field], alias_name ) %}
+
+        {% if poster_alias %}
+            {% set poster_image = asset( poster_alias.uri ) %}
+        {% endif %}
+    {% endif %}
+
+    {{ poster_image }}
+{% endspaceless %}
+{% endmacro %}
