@@ -33,12 +33,14 @@
                     </div>
                 {% endif %}
             {% endblock %}
+
             <div class="article-header-info">
                 {% block title %}
                     <div class="container">
                         <h1 class="article-title">{{ ng_render_field( content.fields.title ) }}</h1>
                     </div>
                 {% endblock %}
+
                 {% block intro %}
                     {% if not content.fields.full_intro.empty %}
                         <div class="container">
@@ -52,7 +54,6 @@
         </div>
         <div class="container">
             <div class="article-content">
-
                 {% if not content.fields.headline.empty %}
                     <h2 class="headline">{{ ng_render_field( content.fields.headline ) }}</h2>
                 {% endif %}
@@ -87,6 +88,7 @@
                             </div>
                         </div>
                     {% endblock %}
+
                     {% block newsletter %}
                         <div class="newsletter-box">
                             <h3>Want more posts like this?</h3>
@@ -100,6 +102,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 {% endblock %}
