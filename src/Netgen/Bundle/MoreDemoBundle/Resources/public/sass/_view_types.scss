@@ -524,14 +524,10 @@
         .article-header-info {
             position:absolute;
             top:50%;
-            padding:0 10%;
             transform:translateY(-50%);
             width:100%;
             z-index:2;
             color:#fff;
-            > .container {
-                max-width:980px;
-            }
             .article-title {
                 font-size:60px;
                 margin:0 0 0.125em;
@@ -542,6 +538,33 @@
                 margin:0;
                 p {
                     color:inherit;
+                }
+            }
+            &.no-image {
+                position:relative;
+                top:0;
+                transform:none;
+                color:#333;
+            }
+        }
+        &.no-image {
+            &::before {
+                display:none;
+            }
+            .article-header-info {
+                position:relative;
+                top:0;
+                transform:none;
+                color:#333;
+                padding:3em 0 0;
+                .article-title {
+                    font-size:44px;
+                }
+                > .container {
+                    > * {
+                        padding-left:16%;
+                        padding-right:16%;
+                    }
                 }
             }
         }
@@ -566,6 +589,15 @@
         padding-top:3*$gutter;
         margin-top:3*$gutter;
     }
+    @media screen and (max-width:$break-md) {
+        .article-header {
+            .article-header-info {
+                .article-title {
+                    font-size:44px;
+                }
+            }
+        }
+    }
     @media screen and (max-width:$break-sm) {
         .article-content {
             padding-left:0;
@@ -576,7 +608,8 @@
                 }
             }
         }
-        .article-header {
+        .article-header,
+        .article-header.no-image {
             .article-header-info {
                 padding:0;
                 .article-title {
@@ -585,10 +618,32 @@
                 .article-intro {
                     font-size:18px;
                 }
+                > .container {
+                    > * {
+                        padding-left:0;
+                        padding-right:0;
+                    }
+                }
+            }
+        }
+        .article-header.no-image {
+            .article-header-info {
+                padding-top:1.5em;
             }
         }
     }
     @media screen and (max-width:$break-xs) {
+        .article-header:not(.no-image) {
+            .article-image {
+                display:none;
+            }
+            .article-header-info {
+                position:relative;
+                top:0;
+                transform:none;
+                padding:1.5em 0;
+            }
+        }
         .article-content {
             .article-body {
                 h2 {
