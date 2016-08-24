@@ -30,3 +30,45 @@
 }
 
 .swiper-container {margin:0}
+
+.breadcrumb-wrapper {
+    background:hsl(0, 0, 95);
+    margin:0 0 1.5em;
+    padding:1em 0;
+    .breadcrumb {
+        list-style-type:none;
+        margin:0;
+        padding:0;
+        background:transparent;
+        &::after {
+            @extend %clearfix;
+        }
+        li {
+            float:left;
+            + li {
+                &:before {
+                    content:">";
+                    display:inline-block;
+                    margin:0 0.5em;
+                    color:hsl(0, 0, 80);
+                }
+            }
+        }
+        a {
+            color:$mainColor;
+            font-weight:700;
+            font-size:0.875em;
+        }
+    }
+    @media screen and (max-width:$break-sm) {
+        padding:0.5em 0;
+        .breadcrumb {
+            a {
+                font-size:0.75em;
+            }
+        }
+    }
+    @media screen and (max-width:$break-xs) {
+        display:none;
+    }
+}
