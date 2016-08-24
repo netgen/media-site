@@ -12,7 +12,7 @@
 
     <h1 class="page-header">{{ ng_render_field( content.fields.title ) }}</h1>
 
-    {{ video.player( content ) }}
+    {{ video.player( content, true ) }}
 
     {% if not content.fields.line_intro.empty %}
         <div class="short">
