@@ -12,6 +12,8 @@
 
     <h1 class="page-header">{{ ng_render_field( content.fields.title ) }}</h1>
 
+    {{ video.player( content ) }}
+
     {% if not content.fields.line_intro.empty %}
         <div class="short">
             {{ ng_render_field( content.fields.line_intro ) }}
@@ -23,8 +25,6 @@
             {{ ng_render_field( content.fields.description ) }}
         </div>
     {% endif %}
-
-    {{ video.player( content ) }}
 
 </div>
 </div>
