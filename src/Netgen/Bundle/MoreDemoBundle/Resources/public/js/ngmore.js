@@ -76,7 +76,8 @@ function jwplayer_init( videoObjectClass, videoObject ){
             autostart: videoObject.data('autostart'),
             controlbar: [{ idlehide: 'true' }],
             playlist: [{
-                sources: sources
+                sources: sources,
+                image: videoObject.data('image')
             }]
         });
     }
