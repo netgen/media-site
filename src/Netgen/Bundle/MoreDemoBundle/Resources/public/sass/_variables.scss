@@ -9,12 +9,13 @@ $headerHeight: 100px;
 $headerHeightSm: 70px;
 $gutter: 15px;
 $gap: 2*$gutter;
+$borderRadius: 0;
 
 // colours
 $mainColor: hsl(4, 85, 57);
 $headerBg: hsl(270, 2, 25);
 $headerActiveBg: hsl(348, 6, 13);
-$linkColor: #337ab7;
+$linkColor: hsl(200, 95, 45);
 
 %clearfix {
     &:after {

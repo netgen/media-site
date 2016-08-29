@@ -3,33 +3,27 @@
 {% set show_path = false %}
 
 {% block content %}
-<div class="content-search clearfix">
+<div class="content-search">
     <form action="{{ path('ngmore_content_search') }}" method="get" class="form-search">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="input-group">
-                            <input class="form-control" placeholder="{{ 'ngmore.search.placeholder'|trans }}" type="text" name="searchText" id="Search" value="{{ search_text }}" />
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-primary">{{ 'ngmore.search.button'|trans }}</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                {% if search_text is not empty %}
-                    {% if locations.nbResults == 0 %}
-                        <div class="alert alert-error">
-                            <h2>{{ 'ngmore.search.no_results'|trans({ '%searchText%': search_text }) }}</h2>
-                        </div>
-                    {% else %}
-                        <div class="alert alert-success">
-                            <h2>{{ 'ngmore.search.results'|trans({ '%searchText%': search_text, '%searchCount%': locations.nbResults }) }}</h2>
-                        </div>
-                    {% endif %}
-                {% endif %}
+        <div class="search-inputs">
+            <div class="input-group">
+                <input class="form-control" placeholder="{{ 'ngmore.search.placeholder'|trans }}" type="text" name="searchText" id="Search" value="{{ search_text }}" />
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-dark">{{ 'ngmore.search.button'|trans }}</button>
+                </span>
             </div>
+
+            {% if search_text is not empty %}
+                {% if locations.nbResults == 0 %}
+                    <div class="alert alert-error">
+                        <h2>{{ 'ngmore.search.no_results'|trans({ '%searchText%': search_text }) }}</h2>
+                    </div>
+                {% else %}
+                    <div class="alert alert-success">
+                        <h2>{{ 'ngmore.search.results'|trans({ '%searchText%': search_text, '%searchCount%': locations.nbResults }) }}</h2>
+                    </div>
+                {% endif %}
+            {% endif %}
         </div>
 
         {% if search_text is not empty %}

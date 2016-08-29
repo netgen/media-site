@@ -1,5 +1,76 @@
 // Specific style file
 
+/* bootstrap inputs and buttons override */
+.form-control {
+    border-radius:$borderRadius;
+    background:hsl(0, 0, 95);
+    border:none;
+    box-shadow:none;
+}
+.btn {
+    border-radius:$borderRadius;
+}
+.btn-primary {
+    $btnPrimaryBg: $mainColor;
+    color:#fff;
+    background-color:$btnPrimaryBg;
+    border-color:$btnPrimaryBg;
+    &:active,
+    &.active {
+        background-color:$btnPrimaryBg;
+        border-color:$btnPrimaryBg;
+    }
+    &:hover,
+    &:active:hover,
+    &.active:hover,
+    &.active:focus,
+    &.active.focus,
+    &:active:focus,
+    &:active.focus,
+    &:focus,
+    &.focus {
+        background-color:desaturate(darken($btnPrimaryBg, 8%), 8%);
+        border-color:desaturate(darken($btnPrimaryBg, 8%), 8%);
+    }
+}
+.btn-dark {
+    $btnDarkBg: hsl(0, 0, 20);
+    color:#fff;
+    background-color:$btnDarkBg;
+    border-color:$btnDarkBg;
+    &:active,
+    &.active {
+        background-color:$btnDarkBg;
+        border-color:$btnDarkBg;
+    }
+    &:hover,
+    &:active:hover,
+    &.active:hover,
+    &.active:focus,
+    &.active.focus,
+    &:active:focus,
+    &:active.focus,
+    &:focus,
+    &.focus {
+        color:#fff;
+        background-color:lighten($btnDarkBg, 8%);
+        border-color:lighten($btnDarkBg, 8%);
+    }
+}
+
+.search-inputs {
+    border-top:1px solid hsl(0, 0, 75);
+    border-bottom:1px solid hsl(0, 0, 75);
+    padding:1em 0 0;
+    .input-group {
+        margin:0 0 1em;
+        .btn {
+            font-weight:700;
+            text-transform:uppercase;
+        }
+    }
+}
+
 .section-red {background-color: #fcc;}
 .section-blue {background-color: #99f;}
 .section-gray {background-color: #eee;}
