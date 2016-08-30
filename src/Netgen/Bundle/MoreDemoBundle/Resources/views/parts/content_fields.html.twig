@@ -2,16 +2,15 @@
     {% set alias_name = alias_name|default( 'i480' ) %}
 
     {% set image_field = false %}
-    {% if content.fields.line_image is defined and not ez_is_field_empty( content, 'line_image' ) %}
-        {% set image_field = 'line_image' %}
-    {% elseif content.fields.image is defined and not ez_is_field_empty( content, 'image' ) %}
-        {% set image_field = 'image' %}
+    {% if content.hasField('line_image') and not content.fields.line_image.empty %}
+        {% set image_field = content.fields.line_image %}
+    {% elseif content.hasField('image') and not content.fields.image.empty %}
+        {% set image_field = content.fields.image %}
     {% endif %}
 
     {% if image_field %}
         <div class="image">
-            {{ ez_render_field(
-                content,
+            {{ ng_render_field(
                 image_field, {
                     'parameters': {
                         'alias': alias_name,
@@ -26,24 +25,24 @@
 
 {% macro name( content ) %}
 {% spaceless %}
-    {% if content.fields.title is defined and not ez_is_field_empty( content, 'title' ) %}
-        {{ ez_field_value( content, 'title' ).text }}
-    {% elseif content.fields.name is defined and not ez_is_field_empty( content, 'name' ) %}
-        {{ ez_field_value( content, 'name' ).text }}
+    {% if content.hasField('title') and not content.fields.title.empty %}
+        {{ content.fields.title.value.text }}
+    {% elseif content.hasField('name') and not content.fields.name.empty %}
+        {{ content.fields.title.name.text }}
     {% else %}
-        {{ ez_content_name( content ) }}
+        {{ content.name }}
     {% endif %}
 {% endspaceless %}
 {% endmacro %}
 
 {% macro intro( content ) %}
-    {% if content.fields.line_intro is defined and not ez_is_field_empty( content, 'line_intro' ) %}
+    {% if content.hasField('line_intro') and not content.fields.line_intro.empty %}
         <div class="short">
-            {{ ez_render_field( content, 'line_intro' ) }}
+            {{ ng_render_field( content.fields.line_intro ) }}
         </div>
-    {% elseif content.fields.full_intro is defined and not ez_is_field_empty( content, 'full_intro' ) %}
+    {% elseif content.hasField('full_intro') and not content.fields.full_intro.empty %}
         <div class="short">
-            {{ ez_render_field( content, 'full_intro' ) }}
+            {{ ng_render_field( content.fields.full_intro ) }}
         </div>
     {% endif %}
 {% endmacro %}

@@ -1,30 +1,30 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
-{% if not ez_is_field_empty( content, 'line_intro' ) %}
-    {% set meta_data = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% if not content.fields.line_intro.empty %}
+    {% set meta_data = { 'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
 {% endif %}
 
 {% block content %}
 <div class="view-type view-type-{{ viewType }} ng-audio clearfix">
 
-    <h1 class="page-header">{{ ez_render_field( content, 'title' ) }}</h1>
+    <h1 class="page-header">{{ ng_render_field( content.fields.title ) }}</h1>
 
-    {% if not ez_is_field_empty( content, 'line_intro' ) %}
+    {% if not content.fields.line_intro.empty %}
         <div class="short">
-            {{ ez_render_field( content, 'line_intro' ) }}
+            {{ ng_render_field( content.fields.line_intro ) }}
         </div>
     {% endif %}
 
-    {% if not ez_is_field_empty( content, 'file' ) %}
+    {% if not content.fields.file.empty %}
         <audio controls>
-            <source type="audio/mpeg" src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( 'file' ).id } ) }}" />
+            <source type="audio/mpeg" src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.fields.file.id } ) }}" />
             Your browser does not support the audio element.
         </audio>
     {% endif %}
 
-    {% if not ez_is_field_empty( content, 'description' ) %}
+    {% if not content.fields.description.empty %}
         <div class="body">
-            {{ ez_render_field( content, 'description' ) }}
+            {{ ng_render_field( content.fields.description ) }}
         </div>
     {% endif %}
 

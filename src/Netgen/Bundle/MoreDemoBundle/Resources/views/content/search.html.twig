@@ -1,6 +1,6 @@
 {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-search {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl3">
+<div class="view-type view-type-search {{ content.contentInfo.contentTypeIdentifier|replace( { '_': '-' } ) }} vl3">
 
     <div class="row">
 
@@ -13,12 +13,12 @@
                 </h2>
 
                 <div class="short">
-                    {% if content.fields.line_intro is defined and not ez_is_field_empty( content, 'line_intro' ) %}
-                        {{ ez_render_field( content, 'line_intro' ) }}
-                    {% elseif content.fields.full_intro is defined and not ez_is_field_empty( content, 'full_intro' ) %}
-                        {{ ez_render_field( content, 'full_intro' ) }}
-                    {% elseif content.fields.body is defined and not ez_is_field_empty( content, 'body' ) %}
-                        {{ ez_field_value( content, 'body' ).xml.saveXML()|striptags|trim|truncate( 210 ) }}
+                    {% if content.hasField('line_intro') and not content.fields.line_intro.empty %}
+                        {{ ng_render_field( content.fields.line_intro ) }}
+                    {% elseif content.hasField('full_intro') and not content.fields.full_intro.empty %}
+                        {{ ng_render_field( content.fields.full_intro ) }}
+                    {% elseif content.hasField('body') and not content.fields.body.empty %}
+                        {{ content.fields.body.value.xml.saveXML()|striptags|trim|truncate( 210 ) }}
                     {% endif %}
                 </div>
 
@@ -32,7 +32,7 @@
                     <label>
                         Type:
                     </label>
-                    {{ ngmore_content_type_name( content.contentInfo.contentTypeId ) }}
+                    {{ content.contentInfo.contentTypeName }}
                 </div>
 
                 {% if score_percent is defined %}

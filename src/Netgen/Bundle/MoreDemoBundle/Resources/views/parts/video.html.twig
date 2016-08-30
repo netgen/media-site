@@ -2,11 +2,11 @@
     {% set alias_name = alias_name|default( 'i480' ) %}
 
     <a href="{{ path( location is not empty ? location : content ) }}" class="image-16by9">
-        {% if not ez_is_field_empty( content, 'poster' ) %}
-            {{ ez_render_field( content, 'poster', { 'parameters': { 'alias': alias_name } } ) }}
-        {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
-            {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
-            {% set video_types = ez_field_value( content, 'video_type' ).identifiers %}
+        {% if not content.fields.poster.empty %}
+            {{ ng_render_field( content.fields.poster, { 'parameters': { 'alias': alias_name } } ) }}
+        {% elseif not content.fields.video_identifier.empty %}
+            {% set video_identifier = content.fields.video_identifier.value.text %}
+            {% set video_types = content.fields.video_type.value.identifiers %}
 
             {% if 'youtube' in video_types %}
                 <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
@@ -26,11 +26,11 @@
 
     {% set use_lazy_load = use_lazy_load|default( false ) %}
 
-    {% if not ez_is_field_empty( content, 'poster' ) %}
+    {% if not content.fields.poster.empty %}
         {{ slide.image( content, 'poster', 'i1140', use_lazy_load ) }}
-    {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
-        {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
-        {% set video_types = ez_field_value( content, 'video_type' ).identifiers %}
+    {% elseif not content.fields.video_identifier.empty %}
+        {% set video_identifier = content.fields.video_identifier.value.text %}
+        {% set video_types = content.fields.video_type.value.identifiers %}
 
         {% if 'youtube' in video_types %}
             <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
@@ -47,17 +47,17 @@
 {% macro player( content, use_external_embed ) %}
     {% set use_external_embed = use_external_embed|default( false ) %}
 
-    {% set video_types = ez_field_value( content, 'video_type' ).identifiers %}
-    {% set autoplay = ez_field_value( content, 'autoplay' ).bool and not is_slider %}
+    {% set video_types = content.fields.video_type.value.identifiers %}
+    {% set autoplay = content.fields.autoplay.value.bool and not is_slider %}
 
     {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
-    {% if not ez_is_field_empty( content, 'poster' ) %}
-        {% set image_path = ez_image_alias( ez_field( content, 'poster' ), content.versionInfo, 'i1140' ).uri %}
+    {% if not content.fields.poster.empty %}
+        {% set image_path = ng_image_alias( content.fields.poster, 'i1140' ).uri %}
     {% endif %}
 
     {% if 'upload' in video_types %}
-        {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
-            {% set field_name = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
+        {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty %}
+            {% set field_name = content.fields.video_file_hd.empty ? 'video_file' : 'video_file_hd' %}
 
             <div class="video-config video-local-{{ content.id }}"
                  data-video_player_id="video-local-{{ content.id }}"
@@ -65,15 +65,15 @@
                  data-height="433"
                  data-autostart="{% if autoplay %}true{% else %}false{% endif %}"
                  data-image="{{ image_path }}"
-                 data-file="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( field_name ).id } ) }}"
+                 data-file="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.fields[field_name].id } ) }}"
                  data-videotype="local"
-                 data-mimetype="{{ ez_field_value( content, field_name ).mimeType }}">
+                 data-mimetype="{{ content.fields[field_name].value.mimeType }}">
             </div>
 
             <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
         {% endif %}
-    {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
-        {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
+    {% elseif not content.fields.video_identifier.empty %}
+        {% set video_identifier = content.fields.video_identifier.value.text %}
 
         {% if 'youtube' in video_types %}
             {% if use_external_embed %}
@@ -112,30 +112,30 @@
 {% macro player_slide( content, use_external_embed ) %}
     {% set use_external_embed = use_external_embed|default( false ) %}
 
-    {% set video_types = ez_field_value( content, 'video_type' ).identifiers %}
+    {% set video_types = content.fields.video_type.value.identifiers %}
 
     {% set image_path = asset( 'bundles/netgenmoredemo/images/video_poster.png' ) %}
-    {% if not ez_is_field_empty( content, 'poster' ) %}
-        {% set image_path = ez_image_alias( ez_field( content, 'poster' ), content.versionInfo, 'i1140' ).uri %}
+    {% if not content.fields.poster.empty %}
+        {% set image_path = ng_image_alias( content.fields.poster, 'i1140' ).uri %}
     {% endif %}
 
     {% if 'upload' in video_types %}
-        {% if not ez_is_field_empty( content, 'video_file' ) or not ez_is_field_empty( content, 'video_file_hd' ) %}
-            {% set field_name = ez_is_field_empty( content, 'video_file_hd' ) ? 'video_file' : 'video_file_hd' %}
+        {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty %}
+            {% set field_name = content.fields.video_file_hd.empty ? 'video_file' : 'video_file_hd' %}
 
             <div class="video-config video-local-{{ content.id }}" style="display: none;"
                  data-video_player_id="video-local-{{ content.id }}"
                  data-autostart="false"
                  data-image="{{ image_path }}"
-                 data-file="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( field_name ).id } ) }}"
+                 data-file="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.fields[field_name].id } ) }}"
                  data-videotype="local"
-                 data-mimetype="{{ ez_field_value( content, field_name ).mimeType }}">
+                 data-mimetype="{{ content.fields[field_name].value.mimeType }}">
             </div>
 
             <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
         {% endif %}
-    {% elseif not ez_is_field_empty( content, 'video_identifier' ) %}
-        {% set video_identifier = ez_field_value( content, 'video_identifier' ).text %}
+    {% elseif not content.fields.video_identifier.empty %}
+        {% set video_identifier = content.fields.video_identifier.value.text %}
 
         {% if 'youtube' in video_types %}
             {% if use_external_embed %}

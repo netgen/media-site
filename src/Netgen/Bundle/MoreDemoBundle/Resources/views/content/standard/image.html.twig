@@ -1,17 +1,16 @@
 <div class="view-type view-type-{{ viewType }} image vl clearfix">
 	<div class="image">
-	    {{ ez_render_field(
-	        content,
-	        'image', {
+	    {{ ng_render_field(
+	        content.fields.image, {
 	            parameters: {
 	                alias: 'i480',
-	                alt_text: ez_field_value( content, 'name' ).text,
+	                alt_text: content.fields.name.value.text,
 	                link_href: path( location )
 	            }
 	        }
 	    ) }}
 	</div>
     <div class="info">
-        <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'name' ) }}</a></h2>
+        <h2 class="title"><a href="{{ path( location ) }}">{{ ng_render_field( content.fields.name ) }}</a></h2>
     </div>
 </div>

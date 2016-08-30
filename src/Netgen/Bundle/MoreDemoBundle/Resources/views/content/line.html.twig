@@ -1,6 +1,6 @@
 {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} {{ ngmore_content_type_identifier( content.contentInfo.contentTypeId )|replace( { '_': '-' } ) }} vl t2 clearfix">
+<div class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace( { '_': '-' } ) }} vl t2 clearfix">
 
     {{ content_fields.image( content, location, 'i320' ) }}
 

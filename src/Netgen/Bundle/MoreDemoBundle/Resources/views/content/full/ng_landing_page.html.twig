@@ -5,9 +5,9 @@
 {% set disable_containers = true %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-landing-page {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
+<div class="view-type view-type-{{ viewType }} ng-landing-page {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} clearfix">
 
-    {{ ez_render_field( content, 'page' ) }}
+    {{ ng_render_field( content.fields.page ) }}
 
 </div>
 {% endblock %}

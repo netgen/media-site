@@ -1,16 +1,16 @@
 <div class="view-type view-type-{{ viewType }} ng-audio">
-    <h2 class="title">{{ ez_render_field( content, 'title' ) }}</h2>
+    <h2 class="title">{{ ng_render_field( content.fields.title ) }}</h2>
 
-    {% if not ez_is_field_empty( content, 'file' ) %}
+    {% if not content.fields.file.empty %}
         <audio controls>
-            <source type="audio/mpeg" src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.getField( 'file' ).id } ) }}" />
+            <source type="audio/mpeg" src="{{ path( 'ngmore_download', { 'contentId': content.id, 'fieldId': content.fields.file.id } ) }}" />
             Your browser does not support the audio element.
         </audio>
     {% endif %}
 
-    {% if not ez_is_field_empty( content, 'description' ) %}
+    {% if not content.fields.description.empty %}
         <div class="short">
-            {{ ez_render_field( content, 'description' ) }}
+            {{ ng_render_field( content.fields.description ) }}
         </div>
     {% endif %}
 </div>

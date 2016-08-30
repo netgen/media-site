@@ -1,7 +1,7 @@
 {% for valid_item in valid_items %}
     {{ render(
         controller(
-            'ez_content:viewAction', {
+            'ng_content:viewAction', {
                 'contentId': valid_item.contentId,
                 'locationId': valid_item.locationId,
                 'viewType': block.customAttributes.advanced_block_item_view_type

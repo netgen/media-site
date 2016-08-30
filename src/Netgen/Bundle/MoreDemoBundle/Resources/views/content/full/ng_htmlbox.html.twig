@@ -2,6 +2,6 @@
 
 {% block content %}
 <div class="view-type view-type-{{ viewType }} ng-htmlbox clearfix">
-    {{ ez_field_value( content, 'html_code' ).text|raw }}
+    {{ content.fields.html_code.value.text|raw }}
 </div>
 {% endblock %}

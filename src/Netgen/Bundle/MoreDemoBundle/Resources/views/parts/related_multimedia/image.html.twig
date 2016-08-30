@@ -1,12 +1,12 @@
-{% if not ez_is_field_empty( content, 'image' ) %}
-    {% set image = ez_field( content, 'image' ) %}
+{% if not content.fields.image.empty %}
+    {% set image = content.fields.image %}
 
     {% if is_slider %}
         <div class="swiper-slide">
-            <img class="swiper-lazy" data-src="{{ ez_image_alias( image, content.versionInfo, 'i1140' ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
+            <img class="swiper-lazy" data-src="{{ ng_image_alias( image, 'i1140' ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
         </div>
     {% else %}
-        <img src="{{ ez_image_alias( image, content.versionInfo, 'i1140' ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
+        <img src="{{ ng_image_alias( image, 'i1140' ).uri }}" {% if image.value.alternativeText is defined and image.value.alternativeText is not empty %} alt="{{ image.value.alternativeText }}" {% endif %} />
     {% endif %}
 
 {% endif %}

@@ -5,13 +5,12 @@
     {% set alias_name = alias_name|default( 'i1140' ) %}
     {% set use_lazy_load = use_lazy_load|default( false ) %}
 
-    {% if content.fields[field_name] is defined and not ez_is_field_empty( content, field_name ) %}
-        {% set image_alias = ez_image_alias( ez_field( content, field_name ), content.versionInfo, alias_name ) %}
+    {% if content.hasField(field_name) and not content.fields[field_name].empty %}
+        {% set image_alias = ng_image_alias( content.fields[field_name], alias_name ) %}
 
         {% if use_lazy_load %}
-            {{ ez_render_field(
-                content,
-                field_name, {
+            {{ ng_render_field(
+                content.fields[field_name], {
                     parameters: {
                         alt_text: content_fields.name( content ),
                         disable_src_attribute: true
@@ -23,9 +22,8 @@
                 }
             ) }}
         {% else %}
-            {{ ez_render_field(
-                content,
-                field_name, {
+            {{ ng_render_field(
+                content.fields[field_name], {
                     parameters: {
                         alias: alias_name,
                         alt_text: content_fields.name( content )

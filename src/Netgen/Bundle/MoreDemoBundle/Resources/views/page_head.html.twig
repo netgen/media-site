@@ -2,8 +2,8 @@
 {% set meta_data = config_meta_data|merge( meta_data|default( [] ) ) %}
 
 {% if content is defined %}
-    {% if content.fields.metadata is defined and not ez_is_field_empty( content, 'metadata' ) %}
-        {% set content_meta_data = ez_field_value( content, 'metadata' ) %}
+    {% if content.hasField('metadata') and not content.fields.metadata.empty %}
+        {% set content_meta_data = content.fields.metadata.value %}
         {% for key in config_meta_data|keys %}
             {% if content_meta_data[key] is defined and content_meta_data[key] is not empty %}
                 {% set meta_data = meta_data|merge( { ( key ): content_meta_data[key] } ) %}

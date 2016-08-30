@@ -1,17 +1,17 @@
 {% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ viewType }} ng-blog-post">
-    <h3><a href="{{ path( content ) }}">{{ ez_render_field( content, 'title' ) }}</a></h3>
+    <h3><a href="{{ path( content ) }}">{{ ng_render_field( content.fields.title ) }}</a></h3>
 
     <div class="date">
-        {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
+        {{ content.fields.publish_date.value.value|date( 'j. n. Y.' ) }}
     </div>
 
     <div class="author">
-        {% if not ez_is_field_empty( content, 'author_override' ) %}
-            {{ ez_render_field( content, 'author_override' ) }}
+        {% if not content.fields.author_override.empty %}
+            {{ ng_render_field( content.fields.author_override ) }}
         {% else %}
-            {{ ez_content_name( ngmore_owner( content ) ) }}
+            {{ ngmore_owner( content ).name }}
         {% endif %}
     </div>
 

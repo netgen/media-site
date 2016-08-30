@@ -11,10 +11,10 @@
 {% endif %}
 
 {% if path_array is not defined %}
-    {% if content is defined and location is defined and location is not empty and not location.isDraft %}
+    {% if content is defined and location is defined and location is not empty and not location.innerLocation.isDraft %}
         {% set path_array = ngmore_location_path( location.id ) %}
         {% if path_array is not empty %}
-            {% set main_category_location_id = path_array[1] is defined ? path_array[1].locationId : path_array[0].locationId %}
+            {% set main_category_location_id = path_array[1] is defined ? path_array[1].location.id : path_array[0].location.id %}
         {% endif %}
     {% else %}
         {% set path_array = [] %}
@@ -30,10 +30,10 @@
 
 {# LAYOUT REGIONS #}
 
-{% set disable_top_region = ( disable_layout_regions or not layout or ez_field_value( layout, 'disable_top_region' ).bool )  %}
-{% set disable_right_region = ( disable_layout_regions or not layout or ez_field_value( layout, 'disable_right_region' ).bool ) %}
-{% set disable_left_region = ( disable_layout_regions or not layout or ez_field_value( layout, 'disable_left_region' ).bool )  %}
-{% set disable_bottom_region = ( disable_layout_regions or not layout or ez_field_value( layout, 'disable_bottom_region' ).bool ) %}
+{% set disable_top_region = ( disable_layout_regions or not layout or layout.fields.disable_top_region.value.bool )  %}
+{% set disable_right_region = ( disable_layout_regions or not layout or layout.fields.disable_right_region.value.bool ) %}
+{% set disable_left_region = ( disable_layout_regions or not layout or layout.fields.disable_left_region.value.bool )  %}
+{% set disable_bottom_region = ( disable_layout_regions or not layout or layout.fields.disable_bottom_region.value.bool ) %}
 
 {# PLACEHOLDERS #}
 

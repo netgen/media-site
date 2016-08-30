@@ -156,7 +156,7 @@
                             {foreach $search_result as $result}
                                 {symfony_render(
                                     symfony_controller(
-                                        'ez_content:viewAction',
+                                        'ng_content:viewAction',
                                         hash(
                                             'contentId', $result.contentobject_id,
                                             'locationId', $result.node_id,

@@ -1,14 +1,14 @@
 {% set url = '#' %}
 {% set open_in_new_window = false %}
 
-{% if not ez_is_field_empty( content, 'url' ) %}
-    {% set url = ez_field_value( content, 'url' ).link %}
+{% if not content.fields.url.empty %}
+    {% set url = content.fields.url.value.link %}
 
-    {% if ez_field_value( content, 'target_blank' ).bool %}
+    {% if content.fields.target_blank.value.bool %}
         {% set open_in_new_window = true %}
     {% endif %}
-{% elseif not ez_is_field_empty( content, 'related_object' ) %}
-    {% set related_content_id = ez_field_value( content, 'related_object' ).destinationContentId %}
+{% elseif not content.fields.related_object.empty %}
+    {% set related_content_id = content.fields.related_object.value.destinationContentId %}
 
     {% if related_content_id != content.id %} {# dead loop #}
         {% set url = path( 'ez_urlalias', { 'contentId': related_content_id } ) %}

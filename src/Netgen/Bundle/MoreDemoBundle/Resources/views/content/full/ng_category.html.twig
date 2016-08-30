@@ -1,24 +1,24 @@
 {% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
 
-{% if not ez_is_field_empty( content, 'line_intro' ) %}
-    {% set meta_data = { 'description': ez_field_value( content, 'line_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
-{% elseif not ez_is_field_empty( content, 'full_intro' ) %}
-    {% set meta_data = { 'description': ez_field_value( content, 'full_intro' ).xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% if not content.fields.line_intro.empty %}
+    {% set meta_data = { 'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% elseif not content.fields.full_intro.empty %}
+    {% set meta_data = { 'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
 {% endif %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-category {% if not ez_is_field_empty( content, 'css_class' ) %}{{ ez_field_value( content, 'css_class' ).text }}{% endif %} clearfix">
-    <h1 class="page-header">{{ ez_render_field( content, 'title' ) }}</h1>
+<div class="view-type view-type-{{ viewType }} ng-category {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} clearfix">
+    <h1 class="page-header">{{ ng_render_field( content.fields.title ) }}</h1>
 
-    {% if not ez_is_field_empty( content, 'full_intro' ) %}
+    {% if not content.fields.full_intro.empty %}
         <div class="intro">
-            {{ ez_render_field( content, 'full_intro' ) }}
+            {{ ng_render_field( content.fields.full_intro ) }}
         </div>
     {% endif %}
 
-    {% if not ez_is_field_empty( content, 'body' ) %}
+    {% if not content.fields.body.empty %}
         <div class="body">
-            {{ ez_render_field( content, 'body' ) }}
+            {{ ng_render_field( content.fields.body ) }}
         </div>
     {% endif %}
 
@@ -34,18 +34,18 @@
         ) }}
     </div>
 
-    {% if ez_field_value( content, 'show_children' ).bool %}
+    {% if content.fields.show_children.value.bool %}
         <div class="children">
             {% if pager|length > 0 %}
-                {% set list_output_type_empty = ez_is_field_empty( content, 'list_output_type' ) %}
-                {% set list_output_type_value = ez_field_value( content, 'list_output_type' ) %}
+                {% set list_output_type_empty = content.fields.list_output_type.empty %}
+                {% set list_output_type_value = content.fields.list_output_type.value %}
 
                 {% if list_output_type_empty or list_output_type_value.identifiers[0] == 'list_view' %}
                     {% for pager_item in pager %}
                         {{ render(
                             controller(
-                                'ez_content:viewAction', {
-                                    'contentId': pager_item.contentInfo.id,
+                                'ng_content:viewAction', {
+                                    'contentId': pager_item.contentId,
                                     'locationId': pager_item.id,
                                     'viewType': 'line'
                                 }
@@ -58,8 +58,8 @@
                             <div class="col-sm-6 col-md-4 col-lg-3">
                                 {{ render(
                                     controller(
-                                        'ez_content:viewAction', {
-                                            'contentId': pager_item.contentInfo.id,
+                                        'ng_content:viewAction', {
+                                            'contentId': pager_item.contentId,
                                             'locationId': pager_item.id,
                                             'viewType': 'standard'
                                         }
@@ -77,8 +77,8 @@
                             <li>
                                 {{ render(
                                     controller(
-                                        'ez_content:viewAction', {
-                                            'contentId': pager_item.contentInfo.id,
+                                        'ng_content:viewAction', {
+                                            'contentId': pager_item.contentId,
                                             'locationId': pager_item.id,
                                             'viewType': 'listitem'
                                         }

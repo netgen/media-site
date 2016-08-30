@@ -7,14 +7,14 @@
     <div class="info">
         <div class="date">
             <span class="author">
-                {% if not ez_is_field_empty( content, 'author_override' ) %}
-                    {{ ez_render_field( content, 'author_override' ) }}
+                {% if not content.fields.author_override.empty %}
+                    {{ ng_render_field( content.fields.author_override ) }}
                 {% else %}
-                    {{ ez_content_name( ngmore_owner( content ) ) }}
+                    {{ ngmore_owner( content ).name }}
                 {% endif %}
-            </span> | {{ ez_field_value( content, 'publish_date' ).value|date( 'j. n. Y.' ) }}
+            </span> | {{ content.fields.publish_date.value.value|date( 'j. n. Y.' ) }}
         </div>
-        <h2 class="title"><a href="{{ path( location ) }}">{{ ez_render_field( content, 'title' ) }}</a></h2>
+        <h2 class="title"><a href="{{ path( location ) }}">{{ ng_render_field( content.fields.title ) }}</a></h2>
         {{ content_fields.intro( content ) }}
     </div>
 </div>

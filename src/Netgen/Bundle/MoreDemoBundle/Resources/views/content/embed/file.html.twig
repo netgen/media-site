@@ -1,5 +1,5 @@
 <div class="view-type view-type-{{ viewType }} file">
-    <div class="file mime-type-{{ ez_field_value( content, 'file' ).mimeType|replace( { '/': '-' } ) }}">
-        {{ ez_render_field( content, 'file' ) }}
+    <div class="file mime-type-{{ content.fields.file.value.mimeType|replace( { '/': '-' } ) }}">
+        {{ ng_render_field( content.fields.file ) }}
     </div>
 </div>

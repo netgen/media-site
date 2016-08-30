@@ -1,7 +1,7 @@
 {% for valid_item in valid_items|slice( 0, 1 ) %}
     {{ render(
         controller(
-            'ez_content:viewAction', {
+            'ng_content:viewAction', {
                 'contentId': valid_item.contentId,
                 'locationId': valid_item.locationId,
                 'viewType': 'slide'

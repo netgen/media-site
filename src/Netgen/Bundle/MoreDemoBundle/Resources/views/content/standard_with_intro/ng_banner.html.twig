@@ -3,11 +3,10 @@
 {% block content %}
 <div class="view-type view-type-{{ viewType }} ng-banner vl clearfix">
 
-    {% if not ez_is_field_empty( content, 'image' ) %}
+    {% if not content.fields.image.empty %}
         <div class="image">
-            {{ ez_render_field(
-                content,
-                'image', {
+            {{ ng_render_field(
+                content.fields.image, {
                     'parameters': {
                         'alias': 'i480',
                         'link_href': url,
@@ -18,9 +17,9 @@
         </div>
     {% endif %}
     <div class="info">
-	    <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ez_render_field( content, 'title' ) }}</a></h2>
+	    <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ng_render_field( content.fields.title ) }}</a></h2>
         <div class="short">
-            {{ ez_render_field( content, 'short_description' ) }}
+            {{ ng_render_field( content.fields.short_description ) }}
         </div>
 	</div>
 </div>

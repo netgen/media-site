@@ -18,9 +18,9 @@
         </div>
 
         <div class="footer-cell footer-info">
-            {% if not ez_is_field_empty( site_info, 'footer_block' ) %}
+            {% if not site_info.fields.footer_block.empty %}
                 <div>
-                    {{ ez_render_field( site_info, 'footer_block' ) }}
+                    {{ ng_render_field(site_info.fields.footer_block) }}
                 </div>
             {% endif %}
 
@@ -33,24 +33,24 @@
             <h3>{{ 'ngmore.layout.follow_us.title'|trans }}</h3>
 
             <ul>
-                {% if not ez_is_field_empty( site_info, 'facebook' ) %}
-                    <li><a href="{{ ez_field_value( site_info, 'facebook' ).link }}"><i class="fa fa-facebook"></i><span class="tt">Facebook</span></a></li>
+                {% if not site_info.fields.facebook.empty %}
+                    <li><a href="{{ site_info.fields.facebook.value.link }}"><i class="fa fa-facebook"></i><span class="tt">Facebook</span></a></li>
                 {% endif %}
 
-                {% if not ez_is_field_empty( site_info, 'twitter' ) %}
-                    <li><a href="{{ ez_field_value( site_info, 'twitter' ).link }}"><i class="fa fa-twitter"></i><span class="tt">Twitter</span></a></li>
+                {% if not site_info.fields.twitter.empty %}
+                    <li><a href="{{ site_info.fields.twitter.value.link }}"><i class="fa fa-twitter"></i><span class="tt">Twitter</span></a></li>
                 {% endif %}
 
-                {% if not ez_is_field_empty( site_info, 'instagram' ) %}
-                    <li><a href="{{ ez_field_value( site_info, 'instagram' ).link }}"><i class="fa fa-instagram"></i><span class="tt">Instagram</span></a></li>
+                {% if not site_info.fields.instagram.empty %}
+                    <li><a href="{{ site_info.fields.instagram.value.link }}"><i class="fa fa-instagram"></i><span class="tt">Instagram</span></a></li>
                 {% endif %}
 
-                {% if not ez_is_field_empty( site_info, 'gplus' ) %}
-                    <li><a href="{{ ez_field_value( site_info, 'gplus' ).link }}"><i class="fa fa-google-plus"></i><span class="tt">Google+</span></a></li>
+                {% if not site_info.fields.gplus.empty %}
+                    <li><a href="{{ site_info.fields.gplus.value.link }}"><i class="fa fa-google-plus"></i><span class="tt">Google+</span></a></li>
                 {% endif %}
 
-                {% if not ez_is_field_empty( site_info, 'linkedin' ) %}
-                    <li><a href="{{ ez_field_value( site_info, 'linkedin' ).link }}"><i class="fa fa-linkedin"></i><span class="tt">LinkedIn</span></a></li>
+                {% if not site_info.fields.linkedin.empty %}
+                    <li><a href="{{ site_info.fields.linkedin.value.link }}"><i class="fa fa-linkedin"></i><span class="tt">LinkedIn</span></a></li>
                 {% endif %}
             </ul>
         </div>

@@ -1,5 +1,5 @@
 <div class="view-type view-type-{{ viewType }} ng-htmlbox vl clearfix">
 	<div class="info">
-	    {{ ez_field_value( content, 'html_code' ).text|raw }}
+	    {{ content.fields.html_code.value.text|raw }}
 	</div>
 </div>
