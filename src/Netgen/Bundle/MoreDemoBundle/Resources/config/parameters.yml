@@ -7,3 +7,17 @@ parameters:
         copyright: Netgen
         description: "Netgen More"
         keywords: "netgen more"
+
+    ngmore.default.search.content_types:
+        - ng_blog_post
+        - ng_article
+        - ng_news
+        - ng_category
+        - ng_feedback_form
+        - ng_landing_page
+        - ng_category_page
+        - ng_video
+        - ng_audio
+        - file
+
+    netgen_admin_ui.default.legacy_routes: [ez_urlalias, ngmore_content_search]

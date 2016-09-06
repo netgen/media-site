@@ -8,3 +8,15 @@ ngmore.layout.follow_us.title: "Follow us"
 ngmore.layout.additional_menu.title: "Menuet"
 
 ngmore.block.ajax_content_grid_dynamic.load_more: "Load more"
+
+ngmore.search.title: 'Search'
+ngmore.search.placeholder: 'Search'
+ngmore.search.button: 'Search'
+
+ngmore.search.results: 'Search for "%searchText%" returned %searchCount% matches'
+ngmore.search.no_results: 'No results were found when searching for "%searchText%".'
+
+ngmore.search.no_results.check_spelling: 'Check spelling of keywords.'
+ngmore.search.no_results.change_keywords: 'Try changing some keywords (eg, "car" instead of "cars").'
+ngmore.search.no_results.less_specific_keywords: 'Try searching with less specific keywords.'
+ngmore.search.no_results.reduce_keywords: 'Reduce number of keywords to get more results.'

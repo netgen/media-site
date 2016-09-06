@@ -32,3 +32,5 @@ parameters:
     ngmore.default.template.errors.404: "NetgenMoreDemoBundle:errors:404.html.twig"
     ngmore.default.template.errors.500: "NetgenMoreDemoBundle:errors:500.html.twig"
     ngmore.default.template.errors.default: "NetgenMoreDemoBundle:errors:default.html.twig"
+
+    ngmore.default.template.search: "NetgenMoreDemoBundle:search:search.html.twig"

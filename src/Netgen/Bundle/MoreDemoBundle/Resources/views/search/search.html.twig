@@ -1,0 +1,85 @@
+{% extends 'NetgenMoreBundle::pagelayout_resolver.html.twig' %}
+
+{% set show_path = false %}
+
+{% block content %}
+<div class="content-search clearfix">
+    <form action="{{ path('ngmore_content_search') }}" method="get" class="form-search">
+        <h1 class="page-header">{{ 'ngmore.search.title'|trans }}</h1>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="{{ 'ngmore.search.placeholder'|trans }}" type="text" name="searchText" id="Search" value="{{ search_text }}" />
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary">{{ 'ngmore.search.button'|trans }}</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if search_text is not empty %}
+                    {% if locations.nbResults == 0 %}
+                        <div class="alert alert-error">
+                            <h2>{{ 'ngmore.search.no_results'|trans({ '%searchText%': search_text }) }}</h2>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-success">
+                            <h2>{{ 'ngmore.search.results'|trans({ '%searchText%': search_text, '%searchCount%': locations.nbResults }) }}</h2>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+        {% if search_text is not empty %}
+            <div class="row">
+                <div class="col-xs-12">
+                    {% if locations.nbResults > 0 %}
+                        {% if locations.haveToPaginate() %}
+                            {{ pagerfanta( locations, 'ngmore' ) }}
+                        {% endif %}
+
+                        <div id="search-result">
+                            {% for location in locations %}
+                                {% set score = null %}
+
+                                {% if location.score is not null %}
+                                    {% set score = (location.score * 100)|round %}
+                                {% endif %}
+
+                                {{ render(
+                                    controller(
+                                        'ng_content:viewAction', {
+                                            'content': location.valueObject.content,
+                                            'location': location.valueObject,
+                                            'viewType': 'search',
+                                            'layout': false,
+                                            'params': {
+                                                'score_percent': score
+                                            }
+                                        }
+                                    )
+                                ) }}
+                            {% endfor %}
+                        </div>
+
+                        {% if locations.haveToPaginate() %}
+                            {{ pagerfanta( locations, 'ngmore' ) }}
+                        {% endif %}
+                    {% else %}
+                        <ul>
+                            <li>{{ 'ngmore.search.no_results.check_spelling'|trans }}</li>
+                            <li>{{ 'ngmore.search.no_results.change_keywords'|trans }}</li>
+                            <li>{{ 'ngmore.search.no_results.less_specific_keywords'|trans }}</li>
+                            <li>{{ 'ngmore.search.no_results.reduce_keywords'|trans }}</li>
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}
