@@ -2,8 +2,6 @@ netgen_block_manager:
     block_definitions:
         title:
             view_types:
-                title:
-                    name: 'Title'
                 section:
                     name: 'Title (section)'
                 section_gray:
@@ -12,7 +10,6 @@ netgen_block_manager:
         list:
             view_types:
                 list:
-                    name: 'List'
                     item_view_types: &list_item_view_types
                         standard:
                             name: 'Standard'
@@ -32,7 +29,6 @@ netgen_block_manager:
                     name: 'List (numbered)'
                     item_view_types: *list_item_view_types
                 grid:
-                    name: 'Grid'
                     item_view_types:
                         standard:
                             name: 'Standard'
@@ -49,16 +45,10 @@ netgen_block_manager:
         gallery:
             view_types:
                 slider:
-                    name: 'Slider'
                     item_view_types:
                         slide:
                             name: 'Slide'
-                thumb_gallery:
-                    name: 'Thumb gallery'
-                grid_gallery:
-                    name: 'Grid gallery'
                 sushi_bar:
-                    name: 'Sushi bar'
                     item_view_types:
                         standard:
                             name: 'Standard'
