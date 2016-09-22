@@ -82,6 +82,9 @@ netgen_more_legacy:
                 content.ini:
                     ClassGroupIDs/Media: 2
                     ClassGroupIDs/Users: 3
+                    # Setup class group was deleted long ago, this makes sure
+                    # it doesn't mess up custom groups that have its' old ID
+                    ClassGroupIDs/Setup: -1
 
                 site.ini:
                     SiteSettings/DefaultAccess: "%ezpublish.siteaccess.default%"
