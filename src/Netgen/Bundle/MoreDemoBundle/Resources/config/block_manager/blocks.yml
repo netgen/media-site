@@ -28,6 +28,7 @@ netgen_block_manager:
                 list_numbered:
                     name: 'List (numbered)'
                     item_view_types: *list_item_view_types
+                    valid_parameters: [css_class, css_id, set_container]
                 grid:
                     item_view_types:
                         standard:
