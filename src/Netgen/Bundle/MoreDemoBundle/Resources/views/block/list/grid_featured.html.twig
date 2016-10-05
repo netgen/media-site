@@ -1,26 +1,24 @@
 {% extends 'NetgenBlockManagerBundle:block:block.html.twig' %}
 
 {% block content %}
-    {% if collections['default'] is defined %}
-       {% set result = collections['default'].results %}
-
+    {% if collections.default is defined %}
         <div class="vl4">
             <div class="main-item">
-                {% if result[0] is defined %}
-                   {{ ngbm_render_item(result[0].item, block.itemViewType, [], view_context) }}
+                {% if collections.default.0 is defined %}
+                   {{ ngbm_render_item(collections.default.0.item, block.itemViewType, [], view_context) }}
                 {% endif %}
             </div>
 
             <div class="secondary-items">
-                {% if result[1] is defined %}
+                {% if collections.default.1 is defined %}
                     <div class="secondary-item">
-                        {{ ngbm_render_item(result[1].item, block.itemViewType, [], view_context) }}
+                        {{ ngbm_render_item(collections.default.1.item, block.itemViewType, [], view_context) }}
                     </div>
                 {% endif %}
 
-                {% if result[2] is defined %}
+                {% if collections.default.2 is defined %}
                     <div class="secondary-item">
-                        {{ ngbm_render_item(result[2].item, block.itemViewType, [], view_context) }}
+                        {{ ngbm_render_item(collections.default.2.item, block.itemViewType, [], view_context) }}
                     </div>
                 {% endif %}
             </div>
