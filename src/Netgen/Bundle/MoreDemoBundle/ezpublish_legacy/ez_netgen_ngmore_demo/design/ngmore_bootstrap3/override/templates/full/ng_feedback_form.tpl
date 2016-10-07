@@ -25,34 +25,40 @@
                             validation=$validation collection_attributes=$collection_attributes}
 
     <form method="post" action={"content/action"|ezurl}>
+        <fieldset>
+            <div class="form-group">
+                <label>{$node.data_map.sender_name.contentclass_attribute.name}</label>
+                <div class="sender-name">
+                    {attribute_view_gui attribute=$node.data_map.sender_name}
+                </div>
+            </div>
 
-        <h4>{$node.data_map.sender_name.contentclass_attribute.name}</h4>
-        <div class="sender-name">
-                {attribute_view_gui attribute=$node.data_map.sender_name}
-        </div>
+            <div class="form-group">
+                <label>{$node.data_map.email.contentclass_attribute.name}</label>
+                <div class="email">
+                    {attribute_view_gui attribute=$node.data_map.email}
+                </div>
+            </div>
 
-        <h4>{$node.data_map.email.contentclass_attribute.name}</h4>
-        <div class="email">
-            {attribute_view_gui attribute=$node.data_map.email}
-        </div>
+            <div class="form-group">
+                <label>{$node.data_map.subject.contentclass_attribute.name}</label>
+                <div class="name">
+                    {attribute_view_gui attribute=$node.data_map.subject}
+                </div>
+            </div>
 
-        <h4>{$node.data_map.subject.contentclass_attribute.name}</h4>
-        <div class="subject">
-            {attribute_view_gui attribute=$node.data_map.subject}
-        </div>
+            <div class="form-group">
+                <label>{$node.data_map.message.contentclass_attribute.name}</label>
+                <div class="message">
+                    {attribute_view_gui attribute=$node.data_map.message}
+                </div>
+            </div>
 
-        <h4>{$node.data_map.message.contentclass_attribute.name}</h4>
-        <div class="message">
-            {attribute_view_gui attribute=$node.data_map.message}
-        </div>
-
-        <div class="content-action">
-            <input type="submit" class="defaultbutton" name="ActionCollectInformation" value="{"Send form"|i18n("design/ngmore/full/feedback_form")}" />
+            <input type="submit" class="btn btn-primary" name="ActionCollectInformation" value="{"Send form"|i18n("design/ngmore/full/feedback_form")}" />
             <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
             <input type="hidden" name="ContentObjectID" value="{$node.object.id}" />
             <input type="hidden" name="ViewMode" value="full" />
-        </div>
-
+        </fieldset>
     </form>
 
 </div>
