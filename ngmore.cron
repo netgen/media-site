@@ -10,6 +10,9 @@ SITEACCESS=administration
 # Location of the PHP Command Line Interface binary.
 PHP=/usr/bin/php
 
+# Disable sending e-mails
+MAILTO=""
+
 # Instruct cron to run the main set of cronjobs
 # at 6:35am every day
 35 6 * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS 2>&1
