@@ -28,7 +28,3 @@ MAILTO=""
 # Instruct cron to run the "ezflow" set of cronjobs
 # every 5 minutes
 */5 * * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS ezflow 2>&1
-
-# Instruct cron to run the "ezfoptimizeindex" set of cronjobs
-# at 6:00am every day
-0 6 * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS ezfoptimizeindex 2>&1
