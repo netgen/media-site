@@ -5,20 +5,20 @@
         <div class="vl4">
             <div class="main-item">
                 {% if collections.default.0 is defined %}
-                   {{ ngbm_render_item(collections.default.0.item, block.itemViewType, [], view_context) }}
+                   {{ ngbm_render_item(collections.default.0.item, block.itemViewType) }}
                 {% endif %}
             </div>
 
             <div class="secondary-items">
                 {% if collections.default.1 is defined %}
                     <div class="secondary-item">
-                        {{ ngbm_render_item(collections.default.1.item, block.itemViewType, [], view_context) }}
+                        {{ ngbm_render_item(collections.default.1.item, block.itemViewType) }}
                     </div>
                 {% endif %}
 
                 {% if collections.default.2 is defined %}
                     <div class="secondary-item">
-                        {{ ngbm_render_item(collections.default.2.item, block.itemViewType, [], view_context) }}
+                        {{ ngbm_render_item(collections.default.2.item, block.itemViewType) }}
                     </div>
                 {% endif %}
             </div>
