@@ -55,6 +55,7 @@ netgen_more_legacy:
                     ExtensionSettings/ActiveExtensions:
                         - ez_netgen_ngmore_demo
                         - ezplatformsearch
+                        - ezrichtext
                         - ngadminui
                         - ngsymfonytools
                         - ngmore
