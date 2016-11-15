@@ -12,11 +12,6 @@ ezpublish:
                         controller: "ngmore.controller.full_view:viewNgCategory"
                         match:
                             Identifier\ContentType: ng_category
-                    ng_category_page:
-                        template: "NetgenMoreDemoBundle:content/full:ng_category_page.html.twig"
-                        controller: "ngmore.controller.full_view:viewNgCategoryPage"
-                        match:
-                            Identifier\ContentType: ng_category_page
                     ng_landing_page:
                         template: "NetgenMoreDemoBundle:content/full:ng_landing_page.html.twig"
                         controller: "ngmore.controller.full_view:viewNgLandingPage"
@@ -55,10 +50,6 @@ ezpublish:
                         template: "NetgenMoreDemoBundle:content/line:ng_category.html.twig"
                         match:
                             Identifier\ContentType: ng_category
-                    ng_category_page:
-                        template: "NetgenMoreDemoBundle:content/line:ng_category_page.html.twig"
-                        match:
-                            Identifier\ContentType: ng_category_page
                     ng_landing_page:
                         template: "NetgenMoreDemoBundle:content/line:ng_landing_page.html.twig"
                         match:
@@ -147,10 +138,6 @@ ezpublish:
                         template: "NetgenMoreDemoBundle:content/standard:ng_category.html.twig"
                         match:
                             Identifier\ContentType: ng_category
-                    ng_category_page:
-                        template: "NetgenMoreDemoBundle:content/standard:ng_category_page.html.twig"
-                        match:
-                            Identifier\ContentType: ng_category_page
                     ng_feedback_form:
                         template: "NetgenMoreDemoBundle:content/standard:ng_feedback_form.html.twig"
                         match:
@@ -315,10 +302,6 @@ ezpublish:
                         template: "NetgenMoreDemoBundle:content/embed:ng_category.html.twig"
                         match:
                             Identifier\ContentType: ng_category
-                    ng_category_page:
-                        template: "NetgenMoreDemoBundle:content/embed:ng_category_page.html.twig"
-                        match:
-                            Identifier\ContentType: ng_category_page
                     ng_landing_page:
                         template: "NetgenMoreDemoBundle:content/embed:ng_landing_page.html.twig"
                         match:

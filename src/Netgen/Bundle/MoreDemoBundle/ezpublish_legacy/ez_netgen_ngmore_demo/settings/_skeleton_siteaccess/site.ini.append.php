@@ -16,7 +16,6 @@ SiteDesign={{ designName }}
 AdditionalSiteDesignList[]
 AdditionalSiteDesignList[]=ngmore
 AdditionalSiteDesignList[]=ezdemo
-AdditionalSiteDesignList[]=ezflow
 AdditionalSiteDesignList[]=base
 AdditionalSiteDesignList[]=standard
 

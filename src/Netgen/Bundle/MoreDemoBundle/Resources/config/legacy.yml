@@ -75,7 +75,6 @@ netgen_more_legacy:
                         - ezstarrating
                         - ezgmaplocation
                         - ezdemo
-                        - ezflow
                         - ezoe
 
             injected_settings:
@@ -130,8 +129,6 @@ netgen_more_legacy:
                     MailSettings/EmailSender: "%ngmore.default.mail.sender_email%"
 
                 ngmore.ini:
-                    SpecialNodes/SidebarsParentNode: "%ngmore.default.locations.sidebars_parent.id%"
-
                     GoogleMapsSettings/DefaultLatitude: "%ngmore.default.google_maps.latitude%"
                     GoogleMapsSettings/DefaultLongitude: "%ngmore.default.google_maps.longitude%"
                     GoogleMapsSettings/DefaultZoom: "%ngmore.default.google_maps.zoom%"

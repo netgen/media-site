@@ -17,7 +17,6 @@ SiteDesign=ngmore_bootstrap3
 AdditionalSiteDesignList[]
 AdditionalSiteDesignList[]=ngmore
 AdditionalSiteDesignList[]=ezdemo
-AdditionalSiteDesignList[]=ezflow
 AdditionalSiteDesignList[]=base
 AdditionalSiteDesignList[]=standard
 

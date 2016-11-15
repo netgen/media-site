@@ -13,11 +13,6 @@ netgen_open_graph:
                     - { handler: literal/text, tag: "og:type", params: [website] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
                     - { handler: literal/text, tag: "og:image", params: ["http://%ngmore.default.site_domain%/bundles/netgenmoredemo/images/opengraph.png"] }
-                ng_category_page:
-                    - { handler: literal/text, tag: "og:type", params: [website] }
-                    - { handler: field_type/ezstring, tag: "og:title", params: [title] }
-                    - { handler: field_type/ezxmltext, tag: "og:description", params: [full_intro] }
-                    - { handler: literal/text, tag: "og:image", params: ["http://%ngmore.default.site_domain%/bundles/netgenmoredemo/images/opengraph.png"] }
                 ng_category:
                     - { handler: literal/text, tag: "og:type", params: [website] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }

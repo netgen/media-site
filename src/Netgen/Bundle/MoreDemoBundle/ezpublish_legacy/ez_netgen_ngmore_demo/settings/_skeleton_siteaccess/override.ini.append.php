@@ -20,20 +20,6 @@ MatchFile=collectedinfo/ng_feedback_form.tpl
 Subdir=templates
 Match[class_identifier]=ng_feedback_form
 
-# BLOCK
-
-[block_menu_dynamic]
-Source=block/view/view.tpl
-MatchFile=block/menu_dynamic.tpl
-Subdir=templates
-Match[type]=MenuDynamic
-
-[block_tags_cloud]
-Source=block/view/view.tpl
-MatchFile=block/tags_cloud.tpl
-Subdir=templates
-Match[type]=TagsCloud
-
 ## DEFAULT OVERRIDE FOR CLASSES WITHOUT FULL TEMPLATES
 
 [not_overriden_content]
