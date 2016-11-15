@@ -59,7 +59,6 @@ netgen_more_legacy:
                         - ngadminui
                         - ngsymfonytools
                         - ngmore
-                        - ezfind
                         - ngclasslist
                         - xrowmetadata
                         - bccie
