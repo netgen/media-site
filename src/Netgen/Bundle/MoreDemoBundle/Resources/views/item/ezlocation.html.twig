@@ -1,0 +1,10 @@
+{{ render(
+    controller(
+        'ng_content:viewAction', {
+            'contentId': item.object.contentInfo.id,
+            'locationId': item.object.id,
+            'viewType': viewType,
+            'layout': false,
+        }
+    )
+) }}
