@@ -15,7 +15,6 @@ parameters:
         - ng_category
         - ng_feedback_form
         - ng_landing_page
-        - ng_category_page
         - ng_video
         - ng_audio
         - file
