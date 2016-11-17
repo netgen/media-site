@@ -46,7 +46,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['<%= config.public_dir %>/sass/{,*/}*.{scss,sass}'],
-        tasks: ['sass', 'postcss']
+        tasks: ['sass', 'postcss', 'cssmin:dist']
       }
     },
 
@@ -89,15 +89,27 @@ module.exports = function (grunt) {
       }
     },
 
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+
+      dist: {
+        files: {
+          '<%= config.public_dir %>/css/style.css': ['<%= config.public_dir %>/css/style.css']
+        }
+      }
+    }
   });
 
 
   grunt.registerTask('serve', 'start the server and preview your app', function () {
-
     grunt.task.run([
       'lockfile',
       'sass:dist',
       'postcss',
+      'cssmin:dist',
       'watch'
     ]);
   });
