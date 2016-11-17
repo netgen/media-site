@@ -5,13 +5,13 @@ netgen_block_manager:
                 block_view:
                     default:
                         title\section:
-                            template: "NetgenMoreDemoBundle:block/title:section.html.twig"
+                            template: "NetgenMoreDemoBundle:layouts/block/title:section.html.twig"
                             match:
                                 block\definition: title
                                 block\view_type: section
 
                         title\section_gray:
-                            template: "NetgenMoreDemoBundle:block/title:section_gray.html.twig"
+                            template: "NetgenMoreDemoBundle:layouts/block/title:section_gray.html.twig"
                             match:
                                 block\definition: title
                                 block\view_type: section_gray
@@ -23,13 +23,13 @@ netgen_block_manager:
                                 block\view_type: title
 
                         list\numbered:
-                            template: "NetgenMoreDemoBundle:block/list:numbered.html.twig"
+                            template: "NetgenMoreDemoBundle:layouts/block/list:numbered.html.twig"
                             match:
                                 block\definition: list
                                 block\view_type: list_numbered
 
                         list\grid_featured:
-                            template: "NetgenMoreDemoBundle:block/list:grid_featured.html.twig"
+                            template: "NetgenMoreDemoBundle:layouts/block/list:grid_featured.html.twig"
                             match:
                                 block\definition: list
                                 block\view_type: grid_featured
