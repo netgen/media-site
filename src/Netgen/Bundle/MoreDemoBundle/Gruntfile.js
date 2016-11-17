@@ -47,7 +47,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['<%= config.resources_dir %>/sass/{,*/}*.{scss,sass}'],
-        tasks: ['sass', 'postcss', 'cssmin:dist']
+        tasks: ['sass', 'postcss']
       }
     },
 
@@ -90,18 +90,6 @@ module.exports = function (grunt) {
       }
     },
 
-    cssmin: {
-      options: {
-        shorthandCompacting: false,
-        roundingPrecision: -1
-      },
-
-      dist: {
-        files: {
-          '<%= config.public_dir %>/css/style.css': ['<%= config.public_dir %>/css/style.css']
-        }
-      }
-    }
   });
 
 
@@ -110,7 +98,6 @@ module.exports = function (grunt) {
       'lockfile',
       'sass:dist',
       'postcss',
-      'cssmin:dist',
       'watch'
     ]);
   });
