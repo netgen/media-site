@@ -114,6 +114,7 @@ netgen_more_legacy:
                         - module;ezinfo/copyright
                         - module;content/tipafriend
                         - module;settings/edit
+                        - module;layout
                         - module;visual
                         - module;shop
 
