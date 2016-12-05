@@ -1,14 +1,14 @@
 {
-  "name": "Netgen More",
-  "homepage": "http://www.netgenlabs.com",
-  "authors": [
-    "Netgen <info@netgen.hr>",
-    "Marko Žabčić <marko@effectiva.hr>"
-  ],
-  "dependencies": {
-    "swiper": "~3.2.6",
-    "bootstrap-sass": "~3.3.5",
-    "components-font-awesome": "~4.4.0",
-    "jquery": "^2.0"
-  }
+    "name": "Netgen More",
+    "homepage": "http://www.netgenlabs.com",
+    "authors": [
+        "Netgen <info@netgen.hr>",
+        "Marko Žabčić <marko@effectiva.hr>"
+    ],
+    "dependencies": {
+        "swiper": "~3.2.6",
+        "bootstrap-sass": "~3.3.5",
+        "components-font-awesome": "~4.4.0",
+        "jquery": "^2.0"
+    }
 }
