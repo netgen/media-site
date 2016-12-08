@@ -97,4 +97,7 @@ RewriteRule ^assets/ - [L]
 RewriteCond %{ENV:SYMFONY_ENV} !^(dev)
 RewriteRule ^(css|js|fonts?)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
 
+# Let's Encrypt support
+RewriteRule \.well-known/acme-challenge/ - [L]
+
 RewriteRule .* app\.php
