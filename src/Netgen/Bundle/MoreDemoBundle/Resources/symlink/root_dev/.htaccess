@@ -58,6 +58,9 @@ RewriteRule .* / [L,R=301]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
 RewriteRule ^app\.php(/(.*)|$) /$2 [R=301,L]
 
+# Let's Encrypt support
+RewriteRule ^\.well-known/acme-challenge/ - [L]
+
 # START: Multisite rewrite rules for robots.txt
 
 # RewriteRule ^robots_site1.txt$ - [L]
@@ -96,8 +99,5 @@ RewriteRule ^assets/ - [L]
 # remember to run php app/console assetic:dump --env=prod
 RewriteCond %{ENV:SYMFONY_ENV} !^(dev)
 RewriteRule ^(css|js|fonts?)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
-
-# Let's Encrypt support
-RewriteRule \.well-known/acme-challenge/ - [L]
 
 RewriteRule .* app\.php
