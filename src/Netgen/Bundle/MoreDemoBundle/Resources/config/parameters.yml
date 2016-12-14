@@ -1,9 +1,6 @@
 parameters:
     ngmore.default.pagelayout: "NetgenMoreDemoBundle::pagelayout.html.twig"
 
-    netgen_content_browser.ezpublish.default_item_template: 'NetgenMoreDemoBundle:browser:item.html.twig'
-    netgen_content_browser.ezpublish.default_preview_template: 'NetgenMoreDemoBundle:browser:ngcb_preview.html.twig'
-
     ngmore.default.site_settings.site_name: "Netgen More"
     ngmore.default.site_settings.meta_data:
         author: Netgen
