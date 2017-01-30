@@ -1,7 +1,7 @@
 ezpublish:
     system:
         frontend_group:
-            content_view:
+            ngcontent_view:
                 full:
                     ng_frontpage:
                         template: "NetgenMoreDemoBundle:content/full:ng_frontpage.html.twig"
@@ -365,7 +365,7 @@ ezpublish:
                         match: ~
 
         default:
-            content_view:
+            ngcontent_view:
                 ngcb_preview:
                     ng_article:
                         template: "NetgenMoreDemoBundle:content/ngcb_preview:ng_article.html.twig"
