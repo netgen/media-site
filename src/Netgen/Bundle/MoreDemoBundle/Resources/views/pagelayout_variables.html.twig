@@ -32,12 +32,15 @@
             {% set translation_site_access = ezpublish.translationSiteAccess( language ) %}
 
             {% if translation_site_access is not empty %}
-                {% if content is not defined %}
-                    {% set url = url( ez_route( params={ 'siteaccess': translation_site_access } ) ) %}
-                    {% set available_translations = available_translations|merge( { ( language ): url } ) %}
-                {% elseif language in content.versionInfo.languageCodes or content.contentInfo.alwaysAvailable %}
-                    {% set url = url( ez_route( params={ 'siteaccess': translation_site_access } ), { 'language': language } ) %}
-                    {% set available_translations = available_translations|merge( { ( language ): url } ) %}
+                {% set route_reference = ez_route( params={ 'siteaccess': translation_site_access } ) %}
+                {% if route_reference.route is not empty %}
+                    {% if content is not defined %}
+                        {% set url = url( route_reference ) %}
+                        {% set available_translations = available_translations|merge( { ( language ): url } ) %}
+                    {% elseif language in content.versionInfo.languageCodes or content.contentInfo.alwaysAvailable %}
+                        {% set url = url( route_reference, { 'language': language } ) %}
+                        {% set available_translations = available_translations|merge( { ( language ): url } ) %}
+                    {% endif %}
                 {% endif %}
             {% endif %}
         {% endfor %}
