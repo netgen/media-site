@@ -12,7 +12,7 @@
             <div class="alert alert-danger">{{ error.message|trans }}</div>
         {% endif %}
 
-        <form action="{{ path( 'login_check' ) }}" method="post" role="form">
+        <form name="loginform" action="{{ path( 'login_check' ) }}" method="post" role="form">
             {% block login_fields %}
                 <fieldset>
                     <div class="form-group">

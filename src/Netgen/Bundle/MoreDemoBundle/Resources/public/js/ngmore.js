@@ -85,6 +85,8 @@ function jwplayer_init( videoObjectClass, videoObject ){
 /* /JWPLAYER INIT  -----------------------------------------------*/
 
 $(document).ready(function($) {
+    var $loginform = $('form[name="loginform"]');
+    $loginform.attr('action', $loginform.attr('action') + window.location.hash);
 
     /* JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
         $('div.video-container').each(function(){
