@@ -1,0 +1,68 @@
+{% extends ngbm.layoutTemplate %}
+
+{% form_theme form 'NetgenMoreDemoBundle:forms:theme.html.twig' %}
+
+{% set show_path = false %}
+
+{% if not content.fields.line_intro.empty %}
+    {% set meta_data = { 'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% elseif not content.fields.full_intro.empty %}
+    {% set meta_data = { 'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% endif %}
+
+{% block success %}
+    <div class="body">
+        {% if not content.fields.success_text.empty %}
+            {{ ng_render_field(content.fields.success_text) }}
+        {% else %}
+            <p>{{ 'ngmore.collected_info.success_text'|trans }}</p>
+        {% endif %}
+
+        {#
+        <p>{{ 'ngmore.collected_info.information_collected'|trans }}:</p>
+
+        {% for collected_field, collected_field_value in collected_fields %}
+            <p><strong>{{ content.fields[collected_field].name }}:</strong> {{ collected_field_value }}</p>
+        {% endfor %}
+        #}
+
+        <a href="{{ path('ez_urlalias', {locationId: location.parentLocationId}) }}">{{ 'ngmore.collected_info.return_to_site'|trans }}</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="view-type view-type-{{ viewType }} ng-feedback-form clearfix">
+        <h1 class="page-header">{{ ng_render_field( content.fields.title ) }}</h1>
+
+        {% if not is_valid %}
+            {% if not content.fields.full_intro.empty %}
+                <div class="intro">
+                    {{ ng_render_field( content.fields.full_intro ) }}
+                </div>
+            {% endif %}
+
+            {% if not content.fields.body.empty %}
+                <div class="body">
+                    {{ ng_render_field( content.fields.body ) }}
+                </div>
+            {% endif %}
+
+            {{ form_start( form ) }}
+                {{ form_errors( form ) }}
+
+                <fieldset>
+                    {{ form_row( form.sender_name, { attr: { class: 'form-control' } } ) }}
+                    {{ form_row( form.email, { attr: { class: 'form-control' } } ) }}
+                    {{ form_row( form.subject, { attr: { class: 'form-control' } } ) }}
+                    {{ form_row( form.message, { attr: { class: 'form-control' } } ) }}
+
+                    <button type="submit" class="btn btn-primary">{{ 'ngmore.collected_info.button.send'|trans }}</button>
+                </fieldset>
+
+                {{ form_rest( form ) }}
+            {{ form_end( form ) }}
+        {% else %}
+            {{ block('success') }}
+        {% endif %}
+    </div>
+{% endblock %}

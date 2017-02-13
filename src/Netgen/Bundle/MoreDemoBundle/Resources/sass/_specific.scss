@@ -58,6 +58,19 @@
     }
 }
 
+.error-input {
+   .form-control {
+       background:hsl(0, 100, 94);
+   }
+   .errors {
+       list-style-type:none;
+       margin:0 0 1.5em;
+       padding:0;
+       color:red;
+       font-size:0.875em;
+   }
+}
+
 .search-inputs {
     border-top:1px solid hsl(0, 0, 75);
     border-bottom:1px solid hsl(0, 0, 75);

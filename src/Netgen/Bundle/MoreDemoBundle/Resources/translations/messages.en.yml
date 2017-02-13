@@ -18,3 +18,8 @@ ngmore.search.no_results.check_spelling: 'Check spelling of keywords.'
 ngmore.search.no_results.change_keywords: 'Try changing some keywords (eg, "car" instead of "cars").'
 ngmore.search.no_results.less_specific_keywords: 'Try searching with less specific keywords.'
 ngmore.search.no_results.reduce_keywords: 'Reduce number of keywords to get more results.'
+
+ngmore.collected_info.success_text: 'Thank you for your feedback.'
+ngmore.collected_info.return_to_site: 'Return to site'
+ngmore.collected_info.button.send: 'Send form'
+ngmore.collected_info.information_collected: 'The following information was collected'

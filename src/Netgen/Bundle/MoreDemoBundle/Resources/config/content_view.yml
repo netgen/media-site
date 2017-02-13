@@ -29,6 +29,11 @@ ezpublish:
                         template: "NetgenMoreDemoBundle:content/full:ng_blog_post.html.twig"
                         match:
                             Identifier\ContentType: ng_blog_post
+                    ng_feedback_form:
+                        template: "NetgenMoreDemoBundle:content/full:ng_feedback_form.html.twig"
+                        controller: "netgen_information_collection.controller:displayAndHandle"
+                        match:
+                            Identifier\ContentType: ng_feedback_form
                     ng_audio:
                         template: "NetgenMoreDemoBundle:content/full:ng_audio.html.twig"
                         match:
