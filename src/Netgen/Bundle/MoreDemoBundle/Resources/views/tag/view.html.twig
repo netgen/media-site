@@ -1,0 +1,33 @@
+{% extends ngbm.layoutTemplate %}
+
+{% set tag_keyword = netgen_tags_tag_keyword( tag ) %}
+
+{% set show_path = false %}
+{% set site_title = tag_keyword %}
+
+{% block content %}
+    <div class="tags-view">
+        <h1 class="page-header">{{ tag_keyword }}</h1>
+
+        {% if related_content|length > 0 %}
+            <div id="related-content">
+                {% for related_content_item in related_content %}
+                    {{ render(
+                        controller(
+                            "ng_content:viewAction", {
+                                "contentId": related_content_item.id,
+                                "locationId": related_content_item.mainLocationId,
+                                "viewType": "line",
+                                "layout": false
+                            }
+                        )
+                    ) }}
+                {% endfor %}
+            </div>
+
+            {% if related_content.haveToPaginate() %}
+                {{ pagerfanta( related_content, 'ngmore' ) }}
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

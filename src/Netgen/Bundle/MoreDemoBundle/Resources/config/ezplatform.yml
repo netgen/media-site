@@ -22,6 +22,12 @@ ez_publish_legacy:
                 view_layout: "NetgenMoreDemoBundle::pagelayout_legacy.html.twig"
                 module_layout: "NetgenMoreDemoBundle::pagelayout_module.html.twig"
 
+netgen_tags:
+    system:
+        frontend_group:
+            tag_view:
+                template: "NetgenMoreDemoBundle:tag:view.html.twig"
+
 netgen_ez_platform_site_api:
     system:
         frontend_group:
