@@ -13,23 +13,25 @@
 {% endif %}
 
 {% if site_title is not defined %}
-    {% set site_title = site_name %}
+    {% set site_title = '' %}
 
     {% if path_array is not empty %}
         {% if not ezpublish.configResolver.getParameter( 'site_settings.show_path_in_title', 'ngmore' ) %}
-            {% set site_title = path_array[path_array|length - 1].text ~ ' - ' ~ site_title %}
+            {% set site_title = path_array[path_array|length - 1].text %}
         {% elseif path_array|length > 1 %}
             {% for path_item in path_array %}
                 {% if not loop.first %}
-                    {% set site_title = path_item.text ~ ' - ' ~ site_title %}
+                    {% set site_title = path_item.text ~ ( site_title is not empty ? ' - ' ~ site_title : '' ) %}
                 {% endif %}
             {% endfor %}
         {% endif %}
     {% endif %}
+{% endif %}
 
-    {% if content_meta_data is defined and content_meta_data.title is defined and content_meta_data.title is not empty %}
-        {% set site_title = content_meta_data.title %}
-    {% endif %}
+{% set site_title = site_title ~ ( site_name is not empty ? ' - ' ~ site_name : '' ) %}
+
+{% if content_meta_data is defined and content_meta_data.title is defined and content_meta_data.title is not empty %}
+    {% set site_title = content_meta_data.title %}
 {% endif %}
 
 <title>{{ site_title }}</title>
