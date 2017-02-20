@@ -22,6 +22,11 @@ ezpublish:
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1140] }
                         - { name: strip }
+                i1920:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [1920] }
+                        - { name: strip }
                 opengraph:
                     reference: original
                     filters:
@@ -66,5 +71,8 @@ liip_imagine:
             quality: 85
             jpeg_quality: 85
         i1140:
+            quality: 75
+            jpeg_quality: 75
+        i1920:
             quality: 75
             jpeg_quality: 75
