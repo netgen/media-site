@@ -1,10 +1,17 @@
-{% set config_meta_data = ezpublish.configResolver.getParameter( 'site_settings.meta_data', 'ngmore' ) %}
-{% set meta_data = config_meta_data|merge( meta_data|default( [] ) ) %}
+{% set site_info_metadata = ngmore.siteInfoContent.fields.metadata.value %}
+
+{% set default_meta_data = {
+    title: site_info_metadata.title,
+    keywords: site_info_metadata.keywords,
+    description: site_info_metadata.description
+} %}
+
+{% set meta_data = default_meta_data|merge( meta_data|default( [] ) ) %}
 
 {% if content is defined %}
     {% if content.hasField('metadata') and not content.fields.metadata.empty %}
         {% set content_meta_data = content.fields.metadata.value %}
-        {% for key in config_meta_data|keys %}
+        {% for key in default_meta_data|keys %}
             {% if content_meta_data[key] is defined and content_meta_data[key] is not empty %}
                 {% set meta_data = meta_data|merge( { ( key ): content_meta_data[key] } ) %}
             {% endif %}
@@ -36,7 +43,7 @@
 
 <title>{{ site_title }}</title>
 
-{% for key in config_meta_data|keys %}
+{% for key in default_meta_data|keys %}
     {% if meta_data[key] is defined and meta_data[key] is not empty %}
         <meta name="{{ key }}" content="{{ meta_data[key] }}" />
     {% endif %}
