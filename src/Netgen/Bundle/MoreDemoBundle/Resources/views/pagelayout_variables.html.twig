@@ -28,18 +28,33 @@
 
 {% if available_translations is not defined %}
     {% set available_translations = [] %}
+    {% set current_content_language = null %}
+
+    {% if content is defined %}
+        {% for language in ezpublish.configResolver.parameter( 'languages' ) if current_content_language is empty %}
+            {% if language in content.versionInfo.languageCodes %}
+                {% set current_content_language = language %}
+            {% endif %}
+        {% endfor %}
+
+        {% if current_content_language is empty %}
+            {% set current_content_language = content.contentInfo.mainLanguageCode %}
+        {% endif %}
+    {% endif %}
 
     {% if status_code is not defined %}
         {% for language in ezpublish.availableLanguages %}
             {% set translation_site_access = ezpublish.translationSiteAccess( language ) %}
 
             {% if translation_site_access is not empty %}
+                {% set siteaccess_languages = ezpublish.configResolver.parameter( 'languages', null, translation_site_access ) %}
                 {% set route_reference = ez_route( params={ 'siteaccess': translation_site_access } ) %}
+
                 {% if route_reference.route is not empty %}
                     {% if content is not defined %}
                         {% set url = url( route_reference ) %}
                         {% set available_translations = available_translations|merge( { ( language ): url } ) %}
-                    {% elseif language in content.versionInfo.languageCodes or content.contentInfo.alwaysAvailable %}
+                    {% elseif current_content_language in siteaccess_languages or content.contentInfo.alwaysAvailable %}
                         {% set url = url( route_reference, { 'language': language } ) %}
                         {% set available_translations = available_translations|merge( { ( language ): url } ) %}
                     {% endif %}
