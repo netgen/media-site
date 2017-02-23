@@ -35,7 +35,11 @@
     {% endif %}
 {% endif %}
 
-{% set site_title = site_title ~ ( site_name is not empty ? ' - ' ~ site_name : '' ) %}
+{% if site_title is not empty %}
+    {% set site_title = site_title ~ ( site_name is not empty ? ' - ' ~ site_name : '' ) %}
+{% else %}
+    {% set site_title = site_name|default( '' ) %}
+{% endif %}
 
 {% if content_meta_data is defined and content_meta_data.title is defined and content_meta_data.title is not empty %}
     {% set site_title = content_meta_data.title %}
