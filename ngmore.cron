@@ -25,6 +25,10 @@ MAILTO=""
 # every 15 minutes
 */15 * * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS frequent 2>&1
 
+# Instruct cron to run the "ezplatformindexsubtree" set of cronjobs
+# every 15 minutes
+*/15 * * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS ezplatformindexsubtree 2>&1
+
 # Instruct cron to run the "ezflow" set of cronjobs
 # every 5 minutes
 */5 * * * * cd $EZPUBLISHROOT && $PHP $EZPUBLISHSCRIPT -q --siteaccess $SITEACCESS ezflow 2>&1
