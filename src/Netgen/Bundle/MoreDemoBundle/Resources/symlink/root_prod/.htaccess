@@ -56,7 +56,7 @@ RewriteCond %{REQUEST_URI} \.svn|\.git
 RewriteRule .* / [L,R=301]
 
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^app\.php(/(.*)|$) /$2 [R=301,L]
+RewriteRule ^app(_.+)?\.php(/(.*)|$) /$3 [R=301,L]
 
 # Let's Encrypt support
 RewriteRule ^\.well-known/acme-challenge/ - [L]
