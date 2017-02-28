@@ -152,6 +152,7 @@ header {
                 }
             }
             > .submenu-trigger {
+                @extend %fontawesome;
                 display:none;
             }
         }
@@ -235,7 +236,6 @@ header {
                     }
                 }
                 > .submenu-trigger {
-                    // @extend %fontawesome;
                     display:block;
                     position:absolute;
                     right:0;
