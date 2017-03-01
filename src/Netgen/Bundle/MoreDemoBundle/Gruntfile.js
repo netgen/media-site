@@ -38,6 +38,34 @@ module.exports = function (grunt) {
             sass: {
                 files: ['<%= config.resources_dir %>/sass/{,*/}*.{scss,sass}'],
                 tasks: ['sass', 'postcss']
+            },
+            babel: {
+                files: ['<%= config.resources_dir %>es6/{,*/}*.js'],
+                tasks: ['concat', 'babel']
+            }
+        },
+
+        // Compiles es6 js files to supported js
+        concat: {
+            options: {
+                sourceMap: true,
+                sourceMapStyle: 'inline'
+            },
+            js: {
+                src: [
+                    '<%= config.resources_dir %>es6/{,*/}*.js',
+                ],
+                dest: '.tmp/js/app.js'
+            }
+        },
+        babel: {
+            options: {
+                sourceMap: 'inline',
+            },
+            dist: {
+                files: {
+                    '<%= config.public_dir %>/js/app.js': '.tmp/js/app.js'
+                }
             }
         },
 
@@ -87,6 +115,8 @@ module.exports = function (grunt) {
             'lockfile',
             'sass:dist',
             'postcss',
+            'concat',
+            'babel',
             'watch'
         ]);
     });

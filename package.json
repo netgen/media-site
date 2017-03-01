@@ -2,7 +2,11 @@
     "private": true,
     "devDependencies": {
         "autoprefixer-core": "^5.2.1",
+        "babel-plugin-uglify": "^1.0.2",
+        "babel-preset-env": "^1.1.10",
         "grunt": "^0.4.5",
+        "grunt-babel": "^6.0.0",
+        "grunt-contrib-concat": "^1.0.1",
         "grunt-contrib-watch": "^0.6.1",
         "grunt-lock": "^0.1.3",
         "grunt-newer": "^1.1.0",
@@ -12,7 +16,7 @@
         "jit-grunt": "^0.9.1",
         "time-grunt": "^1.1.0"
     },
-    "engines": {
+        "engines": {
         "node": ">=0.10.0"
     }
 }
