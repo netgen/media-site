@@ -2,7 +2,8 @@
 //IMPORTANT: only add imports to this file
 
 @import 'bootstrap_variables';
-@import '../public/vendor/bootstrap-sass/assets/stylesheets/_bootstrap';
+@import 'bootstrap';
+@import '../../node_modules/swiper/dist/css/swiper';
 @import 'variables';
 @import 'typography';
 @import 'layout';

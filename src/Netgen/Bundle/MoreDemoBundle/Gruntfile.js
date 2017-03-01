@@ -41,7 +41,7 @@ module.exports = function (grunt) {
             },
             babel: {
                 files: ['<%= config.resources_dir %>es6/{,*/}*.js'],
-                tasks: ['concat', 'babel']
+                tasks: ['concat', 'babel', 'browserify']
             }
         },
 
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                 src: [
                     '<%= config.resources_dir %>es6/{,*/}*.js',
                 ],
-                dest: '.tmp/js/app.js'
+                dest: '<%= config.public_dir %>/js/app.js'
             }
         },
         babel: {
@@ -64,7 +64,19 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    '<%= config.public_dir %>/js/app.js': '.tmp/js/app.js'
+                    '<%= config.public_dir %>/js/app.js': '<%= config.public_dir %>/js/app.js'
+                }
+            }
+        },
+        browserify: {
+            options: {
+                browserifyOptions: {
+                    debug: true
+                }
+            },
+            dist: {
+                files: {
+                    '<%= config.public_dir %>/js/app.js': '<%= config.public_dir %>/js/app.js'
                 }
             }
         },
@@ -117,6 +129,7 @@ module.exports = function (grunt) {
             'postcss',
             'concat',
             'babel',
+            'browserify',
             'watch'
         ]);
     });
