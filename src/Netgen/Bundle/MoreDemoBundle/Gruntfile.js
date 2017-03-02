@@ -11,8 +11,9 @@ module.exports = function (grunt) {
 
     // Configurable paths
     var config = {
-        resources_dir: 'Resources/',
-        public_dir: 'Resources/public/'
+        resources_dir: 'Resources',
+        public_dir: 'Resources/public',
+        dev_dir: 'Resources/public/dev'
     };
 
     // Define the configuration for all the tasks
@@ -40,8 +41,24 @@ module.exports = function (grunt) {
                 tasks: ['sass', 'postcss']
             },
             babel: {
-                files: ['<%= config.resources_dir %>es6/{,*/}*.js'],
+                files: ['<%= config.resources_dir %>/es6/{,*/}*.js'],
                 tasks: ['concat', 'babel', 'browserify']
+            }
+        },
+
+        // Creates symlink of public directories to public/dev
+        symlink: {
+            images: {
+                src: '<%= config.public_dir %>/images',
+                dest: '<%= config.dev_dir %>/images'
+            },
+            fonts: {
+                src: '<%= config.public_dir %>/fonts',
+                dest: '<%= config.dev_dir %>/fonts'
+            },
+            vendor: {
+                src: '<%= config.public_dir %>/vendor',
+                dest: '<%= config.dev_dir %>/vendor'
             }
         },
 
@@ -53,9 +70,9 @@ module.exports = function (grunt) {
             },
             js: {
                 src: [
-                    '<%= config.resources_dir %>es6/{,*/}*.js',
+                    '<%= config.resources_dir %>/es6/{,*/}*.js',
                 ],
-                dest: '<%= config.public_dir %>/js/app.js'
+                dest: '.tmp/js/app.js'
             }
         },
         babel: {
@@ -64,7 +81,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    '<%= config.public_dir %>/js/app.js': '<%= config.public_dir %>/js/app.js'
+                    '<%= config.dev_dir %>/js/app.js': '.tmp/js/app.js'
                 }
             }
         },
@@ -76,7 +93,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    '<%= config.public_dir %>/js/app.js': '<%= config.public_dir %>/js/app.js'
+                    '<%= config.dev_dir %>/js/app.js': '<%= config.dev_dir %>/js/app.js'
                 }
             }
         },
@@ -115,7 +132,35 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '.tmp/css/',
                     src: '{,*/}*.css',
-                    dest: '<%= config.public_dir %>/css'
+                    dest: '<%= config.dev_dir %>/css'
+                }]
+            }
+        },
+
+        uglify: {
+            my_target: {
+                files: {
+                    '<%= config.public_dir %>/js/app.js': ['<%= config.dev_dir %>/js/app.js']
+                }
+            }
+        },
+
+        cssmin: {
+            target: {
+                options: {
+                    level: {
+                        1: {
+                            all: false,
+                            specialComments: 0
+                        }
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.dev_dir %>/css',
+                    src: ['*.css', '!*.min.css'],
+                    dest: '<%= config.public_dir %>/css',
+                    ext: '.css'
                 }]
             }
         }
@@ -125,6 +170,7 @@ module.exports = function (grunt) {
     grunt.registerTask('serve', 'Start the server and preview your app', function () {
         grunt.task.run([
             'lockfile',
+            'symlink',
             'sass:dist',
             'postcss',
             'concat',
@@ -137,4 +183,33 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'serve'
     ]);
+
+    grunt.registerTask('build', 'Build production css and js', function () {
+        grunt.task.run([
+            'symlink',
+            'sass:dist',
+            'postcss',
+            'concat',
+            'babel',
+            'browserify',
+            'uglify',
+            'cssmin'
+        ]);
+    });
+    grunt.registerTask('build_css', 'Build production css', function () {
+        grunt.task.run([
+            'sass:dist',
+            'postcss',
+            'cssmin'
+        ]);
+    });
+    grunt.registerTask('build_js', 'Build production js', function () {
+        grunt.task.run([
+            'concat',
+            'babel',
+            'browserify',
+            'uglify',
+        ]);
+    });
+
 };

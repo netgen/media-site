@@ -1,6 +1,9 @@
 @charset "UTF-8";
 //IMPORTANT: only add imports to this file
+$fa-font-path: '../vendor/components-font-awesome/fonts';
 
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic&subset=latin,latin-ext';
+@import '../public/vendor/components-font-awesome/scss/font-awesome';
 @import 'bootstrap_variables';
 @import 'bootstrap';
 @import '../../node_modules/swiper/dist/css/swiper';

@@ -1,5 +1,9 @@
-{% javascripts filter='?uglifyjs2'
-    '@NetgenMoreDemoBundle/Resources/public/js/app.js'
-%}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
+{% if app.debug %}
+    <script type="text/javascript" src="{{ asset('bundles/netgenmoredemo/dev/js/app.js') }}"></script>
+{% else %}
+    {% javascripts
+        'bundles/netgenmoredemo/js/app.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endif %}
