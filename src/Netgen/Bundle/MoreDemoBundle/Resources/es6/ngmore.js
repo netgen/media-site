@@ -49,7 +49,7 @@ require('bootstrap-sass');
 
 })();
 /* /CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
-console.log('bla');
+
 /* JWPLAYER INIT  -----------------------------------------------*/
 
 function jwplayer_init( videoObjectClass, videoObject ){
