@@ -1,7 +1,7 @@
 {
     "private": true,
     "devDependencies": {
-        "autoprefixer-core": "^5.2.1",
+        "autoprefixer": "^6.7.6",
         "babel-preset-env": "^1.1.10",
         "grunt": "^1.0.1",
         "grunt-babel": "^6.0.0",
