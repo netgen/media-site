@@ -6,6 +6,6 @@
         "Marko Žabčić <marko@effectiva.hr>"
     ],
     "dependencies": {
-        "components-font-awesome": "~4.4.0",
+        "components-font-awesome": "~4.4.0"
     }
 }
