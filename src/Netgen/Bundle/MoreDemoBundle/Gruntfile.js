@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     var grunt_config = 'grunt_config.json';
     if (!grunt.file.exists(grunt_config)) {
         grunt.file.copy(grunt_config + '.dist', grunt_config)
-        throw new Error('Please fill ' + grunt_config + ' file in directory where Gruntfile.js is located');
+        throw new Error('Default ' + grunt_config + ' file is created. Please customize it to your needs and run grunt again.');
     };
 
     // Configurable paths
