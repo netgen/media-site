@@ -9,10 +9,11 @@ module.exports = function (grunt) {
         lockfile: 'grunt-lock'
     });
 
-    var grunt_config = 'grunt_config.json';
-    if (!grunt.file.exists(grunt_config)) {
-        grunt.file.copy(grunt_config + '.dist', grunt_config)
-        throw new Error('Default ' + grunt_config + ' file is created. Please customize it to your needs and run grunt again.');
+
+    var local_config = 'grunt_config.json';
+    if (!grunt.file.exists(local_config)) {
+        grunt.file.copy(local_config + '.dist', local_config);
+        grunt.log.errorlns('Default ' + local_config + ' file is created. Please customize it to your needs and run grunt again.');
     };
 
     // Configurable paths
@@ -20,7 +21,7 @@ module.exports = function (grunt) {
         resources_dir: 'Resources',
         public_dir: 'Resources/public',
         dev_dir: 'Resources/public/dev',
-        local: grunt.file.readJSON(grunt_config)
+        local: grunt.file.readJSON(local_config)
     };
 
     // Define the configuration for all the tasks
@@ -28,7 +29,7 @@ module.exports = function (grunt) {
         // Project settings
         config: config,
 
-        //Prevent multiple grunt instances
+        // Prevent multiple grunt instances
         lockfile: {
             grunt: {
                 path: 'grunt.lock'
@@ -185,7 +186,7 @@ module.exports = function (grunt) {
                     proxy: {
                         target: config.local.domain
                     },
-                    host: config.local.ip || '0.0.0.0'
+                    host: config.local.ip || null
                 }
             }
         }
