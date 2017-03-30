@@ -9,11 +9,18 @@ module.exports = function (grunt) {
         lockfile: 'grunt-lock'
     });
 
+    var grunt_config = 'grunt_config.json';
+    if (!grunt.file.exists(grunt_config)) {
+        grunt.file.copy(grunt_config + '.dist', grunt_config)
+        throw new Error('Please fill ' + grunt_config + ' file in directory where Gruntfile.js is located');
+    };
+
     // Configurable paths
     var config = {
         resources_dir: 'Resources',
         public_dir: 'Resources/public',
-        dev_dir: 'Resources/public/dev'
+        dev_dir: 'Resources/public/dev',
+        local: grunt.file.readJSON(grunt_config)
     };
 
     // Define the configuration for all the tasks
@@ -163,6 +170,24 @@ module.exports = function (grunt) {
                     ext: '.css'
                 }]
             }
+        },
+
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src : [
+                        '<%= config.dev_dir %>/js/*.js',
+                        '<%= config.dev_dir %>/css/*.css'
+                    ]
+                },
+                options: {
+                    watchTask: true,
+                    proxy: {
+                        target: config.local.domain
+                    },
+                    host: config.local.ip || '0.0.0.0'
+                }
+            }
         }
     });
 
@@ -183,6 +208,20 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'serve'
     ]);
+
+    grunt.registerTask('sync', 'Build production css and js and start browserSync to watch changes and automatically reload site', function () {
+        grunt.task.run([
+            'lockfile',
+            'symlink',
+            'sass:dist',
+            'postcss',
+            'concat',
+            'babel',
+            'browserify',
+            'browserSync',
+            'watch'
+        ]);
+    });
 
     grunt.registerTask('build', 'Build production css and js', function () {
         grunt.task.run([
