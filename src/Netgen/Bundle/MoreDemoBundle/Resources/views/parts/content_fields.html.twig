@@ -28,7 +28,7 @@
     {% if content.hasField('title') and not content.fields.title.empty %}
         {{ content.fields.title.value.text }}
     {% elseif content.hasField('name') and not content.fields.name.empty %}
-        {{ content.fields.title.name.text }}
+        {{ content.fields.name.value.text }}
     {% else %}
         {{ content.name }}
     {% endif %}
