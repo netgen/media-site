@@ -1,8 +1,8 @@
 {{ render(
     controller(
         'ng_content:viewAction', {
-            'content': content,
-            'location': location,
+            'content': item is defined ? item.content : content,
+            'location': item is defined ? item.location : location,
             'viewType': 'ngcb_preview',
             'layout': false,
         }
