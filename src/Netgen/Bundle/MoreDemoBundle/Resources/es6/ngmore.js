@@ -1,5 +1,6 @@
 import $ from 'jquery';
 window.jQuery = $; //fix for bootstrap module referencing to global jQuery
+window.$ = $;
 
 require('swiper');
 require('bootstrap-sass');
