@@ -1,6 +1,6 @@
 {% extends ngbm.layoutTemplate %}
 
-{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
+{% import '@NetgenMoreDemo/parts/content_fields.html.twig' as content_fields %}
 
 {% set show_path = false %}
 
@@ -25,7 +25,7 @@
                                         'locationId': location.id,
                                         'includeChildren': true,
                                         'contentTypeIdentifiers': ['image', 'ng_video'],
-                                        'template': 'NetgenMoreDemoBundle:parts:related_multimedia.html.twig'
+                                        'template': '@NetgenMoreDemo/parts/related_multimedia.html.twig'
                                     }
                                 )
                             ) }}

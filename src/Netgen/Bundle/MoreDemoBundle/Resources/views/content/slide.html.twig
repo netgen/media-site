@@ -1,5 +1,5 @@
-{% import 'NetgenMoreDemoBundle:parts:slide.html.twig' as slide %}
-{% import 'NetgenMoreDemoBundle:parts:content_fields.html.twig' as content_fields %}
+{% import '@NetgenMoreDemo/parts/slide.html.twig' as slide %}
+{% import '@NetgenMoreDemo/parts/content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace( { '_': '-' } ) }} vl2">
     {{ slide.image( content ) }}

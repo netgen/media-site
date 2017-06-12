@@ -5,31 +5,31 @@ netgen_block_manager:
                 block_view:
                     default:
                         title\section:
-                            template: "NetgenMoreDemoBundle:layouts/block/title:section.html.twig"
+                            template: "@NetgenMoreDemo/layouts/block/title/section.html.twig"
                             match:
                                 block\definition: title
                                 block\view_type: section
 
                         title\section_gray:
-                            template: "NetgenMoreDemoBundle:layouts/block/title:section_gray.html.twig"
+                            template: "@NetgenMoreDemo/layouts/block/title/section_gray.html.twig"
                             match:
                                 block\definition: title
                                 block\view_type: section_gray
 
                         title:
-                            template: "NetgenBlockManagerBundle:block:title.html.twig"
+                            template: "@NetgenBlockManager/block/title.html.twig"
                             match:
                                 block\definition: title
                                 block\view_type: title
 
                         list\numbered:
-                            template: "NetgenMoreDemoBundle:layouts/block/list:numbered.html.twig"
+                            template: "@NetgenMoreDemo/layouts/block/list/numbered.html.twig"
                             match:
                                 block\definition: list
                                 block\view_type: list_numbered
 
                         list\grid_featured:
-                            template: "NetgenMoreDemoBundle:layouts/block/list:grid_featured.html.twig"
+                            template: "@NetgenMoreDemo/layouts/block/list/grid_featured.html.twig"
                             match:
                                 block\definition: list
                                 block\view_type: grid_featured
@@ -38,13 +38,13 @@ netgen_block_manager:
         block_view:
             api:
                 list\numbered:
-                    template: "NetgenBlockManagerBundle:api/block/list:list.html.twig"
+                    template: "@NetgenBlockManager/api/block/list/list.html.twig"
                     match:
                         block\definition: list
                         block\view_type: list_numbered
 
                 list\grid_featured:
-                    template: "NetgenBlockManagerBundle:api/block/list:grid.html.twig"
+                    template: "@NetgenBlockManager/api/block/list/grid.html.twig"
                     match:
                         block\definition: list
                         block\view_type: grid_featured

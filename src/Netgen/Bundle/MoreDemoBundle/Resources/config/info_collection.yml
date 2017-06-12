@@ -4,7 +4,7 @@ netgen_information_collection:
             action_config:
                 email:
                     templates:
-                        default: "NetgenMoreDemoBundle:info_collection:email.html.twig"
+                        default: "@NetgenMoreDemo/info_collection/email.html.twig"
                     default_variables:
                         sender: "info@netgen.hr"
                         recipient: "info@netgen.hr"

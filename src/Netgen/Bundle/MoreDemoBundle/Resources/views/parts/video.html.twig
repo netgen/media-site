@@ -22,7 +22,7 @@
 {% endmacro %}
 
 {% macro poster_slide( content, use_lazy_load ) %}
-    {% import 'NetgenMoreDemoBundle:parts:slide.html.twig' as slide %}
+    {% import '@NetgenMoreDemo/parts/slide.html.twig' as slide %}
 
     {% set use_lazy_load = use_lazy_load|default( false ) %}
 

@@ -1,4 +1,4 @@
-{% extends 'NetgenMoreDemoBundle::pagelayout_variables.html.twig' %}
+{% extends '@NetgenMoreDemo/pagelayout_variables.html.twig' %}
 
 {% block pagelayout_content %}
 <!DOCTYPE html>
@@ -7,38 +7,38 @@
     <meta charset="utf-8">
 
     {% block page_head %}
-        {% include 'NetgenMoreDemoBundle::page_head.html.twig' %}
+        {% include '@NetgenMoreDemo/page_head.html.twig' %}
     {% endblock %}
 
     {% block page_head_style %}
-        {% include 'NetgenMoreDemoBundle::page_head_style.html.twig' %}
+        {% include '@NetgenMoreDemo/page_head_style.html.twig' %}
     {% endblock %}
 
     {% block page_head_script %}
-        {% include 'NetgenMoreDemoBundle::page_head_script.html.twig' %}
+        {% include '@NetgenMoreDemo/page_head_script.html.twig' %}
     {% endblock %}
 
     {% block open_graph %}
-        {% include 'NetgenMoreBundle:parts:opengraph.html.twig' %}
+        {% include '@NetgenMore/parts/opengraph.html.twig' %}
     {% endblock %}
 
-    {% include 'NetgenMoreBundle:parts:jwplayer.html.twig' %}
+    {% include '@NetgenMore/parts/jwplayer.html.twig' %}
 
-    {% include 'NetgenMoreBundle:parts:google_tag_manager_code.html.twig' %}
+    {% include '@NetgenMore/parts/google_tag_manager_code.html.twig' %}
 </head>
 <body>
 
-{% include 'NetgenMoreBundle:parts:facebook_api.html.twig' %}
+{% include '@NetgenMore/parts/facebook_api.html.twig' %}
 
 <div id="page">
 
     {% block layout %}
         {% block header %}
-            {% include 'NetgenMoreDemoBundle::page_header.html.twig' %}
+            {% include '@NetgenMoreDemo/page_header.html.twig' %}
         {% endblock %}
 
         {% block breadcrumb %}
-            {% include 'NetgenMoreDemoBundle::page_path.html.twig' %}
+            {% include '@NetgenMoreDemo/page_path.html.twig' %}
         {% endblock %}
 
         <div id="main" class="clearfix">
@@ -46,14 +46,14 @@
         </div>
 
         {% block footer %}
-            {% include 'NetgenMoreDemoBundle::page_footer.html.twig' %}
+            {% include '@NetgenMoreDemo/page_footer.html.twig' %}
         {% endblock %}
     {% endblock %}
 
 </div>
 
 {% block page_footer_script %}
-    {% include 'NetgenMoreDemoBundle::page_footer_script.html.twig' %}
+    {% include '@NetgenMoreDemo/page_footer_script.html.twig' %}
 {% endblock %}
 
 </body>
