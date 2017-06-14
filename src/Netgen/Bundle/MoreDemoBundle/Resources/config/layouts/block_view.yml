@@ -16,12 +16,6 @@ netgen_block_manager:
                                 block\definition: title
                                 block\view_type: section_gray
 
-                        title:
-                            template: "@NetgenBlockManager/block/title.html.twig"
-                            match:
-                                block\definition: title
-                                block\view_type: title
-
                         list\numbered:
                             template: "@NetgenMoreDemo/layouts/block/list/numbered.html.twig"
                             match:
