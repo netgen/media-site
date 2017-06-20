@@ -12,22 +12,22 @@ imports:
 ezpublish:
     system:
         frontend_group:
-            pagelayout: "@NetgenMoreDemo/pagelayout.html.twig"
+            pagelayout: "@ezdesign/pagelayout.html.twig"
             user:
-                login_template: "@NetgenMoreDemo/user/login.html.twig"
+                login_template: "@ezdesign/user/login.html.twig"
 
 ez_publish_legacy:
     system:
         frontend_group:
             templating:
-                view_layout: "@NetgenMoreDemo/pagelayout_legacy.html.twig"
-                module_layout: "@NetgenMoreDemo/pagelayout_module.html.twig"
+                view_layout: "@ezdesign/pagelayout_legacy.html.twig"
+                module_layout: "@ezdesign/pagelayout_module.html.twig"
 
 netgen_tags:
     system:
         frontend_group:
             tag_view:
-                template: "@NetgenMoreDemo/tag/view.html.twig"
+                template: "@ezdesign/tag/view.html.twig"
 
 netgen_ez_platform_site_api:
     system:

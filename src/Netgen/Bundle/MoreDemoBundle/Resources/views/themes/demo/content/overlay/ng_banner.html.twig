@@ -1,0 +1,23 @@
+{% extends '@ezdesign/parts/linkable.html.twig' %}
+
+{% block content %}
+<div class="view-type view-type-{{ viewType }} ng-banner vl t1 clearfix">
+
+    {% if not content.fields.image.empty %}
+        <div class="image">
+            {{ ng_render_field(
+                content.fields.image, {
+                    'parameters': {
+                        'alias': 'i480',
+                        'link_href': url,
+                        'link_target': open_in_new_window ? '_blank' : ''
+                    }
+                }
+            ) }}
+        </div>
+    {% endif %}
+    <div class="info">
+	    <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ng_render_field( content.fields.title ) }}</a></h2>
+	</div>
+</div>
+{% endblock %}

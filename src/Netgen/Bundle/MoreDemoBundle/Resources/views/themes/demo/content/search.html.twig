@@ -1,0 +1,48 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<div class="view-type view-type-search {{ content.contentInfo.contentTypeIdentifier|replace( { '_': '-' } ) }} vl3">
+
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 add-line">
+            {{ content_fields.image( content, location, 'i320' ) }}
+
+            <div class="info">
+                <h2 class="title">
+                    <a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a>
+                </h2>
+
+                <div class="short">
+                    {% if content.hasField('line_intro') and not content.fields.line_intro.empty %}
+                        {{ ng_render_field( content.fields.line_intro ) }}
+                    {% elseif content.hasField('full_intro') and not content.fields.full_intro.empty %}
+                        {{ ng_render_field( content.fields.full_intro ) }}
+                    {% elseif content.hasField('body') and not content.fields.body.empty %}
+                        {{ content.fields.body.value.xml.saveXML()|striptags|trim|truncate( 210 ) }}
+                    {% endif %}
+                </div>
+
+                <div class="date">Last updated: {{ content.contentInfo.modificationDate|date( 'F jS, Y H:i' ) }}</div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div class="additional-info">
+                <div class="type">
+                    <label>
+                        Type:
+                    </label>
+                    {{ content.contentInfo.contentTypeName }}
+                </div>
+
+                {% if score_percent is defined and score_percent is not null %}
+                    <div class="score progress">
+                        <div class="bar" style="width:{{ score_percent }}%">{{ score_percent }}%</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+</div>

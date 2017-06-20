@@ -1,0 +1,15 @@
+{% extends "@ezdesign/parts/linkable.html.twig" %}
+
+{% block content %}
+    <div class="{% if is_slider %}swiper-slide{% endif %} vl2">
+        {% if is_slider %}
+            <img class="swiper-lazy" data-src="{{ ng_image_alias( content.fields.image, 'i1140' ).uri|default('') }}" />
+        {% else %}
+            <img src="{{ ng_image_alias( content.fields.image, 'i1140' ).uri|default('') }}" />
+        {% endif %}
+
+        <div class="info">
+            <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ng_render_field( content.fields.title ) }}</a></h2>
+        </div>
+    </div>
+{% endblock %}

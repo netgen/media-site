@@ -1,0 +1,6 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<div class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace( { '_': '-' } ) }} vl t4 clearfix">
+	<h2 class="title"><a href="{{ path( location ) }}">{{ content_fields.name( content ) }}</a></h2>
+    {{ content_fields.intro( content ) }}
+</div>

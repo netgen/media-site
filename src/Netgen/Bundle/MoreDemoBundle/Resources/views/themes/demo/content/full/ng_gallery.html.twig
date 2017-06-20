@@ -1,0 +1,22 @@
+{% extends ngbm.layoutTemplate %}
+
+{% if not content.fields.line_intro.empty %}
+    {% set meta_data = { 'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% elseif not content.fields.description.empty %}
+    {% set meta_data = { 'description': content.fields.description.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% endif %}
+
+{% block content %}
+<div class="view-type view-type-{{ viewType }} ng-gallery {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} clearfix">
+    {{ render(
+        controller(
+            'ngmore.controller.parts:viewRelatedMultimediaItems', {
+                'locationId': location.id,
+                'includeChildren': true,
+                'contentTypeIdentifiers': ['image', 'ng_video'],
+                'template': '@ezdesign/parts/related_multimedia.html.twig'
+            }
+        )
+    ) }}
+</div>
+{% endblock %}

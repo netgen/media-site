@@ -5,10 +5,10 @@ netgen_block_manager:
                 item_view:
                     default:
                         ezcontent:
-                            template: "@NetgenMoreDemo/layouts/item/ezcontent.html.twig"
+                            template: "@ezdesign/layouts/item/ezcontent.html.twig"
                             match:
                                 item\value_type: ezcontent
                         ezlocation:
-                            template: "@NetgenMoreDemo/layouts/item/ezlocation.html.twig"
+                            template: "@ezdesign/layouts/item/ezlocation.html.twig"
                             match:
                                 item\value_type: ezlocation

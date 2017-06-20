@@ -1,0 +1,97 @@
+{% extends ngbm.layoutTemplate %}
+
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+{% set show_path = false %}
+
+{% if not content.fields.line_intro.empty %}
+    {% set meta_data = { 'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% elseif not content.fields.full_intro.empty %}
+    {% set meta_data = { 'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+{% endif %}
+
+{% set poster_image = content_fields.background_poster( content ) %}
+
+{% block content %}
+    <div class="view-type view-type-{{ viewType }} ng-article {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} vf1 clearfix">
+        <div class="article-header {% if poster_image is empty %} no-image{% endif %}" {% if poster_image is not empty %} style="background-image:url({{ poster_image }});" {% endif %}>
+            {% block image %}
+                {% if not content.fields.image.empty or not content.fields.related_multimedia.empty %}
+                    <div class="container">
+                        <div class="article-image">
+                            {{ render(
+                                controller(
+                                    'ngmore.controller.parts:viewRelatedMultimediaItems', {
+                                        'locationId': location.id,
+                                        'includeChildren': true,
+                                        'contentTypeIdentifiers': ['image', 'ng_video'],
+                                        'template': '@ezdesign/parts/related_multimedia.html.twig'
+                                    }
+                                )
+                            ) }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+            <div class="article-header-info">
+                {% block title %}
+                    <div class="container">
+                        <h1 class="article-title">{{ ng_render_field( content.fields.title ) }}</h1>
+                    </div>
+                {% endblock %}
+
+                {% block intro %}
+                    {% if not content.fields.full_intro.empty %}
+                        <div class="container">
+                            <div class="article-intro">
+                                {{ ng_render_field( content.fields.full_intro ) }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="article-content">
+                {% block body %}
+                    {% if not content.fields.body.empty %}
+                        <div class="article-body">
+                            {{ ng_render_field( content.fields.body ) }}
+                        </div>
+                    {% endif %}
+                {% endblock %}
+
+                {% if not content.fields.location.empty %}
+                    <div class="location">
+                        {{ ng_render_field( content.fields.location ) }}
+                    </div>
+                {% endif %}
+
+                <div class="article-footer">
+                    {% block author %}
+                        <div class="container">
+                            <div class="article-date">
+                                By <span class="author">
+                                    {{ ngmore_owner( content ).name }}
+                                </span>
+                            </div>
+                        </div>
+                    {% endblock %}
+
+                    {% block newsletter %}
+                        <div class="newsletter-box">
+                            <h3>Want more posts like this?</h3>
+                            <p>Stay tuned with the weekly recap</p>
+                            <form action="POST">
+                                <input type="text" class="form-control" placeholder="Enter your e-mail">
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

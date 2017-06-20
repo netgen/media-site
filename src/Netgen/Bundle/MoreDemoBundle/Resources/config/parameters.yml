@@ -1,5 +1,5 @@
 parameters:
-    ngmore.default.pagelayout: "@@NetgenMoreDemo/pagelayout.html.twig"
+    ngmore.default.pagelayout: "@@ezdesign/pagelayout.html.twig"
 
     ngmore.default.site_settings.site_name: "Netgen More"
 
