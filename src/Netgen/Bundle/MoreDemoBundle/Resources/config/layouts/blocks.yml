@@ -40,6 +40,8 @@ netgen_block_manager:
                 grid_featured:
                     name: 'Grid (featured)'
                     item_view_types:
+                        standard:
+                            enabled: false
                         overlay:
                             name: 'Overlay'
 
@@ -47,6 +49,8 @@ netgen_block_manager:
             view_types:
                 slider:
                     item_view_types:
+                        standard:
+                            enabled: false
                         slide:
                             name: 'Slide'
                 sushi_bar:
