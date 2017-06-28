@@ -11,8 +11,6 @@ netgen_block_manager:
             view_types:
                 list:
                     item_view_types: &list_item_view_types
-                        standard:
-                            name: 'Standard'
                         standard_with_intro:
                             name: 'Standard (with intro)'
                         overlay:
@@ -31,8 +29,6 @@ netgen_block_manager:
                     valid_parameters: ['!number_of_columns']
                 grid:
                     item_view_types:
-                        standard:
-                            name: 'Standard'
                         standard_with_intro:
                             name: 'Standard (with intro)'
                         overlay:
@@ -55,8 +51,6 @@ netgen_block_manager:
                             name: 'Slide'
                 sushi_bar:
                     item_view_types:
-                        standard:
-                            name: 'Standard'
                         standard_with_intro:
                             name: 'Standard (with intro)'
                         overlay:
