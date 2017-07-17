@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import MagnificPopup from 'magnific-popup';
+
 window.jQuery = $; //fix for bootstrap module referencing to global jQuery
 window.$ = $;
 
@@ -156,7 +158,9 @@ $(document).ready(function($) {
                 autoplay: data.autoplay*1000,
                 lazyLoading: true,
                 lazyLoadingInPrevNext: true,
-                lazyLoadingOnTransitionStart: true
+                lazyLoadingOnTransitionStart: true,
+                keyboardControl: true,
+
             })
         );
     });
@@ -185,6 +189,44 @@ $(document).ready(function($) {
             })
         );
     });
+
+
+
+    // Thumb gallery
+
+    var relatedSwiper = [];
+    $('.thumb-swiper').each((index) => {
+
+        var $top = $('.gallery-top', this);
+
+        var galleryTop = new Swiper($top.get(0), {
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 10,
+            preloadImages: false,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: 1,
+            lazyLoadingOnTransitionStart: true,
+            onLazyImageReady: function(swiper){
+                swiper.updateAutoHeight();
+            }
+        });
+
+        var $thumbs = $('.gallery-thumbs', this);
+
+        var galleryThumbs = new Swiper($thumbs.get(0), {
+            spaceBetween: 10,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            touchRatio: 0.2,
+            slideToClickedSlide: true
+        });
+
+        galleryTop.params.control = galleryThumbs;
+        galleryThumbs.params.control = galleryTop;
+    });
+
+
     /* /idangero.us swiper */
 
     /* header actions */
@@ -258,6 +300,7 @@ $(document).ready(function($) {
             dataType: 'jsonp',
             success: function(data){
                 el.attr('src', getUrl(data));
+                el.trigger('poster:loaded')
             }
         });
     };
@@ -269,4 +312,45 @@ $(document).ready(function($) {
     });
     /* /get video poster */
 
+
+    $(document).on('poster:loaded', function() {
+        var $link = $(this).closest('.js-video-poster');
+        $link.attr('href', this.src);
+    });
+
+    $('.js-video-poster').each(function(){
+        this.href = $('img', this).attr('src');
+    });
+
+
+    $('.as-flex').each(function(){
+        !$(this).find('> *').length && $(this).remove();
+    });
+
+    if($('.bm-vt-grid_gallery .js-lightbox-enabled').length){
+        $('.bm-vt-grid_gallery .js-lightbox-enabled').magnificPopup({
+            delegate: '.js-mfp-item', // child items selector, by clicking on it popup will open
+            type: 'image',
+            zoom: {
+                enabled: true
+            },
+            gallery: {
+                enabled: true
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
 });
+
+
+
+

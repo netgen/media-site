@@ -1,0 +1,18 @@
+{% import '@ezdesign/parts/slide.html.twig' as slide %}
+
+<div class="view-type view-type-{{ viewType }} ng-news vl2 {% if show_details_on_hover %}show_details_on_hover{% endif %}">">
+    {% if image_type == 'main' %}
+        {{ slide.image( content, 'image', 'i1140', true ) }}
+        {% if show_details %}
+            <div class="info">
+                <div class="date">
+                    {{ content.fields.publish_date.value.value|date( 'j. n. Y.' ) }}
+                </div>
+                <h2 class="title"><a href={{ path( location ) }}>{{ ng_render_field( content.fields.title ) }}</a></h2>
+            </div>
+        {% endif %}
+
+    {% elseif image_type == 'thumb' %}
+        {{ slide.image( content, 'image', 'i320') }}
+    {% endif %}
+</div>

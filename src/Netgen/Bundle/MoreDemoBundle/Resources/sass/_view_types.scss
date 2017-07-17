@@ -299,6 +299,11 @@
         padding:8px 15px;
         font-size:14px;
     }
+
+    &.show_details_on_hover{
+        .info{display:none;}
+        &:hover .info{display:block;}
+    }
 }
 
 /* search results view */

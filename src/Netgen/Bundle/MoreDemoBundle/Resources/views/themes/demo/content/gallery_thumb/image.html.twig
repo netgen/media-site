@@ -1,0 +1,12 @@
+{% import '@ezdesign/parts/slide.html.twig' as slide %}
+
+<div class="view-type view-type-{{ viewType }} image vl2">
+    {% if image_type == 'main' %}
+        {{ slide.image( content, 'image', 'i1140', true ) }}
+    {% elseif image_type == 'thumb' %}
+        {{ slide.image( content, 'image', 'i320') }}
+    {% endif %}
+</div>
+
+
+

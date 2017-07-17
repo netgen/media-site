@@ -49,6 +49,18 @@ netgen_block_manager:
                             enabled: false
                         slide:
                             name: 'Slide'
+                thumb_gallery:
+                    item_view_types:
+                        standard:
+                            enabled: false
+                        gallery_thumb:
+                            name: 'Gallery thumb'
+                grid_gallery:
+                    item_view_types:
+                        standard:
+                            enabled: false
+                        gallery_grid:
+                            name: 'Gallery grid'
                 sushi_bar:
                     item_view_types:
                         standard_with_intro:

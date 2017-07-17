@@ -302,6 +302,62 @@ ezpublish:
                     slide:
                         template: "@ezdesign/content/slide.html.twig"
                         match: ~
+                gallery_thumb:
+                    ng_article:
+                        template: "@ezdesign/content/gallery_thumb/ng_article.html.twig"
+                        match:
+                            Identifier\ContentType: ng_article
+                    ng_banner:
+                        template: "@ezdesign/content/gallery_thumb/ng_banner.html.twig"
+                        match:
+                            Identifier\ContentType: ng_banner
+                    ng_blog_post:
+                        template: "@ezdesign/content/gallery_thumb/ng_blog_post.html.twig"
+                        match:
+                            Identifier\ContentType: ng_blog_post
+                    ng_news:
+                        template: "@ezdesign/content/gallery_thumb/ng_news.html.twig"
+                        match:
+                            Identifier\ContentType: ng_news
+                    ng_video:
+                        template: "@ezdesign/content/gallery_thumb/ng_video.html.twig"
+                        match:
+                            Identifier\ContentType: ng_video
+                    image:
+                        template: "@ezdesign/content/gallery_thumb/image.html.twig"
+                        match:
+                            Identifier\ContentType: image
+                    gallery_thumb:
+                        template: "@ezdesign/content/gallery_thumb.html.twig"
+                        match: ~
+                gallery_grid:
+                    ng_article:
+                        template: "@ezdesign/content/gallery_grid/ng_article.html.twig"
+                        match:
+                            Identifier\ContentType: ng_article
+                    ng_banner:
+                        template: "@ezdesign/content/gallery_grid/ng_banner.html.twig"
+                        match:
+                            Identifier\ContentType: ng_banner
+                    ng_blog_post:
+                        template: "@ezdesign/content/gallery_grid/ng_blog_post.html.twig"
+                        match:
+                            Identifier\ContentType: ng_blog_post
+                    ng_news:
+                        template: "@ezdesign/content/gallery_grid/ng_news.html.twig"
+                        match:
+                            Identifier\ContentType: ng_news
+                    ng_video:
+                        template: "@ezdesign/content/gallery_grid/ng_video.html.twig"
+                        match:
+                            Identifier\ContentType: ng_video
+                    image:
+                        template: "@ezdesign/content/gallery_grid/image.html.twig"
+                        match:
+                            Identifier\ContentType: image
+                    gallery_grid:
+                        template: "@ezdesign/content/gallery_grid.html.twig"
+                        match: ~
                 embed:
                     ng_frontpage:
                         template: "@ezdesign/content/embed/ng_frontpage.html.twig"

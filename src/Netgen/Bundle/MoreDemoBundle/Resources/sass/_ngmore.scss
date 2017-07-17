@@ -258,3 +258,37 @@ div[class^="ajax-status-reports-"].ajax-loading {
         max-width:100%;
     }
 }
+
+
+.thumb-swiper{
+    position: relative;
+    .gallery-top {}
+    .gallery-thumbs {
+        padding: 10px 0;
+    }
+    .gallery-thumbs{clear:both;}
+    .gallery-thumbs .swiper-slide {
+        width: 25%;
+        float:left;
+        opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-active {
+        opacity: 1;
+    }
+}
+
+
+
+
+.flex-row {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.as-flex{
+    display: flex; align-items: center; margin-bottom:20px;
+    img{max-height:100%;}
+    &:empty{display:none; min-height: 0; padding:0;}
+}
+
+

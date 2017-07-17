@@ -1,0 +1,26 @@
+{% extends '@ezdesign/parts/linkable.html.twig' %}
+
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+{% block content %}
+
+    {% if not content.fields.image.empty %}
+        <div class="view-type view-type-{{ viewType }} ng-banner vl2{% if not content.fields.css_class.empty %} {{ content.fields.css_class.value.text }}{% endif %}">
+            {% set lightbox_image_alias =  ng_image_alias( content.fields.image, 'i1140' ) %}
+            {% set image_url = asset( lightbox_image_alias.uri ) %}
+            {% set title = content_fields.name( content ) %}
+
+            <a href="{{ image_url }}" title="{{ title }}" class="js-mfp-item">
+                {{ ng_render_field(
+                        content.fields.image, {
+                            parameters: {
+                                alias: 'i1140',
+                                alt_text: title
+                            }
+                        }
+                ) }}
+            </a>
+
+        </div>
+    {% endif %}
+{% endblock %}
