@@ -3,6 +3,7 @@
 <div class="view-type view-type-{{ viewType }} ng-blog-post vl2  {% if show_details_on_hover %}show_details_on_hover{% endif %}">
     {% if image_type == 'main' %}
         {{ slide.image( content, 'image', 'i1140', true ) }}
+
         {% if show_details %}
             <div class="info">
                 <h2 class="title"><a href={{ path( location ) }}>{{ ng_render_field( content.fields.title ) }}</a></h2>

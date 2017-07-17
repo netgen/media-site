@@ -2,26 +2,19 @@
 
 {% if content.hasField('image') and not content.fields.image.empty %}
     <div class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace( { '_': '-' } ) }} vl2">
-        {% set lightbox_image_alias =  null %}
+        {% set lightbox_image_alias =  ng_image_alias( content.fields.image, 'i1140' ) %}
+        {% set image_url = asset( lightbox_image_alias.uri ) %}
+        {% set title = content_fields.name( content ) %}
 
-        {% if content.hasField('image') and not content.fields.image.empty %}
-            {% set lightbox_image_alias =  ng_image_alias( content.fields.image, 'i1140' ) %}
-        {% endif %}
-
-
-        {% if lightbox_image_alias %}
-            {% set image_url = asset( lightbox_image_alias.uri ) %}
-            {% set title = content_fields.name( content ) %}
-            <a href="{{ image_url }}" title="{{ title }}" class="js-mfp-item">
-                {{ ng_render_field(
-                        content.fields.image, {
-                            parameters: {
-                                alias: 'i1140',
-                                alt_text: title
-                            }
-                        }
-                ) }}
-            </a>
-        {% endif %}
+        <a href="{{ image_url }}" title="{{ title }}" class="js-mfp-item">
+            {{ ng_render_field(
+                content.fields.image, {
+                    parameters: {
+                        alias: 'i1140',
+                        alt_text: title
+                    }
+                }
+            ) }}
+        </a>
     </div>
 {% endif %}

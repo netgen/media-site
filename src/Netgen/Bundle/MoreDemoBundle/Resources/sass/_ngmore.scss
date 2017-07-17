@@ -259,7 +259,6 @@ div[class^="ajax-status-reports-"].ajax-loading {
     }
 }
 
-
 .thumb-swiper{
     position: relative;
     .gallery-top {}
@@ -277,9 +276,6 @@ div[class^="ajax-status-reports-"].ajax-loading {
     }
 }
 
-
-
-
 .flex-row {
     display:flex;
     flex-wrap: wrap;
@@ -290,5 +286,3 @@ div[class^="ajax-status-reports-"].ajax-loading {
     img{max-height:100%;}
     &:empty{display:none; min-height: 0; padding:0;}
 }
-
-

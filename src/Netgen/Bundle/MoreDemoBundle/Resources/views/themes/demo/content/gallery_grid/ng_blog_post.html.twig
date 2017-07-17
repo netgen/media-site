@@ -2,27 +2,27 @@
 
 {% if not content.fields.image.empty %}
     <div class="view-type view-type-{{ viewType }} ng-blog-post vl2">
-            {% if not content.fields.author_override.empty %}
-                {% set author = content.fields.author_override.value %}
-            {% else %}
-                {% set author = ngmore_owner( content ).name %}
-            {% endif %}
+        {% if not content.fields.author_override.empty %}
+            {% set author = content.fields.author_override.value %}
+        {% else %}
+            {% set author = ngmore_owner( content ).name %}
+        {% endif %}
 
-            {% set date = content.fields.publish_date.value.value|date( 'j. n. Y.' ) %}
+        {% set date = content.fields.publish_date.value.value|date( 'j. n. Y.' ) %}
 
-            {% set lightbox_image_alias =  ng_image_alias( content.fields.image, 'i1140' ) %}
-            {% set image_url = asset( lightbox_image_alias.uri ) %}
-            {% set title = content_fields.name( content ) %}
+        {% set lightbox_image_alias =  ng_image_alias( content.fields.image, 'i1140' ) %}
+        {% set image_url = asset( lightbox_image_alias.uri ) %}
+        {% set title = content_fields.name( content ) %}
 
-            <a href="{{ image_url }}" title="{{ title }} by {{ author }} ({{ date }})" class="js-mfp-item">
-                {{ ng_render_field(
-                        content.fields.image, {
-                            parameters: {
-                                alias: 'i1140',
-                                alt_text: title
-                            }
-                        }
-                ) }}
-            </a>
+        <a href="{{ image_url }}" title="{{ title }} by {{ author }} ({{ date }})" class="js-mfp-item">
+            {{ ng_render_field(
+                content.fields.image, {
+                    parameters: {
+                        alias: 'i1140',
+                        alt_text: title
+                    }
+                }
+            ) }}
+        </a>
     </div>
 {% endif %}
