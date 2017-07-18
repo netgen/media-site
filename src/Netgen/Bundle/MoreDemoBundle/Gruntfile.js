@@ -156,12 +156,7 @@ module.exports = function (grunt) {
         cssmin: {
             target: {
                 options: {
-                    level: {
-                        1: {
-                            all: false,
-                            specialComments: 0
-                        }
-                    }
+                    level: 1
                 },
                 files: [{
                     expand: true,
