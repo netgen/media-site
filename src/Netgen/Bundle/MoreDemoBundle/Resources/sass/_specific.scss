@@ -2,24 +2,25 @@
 
 /* bootstrap inputs and buttons override */
 .form-control {
-    border-radius:$borderRadius;
-    background:hsl(0, 0, 95);
-    border:none;
-    box-shadow:none;
+    border-radius: $border-radius;
+    background: hsl(0, 0, 95);
+    border: 0;
+    box-shadow: none;
 }
 .btn {
-    border-radius:$borderRadius;
+    border-radius: $border-radius;
 }
 .btn-primary {
-    $btnPrimaryBg: $mainColor;
-    color:#fff;
-    background-color:$btnPrimaryBg;
-    border-color:$btnPrimaryBg;
+    $btn-primary-bg: $main-color;
+    color: #fff;
+    background-color: $btn-primary-bg;
+    border-color: $btn-primary-bg;
     &:active,
     &.active {
-        background-color:$btnPrimaryBg;
-        border-color:$btnPrimaryBg;
+        background-color: $btn-primary-bg;
+        border-color: $btn-primary-bg;
     }
+
     &:hover,
     &:active:hover,
     &.active:hover,
@@ -29,19 +30,19 @@
     &:active.focus,
     &:focus,
     &.focus {
-        background-color:desaturate(darken($btnPrimaryBg, 8%), 8%);
-        border-color:desaturate(darken($btnPrimaryBg, 8%), 8%);
+        background-color: desaturate(darken($btn-primary-bg, 8%), 8%);
+        border-color: desaturate(darken($btn-primary-bg, 8%), 8%);
     }
 }
 .btn-dark {
-    $btnDarkBg: hsl(0, 0, 20);
-    color:#fff;
-    background-color:$btnDarkBg;
-    border-color:$btnDarkBg;
+    $btn-dark-bg: hsl(0, 0, 20);
+    color: #fff;
+    background-color: $btn-dark-bg;
+    border-color: $btn-dark-bg;
     &:active,
     &.active {
-        background-color:$btnDarkBg;
-        border-color:$btnDarkBg;
+        background-color: $btn-dark-bg;
+        border-color: $btn-dark-bg;
     }
     &:hover,
     &:active:hover,
@@ -52,34 +53,34 @@
     &:active.focus,
     &:focus,
     &.focus {
-        color:#fff;
-        background-color:lighten($btnDarkBg, 8%);
-        border-color:lighten($btnDarkBg, 8%);
+        color: #fff;
+        background-color: lighten($btn-dark-bg, 8%);
+        border-color: lighten($btn-dark-bg, 8%);
     }
 }
 
 .error-input {
-   .form-control {
-       background:hsl(0, 100, 94);
-   }
-   .errors {
-       list-style-type:none;
-       margin:0 0 1.5em;
-       padding:0;
-       color:red;
-       font-size:0.875em;
+    .form-control {
+        background: hsl(0, 100, 94);
+    }
+    .errors {
+        list-style-type: none;
+        margin: 0 0 1.5em;
+        padding: 0;
+        color: #f00;
+        font-size: .875em;
    }
 }
 
 .search-inputs {
-    border-top:1px solid hsl(0, 0, 75);
-    border-bottom:1px solid hsl(0, 0, 75);
-    padding:1em 0 0;
+    border-top: 1px solid hsl(0, 0, 75);
+    border-bottom: 1px solid hsl(0, 0, 75);
+    padding: 1em 0 0;
     .input-group {
-        margin:0 0 1em;
+        margin: 0 0 1em;
         .btn {
-            font-weight:700;
-            text-transform:uppercase;
+            font-weight: 700;
+            text-transform: uppercase;
         }
     }
 }
@@ -88,17 +89,21 @@
 .section-blue {background-color: #99f;}
 .section-gray {background-color: #eee;}
 
-.bg-gray {background-color:hsl(220, 2, 35);}
-.bg-gray-light {background-color:hsl(180, 4, 95);}
+.bg-gray {background-color: hsl(220, 2, 35);}
+.bg-gray-light {background-color: hsl(180, 4, 95);}
 
-.bg-gray, .bg-gray-light {
-    & + & {margin-top:-$gap; padding-top:$gap;}
+.bg-gray,
+.bg-gray-light {
+    & + & {
+        margin-top: -$gap;
+        padding-top: $gap;
+    }
 }
 
 .main-content-block .zone-right {
-    background-color:hsl(0, 0, 95);
-    padding:20px;
-    border:1px solid hsl(0, 0, 80);
+    background-color: hsl(0, 0, 95);
+    padding: 20px;
+    border: 1px solid hsl(0, 0, 80);
 }
 
 .list-numbered {
@@ -107,52 +112,52 @@
         counter-increment: my-counter;
         content: counter(my-counter);
         display: block;
-        font-size:1.75em;
-        font-weight:700;
-        color:$mainColor;
+        font-size: 1.75em;
+        font-weight: 700;
+        color: $main-color;
     }
 }
 
-.swiper-container {margin:0}
+.swiper-container {margin: 0}
 
 .breadcrumb-wrapper {
-    background:hsl(0, 0, 95);
-    margin:0 0 1.5em;
-    padding:1em 0;
+    background: hsl(0, 0, 95);
+    margin: 0 0 1.5em;
+    padding: 1em 0;
     .breadcrumb {
-        list-style-type:none;
-        margin:0;
-        padding:0;
-        background:transparent;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background: transparent;
         &::after {
             @extend %clearfix;
         }
         li {
-            float:left;
+            float: left;
             + li {
-                &:before {
-                    content:">";
-                    display:inline-block;
-                    margin:0 0.5em;
-                    color:hsl(0, 0, 80);
+                &::before {
+                    content: '>';
+                    display: inline-block;
+                    margin: 0 .5em;
+                    color: hsl(0, 0, 80);
                 }
             }
         }
         a {
-            color:$mainColor;
-            font-weight:700;
-            font-size:0.875em;
+            color: $main-color;
+            font-weight: 700;
+            font-size: .875em;
         }
     }
-    @media screen and (max-width:$break-sm) {
-        padding:0.5em 0;
+    @media screen and (max-width: $break-sm) {
+        padding: .5em 0;
         .breadcrumb {
             a {
-                font-size:0.75em;
+                font-size: .75em;
             }
         }
     }
-    @media screen and (max-width:$break-xs) {
-        display:none;
+    @media screen and (max-width: $break-xs) {
+        display: none;
     }
 }

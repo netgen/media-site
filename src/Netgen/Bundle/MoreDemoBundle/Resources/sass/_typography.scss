@@ -1,16 +1,16 @@
 // Typography style file
 body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+    -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
 }
 
 a {
-    color:$linkColor;
-    transition:background 150ms, color 150ms;
+    color: $link-color;
+    transition: background 150ms, color 150ms;
     &,
     &:hover,
     &:focus {
-        outline:none;
+        outline: none;
     }
 }
 
@@ -22,42 +22,42 @@ h5,
 h6 {
     font-weight: 700;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "kern" 1;
+    font-feature-settings: 'kern' 1;
     font-kerning: normal;
 }
 
 p {
     text-rendering: optimizeLegibility;
-    font-feature-settings: "kern" 1;
+    font-feature-settings: 'kern' 1;
     font-kerning: normal;
-    color:hsl(220, 2, 35);
-    margin:0 0 1em;
+    color: hsl(220, 2, 35);
+    margin: 0 0 1em;
 }
 
-.bm-vt-title{
-    text-align:center;
+.bm-vt-title {
+    text-align: center;
     .title {
-       margin:0;
+        margin: 0;
     }
 }
 
 .section-title,
 .section-gray-title {
-    border-bottom:1px solid hsl(0, 0, 80);
-    padding-bottom:0 !important;
-    .title{
-        display:inline-block;
-        color:$mainColor;
-        text-transform:uppercase;
-        border-bottom:5px solid $mainColor;
-        margin:0 0 -1px 0;
-        padding-bottom:20px;
+    border-bottom: 1px solid hsl(0, 0, 80);
+    padding-bottom: 0 !important; // sass-lint:disable-line no-important
+    .title {
+        display: inline-block;
+        color: $main-color;
+        text-transform: uppercase;
+        border-bottom: 5px solid $main-color;
+        margin: 0 0 -1px;
+        padding-bottom: 20px;
     }
 }
 
 .section-gray-title {
     .title {
-        border-color:#999;
-        font-size:21px;
+        border-color: #999;
+        font-size: 21px;
     }
 }

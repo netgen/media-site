@@ -1,27 +1,27 @@
 // responsive breakpoints
-$break-lg:$screen-lg; // from bootstrap: 1200px
-$break-md:$screen-md; // from bootstrap: 992px
-$break-sm:$screen-sm; // from bootstrap: 768px
-$break-xs:$screen-xs; // from bootstrap: 480px
+$break-lg: $screen-lg; // from bootstrap: 1200px
+$break-md: $screen-md; // from bootstrap: 992px
+$break-sm: $screen-sm; // from bootstrap: 768px
+$break-xs: $screen-xs; // from bootstrap: 480px
 
 // dimensions
-$headerHeight: 100px;
-$headerHeightSm: 70px;
+$header-height: 100px;
+$header-height-sm: 70px;
 $gutter: 15px;
-$gap: 2*$gutter;
-$borderRadius: 0;
+$gap: 2 * $gutter;
+$border-radius: 0;
 
 // colours
-$mainColor: hsl(4, 85, 57);
-$headerBg: hsl(270, 2, 25);
-$headerActiveBg: hsl(348, 6, 13);
-$linkColor: hsl(200, 95, 45);
+$main-color: hsl(4, 85, 57);
+$header-bg: hsl(270, 2, 25);
+$header-active-bg: hsl(348, 6, 13);
+$link-color: hsl(200, 95, 45);
 
 %clearfix {
-    &:after {
-        clear:both;
-        display:table;
-        content:"";
+    &::after {
+        clear: both;
+        display: table;
+        content: '';
     }
 }
 %fontawesome {
@@ -29,6 +29,4 @@ $linkColor: hsl(200, 95, 45);
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
