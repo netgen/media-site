@@ -1,3 +1,5 @@
-$(function(){
-    //Put your code here
+/* globals $ */
+
+$(() => {
+  // Put your code here
 });

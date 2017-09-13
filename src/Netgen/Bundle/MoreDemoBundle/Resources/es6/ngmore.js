@@ -1,342 +1,322 @@
+/* globals jwplayer */
 import $ from 'jquery';
-import MagnificPopup from 'magnific-popup';
+import 'magnific-popup';
+import Swiper from 'swiper';
 
-window.jQuery = $; //fix for bootstrap module referencing to global jQuery
+window.jQuery = $; // fix for bootstrap module referencing to global jQuery
 window.$ = $;
 
-require('swiper');
 require('bootstrap-sass');
 
 /* CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
-(function(){
+(() => {
+  function isElementInViewport(element) {
+    // special bonus for those using jQuery
+    const el = typeof $ === 'function' && element instanceof $ ? element[0] : element;
 
-    function isElementInViewport (el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+    );
+  }
 
-        //special bonus for those using jQuery
-        if (typeof jQuery === "function" && el instanceof jQuery) {
-            el = el[0];
+  window.isElementInViewport = isElementInViewport;
+
+  let to;
+  $(window).on('scroll', () => {
+    if (to) clearTimeout(to);
+    to = setTimeout(() => {
+      $(window).trigger('scroll:end');
+    }, 200);
+  });
+
+  $.fn.in_viewport = function (cb) {
+    return $(this).each(function () {
+      const $this = $(this);
+
+      if ($this.hasClass('in_viewport')) return;
+      $(window).on('scroll:end', () => {
+        if (isElementInViewport($this)) {
+          $this.trigger('in_viewport');
+          if (cb) cb.call($this);
         }
-
-        var rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
-        );
-    }
-
-    window.isElementInViewport = isElementInViewport;
-
-    var to;
-    $(window).on('scroll', function(){
-        to && clearTimeout(to);
-        to = setTimeout(function(){
-            $(window).trigger('scroll:end');
-        }, 200);
+      }).addClass('in_viewport');
     });
-
-    $.fn.in_viewport = function(cb){
-        return $(this).each(function(){
-            var $this = $(this);
-
-            if($this.hasClass('in_viewport')){return;}
-            $(window).on('scroll:end', function(){
-                if(isElementInViewport($this)){
-                    $this.trigger('in_viewport')
-                    cb && cb.call($this);
-                }
-            }).addClass('in_viewport');
-        });
-    }
-
+  };
 })();
 /* /CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
 
 /* JWPLAYER INIT  -----------------------------------------------*/
 
-function jwplayer_init( videoObjectClass, videoObject ){
+function jwplayerInit(videoObjectClass, videoObj) {
+  const videoObject = videoObj === false ? $(videoObjectClass) : videoObj;
+  if (!videoObject.length) return;
 
-    if(videoObject === false) {
-        videoObject = $(videoObjectClass);
-    }
-    if(videoObject.length) {
-        var sources = false,
-            videoId = videoObject.data('video_player_id'),
-            aspectRatio = '16:9',
-            width = '100%';
+  let sources = false;
+  const videoId = videoObject.data('video_player_id');
+  const aspectRatio = '16:9';
+  const width = '100%';
 
-        if( videoObject.data('videotype') == 'local' ) {
-            sources = [{
-                file: videoObject.data('file'),
-                type: videoObject.data('mimetype')
-            }];
-        }
-        else{
-            sources = [{
-                file: videoObject.data('file')
-            }];
-        }
+  if (videoObject.data('videotype') === 'local') {
+    sources = [{
+      file: videoObject.data('file'),
+      type: videoObject.data('mimetype'),
+    }];
+  } else {
+    sources = [{
+      file: videoObject.data('file'),
+    }];
+  }
 
-        jwplayer(videoId).setup({
-            primary: 'flash',
-            width: width,
-            aspectratio: aspectRatio,
-            autostart: videoObject.data('autostart'),
-            controlbar: [{ idlehide: 'true' }],
-            playlist: [{
-                sources: sources,
-                image: videoObject.data('image')
-            }]
-        });
-    }
+  jwplayer(videoId).setup({
+    primary: 'flash',
+    width,
+    aspectratio: aspectRatio,
+    autostart: videoObject.data('autostart'),
+    controlbar: [{ idlehide: 'true' }],
+    playlist: [{
+      sources,
+      image: videoObject.data('image'),
+    }],
+  });
 }
 /* /JWPLAYER INIT  -----------------------------------------------*/
 
-$(document).ready(function($) {
-    var $loginform = $('form[name="loginform"]');
-    $loginform.attr('action', $loginform.attr('action') + window.location.hash);
+$(document).ready(() => {
+  const $loginform = $('form[name="loginform"]');
+  $loginform.attr('action', $loginform.attr('action') + window.location.hash);
 
-    /* JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
-        $('div.video-container').each(function(){
-            var videoObjectClass = $(this).attr('id');
-            if( $(this).prev().hasClass('video-config') && $(this).prev().hasClass( videoObjectClass ) )
-            {
-                jwplayer_init("." + videoObjectClass, false);
-            }
-            else{
-                $(this).remove();
-            }
-        });
-    /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
-
-    /* idangero.us swiper */
-    var sushiSwiper = [];
-    $('.sushi-swiper.swiper-container').each(function(index) {
-        var swiperId = 'sushiSwiper-' + (index + 1).toString();
-        var data = $(this).data();
-        $(this).attr('id', swiperId);
-        sushiSwiper.push(
-            new Swiper($(this), {
-                pagination: '#' + swiperId + ' .swiper-pagination',
-                paginationClickable: true,
-                nextButton: '#' + swiperId + ' .swiper-button-next',
-                prevButton: '#' + swiperId + ' .swiper-button-prev',
-                slidesPerView: data.slidesPerView,
-                slidesPerGroup: data.slidesPerView,
-                spaceBetween: 30,
-                loop: data.loop,
-                effect: data.effect,
-                autoplay: data.autoplay*1000,
-                breakpoints: {
-                    991: {
-                        slidesPerView: 2,
-                        slidesPerGroup: 2
-                    },
-                    480: {
-                        slidesPerView: 1,
-                        slidesPerGroup: 1
-                    }
-                }
-            })
-        );
-    });
-    var defaultSwiper = [];
-    $('.default-swiper.swiper-container').each(function(index) {
-        var swiperId = 'defaultSwiper-' + (index + 1).toString();
-        var data = $(this).data();
-        $(this).attr('id', swiperId);
-        defaultSwiper.push(
-            new Swiper($(this), {
-                pagination: '#' + swiperId + ' .swiper-pagination',
-                paginationClickable: true,
-                nextButton: '#' + swiperId + ' .swiper-button-next',
-                prevButton: '#' + swiperId + ' .swiper-button-prev',
-                preloadImages: false,
-                loop: data.loop,
-                effect: data.effect,
-                autoplay: data.autoplay*1000,
-                lazyLoading: true,
-                lazyLoadingInPrevNext: true,
-                lazyLoadingOnTransitionStart: true,
-                keyboardControl: true,
-
-            })
-        );
-    });
-    var relatedSwiper = [];
-    $('.related-multimedia.swiper-container').each(function(index) {
-        var swiperId = 'relatedMultimediaSwiper-' + (index + 1).toString();
-        var data = $(this).data();
-        $(this).attr('id', swiperId);
-        relatedSwiper.push(
-            new Swiper($(this), {
-                pagination: '#' + swiperId + ' .swiper-pagination',
-                paginationClickable: true,
-                nextButton: '#' + swiperId + ' .swiper-button-next',
-                prevButton: '#' + swiperId + ' .swiper-button-prev',
-                preloadImages: false,
-                loop: data.loop,
-                effect: data.effect,
-                autoplay: data.autoplay*1000,
-                lazyLoading: true,
-                lazyLoadingInPrevNext: true,
-                lazyLoadingOnTransitionStart: true,
-                autoHeight: true,
-                onLazyImageReady: function(swiper){
-                    swiper.updateAutoHeight();
-                }
-            })
-        );
-    });
-
-
-
-    // Thumb gallery
-
-    var relatedSwiper = [];
-    $('.thumb-swiper').each((index) => {
-
-        var $top = $('.gallery-top', this);
-
-        var galleryTop = new Swiper($top.get(0), {
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            spaceBetween: 10,
-            preloadImages: false,
-            lazyLoading: true,
-            lazyLoadingInPrevNext: 1,
-            lazyLoadingOnTransitionStart: true,
-            onLazyImageReady: function(swiper){
-                swiper.updateAutoHeight();
-            }
-        });
-
-        var $thumbs = $('.gallery-thumbs', this);
-
-        var galleryThumbs = new Swiper($thumbs.get(0), {
-            spaceBetween: 10,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            touchRatio: 0.2,
-            slideToClickedSlide: true
-        });
-
-        galleryTop.params.control = galleryThumbs;
-        galleryThumbs.params.control = galleryTop;
-    });
-
-
-    /* /idangero.us swiper */
-
-    /* header actions */
-    (function($,c,b){$.map("click dblclick mousemove mousedown mouseup mouseover mouseout change select submit keydown keypress keyup".split(" "),function(d){a(d)});a("focusin","focus"+b);a("focusout","blur"+b);$.addOutsideEvent=a;function a(g,e){e=e||g+b;var d=$(),h=g+"."+e+"-special-event";$.event.special[e]={setup:function(){d=d.add(this);if(d.length===1){$(c).bind(h,f)}},teardown:function(){d=d.not(this);if(d.length===0){$(c).unbind(h)}},add:function(i){var j=i.handler;i.handler=function(l,k){l.target=k;j.apply(this,arguments)}}};function f(i){$(d).each(function(){var j=$(this);if(this!==i.target&&!j.has(i.target).length){j.triggerHandler(e,[i.target])}})}}})($,document,"outside"); //plugin for click outside
-    (function(){
-        var page = $('#page'),
-            navToggle = $('#mainnav-toggle'),
-            searchToggle = $('#searchbox-toggle'),
-            searchForm = $('#header-search'),
-            searchInput = searchForm.find('input.search-query'),
-            pageToggleClass = function(e, classToToggle, classToRemove) {
-                e.preventDefault();
-                page.toggleClass(classToToggle);
-                if(classToRemove) {
-                    page.removeClass(classToRemove);
-                }
-            };
-        /* toggle mobile menu */
-        navToggle.on('click', function(e){
-            pageToggleClass(e, 'mainnav-active');
-        });
-        /* toggle searchbox */
-        searchToggle.on('click', function(e){
-            pageToggleClass(e, 'searchbox-active', 'mainnav-active');
-            searchInput.focus();
-        });
-        searchForm.on('clickoutside', function(e){
-            page.removeClass('searchbox-active');
-        });
-        searchInput.on('input', function(){
-            if($(this).val() != ''){
-                searchForm.addClass('filled');
-            } else {
-                searchForm.removeClass('filled');
-            }
-        });
-
-        /* toggle mobile sumbmenu */
-        var mainNav = $('#main-nav').find('ul.navbar-nav'),
-            submenuTrigContent = $('<i class="submenu-trigger"></i>');
-        mainNav.find('.menu_level_1').before(submenuTrigContent).parent('li').attr('data-submenu', 'true');
-        mainNav.on('click', 'i.submenu-trigger', function(){
-            $(this).parent('li').toggleClass('submenu-active');
-        });
-    })();
-
-    /* /header actions */
-
-    /* get video poster */
-    var getVideoPoster = function(el, service){
-        var videoID = el.attr('data-id'),
-            thumbname = el.attr('data-thumbname');
-        switch (service) {
-            case 'dailymotion':
-                var url = 'https://api.dailymotion.com/video/' + videoID + '?fields=' + thumbname;
-                var getUrl = function(obj){
-                    return obj[thumbname];
-                };
-                break;
-            case 'vimeo':
-                var url = 'https://vimeo.com/api/v2/video/' + videoID + '.json';
-                var getUrl = function(obj){
-                    return obj[0][thumbname];
-                };
-                break;
-        }
-        $.ajax({
-            type:'GET',
-            url: url,
-            jsonp: 'callback',
-            dataType: 'jsonp',
-            success: function(data){
-                el.attr('src', getUrl(data));
-                el.trigger('poster:loaded')
-            }
-        });
-    };
-    $('img.vimeo-poster').each(function(){
-        getVideoPoster($(this), 'vimeo');
-    });
-    $('img.dailymotion-poster').each(function(){
-        getVideoPoster($(this), 'dailymotion');
-    });
-    /* /get video poster */
-
-
-    $(document).on('poster:loaded', function() {
-        var $link = $(this).closest('.js-video-poster');
-        $link.attr('href', this.src);
-    });
-
-    $('.js-video-poster').each(function(){
-        this.href = $('img', this).attr('src');
-    });
-
-
-    $('.as-flex').each(function(){
-        !$(this).find('> *').length && $(this).remove();
-    });
-
-    if($('.bm-vt-grid_gallery .js-lightbox-enabled').length){
-        $('.bm-vt-grid_gallery .js-lightbox-enabled').magnificPopup({
-            delegate: '.js-mfp-item', // child items selector, by clicking on it popup will open
-            type: 'image',
-            zoom: {
-                enabled: true
-            },
-            gallery: {
-                enabled: true
-            }
-        });
+  /* JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
+  $('div.video-container').each(function () {
+    const videoObjectClass = $(this).attr('id');
+    if ($(this).prev().hasClass('video-config') && $(this).prev().hasClass(videoObjectClass)) {
+      jwplayerInit(`.${videoObjectClass}`, false);
+    } else {
+      $(this).remove();
     }
+  });
+  /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
+
+  /* idangero.us swiper */
+  const sushiSwiper = [];
+  $('.sushi-swiper.swiper-container').each(function (index) {
+    const swiperId = `sushiSwiper-${index + 1}`;
+    const data = $(this).data();
+    $(this).attr('id', swiperId);
+    sushiSwiper.push(
+      new Swiper($(this), {
+        pagination: `#${swiperId} .swiper-pagination`,
+        paginationClickable: true,
+        nextButton: `#${swiperId} .swiper-button-next`,
+        prevButton: `#${swiperId} .swiper-button-prev`,
+        slidesPerView: data.slidesPerView,
+        slidesPerGroup: data.slidesPerView,
+        spaceBetween: 30,
+        loop: data.loop,
+        effect: data.effect,
+        autoplay: data.autoplay * 1000,
+        breakpoints: {
+          991: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          480: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+        },
+      })
+    );
+  });
+
+  const defaultSwiper = [];
+  $('.default-swiper.swiper-container').each(function (index) {
+    const swiperId = `defaultSwiper-${index + 1}`;
+    const data = $(this).data();
+    $(this).attr('id', swiperId);
+    defaultSwiper.push(
+      new Swiper($(this), {
+        pagination: `#${swiperId} .swiper-pagination`,
+        paginationClickable: true,
+        nextButton: `#${swiperId} .swiper-button-next`,
+        prevButton: `#${swiperId} .swiper-button-prev`,
+        preloadImages: false,
+        loop: data.loop,
+        effect: data.effect,
+        autoplay: data.autoplay * 1000,
+        lazyLoading: true,
+        lazyLoadingInPrevNext: true,
+        lazyLoadingOnTransitionStart: true,
+        keyboardControl: true,
+      })
+    );
+  });
+
+  const relatedSwiper = [];
+  $('.related-multimedia.swiper-container').each(function (index) {
+    const swiperId = `relatedMultimediaSwiper-${index + 1}`;
+    const data = $(this).data();
+    $(this).attr('id', swiperId);
+    relatedSwiper.push(
+      new Swiper($(this), {
+        pagination: `#${swiperId} .swiper-pagination`,
+        paginationClickable: true,
+        nextButton: `#${swiperId} .swiper-button-next`,
+        prevButton: `#${swiperId} .swiper-button-prev`,
+        preloadImages: false,
+        loop: data.loop,
+        effect: data.effect,
+        autoplay: data.autoplay * 1000,
+        lazyLoading: true,
+        lazyLoadingInPrevNext: true,
+        lazyLoadingOnTransitionStart: true,
+        autoHeight: true,
+        onLazyImageReady: (swiper) => {
+          swiper.updateAutoHeight();
+        },
+      })
+    );
+  });
+
+  // Thumb gallery
+  $('.thumb-swiper').each(function () {
+    const $top = $('.gallery-top', this);
+    const galleryTop = new Swiper($top.get(0), {
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      spaceBetween: 10,
+      preloadImages: false,
+      lazyLoading: true,
+      lazyLoadingInPrevNext: 1,
+      lazyLoadingOnTransitionStart: true,
+      onLazyImageReady: (swiper) => {
+        swiper.updateAutoHeight();
+      },
+    });
+    const $thumbs = $('.gallery-thumbs', this);
+    const galleryThumbs = new Swiper($thumbs.get(0), {
+      spaceBetween: 10,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      touchRatio: 0.2,
+      slideToClickedSlide: true,
+    });
+    galleryTop.params.control = galleryThumbs;
+    galleryThumbs.params.control = galleryTop;
+  });
+
+
+  /* /idangero.us swiper */
+
+  /* header actions */
+  /* plugin for click outside */
+  (function($,c,b){$.map('click dblclick mousemove mousedown mouseup mouseover mouseout change select submit keydown keypress keyup'.split(' '),function(d){a(d)});a('focusin','focus'+b);a('focusout','blur'+b);$.addOutsideEvent=a;function a(g,e){e=e||g+b;var d=$(),h=g+'.'+e+'-special-event';$.event.special[e]={setup:function(){d=d.add(this);if(d.length===1){$(c).bind(h,f)}},teardown:function(){d=d.not(this);if(d.length===0){$(c).unbind(h)}},add:function(i){var j=i.handler;i.handler=function(l,k){l.target=k;j.apply(this,arguments)}}};function f(i){$(d).each(function(){var j=$(this);if(this!==i.target&&!j.has(i.target).length){j.triggerHandler(e,[i.target])}})}}})($,document,'outside'); // eslint-disable-line
+  /* /plugin for click outside */
+
+  (() => {
+    const page = $('#page');
+    const navToggle = $('#mainnav-toggle');
+    const searchToggle = $('#searchbox-toggle');
+    const searchForm = $('#header-search');
+    const searchInput = searchForm.find('input.search-query');
+    const pageToggleClass = (e, classToToggle, classToRemove) => {
+      e.preventDefault();
+      page.toggleClass(classToToggle);
+      if (classToRemove) {
+        page.removeClass(classToRemove);
+      }
+    };
+    /* toggle mobile menu */
+    navToggle.on('click', (e) => {
+      pageToggleClass(e, 'mainnav-active');
+    });
+    /* toggle searchbox */
+    searchToggle.on('click', (e) => {
+      pageToggleClass(e, 'searchbox-active', 'mainnav-active');
+      searchInput.focus();
+    });
+    searchForm.on('clickoutside', () => {
+      page.removeClass('searchbox-active');
+    });
+    searchInput.on('input', function () {
+      if ($(this).val() !== '') {
+        searchForm.addClass('filled');
+      } else {
+        searchForm.removeClass('filled');
+      }
+    });
+
+    /* toggle mobile sumbmenu */
+    const mainNav = $('#main-nav').find('ul.navbar-nav');
+    const submenuTrigContent = $('<i class="submenu-trigger"></i>');
+    mainNav.find('.menu_level_1').before(submenuTrigContent).parent('li').attr('data-submenu', 'true');
+    mainNav.on('click', 'i.submenu-trigger', function () {
+      $(this).parent('li').toggleClass('submenu-active');
+    });
+  })();
+
+  /* /header actions */
+
+  /* get video poster */
+  const getVideoPoster = (el, service) => {
+    const videoID = el.attr('data-id');
+    const thumbname = el.attr('data-thumbname');
+    let url;
+    let getUrl;
+    if (service === 'dailymotion') {
+      url = `https://api.dailymotion.com/video/${videoID}?fields=${thumbname}`;
+      getUrl = obj => obj[thumbname];
+    } else if (service === 'vimeo') {
+      url = `https://vimeo.com/api/v2/video/${videoID}.json`;
+      getUrl = obj => obj[0][thumbname];
+    }
+    $.ajax({
+      type: 'GET',
+      url,
+      jsonp: 'callback',
+      dataType: 'jsonp',
+      success: (data) => {
+        el.attr('src', getUrl(data));
+        el.trigger('poster:loaded');
+      },
+    });
+  };
+  $('img.vimeo-poster').each(function () {
+    getVideoPoster($(this), 'vimeo');
+  });
+  $('img.dailymotion-poster').each(function () {
+    getVideoPoster($(this), 'dailymotion');
+  });
+  /* /get video poster */
+
+
+  $(document).on('poster:loaded', function () {
+    const $link = $(this).closest('.js-video-poster');
+    $link.attr('href', this.src);
+  });
+
+  $('.js-video-poster').each(function () {
+    this.href = $('img', this).attr('src');
+  });
+
+
+  $('.as-flex').each(function () {
+    if (!$(this).find('> *').length) $(this).remove();
+  });
+
+  if ($('.bm-vt-grid_gallery .js-lightbox-enabled').length) {
+    $('.bm-vt-grid_gallery .js-lightbox-enabled').magnificPopup({
+      delegate: '.js-mfp-item', // child items selector, by clicking on it popup will open
+      type: 'image',
+      zoom: {
+        enabled: true,
+      },
+      gallery: {
+        enabled: true,
+      },
+    });
+  }
 });
