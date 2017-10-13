@@ -1,5 +1,11 @@
 {% extends '@ezdesign/pagelayout_legacy.html.twig' %}
 
+{# MAKE PARENT TEMPLATES AWARE OF ANY ERROR #}
+
+{% if module_result.errorCode is defined %}
+    {% set status_code = module_result.errorCode %}
+{% endif %}
+
 {# PATH ARRAY #}
 
 {% set legacy_path_array = ezpublish.legacy.has( 'path' ) ? ezpublish.legacy.get( 'path' ) : [] %}
