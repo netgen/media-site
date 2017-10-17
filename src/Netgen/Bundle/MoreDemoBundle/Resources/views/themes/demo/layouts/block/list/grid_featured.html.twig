@@ -2,7 +2,7 @@
 
 {% block content %}
     {% if collections.default is defined %}
-        <div class="vl4">
+        <div class="grid-featured">
             <div class="main-item">
                 {% if collections.default.0 is defined %}
                    {{ ngbm_render_item(collections.default.0.item, block.itemViewType) }}
