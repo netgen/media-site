@@ -456,3 +456,7 @@ ezpublish:
                         template: "@ezdesign/content/ngcb_preview/ng_video.html.twig"
                         match:
                             Identifier\ContentType: ng_video
+                    image:
+                        template: "@ezdesign/content/ngcb_preview/image.html.twig"
+                        match:
+                            Identifier\ContentType: image
