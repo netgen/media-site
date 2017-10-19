@@ -143,6 +143,8 @@
     }
     .date {
         color: #fff;
+        font-size: 14px;
+        margin: 0 0 .25em;
     }
     .author {
         color: #fff;
@@ -240,10 +242,17 @@
     }
     .date {
         font-weight: 700;
+        font-size: 14px;
+        margin: 0 0 .25em;
+        color: hsl(0, 0, 50);
+    }
+    .author {
+        color: $main-color;
     }
     .title {
         font-size: 24px;
         margin: 0 0 .25em;
+        line-height: 1.25;
         a {
             color: inherit;
         }
@@ -344,6 +353,11 @@
     }
     .date {
         margin: 0 0 .375em;
+        font-size: 14px;
+        color: hsl(0, 0, 50);
+    }
+    .author {
+        color: $main-color;
     }
     .short {
         p {
@@ -445,6 +459,7 @@
             font-weight: bold;
             font-size: 16px;
             text-shadow: 0 0 6px hsla(0, 0, 0, .75);
+            margin: 0 0 .25em;
         }
         .image a::after {
             display: none;
