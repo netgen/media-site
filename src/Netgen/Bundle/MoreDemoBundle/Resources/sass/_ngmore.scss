@@ -192,26 +192,35 @@ audio {
         }
     }
 }
+
 .ajax-loading {
-    position: relative;
-    & > * {
-        opacity: .2 !important; // sass-lint:disable-line no-important
+    > * {
+        pointer-events: none;
     }
-    &::before {
-        @extend %fontawesome;
-        content: '\f021';
-        position: absolute;
-        z-index: 100;
-        left: 50%;
-        top: 50%;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        margin: -20px 0 0 -20px;
-        color: #333;
-        font-size: 32px;
-        animation: ajaxLoader 1s infinite linear;
+    .ajax-navigation {
+        position: relative;
+        > ul {
+            opacity: .5;
+        }
+        .ajax-load-more {
+            opacity: 0;
+        }
+        &::before {
+            @extend %fontawesome;
+            content: '\f021';
+            position: absolute;
+            z-index: 100;
+            left: 50%;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: -20px 0 0 -20px;
+            color: #333;
+            font-size: 32px;
+            animation: ajaxLoader 1s infinite linear;
+        }
     }
 }
 @keyframes ajaxLoader {
@@ -223,6 +232,13 @@ div[class^='ajax-status-reports-'] {
     &.ajax-loading {
         min-height: 40px;
         margin: 0 0 2em;
+    }
+}
+
+.ajax-container {
+    &.row {
+        display: flex;
+        flex-wrap: wrap;
     }
 }
 
