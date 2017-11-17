@@ -1,8 +1,10 @@
 {% if app.debug %}
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/netgenmoredemo/dev/css/style.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'ngbm_css') }}"/>
 {% else %}
     {% stylesheets filter='cssrewrite'
         'bundles/netgenmoredemo/css/style.css'
+        'bundles/netgenblockmanager/css/style.css'
     %}
         <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
     {% endstylesheets %}
