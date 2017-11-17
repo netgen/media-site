@@ -5,28 +5,34 @@ netgen_block_manager:
                 block_view:
                     default:
                         title\section:
-                            template: "@ezdesign/layouts/block/title/section.html.twig"
+                            template: "@ngbm/block/title/section.html.twig"
                             match:
                                 block\definition: title
                                 block\view_type: section
 
                         title\section_gray:
-                            template: "@ezdesign/layouts/block/title/section_gray.html.twig"
+                            template: "@ngbm/block/title/section_gray.html.twig"
                             match:
                                 block\definition: title
                                 block\view_type: section_gray
 
                         list\numbered:
-                            template: "@ezdesign/layouts/block/list/numbered.html.twig"
+                            template: "@ngbm/block/list/numbered.html.twig"
                             match:
                                 block\definition: list
                                 block\view_type: list_numbered
 
                         list\grid_featured:
-                            template: "@ezdesign/layouts/block/list/grid_featured.html.twig"
+                            template: "@ngbm/block/list/grid_featured.html.twig"
                             match:
                                 block\definition: list
                                 block\view_type: grid_featured
+                    ajax:
+                        list\numbered:
+                            template: "@ngbm/block/list/list_ajax.html.twig"
+                            match:
+                                block\definition: list
+                                block\view_type: list_numbered
 
     view:
         block_view:
