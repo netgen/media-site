@@ -8,6 +8,8 @@ module.exports = function (grunt) {
     lockfile: 'grunt-lock',
   });
 
+  const envify = require('envify/custom');
+  const collapse = require('bundle-collapser/plugin');
 
   const localConfig = 'grunt_config.json';
   if (!grunt.file.exists(localConfig)) {
@@ -47,10 +49,6 @@ module.exports = function (grunt) {
         files: ['<%= config.resources_dir %>/sass/{,*/}*.{scss,sass}'],
         tasks: ['sass', 'postcss'],
       },
-      babel: {
-        files: ['<%= config.resources_dir %>/es6/{,*/}*.js'],
-        tasks: ['concat', 'babel', 'browserify'],
-      },
     },
 
     // Creates symlink of public directories to public/dev
@@ -69,38 +67,54 @@ module.exports = function (grunt) {
       },
     },
 
+    // Sets Node environment variable
+    env: {
+      dev: {
+        NODE_ENV: 'development',
+      },
+      prod: {
+        NODE_ENV: 'production',
+      },
+    },
+
     // Compiles es6 js files to supported js
-    concat: {
-      options: {
-        sourceMap: true,
-        sourceMapStyle: 'inline',
-      },
-      js: {
-        src: [
-          '<%= config.resources_dir %>/es6/{,*/}*.js',
-        ],
-        dest: '.tmp/js/app.js',
-      },
-    },
-    babel: {
-      options: {
-        sourceMap: 'inline',
-      },
-      dist: {
-        files: {
-          '<%= config.dev_dir %>/js/app.js': '.tmp/js/app.js',
-        },
-      },
-    },
     browserify: {
       options: {
         browserifyOptions: {
-          debug: true,
+          extensions: ['.jsx', '.js'],
         },
       },
-      dist: {
+      dev: {
+        options: {
+          watch: true,
+          browserifyOptions: {
+            debug: true,
+            extensions: ['.jsx', '.js'],
+          },
+          transform: [
+            envify({
+              NODE_ENV: 'development',
+            }),
+            ['babelify', { presets: ['env', 'es2015', 'stage-0'] }],
+          ],
+        },
         files: {
-          '<%= config.dev_dir %>/js/app.js': '<%= config.dev_dir %>/js/app.js',
+          '<%= config.dev_dir %>/js/app.js': ['<%= config.resources_dir %>/es6/app.js'],
+        },
+      },
+      prod: {
+        options: {
+          transform: [
+            envify({
+              NODE_ENV: 'production',
+            }),
+            ['babelify', { presets: ['env', 'es2015', 'stage-0'] }],
+            ['uglifyify'],
+          ],
+          plugin: [collapse],
+        },
+        files: {
+          '<%= config.public_dir %>/js/app.js': ['<%= config.resources_dir %>/es6/app.js'],
         },
       },
     },
@@ -193,9 +207,7 @@ module.exports = function (grunt) {
       'symlink',
       'sass:dist',
       'postcss',
-      'concat',
-      'babel',
-      'browserify',
+      'browserify:dev',
       'watch',
     ]);
   });
@@ -210,9 +222,7 @@ module.exports = function (grunt) {
       'symlink',
       'sass:dist',
       'postcss',
-      'concat',
-      'babel',
-      'browserify',
+      'browserify:dev',
       'browserSync',
       'watch',
     ]);
@@ -223,9 +233,7 @@ module.exports = function (grunt) {
       'symlink',
       'sass:dist',
       'postcss',
-      'concat',
-      'babel',
-      'browserify',
+      'browserify:prod',
       'uglify',
       'cssmin',
     ]);
@@ -239,9 +247,7 @@ module.exports = function (grunt) {
   });
   grunt.registerTask('build_js', 'Build production js', () => {
     grunt.task.run([
-      'concat',
-      'babel',
-      'browserify',
+      'browserify:prod',
       'uglify',
     ]);
   });
