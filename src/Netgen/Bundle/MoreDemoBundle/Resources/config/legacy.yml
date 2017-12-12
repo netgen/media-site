@@ -123,7 +123,6 @@ netgen_more_legacy:
 
                     MailSettings/Transport: "%mailer_transport%"
                     MailSettings/TransportServer: "%mailer_host%"
-                    MailSettings/TransportConnectionType: "%swiftmailer.mailer.default.transport.smtp.encryption%"
                     MailSettings/TransportPort: "%mailer_port%"
                     MailSettings/TransportUser: "%mailer_user%"
                     MailSettings/TransportPassword: "%mailer_password%"
