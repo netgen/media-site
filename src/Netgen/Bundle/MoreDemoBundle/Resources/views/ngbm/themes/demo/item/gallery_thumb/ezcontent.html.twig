@@ -1,8 +1,8 @@
 {{ render(
     controller(
         'ng_content:viewAction', {
-            'contentId': item.object.id,
-            'locationId': item.object.mainLocationId,
+            'content': item.object,
+            'location': item.object.mainLocation,
             'viewType': 'gallery_thumb',
             'layout': false,
             'params': {
