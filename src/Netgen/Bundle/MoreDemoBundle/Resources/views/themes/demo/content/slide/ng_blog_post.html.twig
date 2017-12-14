@@ -11,7 +11,7 @@
                 {% if not content.fields.author_override.empty %}
                     {{ ng_render_field( content.fields.author_override ) }}
                 {% else %}
-                    {{ ngmore_owner( content ).name }}
+                    {{ content.owner.name }}
                 {% endif %}
             </span> | {{ content.fields.publish_date.value.value|date( 'j. n. Y.' ) }}
         </div>

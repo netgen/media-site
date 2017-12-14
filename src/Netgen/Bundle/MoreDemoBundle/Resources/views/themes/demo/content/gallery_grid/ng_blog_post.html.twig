@@ -5,7 +5,7 @@
         {% if not content.fields.author_override.empty %}
             {% set author = content.fields.author_override.value %}
         {% else %}
-            {% set author = ngmore_owner( content ).name %}
+            {% set author = content.owner.name %}
         {% endif %}
 
         {% set date = content.fields.publish_date.value.value|date( 'j. n. Y.' ) %}
