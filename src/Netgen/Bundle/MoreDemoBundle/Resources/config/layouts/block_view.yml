@@ -38,13 +38,13 @@ netgen_block_manager:
         block_view:
             api:
                 list\numbered:
-                    template: "@NetgenBlockManager/api/block/list/list.html.twig"
+                    template: "@NetgenBlockManagerStandard/api/block/list/list.html.twig"
                     match:
                         block\definition: list
                         block\view_type: list_numbered
 
                 list\grid_featured:
-                    template: "@NetgenBlockManager/api/block/list/grid.html.twig"
+                    template: "@NetgenBlockManagerStandard/api/block/list/grid.html.twig"
                     match:
                         block\definition: list
                         block\view_type: grid_featured
