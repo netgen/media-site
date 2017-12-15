@@ -17,7 +17,7 @@
         </div>
     {% endif %}
     <div class="info">
-	    <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" {% endif %}>{{ ng_render_field( content.fields.title ) }}</a></h2>
+	    <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" rel="noopener noreferrer" {% endif %}>{{ ng_render_field( content.fields.title ) }}</a></h2>
 	</div>
 </div>
 {% endblock %}
