@@ -8,7 +8,7 @@ RequireUserLogin=false
 RelatedSiteAccessList[]
 RelatedSiteAccessList[]=eng
 RelatedSiteAccessList[]=cro
-RelatedSiteAccessList[]=administration
+RelatedSiteAccessList[]=legacy_admin
 RelatedSiteAccessList[]=ngadminui
 ShowHiddenNodes=false
 

@@ -9,7 +9,7 @@ RequireUserLogin=true
 RelatedSiteAccessList[]
 RelatedSiteAccessList[]=eng
 RelatedSiteAccessList[]=cro
-RelatedSiteAccessList[]=administration
+RelatedSiteAccessList[]=legacy_admin
 RelatedSiteAccessList[]=ngadminui
 ShowHiddenNodes=true
 

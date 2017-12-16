@@ -1,0 +1,1 @@
+../ngadminui/contentstructuremenu.ini.append.php
