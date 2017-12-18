@@ -32,7 +32,7 @@ ezpublish:
                     filters:
                         - { name: geometry/scale, params: [600, 315] }
                         - { name: strip }
-        admin_group:
+        ngadmin_group:
             image_variations:
                 small:
                     reference: original

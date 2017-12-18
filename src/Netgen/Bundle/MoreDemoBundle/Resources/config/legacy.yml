@@ -30,7 +30,7 @@ netgen_more_legacy:
                         - access;disable
                         - module;content/advancedsearch
 
-        admin_group:
+        ngadmin_group:
             injected_settings:
                 site.ini:
                     DatabaseSettings/SQLOutput: "%ngmore.default.legacy.database_settings.sql_output%"
