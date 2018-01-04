@@ -6,48 +6,11 @@ netgen_more_legacy:
 
     system:
         frontend_group:
-            injected_settings:
-                site.ini:
-                    DatabaseSettings/SQLOutput: "%ngmore.frontend_group.legacy.database_settings.sql_output%"
-
-                    ContentSettings/ViewCaching: "%ngmore.frontend_group.legacy.content_settings.view_caching%"
-
-                    OverrideSettings/Cache: "%ngmore.frontend_group.legacy.override_settings.cache%"
-
-                    TemplateSettings/Debug: "%ngmore.frontend_group.legacy.template_settings.debug%"
-                    TemplateSettings/DevelopmentMode: "%ngmore.frontend_group.legacy.template_settings.development_mode%"
-                    TemplateSettings/TemplateCache: "%ngmore.frontend_group.legacy.template_settings.template_cache%"
-                    TemplateSettings/TemplateCompile: "%ngmore.frontend_group.legacy.template_settings.template_compile%"
-                    TemplateSettings/ShowUsedTemplates: "%ngmore.frontend_group.legacy.template_settings.show_used_templates%"
-                    TemplateSettings/ShowXHTMLCode: "%ngmore.frontend_group.legacy.template_settings.show_xhtml_code%"
-
-                    DebugSettings/DebugOutput: "%ngmore.frontend_group.legacy.debug_settings.debug_output%"
-                    DebugSettings/DebugRedirection: "%ngmore.frontend_group.legacy.debug_settings.debug_redirection%"
-
             injected_merge_settings:
                 site.ini:
                     SiteAccessRules/Rules:
                         - access;disable
                         - module;content/advancedsearch
-
-        ngadmin_group:
-            injected_settings:
-                site.ini:
-                    DatabaseSettings/SQLOutput: "%ngmore.default.legacy.database_settings.sql_output%"
-
-                    ContentSettings/ViewCaching: "%ngmore.default.legacy.content_settings.view_caching%"
-
-                    OverrideSettings/Cache: "%ngmore.default.legacy.override_settings.cache%"
-
-                    TemplateSettings/Debug: "%ngmore.default.legacy.template_settings.debug%"
-                    TemplateSettings/DevelopmentMode: "%ngmore.default.legacy.template_settings.development_mode%"
-                    TemplateSettings/TemplateCache: "%ngmore.default.legacy.template_settings.template_cache%"
-                    TemplateSettings/TemplateCompile: "%ngmore.default.legacy.template_settings.template_compile%"
-                    TemplateSettings/ShowUsedTemplates: "%ngmore.default.legacy.template_settings.show_used_templates%"
-                    TemplateSettings/ShowXHTMLCode: "%ngmore.default.legacy.template_settings.show_xhtml_code%"
-
-                    DebugSettings/DebugOutput: "%ngmore.default.legacy.debug_settings.debug_output%"
-                    DebugSettings/DebugRedirection: "%ngmore.default.legacy.debug_settings.debug_redirection%"
 
         default:
             injected_merge_settings:
