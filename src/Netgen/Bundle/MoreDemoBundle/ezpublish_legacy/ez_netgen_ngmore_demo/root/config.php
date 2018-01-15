@@ -19,7 +19,7 @@
    However you can set the default timezone for your eZ Publish application as shown below.
    More on supported timezones : http://www.php.net/manual/en/timezones.php
 */
-date_default_timezone_set( 'Europe/Zagreb' );
+//date_default_timezone_set( 'Europe/Paris' );
 
 /*
     INI FILES OPTIMIZATIONS
