@@ -149,7 +149,7 @@
             font-size: .875em;
         }
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         padding: .5em 0;
         .breadcrumb {
             a {
@@ -157,7 +157,7 @@
             }
         }
     }
-    @media screen and (max-width: $break-xs) {
+    @include media-breakpoint-down(xs) {
         display: none;
     }
 }

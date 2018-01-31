@@ -66,9 +66,6 @@
                                     )
                                 ) }}
                             </div>
-                            {% if loop.index0 % 2 == 1 %}<div class="clearfix visible-sm"></div>{% endif %}
-                            {% if loop.index0 % 3 == 2 %}<div class="clearfix visible-md"></div>{% endif %}
-                            {% if loop.index0 % 4 == 3 %}<div class="clearfix visible-lg"></div>{% endif %}
                         {% endfor %}
                     </div>
                 {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'listitem_view' %}

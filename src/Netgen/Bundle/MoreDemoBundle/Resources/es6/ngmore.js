@@ -2,11 +2,7 @@
 import $ from 'jquery';
 import 'magnific-popup';
 import Swiper from 'swiper';
-
-window.jQuery = $; // fix for bootstrap module referencing to global jQuery
-window.$ = $;
-
-require('bootstrap-sass');
+import 'bootstrap';
 
 /* CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
 (() => {

@@ -6,13 +6,13 @@ header {
         .container {
             position: relative;
         }
-        @media screen and (max-width: $break-md) {
+        @include media-breakpoint-down(md) {
             .container {
                 padding: 0;
                 width: 100%;
             }
         }
-        @media screen and (max-width: $break-sm) {
+        @include media-breakpoint-down(sm) {
             & {
                 height: auto;
                 background: $main-color;
@@ -37,14 +37,14 @@ header {
     background-size: 118px auto;
     overflow: hidden;
     text-indent: -999em;
-    @media screen and (max-width: $break-lg) {
+    @include media-breakpoint-down(lg) {
         width: 125px;
         background-size: 98px auto;
     }
-    @media screen and (max-width: $break-md) {
+    @include media-breakpoint-down(md) {
         left: 0;
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         left: 0;
         height: $header-height-sm;
         width: 115px;
@@ -69,7 +69,7 @@ header {
             text-decoration: none;
             text-transform: uppercase;
         }
-        &.open {
+        &.show {
             .current-lang {
                 background: $header-active-bg;
             }
@@ -95,7 +95,7 @@ header {
             }
         }
     }
-    @media screen and (max-width: $break-lg) {
+    @include media-breakpoint-down(lg) {
         padding-left: 125px;
         #lang-selector {
             .current-lang {
@@ -103,7 +103,7 @@ header {
             }
         }
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         display: none;
         background: $header-bg;
         padding: 0;
@@ -181,7 +181,7 @@ header {
             }
         }
     }
-    @media (max-width: $break-lg) {
+    @include media-breakpoint-down(lg) {
         .navbar-nav {
             > li {
                 > a {
@@ -190,7 +190,7 @@ header {
             }
         }
     }
-    @media (max-width: $break-md) {
+    @include media-breakpoint-down(md) {
         .navbar-nav {
             > li {
                 > a {
@@ -199,7 +199,7 @@ header {
             }
         }
     }
-    @media (min-width: $break-sm + 1) {
+    @include media-breakpoint-up(md) {
         .navbar-nav {
             > li {
                 &:hover,
@@ -212,7 +212,7 @@ header {
             }
         }
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         clear: both;
         .navbar-nav {
             flex-direction: column;
@@ -319,7 +319,7 @@ header {
         color: #fff;
         padding: 0;
     }
-    @media (min-width: $break-sm + 1) {
+    @include media-breakpoint-up(md) {
         .searchbox-active {
             .filled & {
                 z-index: auto;
@@ -343,7 +343,7 @@ header {
             border-radius: 500px;
         }
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         display: none;
         background: $header-bg;
         position: relative;
@@ -394,7 +394,7 @@ header {
     &:focus {
         color: #fff;
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         right: $header-height-sm + 1px;
         top: 0;
         border-left: 1px solid $header-bg;
@@ -490,7 +490,7 @@ header {
             }
         }
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         display: block;
         position: absolute;
         cursor: pointer;
@@ -552,10 +552,10 @@ header {
 .site-error {
     padding: 10em 0 8em;
     text-align: center;
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         padding: 6em 0 4em;
     }
-    @media screen and (max-width: $break-xs) {
+    @include media-breakpoint-down(xs) {
         padding: 3em 0 2em;
     }
 }
@@ -638,7 +638,7 @@ footer {
             }
         }
     }
-    @media screen and (max-width: 600px) {
+    @include media-breakpoint-down(sm) {
         .footer-cell {
             display: block;
             text-align: center;

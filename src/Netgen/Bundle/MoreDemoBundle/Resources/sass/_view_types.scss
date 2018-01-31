@@ -267,7 +267,7 @@
             }
         }
     }
-    @media screen and (max-width: $break-xs) {
+    @include media-breakpoint-down(xs) {
         .image,
         .image + .info {
             width: 100%;
@@ -315,7 +315,7 @@
     .date {
         font-size: 12px;
     }
-    @media screen and (max-width: $break-xs) {
+    @include media-breakpoint-down(xs) {
         & {
             .image,
             .image + .info {
@@ -407,7 +407,7 @@
     .date {
         font-size: 13px;
     }
-    @media screen and (max-width: $break-xs) {
+    @include media-breakpoint-down(xs) {
         & {
             .image {
                 display: none;
@@ -477,7 +477,7 @@
             color: #fff;
         }
     }
-    @media screen and (max-width: $break-md) {
+    @include media-breakpoint-down(md) {
         display: block;
         .main-item {
             width: 100%;
@@ -492,7 +492,7 @@
             }
         }
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         .secondary-items {
             display: block;
         }
@@ -512,7 +512,7 @@
             }
         }
     }
-    @media screen and (max-width: $break-xs) {
+    @include media-breakpoint-down(xs) {
         .vl1 {
             .info {
                 left: $gutter;
@@ -556,7 +556,7 @@
         color: $main-color;
     }
 }
-@media screen and (max-width: $break-sm) {
+@include media-breakpoint-down(sm) {
     .article-title {
         font-size: 34px;
     }
@@ -566,7 +566,7 @@
         }
     }
 }
-@media screen and (max-width: $break-xs) {
+@include media-breakpoint-down(xs) {
     .article-body {
         h2 {
             font-size: 21px;
@@ -666,7 +666,7 @@
         padding-top: 3 * $gutter;
         margin-top: 3 * $gutter;
     }
-    @media screen and (max-width: $break-md) {
+    @include media-breakpoint-down(md) {
         .article-header {
             .article-header-info {
                 .article-title {
@@ -675,7 +675,7 @@
             }
         }
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         .article-content {
             padding-left: 0;
             padding-right: 0;
@@ -709,7 +709,7 @@
             }
         }
     }
-    @media screen and (max-width: $break-xs) {
+    @include media-breakpoint-down(xs) {
         .article-header:not(.no-image) {
             .article-image {
                 display: none;
@@ -770,7 +770,7 @@
             border-radius: 4px;
         }
     }
-    @media screen and (max-width: $break-sm) {
+    @include media-breakpoint-down(sm) {
         h3 {
             font-size: 28px;
         }
