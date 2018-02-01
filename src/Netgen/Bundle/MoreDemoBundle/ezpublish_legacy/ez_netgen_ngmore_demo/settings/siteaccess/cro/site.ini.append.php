@@ -13,7 +13,7 @@ RelatedSiteAccessList[]=ngadminui
 ShowHiddenNodes=false
 
 [DesignSettings]
-SiteDesign=ngmore_bootstrap3
+SiteDesign=ngmore_demo
 AdditionalSiteDesignList[]
 AdditionalSiteDesignList[]=ngmore
 AdditionalSiteDesignList[]=ezdemo
