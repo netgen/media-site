@@ -503,47 +503,20 @@ header {
 }
 
 .pagination {
-    > li {
-        > a,
-        > span {
-            color: #333;
-            border-color: #d1d3d4;
-            &:hover,
-            &:focus {
-                background-color: inherit;
-                border-color: #d1d3d4;
-                color: #ef4136;
-            }
+    margin: 2rem 0;
+    .page-link {
+        color: $body-color;
+        &.page-link-separate {
+            border: 0;
+            margin-left: 0;
         }
-        &:first-child,
-        &:last-child {
-            > a,
-            > span {
-                border-radius: 0;
-            }
-        }
-        &.active,
-        &.disabled {
-            > a,
-            > span {
-                &,
-                &:hover,
-                &:focus {
-                    background-color: #ef4136;
-                    border-color: #ef4136;
-                }
-            }
-        }
-        &.disabled {
-            > a,
-            > span {
-                &,
-                &:hover,
-                &:focus {
-                    border-top: 0;
-                    border-bottom: 0;
-                    color: inherit;
-                }
+    }
+    .page-item {
+        &.active {
+            .page-link {
+                background: $main-color;
+                border-color: $main-color;
+                color: #fff;
             }
         }
     }
