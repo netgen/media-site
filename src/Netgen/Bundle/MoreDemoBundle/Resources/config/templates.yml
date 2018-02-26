@@ -34,3 +34,5 @@ parameters:
     ngmore.default.template.errors.default: "@@ezdesign/errors/default.html.twig"
 
     ngmore.default.template.search: "@@ezdesign/search/search.html.twig"
+
+    ngmore.default.template.menu: '@@ezdesign/menu.html.twig'
