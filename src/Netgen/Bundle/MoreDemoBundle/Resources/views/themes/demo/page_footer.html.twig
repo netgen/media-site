@@ -8,7 +8,7 @@
             {% block page_additional_menu %}
                 {{ render_esi(
                     controller(
-                        'ngmore.controller.page_layout:menu', {
+                        'ngmore.controller.menu:renderMenu', {
                             menuName: 'ngmore_additional_menu',
                             activeItemId: main_category_location_id is defined ? main_category_location_id : 0
                         }
