@@ -7,7 +7,7 @@
 {% endif %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-category {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} clearfix">
+<div class="view-type view-type-{{ viewType }} ng-category {{ content.fields.css_class.value.text|trim }} clearfix">
     <h1 class="page-header">{{ ng_render_field(content.fields.title) }}</h1>
 
     {% if not content.fields.full_intro.empty %}

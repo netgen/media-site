@@ -1,4 +1,4 @@
-<div class="view-type view-type-{{ viewType }} ng-gallery {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %}">
+<div class="view-type view-type-{{ viewType }} ng-gallery {{ content.fields.css_class.value.text|trim }}">
     {{ render(
         controller(
             'ngmore.controller.parts:viewRelatedMultimediaItems', {

@@ -7,16 +7,16 @@
 {% endif %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-gallery {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} clearfix">
-    {{ render(
-        controller(
-            'ngmore.controller.parts:viewRelatedMultimediaItems', {
-                'locationId': location.id,
-                'includeChildren': true,
-                'contentTypeIdentifiers': ['image', 'ng_video'],
-                'template': '@ezdesign/parts/related_multimedia.html.twig'
-            }
-        )
-    ) }}
-</div>
+    <div class="view-type view-type-{{ viewType }} ng-gallery {{ content.fields.css_class.value.text|trim }} clearfix">
+        {{ render(
+            controller(
+                'ngmore.controller.parts:viewRelatedMultimediaItems', {
+                    'locationId': location.id,
+                    'includeChildren': true,
+                    'contentTypeIdentifiers': ['image', 'ng_video'],
+                    'template': '@ezdesign/parts/related_multimedia.html.twig'
+                }
+            )
+        ) }}
+    </div>
 {% endblock %}

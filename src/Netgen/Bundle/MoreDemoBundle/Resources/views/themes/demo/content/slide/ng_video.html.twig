@@ -5,7 +5,11 @@
         {{ video.poster_slide(content, use_lazy_load|default(false)) }}
 
         <div class="info">
-            <h2 class="title"><a href={{ path(location) }}><i class="fa fa-play-circle"></i>{{ content.fields.title.value.text }}</a></h2>
+            <h2 class="title">
+                <a href={{ path(location) }}>
+                    <i class="fa fa-play-circle"></i>{{ content.fields.title.value.text }}
+                </a>
+            </h2>
         </div>
     </div>
 {% endif %}

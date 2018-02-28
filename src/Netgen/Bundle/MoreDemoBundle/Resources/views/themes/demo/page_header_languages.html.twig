@@ -2,7 +2,9 @@
     {% set prioritized_languages = ezpublish.configResolver.getParameter('languages') %}
 
     <div id="lang-selector" class="transition-showed dropdown">
-        <a href="#lang-selector" data-toggle="dropdown" class="current-lang">{{ ngmore_language_name(prioritized_languages.0) }}&nbsp;<i class="fa fa-angle-down"></i></a>
+        <a href="#lang-selector" data-toggle="dropdown" class="current-lang">
+            {{ ngmore_language_name(prioritized_languages.0) }}&nbsp;<i class="fa fa-angle-down"></i>
+        </a>
 
         <ul class="lang-select dropdown-menu">
             {% for language in ezpublish.availableLanguages %}

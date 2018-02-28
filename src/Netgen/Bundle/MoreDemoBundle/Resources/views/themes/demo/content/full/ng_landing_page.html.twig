@@ -3,6 +3,6 @@
 {% set show_path = false %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-landing-page {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} clearfix">
-</div>
+    <div class="view-type view-type-{{ viewType }} ng-landing-page {{ content.fields.css_class.value.text|trim }} clearfix">
+    </div>
 {% endblock %}

@@ -7,7 +7,7 @@
     <form action="{{ path('ngmore_content_search') }}" method="get" class="form-search">
         <div class="search-inputs">
             <div class="input-group">
-                <input class="form-control" placeholder="{{ 'ngmore.search.placeholder'|trans }}" type="text" name="searchText" id="Search" value="{{ search_text }}" />
+                <input type="text" value="{{ search_text }}" name="searchText" id="Search" class="form-control" placeholder="{{ 'ngmore.search.placeholder'|trans }}" />
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-dark">{{ 'ngmore.search.button'|trans }}</button>
                 </span>

@@ -13,7 +13,7 @@
 {% set poster_image = content_fields.background_poster(content) %}
 
 {% block content %}
-    <div class="view-type view-type-{{ viewType }} ng-blog-post {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} vf1 clearfix">
+    <div class="view-type view-type-{{ viewType }} ng-blog-post {{ content.fields.css_class.value.text|trim }} vf1 clearfix">
         <div class="article-header {% if poster_image is empty %} no-image{% endif %}" {% if poster_image is not empty %} style="background-image:url({{ poster_image }});" {% endif %}>
             {% block image %}
                 {% if not content.fields.image.empty %}
