@@ -9,9 +9,6 @@ use Symfony\Component\Config\FileLocator;
 
 class NetgenMoreDemoExtension extends Extension
 {
-    /**
-     * {@inheritdoc}
-     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
