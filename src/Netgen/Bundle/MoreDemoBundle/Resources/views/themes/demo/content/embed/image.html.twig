@@ -17,7 +17,7 @@
 
         {% if not content.fields.caption.empty %}
             {% set image_alias = ng_image_alias(content.fields.image, objectParameters.size) %}
-            {% if image_alias.width is defined and image_alias.width is not empty %}
+            {% if image_alias.width|default('') is not empty %}
                 <div class="caption" style="width: {{ image_alias.width }}px">
                     {{ ng_render_field(content.fields.caption) }}
                 </div>

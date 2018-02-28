@@ -1,6 +1,6 @@
 {% set root_location_path = path(ezpublish.rootLocation) %}
 
-{% if canonical_url is defined and canonical_url is not empty %}
+{% if canonical_url|default('') is not empty %}
     <link rel="canonical" href="{{ canonical_url }}" />
 {% endif %}
 

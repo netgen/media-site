@@ -35,7 +35,7 @@
                     {{ content.contentInfo.contentTypeName }}
                 </div>
 
-                {% if score_percent is defined and score_percent is not null %}
+                {% if score_percent|default(null) is not null %}
                     <div class="score progress">
                         <div class="bar" style="width:{{ score_percent }}%">{{ score_percent }}%</div>
                     </div>

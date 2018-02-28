@@ -4,7 +4,7 @@
             controller(
                 'ngmore.controller.menu:renderMenu', {
                     menuName: 'ngmore_main_menu',
-                    activeItemId: main_category_location_id is defined ? main_category_location_id : 0
+                    activeItemId: main_category_location_id ?? 0
                 }
             )
         ) }}

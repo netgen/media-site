@@ -1,4 +1,4 @@
-{% if multimedia_items is defined and multimedia_items|length > 0 %}
+{% if multimedia_items|default([])|length > 0 %}
     {% set is_slider = multimedia_items|length > 1 %}
 
     {% if is_slider %}
