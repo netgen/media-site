@@ -1,5 +1,5 @@
 <div class="view-type view-type-{{ viewType }} file">
-    <div class="file mime-type-{{ content.fields.file.value.mimeType|replace( { '/': '-' } ) }}">
-        {{ ng_render_field( content.fields.file ) }}
+    <div class="file mime-type-{{ content.fields.file.value.mimeType|replace({'/': '-'}) }}">
+        {{ ng_render_field(content.fields.file) }}
     </div>
 </div>

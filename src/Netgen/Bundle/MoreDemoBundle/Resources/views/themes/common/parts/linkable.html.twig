@@ -11,7 +11,7 @@
     {% set related_content_id = content.fields.related_object.value.destinationContentId %}
 
     {% if related_content_id != content.id %} {# dead loop #}
-        {% set url = path( 'ez_urlalias', { 'contentId': related_content_id } ) %}
+        {% set url = path('ez_urlalias', {'contentId': related_content_id}) %}
     {% endif %}
 {% endif %}
 

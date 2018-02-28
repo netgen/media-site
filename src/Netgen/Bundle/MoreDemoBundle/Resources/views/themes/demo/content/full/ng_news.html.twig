@@ -5,12 +5,12 @@
 {% set show_path = false %}
 
 {% if not content.fields.line_intro.empty %}
-    {% set meta_data = { 'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+    {% set meta_data = {'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
 {% elseif not content.fields.full_intro.empty %}
-    {% set meta_data = { 'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+    {% set meta_data = {'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
 {% endif %}
 
-{% set poster_image = content_fields.background_poster( content ) %}
+{% set poster_image = content_fields.background_poster(content) %}
 
 {% block content %}
     <div class="view-type view-type-{{ viewType }} ng-news {% if not content.fields.css_class.empty %}{{ content.fields.css_class.value.text }}{% endif %} vf1 clearfix">
@@ -37,7 +37,7 @@
             <div class="article-header-info">
                 {% block title %}
                     <div class="container">
-                        <h1 class="article-title">{{ ng_render_field( content.fields.title ) }}</h1>
+                        <h1 class="article-title">{{ ng_render_field(content.fields.title) }}</h1>
                     </div>
                 {% endblock %}
 
@@ -45,7 +45,7 @@
                     {% if not content.fields.full_intro.empty %}
                         <div class="container">
                             <div class="article-intro">
-                                {{ ng_render_field( content.fields.full_intro ) }}
+                                {{ ng_render_field(content.fields.full_intro) }}
                             </div>
                         </div>
                     {% endif %}
@@ -55,7 +55,7 @@
         <div class="container">
             <div class="article-content">
                 {% if not content.fields.headline.empty %}
-                    <h2 class="headline">{{ ng_render_field( content.fields.headline ) }}</h2>
+                    <h2 class="headline">{{ ng_render_field(content.fields.headline) }}</h2>
                 {% endif %}
 
                 {% include '@NetgenMore/parts/social.html.twig' %}
@@ -63,14 +63,14 @@
                 {% block body %}
                     {% if not content.fields.body.empty %}
                         <div class="article-body">
-                            {{ ng_render_field( content.fields.body ) }}
+                            {{ ng_render_field(content.fields.body) }}
                         </div>
                     {% endif %}
                 {% endblock %}
 
                 {% if not content.fields.location.empty %}
                     <div class="location">
-                        {{ ng_render_field( content.fields.location ) }}
+                        {{ ng_render_field(content.fields.location) }}
                     </div>
                 {% endif %}
 
@@ -80,11 +80,11 @@
                             <div class="article-date">
                                 By <span class="author">
                                     {% if not content.fields.author_override.empty %}
-                                        {{ ng_render_field( content.fields.author_override ) }}
+                                        {{ ng_render_field(content.fields.author_override) }}
                                     {% else %}
                                         {{ content.owner.name }}
                                     {% endif %}
-                                </span> - {{ content.fields.publish_date.value.value|date( 'F jS, Y' ) }}
+                                </span> - {{ content.fields.publish_date.value.value|date('F jS, Y') }}
                             </div>
                         </div>
                     {% endblock %}

@@ -1,12 +1,12 @@
 {% import '@ezdesign/parts/slide.html.twig' as slide %}
 
 <div class="view-type view-type-{{ viewType }} ng-news vl2">
-    {{ slide.image( content ) }}
+    {{ slide.image(content) }}
 
     <div class="info">
         <div class="date">
-            {{ content.fields.publish_date.value.value|date( 'j. n. Y.' ) }}
+            {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
         </div>
-        <h2 class="title"><a href={{ path( location ) }}>{{ ng_render_field( content.fields.title ) }}</a></h2>
+        <h2 class="title"><a href={{ path(location) }}>{{ ng_render_field(content.fields.title) }}</a></h2>
     </div>
 </div>

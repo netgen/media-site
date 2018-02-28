@@ -1,6 +1,6 @@
 <div class="view-type view-type-{{ viewType }} ng-news vl5 clearfix">
 	<div class="date">
-		{{ content.fields.publish_date.value.value|date( 'j. n. Y.' ) }}
+		{{ content.fields.publish_date.value.value|date('j. n. Y.') }}
 	</div>
-	<h2 class="title"><a href="{{ path( location ) }}">{{ ng_render_field( content.fields.title ) }}</a></h2>
+	<h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
 </div>

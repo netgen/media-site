@@ -1,9 +1,9 @@
 {% extends ngbm.layoutTemplate %}
 
 {% if not content.fields.line_intro.empty %}
-    {% set meta_data = { 'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+    {% set meta_data = {'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
 {% elseif not content.fields.description.empty %}
-    {% set meta_data = { 'description': content.fields.description.value.xml.saveXML()|striptags|trim|truncate( 152 ) } %}
+    {% set meta_data = {'description': content.fields.description.value.xml.saveXML()|striptags|trim|truncate(152)} %}
 {% endif %}
 
 {% block content %}

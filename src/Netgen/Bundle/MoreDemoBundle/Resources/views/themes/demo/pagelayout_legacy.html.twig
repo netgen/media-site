@@ -3,8 +3,8 @@
 {# PERSISTENT VARIABLE #}
 
 {% set content_info = null %}
-{% if ezpublish.legacy.has( 'content_info' ) %}
-    {% set content_info = ezpublish.legacy.get( 'content_info' ) %}
+{% if ezpublish.legacy.has('content_info') %}
+    {% set content_info = ezpublish.legacy.get('content_info') %}
 {% endif %}
 
 {% if module_result.content_info is defined %}
@@ -36,11 +36,11 @@
 
 {# METADATA #}
 
-{% set config_meta_data = ezpublish.configResolver.getParameter( 'site_settings.meta_data', 'ngmore' ) %}
+{% set config_meta_data = ezpublish.configResolver.getParameter('site_settings.meta_data', 'ngmore') %}
 {% set meta_data = [] %}
 {% for key in config_meta_data|keys %}
     {% if persistent_variable[key] is defined %}
-        {% set meta_data = meta_data|merge( { ( key ): persistent_variable[key] } ) %}
+        {% set meta_data = meta_data|merge({(key): persistent_variable[key]}) %}
     {% endif %}
 {% endfor %}
 

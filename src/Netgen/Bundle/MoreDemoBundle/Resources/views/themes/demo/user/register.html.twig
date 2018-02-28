@@ -19,15 +19,15 @@
         {% endif %}
     {% endif %}
 
-    {{ form_start( form ) }}
+    {{ form_start(form) }}
 
     <fieldset>
         {% for form_child in form.children %}
-            {{ form_row( form_child, { attr: { class: 'form-control' } } ) }}
+            {{ form_row(form_child, {attr: {class: 'form-control'}}) }}
         {% endfor %}
 
         <button type="submit" class="btn btn-primary">{{ 'ngmore.user.register.submit'|trans }}</button>
     </fieldset>
 
-    {{ form_end( form ) }}
+    {{ form_end(form) }}
 {% endblock %}

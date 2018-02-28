@@ -2,14 +2,16 @@
 
 {% block content %}
     <div class="{% if is_slider %}swiper-slide{% endif %} vl2">
+        {% set image_uri = ng_image_alias(content.fields.image, 'i1140').uri|default('') %}
+
         {% if is_slider %}
-            <img class="swiper-lazy" data-src="{{ ng_image_alias( content.fields.image, 'i1140' ).uri|default('') }}" />
+            <img class="swiper-lazy" data-src="{{ image_uri }}" />
         {% else %}
-            <img src="{{ ng_image_alias( content.fields.image, 'i1140' ).uri|default('') }}" />
+            <img src="{{ image_uri }}" />
         {% endif %}
 
         <div class="info">
-            <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" rel="noopener noreferrer" {% endif %}>{{ ng_render_field( content.fields.title ) }}</a></h2>
+            <h2 class="title"><a href="{{ url }}" {% if open_in_new_window %} target="_blank" rel="noopener noreferrer" {% endif %}>{{ ng_render_field(content.fields.title) }}</a></h2>
         </div>
     </div>
 {% endblock %}

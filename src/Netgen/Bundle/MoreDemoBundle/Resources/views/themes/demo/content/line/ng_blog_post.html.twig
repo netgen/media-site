@@ -2,20 +2,20 @@
 
 <div class="view-type view-type-{{ viewType }} ng-blog-post vl3 clearfix">
 
-    {{ content_fields.image( content, location, 'i770' ) }}
+    {{ content_fields.image(content, location, 'i770') }}
 
     <div class="info">
         <div class="date">
             <span class="author">
                 {% if not content.fields.author_override.empty %}
-                    {{ ng_render_field( content.fields.author_override ) }}
+                    {{ ng_render_field(content.fields.author_override) }}
                 {% else %}
                     {{ content.owner.name }}
                 {% endif %}
-            </span> | {{ content.fields.publish_date.value.value|date( 'j. n. Y.' ) }}
+            </span> | {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
         </div>
-        <h2 class="title"><a href="{{ path( location ) }}">{{ ng_render_field( content.fields.title ) }}</a></h2>
+        <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
 
-        {{ content_fields.intro( content ) }}
+        {{ content_fields.intro(content) }}
     </div>
 </div>

@@ -9,15 +9,15 @@
 
     <p>{{ 'ngmore.user.activate.text'|trans }}</p>
 
-    {{ form_start( form ) }}
+    {{ form_start(form) }}
 
     <fieldset>
         <div class="form-group">
-            {{ form_row( form.email, { 'label': 'ngmore.user.activate.email.label', 'attr': { 'class': 'form-control' } } ) }}
+            {{ form_row(form.email, {'label': 'ngmore.user.activate.email.label', 'attr': {'class': 'form-control'}}) }}
         </div>
 
         <button type="submit" class="btn btn-primary">{{ 'ngmore.user.activate.submit'|trans }}</button>
     </fieldset>
 
-    {{ form_end( form ) }}
+    {{ form_end(form) }}
 {% endblock %}

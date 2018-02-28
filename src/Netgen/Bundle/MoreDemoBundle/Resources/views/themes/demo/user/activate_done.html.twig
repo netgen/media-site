@@ -9,11 +9,11 @@
 
     {% if error is defined %}
         {% if error == 'hash_expired' %}
-            <div class="alert alert-danger">{{ 'ngmore.user.activate.done.error.hash_expired'|trans( { '%link%': path( 'ngmore_resend_activation_mail' ) } )|raw }}</div>
+            <div class="alert alert-danger">{{ 'ngmore.user.activate.done.error.hash_expired'|trans({'%link%': path('ngmore_resend_activation_mail')})|raw }}</div>
         {% else %}
             <div class="alert alert-danger">{{ 'ngmore.user.activate.done.error.other'|trans }}</div>
         {% endif %}
     {% else %}
-        <p>{{ "ngmore.user.activate.done.text"|trans( { '%link%': path( 'login' ) } )|raw }}</p>
+        <p>{{ "ngmore.user.activate.done.text"|trans({'%link%': path('login')})|raw }}</p>
     {% endif %}
 {% endblock %}

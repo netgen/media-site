@@ -3,7 +3,7 @@
 {# SITE NAME #}
 
 {% if site_name is not defined %}
-    {% set site_name = ezpublish.configResolver.getParameter( 'site_settings.site_name', 'ngmore' ) %}
+    {% set site_name = ezpublish.configResolver.getParameter('site_settings.site_name', 'ngmore') %}
 {% endif %}
 
 {# PATH ARRAY #}
@@ -14,7 +14,7 @@
 
 {% if path_array is not defined %}
     {% if content is defined and location is defined and location is not empty and not location.innerLocation.isDraft %}
-        {% set path_array = ngmore_location_path( location.id ) %}
+        {% set path_array = ngmore_location_path(location.id) %}
         {% if path_array is not empty %}
             {% set main_category_location_id = path_array[1] is defined ? path_array[1].location.id : path_array[0].location.id %}
         {% endif %}
@@ -31,7 +31,7 @@
     {% set current_content_language = null %}
 
     {% if content is defined %}
-        {% for language in ezpublish.configResolver.parameter( 'languages' ) if current_content_language is empty %}
+        {% for language in ezpublish.configResolver.parameter('languages') if current_content_language is empty %}
             {% if language in content.versionInfo.languageCodes %}
                 {% set current_content_language = language %}
             {% endif %}
@@ -44,19 +44,19 @@
 
     {% if status_code is not defined %}
         {% for language in ezpublish.availableLanguages %}
-            {% set translation_site_access = ezpublish.translationSiteAccess( language ) %}
+            {% set translation_site_access = ezpublish.translationSiteAccess(language) %}
 
             {% if translation_site_access is not empty %}
-                {% set siteaccess_languages = ezpublish.configResolver.parameter( 'languages', null, translation_site_access ) %}
-                {% set route_reference = ez_route( params={ 'siteaccess': translation_site_access } ) %}
+                {% set siteaccess_languages = ezpublish.configResolver.parameter('languages', null, translation_site_access) %}
+                {% set route_reference = ez_route(params={'siteaccess': translation_site_access}) %}
 
                 {% if route_reference.route is not empty %}
                     {% if content is not defined %}
-                        {% set url = url( route_reference ) %}
-                        {% set available_translations = available_translations|merge( { ( language ): url } ) %}
+                        {% set url = url(route_reference) %}
+                        {% set available_translations = available_translations|merge({(language): url}) %}
                     {% elseif current_content_language in siteaccess_languages or content.contentInfo.alwaysAvailable %}
-                        {% set url = url( route_reference, { 'language': language } ) %}
-                        {% set available_translations = available_translations|merge( { ( language ): url } ) %}
+                        {% set url = url(route_reference, {'language': language}) %}
+                        {% set available_translations = available_translations|merge({(language): url}) %}
                     {% endif %}
                 {% endif %}
             {% endif %}

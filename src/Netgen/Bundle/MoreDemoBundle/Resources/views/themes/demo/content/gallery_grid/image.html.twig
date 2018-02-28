@@ -2,11 +2,11 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ viewType }} image vl2">
-    {% set lightbox_image_alias =  ng_image_alias( content.fields.image, 'i1140' ) %}
-    {% set image_url = asset( lightbox_image_alias.uri ) %}
-    {% set title = content_fields.name( content ) %}
+    {% set lightbox_image_alias =  ng_image_alias(content.fields.image, 'i1140') %}
+    {% set image_url = asset(lightbox_image_alias.uri) %}
+    {% set title = content_fields.name(content) %}
 
     <a href="{{ image_url }}" title="{{ title }}" class="js-mfp-item">
-        {{ slide.image( content ) }}
+        {{ slide.image(content) }}
     </a>
 </div>

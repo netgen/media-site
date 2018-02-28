@@ -3,12 +3,9 @@
         {{ render(
             controller(
                 'ng_content:viewAction', {
-                    'contentId': related_item.contentId,
-                    'locationId': related_item.id,
-                    'viewType': view_type,
-                    'params': {
-                        'location': related_item
-                    }
+                    'content': related_item.content,
+                    'location': related_item,
+                    'viewType': view_type
                 }
             )
         ) }}

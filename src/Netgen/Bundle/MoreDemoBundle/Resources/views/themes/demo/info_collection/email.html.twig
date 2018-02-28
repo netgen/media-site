@@ -1,10 +1,10 @@
 {% block subject %}{% spaceless %}
-    Netgen More – {{ ez_content_name( content ) }} [{{ collected_fields.email }}]
+    Netgen More – {{ ez_content_name(content) }} [{{ collected_fields.email }}]
 {% endspaceless %}{% endblock %}
 
 {#% block sender %}{{ collected_fields.email }}{% endblock %#}
 
-{% block recipient %}{{ ez_field_value( content, 'recipient' ) }}{% endblock %}
+{% block recipient %}{{ ez_field_value(content, 'recipient') }}{% endblock %}
 
 {% block email %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -24,7 +24,7 @@
 
 <br>
 
-<div style="font-weight: normal; font-size: 26px; color: #777777">{{ ez_content_name( content ) }}</div>
+<div style="font-weight: normal; font-size: 26px; color: #777777">{{ ez_content_name(content) }}</div>
 
 <br>
 
@@ -36,7 +36,7 @@
 {% for collected_field, collected_field_value in collected_fields %}
     <tr>
         <td width="40%" style="padding-right: 20px; padding-bottom: 10px; color: #777777" valign="top">
-            {{ ez_field_name( content, collected_field ) }}:
+            {{ ez_field_name(content, collected_field) }}:
         </td>
         <td width="60%" style="padding-bottom: 10px" valign="top">
             <strong>{{ collected_field_value }}</strong>

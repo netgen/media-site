@@ -1,24 +1,24 @@
-{% macro image( content, field_name, alias_name, use_lazy_load ) %}
+{% macro image(content, field_name, alias_name, use_lazy_load) %}
     {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-    {% set field_name = field_name|default( 'image' ) %}
-    {% set alias_name = alias_name|default( 'i1140' ) %}
-    {% set use_lazy_load = use_lazy_load|default( false ) %}
+    {% set field_name = field_name|default('image') %}
+    {% set alias_name = alias_name|default('i1140') %}
+    {% set use_lazy_load = use_lazy_load|default(false) %}
 
     {% if content.hasField(field_name) and not content.fields[field_name].empty %}
-        {% set image_alias = ng_image_alias( content.fields[field_name], alias_name ) %}
+        {% set image_alias = ng_image_alias(content.fields[field_name], alias_name) %}
 
         {% if use_lazy_load %}
             {% if image_alias %}
                 {{ ng_render_field(
                     content.fields[field_name], {
                         parameters: {
-                            alt_text: content_fields.name( content ),
+                            alt_text: content_fields.name(content),
                             disable_src_attribute: true
-                        },
+                       },
                         attr: {
                             class: 'swiper-lazy',
-                            'data-src': asset( image_alias.uri )
+                            'data-src': asset(image_alias.uri)
                         }
                     }
                 ) }}
@@ -28,7 +28,7 @@
                 content.fields[field_name], {
                     parameters: {
                         alias: alias_name,
-                        alt_text: content_fields.name( content )
+                        alt_text: content_fields.name(content)
                     }
                 }
             ) }}
