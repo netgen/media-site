@@ -12,7 +12,8 @@
         {% include '@ezdesign/parts/related_multimedia/' ~ multimedia_item.contentInfo.contentTypeIdentifier ~ '.html.twig'
             ignore missing
             with {
-                'content': multimedia_item,
+                'content': multimedia_item.content,
+                'location': multimedia_item,
                 'is_slider': is_slider
             }
         %}
