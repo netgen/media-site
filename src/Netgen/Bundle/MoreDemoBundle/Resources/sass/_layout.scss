@@ -20,6 +20,7 @@ header {
                     padding: $header-height-sm 0 0;
                     margin: 0;
                     width: 100%;
+                    max-width: 100%;
                 }
             }
         }
@@ -131,25 +132,28 @@ header {
         margin: 0;
         padding: 0;
         display: flex;
+        color: #fff;
         a {
-            color: #fff;
-            padding: 5px 20px;
-            font-weight: 700;
+            color: inherit;
             text-decoration: none;
-            text-transform: uppercase;
         }
         > li {
             float: left;
             position: relative;
-            > a {
+            > a,
+            > span {
                 display: table-cell;
                 height: $header-height;
                 vertical-align: middle;
                 font-size: 14px;
+                padding: 5px 20px;
+                font-weight: 700;
+                text-transform: uppercase;
             }
             &.active {
                 background: $header-active-bg;
-                > a {
+                > a,
+                > span {
                     color: $main-color;
                 }
             }
@@ -170,9 +174,14 @@ header {
             margin: 0;
             padding: 10px 0;
             > li {
-                > a {
+                > a,
+                > span {
+                    padding: 5px 20px;
                     display: block;
                     white-space: nowrap;
+                    font-weight: 700;
+                }
+                > a {
                     &:hover,
                     &:focus {
                         color: $main-color;
@@ -184,7 +193,8 @@ header {
     @include media-breakpoint-down(lg) {
         .navbar-nav {
             > li {
-                > a {
+                > a,
+                > span {
                     font-size: 13px;
                 }
             }
@@ -193,7 +203,8 @@ header {
     @include media-breakpoint-down(md) {
         .navbar-nav {
             > li {
-                > a {
+                > a,
+                > span {
                     font-size: 12px;
                 }
             }
@@ -224,7 +235,8 @@ header {
                 &.active {
                     background: transparent;
                 }
-                > a {
+                > a,
+                > span {
                     display: block;
                     height: auto;
                     line-height: 1.75;
@@ -233,7 +245,8 @@ header {
                     background: hsl(0, 0, 32);
                 }
                 &[data-submenu='true'] {
-                    > a {
+                    > a,
+                    > span {
                         margin-right: 51px;
                     }
                 }
@@ -271,7 +284,8 @@ header {
                 background: hsl(0, 0, 35);
                 margin: 1px 0 2px;
                 > li {
-                    > a {
+                    > a,
+                    > span {
                         font-size: 13px;
                         text-transform: none;
                         padding: 8px 15px 8px 25px;
