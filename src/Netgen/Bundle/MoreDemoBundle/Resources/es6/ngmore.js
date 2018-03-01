@@ -303,8 +303,8 @@ $(document).ready(() => {
     if (!$(this).find('> *').length) $(this).remove();
   });
 
-  if ($('.bm-vt-grid_gallery .js-lightbox-enabled').length) {
-    $('.bm-vt-grid_gallery .js-lightbox-enabled').magnificPopup({
+  $('.bm-vt-grid_gallery .js-lightbox-enabled').each(function () {
+    $(this).magnificPopup({
       delegate: '.js-mfp-item', // child items selector, by clicking on it popup will open
       type: 'image',
       zoom: {
@@ -314,5 +314,5 @@ $(document).ready(() => {
         enabled: true,
       },
     });
-  }
+  });
 });
