@@ -92,9 +92,9 @@ RewriteRule ^favicon\.ico - [L]
 RewriteRule ^robots\.txt - [L]
 
 # The following rule is needed to correctly display bundle and project assets
+RewriteRule ^build(_dev)?/ - [L]
 RewriteRule ^bundles/ - [L]
 RewriteRule ^assets/ - [L]
-RewriteRule ^build_dev/ - [L]
 
 # Additional Assetic rules for environments different from dev,
 # remember to run php app/console assetic:dump --env=prod

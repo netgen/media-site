@@ -1,2 +1,2 @@
-<script type="text/javascript" src="{{ asset( (app.debug ? 'build_dev' : 'build') ~ '/app.js' ) }}"></script>
+<script type="text/javascript" src="{{ asset('build' ~ (app.debug ? '_dev' : '') ~ '/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('app.js', 'ngbm_js') }}"></script>
