@@ -26,8 +26,7 @@
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.1.1",
     "sass-lint": "^1.11.1",
-    "sass-loader": "^6.0.7",
-    "webpack-notifier": "^1.6.0"
+    "sass-loader": "^6.0.7"
   },
   "dependencies": {
     "bootstrap": "4.0.0",
