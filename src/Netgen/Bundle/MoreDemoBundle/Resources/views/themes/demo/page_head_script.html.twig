@@ -1,11 +1,2 @@
-{% if app.debug %}
-    <script type="text/javascript" src="{{ asset('bundles/netgenmoredemo/dev/js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('app.js', 'ngbm_js') }}"></script>
-{% else %}
-    {% javascripts
-        'bundles/netgenmoredemo/js/app.js'
-        'bundles/netgenblockmanager/js/app.js'
-    %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% endif %}
+<script type="text/javascript" src="{{ asset( (app.debug ? 'build_dev' : 'build') ~ '/app.js' ) }}"></script>
+<script type="text/javascript" src="{{ asset('app.js', 'ngbm_js') }}"></script>

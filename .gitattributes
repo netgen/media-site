@@ -1,2 +1,2 @@
-**/Resources/public/css/style.css binary -merge
-**/Resources/public/js/app.js binary -merge
+web/build/app.css binary -merge
+web/build/app.js binary -merge

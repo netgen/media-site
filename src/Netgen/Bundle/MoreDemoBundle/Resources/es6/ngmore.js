@@ -4,6 +4,9 @@ import 'magnific-popup';
 import Swiper from 'swiper';
 import 'bootstrap';
 
+
+global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
+
 /* CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
 (() => {
   function isElementInViewport(element) {
