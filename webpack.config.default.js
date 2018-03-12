@@ -1,20 +1,29 @@
 // webpack.config.js
 const Encore = require('@symfony/webpack-encore');
+const path = require('path');
 
-const buildFolder = Encore.isProduction() ? 'build' : 'build_dev';
+Encore.reset();
+
+const bundleConfig = {
+  name: 'default',
+  buildLocation: Encore.isProduction() ? 'build' : 'build_dev',
+  resourcesLocation: ('./src/Netgen/Bundle/MoreDemoBundle/Resources/'),
+};
 
 Encore
   // the project directory where all compiled assets will be stored
-  .setOutputPath(`../../../../web/${buildFolder}/`)
+  .setOutputPath(`./web/${bundleConfig.buildLocation}/`)
 
   // the public path used by the web server to access the previous directory
-  .setPublicPath(`/${buildFolder}`)
+  .setPublicPath(`/${bundleConfig.buildLocation}`)
 
   // will create public/build/app.js and public/build/app.css
-  .addEntry('app', './Resources/es6/app.js')
+  .addEntry('app', `${bundleConfig.resourcesLocation}es6/app.js`)
 
   // allow sass/scss files to be processed
-  .enableSassLoader()
+  .enableSassLoader((options) => {
+    options.includePaths = [path.resolve(__dirname, 'node_modules')]; // eslint-disable-line no-param-reassign
+  })
 
   // allow legacy applications to use $/jQuery as a global variable
   // .autoProvidejQuery()
@@ -46,6 +55,7 @@ if (Encore.isProduction()) {
 const config = Encore.getWebpackConfig();
 
 config.watchOptions = { poll: true, ignored: /node_modules/ };
+config.name = bundleConfig.name;
 
 // export the final configuration
 module.exports = config;
