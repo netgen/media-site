@@ -10,10 +10,10 @@
     "build:prod": "encore production",
     "watch": "encore dev --watch",
     "server": "encore dev-server",
-    "bundle:dev": "encore dev --config-name",
-    "bundle:prod": "encore production --config-name",
-    "watch-bundle": "encore dev --watch --config-name",
-    "server-bundle": "encore dev-server --config-name"
+    "site:dev": "encore dev --config-name",
+    "site:prod": "encore production --config-name",
+    "site:watch": "encore dev --watch --config-name",
+    "site:server": "encore dev-server --config-name"
   },
   "private": true,
   "devDependencies": {
@@ -28,7 +28,6 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.7.0",
-    "js-yaml": "^3.11.0",
     "node-sass": "^4.7.2",
     "path": "^0.12.7",
     "postcss-loader": "^2.1.1",
