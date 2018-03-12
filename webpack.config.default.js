@@ -4,21 +4,21 @@ const path = require('path');
 
 Encore.reset();
 
-const bundleConfig = {
+const siteConfig = {
   name: 'default',
   buildLocation: Encore.isProduction() ? 'build' : 'build_dev',
-  resourcesLocation: ('./src/Netgen/Bundle/MoreDemoBundle/Resources/'),
+  resourcesLocation: ('./src/Netgen/Bundle/MoreDemoBundle/Resources'),
 };
 
 Encore
   // the project directory where all compiled assets will be stored
-  .setOutputPath(`./web/${bundleConfig.buildLocation}/`)
+  .setOutputPath(`./web/${siteConfig.buildLocation}/`)
 
   // the public path used by the web server to access the previous directory
-  .setPublicPath(`/${bundleConfig.buildLocation}`)
+  .setPublicPath(`/${siteConfig.buildLocation}`)
 
   // will create public/build/app.js and public/build/app.css
-  .addEntry('app', `${bundleConfig.resourcesLocation}es6/app.js`)
+  .addEntry('app', `${siteConfig.resourcesLocation}/es6/app.js`)
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
@@ -55,7 +55,7 @@ if (Encore.isProduction()) {
 const config = Encore.getWebpackConfig();
 
 config.watchOptions = { poll: true, ignored: /node_modules/ };
-config.name = bundleConfig.name;
+config.name = siteConfig.name;
 
 // export the final configuration
 module.exports = config;
