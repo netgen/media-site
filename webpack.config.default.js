@@ -1,4 +1,4 @@
-// webpack.config.js
+// webpack.config.default.js
 const Encore = require('@symfony/webpack-encore');
 const path = require('path');
 
@@ -17,7 +17,7 @@ Encore
   // the public path used by the web server to access the previous directory
   .setPublicPath(`/${siteConfig.buildLocation}`)
 
-  // will create public/build/app.js and public/build/app.css
+  // will create web/build/app.js and web/build/app.css
   .addEntry('app', `./${siteConfig.resourcesLocation}/es6/app.js`)
 
   // allow sass/scss files to be processed
@@ -28,12 +28,13 @@ Encore
   // allow legacy applications to use $/jQuery as a global variable
   // .autoProvidejQuery()
 
+  // enables source maps only in development mode
   .enableSourceMaps(!Encore.isProduction())
 
   // empty the outputPath dir before each build
   .cleanupOutputBeforeBuild()
 
-  // create hashed filenames (e.g. app.abc123.css)
+  // create hashed filenames (e.g. app.css?v=abc123)
   .enableVersioning(Encore.isProduction())
 
   .enablePostCssLoader((options) => {
