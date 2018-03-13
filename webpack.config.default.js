@@ -7,7 +7,7 @@ Encore.reset();
 const siteConfig = {
   name: 'default',
   buildLocation: Encore.isProduction() ? 'build' : 'build_dev',
-  resourcesLocation: ('./src/Netgen/Bundle/MoreDemoBundle/Resources'),
+  resourcesLocation: 'src/Netgen/Bundle/MoreDemoBundle/Resources',
 };
 
 Encore
@@ -18,7 +18,7 @@ Encore
   .setPublicPath(`/${siteConfig.buildLocation}`)
 
   // will create public/build/app.js and public/build/app.css
-  .addEntry('app', `${siteConfig.resourcesLocation}/es6/app.js`)
+  .addEntry('app', `./${siteConfig.resourcesLocation}/es6/app.js`)
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
