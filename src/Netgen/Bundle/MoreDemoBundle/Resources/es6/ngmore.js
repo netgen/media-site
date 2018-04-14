@@ -183,11 +183,15 @@ $(document).ready(() => {
   // Thumb gallery
   $('.thumb-swiper').each(function () {
     const $top = $('.gallery-top', this);
+    const data = $(this).data();
     const galleryTop = new Swiper($top.get(0), {
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
       spaceBetween: 10,
       preloadImages: false,
+      loop: data.loop,
+      effect: data.effect,
+      autoplay: data.autoplay * 1000,
       lazyLoading: true,
       lazyLoadingInPrevNext: 1,
       lazyLoadingOnTransitionStart: true,
