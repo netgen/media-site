@@ -1,2 +1,2 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('build' ~ (app.debug ? '_dev' : '') ~ '/app.css' ) }}"/>
-<link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'ngbm_css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'ngbm_' ~ (ngbm.debug ? 'dev_' : '') ~ 'css') }}"/>
