@@ -195,6 +195,7 @@ $(document).ready(() => {
       lazyLoading: true,
       lazyLoadingInPrevNext: 1,
       lazyLoadingOnTransitionStart: true,
+      loopedSlides: data.loop ? data.length : null,
       onLazyImageReady: (swiper) => {
         swiper.updateAutoHeight();
       },
@@ -206,6 +207,7 @@ $(document).ready(() => {
       slidesPerView: 'auto',
       touchRatio: 0.2,
       slideToClickedSlide: true,
+      loop: data.loop,
     });
     galleryTop.params.control = galleryThumbs;
     galleryThumbs.params.control = galleryTop;
