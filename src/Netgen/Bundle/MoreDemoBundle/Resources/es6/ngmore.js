@@ -183,7 +183,7 @@ $(document).ready(() => {
   // Thumb gallery
   $('.thumb-swiper').each(function () {
     const $top = $('.gallery-top', this);
-    const data = $(this).data();
+    const data = $top.data();
     const galleryTop = new Swiper($top.get(0), {
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
