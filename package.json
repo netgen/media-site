@@ -35,7 +35,7 @@
     "sass-loader": "^6.0.7"
   },
   "dependencies": {
-    "bootstrap": "4.0.0",
+    "bootstrap": "^4.1.1",
     "font-awesome": "4.7.0",
     "jquery": "3.1.1",
     "magnific-popup": "1.1.0",
