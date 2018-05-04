@@ -4,7 +4,6 @@ import 'magnific-popup';
 import Swiper from 'swiper';
 import 'bootstrap';
 
-
 global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
 
 /* CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
@@ -100,60 +99,6 @@ $(document).ready(() => {
   /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
 
   /* idangero.us swiper */
-  const sushiSwiper = [];
-  $('.sushi-swiper.swiper-container').each(function (index) {
-    const swiperId = `sushiSwiper-${index + 1}`;
-    const data = $(this).data();
-    $(this).attr('id', swiperId);
-    sushiSwiper.push(
-      new Swiper($(this), {
-        pagination: `#${swiperId} .swiper-pagination`,
-        paginationClickable: true,
-        nextButton: `#${swiperId} .swiper-button-next`,
-        prevButton: `#${swiperId} .swiper-button-prev`,
-        slidesPerView: data.slidesPerView,
-        slidesPerGroup: data.slidesPerView,
-        spaceBetween: 30,
-        loop: data.loop,
-        effect: data.effect,
-        autoplay: data.autoplay * 1000,
-        breakpoints: {
-          991: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
-          },
-          480: {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-          },
-        },
-      })
-    );
-  });
-
-  const defaultSwiper = [];
-  $('.default-swiper.swiper-container').each(function (index) {
-    const swiperId = `defaultSwiper-${index + 1}`;
-    const data = $(this).data();
-    $(this).attr('id', swiperId);
-    defaultSwiper.push(
-      new Swiper($(this), {
-        pagination: `#${swiperId} .swiper-pagination`,
-        paginationClickable: true,
-        nextButton: `#${swiperId} .swiper-button-next`,
-        prevButton: `#${swiperId} .swiper-button-prev`,
-        preloadImages: false,
-        loop: data.loop,
-        effect: data.effect,
-        autoplay: data.autoplay * 1000,
-        lazyLoading: true,
-        lazyLoadingInPrevNext: true,
-        lazyLoadingOnTransitionStart: true,
-        keyboardControl: true,
-      })
-    );
-  });
-
   const relatedSwiper = [];
   $('.related-multimedia.swiper-container').each(function (index) {
     const swiperId = `relatedMultimediaSwiper-${index + 1}`;
@@ -161,59 +106,32 @@ $(document).ready(() => {
     $(this).attr('id', swiperId);
     relatedSwiper.push(
       new Swiper($(this), {
-        pagination: `#${swiperId} .swiper-pagination`,
-        paginationClickable: true,
-        nextButton: `#${swiperId} .swiper-button-next`,
-        prevButton: `#${swiperId} .swiper-button-prev`,
+        navigation: {
+          nextEl: `#${swiperId} .swiper-button-next`,
+          prevEl: `#${swiperId} .swiper-button-prev`,
+        },
+        pagination: {
+          el: `#${swiperId} .swiper-pagination`,
+          clickable: true,
+        },
         preloadImages: false,
         loop: data.loop,
         effect: data.effect,
-        autoplay: data.autoplay * 1000,
-        lazyLoading: true,
-        lazyLoadingInPrevNext: true,
-        lazyLoadingOnTransitionStart: true,
+        autoplay: data.autoplay ? { delay: data.autoplay * 1000 } : false,
+        lazy: {
+          loadPrevNext: true,
+          loadPrevNextAmount: 1,
+          loadOnTransitionStart: true,
+        },
         autoHeight: true,
-        onLazyImageReady: (swiper) => {
-          swiper.updateAutoHeight();
+        on: {
+          lazyImageReady: function () {
+            this.updateAutoHeight();
+          },
         },
       })
     );
   });
-
-  // Thumb gallery
-  $('.thumb-swiper').each(function () {
-    const $top = $('.gallery-top', this);
-    const data = $top.data();
-    const galleryTop = new Swiper($top.get(0), {
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      spaceBetween: 10,
-      preloadImages: false,
-      loop: data.loop,
-      effect: data.effect,
-      autoplay: data.autoplay * 1000,
-      lazyLoading: true,
-      lazyLoadingInPrevNext: 1,
-      lazyLoadingOnTransitionStart: true,
-      loopedSlides: data.loop ? data.length : null,
-      onLazyImageReady: (swiper) => {
-        swiper.updateAutoHeight();
-      },
-    });
-    const $thumbs = $('.gallery-thumbs', this);
-    const galleryThumbs = new Swiper($thumbs.get(0), {
-      spaceBetween: 10,
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      touchRatio: 0.2,
-      slideToClickedSlide: true,
-      loop: data.loop,
-    });
-    galleryTop.params.control = galleryThumbs;
-    galleryThumbs.params.control = galleryTop;
-  });
-
-
   /* /idangero.us swiper */
 
   /* header actions */
