@@ -1,9 +1,11 @@
 /* globals jwplayer */
 import $ from 'jquery';
+import 'magnific-popup';
 import Swiper from 'swiper';
 import 'bootstrap';
 
 global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
+global.Swiper = Swiper;
 
 /* CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
 (() => {
