@@ -15,14 +15,8 @@
 /* swiper slider */
 .swiper-container {
     margin-bottom: 40px;
-    &.sushi-swiper {
-        visibility: hidden;
-        cursor: grab;
-        &.swiper-container-horizontal {
-            visibility: visible;
-        }
-    }
 }
+
 .swiper-slide {
     img {
         width: 100%;
