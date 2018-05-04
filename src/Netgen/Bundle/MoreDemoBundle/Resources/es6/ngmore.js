@@ -1,6 +1,5 @@
 /* globals jwplayer */
 import $ from 'jquery';
-import 'magnific-popup';
 import Swiper from 'swiper';
 import 'bootstrap';
 
@@ -223,23 +222,5 @@ $(document).ready(() => {
 
   $('.js-video-poster').each(function () {
     this.href = $('img', this).attr('src');
-  });
-
-
-  $('.as-flex').each(function () {
-    if (!$(this).find('> *').length) $(this).remove();
-  });
-
-  $('.bm-vt-grid_gallery .js-lightbox-enabled').each(function () {
-    $(this).magnificPopup({
-      delegate: '.js-mfp-item', // child items selector, by clicking on it popup will open
-      type: 'image',
-      zoom: {
-        enabled: true,
-      },
-      gallery: {
-        enabled: true,
-      },
-    });
   });
 });
