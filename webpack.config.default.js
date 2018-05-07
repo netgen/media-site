@@ -1,7 +1,7 @@
 // webpack.config.default.js
 const Encore = require('@symfony/webpack-encore');
-const Webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const Webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const path = require('path');
 
@@ -61,7 +61,7 @@ const config = Encore.getWebpackConfig();
 // Remove the old version of uglifyjs plugin which doesn't handle ES6
 // We can remove this when Encore upgrades Webpack to 4.0
 config.plugins = config.plugins.filter(
-    plugin => !(plugin instanceof Webpack.optimize.UglifyJsPlugin)
+  plugin => !(plugin instanceof Webpack.optimize.UglifyJsPlugin)
 );
 
 // Add the new version of uglifyjs which is compatible with ES6
