@@ -1,5 +1,8 @@
 // webpack.config.default.js
 const Encore = require('@symfony/webpack-encore');
+const Webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
 const path = require('path');
 
 Encore.reset();
@@ -54,6 +57,16 @@ if (Encore.isProduction()) {
 }
 
 const config = Encore.getWebpackConfig();
+
+// Remove the old version of uglifyjs plugin which doesn't handle ES6
+// We can remove this when Encore upgrades Webpack to 4.0
+config.plugins = config.plugins.filter(
+    plugin => !(plugin instanceof Webpack.optimize.UglifyJsPlugin)
+);
+
+// Add the new version of uglifyjs which is compatible with ES6
+// We can remove this when Encore upgrades Webpack to 4.0
+config.plugins.push(new UglifyJsPlugin());
 
 config.watchOptions = { poll: true, ignored: /node_modules/ };
 config.name = siteConfig.name;

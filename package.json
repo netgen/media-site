@@ -18,6 +18,7 @@
   "private": true,
   "devDependencies": {
     "@symfony/webpack-encore": "^0.20",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "autoprefixer": "^6.7.6",
     "babel-eslint": "^8.2.2",
     "babel-preset-env": "^1.1.10",
