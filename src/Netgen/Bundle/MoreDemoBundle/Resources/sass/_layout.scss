@@ -28,28 +28,27 @@ header {
 }
 
 #logo {
-    display: block;
-    width: 175px;
+    display: flex;
     height: $header-height;
+    width: 175px;
     position: absolute;
     left: $gutter;
     top: 0;
-    background: $main-color no-repeat center center;
-    background-size: 118px auto;
-    overflow: hidden;
-    text-indent: -999em;
+    background: $main-color;
+    padding: 0 28px;
+    img {
+        width: 100%;
+    }
     @include media-breakpoint-down(lg) {
         width: 125px;
-        background-size: 98px auto;
+        padding: 0 13px;
     }
     @include media-breakpoint-down(md) {
         left: 0;
     }
     @include media-breakpoint-down(sm) {
-        left: 0;
-        height: $header-height-sm;
         width: 115px;
-        background-size: 85px auto;
+        height: $header-height-sm;
     }
 }
 

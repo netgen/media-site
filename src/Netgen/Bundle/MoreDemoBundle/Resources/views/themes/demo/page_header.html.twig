@@ -1,6 +1,10 @@
+{% set site_info = ngmore.siteInfoContent %}
+
 <header class="site-header">
     <div class="container">
-        <a id="logo" href="{{ path(ezpublish.rootLocation) }}" title="{{ site_name }}">{{ site_name }}</a>
+        <a id="logo" href="{{ path(ezpublish.rootLocation) }}" title="{{ site_name }}">
+            <img src="{{ asset( site_info.fields.site_logo.value.id, 'ezfile' ) }}" />
+        </a>
         <a id="mainnav-toggle" href="#">
             <span class="hamburger"></span>
         </a>
