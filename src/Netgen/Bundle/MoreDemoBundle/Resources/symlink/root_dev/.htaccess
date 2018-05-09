@@ -83,7 +83,7 @@ RewriteRule ^\.well-known/acme-challenge/ - [L]
 # END: Maintenance mode
 
 RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
-RewriteRule ^var/([^/]+/)?storage/original/image/.* - [L]
+RewriteRule ^var/([^/]+/)?storage/original/image/(.*)\.svg - [L]
 RewriteRule ^var/([^/]+/)?cache/(texttoimage|public)/.* - [L]
 RewriteRule ^design/[^/]+/(stylesheets|images|fonts|javascript)/.* - [L]
 RewriteRule ^share/icons/.* - [L]
