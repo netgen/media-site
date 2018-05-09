@@ -1,5 +1,5 @@
 {% block subject %}{% spaceless %}
-    {{ ezpublish.configResolver.parameter('site_settings.site_name', 'ngmore') }} – {{ ez_content_name(content) }} [{{ collected_fields.email }}]
+    Netgen More – {{ ez_content_name(content) }} [{{ collected_fields.email }}]
 {% endspaceless %}{% endblock %}
 
 {#% block sender %}{{ collected_fields.email }}{% endblock %#}
