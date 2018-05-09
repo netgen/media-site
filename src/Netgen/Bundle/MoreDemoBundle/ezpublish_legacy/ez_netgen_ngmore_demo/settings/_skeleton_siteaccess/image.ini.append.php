@@ -8,8 +8,8 @@ AliasList[]
 AliasList[]=i320
 AliasList[]=i480
 AliasList[]=i770
-AliasList[]=i1140
-AliasList[]=opengraph
+AliasList[]=i1200
+AliasList[]=i1920
 
 [i320]
 Reference=original
@@ -26,13 +26,13 @@ Reference=original
 Filters[]
 Filters[]=geometry/scalewidthdownonly=770
 
-[i1140]
+[i1200]
 Reference=original
 Filters[]
-Filters[]=geometry/scalewidthdownonly=1140
+Filters[]=geometry/scalewidthdownonly=1200
 
-[opengraph]
+[i1920]
 Reference=original
 Filters[]
-Filters[]=geometry/scale=600;315
-*/ ?>
+Filters[]=geometry/scalewidthdownonly=1920
+ */ ?>

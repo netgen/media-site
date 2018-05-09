@@ -11,11 +11,11 @@
         {% set date = content.fields.publish_date.value.value|date('j. n. Y.') %}
         {% set title = content_fields.name(content) %}
 
-        <a href="{{ asset(ng_image_alias(content.fields.image, 'i1140').uri) }}" title="{{ title }} by {{ author }} ({{ date }})" class="js-mfp-item">
+        <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }} by {{ author }} ({{ date }})" class="js-mfp-item">
             {{ ng_render_field(
                 content.fields.image, {
                     parameters: {
-                        alias: 'i1140',
+                        alias: 'i1200',
                         alt_text: title
                     }
                 }

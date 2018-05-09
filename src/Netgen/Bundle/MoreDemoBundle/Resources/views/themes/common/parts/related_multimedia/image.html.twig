@@ -1,6 +1,6 @@
 {% if not content.fields.image.empty %}
     {% set image = content.fields.image %}
-    {% set image_uri = ng_image_alias(image, 'i1140').uri|default('') %}
+    {% set image_uri = ng_image_alias(image, 'i1200').uri|default('') %}
     {% set alt_text = image.value.alternativeText|default('') %}
 
     {% if is_slider %}

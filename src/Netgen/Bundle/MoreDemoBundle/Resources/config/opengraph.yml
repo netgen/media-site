@@ -21,17 +21,17 @@ netgen_open_graph:
                     - { handler: literal/text, tag: "og:type", params: [article] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
                     - { handler: field_type/ezxmltext, tag: "og:description", params: [full_intro] }
-                    - { handler: field_type/ezimage, tag: "og:image", params: [image] }
+                    - { handler: field_type/ezimage, tag: "og:image", params: [image, i1200] }
                 ng_news:
                     - { handler: literal/text, tag: "og:type", params: [article] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
                     - { handler: field_type/ezxmltext, tag: "og:description", params: [full_intro] }
-                    - { handler: field_type/ezimage, tag: "og:image", params: [image] }
+                    - { handler: field_type/ezimage, tag: "og:image", params: [image, i1200] }
                 ng_blog_post:
                     - { handler: literal/text, tag: "og:type", params: [article] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
                     - { handler: field_type/ezxmltext, tag: "og:description", params: [full_intro] }
-                    - { handler: field_type/ezimage, tag: "og:image", params: [image] }
+                    - { handler: field_type/ezimage, tag: "og:image", params: [image, i1200] }
                 ng_feedback_form:
                     - { handler: literal/text, tag: "og:type", params: [article] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }

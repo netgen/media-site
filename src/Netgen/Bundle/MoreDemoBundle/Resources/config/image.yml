@@ -17,20 +17,15 @@ ezpublish:
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: strip }
-                i1140:
+                i1200:
                     reference: original
                     filters:
-                        - { name: geometry/scalewidthdownonly, params: [1140] }
+                        - { name: geometry/scalewidthdownonly, params: [1200] }
                         - { name: strip }
                 i1920:
                     reference: original
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1920] }
-                        - { name: strip }
-                opengraph:
-                    reference: original
-                    filters:
-                        - { name: geometry/scale, params: [600, 315] }
                         - { name: strip }
         ngadmin_group:
             image_variations:
@@ -61,9 +56,6 @@ liip_imagine:
         large:
             quality: 85
             jpeg_quality: 85
-        opengraph:
-            quality: 85
-            jpeg_quality: 85
         i320:
             quality: 85
             jpeg_quality: 85
@@ -73,7 +65,7 @@ liip_imagine:
         i770:
             quality: 85
             jpeg_quality: 85
-        i1140:
+        i1200:
             quality: 75
             jpeg_quality: 75
         i1920:
