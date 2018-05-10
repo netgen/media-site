@@ -56,7 +56,9 @@
                         {% set available_translations = available_translations|merge({(language): url}) %}
                     {% elseif current_content_language in siteaccess_languages or content.contentInfo.alwaysAvailable %}
                         {% set url = url(route_reference, {'language': language}) %}
-                        {% set available_translations = available_translations|merge({(language): url}) %}
+                        {% if '/view/content/' not in url %}
+                            {% set available_translations = available_translations|merge({(language): url}) %}
+                        {% endif %}
                     {% endif %}
                 {% endif %}
             {% endif %}
