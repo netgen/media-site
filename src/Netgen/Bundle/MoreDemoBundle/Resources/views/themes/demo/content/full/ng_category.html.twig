@@ -37,8 +37,8 @@
     {% if content.fields.show_children.value.bool %}
         <div class="children">
             {% if pager|length > 0 %}
-                {% set view_type = content.fields.item_view_type.value.identifiers[0]|default('line') %}
-                {% set columns = content.fields.grid_columns.value.identifiers[0]|default('1') %}
+                {% set view_type = content.fields.view_type.value.identifiers[0]|default('standard') %}
+                {% set columns = content.fields.grid_columns.value.identifiers[0]|default('3') %}
                 {% set column_css_class = {
                     '1': 'col-12',
                     '2': 'col-sm-6',
@@ -53,8 +53,8 @@
                                 {{ render(
                                     controller(
                                         'ng_content:viewAction', {
-                                            'contentId': pager_item.contentId,
-                                            'locationId': pager_item.id,
+                                            'content': pager_item.content,
+                                            'location': pager_item,
                                             'viewType': view_type
                                         }
                                     )
