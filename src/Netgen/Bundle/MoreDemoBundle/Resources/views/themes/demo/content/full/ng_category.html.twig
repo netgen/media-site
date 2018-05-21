@@ -37,53 +37,47 @@
     {% if content.fields.show_children.value.bool %}
         <div class="children">
             {% if pager|length > 0 %}
-                {% set list_output_type_empty = content.fields.list_output_type.empty %}
-                {% set list_output_type_value = content.fields.list_output_type.value %}
+                {% set view_type = content.fields.item_view_type.value.identifiers[0]|default('line') %}
+                {% set columns = content.fields.grid_columns.value.identifiers[0]|default('1') %}
+                {% set column_css_class = {
+                    '1': 'col-md-12',
+                    '2': 'col-md-6',
+                    '3': 'col-md-4',
+                    '4': 'col-md-3'
+                } %}
 
-                {% if list_output_type_empty or list_output_type_value.identifiers[0] == 'list_view' %}
-                    {% for pager_item in pager %}
-                        {{ render(
-                            controller(
-                                'ng_content:viewAction', {
-                                    'content': pager_item.content,
-                                    'location': pager_item,
-                                    'viewType': 'line'
-                                }
-                            )
-                        ) }}
-                    {% endfor %}
-                {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'grid_view' %}
-                    <div class="row">
-                        {% for pager_item in pager %}
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                {{ render(
-                                    controller(
-                                        'ng_content:viewAction', {
-                                            'content': pager_item.content,
-                                            'location': pager_item,
-                                            'viewType': 'standard'
-                                        }
-                                    )
-                                ) }}
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% elseif not list_output_type_empty and list_output_type_value.identifiers[0] == 'listitem_view' %}
-                    <ul>
+                {% if view_type == 'listitem' %}
+                    <ul class="listitem-list">
                         {% for pager_item in pager %}
                             <li>
                                 {{ render(
                                     controller(
                                         'ng_content:viewAction', {
-                                            'content': pager_item.content,
-                                            'location': pager_item,
-                                            'viewType': 'listitem'
+                                            'contentId': pager_item.contentId,
+                                            'locationId': pager_item.id,
+                                            'viewType': view_type
                                         }
                                     )
                                 ) }}
                             </li>
                         {% endfor %}
                     </ul>
+                {% else %}
+                    <div class="row">
+                        {% for pager_item in pager %}
+                            <div class="{{ column_css_class[columns] }}">
+                                {{ render(
+                                    controller(
+                                        'ng_content:viewAction', {
+                                            'content': pager_item.content,
+                                            'location': pager_item,
+                                            'viewType': view_type
+                                        }
+                                    )
+                                ) }}
+                            </div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
             {% endif %}
         </div>
