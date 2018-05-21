@@ -40,10 +40,10 @@
                 {% set view_type = content.fields.item_view_type.value.identifiers[0]|default('line') %}
                 {% set columns = content.fields.grid_columns.value.identifiers[0]|default('1') %}
                 {% set column_css_class = {
-                    '1': 'col-md-12',
-                    '2': 'col-md-6',
-                    '3': 'col-md-4',
-                    '4': 'col-md-3'
+                    '1': 'col-12',
+                    '2': 'col-sm-6',
+                    '3': 'col-md-4 col-sm-6',
+                    '4': 'col-lg-3 col-md-4 col-sm-6'
                 } %}
 
                 {% if view_type == 'listitem' %}
