@@ -2,6 +2,7 @@ netgen_more_legacy:
     enabled_legacy_settings:
         - content.ini
         - ngmore.ini
+        - i18n.ini
         - site.ini
 
     system:
@@ -48,6 +49,10 @@ netgen_more_legacy:
                     # Setup class group was deleted long ago, this makes sure
                     # it doesn't mess up custom groups that have its' old ID
                     ClassGroupIDs/Setup: -1
+
+                i18n.ini:
+                    CharacterSettings/Charset: "utf8mb4"
+                    CharacterSettings/HTTPCharset: "utf-8"
 
                 site.ini:
                     SiteSettings/DefaultAccess: "%ezpublish.siteaccess.default%"
