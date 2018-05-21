@@ -162,27 +162,6 @@
     }
 }
 
-.bm-block {
-    margin: $gap 0;
-    &[class*='bg-'] {
-        padding: $gap 0;
-    }
-}
-.zone-left,
-.main-content-block .zone-right {
-    .bm-block:first-child {
-        margin-top: 0;
-    }
-}
-.zone-post_header {
-    .bm-block[class*='bg-']:first-child {
-        margin-top: 0;
-    }
-}
 .main-content-block {
     margin-top: $gap;
-}
-
-.bm-block.no-margin {
-    margin: 0;
 }
