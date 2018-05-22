@@ -4,6 +4,7 @@
     When upgrading to new versions of Netgen Layouts, check for any modifications to this
     template and apply them here.
 #}
+
 {% set css_id = css_id|default(block.parameter('css_id').value) %}
 {% set set_container = block.parameter('set_container').value %}
 
@@ -11,16 +12,17 @@
 {% set whitespace_position = use_whitespace ? block.parameter('vertical_whitespace:position').value : null %}
 {% set whitespace_size = use_whitespace ? block.parameter('vertical_whitespace:size').value : null %}
 
-{% set use_bg_image = block.hasParameter('background_image:enabled') and block.parameter('background_image:enabled').value is same as(true) %}
 {% set bg_image = block.dynamicParameter('background_image:image_content') %}
+{% set use_bg_image = block.hasParameter('background_image:enabled') and block.parameter('background_image:enabled').value is same as(true) %}
+{% set use_bg_image = use_bg_image and bg_image and bg_image.fields.image is defined %}
 
-{% set css_classes = ['bm-block', 'bm-' ~ block.definition.identifier, 'bm-vt-' ~ block.viewType, css_class|default(block.parameter('css_class').value)]  %}
+{% set css_classes = ['bm-block', 'bm-' ~ block.definition.identifier, 'bm-vt-' ~ block.viewType, css_class|default(block.parameter('css_class').value)] %}
 
 {% if use_whitespace %}
     {% set css_classes = css_classes|merge(['whitespace-' ~ whitespace_position, 'whitespace-' ~ whitespace_size]) %}
 {% endif %}
 
-{% if use_bg_image and bg_image %}
+{% if use_bg_image %}
     {% set css_classes = css_classes|merge(['with-bg-image']) %}
 {% endif %}
 
@@ -33,10 +35,10 @@
 {% if block_content is not empty or show_empty_wrapper %}
     <div
         class="{{ css_classes|join(' ') }}"
-        {% if css_id is not empty %} id="{{ css_id }}" {% endif %}
-        {% if use_bg_image and bg_image %}
-            {% set image_alias = ng_image_alias( bg_image.fields.image, 'i1920' ) %}
-            {% if image_alias %} style="background-image:url('{{ asset( image_alias.uri ) }}')" {% endif %}
+        {% if css_id is not empty %}id="{{ css_id }}"{% endif %}
+        {% if use_bg_image %}
+            {% set image_alias = ng_image_alias(bg_image.fields.image, 'i1920') %}
+            {% if image_alias %}style="background-image:url('{{ asset(image_alias.uri) }}')"{% endif %}
         {% endif %}
     >
         {% if set_container %}<div class="container">{% endif %}
