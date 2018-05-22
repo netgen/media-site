@@ -40,4 +40,9 @@
             @include whitespace('0 0 size / 2');
         }
     }
+    &.with-bg-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
 }
