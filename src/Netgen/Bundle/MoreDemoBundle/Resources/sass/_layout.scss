@@ -13,15 +13,13 @@ header {
             }
         }
         @include media-breakpoint-down(sm) {
-            & {
-                height: auto;
-                background: $main-color;
-                .container {
-                    padding: $header-height-sm 0 0;
-                    margin: 0;
-                    width: 100%;
-                    max-width: 100%;
-                }
+            height: auto;
+            background: $main-color;
+            .container {
+                padding: $header-height-sm 0 0;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
             }
         }
     }

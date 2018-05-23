@@ -316,14 +316,12 @@
         font-size: 12px;
     }
     @include media-breakpoint-down(xs) {
-        & {
-            .image,
-            .image + .info {
-                width: 100%;
-            }
-            .image {
-                margin: 0 0 .5em;
-            }
+        .image,
+        .image + .info {
+            width: 100%;
+        }
+        .image {
+            margin: 0 0 .5em;
         }
     }
 }
@@ -391,7 +389,7 @@
             max-width: 100%;
             height: auto;
         }
-        & + .info {
+        + .info {
             width: 70%;
             float: left;
         }
@@ -408,12 +406,10 @@
         font-size: 13px;
     }
     @include media-breakpoint-down(xs) {
-        & {
-            .image {
-                display: none;
-                & + .info {
-                    width: 100%;
-                }
+        .image {
+            display: none;
+            + .info {
+                width: 100%;
             }
         }
     }
@@ -453,6 +449,9 @@
             top: 2px;
             bottom: 2px;
             right: 2px;
+            a::after {
+                display: none;
+            }
         }
         .date {
             text-transform: uppercase;
@@ -460,9 +459,6 @@
             font-size: 16px;
             text-shadow: 0 0 6px hsla(0, 0, 0, .75);
             margin: 0 0 .25em;
-        }
-        .image a::after {
-            display: none;
         }
         .info {
             left: 2 * $gutter;

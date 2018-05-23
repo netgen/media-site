@@ -100,10 +100,13 @@
     }
 }
 
-.main-content-block .zone-right {
-    background-color: hsl(0, 0, 95);
-    padding: 20px;
-    border: 1px solid hsl(0, 0, 80);
+.main-content-block {
+    margin-top: $gap;
+    .zone-right {
+        background-color: hsl(0, 0, 95);
+        padding: 20px;
+        border: 1px solid hsl(0, 0, 80);
+    }
 }
 
 .list-numbered {
@@ -118,7 +121,9 @@
     }
 }
 
-.swiper-container {margin: 0}
+.swiper-container {
+    margin: 0;
+}
 
 .breadcrumb-wrapper {
     background: hsl(0, 0, 95);
@@ -160,8 +165,4 @@
     @include media-breakpoint-down(xs) {
         display: none;
     }
-}
-
-.main-content-block {
-    margin-top: $gap;
 }
