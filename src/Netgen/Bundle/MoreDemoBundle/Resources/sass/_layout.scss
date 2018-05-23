@@ -646,3 +646,32 @@ footer {
         }
     }
 }
+
+.container {
+    &.container-wide {
+        @include media-breakpoint-up(sm) {
+            max-width: 700px;
+        }
+        @include media-breakpoint-up(md) {
+            max-width: 900px;
+        }
+        @include media-breakpoint-up(lg) {
+            max-width: 1100px;
+        }
+        @include media-breakpoint-up(xl) {
+            max-width: 1400px;
+        }
+    }
+    &.container-narrow {
+        max-width: 400px;
+        @include media-breakpoint-up(md) {
+            max-width: 520px;
+        }
+        @include media-breakpoint-up(lg) {
+            max-width: 760px;
+        }
+        @include media-breakpoint-up(xl) {
+            max-width: 900px;
+        }
+    }
+}
