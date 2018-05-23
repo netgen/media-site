@@ -10,16 +10,16 @@
 {% set container_size = block.parameter('set_container:size').value %}
 
 {% set use_whitespace = block.parameter('vertical_whitespace:enabled').value is same as(true) %}
-{% set whitespace_position = use_whitespace ? block.parameter('vertical_whitespace:position').value : null %}
-{% set whitespace_size = use_whitespace ? block.parameter('vertical_whitespace:size').value : null %}
+{% set whitespace_position = block.parameter('vertical_whitespace:position').value %}
+{% set whitespace_size = block.parameter('vertical_whitespace:size').value %}
 
 {% set bg_image = block.dynamicParameter('background_image:image_content') %}
 {% set use_bg_image = block.hasParameter('background_image:enabled') and block.parameter('background_image:enabled').value is same as(true) %}
-{% set use_bg_image = use_bg_image and bg_image and bg_image.fields.image is defined %}
+{% set use_bg_image = use_bg_image and bg_image is not null and bg_image.fields.image is defined %}
 
 {% set css_classes = ['bm-block', 'bm-' ~ block.definition.identifier, 'bm-vt-' ~ block.viewType, css_class|default(block.parameter('css_class').value)] %}
 
-{% if use_whitespace %}
+{% if use_whitespace and whitespace_position is not null and whitespace_size is not null %}
     {% set css_classes = css_classes|merge(['whitespace-' ~ whitespace_position, 'whitespace-' ~ whitespace_size]) %}
 {% endif %}
 
@@ -42,7 +42,7 @@
             {% if image_alias %}style="background-image:url('{{ asset(image_alias.uri) }}')"{% endif %}
         {% endif %}
     >
-        {% if set_container %}<div class="container{% if container_size is not null and container_size is not same as('regular') %} container-{{ container_size }}{% endif %}">{% endif %}
+        {% if set_container %}<div class="container{% if container_size is not empty %} container-{{ container_size }}{% endif %}">{% endif %}
 
         {{ block_content|raw }}
 
