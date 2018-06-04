@@ -14,13 +14,13 @@
             </div>
 
             {% if search_text is not empty %}
-                {% if locations.nbResults == 0 %}
+                {% if pager.nbResults == 0 %}
                     <div class="alert alert-error">
                         <h2>{{ 'ngmore.search.no_results'|trans({'%searchText%': search_text}) }}</h2>
                     </div>
                 {% else %}
                     <div class="alert alert-success">
-                        <h2>{{ 'ngmore.search.results'|trans({'%searchText%': search_text, '%searchCount%': locations.nbResults}) }}</h2>
+                        <h2>{{ 'ngmore.search.results'|trans({'%searchText%': search_text, '%searchCount%': pager.nbResults}) }}</h2>
                     </div>
                 {% endif %}
             {% endif %}
@@ -29,24 +29,24 @@
         {% if search_text is not empty %}
             <div class="row">
                 <div class="col-xs-12">
-                    {% if locations.nbResults > 0 %}
-                        {% if locations.haveToPaginate() %}
-                            {{ pagerfanta(locations, 'ngmore') }}
+                    {% if pager.nbResults > 0 %}
+                        {% if pager.haveToPaginate() %}
+                            {{ pagerfanta(pager, 'ngmore') }}
                         {% endif %}
 
                         <div id="search-result">
-                            {% for location in locations %}
+                            {% for search_hit in pager.searchHits %}
                                 {% set score = null %}
 
-                                {% if location.score is not null %}
-                                    {% set score = (location.score * 100)|round %}
+                                {% if search_hit.score is not null %}
+                                    {% set score = (search_hit.score * 100)|round %}
                                 {% endif %}
 
                                 {{ render(
                                     controller(
                                         'ng_content:viewAction', {
-                                            'content': location.valueObject.content,
-                                            'location': location.valueObject,
+                                            'content': search_hit.valueObject.content,
+                                            'location': search_hit.valueObject,
                                             'viewType': 'search',
                                             'layout': false,
                                             'params': {
@@ -58,8 +58,8 @@
                             {% endfor %}
                         </div>
 
-                        {% if locations.haveToPaginate() %}
-                            {{ pagerfanta(locations, 'ngmore') }}
+                        {% if pager.haveToPaginate() %}
+                            {{ pagerfanta(pager, 'ngmore') }}
                         {% endif %}
                     {% else %}
                         <ul>
