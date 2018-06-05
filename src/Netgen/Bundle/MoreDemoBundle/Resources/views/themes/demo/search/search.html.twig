@@ -35,7 +35,7 @@
                         {% endif %}
 
                         <div id="search-result">
-                            {% for search_hit in pager.searchHits %}
+                            {% for search_hit in pager.currentPageResults.searchHits %}
                                 {% set score = null %}
 
                                 {% if search_hit.score is not null %}
