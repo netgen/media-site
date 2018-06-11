@@ -12,14 +12,6 @@ RelatedSiteAccessList[]=legacy_admin
 RelatedSiteAccessList[]=ngadminui
 ShowHiddenNodes=false
 
-[DesignSettings]
-SiteDesign=ngmore_demo
-AdditionalSiteDesignList[]
-AdditionalSiteDesignList[]=ngmore
-AdditionalSiteDesignList[]=ezdemo
-AdditionalSiteDesignList[]=base
-AdditionalSiteDesignList[]=standard
-
 [RegionalSettings]
 Locale=cro-HR
 ContentObjectLocale=cro-HR

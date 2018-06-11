@@ -11,14 +11,6 @@ RelatedSiteAccessList[]={{ siteAccess }}
 {% endfor %}
 ShowHiddenNodes=false
 
-[DesignSettings]
-SiteDesign={{ designName }}
-AdditionalSiteDesignList[]
-AdditionalSiteDesignList[]=ngmore
-AdditionalSiteDesignList[]=ezdemo
-AdditionalSiteDesignList[]=base
-AdditionalSiteDesignList[]=standard
-
 [RegionalSettings]
 Locale={{ siteAccessLocale }}
 ContentObjectLocale={{ siteAccessLocale }}
