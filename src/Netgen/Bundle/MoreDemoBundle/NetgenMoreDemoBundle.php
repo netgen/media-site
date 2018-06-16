@@ -7,6 +7,6 @@ namespace Netgen\Bundle\MoreDemoBundle;
 use Netgen\Bundle\MoreBundle\NetgenMoreProjectBundleInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class NetgenMoreDemoBundle extends Bundle implements NetgenMoreProjectBundleInterface
+final class NetgenMoreDemoBundle extends Bundle implements NetgenMoreProjectBundleInterface
 {
 }
