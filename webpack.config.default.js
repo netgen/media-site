@@ -70,6 +70,9 @@ config.plugins.push(new UglifyJsPlugin());
 
 config.watchOptions = { poll: true, ignored: /node_modules/ };
 config.name = siteConfig.name;
+if (!Encore.isProduction()) {
+  config.devtool = 'eval-source-map';
+}
 
 // export the final configuration
 module.exports = config;
