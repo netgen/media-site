@@ -1,0 +1,62 @@
+<div id="ng-cc">
+    <div class="ng-cc-overlay"></div>
+    <!--a class="ng-cc-toggle">
+        <i class="fa fa-cog"></i>
+    </a-->
+    <div class="ng-cc-modal">
+        <a href="#" class="ng-cc-close ng-cc-close-btn"><i class="fa fa-times"></i></a>
+        <div class="ng-cc-content">
+            <h3>This site uses cookies.</h3>
+            <p>Some of these cookies are essential, while others help us to improve your experience by providing insights into how the site is being used.</p>
+            <p>For more detailed information on the cookies we use, please check our <a href="#">Privacy Policy</a></p>
+            <ul class="ng-cc-optional-list">
+                <li>
+                    <input type="checkbox" class="ng-cc-optional-checkbox" id="ng-cc-necessary" data-name="necessary" checked disabled />
+                    <label for="ng-cc-necessary"><i class="ng-cc-checkbox-icon"><span></span></i>Necessary Cookies</label>
+                    <p>Necessary cookies enable core functionality. The website cannot function properly without these cookies, and can only be disabled by changing your browser preferences.</p>
+                </li>
+            </ul>
+            <div class="ng-cc-actions">
+                <button id="ng-cc-accept" class="btn btn-primary">I'm ok with this</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.__ngCcConfig = {
+        options: {
+          lifetime: 30,
+        },
+        optionalCookies: [
+          {
+            name: 'analytics',
+            label: 'Analytical Cookies',
+            description: 'Analytical cookies help us to improve our website by collecting and reporting information on its usage.',
+            accepted: true,
+            onRevoke: function() {
+              window['ga-disable-XX-XXXXXX-X'] = true;
+            },
+          },
+          {
+            name: 'marketing',
+            label: 'Marketing Cookies',
+            description: 'We use marketing cookies to help us improve the relevancy of advertising campaigns you receive.',
+          },
+          {
+            name: 'socialsharing',
+            label: 'Social Sharing Cookies',
+            description: 'We use some social sharing plugins, to allow you to share certain pages of our website on social media',
+            onAccept: function() {
+              (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0';
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+            },
+          },
+        ],
+      }
+</script>

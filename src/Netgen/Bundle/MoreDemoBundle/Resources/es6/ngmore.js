@@ -3,6 +3,7 @@ import $ from 'jquery';
 import 'magnific-popup';
 import Swiper from 'swiper';
 import 'bootstrap';
+import CookieControl from '@netgen/javascript-cookie-control';
 
 global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
 global.Swiper = Swiper;
@@ -225,4 +226,7 @@ $(document).ready(() => {
   $('.js-video-poster').each(function () {
     this.href = $('img', this).attr('src');
   });
+
+  const cookieControl = new CookieControl(window.__ngCcConfig);
+  cookieControl.init();
 });
