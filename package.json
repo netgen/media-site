@@ -18,7 +18,6 @@
   "private": true,
   "devDependencies": {
     "@symfony/webpack-encore": "^0.20",
-    "uglifyjs-webpack-plugin": "^1.2.5",
     "autoprefixer": "^8.4.1",
     "babel-eslint": "^8.2.2",
     "babel-preset-env": "^1.1.10",
@@ -33,9 +32,11 @@
     "path": "^0.12.7",
     "postcss-loader": "^2.1.1",
     "sass-lint": "^1.11.1",
-    "sass-loader": "^7.0.1"
+    "sass-loader": "^7.0.1",
+    "uglifyjs-webpack-plugin": "^1.2.5"
   },
   "dependencies": {
+    "@netgen/javascript-cookie-control": "^0.0.x",
     "bootstrap": "4.1.1",
     "font-awesome": "4.7.0",
     "jquery": "3.3.1",
