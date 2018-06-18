@@ -6,6 +6,11 @@
     "max-len": 0,
     "no-plusplus": 0,
     "func-names": 0,
+    "no-unused-expressions": ["error", {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ],
     "comma-dangle": ["error", {
         "arrays": "always-multiline",
         "objects": "always-multiline",
