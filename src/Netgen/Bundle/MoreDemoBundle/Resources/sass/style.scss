@@ -2,12 +2,12 @@
 //IMPORTANT: only add imports to this file
 
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic&subset=latin,latin-ext');
-@import '~font-awesome/scss/font-awesome';
-@import '~bootstrap/scss/functions';
+@import 'font-awesome/scss/font-awesome';
+@import 'bootstrap/scss/functions';
 @import 'bootstrap_variables';
 @import 'bootstrap';
-@import '~swiper/dist/css/swiper';
-@import '~magnific-popup/src/css/main';
+@import 'swiper/dist/css/swiper';
+@import 'magnific-popup/src/css/main';
 @import 'variables';
 @import 'typography';
 @import 'layout';
