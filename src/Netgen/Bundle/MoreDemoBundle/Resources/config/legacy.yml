@@ -50,6 +50,7 @@ netgen_more_legacy:
                     ClassGroupIDs/Setup: -1
 
                 site.ini:
+                    DatabaseSettings/Charset: "utf8mb4"
                     SiteSettings/DefaultAccess: "%ezpublish.siteaccess.default%"
                     SiteSettings/SiteList: "%ezpublish.siteaccess.list%"
                     SiteSettings/RootNodeDepth: "%ngmore.default.legacy.site_settings.root_node_depth%"
