@@ -1,19 +1,20 @@
-## eZ Platform ENVIRONMENT variables, used for customizing app.php execution (not used by console commands)
+## eZ Platform/Symfony ENVIRONMENT variables, for customizing app.php* execution
+# * Only SYMFONY_ENV and SYMFONY_DEBUG supported by console command, rest are eZ Platform features in app.php.
 
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
 # Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
 #SetEnvIf REQUEST_URI ".*" SYMFONY_ENV=prod
 
-# Whether to use custom ClassLoader (autoloader) file
-# Needs to be a valid path relative to root web/ directory
-# Defaults to bootstrap.php.cache, or autoload.php in debug
-#SetEnv SYMFONY_CLASSLOADER_FILE "../app/autoload.php"
-
 # Whether to use debugging.
 # Possible values: 0 or 1
 # Defaults to 0 if omitted, unless SYMFONY_ENV is set to: "dev"
 #SetEnv SYMFONY_DEBUG 0
+
+# Whether to use custom ClassLoader (autoloader) file
+# Needs to be a valid path relative to root web/ directory
+# Defaults to bootstrap.php.cache, or autoload.php in debug
+#SetEnv SYMFONY_CLASSLOADER_FILE "../app/autoload.php"
 
 # Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
@@ -92,14 +93,12 @@ RewriteRule ^extension/[^/]+/design/[^/]+/(stylesheets|flash|images|fonts|lib|ja
 RewriteRule ^favicon\.ico - [L]
 RewriteRule ^robots\.txt - [L]
 
-# The following rule is needed to correctly display bundle and project assets
+# The following rules are needed to correctly display bundle and project assets
 RewriteRule ^build(_dev)?/ - [L]
 RewriteRule ^bundles/ - [L]
 RewriteRule ^assets/ - [L]
 
-# Additional Assetic rules for environments different from dev,
-# remember to run php app/console assetic:dump --env=prod
-RewriteCond %{ENV:SYMFONY_ENV} !^(dev)
+# Additional Assetic rules
 RewriteRule ^(css|js|fonts?)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
 
 RewriteRule .* app\.php
