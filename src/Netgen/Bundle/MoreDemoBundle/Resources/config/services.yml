@@ -1,3 +1,7 @@
 parameters:
+    netgen_block_manager.block.block_definition.handler.background_color.colors:
+        yellow: 'Yellow'
+        white: 'White'
+        black: 'Black'
 
 services:

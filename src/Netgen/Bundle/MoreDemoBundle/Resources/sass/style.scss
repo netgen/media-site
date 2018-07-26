@@ -3,16 +3,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&subset=latin,latin-ext');
 @import '@fortawesome/fontawesome-free/css/all';
+@import 'swiper/dist/css/swiper';
+@import 'magnific-popup/src/css/main';
 @import 'variables';
+
 @import 'bootstrap/scss/functions';
 @import 'bootstrap_variables';
 @import 'bootstrap';
-@import 'swiper/dist/css/swiper';
-@import 'magnific-popup/src/css/main';
+
 @import 'typography';
 @import 'layout/layout';
-// @import 'view_types';
-// @import 'ngmore';
-// @import 'block';
+@import 'block';
 @import 'cookie_control';
-// @import 'specific';

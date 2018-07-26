@@ -4,6 +4,7 @@ $header-bg: $white;
 .site-header {
     background: $header-bg;
     box-shadow: 0 .5rem 1rem 0 hsla(0, 0, 0, .08);
+    position: relative;
     > .container {
         display: flex;
         align-items: center;

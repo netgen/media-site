@@ -45,4 +45,15 @@
         background-size: cover;
         background-position: center;
     }
+
+    /* background colors */
+    &.bg-color-yellow {
+        background-color: $sunglow;
+    }
+    &.bg-color-white {
+        background-color: $white;
+    }
+    &.bg-color-black {
+        background-color: $black;
+    }
 }
