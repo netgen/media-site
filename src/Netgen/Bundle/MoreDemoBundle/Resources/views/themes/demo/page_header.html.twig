@@ -1,15 +1,11 @@
 <header class="site-header">
     <div class="container">
-        <a id="logo" href="{{ path(ezpublish.rootLocation) }}" title="{{ site_name }}">
-            <img src="{{ asset(ngmore.siteInfoContent.fields.site_logo.value.id, 'ezfile') }}" />
-        </a>
-        <a id="mainnav-toggle" href="#">
+        {% include '@ezdesign/parts/site_logo.html.twig' %}
+        <a class="mainnav-toggle" href="#">
             <span class="hamburger"></span>
         </a>
-        <div id="main-nav">
-            {% include '@ezdesign/page_header_languages.html.twig' %}
-            {% include '@ezdesign/page_topmenu.html.twig' %}
-        </div>
+        {% include '@ezdesign/page_topmenu.html.twig' %}
         {% include '@ezdesign/page_header_searchbox.html.twig' %}
+        {% include '@ezdesign/page_header_languages.html.twig' %}
     </div>
 </header>

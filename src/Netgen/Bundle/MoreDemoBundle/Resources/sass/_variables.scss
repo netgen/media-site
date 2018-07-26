@@ -1,15 +1,16 @@
 // dimensions
-$header-height: 100px;
-$header-height-sm: 70px;
-$gutter: 15px;
-$gap: 2 * $gutter;
-$border-radius: 0;
+$header-height: 5.9375rem;
 
 // colours
-$main-color: hsl(4, 85, 57);
-$header-bg: hsl(270, 2, 25);
-$header-active-bg: hsl(348, 6, 13);
-$link-color: hsl(200, 95, 45);
+$sunglow: hsl(49, 99, 59);
+$catskill-white: hsl(220, 33, 98);
+$white: hsl(0, 0, 100);
+$black: hsl(0, 0, 0);
+$gray-87: hsl(0, 0, 13);
+$gray-54: hsl(0, 0, 46);
+$gray-38: hsl(0, 0, 62);
+$gray-12: hsl(0, 0, 88);
+$gray-7: hsl(0, 0, 93);
 
 %clearfix {
     &::after {
@@ -18,6 +19,7 @@ $link-color: hsl(200, 95, 45);
         content: '';
     }
 }
+
 %fontawesome {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;

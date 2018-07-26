@@ -143,9 +143,9 @@ $(document).ready(() => {
 
   (() => {
     const page = $('#page');
-    const navToggle = $('#mainnav-toggle');
-    const searchToggle = $('#searchbox-toggle');
-    const searchForm = $('#header-search');
+    const navToggle = $('.mainnav-toggle');
+    const searchToggle = $('.searchbox-toggle');
+    const searchForm = $('.header-search');
     const searchInput = searchForm.find('input.search-query');
     const pageToggleClass = (e, classToToggle, classToRemove) => {
       e.preventDefault();
