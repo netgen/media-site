@@ -41,6 +41,7 @@ $header-bg: $white;
         text-align: right;
         right: 0;
         left: auto !important;
+        box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .1);
         a {
             padding: .5em 1em;
             display: block;
@@ -53,6 +54,8 @@ $header-bg: $white;
     }
     &.show {
         .current-lang {
+            position: relative;
+            z-index: 1001;
             background: $sunglow;
         }
     }
