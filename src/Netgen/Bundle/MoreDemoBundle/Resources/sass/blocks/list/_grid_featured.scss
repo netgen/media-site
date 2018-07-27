@@ -1,0 +1,11 @@
+.grid-featured {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -.25rem;
+    margin-right: -.25rem;
+    .item {
+        padding: 0 .25rem;
+        flex: 0 0 33.333333333%;
+        max-width: 33.333333333%;
+    }
+}

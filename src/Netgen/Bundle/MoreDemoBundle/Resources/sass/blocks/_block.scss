@@ -1,10 +1,10 @@
 .bm-block {
+    // whitespace sizes
     $sizes: (
         sm: 2rem,
         md: 4rem,
         lg: 8rem,
     );
-
     // replaces string
     @function str-replace($string, $search, $replace: '') {
         $index: str-index($string, $search);
@@ -21,7 +21,6 @@
             }
         }
     }
-
     &.whitespace-both {
         @include whitespace('size 0');
         @include media-breakpoint-down(sm) {

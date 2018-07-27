@@ -1,7 +1,7 @@
 {% import '@ezdesign/parts/video.html.twig' as video %}
 
 {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
-    <div class="view-type view-type-{{ viewType }} ng-video vl1 video-icon clearfix">
+    <div class="view-type view-type-{{ viewType }} ng-video vl2 video-icon">
         <div class="image">
             {{ video.poster(content, location) }}
         </div>
