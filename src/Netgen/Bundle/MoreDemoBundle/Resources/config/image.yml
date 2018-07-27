@@ -2,6 +2,11 @@ ezpublish:
     system:
         default:
             image_variations:
+                i160:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [320] }
+                        - { name: strip }
                 i320:
                     reference: original
                     filters:
