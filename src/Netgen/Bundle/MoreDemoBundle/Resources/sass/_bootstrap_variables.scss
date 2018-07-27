@@ -196,7 +196,7 @@ $grid-breakpoints: (
 // Set the number of columns and specify the width of the gutters.
 
 // $grid-columns:                12;
-// $grid-gutter-width:           30px;
+$grid-gutter-width:           $gap;
 
 // Components
 //
