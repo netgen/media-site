@@ -37,14 +37,16 @@ $gray-7: hsl(0, 0, 93);
         bottom: 0;
         left: 0;
         right: 0;
-        height: 0;
+        height: .5rem;
+        transform: scaleY(0);
+        transform-origin: bottom;
         background: $sunglow;
-        transition: height .2s;
+        transition: transform .2s;
     }
     &:hover,
     &:focus {
         &::after {
-            height: .5rem;
+            transform: scaleY(1);
         }
     }
 }

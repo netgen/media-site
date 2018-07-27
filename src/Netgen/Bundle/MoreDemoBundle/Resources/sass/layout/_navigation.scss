@@ -22,7 +22,7 @@
         .active {
             a {
                 &::after {
-                    height: .5rem;
+                    transform: scaleY(1);
                 }
             }
         }
