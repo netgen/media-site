@@ -4,7 +4,8 @@
     padding: 4rem 0;
     text-align: center;
     a:not(.site-logo) {
-        &:hover {
+        &:hover,
+        &:focus {
             color: $gray-38;
         }
     }

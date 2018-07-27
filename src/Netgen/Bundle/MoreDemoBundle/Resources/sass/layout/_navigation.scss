@@ -7,6 +7,7 @@
         margin: 0;
         padding: 0 1rem;
         a {
+            @extend %hover-underline;
             display: flex;
             height: $header-height;
             align-items: center;
@@ -17,34 +18,11 @@
             letter-spacing: 1px;
             color: $gray-54;
             padding: 0 1.3333333333em;
-            position: relative;
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 0;
-                background: $sunglow;
-                transition: height .2s;
-            }
-            &:hover {
-                &::after {
-                    height: .6666666667em;
-                }
-            }
         }
         .active {
             a {
                 &::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    height: .6666666667em;
-                    background: $sunglow;
-                    transition: height .2s;
+                    height: .5rem;
                 }
             }
         }

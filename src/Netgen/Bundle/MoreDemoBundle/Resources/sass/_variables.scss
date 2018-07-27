@@ -26,3 +26,23 @@ $gray-7: hsl(0, 0, 93);
     font-size: inherit;
     text-rendering: auto;
 }
+
+%hover-underline {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        background: $sunglow;
+        transition: height .2s;
+    }
+    &:hover,
+    &:focus {
+        &::after {
+            height: .5rem;
+        }
+    }
+}

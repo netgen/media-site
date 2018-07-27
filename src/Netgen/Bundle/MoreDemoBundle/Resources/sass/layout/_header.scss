@@ -15,14 +15,12 @@ $header-bg: $white;
 .language-selector {
     margin: 0 0 0 1em;
     a {
+        @extend %hover-underline;
         font-size: .75rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;
         color: $black;
-        &:hover {
-            color: $gray-87;
-        }
     }
     .current-lang {
         height: $header-height;
@@ -67,6 +65,7 @@ $header-bg: $white;
     height: $header-height;
     position: relative;
     .searchbox-toggle {
+        @extend %hover-underline;
         color: $black;
         display: block;
         font-size: 1rem;
@@ -74,12 +73,8 @@ $header-bg: $white;
         width: $btn-width;
         text-align: center;
         background: $header-bg;
-        position: relative;
         z-index: 2;
         transition: color .2s, background .3s;
-        &:hover {
-            color: $gray-87;
-        }
     }
     .navbar-search {
         padding: 1rem $btn-width 1rem 1rem;
