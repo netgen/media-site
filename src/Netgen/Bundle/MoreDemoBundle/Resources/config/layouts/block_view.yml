@@ -10,11 +10,11 @@ netgen_block_manager:
                                 block\definition: title
                                 block\view_type: section
 
-                        title\section_gray:
-                            template: "@ngbm/block/title/section_gray.html.twig"
+                        title\section_centered:
+                            template: "@ngbm/block/title/section_centered.html.twig"
                             match:
                                 block\definition: title
-                                block\view_type: section_gray
+                                block\view_type: section_centered
 
                         list\numbered:
                             template: "@ngbm/block/list/numbered.html.twig"

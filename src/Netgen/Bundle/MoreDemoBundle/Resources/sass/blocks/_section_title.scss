@@ -1,0 +1,23 @@
+.section-title {
+    .title {
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 900;
+        margin: 0 0 1.7777777778em;
+        position: relative;
+        padding: 0 .75em;
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: .2222222222em;
+            height: .625rem;
+            background: hsla(0, 0, 0, .04);
+        }
+    }
+    &.section-title-centered {
+        text-align: center;
+    }
+}
