@@ -1,7 +1,7 @@
 {% import '@ezdesign/parts/slide.html.twig' as slide %}
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} image vl2">
+<div class="view-type view-type-{{ viewType }} image vl3">
     {% set title = content_fields.name(content) %}
 
     <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }}" class="js-mfp-item">

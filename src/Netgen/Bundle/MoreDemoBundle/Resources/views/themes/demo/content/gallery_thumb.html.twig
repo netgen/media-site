@@ -1,7 +1,7 @@
 {% import '@ezdesign/parts/slide.html.twig' as slide %}
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl2 {% if show_details_on_hover %}show_details_on_hover{% endif %}">
+<div class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl3 {% if show_details_on_hover %}show_details_on_hover{% endif %}">
     {% if image_type == 'main' %}
         {{ slide.image(content, 'image', 'i1200', true) }}
 
