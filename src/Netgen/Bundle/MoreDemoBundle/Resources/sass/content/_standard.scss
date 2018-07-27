@@ -1,0 +1,29 @@
+/* standard item view type */
+.vl1 {
+    margin: 0 0 2rem;
+    .image {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        margin: 0 0 1rem;
+        img {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .title {
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin: 0 0 .1666666667em;
+    }
+    .short {
+        color: $gray-54;
+        p {
+            margin: 0;
+        }
+    }
+}
