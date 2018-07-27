@@ -4,7 +4,7 @@
     display: block;
     position: relative;
     height: 0;
-    padding-bottom: 100%;
+    padding-bottom: 56.25%;
     color: $white;
     overflow: hidden;
     &::before {
@@ -34,9 +34,9 @@
         bottom: 2rem;
         left: 2rem;
         right: 2rem;
-        .title {
-            font-size: 2.0625rem;
-        }
+    }
+    .title {
+        font-size: 1.3125rem;
     }
 
     &:hover,
