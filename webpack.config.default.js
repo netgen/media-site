@@ -67,7 +67,9 @@ config.plugins = config.plugins.filter(
 
 // Add the new version of uglifyjs which is compatible with ES6
 // We can remove this when Encore upgrades Webpack to 4.0
-config.plugins.push(new UglifyJsPlugin());
+if (Encore.isProduction()) {
+  config.plugins.push(new UglifyJsPlugin());
+}
 
 config.watchOptions = { poll: true, ignored: /node_modules/ };
 config.name = siteConfig.name;

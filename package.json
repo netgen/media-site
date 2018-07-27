@@ -6,9 +6,12 @@
     "Opera 12.1"
   ],
   "scripts": {
+    "dev": "encore dev",
     "build:dev": "encore dev",
+    "prod": "encore production",
     "build:prod": "encore production",
     "watch": "encore dev --watch",
+    "start": "encore dev-server",
     "server": "encore dev-server",
     "site:dev": "encore dev --config-name",
     "site:prod": "encore production --config-name",
