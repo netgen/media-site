@@ -1,12 +1,13 @@
-<div class="view-type view-type-{{ viewType }} ng-blog-post vl6">
-    <div class="date">
-        <span class="author">
+<article class="view-type view-type-{{ viewType }} ng-blog-post vl6">
+    <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+    <p class="info">
+        <span class="article-author">
             {% if not content.fields.author_override.empty %}
                 {{ ng_render_field(content.fields.author_override) }}
             {% else %}
                 {{ content.owner.name }}
             {% endif %}
-        </span> | {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
-    </div>
-    <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
-</div>
+        </span>
+        <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
+    </p>
+</article>

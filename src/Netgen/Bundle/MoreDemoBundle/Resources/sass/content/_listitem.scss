@@ -15,4 +15,30 @@
             margin: 0;
         }
     }
+    .info {
+        @extend %clearfix;
+        margin: 0 0 .25rem;
+        font-size: .75rem;
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: 1px;
+        color: $gray-54;
+        > span,
+        > time {
+            display: inline-block;
+            float: left;
+            + span,
+            + time {
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: .25rem;
+                    height: .25rem;
+                    background: $sunglow;
+                    margin: 0 .25rem .125rem;
+                }
+            }
+        }
+    }
 }

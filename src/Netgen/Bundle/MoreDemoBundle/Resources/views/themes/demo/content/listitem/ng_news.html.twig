@@ -1,6 +1,6 @@
-<div class="view-type view-type-{{ viewType }} ng-news vl6">
-	<div class="date">
-		{{ content.fields.publish_date.value.value|date('j. n. Y.') }}
-	</div>
+<article class="view-type view-type-{{ viewType }} ng-news vl6">
+	<p class="info">
+		<time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
+	</p>
 	<h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
-</div>
+</article>
