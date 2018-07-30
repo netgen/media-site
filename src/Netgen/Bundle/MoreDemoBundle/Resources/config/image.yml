@@ -5,7 +5,7 @@ ezpublish:
                 i160:
                     reference: original
                     filters:
-                        - { name: geometry/scalewidthdownonly, params: [320] }
+                        - { name: geometry/scalewidthdownonly, params: [160] }
                         - { name: strip }
                 i320:
                     reference: original
