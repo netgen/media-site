@@ -2,12 +2,12 @@
 
 {% set location_path = path(location) %}
 
-<div class="view-type view-type-{{ viewType }} ng-audio vl5">
+<article class="view-type view-type-{{ viewType }} ng-audio vl5">
 
     {{ content_fields.image(content, location, 'i160') }}
 
-    <div class="info with-icon">
+    <header class="article-header with-icon">
         <a href="{{ location_path }}"><i class="fas fa-volume-up"></i></a>
         <h2 class="title"><a href="{{ location_path }}">{{ ng_render_field(content.fields.title) }}</a></h2>
-    </div>
-</div>
+    </header>
+</article>

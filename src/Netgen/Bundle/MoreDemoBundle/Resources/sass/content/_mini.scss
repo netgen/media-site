@@ -13,11 +13,11 @@
             width: 100%;
             height: 100%;
         }
-        + .info {
+        + .article-header {
             padding-left: 1rem;
         }
     }
-    .info {
+    .article-header {
         flex: 1;
     }
     .title {
@@ -25,5 +25,29 @@
         line-height: 1.33333333;
         font-weight: 900;
         margin: 0 0 .25rem;
+    }
+    .info {
+        @extend %clearfix;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: .8125rem;
+        letter-spacing: 1px;
+        > span,
+        > time {
+            display: inline-block;
+            float: left;
+            + span,
+            + time {
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: .25rem;
+                    height: .25rem;
+                    background: $sunglow;
+                    margin: 0 .25rem .125rem;
+                }
+            }
+        }
     }
 }
