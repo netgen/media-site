@@ -1,1 +1,3 @@
 block.plugin.background_color.yellow: 'Yellow'
+block.plugin.background_color.white: 'White'
+block.plugin.background_color.black: 'Black'
