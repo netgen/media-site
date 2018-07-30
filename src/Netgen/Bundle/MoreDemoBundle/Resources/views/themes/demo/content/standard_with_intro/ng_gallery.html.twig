@@ -1,12 +1,12 @@
 {% set location_path = path(location) %}
 
-<div class="view-type view-type-{{ viewType }} ng-gallery vl1">
-    <div class="info">
+<article class="view-type view-type-{{ viewType }} ng-gallery vl1">
+    <header class="article-header">
         <h2 class="title"><a href="{{ location_path }}">{{ ng_render_field(content.fields.title) }}</a></h2>
-        {% if not content.fields.line_intro.empty %}
-	        <div class="short">
-	            {{ ng_render_field(content.fields.line_intro) }}
-	        </div>
-	    {% endif %}
-    </div>
-</div>
+    </header>
+    {% if not content.fields.line_intro.empty %}
+        <div class="short">
+            {{ ng_render_field(content.fields.line_intro) }}
+        </div>
+    {% endif %}
+</article>

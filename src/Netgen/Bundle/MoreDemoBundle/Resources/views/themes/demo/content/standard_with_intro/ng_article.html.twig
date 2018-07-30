@@ -1,11 +1,13 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} ng-article vl1">
+<article class="view-type view-type-{{ viewType }} ng-article vl1">
 
     {{ content_fields.image(content, location) }}
 
-    <div class="info">
+    <header class="article-header">
         <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+    </header>
+    <div class="short">
         {{ content_fields.intro(content) }}
     </div>
-</div>
+</article>

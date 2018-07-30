@@ -1,13 +1,13 @@
 {% import '@ezdesign/parts/video.html.twig' as video %}
 
 {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
-    <div class="view-type view-type-{{ viewType }} ng-video vl1 video-icon">
-        <div class="image">
+    <article class="view-type view-type-{{ viewType }} ng-video vl1 video-icon">
+        <figure class="image">
             {{ video.poster(content, location) }}
-        </div>
+        </figure>
 
-        <div class="info">
+        <header class="article-header">
             <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
-        </div>
-    </div>
+        </header>
+    </article>
 {% endif %}

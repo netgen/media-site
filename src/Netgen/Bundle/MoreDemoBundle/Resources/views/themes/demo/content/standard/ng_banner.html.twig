@@ -1,10 +1,10 @@
 {% extends '@ezdesign/parts/linkable.html.twig' %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-banner vl1">
+<article class="view-type view-type-{{ viewType }} ng-banner vl1">
 
     {% if not content.fields.image.empty %}
-        <div class="image">
+        <figure class="image">
             {{ ng_render_field(
                 content.fields.image, {
                     'parameters': {
@@ -14,15 +14,15 @@
                     }
                 }
             ) }}
-        </div>
+        </figure>
     {% endif %}
 
-    <div class="info">
+    <header class="article-header">
 	    <h2 class="title">
             <a href="{{ url }}" {% if open_in_new_window %} target="_blank" rel="noopener noreferrer" {% endif %}>
                 {{ ng_render_field(content.fields.title) }}
             </a>
         </h2>
-	</div>
-</div>
+	</header>
+</article>
 {% endblock %}

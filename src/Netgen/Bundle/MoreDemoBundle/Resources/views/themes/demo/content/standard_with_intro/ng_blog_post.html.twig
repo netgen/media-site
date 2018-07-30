@@ -1,20 +1,23 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} ng-blog-post vl1">
+<article class="view-type view-type-{{ viewType }} ng-blog-post vl1">
 
     {{ content_fields.image(content, location) }}
 
-    <div class="info">
-        <div class="date">
-            <span class="author">
+    <header class="article-header">
+        <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+        <p class="info">
+            <span class="article-author">
                 {% if not content.fields.author_override.empty %}
                     {{ ng_render_field(content.fields.author_override) }}
                 {% else %}
                     {{ content.owner.name }}
                 {% endif %}
-            </span> | {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
-        </div>
-        <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            </span>
+            <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
+        </p>
+    </header>
+    <div class="short">
         {{ content_fields.intro(content) }}
     </div>
-</div>
+</article>

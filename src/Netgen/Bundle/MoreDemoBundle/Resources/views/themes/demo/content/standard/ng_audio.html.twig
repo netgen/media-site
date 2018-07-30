@@ -1,14 +1,14 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} ng-audio vl1">
+<article class="view-type view-type-{{ viewType }} ng-audio vl1">
 
     {{ content_fields.image(content, location) }}
 
-    <div class="info">
+    <header class="article-header">
 	    <h2 class="title with-icon">
             <a href="{{ path(location) }}">
                 <i class="fas fa-volume-up"></i>{{ ng_render_field(content.fields.title) }}
             </a>
         </h2>
-	</div>
-</div>
+	</header>
+</article>
