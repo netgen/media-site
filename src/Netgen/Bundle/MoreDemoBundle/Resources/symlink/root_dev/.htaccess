@@ -11,27 +11,21 @@ SetEnvIf REQUEST_URI ".*" SYMFONY_ENV=dev
 # Defaults to 0 if omitted, unless SYMFONY_ENV is set to: "dev"
 #SetEnv SYMFONY_DEBUG 0
 
-# Whether to use custom ClassLoader (autoloader) file
-# Needs to be a valid path relative to root web/ directory
-# Defaults to bootstrap.php.cache, or autoload.php in debug
-#SetEnv SYMFONY_CLASSLOADER_FILE "../app/autoload.php"
-
 # Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
 # Possible values: 0 or 1
 # Defaults to 1 if omitted, unless SYMFONY_ENV is set to: "dev"
 #SetEnv SYMFONY_HTTP_CACHE 1
 
-# Whether to use custom HTTP Cache class if SYMFONY_HTTP_CACHE is enabled
-# Value must be a autoloadable cache class
-# Defaults to to use "AppCache"
-#SetEnv SYMFONY_HTTP_CACHE_CLASS "\Vendor\Project\MyCache"
-
 # Defines the proxies to trust.
 # Separate entries by a comma
-# Example: "proxy1.example.com,proxy2.example.org"
+# Example: "ip1,ip2"
 # By default, no trusted proxies are set
 #SetEnv SYMFONY_TRUSTED_PROXIES "127.0.0.1"
+
+# TIP: There are many more environment variables supported by eZ Platform. However unlike those listed above
+#      they should in most cases rather be set in the environment then in vhost config to make sure cronjobs
+#      and cli command usage takes them into account as well.
 
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html
