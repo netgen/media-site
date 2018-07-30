@@ -2,21 +2,24 @@
 
 {% set poster_image = content_fields.background_poster(content, 'image', 'i480') %}
 
-<a href="{{ path(location) }}" class="view-type view-type-{{ viewType }} ng-blog-post vl2">
-    {% if poster_image is not empty %}
-        <div class="image" style="background-image:url({{ poster_image }});"></div>
-    {% endif %}
+<article class="view-type view-type-{{ viewType }} ng-blog-post vl2">
+    <a href="{{ path(location) }}" class="article-link">
+        {% if poster_image is not empty %}
+            <figure class="image" style="background-image:url({{ poster_image }});"></figure>
+        {% endif %}
 
-    <div class="info">
-        <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-        <div class="date">
-            <span class="author">
-                {% if not content.fields.author_override.empty %}
-                    {{ ng_render_field(content.fields.author_override) }}
-                {% else %}
-                    {{ content.owner.name }}
-                {% endif %}
-            </span> | {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
-        </div>
-    </div>
-</a>
+        <header class="article-header">
+            <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+            <p class="info">
+                <span class="article-author">
+                    {% if not content.fields.author_override.empty %}
+                        {{ ng_render_field(content.fields.author_override) }}
+                    {% else %}
+                        {{ content.owner.name }}
+                    {% endif %}
+                </span>
+                <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
+            </p>
+        </header>
+    </a>
+</article>
