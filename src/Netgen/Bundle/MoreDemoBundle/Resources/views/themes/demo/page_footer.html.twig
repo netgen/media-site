@@ -9,18 +9,7 @@
                 {{ render_esi(
                     controller(
                         'ngmore.controller.menu:renderMenu', {
-                            menuName: 'ngmore_additional_menu',
-                            activeItemId: main_category_location_id ?? 0
-                        }
-                    )
-                ) }}
-            {% endblock %}
-
-            {% block page_main_menu_footer %}
-                {{ render_esi(
-                    controller(
-                        'ngmore.controller.menu:renderMenu', {
-                            menuName: 'ngmore_main_menu',
+                            menuName: site_info.fields.additional_menu.empty ? 'ngmore_main_menu' : 'ngmore_additional_menu',
                             activeItemId: main_category_location_id ?? 0
                         }
                     )
@@ -30,12 +19,6 @@
 
         <div class="footer-social">
             <ul>
-                <li><a href="#"><i class="fab fa-facebook-f"></i><span class="tt">Facebook</span></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i><span class="tt">Twitter</span></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i><span class="tt">Instagram</span></a></li>
-                <li><a href="#"><i class="fab fa-google-plus"></i><span class="tt">Google+</span></a></li>
-                <li><a href="#"><i class="fab fa-linkedin"></i><span class="tt">LinkedIn</span></a></li>
-
                 {% if not site_info.fields.facebook.empty %}
                     <li><a href="{{ site_info.fields.facebook.value.link }}"><i class="fab fa-facebook-f"></i><span class="tt">Facebook</span></a></li>
                 {% endif %}
