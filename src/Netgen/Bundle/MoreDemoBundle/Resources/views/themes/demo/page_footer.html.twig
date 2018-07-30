@@ -3,8 +3,9 @@
 <footer class="site-footer">
     <div class="container">
         {% include '@ezdesign/parts/site_logo.html.twig' %}
+
         <div class="footer-menu">
-            {% block page_additional_menu %}
+            {% block page_additional_menu_footer %}
                 {{ render_esi(
                     controller(
                         'ngmore.controller.menu:renderMenu', {
@@ -15,7 +16,7 @@
                 ) }}
             {% endblock %}
 
-            {% block page_main_menu %}
+            {% block page_main_menu_footer %}
                 {{ render_esi(
                     controller(
                         'ngmore.controller.menu:renderMenu', {
@@ -25,7 +26,6 @@
                     )
                 ) }}
             {% endblock %}
-
         </div>
 
         <div class="footer-social">
@@ -35,6 +35,7 @@
                 <li><a href="#"><i class="fab fa-instagram"></i><span class="tt">Instagram</span></a></li>
                 <li><a href="#"><i class="fab fa-google-plus"></i><span class="tt">Google+</span></a></li>
                 <li><a href="#"><i class="fab fa-linkedin"></i><span class="tt">LinkedIn</span></a></li>
+
                 {% if not site_info.fields.facebook.empty %}
                     <li><a href="{{ site_info.fields.facebook.value.link }}"><i class="fab fa-facebook-f"></i><span class="tt">Facebook</span></a></li>
                 {% endif %}
@@ -58,7 +59,8 @@
         </div>
 
         <div class="footer-info">
-            <p><a href="#" class="js-open-ng-cc">Cookie settings</a></p>
+            <p><a href="#" class="js-open-ng-cc">{{ 'ngmore.layout.cookie_settings'|trans }}</a></p>
+
             {% if not site_info.fields.footer_block.empty %}
                 <div>
                     {{ ng_render_field(site_info.fields.footer_block) }}
