@@ -1,5 +1,5 @@
 parameters:
-    netgen_block_manager.block.block_definition.handler.background_color.colors:
+    ngmore.layouts.block.plugin.background_color.colors:
         yellow: 'block.plugin.background_color.yellow'
         white: 'block.plugin.background_color.white'
         black: 'block.plugin.background_color.black'
