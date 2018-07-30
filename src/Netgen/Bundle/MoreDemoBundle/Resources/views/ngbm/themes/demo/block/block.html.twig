@@ -17,8 +17,9 @@
 {% set use_bg_image = block.hasParameter('background_image:enabled') and block.parameter('background_image:enabled').value is same as(true) %}
 {% set use_bg_image = use_bg_image and bg_image is not null and bg_image.fields.image is defined %}
 
-{% set use_bg_color = block.hasParameter('background_color:enabled') and block.parameter('background_color:enabled').value is same as(true) %}
 {% set bg_color = block.hasParameter('background_color:color') ? block.parameter('background_color:color').value : null %}
+{% set use_bg_color = block.hasParameter('background_color:enabled') and block.parameter('background_color:enabled').value is same as(true) %}
+{% set use_bg_color = use_bg_color and bg_color is not empty %}
 
 {% set css_classes = ['bm-block', 'bm-' ~ block.definition.identifier, 'bm-vt-' ~ block.viewType, css_class|default(block.parameter('css_class').value)] %}
 
