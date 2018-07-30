@@ -53,10 +53,10 @@
         margin: 0 0 .25rem;
     }
     .info {
+        @extend %clearfix;
         margin: 0;
-        font-size: .75rem;
         text-transform: uppercase;
-        font-weight: 900;
+        font-size: .8125rem;
         letter-spacing: 1px;
         > span,
         > time {
