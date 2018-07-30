@@ -1,9 +1,11 @@
-<div class="view-type view-type-{{ viewType }} file vl4">
-	<div class="info">
-	    <h2 class="title with-icon">
-			<a href="{{ path(location) }}">
-				<i class="fas fa-file-o"></i>{{ content.fields.name.value.text }}
-			</a>
-		</h2>
-	</div>
-</div>
+<article class="view-type view-type-{{ viewType }} file vl4">
+    <div class="article-content">
+        <header class="article-header">
+            <h2 class="title with-icon">
+                <a href="{{ path(location) }}">
+                    <i class="fas fa-file-o"></i>{{ content.fields.name.value.text }}
+                </a>
+            </h2>
+        </header>
+    </div>
+</article>

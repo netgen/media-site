@@ -1,13 +1,16 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-<div class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl4">
+<article class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl4">
 
     {{ content_fields.image(content, location, 'i320') }}
 
-    <div class="info">
-        <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.name(content) }}</a></h2>
-
-        {{ content_fields.intro(content) }}
+    <div class="article-content">
+        <header class="article-header">
+            <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.name(content) }}</a></h2>
+        </header>
+        <div class="short">
+            {{ content_fields.intro(content) }}
+        </div>
     </div>
 
-</div>
+</article>

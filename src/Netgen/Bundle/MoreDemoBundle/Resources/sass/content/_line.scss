@@ -17,11 +17,11 @@
             width: 100%;
             height: 100%;
         }
-        + .info {
+        + .article-content {
             padding-left: $gap;
         }
     }
-    .info {
+    .article-content {
         flex: 1;
     }
     .title {
@@ -33,6 +33,30 @@
         color: $gray-54;
         p {
             margin: 0;
+        }
+    }
+    .info {
+        @extend %clearfix;
+        margin: 0 0 .25rem;
+        text-transform: uppercase;
+        font-size: .8125rem;
+        letter-spacing: 1px;
+        > span,
+        > time {
+            display: inline-block;
+            float: left;
+            + span,
+            + time {
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: .25rem;
+                    height: .25rem;
+                    background: $sunglow;
+                    margin: 0 .25rem .125rem;
+                }
+            }
         }
     }
 }
