@@ -1,4 +1,4 @@
-{% if available_translations is not empty %}
+{% if available_translations|length > 1 %}
     {% set prioritized_languages = ezpublish.configResolver.getParameter('languages') %}
 
     <div class="language-selector dropdown">
