@@ -1,6 +1,7 @@
 /* standard item view type */
 .vl1 {
     margin: 0 0 2rem;
+    position: relative;
     .image {
         position: relative;
         width: 100%;
@@ -48,6 +49,22 @@
                     margin: 0 .25rem .125rem;
                 }
             }
+        }
+    }
+    .article-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3rem;
+        height: 3rem;
+        line-height: 3rem;
+        text-align: center;
+        background: $sunglow;
+        color: $black;
+        z-index: 2;
+        pointer-events: none;
+        + .article-header {
+            padding-top: 3.5rem;
         }
     }
 }
