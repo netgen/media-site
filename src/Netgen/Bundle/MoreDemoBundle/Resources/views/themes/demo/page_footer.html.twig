@@ -42,8 +42,6 @@
         </div>
 
         <div class="footer-info">
-            <p><a href="#" class="js-open-ng-cc">{{ 'ngmore.layout.cookie_settings'|trans }}</a></p>
-
             {% if not site_info.fields.footer_block.empty %}
                 <div>
                     {{ ng_render_field(site_info.fields.footer_block) }}
