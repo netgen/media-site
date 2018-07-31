@@ -5,11 +5,11 @@
 {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
     <article class="view-type view-type-{{ viewType }} ng-video vl5">
         <figure class="image">
+            <i class="fas fa-camera article-icon" aria-hidden="true"></i>
             {{ video.poster(content, location) }}
         </figure>
 
-        <header class="article-header with-icon">
-            <a href="{{ location_path }}"><i class="fas fa-play-circle"></i></a>
+        <header class="article-header">
             <h2 class="title"><a href="{{ location_path }}">{{ ng_render_field(content.fields.title) }}</a></h2>
         </header>
     </article>

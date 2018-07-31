@@ -50,4 +50,18 @@
             }
         }
     }
+    .article-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        width: 2.125rem;
+        height: 2.125rem;
+        line-height: 2.125rem;
+        text-align: center;
+        background: $sunglow;
+        color: $black;
+        z-index: 2;
+        pointer-events: none;
+    }
 }

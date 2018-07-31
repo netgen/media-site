@@ -2,6 +2,7 @@
 .vl4 {
     margin: 0 0 2rem;
     display: flex;
+    position: relative;
     .image {
         width: 20rem;
         a {
@@ -57,6 +58,22 @@
                     margin: 0 .25rem .125rem;
                 }
             }
+        }
+    }
+    .article-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3rem;
+        height: 3rem;
+        line-height: 3rem;
+        text-align: center;
+        background: $sunglow;
+        color: $black;
+        z-index: 2;
+        pointer-events: none;
+        + .article-content {
+            padding-left: 4.875rem;
         }
     }
 }

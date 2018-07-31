@@ -39,4 +39,22 @@
             }
         }
     }
+    .article-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2.125rem;
+        height: 2.125rem;
+        line-height: 2.125rem;
+        text-align: center;
+        background: $sunglow;
+        color: $black;
+        z-index: 2;
+    }
+
+    /* with icon */
+    &.t1 {
+        padding-left: 3.125rem;
+        position: relative;
+    }
 }
