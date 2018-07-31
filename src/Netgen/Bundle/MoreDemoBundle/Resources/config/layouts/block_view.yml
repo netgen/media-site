@@ -4,6 +4,12 @@ netgen_block_manager:
             view:
                 block_view:
                     default:
+                        title\centered:
+                            template: "@ngbm/block/title/centered.html.twig"
+                            match:
+                                block\definition: title
+                                block\view_type: title_centered
+
                         title\section:
                             template: "@ngbm/block/title/section.html.twig"
                             match:
