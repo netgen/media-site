@@ -7,7 +7,6 @@ SessionNamePerSiteAccess=disabled
 RequireUserLogin=false
 RelatedSiteAccessList[]
 RelatedSiteAccessList[]=eng
-RelatedSiteAccessList[]=cro
 RelatedSiteAccessList[]=legacy_admin
 RelatedSiteAccessList[]=ngadminui
 ShowHiddenNodes=false
@@ -21,6 +20,6 @@ SiteLanguageList[]=eng-GB
 TextTranslation=enabled
 
 [ContentSettings]
-TranslationList=cro-HR
+TranslationList=
 EditDirtyObjectAction=usecurrent
 */ ?>
