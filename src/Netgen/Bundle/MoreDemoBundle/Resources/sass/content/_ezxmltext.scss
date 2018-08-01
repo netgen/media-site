@@ -1,0 +1,76 @@
+/* EMBEDED OBJECTS ----------------------------------------------------- */
+.object-left,
+.half-left {
+    float: left;
+    clear: left;
+    margin-right: 2.5%;
+}
+.object-right,
+.half-right {
+    float: right;
+    clear: right;
+    margin-left: 2.5%;
+}
+.half-left,
+.half-right {
+    width: 47.5%;
+}
+.object-left,
+.object-right {
+    max-width: 47.5%;
+}
+.object-center {
+    .view-type-embed {
+        max-width: 75%;
+        &,
+        &.image {
+            .img-container {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+.view-type-embed {
+    &.image {
+        margin-bottom: 2.5%;
+        .img-container {
+            display: table;
+            img {
+                width: 100%;
+            }
+        }
+        .caption {
+            font-size: .8em;
+            p {
+                margin: 0;
+            }
+        }
+    }
+    &.ng-video {
+        margin: 20px 0;
+        h4 {
+            margin: 10px 0;
+        }
+    }
+}
+.clear {
+    clear: both;
+}
+
+@include media-breakpoint-down(xs) {
+    .object-left,
+    .object-right,
+    .half-left,
+    .half-right {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .object-center {
+        .view-type-embed {
+            max-width: 100%;
+        }
+    }
+}
+/* /EMBEDED OBJECTS */

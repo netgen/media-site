@@ -14,6 +14,8 @@ $gray-38: hsl(0, 0, 62);
 $gray-12: hsl(0, 0, 88);
 $gray-7: hsl(0, 0, 93);
 
+$body-bg: $white;
+
 %clearfix {
     &::after {
         clear: both;
