@@ -24,7 +24,7 @@
 }
 
 .full-article-image {
-    margin: 0 0 4rem;
+    margin: 0;
     text-align: center;
 }
 
@@ -69,6 +69,9 @@
     }
     .full-article-body {
         padding: 0;
+    }
+    .full-article-image {
+        margin: 0 0 4rem;
     }
 }
 
