@@ -5,11 +5,13 @@
     margin-bottom: -10rem;
     .article-title {
         font-size: 3.125rem;
-        margin: 0 0 .5rem;
+        margin: 0 0 .25rem;
     }
     .article-info {
         font-size: 1rem;
         margin: 0;
+        color: $black;
+        opacity: .54;
         > span,
         > time {
             + span,
@@ -19,6 +21,19 @@
                     margin: 0 .25em;
                 }
             }
+        }
+    }
+    .article-main-tag {
+        a {
+            display: inline-block;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 900;
+            color: $sunglow;
+            background: $black;
+            padding: .3333333333em 1em;
+            margin: 0 0 .3333333333em;
         }
     }
 }
@@ -44,10 +59,26 @@
     padding: 0 11.125rem;
 }
 
+.full-article-tags {
+    @extend %clearfix;
+    margin: 3rem 0 0;
+    a {
+        display: inline-block;
+        float: left;
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 900;
+        color: $gray-87;
+        padding: .1666666667em .8333333333em;
+        border: 2px solid $sunglow;
+        margin: 0 .1666666667em;
+    }
+}
+
 /* full article body styling */
 .full-article-body {
     @extend %clearfix;
-    margin: 0 0 2rem;
     padding: 4rem;
     background: $body-bg;
     p {
@@ -69,6 +100,7 @@
     }
     .full-article-body {
         padding: 0;
+        margin: 0 0 2rem;
     }
     .full-article-image {
         margin: 0 0 4rem;

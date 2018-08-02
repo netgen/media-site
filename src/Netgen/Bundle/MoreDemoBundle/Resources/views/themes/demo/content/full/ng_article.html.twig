@@ -15,6 +15,11 @@
         {% block article_header %}
             <header class="full-article-header">
                 <div class="container">
+                    {% if not content.fields.main_topic.empty %}
+                        <div class="article-main-tag">
+                            <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                        </div>
+                    {% endif %}
                     <h1 class="article-title">{{ ng_render_field(content.fields.title) }}</h1>
                     <p class="article-info">
                         <span class="article-author">{{ content.owner.name }}</span>
@@ -54,6 +59,14 @@
 
                         {% if not content.fields.body.empty %}
                             {{ ng_render_field(content.fields.body) }}
+                        {% endif %}
+
+                        {% if not content.fields.tags.empty %}
+                            <div class="full-article-tags">
+                                {% for tag in content.fields.tags.value.tags %}
+                                    <a href="{{ path(tag) }}">{{ tag.keyword }}</a>
+                                {% endfor %}
+                            </div>
                         {% endif %}
                     </div>
                 {% endblock %}
