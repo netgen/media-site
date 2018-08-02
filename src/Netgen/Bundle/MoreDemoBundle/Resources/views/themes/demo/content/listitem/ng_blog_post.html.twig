@@ -9,7 +9,9 @@
             {% endif %}
         </span>
         <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
-        {% if not content.fields.main_topic.empty %}
+        {% if not content.fields.sponsored_content_disclosure.empty %}
+            <span class="sponsored-tag">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
+        {% elseif not content.fields.main_topic.empty %}
             <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
         {% endif %}
     </div>

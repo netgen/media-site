@@ -23,8 +23,10 @@
             }
         }
     }
-    .article-main-tag {
-        a {
+    .article-main-tag,
+    .article-sponsored-tag {
+        > a,
+        > span {
             display: inline-block;
             font-size: .75rem;
             text-transform: uppercase;

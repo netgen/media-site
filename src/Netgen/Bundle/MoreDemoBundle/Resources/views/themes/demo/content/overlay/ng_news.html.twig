@@ -12,7 +12,9 @@
             <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
             <div class="info">
                 <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
-                {% if not content.fields.main_topic.empty %}
+                {% if not content.fields.sponsored_content_disclosure.empty %}
+                    <span class="sponsored-tag">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
+                {% elseif not content.fields.main_topic.empty %}
                     <span>{{ content.fields.main_topic.value.tags[0].keyword }}</span>
                 {% endif %}
             </div>
