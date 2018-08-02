@@ -9,5 +9,5 @@ ShowClasses[]=ng_landing_page
 ShowClasses[]=ng_frontpage
 ShowClasses[]=ng_category
 ShowClasses[]=ng_container
-ShowClasses[]=ng_gallery
+ShowClasses[]=ng_topic
 */ ?>
