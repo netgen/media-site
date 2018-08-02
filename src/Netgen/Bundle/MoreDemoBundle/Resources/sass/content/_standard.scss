@@ -34,11 +34,13 @@
         font-size: .8125rem;
         letter-spacing: 1px;
         > span,
-        > time {
+        > time,
+        > a {
             display: inline-block;
             float: left;
             + span,
-            + time {
+            + time,
+            + a {
                 &::before {
                     content: '';
                     display: inline-block;
@@ -49,6 +51,10 @@
                     margin: 0 .25rem .125rem;
                 }
             }
+        }
+        a {
+            font-weight: 700;
+            color: $scooter;
         }
     }
     .article-icon {

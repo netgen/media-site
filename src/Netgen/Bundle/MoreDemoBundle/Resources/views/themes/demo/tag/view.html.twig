@@ -14,9 +14,9 @@
                 {% for related_content_item in related_content %}
                     {{ render(
                         controller(
-                            "ng_content:viewAction", {
-                                "content": related_content_item,
-                                "location": related_content_item.mainLocation,
+                            "ez_content:viewAction", {
+                                "contentId": related_content_item.id,
+                                "locationId": related_content_item.mainLocationId,
                                 "viewType": "line",
                                 "layout": false
                             }

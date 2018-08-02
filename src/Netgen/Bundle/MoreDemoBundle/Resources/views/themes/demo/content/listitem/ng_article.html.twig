@@ -1,7 +1,6 @@
-<article class="view-type view-type-{{ viewType }} ng-news vl6">
+<article class="view-type view-type-{{ viewType }} ng-article vl6">
 	<h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
     <div class="info">
-        <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
         {% if not content.fields.main_topic.empty %}
             <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
         {% endif %}

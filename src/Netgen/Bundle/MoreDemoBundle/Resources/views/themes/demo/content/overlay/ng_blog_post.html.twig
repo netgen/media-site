@@ -10,7 +10,7 @@
 
         <header class="article-header">
             <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-            <p class="info">
+            <div class="info">
                 <span class="article-author">
                     {% if not content.fields.author_override.empty %}
                         {{ ng_render_field(content.fields.author_override) }}
@@ -19,7 +19,10 @@
                     {% endif %}
                 </span>
                 <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
-            </p>
+                {% if not content.fields.main_topic.empty %}
+                    <span>{{ content.fields.main_topic.value.tags[0].keyword }}</span>
+                {% endif %}
+            </div>
         </header>
     </a>
 </article>

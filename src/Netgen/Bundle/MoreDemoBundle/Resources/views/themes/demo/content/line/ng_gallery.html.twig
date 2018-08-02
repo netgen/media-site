@@ -3,6 +3,11 @@
     <div class="article-content">
         <header class="article-header">
             <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            <div class="info">
+                {% if not content.fields.main_topic.empty %}
+                    <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                {% endif %}
+            </div>
         </header>
         {% if not content.fields.line_intro.empty %}
             <div class="short">

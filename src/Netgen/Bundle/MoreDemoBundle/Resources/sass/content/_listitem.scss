@@ -10,6 +10,7 @@
         margin: 0 0 .25rem;
     }
     .short {
+        margin: .25rem 0 0;
         color: $gray-54;
         p {
             margin: 0;
@@ -17,16 +18,18 @@
     }
     .info {
         @extend %clearfix;
-        margin: 0 0 .25rem;
+        margin: 0;
         text-transform: uppercase;
         font-size: .8125rem;
         letter-spacing: 1px;
         > span,
-        > time {
+        > time,
+        > a {
             display: inline-block;
             float: left;
             + span,
-            + time {
+            + time,
+            + a {
                 &::before {
                     content: '';
                     display: inline-block;

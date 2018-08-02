@@ -9,6 +9,11 @@
 
         <header class="article-header">
             <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            <div class="info">
+                {% if not content.fields.main_topic.empty %}
+                    <span>{{ content.fields.main_topic.value.tags[0].keyword }}</span>
+                {% endif %}
+            </div>
         </header>
     </article>
 {% endif %}

@@ -95,6 +95,10 @@ ezpublish:
                         template: "@ezdesign/content/line.html.twig"
                         match: ~
                 listitem:
+                    ng_article:
+                        template: "@ezdesign/content/listitem/ng_article.html.twig"
+                        match:
+                            Identifier\ContentType: ng_article
                     ng_audio:
                         template: "@ezdesign/content/listitem/ng_audio.html.twig"
                         match:
