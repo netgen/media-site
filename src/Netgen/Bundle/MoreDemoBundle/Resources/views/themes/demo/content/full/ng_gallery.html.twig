@@ -7,7 +7,7 @@
 {% endif %}
 
 {% block content %}
-    <div class="view-type view-type-{{ viewType }} ng-gallery {{ content.fields.css_class.value.text|trim }} clearfix">
+    <div class="view-type view-type-{{ viewType }} ng-gallery {{ content.fields.css_class.value.text|trim }}">
         {{ render(
             controller(
                 'ngmore.controller.parts:viewRelatedMultimediaItems', {
