@@ -5,6 +5,7 @@ ngmore.layout.site_frontpage: "%site_name% front page"
 ngmore.layout.meta_generator: "eZ Platform powered by Netgen"
 ngmore.layout.powered_by: "Powered by"
 ngmore.layout.cookie_settings: "Cookie settings"
+ngmore.layout.sponsored: 'Sponsored'
 
 ngmore.search.title: 'Search'
 ngmore.search.placeholder: 'Search'
