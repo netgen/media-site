@@ -1,16 +1,18 @@
 {% set location_path = path(location) %}
 
-{% set children = location.filterChildren(['image'], 1).currentPageResults %}
+{% set children = location.filterChildren(['image'], 1).currentPageResults.searchHits %}
 
 <article class="view-type view-type-{{ viewType }} ng-gallery vl1">
     <i class="fas fa-camera article-icon" aria-hidden="true"></i>
     {% if children is not empty %}
+        {% set first_image = children[0].valueObject.content %}
+
         <figure class="image">
             {{ ng_render_field(
-                children[0].content.fields.image, {
+                first_image.fields.image, {
                     parameters: {
                         alias: 'i480',
-                        alt_text: children[0].content.fields.name.value,
+                        alt_text: first_image.fields.name.value,
                         link_href: location_path,
                     }
                 }
