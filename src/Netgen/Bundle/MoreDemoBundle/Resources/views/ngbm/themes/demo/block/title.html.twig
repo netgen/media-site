@@ -5,9 +5,14 @@
 {% set title = macros.inline_template(block.parameter('title').value, _context) %}
 {% set tag = block.parameter('tag').value|default('h1') %}
 {% set link = block.parameter('link') %}
+{% set use_icon = block.hasParameter('title_icon:enabled') and block.parameter('title_icon:enabled').value is same as(true) %}
+{% set icon_css_class = block.hasParameter('title_icon:css_class') ? block.parameter('title_icon:css_class').value : null %}
 
 {% block content %}
     <{{ tag }} class="title">
+        {% if use_icon %}
+            <div class="title-icon"><i class="{{ icon_css_class }}"></i></div>
+        {% endif %}
         {% if block.parameter('use_link').value and not link.empty %}
             {{ ngbm_render_parameter(link, {content: title}) }}
         {% else %}
