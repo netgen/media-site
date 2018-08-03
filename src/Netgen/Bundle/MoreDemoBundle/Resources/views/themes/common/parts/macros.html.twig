@@ -7,3 +7,63 @@
     {% endif %}
 {% endspaceless %}
 {% endmacro %}
+
+{% macro content_link(content, link_name, link_class) %}
+{% spaceless %}
+    {% set url = '#' %}
+    {% set open_in_new_window = false %}
+    {% set link_class = link_class|default %}
+
+    {% if not content.fields.url.empty %}
+        {% set url = content.fields.url.value.link %}
+
+        {% if content.fields.target_blank.value.bool %}
+            {% set open_in_new_window = true %}
+        {% endif %}
+    {% elseif not content.fields.related_object.empty %}
+        {% set related_content_id = content.fields.related_object.value.destinationContentId %}
+
+        {% if related_content_id != content.id %} {# dead loop #}
+            {% set url = path('ez_urlalias', {'contentId': related_content_id}) %}
+        {% endif %}
+    {% endif %}
+
+    <a href="{{ url }}"
+        {% if link_class is not empty %}class="{{ link_class }}"{% endif %}
+        {% if open_in_new_window %}target="_blank" rel="noopener noreferrer" {% endif %}
+    >
+        {{ link_name|default }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro image_link(field, alias) %}
+{% spaceless %}
+    {% set url = '#' %}
+    {% set open_in_new_window = false %}
+
+    {% if not content.fields.url.empty %}
+        {% set url = content.fields.url.value.link %}
+
+        {% if content.fields.target_blank.value.bool %}
+            {% set open_in_new_window = true %}
+        {% endif %}
+    {% elseif not content.fields.related_object.empty %}
+        {% set related_content_id = content.fields.related_object.value.destinationContentId %}
+
+        {% if related_content_id != content.id %} {# dead loop #}
+            {% set url = path('ez_urlalias', {'contentId': related_content_id}) %}
+        {% endif %}
+    {% endif %}
+
+    {{ ng_render_field(
+        field, {
+            'parameters': {
+                'alias': alias,
+                'link_href': url,
+                'link_target': open_in_new_window ? '_blank' : ''
+            }
+        }
+    ) }}
+{% endspaceless %}
+{% endmacro %}

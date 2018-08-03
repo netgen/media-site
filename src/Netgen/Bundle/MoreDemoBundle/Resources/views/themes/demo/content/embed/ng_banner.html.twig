@@ -1,11 +1,9 @@
-{% extends "@ezdesign/parts/linkable.html.twig" %}
+{% import "@ezdesign/parts/macros.html.twig" as macros %}
 
 {% block content %}
     <div class="view-type view-type-{{ viewType }} ng-banner">
         <h2 class="title">
-            <a href="{{ url }}" {% if open_in_new_window %} target="_blank" rel="noopener noreferrer" {% endif %}>
-                {{ ng_render_field(content.fields.title) }}
-            </a>
+            {{ macros.content_link(content, ng_render_field(content.fields.title)) }}
         </h2>
     </div>
 {% endblock %}

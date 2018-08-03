@@ -1,27 +1,17 @@
-{% extends '@ezdesign/parts/linkable.html.twig' %}
+{% import "@ezdesign/parts/macros.html.twig" as macros %}
 
 {% block content %}
 <article class="view-type view-type-{{ viewType }} ng-banner vl1">
 
     {% if not content.fields.image.empty %}
         <figure class="image">
-            {{ ng_render_field(
-                content.fields.image, {
-                    'parameters': {
-                        'alias': 'i480',
-                        'link_href': url,
-                        'link_target': open_in_new_window ? '_blank' : ''
-                    }
-                }
-            ) }}
+            {{ macros.image_link(content.fields.image, 'i480') }}
         </figure>
     {% endif %}
 
     <header class="article-header">
 	    <h2 class="title">
-            <a href="{{ url }}" {% if open_in_new_window %} target="_blank" rel="noopener noreferrer" {% endif %}>
-                {{ ng_render_field(content.fields.title) }}
-            </a>
+            {{ macros.content_link(content, ng_render_field(content.fields.title)) }}
         </h2>
     </header>
 
