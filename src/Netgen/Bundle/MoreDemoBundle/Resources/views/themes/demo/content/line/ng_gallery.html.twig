@@ -1,5 +1,20 @@
+{% set children = location.filterChildren(['image'], 1).currentPageResults %}
+
 <article class="view-type view-type-{{ viewType }} ng-gallery vl4">
     <i class="fas fa-camera article-icon" aria-hidden="true"></i>
+    {% if children is not empty %}
+        <figure class="image">
+            {{ ng_render_field(
+                children[0].content.fields.image, {
+                    parameters: {
+                        alias: 'i480',
+                        alt_text: children[0].content.fields.name.value,
+                        link_href: path(location),
+                    }
+                }
+            ) }}
+        </figure>
+    {% endif %}
     <div class="article-content">
         <header class="article-header">
             <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
