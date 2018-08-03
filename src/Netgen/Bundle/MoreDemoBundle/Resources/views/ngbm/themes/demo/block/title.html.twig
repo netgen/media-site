@@ -1,0 +1,17 @@
+{% extends '@ngbm/block/block.html.twig' %}
+
+{% import '@ezdesign/parts/macros.html.twig' as macros %}
+
+{% set title = macros.inline_template(block.parameter('title').value, _context) %}
+{% set tag = block.parameter('tag').value|default('h1') %}
+{% set link = block.parameter('link') %}
+
+{% block content %}
+    <{{ tag }} class="title">
+        {% if block.parameter('use_link').value and not link.empty %}
+            {{ ngbm_render_parameter(link, {content: title}) }}
+        {% else %}
+            {{ title }}
+        {% endif %}
+    </{{ tag }}>
+{% endblock %}
