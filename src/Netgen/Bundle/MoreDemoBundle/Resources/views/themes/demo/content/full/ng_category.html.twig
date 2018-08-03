@@ -7,84 +7,89 @@
 {% endif %}
 
 {% block content %}
-<div class="view-type view-type-{{ viewType }} ng-category {{ content.fields.css_class.value.text|trim }} clearfix">
-    <h1 class="page-header">{{ ng_render_field(content.fields.title) }}</h1>
-
-    {% if not content.fields.full_intro.empty %}
-        <div class="intro">
-            {{ ng_render_field(content.fields.full_intro) }}
-        </div>
-    {% endif %}
-
-    {% if not content.fields.body.empty %}
-        <div class="body">
-            {{ ng_render_field(content.fields.body) }}
-        </div>
-    {% endif %}
-
-    <div class="featured-content">
-        {{ render(
-            controller(
-                'ngmore.controller.parts:viewRelatedItems', {
-                    'contentId': content.id,
-                    'fieldDefinitionIdentifier': 'featured_content',
-                    'template': '@ezdesign/parts/related_items.html.twig'
-                }
-            )
-        ) }}
-    </div>
-
-    {% if content.fields.show_children.value.bool %}
-        <div class="children">
-            {% if pager|length > 0 %}
-                {% set view_type = content.fields.view_type.value.identifiers[0]|default('standard') %}
-                {% set columns = content.fields.grid_columns.value.identifiers[0]|default('3') %}
-                {% set column_css_class = {
-                    '1': 'col-12',
-                    '2': 'col-sm-6',
-                    '3': 'col-md-4 col-sm-6',
-                    '4': 'col-lg-3 col-md-4 col-sm-6'
-                } %}
-
-                {% if view_type == 'listitem' %}
-                    <ul class="listitem-list">
-                        {% for pager_item in pager %}
-                            <li>
-                                {{ render(
-                                    controller(
-                                        'ng_content:viewAction', {
-                                            'content': pager_item.content,
-                                            'location': pager_item,
-                                            'viewType': view_type
-                                        }
-                                    )
-                                ) }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <div class="row">
-                        {% for pager_item in pager %}
-                            <div class="{{ column_css_class[columns] }}">
-                                {{ render(
-                                    controller(
-                                        'ng_content:viewAction', {
-                                            'content': pager_item.content,
-                                            'location': pager_item,
-                                            'viewType': view_type
-                                        }
-                                    )
-                                ) }}
-                            </div>
-                        {% endfor %}
+    <div class="view-type view-type-{{ viewType }} ng-category {{ content.fields.css_class.value.text|trim }} vf2">
+        <header class="full-page-header">
+            <div class="container">
+                <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
+                {% if not content.fields.full_intro.empty %}
+                    <div class="full-page-intro">
+                        {{ ng_render_field(content.fields.full_intro) }}
                     </div>
+                {% endif %}
+            </div>
+        </header>
+
+        <div class="container">
+            {% if not content.fields.body.empty %}
+                <div class="category-body">
+                    {{ ng_render_field(content.fields.body) }}
+                </div>
+            {% endif %}
+
+            <div class="category-featured-content">
+                {{ render(
+                    controller(
+                        'ngmore.controller.parts:viewRelatedItems', {
+                            'contentId': content.id,
+                            'fieldDefinitionIdentifier': 'featured_content',
+                            'template': '@ezdesign/parts/related_items.html.twig'
+                        }
+                    )
+                ) }}
+            </div>
+
+            {% if content.fields.show_children.value.bool %}
+                <div class="category-children">
+                    {% if pager|length > 0 %}
+                        {% set view_type = content.fields.view_type.value.identifiers[0]|default('standard') %}
+                        {% set columns = content.fields.grid_columns.value.identifiers[0]|default('3') %}
+                        {% set column_css_class = {
+                            '1': 'col-12',
+                            '2': 'col-sm-6',
+                            '3': 'col-md-4 col-sm-6',
+                            '4': 'col-lg-3 col-md-4 col-sm-6'
+                        } %}
+
+                        {% if view_type == 'listitem' %}
+                            <ul class="listitem-list">
+                                {% for pager_item in pager %}
+                                    <li>
+                                        {{ render(
+                                            controller(
+                                                'ng_content:viewAction', {
+                                                    'content': pager_item.content,
+                                                    'location': pager_item,
+                                                    'viewType': view_type
+                                                }
+                                            )
+                                        ) }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <div class="row">
+                                {% for pager_item in pager %}
+                                    <div class="{{ column_css_class[columns] }}">
+                                        {{ render(
+                                            controller(
+                                                'ng_content:viewAction', {
+                                                    'content': pager_item.content,
+                                                    'location': pager_item,
+                                                    'viewType': view_type
+                                                }
+                                            )
+                                        ) }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                {% if pager.haveToPaginate() %}
+                    {{ pagerfanta(pager, 'ngmore') }}
                 {% endif %}
             {% endif %}
         </div>
-
-        {% if pager.haveToPaginate() %}
-            {{ pagerfanta(pager, 'ngmore') }}
-        {% endif %}
-    {% endif %}
-</div>
+    </div>
 {% endblock %}

@@ -13,19 +13,19 @@
 {% block content %}
     <article class="view-type view-type-{{ viewType }} ng-article {{ content.fields.css_class.value.text|trim }} vf1">
         {% block article_header %}
-            <header class="full-article-header">
+            <header class="full-page-header full-article-header">
                 <div class="container">
                     {% if not content.fields.sponsored_content_disclosure.empty %}
-                        <div class="article-sponsored-tag">
+                        <div class="full-page-sponsored-tag">
                             <span>{{ content.fields.sponsored_content_disclosure.value.text }}</span>
                         </div>
                     {% elseif not content.fields.main_topic.empty %}
-                        <div class="article-main-tag">
+                        <div class="full-page-main-tag">
                             <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
                         </div>
                     {% endif %}
-                    <h1 class="article-title">{{ ng_render_field(content.fields.title) }}</h1>
-                    <p class="article-info">
+                    <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
+                    <p class="full-page-info">
                         <span class="article-author">{{ content.owner.name }}</span>
                         <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
                     </p>
@@ -77,7 +77,7 @@
 
                 <div class="full-article-footer">
                     {% block newsletter %}
-                        <div class="full-article-newsletter-box">
+                        <div class="full-page-newsletter-box">
                             <h3>Want more posts like this?</h3>
                             <p>Stay tuned with the weekly recap</p>
                             <form action="POST">
