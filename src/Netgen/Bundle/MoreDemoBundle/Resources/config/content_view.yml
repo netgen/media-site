@@ -91,6 +91,10 @@ ezpublish:
                         template: "@ezdesign/content/line/file.html.twig"
                         match:
                             Identifier\ContentType: file
+                    ng_recipe:
+                        template: "@ezdesign/content/line/ng_recipe.html.twig"
+                        match:
+                            Identifier\ContentType: ng_recipe
                     line:
                         template: "@ezdesign/content/line.html.twig"
                         match: ~
@@ -123,6 +127,10 @@ ezpublish:
                         template: "@ezdesign/content/listitem/file.html.twig"
                         match:
                             Identifier\ContentType: file
+                    ng_recipe:
+                        template: "@ezdesign/content/listitem/ng_recipe.html.twig"
+                        match:
+                            Identifier\ContentType: ng_recipe
                     listitem:
                         template: "@ezdesign/content/listitem.html.twig"
                         match: ~
@@ -187,6 +195,10 @@ ezpublish:
                         template: "@ezdesign/content/standard/image.html.twig"
                         match:
                             Identifier\ContentType: image
+                    ng_recipe:
+                        template: "@ezdesign/content/standard/ng_recipe.html.twig"
+                        match:
+                            Identifier\ContentType: ng_recipe
                     standard:
                         template: "@ezdesign/content/standard.html.twig"
                         match: ~
@@ -219,6 +231,10 @@ ezpublish:
                         template: "@ezdesign/content/standard_with_intro/ng_video.html.twig"
                         match:
                             Identifier\ContentType: ng_video
+                    ng_recipe:
+                        template: "@ezdesign/content/standard_with_intro/ng_recipe.html.twig"
+                        match:
+                            Identifier\ContentType: ng_recipe
                     standard_with_intro:
                         template: "@ezdesign/content/standard_with_intro.html.twig"
                         match: ~
@@ -275,6 +291,10 @@ ezpublish:
                         template: "@ezdesign/content/overlay/ng_banner.html.twig"
                         match:
                             Identifier\ContentType: ng_banner
+                    ng_recipe:
+                        template: "@ezdesign/content/overlay/ng_recipe.html.twig"
+                        match:
+                            Identifier\ContentType: ng_recipe
                     overlay:
                         template: "@ezdesign/content/overlay.html.twig"
                         match: ~

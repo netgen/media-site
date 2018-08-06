@@ -1,0 +1,31 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<article class="view-type view-type-{{ viewType }} ng-recipe vl4">
+
+    {{ content_fields.image(content, location, 'i320') }}
+
+    <div class="article-content">
+        <header class="article-header">
+            <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            <div class="info">
+                <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
+                {% if not content.fields.sponsored_content_disclosure.empty %}
+                    <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
+                {% elseif not content.fields.main_topic.empty %}
+                    <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                {% endif %}
+                <span class="recipe-details">
+                    {% if not content.fields.preparation_time.empty %}
+                        <span><i class="far fa-clock"></i> {{ ng_render_field(content.fields.preparation_time) }} {{ 'ngmore.layout.recipe.min'|trans }}</span>
+                    {% endif %}
+                    {% if not content.fields.serving_calories.empty %}
+                        <span><i class="fas fa-fire"></i> {{ ng_render_field(content.fields.serving_calories) }} {{ 'ngmore.layout.recipe.cal'|trans }}</span>
+                    {% endif %}
+                </span>
+            </div>
+        </header>
+        <div class="short">
+            {{ content_fields.intro(content) }}
+        </div>
+    </div>
+</article>

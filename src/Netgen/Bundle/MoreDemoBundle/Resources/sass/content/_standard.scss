@@ -38,6 +38,7 @@
         > a {
             display: inline-block;
             float: left;
+            margin-right: .25rem;
             + span,
             + time,
             + a {
@@ -48,7 +49,7 @@
                     width: .25rem;
                     height: .25rem;
                     background: $sunglow;
-                    margin: 0 .25rem .125rem;
+                    margin: 0 .25rem .125rem 0;
                 }
             }
         }
@@ -56,6 +57,21 @@
         .sponsored-tag {
             font-weight: 700;
             color: $scooter;
+        }
+        .recipe-details {
+            background: $catskill-white;
+            padding: 0 .6153846154em;
+            i {
+                color: $gray-38;
+                font-size: .8461538462em;
+                margin: 0 0 .1538461538em;
+            }
+            span + span {
+                margin-left: 1em;
+            }
+            &::before {
+                display: none;
+            }
         }
     }
     .article-icon {

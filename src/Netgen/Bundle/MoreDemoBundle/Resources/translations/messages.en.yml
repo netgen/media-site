@@ -23,3 +23,6 @@ ngmore.collected_info.success_text: 'Thank you for your feedback.'
 ngmore.collected_info.return_to_site: 'Return to site'
 ngmore.collected_info.button.send: 'Send form'
 ngmore.collected_info.information_collected: 'The following information was collected'
+
+ngmore.layout.recipe.min: 'min'
+ngmore.layout.recipe.cal: 'cal'

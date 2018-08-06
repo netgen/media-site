@@ -56,6 +56,22 @@
             font-weight: 700;
             color: $scooter;
         }
+        .recipe-details {
+            clear: left;
+            background: $catskill-white;
+            padding: 0 .6153846154em;
+            i {
+                color: $gray-38;
+                font-size: .8461538462em;
+                margin: 0 0 .1538461538em;
+            }
+            span + span {
+                margin-left: 1em;
+            }
+            &::before {
+                display: none;
+            }
+        }
     }
     .article-icon {
         position: absolute;
