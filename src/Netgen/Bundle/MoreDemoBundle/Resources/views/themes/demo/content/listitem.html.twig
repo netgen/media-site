@@ -2,4 +2,7 @@
 
 <article class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl6">
 	<h2 class="title"><a href="{{ path(location) }}">{{ content_fields.name(content) }}</a></h2>
+    {% if with_intro|default(false) %}
+        {{ content_fields.intro(content) }}
+    {% endif %}
 </article>

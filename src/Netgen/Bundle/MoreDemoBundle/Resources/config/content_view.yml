@@ -136,7 +136,9 @@ ezpublish:
                         match: ~
                 listitem_with_intro:
                     listitem_with_intro:
-                        template: "@ezdesign/content/listitem_with_intro.html.twig"
+                        template: "@ezdesign/content/listitem.html.twig"
+                        params:
+                            with_intro: true
                         match: ~
                 standard:
                     ng_article:
