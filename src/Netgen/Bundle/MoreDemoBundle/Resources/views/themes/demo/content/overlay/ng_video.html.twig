@@ -3,9 +3,7 @@
 {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
     <article class="view-type view-type-{{ viewType }} ng-video vl2">
         <i class="fas fa-play article-icon" aria-hidden="true"></i>
-        <figure class="image">
-            {{ video.poster(content, location) }}
-        </figure>
+        {{ video.poster(content, location) }}
 
         <header class="article-header">
             <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>

@@ -1,30 +1,26 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-{% set poster_image = content_fields.background_poster(content, 'image', 'i480') %}
-
 <article class="view-type view-type-{{ viewType }} ng-blog-post vl2">
-    <a href="{{ path(location) }}" class="article-link">
-        {% if poster_image is not empty %}
-            <figure class="image" style="background-image:url({{ poster_image }});"></figure>
-        {% endif %}
-
-        <header class="article-header">
-            <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-            <div class="info">
-                <span class="article-author">
-                    {% if not content.fields.author_override.empty %}
-                        {{ ng_render_field(content.fields.author_override) }}
-                    {% else %}
-                        {{ content.owner.name }}
-                    {% endif %}
-                </span>
-                <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
-                {% if not content.fields.sponsored_content_disclosure.empty %}
-                    <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
-                {% elseif not content.fields.main_topic.empty %}
-                    <span>{{ content.fields.main_topic.value.tags[0].keyword }}</span>
-                {% endif %}
-            </div>
-        </header>
+    <a href="{{ path(location) }}" class="image-16by9">
+        {{ content_fields.image(content) }}
     </a>
+
+    <header class="article-header">
+        <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+        <div class="info">
+            <span class="article-author">
+                {% if not content.fields.author_override.empty %}
+                    {{ ng_render_field(content.fields.author_override) }}
+                {% else %}
+                    {{ content.owner.name }}
+                {% endif %}
+            </span>
+            <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
+            {% if not content.fields.sponsored_content_disclosure.empty %}
+                <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
+            {% elseif not content.fields.main_topic.empty %}
+                <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+            {% endif %}
+        </div>
+    </header>
 </article>

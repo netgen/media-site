@@ -14,7 +14,7 @@
                 image_field, {
                     'parameters': {
                         'alias': alias_name,
-                        'link_href': path(location is not empty ? location : content)
+                        'link_href': location is not empty ? path(location) : null,
                     }
                 }
             ) }}

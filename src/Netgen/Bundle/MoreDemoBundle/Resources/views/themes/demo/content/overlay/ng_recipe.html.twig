@@ -1,31 +1,27 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-{% set poster_image = content_fields.background_poster(content, 'image', 'i480') %}
-
 <article class="view-type view-type-{{ viewType }} ng-recipe vl2">
-    <a href="{{ path(location) }}" class="article-link">
-        {% if poster_image is not empty %}
-            <figure class="image" style="background-image:url({{ poster_image }});"></figure>
-        {% endif %}
-
-        <header class="article-header">
-            <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-            <div class="info">
-                <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
-                {% if not content.fields.sponsored_content_disclosure.empty %}
-                    <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
-                {% elseif not content.fields.main_topic.empty %}
-                    <span>{{ content.fields.main_topic.value.tags[0].keyword }}</span>
-                {% endif %}
-                <span class="recipe-details">
-                    {% if not content.fields.preparation_time.empty %}
-                        <span><i class="far fa-clock"></i> {{ ng_render_field(content.fields.preparation_time) }} {{ 'ngmore.layout.recipe.min'|trans }}</span>
-                    {% endif %}
-                    {% if not content.fields.serving_calories.empty %}
-                        <span><i class="fas fa-fire"></i> {{ ng_render_field(content.fields.serving_calories) }} {{ 'ngmore.layout.recipe.cal'|trans }}</span>
-                    {% endif %}
-                </span>
-            </div>
-        </header>
+    <a href="{{ path(location) }}" class="image-16by9">
+        {{ content_fields.image(content) }}
     </a>
+
+    <header class="article-header">
+        <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+        <div class="info">
+            <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
+            {% if not content.fields.sponsored_content_disclosure.empty %}
+                <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
+            {% elseif not content.fields.main_topic.empty %}
+                <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+            {% endif %}
+            <span class="recipe-details">
+                {% if not content.fields.preparation_time.empty %}
+                    <span><i class="far fa-clock"></i> {{ ng_render_field(content.fields.preparation_time) }} {{ 'ngmore.layout.recipe.min'|trans }}</span>
+                {% endif %}
+                {% if not content.fields.serving_calories.empty %}
+                    <span><i class="fas fa-fire"></i> {{ ng_render_field(content.fields.serving_calories) }} {{ 'ngmore.layout.recipe.cal'|trans }}</span>
+                {% endif %}
+            </span>
+        </div>
+    </header>
 </article>

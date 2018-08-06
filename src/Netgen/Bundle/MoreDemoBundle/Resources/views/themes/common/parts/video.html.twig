@@ -2,22 +2,24 @@
     {% set alias_name = alias_name|default('i480') %}
 
     <a href="{{ path(location is not empty ? location : content) }}" class="image-16by9">
-        {% if not content.fields.poster.empty %}
-            {{ ng_render_field(content.fields.poster, {'parameters': {'alias': alias_name}}) }}
-        {% elseif not content.fields.video_identifier.empty %}
-            {% set video_identifier = content.fields.video_identifier.value.text %}
-            {% set video_types = content.fields.video_type.value.identifiers %}
+        <figure>
+            {% if not content.fields.poster.empty %}
+                {{ ng_render_field(content.fields.poster, {'parameters': {'alias': alias_name}}) }}
+            {% elseif not content.fields.video_identifier.empty %}
+                {% set video_identifier = content.fields.video_identifier.value.text %}
+                {% set video_types = content.fields.video_type.value.identifiers %}
 
-            {% if 'youtube' in video_types %}
-                <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
-            {% elseif 'vimeo' in video_types %}
-                <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" />
-            {% elseif 'dailymotion' in video_types %}
-                <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" />
+                {% if 'youtube' in video_types %}
+                    <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
+                {% elseif 'vimeo' in video_types %}
+                    <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" />
+                {% elseif 'dailymotion' in video_types %}
+                    <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" />
+                {% endif %}
+            {% else %}
+                    <img src="{{ asset('bundles/netgenmoredemo/images/video_poster.png') }}" />
             {% endif %}
-        {% else %}
-                <img src="{{ asset('bundles/netgenmoredemo/images/video_poster.png') }}" />
-        {% endif %}
+        </figure>
     </a>
 {% endmacro %}
 

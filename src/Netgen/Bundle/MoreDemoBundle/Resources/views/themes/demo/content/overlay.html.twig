@@ -1,15 +1,11 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-{% set poster_image = content_fields.background_poster(content, 'image', 'i480') %}
-
 <article class="view-type view-type-{{ viewType }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl2">
-    <a href="{{ path(location) }}" class="article-link">
-        {% if poster_image is not empty %}
-            <figure class="image" style="background-image:url({{ poster_image }});"></figure>
-        {% endif %}
-
-        <header class="article-header">
-            <h2 class="title">{{ content_fields.name(content) }}</h2>
-        </header>
+    <a href="{{ path(location) }}" class="image-16by9">
+        {{ content_fields.image(content) }}
     </a>
+
+    <header class="article-header">
+        <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.name(content) }}</a></h2>
+    </header>
 </article>
