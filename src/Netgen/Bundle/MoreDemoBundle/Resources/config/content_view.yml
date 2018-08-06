@@ -46,6 +46,10 @@ ezpublish:
                         template: "@ezdesign/content/full/ng_video.html.twig"
                         match:
                             Identifier\ContentType: ng_video
+                    ng_recipe:
+                        template: "@ezdesign/content/full/ng_recipe.html.twig"
+                        match:
+                            Identifier\ContentType: ng_recipe
                     ng_htmlbox:
                         template: "@ezdesign/content/full/ng_htmlbox.html.twig"
                         match:

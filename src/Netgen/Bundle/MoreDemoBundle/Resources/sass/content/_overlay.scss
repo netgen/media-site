@@ -85,7 +85,7 @@
         }
         .recipe-details {
             clear: left;
-            background: $catskill-white;
+            background: rgba($catskill-white, .2);
             padding: 0 .6153846154em;
             i {
                 color: $gray-38;

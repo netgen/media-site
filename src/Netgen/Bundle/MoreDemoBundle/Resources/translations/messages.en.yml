@@ -26,3 +26,7 @@ ngmore.collected_info.information_collected: 'The following information was coll
 
 ngmore.layout.recipe.min: 'min'
 ngmore.layout.recipe.cal: 'cal'
+ngmore.layout.recipe.preparation_time: 'Preparation time'
+ngmore.layout.recipe.fat: 'fat'
+ngmore.layout.recipe.carbs: 'carbs'
+ngmore.layout.recipe.protein: 'protein'

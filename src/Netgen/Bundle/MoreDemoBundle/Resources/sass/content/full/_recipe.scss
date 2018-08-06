@@ -1,0 +1,38 @@
+/* recipe full view */
+.full-recipe-info {
+    .recipe-calories {
+        text-align: center;
+        font-size: 1.75rem;
+        font-weight: 900;
+    }
+
+    .recipe-serving-info {
+        list-style-type: none;
+        margin: 2rem 0 0;
+        padding: 0;
+        text-align: center;
+        li {
+            display: inline-block;
+            font-size: 1.3125rem;
+            font-weight: 900;
+            margin: 0 .7em;
+            .tt {
+                display: block;
+                font-size: .5714285714em;
+                color: $gray-38;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .recipe-time {
+        @extend %clearfix;
+        margin: 2rem 0 0;
+        padding: 2rem 0 0;
+        border-top: 2px dashed hsla(0, 0, 0, .12);
+        time {
+            float: right;
+            font-weight: 900;
+        }
+    }
+}
