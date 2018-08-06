@@ -29,4 +29,10 @@
             {% endif %}
         </div>
     </header>
+
+    {% if with_intro|default(false) and not content.fields.line_intro.empty %}
+        <div class="short">
+            {{ ng_render_field(content.fields.line_intro) }}
+        </div>
+    {% endif %}
 </article>

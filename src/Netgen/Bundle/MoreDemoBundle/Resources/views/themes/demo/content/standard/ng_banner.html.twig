@@ -14,5 +14,11 @@
             {{ macros.content_link(content, ng_render_field(content.fields.title)) }}
         </h2>
 	</header>
+
+    {% if with_intro|default(false) %}
+        <div class="short">
+            {{ ng_render_field(content.fields.short_description) }}
+        </div>
+    {% endif %}
 </article>
 {% endblock %}

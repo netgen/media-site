@@ -11,4 +11,8 @@
             </a>
         </h2>
 	</header>
+
+    {% if with_intro|default(false) %}
+        {{ content_fields.intro(content) }}
+    {% endif %}
 </article>
