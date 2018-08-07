@@ -1,0 +1,23 @@
+/* video full view */
+.vf3 {
+    .full-video-player {
+        margin: 0 0 2rem;
+    }
+    .full-video-header {
+        .title {
+            font-size: 2.375rem;
+            margin: 0 0 .25rem;
+            line-height: 1.4;
+        }
+        .info {
+            font-size: .75rem;
+            font-weight: 900;
+            margin: 0 0 .25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+    .body {
+        font-size: 1rem;
+    }
+}

@@ -7,11 +7,17 @@
 {% endif %}
 
 {% block content %}
-    <div class="view-type view-type-{{ viewType }} ng-video {{ content.fields.css_class.value.text|trim }}">
+    <div class="view-type view-type-{{ viewType }} ng-video {{ content.fields.css_class.value.text|trim }} vf3">
+        <div class="full-video-player">
+            {{ video.player(content, true) }}
+        </div>
 
-        <h1 class="page-header">{{ ng_render_field(content.fields.title) }}</h1>
-
-        {{ video.player(content, true) }}
+        <header class="full-video-header">
+            <h1 class="title">{{ ng_render_field(content.fields.title) }}</h1>
+            <p class="info">
+                <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
+            </p>
+        </header>
 
         {% if not content.fields.line_intro.empty %}
             <div class="short">
@@ -24,6 +30,5 @@
                 {{ ng_render_field(content.fields.description) }}
             </div>
         {% endif %}
-
     </div>
 {% endblock %}
