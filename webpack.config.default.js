@@ -31,8 +31,7 @@ Encore
   // allow legacy applications to use $/jQuery as a global variable
   // .autoProvidejQuery()
 
-  // disable source maps - enabled for css and js separately
-  .enableSourceMaps(false)
+  .enableSourceMaps(!Encore.isProduction())
 
   // empty the outputPath dir before each build
   .cleanupOutputBeforeBuild()
@@ -41,7 +40,6 @@ Encore
   .enableVersioning(Encore.isProduction())
 
   .enablePostCssLoader((options) => {
-    options.sourceMap = !Encore.isProduction(); // eslint-disable-line no-param-reassign
     options.config = { // eslint-disable-line no-param-reassign
       path: 'postcss.config.js',
     };
@@ -73,11 +71,6 @@ if (Encore.isProduction()) {
 
 config.watchOptions = { poll: true, ignored: /node_modules/ };
 config.name = siteConfig.name;
-
-// Add source maps for js
-if (!Encore.isProduction()) {
-  config.devtool = 'eval';
-}
 
 // export the final configuration
 module.exports = config;
