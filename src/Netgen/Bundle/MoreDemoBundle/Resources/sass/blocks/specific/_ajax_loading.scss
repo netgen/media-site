@@ -1,0 +1,41 @@
+.ajax-loading {
+    > * {
+        pointer-events: none;
+    }
+    .ajax-navigation {
+        position: relative;
+        > ul {
+            opacity: .5;
+        }
+        .ajax-load-more {
+            opacity: 0;
+        }
+        &::before {
+            @extend %fontawesome;
+            content: '\f1ce';
+            position: absolute;
+            z-index: 100;
+            left: 50%;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: -20px 0 0 -20px;
+            color: #333;
+            font-size: 32px;
+            animation: ajaxLoader 1s infinite linear;
+        }
+    }
+}
+@keyframes ajaxLoader {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+div[class^='ajax-status-reports-'] {
+    &.ajax-loading {
+        min-height: 40px;
+        margin: 0 0 2em;
+    }
+}
