@@ -74,3 +74,48 @@
     }
 }
 /* /EMBEDED OBJECTS */
+
+/* ezxmltext elements */
+.ezxmltext-field {
+    p {
+        margin: 0 0 2em;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0 0 2em;
+        padding: 0;
+        > li {
+            position: relative;
+            margin: 0 0 1em;
+            padding: 0 0 0 1.5em;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: .2777777778em;
+                width: .8888888889em;
+                height: .8888888889em;
+                background: $sunglow;
+            }
+        }
+    }
+    ol {
+        counter-reset: ol-counter;
+        list-style-type: none;
+        margin: 0 0 2em;
+        padding: 0;
+        > li {
+            position: relative;
+            margin: 0 0 1em;
+            padding: 0 0 0 1.5em;
+            &::before {
+                counter-increment: ol-counter;
+                content: counter(ol-counter)'.';
+                position: absolute;
+                left: 0;
+                font-weight: 900;
+                color: $sunglow;
+            }
+        }
+    }
+}

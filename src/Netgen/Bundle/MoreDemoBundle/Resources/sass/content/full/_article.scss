@@ -46,7 +46,7 @@
 /* full article body styling */
 .full-article-body {
     @extend %clearfix;
-    padding: 4rem;
+    padding: 4rem 4rem 2rem;
     background: $body-bg;
     p {
         margin: 0 0 1.7777777778em;
