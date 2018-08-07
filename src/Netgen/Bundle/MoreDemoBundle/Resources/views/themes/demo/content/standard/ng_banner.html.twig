@@ -10,10 +10,10 @@
     {% endif %}
 
     <header class="article-header">
-	    <h2 class="title">
+        <h2 class="title">
             {{ macros.content_link(content, ng_render_field(content.fields.title)) }}
         </h2>
-	</header>
+    </header>
 
     {% if with_intro|default(false) %}
         <div class="short">

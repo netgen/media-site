@@ -67,3 +67,26 @@
     ) }}
 {% endspaceless %}
 {% endmacro %}
+
+{% macro content_link_parameters(content) %}
+{% spaceless %}
+    {% set url = '#' %}
+    {% set open_in_new_window = false %}
+
+    {% if not content.fields.url.empty %}
+        {% set url = content.fields.url.value.link %}
+
+        {% if content.fields.target_blank.value.bool %}
+            {% set open_in_new_window = true %}
+        {% endif %}
+    {% elseif not content.fields.related_object.empty %}
+        {% set related_content_id = content.fields.related_object.value.destinationContentId %}
+
+        {% if related_content_id != content.id %} {# dead loop #}
+            {% set url = path('ez_urlalias', {'contentId': related_content_id}) %}
+        {% endif %}
+    {% endif %}
+
+    href="{{ url }}"{% if open_in_new_window %} target="_blank" rel="noopener noreferrer"{% endif %}
+{% endspaceless %}
+{% endmacro %}

@@ -1,22 +1,22 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 {% import "@ezdesign/parts/macros.html.twig" as macros %}
 
-{% set poster_image = content_fields.background_poster(content, 'image', 'i480') %}
-
-{% set link_name %}
-{% spaceless %}
-    {% if poster_image is not empty %}
-        <figure class="image" style="background-image:url({{ poster_image }});"></figure>
-    {% endif %}
-
-    <header class="article-header">
-        <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-    </header>
-{% endspaceless %}
-{% endset %}
-
 {% block content %}
 <article class="view-type view-type-{{ viewType }} ng-banner vl2">
-    {{ macros.content_link(content, link_name, 'article-link') }}
+    <a {{ macros.content_link_parameters(content) }} class="image-16by9">
+        {{ content_fields.image(content) }}
+    </a>
+
+    <header class="article-header">
+        <h2 class="title">
+            <a {{ macros.content_link_parameters(content) }}>
+                {% if not content.fields.url.empty %}
+                    {{ content.fields.url.value.text }}
+                {% else %}
+                    {{ ng_render_field(content.fields.title) }}
+                {% endif %}
+            </a>
+        </h2>
+    </header>
 </article>
 {% endblock %}
