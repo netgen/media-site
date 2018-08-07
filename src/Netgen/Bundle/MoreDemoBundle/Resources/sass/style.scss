@@ -7,9 +7,7 @@
 @import 'magnific-popup/src/css/main';
 @import 'variables';
 
-@import 'bootstrap/scss/functions';
-@import 'bootstrap_variables';
-@import 'bootstrap';
+@import 'bootstrap_import/bootstrap_import';
 
 @import 'typography';
 @import 'layout/layout';
