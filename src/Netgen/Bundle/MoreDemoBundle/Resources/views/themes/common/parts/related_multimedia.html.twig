@@ -1,5 +1,8 @@
 {% if multimedia_items|default([])|length > 0 %}
     {% set is_slider = multimedia_items|length > 1 %}
+    {% if multimedia_items|length == 2 and multimedia_items[0].content.hasField('image') and multimedia_items[0].content.fields.image.empty %}
+        {% set is_slider = false %}
+    {% endif %}
 
     {% if is_slider %}
         <div class="related-multimedia swiper-container">
