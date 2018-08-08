@@ -355,6 +355,10 @@ ezpublish:
                         template: "@ezdesign/content/overlay/ng_recipe.html.twig"
                         match:
                             Identifier\ContentType: ng_recipe
+                    ng_gallery:
+                        template: "@ezdesign/content/overlay/ng_gallery.html.twig"
+                        match:
+                            Identifier\ContentType: ng_gallery
                     overlay:
                         template: "@ezdesign/content/overlay.html.twig"
                         match: ~
