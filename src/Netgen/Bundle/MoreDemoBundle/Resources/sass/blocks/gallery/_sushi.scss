@@ -34,9 +34,8 @@
             height: 1.125em;
             border-left: .2222222222em solid currentColor;
             border-bottom: .2222222222em solid currentColor;
-            transform: rotate(45deg) translate3d(-50%, -50%, 0);
-            transform-origin: bottom;
-            margin-left: -.7777777778em;
+            transform: rotate(45deg) translate3d(-50%, -20%, 0);
+            margin-left: -.1666666667em;
         }
         &:hover {
             background: $gray-87;

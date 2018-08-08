@@ -114,7 +114,7 @@ $(document).ready(() => {
         },
         pagination: {
           el: `#${swiperId} .swiper-pagination`,
-          clickable: true,
+          type: 'fraction',
         },
         preloadImages: false,
         loop: data.loop,

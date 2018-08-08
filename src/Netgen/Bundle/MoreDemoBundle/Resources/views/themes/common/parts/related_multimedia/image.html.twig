@@ -5,9 +5,23 @@
 
     {% if is_slider %}
         <div class="swiper-slide">
-            <img class="swiper-lazy" data-src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
+            <figure class="related-image">
+                <img class="swiper-lazy" data-src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
+                {% if content.fields.caption is defined and not content.fields.caption.empty %}
+                    <figcaption>
+                        {{ ng_render_field(content.fields.caption) }}
+                    </figcaption>
+                {% endif %}
+            </figure>
         </div>
     {% else %}
-        <img src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
+        <figure class="related-image">
+            <img src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
+            {% if content.fields.caption is defined and not content.fields.caption.empty %}
+                <figcaption>
+                    {{ ng_render_field(content.fields.caption) }}
+                </figcaption>
+            {% endif %}
+        </figure>
     {% endif %}
 {% endif %}
