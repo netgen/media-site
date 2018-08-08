@@ -46,6 +46,9 @@
     .title {
         font-size: 1.3125rem;
         margin: 0 0 .25rem;
+        a {
+            display: block;
+        }
     }
     .info {
         @extend %clearfix;
