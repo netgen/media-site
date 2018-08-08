@@ -21,6 +21,7 @@
         }
         .active {
             a {
+                color: $black;
                 &::after {
                     transform: scaleY(1);
                 }
