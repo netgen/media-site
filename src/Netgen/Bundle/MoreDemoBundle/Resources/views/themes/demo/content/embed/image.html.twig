@@ -1,6 +1,6 @@
 {% if not content.fields.image.empty %}
     <div class="view-type view-type-{{ viewType }} image">
-        <div class="img-container">
+        <figure class="image-wrapper">
             {{ ng_render_field(
                 content.fields.image, {
                     'parameters': {
@@ -13,19 +13,12 @@
                     }
                 }
             ) }}
-        </div>
 
-        {% if not content.fields.caption.empty %}
-            {% set image_alias = ng_image_alias(content.fields.image, objectParameters.size) %}
-            {% if image_alias.width|default('') is not empty %}
-                <div class="caption" style="width: {{ image_alias.width }}px">
+            {% if not content.fields.caption.empty %}
+                <figcaption>
                     {{ ng_render_field(content.fields.caption) }}
-                </div>
-            {% else %}
-                <div class="caption">
-                    {{ ng_render_field(content.fields.caption) }}
-                </div>
+                </figcaption>
             {% endif %}
-        {% endif %}
+        </figure>
     </div>
 {% endif %}

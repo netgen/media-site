@@ -53,6 +53,20 @@
         font-style: italic;
         color: $gray-54;
     }
+    .object-full {
+        margin-left: -4rem;
+        margin-right: -4rem;
+    }
+    .object-left > .view-type-embed {
+        margin-left: -4rem;
+    }
+    .object-right > .view-type-embed {
+        margin-right: -4rem;
+    }
+    div:not([class^='object-']) > .view-type-embed {
+        margin-left: -4rem;
+        margin-right: -4rem;
+    }
 }
 
 /* single column article layout */

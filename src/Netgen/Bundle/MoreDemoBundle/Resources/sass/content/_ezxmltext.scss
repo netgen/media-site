@@ -1,19 +1,13 @@
 /* EMBEDED OBJECTS ----------------------------------------------------- */
-.object-left,
-.half-left {
+.object-left {
     float: left;
     clear: left;
     margin-right: 2.5%;
 }
-.object-right,
-.half-right {
+.object-right {
     float: right;
     clear: right;
     margin-left: 2.5%;
-}
-.half-left,
-.half-right {
-    width: 47.5%;
 }
 .object-left,
 .object-right {
@@ -22,29 +16,12 @@
 .object-center {
     .view-type-embed {
         max-width: 75%;
-        &,
-        &.image {
-            .img-container {
-                margin: 0 auto;
-            }
-        }
+        margin: 0 auto;
     }
 }
 .view-type-embed {
     &.image {
-        margin-bottom: 2.5%;
-        .img-container {
-            display: table;
-            img {
-                width: 100%;
-            }
-        }
-        .caption {
-            font-size: .8em;
-            p {
-                margin: 0;
-            }
-        }
+        margin-bottom: 2rem;
     }
     &.ng-video {
         margin: 20px 0;
@@ -59,9 +36,7 @@
 
 @include media-breakpoint-down(xs) {
     .object-left,
-    .object-right,
-    .half-left,
-    .half-right {
+    .object-right {
         width: 100%;
         max-width: 100%;
         margin-left: 0;
@@ -79,6 +54,14 @@
 .ezxmltext-field {
     p {
         margin: 0 0 2em;
+        a {
+            border-bottom: .25rem solid $sunglow;
+            transition: border .3s;
+            &:hover {
+                color: inherit;
+                border-color: darken($sunglow, 15%);
+            }
+        }
     }
     ul {
         list-style-type: none;
@@ -115,6 +98,29 @@
                 left: 0;
                 font-weight: 900;
                 color: $sunglow;
+            }
+        }
+    }
+    blockquote {
+        background-color: rgba(254, 215, 47, .04);
+        border-bottom: .375rem solid $sunglow;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        .blockquote-body {
+            font-size: 1.5625rem;
+            font-style: italic;
+            &::before {
+                @extend %fontawesome;
+                content: '\f10d';
+                color: $sunglow;
+                font-size: 2.5em;
+            }
+        }
+        p {
+            margin: 0;
+            + p {
+                margin-top: 2em;
             }
         }
     }
