@@ -21,7 +21,7 @@
                         </div>
                     {% elseif not content.fields.main_topic.empty %}
                         <div class="full-page-main-tag">
-                            <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                            <a href="{{ ngmore_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
                         </div>
                     {% endif %}
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>

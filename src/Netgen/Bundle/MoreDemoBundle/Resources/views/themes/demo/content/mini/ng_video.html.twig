@@ -15,7 +15,7 @@
                 {% if not content.fields.sponsored_content_disclosure.empty %}
                     <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
                 {% elseif not content.fields.main_topic.empty %}
-                    <a href="{{ path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                    <a href="{{ ngmore_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
                 {% endif %}
             </div>
         </header>
