@@ -50,6 +50,10 @@ ezpublish:
                         template: "@ezdesign/content/full/ng_recipe.html.twig"
                         match:
                             Identifier\ContentType: ng_recipe
+                    ng_topic:
+                        template: "@ezdesign/content/full/ng_topic.html.twig"
+                        match:
+                            Identifier\ContentType: ng_topic
                     ng_htmlbox:
                         template: "@ezdesign/content/full/ng_htmlbox.html.twig"
                         match:
