@@ -6,49 +6,49 @@
     {% set meta_data = {'description': content.fields.description.value.xml.saveXML()|striptags|trim|truncate(152)} %}
 {% endif %}
 
+{% block pre_content %}
+    <header class="full-page-header full-gallery-header">
+        <div class="container">
+            {% if not content.fields.sponsored_content_disclosure.empty %}
+                <div class="full-page-sponsored-tag">
+                    <span>{{ content.fields.sponsored_content_disclosure.value.text }}</span>
+                </div>
+            {% elseif not content.fields.main_topic.empty %}
+                <div class="full-page-main-tag">
+                    <a href="{{ ngmore_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                </div>
+            {% endif %}
+            <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
+            <p class="full-page-info">
+                <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
+            </p>
+        </div>
+    </header>
+{% endblock %}
+
 {% block content %}
     <div class="view-type view-type-{{ viewType }} ng-gallery {{ content.fields.css_class.value.text|trim }}">
-        <header class="full-page-header full-gallery-header">
-            <div class="container">
-                {% if not content.fields.sponsored_content_disclosure.empty %}
-                    <div class="full-page-sponsored-tag">
-                        <span>{{ content.fields.sponsored_content_disclosure.value.text }}</span>
-                    </div>
-                {% elseif not content.fields.main_topic.empty %}
-                    <div class="full-page-main-tag">
-                        <a href="{{ ngmore_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
-                    </div>
-                {% endif %}
-                <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
-                <p class="full-page-info">
-                    <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
-                </p>
-            </div>
-        </header>
+        {{ render(
+            controller(
+                'ngmore.controller.parts:viewRelatedMultimediaItems', {
+                    'locationId': location.id,
+                    'includeChildren': true,
+                    'contentTypeIdentifiers': ['image', 'ng_video'],
+                    'template': '@ezdesign/parts/related_multimedia.html.twig'
+                }
+            )
+        ) }}
 
-        <div class="container">
-            {{ render(
-                controller(
-                    'ngmore.controller.parts:viewRelatedMultimediaItems', {
-                        'locationId': location.id,
-                        'includeChildren': true,
-                        'contentTypeIdentifiers': ['image', 'ng_video'],
-                        'template': '@ezdesign/parts/related_multimedia.html.twig'
-                    }
-                )
-            ) }}
+        <div class="full-article-body">
+            {% if not content.fields.line_intro.empty %}
+                <div class="article-intro">
+                    {{ ng_render_field(content.fields.line_intro) }}
+                </div>
+            {% endif %}
 
-            <div class="full-article-body">
-                {% if not content.fields.line_intro.empty %}
-                    <div class="article-intro">
-                        {{ ng_render_field(content.fields.line_intro) }}
-                    </div>
-                {% endif %}
-
-                {% if not content.fields.description.empty %}
-                    {{ ng_render_field(content.fields.description) }}
-                {% endif %}
-            </div>
+            {% if not content.fields.description.empty %}
+                {{ ng_render_field(content.fields.description) }}
+            {% endif %}
         </div>
     </div>
 {% endblock %}
