@@ -30,8 +30,10 @@
         color: $scooter;
     }
     a {
+        transition: border-color .15s;
+        border-bottom: .125rem solid transparent;
         &:hover {
-            border-bottom: .125rem solid currentColor;
+            border-bottom-color: currentColor;
         }
     }
     .recipe-details {
@@ -56,6 +58,6 @@
     border-bottom: 4px solid transparent;
     &:hover {
         color: inherit;
-        border-bottom: 4px solid $sunglow;
+        border-bottom-color: $sunglow;
     }
 }
