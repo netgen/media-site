@@ -20,7 +20,8 @@
     }
 }
 .view-type-embed {
-    &.image {
+    &.image,
+    &.ng-gallery {
         margin-bottom: 2rem;
     }
     &.ng-video {
