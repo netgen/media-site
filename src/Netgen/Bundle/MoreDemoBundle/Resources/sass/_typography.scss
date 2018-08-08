@@ -13,6 +13,7 @@ a {
     &,
     &:hover,
     &:focus {
+        color: inherit;
         outline: none;
         text-decoration: none;
     }

@@ -47,56 +47,12 @@
         font-size: 1.3125rem;
         margin: 0 0 .25rem;
         a {
-            display: block;
+            @extend %item-title-link;
         }
     }
     .info {
-        @extend %clearfix;
+        @extend %item-header-info;
         margin: 0;
-        text-transform: uppercase;
-        font-size: .8125rem;
-        letter-spacing: 1px;
-        > span,
-        > time,
-        > a {
-            display: inline-block;
-            float: left;
-            margin-right: .25rem;
-            + span,
-            + time,
-            + a {
-                &::before {
-                    content: '';
-                    display: inline-block;
-                    vertical-align: middle;
-                    width: .25rem;
-                    height: .25rem;
-                    background: $sunglow;
-                    margin: 0 .25rem .125rem 0;
-                }
-            }
-        }
-        a,
-        .sponsored-tag {
-            font-weight: 700;
-            color: $scooter;
-        }
-        .recipe-details {
-            clear: left;
-            background: rgba($catskill-white, .2);
-            padding: 0 .6153846154em;
-            i {
-                color: $gray-38;
-                font-size: .8461538462em;
-                margin: 0 0 .1538461538em;
-            }
-            span + span {
-                margin-left: 1em;
-            }
-            &::before {
-                display: none;
-            }
-        }
     }
     .article-icon {
         position: absolute;
