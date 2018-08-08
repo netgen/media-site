@@ -2,7 +2,6 @@
 
 {% import '@ezdesign/parts/macros.html.twig' as macros %}
 
-{% set title = macros.inline_template(block.parameter('title').value, _context) %}
 {% set tag = block.parameter('tag').value|default('h1') %}
 {% set link = block.parameter('link') %}
 
@@ -11,6 +10,9 @@
 {% set use_icon = use_icon and icon_css_class is not empty %}
 
 {% block content %}
+    {# Located inside the "content" block to include the context from the parent template #}
+    {% set title = macros.inline_template(block.parameter('title').value, _context) %}
+
     <{{ tag }} class="title">
         {% if use_icon %}
             <div class="title-icon"><i class="{{ icon_css_class }}"></i></div>
