@@ -11,7 +11,7 @@
 {% endif %}
 
 {% block success %}
-    <div class="body">
+    <div class="feedback-form-response">
         {% if not content.fields.success_text.empty %}
             {{ ng_render_field(content.fields.success_text) }}
         {% else %}
@@ -30,39 +30,44 @@
     </div>
 {% endblock %}
 
-{% block content %}
-    <div class="view-type view-type-{{ viewType }} ng-feedback-form clearfix">
-        <h1 class="page-header">{{ ng_render_field(content.fields.title) }}</h1>
-
-        {% if not is_valid %}
-            {% if not content.fields.full_intro.empty %}
-                <div class="intro">
+{% block pre_content %}
+    <header class="full-page-header full-feedback-form-header">
+        <div class="container">
+            <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
+            {% if not is_valid and not content.fields.full_intro.empty %}
+                <div class="full-page-intro">
                     {{ ng_render_field(content.fields.full_intro) }}
                 </div>
             {% endif %}
+        </div>
+    </header>
+{% endblock %}
 
-            {% if not content.fields.body.empty %}
-                <div class="body">
+{% block content %}
+    <div class="view-type view-type-{{ viewType }} ng-feedback-form">
+        <div class="full-feedback-form-content">
+            {% if not is_valid %}
+                {% if not content.fields.body.empty %}
                     {{ ng_render_field(content.fields.body) }}
-                </div>
+                {% endif %}
+
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    <fieldset>
+                        {{ form_row(form.sender_name, {attr: {class: 'form-control'}}) }}
+                        {{ form_row(form.email, {attr: {class: 'form-control'}}) }}
+                        {{ form_row(form.subject, {attr: {class: 'form-control'}}) }}
+                        {{ form_row(form.message, {attr: {class: 'form-control'}}) }}
+
+                        <button type="submit" class="btn btn-primary">{{ 'ngmore.collected_info.button.send'|trans }}</button>
+                    </fieldset>
+
+                    {{ form_rest(form) }}
+                {{ form_end(form) }}
+            {% else %}
+                {{ block('success') }}
             {% endif %}
-
-            {{ form_start(form) }}
-                {{ form_errors(form) }}
-
-                <fieldset>
-                    {{ form_row(form.sender_name, {attr: {class: 'form-control'}}) }}
-                    {{ form_row(form.email, {attr: {class: 'form-control'}}) }}
-                    {{ form_row(form.subject, {attr: {class: 'form-control'}}) }}
-                    {{ form_row(form.message, {attr: {class: 'form-control'}}) }}
-
-                    <button type="submit" class="btn btn-primary">{{ 'ngmore.collected_info.button.send'|trans }}</button>
-                </fieldset>
-
-                {{ form_rest(form) }}
-            {{ form_end(form) }}
-        {% else %}
-            {{ block('success') }}
-        {% endif %}
+        </div>
     </div>
 {% endblock %}

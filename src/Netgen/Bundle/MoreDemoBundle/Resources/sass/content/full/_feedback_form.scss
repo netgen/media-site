@@ -1,0 +1,24 @@
+/* feedback gorm full view */
+.full-feedback-form-content {
+    padding: 2rem;
+    margin: 0 auto 4rem;
+    background: $white;
+    max-width: 35rem;
+}
+
+.full-feedback-form-header {
+    padding-bottom: 14rem;
+    margin-bottom: -10rem;
+}
+
+.feedback-form-response {
+    text-align: center;
+    min-height: 15rem;
+    p {
+        font-size: 2rem;
+        font-style: italic;
+    }
+    a {
+        border-bottom: .25rem solid $sunglow;
+    }
+}
