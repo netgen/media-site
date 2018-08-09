@@ -20,7 +20,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="view-type view-type-{{ view_type }} ng-category {{ content.fields.css_class.value.text|trim }} vf2">
+    <div class="view-type view-type-{{ view_type }} ng-category vf2">
         {% if not content.fields.body.empty %}
             <div class="category-body">
                 {{ ng_render_field(content.fields.body) }}

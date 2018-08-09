@@ -30,7 +30,11 @@
 
 {% include '@NetgenMore/parts/facebook_api.html.twig' %}
 
-<div id="page">
+{% if content is defined and content.hasField('css_class') and not content.fields.css_class.empty %}
+    {% set page_css_class = content.fields.css_class.value.text|trim %}
+{% endif %}
+
+<div id="page"{% if page_css_class|default is not empty %} class="{{ page_css_class }}"{% endif %}>
     {% block layout %}
         {% block header %}
             {% include '@ezdesign/page_header.html.twig' %}
