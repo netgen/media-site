@@ -1,6 +1,6 @@
 {% import '@ezdesign/parts/slide.html.twig' as slide %}
 
-<div class="view-type view-type-{{ viewType }} ng-blog-post vl3  {% if show_details_on_hover %}show_details_on_hover{% endif %}">
+<div class="view-type view-type-{{ view_type }} ng-blog-post vl3  {% if show_details_on_hover %}show_details_on_hover{% endif %}">
     {% if image_type == 'main' %}
         {{ slide.image(content, 'image', 'i1200', true) }}
 

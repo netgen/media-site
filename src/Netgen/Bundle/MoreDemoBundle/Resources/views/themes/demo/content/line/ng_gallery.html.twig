@@ -1,6 +1,6 @@
 {% set children = location.filterChildren(['image'], 1).currentPageResults %}
 
-<article class="view-type view-type-{{ viewType }} ng-gallery vl4">
+<article class="view-type view-type-{{ view_type }} ng-gallery vl4">
     <i class="fas fa-camera article-icon" aria-hidden="true"></i>
     {% if children is not empty %}
         {% set first_image = children[0].content %}

@@ -2,7 +2,7 @@
 {% import "@ezdesign/parts/macros.html.twig" as macros %}
 
 {% block content %}
-    <div class="view-type view-type-{{ viewType }} ng-banner vl3 {{ content.fields.css_class.value.text|trim }} {% if show_details_on_hover %}show_details_on_hover{% endif %}">
+    <div class="view-type view-type-{{ view_type }} ng-banner vl3 {{ content.fields.css_class.value.text|trim }} {% if show_details_on_hover %}show_details_on_hover{% endif %}">
         {% if image_type == 'main' %}
             {{ slide.image(content, 'image', 'i1200', true) }}
 

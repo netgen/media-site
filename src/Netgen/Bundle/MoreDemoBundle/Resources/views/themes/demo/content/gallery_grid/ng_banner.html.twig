@@ -1,7 +1,7 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 {% if not content.fields.image.empty %}
-    <div class="view-type view-type-{{ viewType }} ng-banner vl3{% if not content.fields.css_class.empty %} {{ content.fields.css_class.value.text }}{% endif %}">
+    <div class="view-type view-type-{{ view_type }} ng-banner vl3{% if not content.fields.css_class.empty %} {{ content.fields.css_class.value.text }}{% endif %}">
         {% set title = content_fields.name(content) %}
 
         <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }}" class="js-mfp-item">

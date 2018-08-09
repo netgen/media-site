@@ -1,7 +1,7 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 {% if not content.fields.image.empty %}
-    <div class="view-type view-type-{{ viewType }} ng-blog-post vl3">
+    <div class="view-type view-type-{{ view_type }} ng-blog-post vl3">
         {% if not content.fields.authors.empty %}
             {% set author = ngmore_location_name(content.fields.authors.value.destinationLocationIds[0]) %}
         {% else %}

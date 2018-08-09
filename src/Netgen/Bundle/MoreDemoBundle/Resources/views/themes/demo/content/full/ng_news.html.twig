@@ -13,7 +13,7 @@
 {% set poster_image = content_fields.background_poster(content) %}
 
 {% block content %}
-    <article class="view-type view-type-{{ viewType }} ng-article {{ content.fields.css_class.value.text|trim }} vf1">
+    <article class="view-type view-type-{{ view_type }} ng-article {{ content.fields.css_class.value.text|trim }} vf1">
         {% block article_header %}
             <header class="full-page-header full-article-header">
                 <div class="container">
