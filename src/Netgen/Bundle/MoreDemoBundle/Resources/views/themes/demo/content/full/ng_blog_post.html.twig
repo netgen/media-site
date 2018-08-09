@@ -76,9 +76,10 @@
                         <div class="container">
                             <div class="article-date">
                                 {% if not content.fields.authors.empty %}
-                                    <span class="article-author">
-                                        By {{ ng_render_field(content.fields.authors) }}
-                                    </span> -
+                                    By
+                                    {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
+                                        <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngmore_location_name(author_location_id) }}</a>
+                                    {% endfor %} -
                                 {% endif %}
                                 {{ content.fields.publish_date.value.value|date('F jS, Y') }}
                             </div>
