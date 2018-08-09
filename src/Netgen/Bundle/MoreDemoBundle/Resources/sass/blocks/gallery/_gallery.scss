@@ -46,6 +46,11 @@
         font-size: 1.125em;
         padding: 0 2.4em;
     }
+    .image-wrapper {
+        figcaption {
+            max-width: calc(100% - 16rem);
+        }
+    }
 }
 
 .image-wrapper {
