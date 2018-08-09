@@ -75,13 +75,12 @@
                     {% block author %}
                         <div class="container">
                             <div class="article-date">
-                                By <span class="author">
-                                    {% if not content.fields.author_override.empty %}
-                                        {{ ng_render_field(content.fields.author_override) }}
-                                    {% else %}
-                                        {{ content.owner.name }}
-                                    {% endif %}
-                                </span> - {{ content.fields.publish_date.value.value|date('F jS, Y') }}
+                                {% if not content.fields.authors.empty %}
+                                    <span class="article-author">
+                                        By {{ ng_render_field(content.fields.authors) }}
+                                    </span> -
+                                {% endif %}
+                                {{ content.fields.publish_date.value.value|date('F jS, Y') }}
                             </div>
                         </div>
                     {% endblock %}

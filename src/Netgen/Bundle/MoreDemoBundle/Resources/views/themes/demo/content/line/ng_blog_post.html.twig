@@ -8,13 +8,11 @@
         <header class="article-header">
             <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
             <div class="info">
-                <span class="article-author">
-                    {% if not content.fields.author_override.empty %}
-                        {{ ng_render_field(content.fields.author_override) }}
-                    {% else %}
-                        {{ content.owner.name }}
-                    {% endif %}
-                </span>
+                {% if not content.fields.authors.empty %}
+                    <span class="article-author">
+                        {{ ng_render_field(content.fields.authors) }}
+                    </span>
+                {% endif %}
                 <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
                 {% if not content.fields.sponsored_content_disclosure.empty %}
                     <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
