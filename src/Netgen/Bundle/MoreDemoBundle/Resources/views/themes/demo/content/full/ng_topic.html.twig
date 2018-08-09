@@ -22,5 +22,13 @@
                 </div>
             </header>
         {% endblock %}
+
+        <div class="container">
+            {% block body %}
+                {% if not content.fields.body.empty %}
+                    {{ ng_render_field(content.fields.body) }}
+                {% endif %}
+            {% endblock %}
+        </div>
     </div>
 {% endblock %}
