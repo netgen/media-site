@@ -13,91 +13,88 @@
 {% set poster_image = content_fields.background_poster(content) %}
 
 {% block content %}
-    <div class="view-type view-type-{{ viewType }} ng-blog-post {{ content.fields.css_class.value.text|trim }} vf1 clearfix">
-        <div class="article-header {% if poster_image is empty %} no-image{% endif %}" {% if poster_image is not empty %} style="background-image:url({{ poster_image }});" {% endif %}>
-            {% block image %}
-                {% if not content.fields.image.empty %}
-                    <div class="container">
-                        <div class="article-image">
-                            {{ ng_render_field(
-                                content.fields.image, {
-                                    'parameters': {
-                                        'alias': 'i1200'
-                                    }
-                                }
-                            ) }}
+    <article class="view-type view-type-{{ viewType }} ng-blog-post {{ content.fields.css_class.value.text|trim }} vf1">
+        {% block article_header %}
+            <header class="full-page-header full-article-header">
+                <div class="container">
+                    {% if not content.fields.sponsored_content_disclosure.empty %}
+                        <div class="full-page-sponsored-tag">
+                            <span>{{ content.fields.sponsored_content_disclosure.value.text }}</span>
                         </div>
+                    {% elseif not content.fields.main_topic.empty %}
+                        <div class="full-page-main-tag">
+                            <a href="{{ ngmore_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                        </div>
+                    {% endif %}
+                    <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
+                    <div class="full-page-info">
+                        {% if not content.fields.authors.empty %}
+                            By
+                            {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
+                                <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngmore_location_name(author_location_id) }}</a>
+                            {% endfor %} -
+                        {% endif %}
+                        <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
+                    </div>
+                </div>
+            </header>
+        {% endblock %}
+
+        <div class="container">
+            {% block image %}
+                {% if not content.fields.image.empty or not content.fields.related_multimedia.empty %}
+                    <div class="full-article-image">
+                        {{ render(
+                            controller(
+                                'ngmore.controller.parts:viewRelatedMultimediaItems', {
+                                    'locationId': location.id,
+                                    'includeChildren': true,
+                                    'contentTypeIdentifiers': ['image', 'ng_video'],
+                                    'template': '@ezdesign/parts/related_multimedia.html.twig'
+                                }
+                            )
+                        ) }}
                     </div>
                 {% endif %}
             {% endblock %}
 
-            <div class="article-header-info">
-                {% block title %}
-                    <div class="container">
-                        <h1 class="article-title">{{ ng_render_field(content.fields.title) }}</h1>
-                    </div>
-                {% endblock %}
+            <div class="full-article-content">
 
-                {% block intro %}
-                    {% if not content.fields.full_intro.empty %}
-                        <div class="container">
+                {% block body %}
+                    <div class="full-article-body">
+                        {% if not content.fields.full_intro.empty %}
                             <div class="article-intro">
                                 {{ ng_render_field(content.fields.full_intro) }}
                             </div>
-                        </div>
-                    {% endif %}
-                {% endblock %}
-            </div>
-        </div>
-        <div class="container">
-            <div class="article-content">
-                {% if not content.fields.headline.empty %}
-                    <h2 class="headline">{{ ng_render_field(content.fields.headline) }}</h2>
-                {% endif %}
+                        {% endif %}
 
-                {% include '@NetgenMore/parts/social.html.twig' %}
-
-                {% block body %}
-                    {% if not content.fields.body.empty %}
-                        <div class="article-body">
+                        {% if not content.fields.body.empty %}
                             {{ ng_render_field(content.fields.body) }}
-                        </div>
-                    {% endif %}
+                        {% endif %}
+
+                        {% if not content.fields.tags.empty %}
+                            <div class="full-article-tags">
+                                {% for tag in content.fields.tags.value.tags %}
+                                    <a href="{{ path(tag) }}">{{ tag.keyword }}</a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
                 {% endblock %}
 
-                {% if not content.fields.location.empty %}
-                    <div class="location">
-                        {{ ng_render_field(content.fields.location) }}
-                    </div>
-                {% endif %}
-
-                <div class="article-footer">
-                    {% block author %}
-                        <div class="container">
-                            <div class="article-date">
-                                {% if not content.fields.authors.empty %}
-                                    By
-                                    {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
-                                        <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngmore_location_name(author_location_id) }}</a>
-                                    {% endfor %} -
-                                {% endif %}
-                                {{ content.fields.publish_date.value.value|date('F jS, Y') }}
-                            </div>
-                        </div>
-                    {% endblock %}
-
+                <div class="full-article-footer">
                     {% block newsletter %}
-                        <div class="newsletter-box">
+                        <div class="full-page-newsletter-box">
                             <h3>Want more posts like this?</h3>
                             <p>Stay tuned with the weekly recap</p>
                             <form action="POST">
                                 <input type="text" class="form-control" placeholder="Enter your e-mail">
-                                <button type="submit">Subscribe</button>
+                                <button class="btn btn-dark" type="submit">Subscribe</button>
                             </form>
                         </div>
                     {% endblock %}
                 </div>
             </div>
         </div>
-    </div>
+    </article>
 {% endblock %}

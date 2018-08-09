@@ -32,6 +32,13 @@
                 }
             }
         }
+        a {
+            transition: border-color .15s;
+            border-bottom: .125rem solid transparent;
+            &:hover {
+                border-bottom-color: currentColor;
+            }
+        }
     }
     .full-page-main-tag,
     .full-page-sponsored-tag {

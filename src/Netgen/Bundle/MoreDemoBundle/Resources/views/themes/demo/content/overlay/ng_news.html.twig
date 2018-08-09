@@ -8,6 +8,11 @@
     <header class="article-header">
         <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
         <div class="info">
+            {% if not content.fields.authors.empty %}
+                {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
+                    <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngmore_location_name(author_location_id) }}</a>
+                {% endfor %}
+            {% endif %}
             <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
             {% if not content.fields.sponsored_content_disclosure.empty %}
                 <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
