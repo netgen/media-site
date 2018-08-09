@@ -1,7 +1,6 @@
 <article class="view-type view-type-{{ viewType }} ng-recipe vl6">
 	<h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
     <div class="info">
-        <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
         {% if not content.fields.sponsored_content_disclosure.empty %}
             <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
         {% elseif not content.fields.main_topic.empty %}

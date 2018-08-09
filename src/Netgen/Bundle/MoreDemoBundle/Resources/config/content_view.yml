@@ -327,6 +327,10 @@ ezpublish:
                         template: "@ezdesign/content/mini/file.html.twig"
                         match:
                             Identifier\ContentType: file
+                    ng_recipe:
+                        template: "@ezdesign/content/mini/ng_recipe.html.twig"
+                        match:
+                            Identifier\ContentType: ng_recipe
                     mini:
                         template: "@ezdesign/content/mini.html.twig"
                         match: ~

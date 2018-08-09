@@ -53,6 +53,10 @@
     .info {
         @extend %item-header-info;
         margin: 0;
+        .recipe-details {
+            background: hsla(0, 0, 100, .25);
+            color: $white;
+        }
     }
     .article-icon {
         position: absolute;
