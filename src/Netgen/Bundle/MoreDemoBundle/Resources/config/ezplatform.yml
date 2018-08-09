@@ -28,8 +28,11 @@ netgen_tags:
         frontend_group:
             tag_view:
                 template: "@ezdesign/tag/view.html.twig"
+                related_content_list:
+                    limit: 6
 
 netgen_ez_platform_site_api:
     system:
         frontend_group:
             override_url_alias_view_action: true
+
