@@ -25,7 +25,6 @@ netgen_more_legacy:
                         - ngmore
                         - ngclasslist
                         - xrowmetadata
-                        - bccie
                         - birthday
                         - childrenindexer
                         - parentindexer
