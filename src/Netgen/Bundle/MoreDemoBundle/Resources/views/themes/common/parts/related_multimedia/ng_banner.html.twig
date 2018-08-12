@@ -1,0 +1,19 @@
+{% import "@ezdesign/parts/macros.html.twig" as macros %}
+
+{% block content %}
+    <div class="{% if is_slider %}swiper-slide{% endif %} vl2">
+        {% set image_uri = ng_image_alias(content.fields.image, 'i1200').uri|default('') %}
+
+        {% if is_slider %}
+            <img class="swiper-lazy" data-src="{{ image_uri }}" />
+        {% else %}
+            <img src="{{ image_uri }}" />
+        {% endif %}
+
+        <div class="info">
+            <h2 class="title">
+                {{ macros.content_link(content, ng_render_field(content.fields.title)) }}
+            </h2>
+        </div>
+    </div>
+{% endblock %}

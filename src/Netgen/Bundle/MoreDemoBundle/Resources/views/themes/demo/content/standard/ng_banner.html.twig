@@ -1,0 +1,24 @@
+{% import "@ezdesign/parts/macros.html.twig" as macros %}
+
+{% block content %}
+<article class="view-type view-type-{{ view_type }} ng-banner vl1">
+
+    {% if not content.fields.image.empty %}
+        <figure class="image">
+            {{ macros.image_link(content.fields.image, 'i480') }}
+        </figure>
+    {% endif %}
+
+    <header class="article-header">
+        <h2 class="title">
+            {{ macros.content_link(content, ng_render_field(content.fields.title)) }}
+        </h2>
+    </header>
+
+    {% if with_intro|default(false) %}
+        <div class="short">
+            {{ ng_render_field(content.fields.short_description) }}
+        </div>
+    {% endif %}
+</article>
+{% endblock %}

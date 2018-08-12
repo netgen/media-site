@@ -1,0 +1,4 @@
+block.plugin.background_color.yellow: 'Yellow'
+block.plugin.background_color.light_gray: 'Light gray'
+block.plugin.background_color.white: 'White'
+block.plugin.background_color.black: 'Black'

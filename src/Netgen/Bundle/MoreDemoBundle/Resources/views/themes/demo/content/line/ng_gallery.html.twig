@@ -1,0 +1,37 @@
+{% set children = location.filterChildren(['image'], 1).currentPageResults %}
+
+<article class="view-type view-type-{{ view_type }} ng-gallery vl4">
+    <i class="fas fa-camera article-icon" aria-hidden="true"></i>
+    {% if children is not empty %}
+        {% set first_image = children[0].content %}
+
+        <figure class="image">
+            {{ ng_render_field(
+                first_image.fields.image, {
+                    parameters: {
+                        alias: 'i480',
+                        alt_text: first_image.fields.name.value,
+                        link_href: path(location),
+                    }
+                }
+            ) }}
+        </figure>
+    {% endif %}
+    <div class="article-content">
+        <header class="article-header">
+            <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            <div class="info">
+                {% if not content.fields.sponsored_content_disclosure.empty %}
+                    <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
+                {% elseif not content.fields.main_topic.empty %}
+                    <a href="{{ ngmore_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                {% endif %}
+            </div>
+        </header>
+        {% if not content.fields.line_intro.empty %}
+            <div class="short">
+                {{ ng_render_field(content.fields.line_intro) }}
+            </div>
+        {% endif %}
+    </div>
+</article>

@@ -1,0 +1,65 @@
+{% macro image(content, location, alias_name) %}
+    {% set alias_name = alias_name|default('i480') %}
+
+    {% set image_field = false %}
+    {% if content.hasField('line_image') and not content.fields.line_image.empty %}
+        {% set image_field = content.fields.line_image %}
+    {% elseif content.hasField('image') and not content.fields.image.empty %}
+        {% set image_field = content.fields.image %}
+    {% endif %}
+
+    {% if image_field %}
+        <figure class="image">
+            {{ ng_render_field(
+                image_field, {
+                    'parameters': {
+                        'alias': alias_name,
+                        'link_href': location is not empty ? path(location) : null,
+                    }
+                }
+            ) }}
+        </figure>
+    {% endif %}
+{% endmacro %}
+
+{% macro name(content) %}
+{% spaceless %}
+    {% if content.hasField('title') and not content.fields.title.empty %}
+        {{ content.fields.title.value.text }}
+    {% elseif content.hasField('name') and not content.fields.name.empty %}
+        {{ content.fields.name.value.text }}
+    {% else %}
+        {{ content.name }}
+    {% endif %}
+{% endspaceless %}
+{% endmacro %}
+
+{% macro intro(content) %}
+    {% if content.hasField('line_intro') and not content.fields.line_intro.empty %}
+        <div class="short">
+            {{ ng_render_field(content.fields.line_intro) }}
+        </div>
+    {% elseif content.hasField('full_intro') and not content.fields.full_intro.empty %}
+        <div class="short">
+            {{ ng_render_field(content.fields.full_intro) }}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro background_poster(content, field, alias_name) %}
+{% spaceless %}
+    {% set alias_name = alias_name|default('original') %}
+    {% set field = field|default('image') %}
+
+    {% set poster_image = '' %}
+    {% if not content.fields[field].empty %}
+        {% set poster_alias = ng_image_alias(content.fields[field], alias_name) %}
+
+        {% if poster_alias %}
+            {% set poster_image = asset(poster_alias.uri) %}
+        {% endif %}
+    {% endif %}
+
+    {{ poster_image }}
+{% endspaceless %}
+{% endmacro %}

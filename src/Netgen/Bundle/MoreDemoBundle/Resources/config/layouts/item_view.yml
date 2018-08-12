@@ -1,0 +1,27 @@
+netgen_block_manager:
+    system:
+        frontend_group:
+            view:
+                item_view:
+                    default:
+                        ezcontent\gallery_thumb:
+                            template: "@ngbm/item/gallery_thumb/ezcontent.html.twig"
+                            match:
+                                item\value_type: ezcontent
+                                item\view_type: gallery_thumb
+                        ezlocation\gallery_thumb:
+                            template: "@ngbm/item/gallery_thumb/ezlocation.html.twig"
+                            match:
+                                item\value_type: ezlocation
+                                item\view_type: gallery_thumb
+                    ajax:
+                        ezcontent\gallery_thumb:
+                            template: "@ngbm/item/gallery_thumb/ezcontent.html.twig"
+                            match:
+                                item\value_type: ezcontent
+                                item\view_type: gallery_thumb
+                        ezlocation\gallery_thumb:
+                            template: "@ngbm/item/gallery_thumb/ezlocation.html.twig"
+                            match:
+                                item\value_type: ezlocation
+                                item\view_type: gallery_thumb

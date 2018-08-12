@@ -1,0 +1,13 @@
+{% extends '@ngbm/block/block.html.twig' %}
+
+{% block content %}
+    {% if collections.default is defined %}
+        <div class="grid-featured">
+            {% for result in collections.default %}
+                <div class="item">
+                    {{ ngbm_render_item(result.item, block.itemViewType) }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

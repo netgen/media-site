@@ -1,0 +1,17 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<div class="view-type view-type-{{ view_type }} ng-blog-post">
+    <h3><a href="{{ path(content) }}">{{ ng_render_field(content.fields.title) }}</a></h3>
+
+    <div class="date">
+        {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
+    </div>
+
+    {% if not content.fields.authors.empty %}
+        {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
+            <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngmore_location_name(author_location_id) }}</a>
+        {% endfor %}
+    {% endif %}
+
+    {{ content_fields.image(content, null, 'i320') }}
+</div>

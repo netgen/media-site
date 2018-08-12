@@ -1,0 +1,42 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{%- block form_row -%}
+    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        {%- if 'checkbox' in block_prefixes or 'radio' in block_prefixes -%}
+            {{- form_widget(form) -}}
+            {{- form_label(form) -}}
+            {{- form_errors(form) -}}
+        {%- else -%}
+            {{- form_label(form) -}}
+            {{- form_widget(form) -}}
+            {{- form_errors(form) -}}
+        {%- endif -%}
+    </div>
+{%- endblock form_row -%}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <ul class="errors">
+            {%- for error in errors -%}
+                <li>{{ error.message }}</li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{%- block _ezforms_create_user_user_account_row -%}
+    {{- form_errors(form) -}}
+    {{- form_widget(form) -}}
+{%- endblock -%}
+
+{%- block _ezforms_create_user_user_account_widget -%}
+    {% for identifier, child in form %}
+        {% if identifier == 'password' %}
+            {{ form_row(child.first, {attr: attr}) }}
+
+            {{ form_row(child.second, {attr: attr}) }}
+        {% else %}
+            {{ form_row(child, {attr: attr}) }}
+        {% endif %}
+    {% endfor %}
+{%- endblock -%}

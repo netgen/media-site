@@ -1,0 +1,21 @@
+.grid-featured {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -.25rem;
+    margin-right: -.25rem;
+    .item {
+        padding: .25rem;
+        flex: 0 0 33.333333333%;
+        max-width: 33.333333333%;
+    }
+    .vl2 {
+        margin: 0;
+        .image-16by9 {
+            padding-bottom: 100%;
+        }
+        .title {
+            font-size: 2.0625rem;
+            line-height: 1.2424;
+        }
+    }
+}

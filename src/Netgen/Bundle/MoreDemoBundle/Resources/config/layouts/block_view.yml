@@ -1,0 +1,56 @@
+netgen_block_manager:
+    system:
+        frontend_group:
+            view:
+                block_view:
+                    default:
+                        title\centered:
+                            template: "@ngbm/block/title/centered.html.twig"
+                            match:
+                                block\definition: title
+                                block\view_type: title_centered
+
+                        title\section:
+                            template: "@ngbm/block/title/section.html.twig"
+                            match:
+                                block\definition: title
+                                block\view_type: section
+
+                        title\section_centered:
+                            template: "@ngbm/block/title/section_centered.html.twig"
+                            match:
+                                block\definition: title
+                                block\view_type: section_centered
+
+                        list\numbered:
+                            template: "@ngbm/block/list/numbered.html.twig"
+                            match:
+                                block\definition: list
+                                block\view_type: list_numbered
+
+                        list\grid_featured:
+                            template: "@ngbm/block/list/grid_featured.html.twig"
+                            match:
+                                block\definition: list
+                                block\view_type: grid_featured
+                    ajax:
+                        list\numbered:
+                            template: "@ngbm/block/list/list_ajax.html.twig"
+                            match:
+                                block\definition: list
+                                block\view_type: list_numbered
+
+    view:
+        block_view:
+            api:
+                list\numbered:
+                    template: "@NetgenBlockManagerStandard/api/block/list/list.html.twig"
+                    match:
+                        block\definition: list
+                        block\view_type: list_numbered
+
+                list\grid_featured:
+                    template: "@NetgenBlockManagerStandard/api/block/list/grid.html.twig"
+                    match:
+                        block\definition: list
+                        block\view_type: grid_featured

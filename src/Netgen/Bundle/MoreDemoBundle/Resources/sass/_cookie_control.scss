@@ -1,0 +1,79 @@
+@import '@netgen/javascript-cookie-control/scss/style';
+
+##{$ngCcId} {
+    .ng-cc-optional-list {
+        .ng-cc-optional-checkbox {
+            opacity: 0;
+            left: -9999em;
+            + label {
+                padding: 0 0 0 3.25em;
+                .ng-cc-checkbox-icon {
+                    position: absolute;
+                    left: 0;
+                    top: .25em;
+                    border-radius: 500em;
+                    width: 2.6em;
+                    height: 1em;
+                    background: #fff;
+                    border: 2px solid #fff;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        height: 100%;
+                        width: 50%;
+                        left: 0;
+                        top: 0;
+                        border-radius: 500em;
+                        background: hsl(200, 0, 50);
+                        transition: all .3s;
+                        z-index: 2;
+                    }
+                    span {
+                        font-size: .5em;
+                        font-weight: 700;
+                        font-style: normal;
+                        text-transform: uppercase;
+                        color: #333;
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        &::before,
+                        &::after {
+                            flex: 1;
+                            text-align: center;
+                        }
+                        &::before {
+                            content: 'On';
+                        }
+                        &::after {
+                            content: 'Off';
+                            opacity: .6;
+                        }
+                    }
+                }
+            }
+            &:checked {
+                + label {
+                    .ng-cc-checkbox-icon {
+                        &::before {
+                            left: 50%;
+                            background: hsl(200, 95, 30);
+                        }
+                    }
+                }
+            }
+            &:disabled {
+                + label {
+                    cursor: default;
+                    .ng-cc-checkbox-icon {
+                        opacity: .2;
+                    }
+                }
+            }
+        }
+    }
+}

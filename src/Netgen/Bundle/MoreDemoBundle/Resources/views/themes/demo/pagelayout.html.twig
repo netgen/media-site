@@ -1,0 +1,61 @@
+{% extends '@ezdesign/pagelayout_variables.html.twig' %}
+
+{% block pagelayout_content %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|replace({'_': '-'}) }}">
+<head>
+    <meta charset="utf-8">
+
+    {% block page_head %}
+        {% include '@ezdesign/page_head.html.twig' %}
+    {% endblock %}
+
+    {% block page_head_style %}
+        {% include '@ezdesign/page_head_style.html.twig' %}
+    {% endblock %}
+
+    {% block page_head_script %}
+        {% include '@ezdesign/page_head_script.html.twig' %}
+    {% endblock %}
+
+    {% block open_graph %}
+        {% include '@NetgenMore/parts/opengraph.html.twig' %}
+    {% endblock %}
+
+    {% include '@NetgenMore/parts/jwplayer.html.twig' %}
+
+    {% include '@NetgenMore/parts/google_tag_manager_code.html.twig' %}
+</head>
+<body>
+
+{% include '@NetgenMore/parts/facebook_api.html.twig' %}
+
+<div id="page"{% if page_css_class|default is not empty %} class="{{ page_css_class }}"{% endif %}>
+    {% block layout %}
+        {% block header %}
+            {% include '@ezdesign/page_header.html.twig' %}
+        {% endblock %}
+
+        {% block breadcrumb %}
+            {% include '@ezdesign/page_path.html.twig' %}
+        {% endblock %}
+
+        <div id="main" class="clearfix">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% block footer %}
+            {% include '@ezdesign/page_footer.html.twig' %}
+        {% endblock %}
+    {% endblock %}
+</div>
+
+{% block page_footer_script %}
+    {% include '@ezdesign/page_footer_script.html.twig' %}
+{% endblock %}
+
+{% include '@ezdesign/parts/cookie_control.html.twig' %}
+
+</body>
+</html>
+{% endblock %}

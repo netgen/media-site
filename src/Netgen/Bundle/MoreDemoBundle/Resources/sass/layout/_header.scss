@@ -1,0 +1,128 @@
+$header-bg: $white;
+
+/* site header */
+.site-header {
+    background: $header-bg;
+    box-shadow: 0 .5rem 1rem 0 hsla(0, 0, 0, .08);
+    position: relative;
+    > .container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* header language selector */
+.language-selector {
+    margin: 0 0 0 1em;
+    a {
+        @extend %hover-underline;
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: $black;
+    }
+    .current-lang {
+        height: $header-height;
+        display: flex;
+        align-items: center;
+        padding: 0 1em;
+        transition: color .2s;
+        i {
+            font-size: 1.25em;
+        }
+    }
+    .dropdown-menu {
+        border: 0;
+        background: $sunglow;
+        margin: 0;
+        text-align: right;
+        right: 0;
+        left: auto !important;
+        box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .1);
+        a {
+            padding: .5em 1em;
+            display: block;
+        }
+        .current {
+            a {
+                color: $gray-54;
+            }
+        }
+    }
+    &.show {
+        .current-lang {
+            position: relative;
+            z-index: 1001;
+            background: $sunglow;
+        }
+    }
+}
+
+/* header-searchbox */
+.header-search {
+    $btn-width: 4rem;
+    height: $header-height;
+    position: relative;
+    .searchbox-toggle {
+        @extend %hover-underline;
+        color: $black;
+        display: block;
+        font-size: 1rem;
+        line-height: $header-height;
+        width: $btn-width;
+        text-align: center;
+        background: $header-bg;
+        z-index: 2;
+        transition: color .2s, background .3s;
+    }
+    .navbar-search {
+        padding: 1rem $btn-width 1rem 1rem;
+        width: 0;
+        transition: width .4s, opacity .23s;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        background: $sunglow;
+        opacity: 0;
+    }
+    .search-query {
+        flex: 1;
+        width: 100%;
+        background: transparent;
+        border: 0;
+        border-bottom: 2px solid $black;
+        &:focus {
+            outline: none;
+        }
+    }
+    .search-submit {
+        width: $btn-width;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        cursor: pointer;
+    }
+
+    /* searchbox opened */
+    .searchbox-active & {
+        .searchbox-toggle {
+            background: $sunglow;
+            transition: color .2s;
+        }
+        .navbar-search {
+            opacity: 1;
+            width: 18rem;
+            transition: width .4s;
+        }
+        /* entered text in input */
+        &.filled {
+            .searchbox-toggle {
+                pointer-events: none;
+            }
+        }
+    }
+}

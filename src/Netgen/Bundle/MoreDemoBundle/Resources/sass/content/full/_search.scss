@@ -1,0 +1,40 @@
+/* search results full page */
+.full-search-header {
+    .search-inputs {
+        margin: 0 auto;
+        max-width: 45rem;
+    }
+    .form-control {
+        border: 0;
+    }
+    .result-message {
+        margin: 2rem 0 0;
+        h2 {
+            font-size: 1.75rem;
+            margin: 0;
+        }
+    }
+}
+
+.full-search-results {
+    margin: 4rem 0;
+    .full-no-results-list {
+        list-style-type: none;
+        margin: 0 0 2em;
+        padding: 0;
+        > li {
+            position: relative;
+            margin: 0 0 1em;
+            padding: 0 0 0 1.5em;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: .2777777778em;
+                width: .8888888889em;
+                height: .8888888889em;
+                background: $sunglow;
+            }
+        }
+    }
+}

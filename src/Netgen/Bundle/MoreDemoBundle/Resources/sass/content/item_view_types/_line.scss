@@ -1,0 +1,61 @@
+/* line item view type */
+.vl4 {
+    margin: 0 0 2rem;
+    display: flex;
+    position: relative;
+    .image {
+        width: 20rem;
+        a {
+            display: block;
+            position: relative;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+        img {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        + .article-content {
+            padding-left: $gap;
+        }
+    }
+    .article-content {
+        flex: 1;
+    }
+    .title {
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin: 0 0 .25rem;
+        a {
+            @extend %item-title-link;
+        }
+    }
+    .short {
+        color: $gray-54;
+        p {
+            margin: 0;
+        }
+    }
+    .info {
+        @extend %item-header-info;
+    }
+    .article-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3rem;
+        height: 3rem;
+        line-height: 3rem;
+        text-align: center;
+        background: $sunglow;
+        color: $black;
+        z-index: 2;
+        pointer-events: none;
+        + .article-content {
+            padding-left: 4.875rem;
+        }
+    }
+}

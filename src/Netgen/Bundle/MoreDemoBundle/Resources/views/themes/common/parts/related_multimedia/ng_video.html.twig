@@ -1,0 +1,11 @@
+{% import '@ezdesign/parts/video.html.twig' as video %}
+
+{% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
+    {% if is_slider %}
+        <div class="swiper-slide">
+            {{ video.player_slide(content, true) }}
+        </div>
+    {% else %}
+        {{ video.player(content, true) }}
+    {% endif %}
+{% endif %}

@@ -1,0 +1,14 @@
+{% if related_items|length > 0 %}
+    {% for related_item in related_items %}
+        {{ render(
+            controller(
+                'ng_content:viewAction', {
+                    'content': related_item.content,
+                    'location': related_item,
+                    'viewType': view_type,
+                    'layout': false
+                }
+            )
+        ) }}
+    {% endfor %}
+{% endif %}

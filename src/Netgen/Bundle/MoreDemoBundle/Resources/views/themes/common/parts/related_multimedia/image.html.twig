@@ -1,0 +1,25 @@
+{% if not content.fields.image.empty %}
+    {% set image = content.fields.image %}
+    {% set image_uri = ng_image_alias(image, 'i1200').uri|default('') %}
+    {% set alt_text = image.value.alternativeText|default('') %}
+
+    {% if is_slider %}
+        <div class="swiper-slide">
+    {% endif %}
+            <figure class="image-wrapper">
+                {% if is_slider %}
+                    <img class="swiper-lazy" data-src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
+                {% else %}
+                    <img src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
+                {% endif %}
+
+                {% if content.fields.caption is defined and not content.fields.caption.empty %}
+                    <figcaption>
+                        {{ ng_render_field(content.fields.caption) }}
+                    </figcaption>
+                {% endif %}
+            </figure>
+    {% if is_slider %}
+        </div>
+    {% endif %}
+{% endif %}

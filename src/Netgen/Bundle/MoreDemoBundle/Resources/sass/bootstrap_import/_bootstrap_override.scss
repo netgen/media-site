@@ -1,0 +1,36 @@
+/* btn overrides */
+.btn {
+    font-weight: 900;
+    font-size: 1.125rem;
+    border-width: 2px;
+    line-height: 1;
+}
+
+.btn-primary {
+    background: $black;
+    color: $white;
+    border-color: $black;
+    &:active,
+    &.active,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    &:hover {
+        background-color: $gray-87;
+        border-color: $gray-87;
+    }
+}
+
+.btn-secondary {
+    background: transparent;
+    border-color: $black;
+    color: $gray-87;
+    &:active,
+    &.active,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    &:hover {
+        background-color: $gray-54;
+        border-color: $gray-54;
+        color: $white;
+    }
+}

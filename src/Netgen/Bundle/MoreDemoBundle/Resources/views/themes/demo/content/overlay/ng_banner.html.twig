@@ -1,0 +1,22 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+{% import "@ezdesign/parts/macros.html.twig" as macros %}
+
+{% block content %}
+<article class="view-type view-type-{{ view_type }} ng-banner vl2">
+    <a {{ macros.content_link_parameters(content) }} class="image-16by9">
+        {{ content_fields.image(content) }}
+    </a>
+
+    <header class="article-header">
+        <h2 class="title">
+            <a {{ macros.content_link_parameters(content) }}>
+                {% if not content.fields.url.empty %}
+                    {{ content.fields.url.value.text }}
+                {% else %}
+                    {{ ng_render_field(content.fields.title) }}
+                {% endif %}
+            </a>
+        </h2>
+    </header>
+</article>
+{% endblock %}

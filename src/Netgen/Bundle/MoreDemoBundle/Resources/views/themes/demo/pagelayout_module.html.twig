@@ -1,0 +1,38 @@
+{% extends '@ezdesign/pagelayout_legacy.html.twig' %}
+
+{# MAKE PARENT TEMPLATES AWARE OF ANY ERROR #}
+
+{% if module_result.errorCode is defined %}
+    {% set status_code = module_result.errorCode %}
+{% endif %}
+
+{# PATH ARRAY #}
+
+{% set legacy_path_array = ezpublish.legacy.has('path') ? ezpublish.legacy.get('path') : [] %}
+{% set path_array = [] %}
+
+{% for legacy_path_item in legacy_path_array %}
+    {% set path_array = path_array|merge([{
+        url: legacy_path_item.url ? path('ez_legacy', {'module_uri': legacy_path_item.url}) : false,
+        text: legacy_path_item.text
+   }]) %}
+{% endfor %}
+
+{# AVAILABLE TRANSLATIONS #}
+
+{% set available_translations = [] %}
+
+{% if not (module_result is defined and module_result.errorCode is defined) %}
+    {% for language in ezpublish.availableLanguages %}
+        {% set translation_site_access = ezpublish.translationSiteAccess(language) %}
+
+        {% if translation_site_access is not empty %}
+            {% set url = url(ez_route(params={'siteaccess': translation_site_access})) %}
+            {% set available_translations = available_translations|merge({(language): url}) %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% block content %}
+    {{ module_result.content|raw }}
+{% endblock %}

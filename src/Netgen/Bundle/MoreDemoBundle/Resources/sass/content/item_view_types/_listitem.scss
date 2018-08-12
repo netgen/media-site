@@ -1,0 +1,43 @@
+/* list item view type */
+.vl6 {
+    margin: 0 0 2rem;
+    padding: 0 0 2rem;
+    border-bottom: 1px solid hsla(0, 0, 0, .12);
+    .title {
+        font-size: 1.125rem;
+        line-height: 1.33333333;
+        font-weight: 900;
+        margin: 0 0 .25rem;
+        a {
+            @extend %item-title-link;
+        }
+    }
+    .short {
+        margin: .25rem 0 0;
+        color: $gray-54;
+        p {
+            margin: 0;
+        }
+    }
+    .info {
+        @extend %item-header-info;
+    }
+    .article-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2.125rem;
+        height: 2.125rem;
+        line-height: 2.125rem;
+        text-align: center;
+        background: $sunglow;
+        color: $black;
+        z-index: 2;
+    }
+
+    /* with icon */
+    &.t1 {
+        padding-left: 3.125rem;
+        position: relative;
+    }
+}

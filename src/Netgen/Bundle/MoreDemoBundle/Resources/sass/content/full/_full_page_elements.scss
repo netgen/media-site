@@ -1,0 +1,75 @@
+.full-page-header {
+    background: $sunglow;
+    padding: 4rem 0;
+    text-align: center;
+    .full-page-title {
+        font-size: 3.125rem;
+        margin: 0 0 .5rem;
+    }
+    .full-page-intro {
+        color: $black;
+        opacity: .54;
+        p {
+            margin: 0;
+            + p {
+                margin-top: 1em;
+            }
+        }
+    }
+    .full-page-info {
+        font-size: 1rem;
+        margin: 0;
+        color: $black;
+        opacity: .54;
+        > span,
+        > time {
+            + span,
+            + time {
+                &::before {
+                    content: '-';
+                    margin: 0 .25em;
+                }
+            }
+        }
+        a {
+            transition: border-color .15s;
+            border-bottom: .125rem solid transparent;
+            &:hover {
+                border-bottom-color: currentColor;
+            }
+        }
+    }
+    .full-page-main-tag,
+    .full-page-sponsored-tag {
+        > a,
+        > span {
+            display: inline-block;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 900;
+            color: $sunglow;
+            background: $black;
+            padding: .3333333333em 1em;
+            margin: 0 0 .3333333333em;
+        }
+    }
+}
+
+/* full page newsletter box */
+.full-page-newsletter-box {
+    background: $sunglow;
+    padding: 2rem;
+    margin: 0 0 4rem;
+    text-align: center;
+    form {
+        display: flex;
+        justify-content: center;
+        max-width: 400px;
+        margin: 2rem auto 0;
+        .form-control {
+            border-color: $white;
+            background: $white;
+        }
+    }
+}

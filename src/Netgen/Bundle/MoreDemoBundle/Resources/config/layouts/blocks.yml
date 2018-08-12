@@ -1,0 +1,73 @@
+netgen_block_manager:
+    block_definitions:
+        title:
+            view_types:
+                title_centered:
+                    name: 'Title centered'
+                section:
+                    name: 'Title (section)'
+                section_centered:
+                    name: 'Title (section centered)'
+
+        list:
+            view_types:
+                list:
+                    item_view_types: &list_item_view_types
+                        standard_with_intro:
+                            name: 'Standard (with intro)'
+                        overlay:
+                            name: 'Overlay'
+                        line:
+                            name: 'Line'
+                        mini:
+                            name: 'Mini'
+                        listitem:
+                            name: 'List item'
+                        listitem_with_intro:
+                            name: 'List item (with intro)'
+                list_numbered:
+                    name: 'List (numbered)'
+                    item_view_types: *list_item_view_types
+                    valid_parameters: ['!number_of_columns']
+                grid:
+                    item_view_types:
+                        standard_with_intro:
+                            name: 'Standard (with intro)'
+                        overlay:
+                            name: 'Overlay'
+                grid_featured:
+                    name: 'Grid (featured)'
+                    item_view_types:
+                        standard:
+                            enabled: false
+                        overlay:
+                            name: 'Overlay'
+
+        gallery:
+            view_types:
+                slider:
+                    item_view_types:
+                        standard:
+                            enabled: false
+                        slide:
+                            name: 'Slide'
+                thumb_gallery:
+                    item_view_types:
+                        standard:
+                            enabled: false
+                        gallery_thumb:
+                            name: 'Gallery thumb'
+                grid_gallery:
+                    item_view_types:
+                        standard:
+                            enabled: false
+                        gallery_grid:
+                            name: 'Gallery grid'
+                sushi_bar:
+                    item_view_types:
+                        standard_with_intro:
+                            name: 'Standard (with intro)'
+                        overlay:
+                            name: 'Overlay'
+                        line:
+                            name: 'Line'

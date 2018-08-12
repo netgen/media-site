@@ -1,0 +1,14 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<article class="view-type view-type-{{ view_type }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl1">
+
+    {{ content_fields.image(content, location) }}
+
+    <header class="article-header">
+        <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.name(content) }}</a></h2>
+    </header>
+
+    {% if with_intro|default(false) %}
+        {{ content_fields.intro(content) }}
+    {% endif %}
+</article>

@@ -1,0 +1,19 @@
+{% set location_path = path(location) %}
+
+<article class="view-type view-type-{{ view_type }} ng-audio vl5">
+    <figure class="image">
+        <i class="fas fa-volume-up article-icon" aria-hidden="true"></i>
+        {{ ng_render_field(
+            content.fields.image, {
+                'parameters': {
+                    'alias': 'i160',
+                    'link_href': location_path
+                }
+            }
+        ) }}
+    </figure>
+
+    <header class="article-header">
+        <h2 class="title"><a href="{{ location_path }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+    </header>
+</article>

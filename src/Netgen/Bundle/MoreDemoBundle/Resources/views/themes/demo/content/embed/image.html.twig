@@ -1,0 +1,24 @@
+{% if not content.fields.image.empty %}
+    <div class="view-type view-type-{{ view_type }} image">
+        <figure class="image-wrapper">
+            {{ ng_render_field(
+                content.fields.image, {
+                    'parameters': {
+                        'alias': objectParameters.align|default('') is not empty ? 'i770' : 'i1200',
+                        'link_href': link_href|default(''),
+                        'link_class': objectParameters.link_class|default(''),
+                        'link_id': objectParameters.link_id|default(''),
+                        'link_title': objectParameters.link_title|default(''),
+                        'link_target': objectParameters.link_target|default('')
+                    }
+                }
+            ) }}
+
+            {% if not content.fields.caption.empty %}
+                <figcaption>
+                    {{ ng_render_field(content.fields.caption) }}
+                </figcaption>
+            {% endif %}
+        </figure>
+    </div>
+{% endif %}

@@ -1,0 +1,14 @@
+{% import '@ezdesign/parts/slide.html.twig' as slide %}
+{% import '@ezdesign/parts/macros.html.twig' as macros %}
+
+{% block content %}
+    <div class="view-type view-type-{{ view_type }} ng-banner vl3">
+        {{ slide.image(content) }}
+
+        <div class="info">
+            <h2 class="title">
+                {{ macros.content_link(content, ng_render_field(content.fields.title)) }}
+            </h2>
+        </div>
+    </div>
+{% endblock %}

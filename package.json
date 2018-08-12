@@ -1,0 +1,50 @@
+{
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Firefox ESR",
+    "Opera 12.1"
+  ],
+  "scripts": {
+    "dev": "encore dev",
+    "build:dev": "encore dev",
+    "prod": "encore production",
+    "build:prod": "encore production",
+    "watch": "encore dev --watch",
+    "start": "encore dev-server",
+    "server": "encore dev-server",
+    "site:dev": "encore dev --config-name",
+    "site:prod": "encore production --config-name",
+    "site:watch": "encore dev --watch --config-name",
+    "site:server": "encore dev-server --config-name"
+  },
+  "private": true,
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "autoprefixer": "^9.0.0",
+    "babel-eslint": "^8.2.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-react": "^7.10.0",
+    "node-sass": "~4.8.3",
+    "path": "^0.12.7",
+    "postcss-loader": "^2.1.6",
+    "sass-lint": "^1.12.1",
+    "sass-loader": "^7.0.3",
+    "uglifyjs-webpack-plugin": "^1.2.7"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
+    "@netgen/javascript-cookie-control": "^0.0.4",
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "magnific-popup": "^1.1.0",
+    "popper.js": "^1.14.3",
+    "swiper": "^4.3.3"
+  }
+}

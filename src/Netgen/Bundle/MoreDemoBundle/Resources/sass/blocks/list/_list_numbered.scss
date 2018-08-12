@@ -1,0 +1,30 @@
+.list-numbered {
+    counter-reset: my-counter;
+    .list-item {
+        display: flex;
+        align-items: flex-start;
+        + .list-item {
+            padding-top: 1rem;
+            margin-top: 1rem;
+            border-top: 2px dashed hsla(0, 0, 0, .12);
+        }
+        &::before {
+            counter-increment: my-counter;
+            content: counter(my-counter);
+            display: block;
+            font-size: 2.0625rem;
+            line-height: .8484848485;
+            font-weight: 900;
+            color: $sunglow;
+            width: 2.25rem;
+        }
+    }
+
+    /* listitem inside numbered list */
+    .vl6 {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        flex: 1;
+    }
+}

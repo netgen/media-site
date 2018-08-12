@@ -1,0 +1,52 @@
+{% block subject %}{% spaceless %}
+    Netgen More – {{ ez_content_name(content) }} [{{ collected_fields.email }}]
+{% endspaceless %}{% endblock %}
+
+{#% block sender %}{{ collected_fields.email }}{% endblock %#}
+
+{% block recipient %}{{ ez_field_value(content, 'recipient') }}{% endblock %}
+
+{% block email %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">    <!-- So that mobile webkit will display zoomed in -->
+    <meta name="format-detection" content="telephone=no"> <!-- disable auto telephone linking in iOS -->
+
+    <style type="text/css">
+        body {-webkit-text-size-adjust:none; -ms-text-size-adjust:none;}
+        body {margin:0; padding:0;}
+    </style>
+</head>
+<body style="margin:0; padding:10px 0;" bgcolor="#ebebeb" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<br>
+
+<div style="font-weight: normal; font-size: 26px; color: #777777">{{ ez_content_name(content) }}</div>
+
+<br>
+
+{{ 'ngmore.collected_info.information_collected'|trans }}:
+
+<br><br>
+
+<table border="0" cellpadding="0" cellspacing="0">
+{% for collected_field, collected_field_value in collected_fields %}
+    <tr>
+        <td width="40%" style="padding-right: 20px; padding-bottom: 10px; color: #777777" valign="top">
+            {{ ez_field_name(content, collected_field) }}:
+        </td>
+        <td width="60%" style="padding-bottom: 10px" valign="top">
+            <strong>{{ collected_field_value }}</strong>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
+<br><br><br><br>
+
+</body>
+</html>
+{% endblock %}

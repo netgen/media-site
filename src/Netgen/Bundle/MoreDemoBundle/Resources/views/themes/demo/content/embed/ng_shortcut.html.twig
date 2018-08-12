@@ -1,0 +1,9 @@
+{% import "@ezdesign/parts/macros.html.twig" as macros %}
+
+{% block content %}
+    <div class="view-type view-type-{{ view_type }} ng-shortcut">
+        <h2 class="title">
+            {{ macros.content_link(content, ng_render_field(content.fields.title)) }}
+        </h2>
+    </div>
+{% endblock %}

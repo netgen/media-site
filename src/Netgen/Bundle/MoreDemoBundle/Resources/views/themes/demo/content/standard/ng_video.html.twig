@@ -1,0 +1,27 @@
+{% import '@ezdesign/parts/video.html.twig' as video %}
+
+{% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
+    <article class="view-type view-type-{{ view_type }} ng-video vl1">
+        <i class="fas fa-play article-icon" aria-hidden="true"></i>
+        <figure class="image">
+            {{ video.poster(content, location) }}
+        </figure>
+
+        <header class="article-header">
+            <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            <div class="info">
+                {% if not content.fields.sponsored_content_disclosure.empty %}
+                    <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
+                {% elseif not content.fields.main_topic.empty %}
+                    <a href="{{ ngmore_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                {% endif %}
+            </div>
+        </header>
+    </article>
+
+    {% if with_intro|default(false) and content.hasField('line_intro') and not content.fields.line_intro.empty %}
+        <div class="short">
+            {{ ng_render_field(content.fields.line_intro) }}
+        </div>
+    {% endif %}
+{% endif %}

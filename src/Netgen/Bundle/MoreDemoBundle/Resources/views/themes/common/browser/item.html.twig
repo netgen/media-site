@@ -1,0 +1,10 @@
+{{ render(
+    controller(
+        'ng_content:viewAction', {
+            'content': item.content,
+            'location': item.location,
+            'viewType': 'ngcb_preview',
+            'layout': false,
+        }
+    )
+) }}

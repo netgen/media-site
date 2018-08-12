@@ -1,0 +1,36 @@
+{% if multimedia_items|default([])|length > 0 %}
+    {% set is_slider = multimedia_items|length > 1 %}
+    {% if multimedia_items|length == 2 and multimedia_items[0].content.hasField('image') and multimedia_items[0].content.fields.image.empty %}
+        {% set is_slider = false %}
+    {% endif %}
+
+    {% if is_slider %}
+        <div class="related-multimedia swiper-container">
+            <div class="swiper-wrapper">
+    {% else %}
+        <div>
+    {% endif %}
+
+    {% for multimedia_item in multimedia_items %}
+        {% include '@ezdesign/parts/related_multimedia/' ~ multimedia_item.contentInfo.contentTypeIdentifier ~ '.html.twig'
+            ignore missing
+            with {
+                'content': multimedia_item.content,
+                'location': multimedia_item,
+                'is_slider': is_slider
+            }
+        %}
+    {% endfor %}
+
+    {% if is_slider %}
+            </div>
+            <div class="swiper-navigation">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    {% else %}
+        </div>
+    {% endif %}
+{% endif %}

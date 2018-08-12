@@ -1,0 +1,17 @@
+<article class="view-type view-type-{{ view_type }} ng-audio vl4">
+    <i class="fas fa-volume-up article-icon" aria-hidden="true"></i>
+    <div class="article-content">
+        <header class="article-header">
+            <h2 class="title">
+                <a href="{{ path(location) }}">
+                    {{ ng_render_field(content.fields.title) }}
+                </a>
+            </h2>
+        </header>
+        {% if not content.fields.line_intro.empty %}
+            <div class="short">
+                {{ ng_render_field(content.fields.line_intro) }}
+            </div>
+        {% endif %}
+    </div>
+</article>

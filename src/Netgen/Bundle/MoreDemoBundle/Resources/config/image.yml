@@ -1,0 +1,78 @@
+ezpublish:
+    system:
+        default:
+            image_variations:
+                i160:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [160] }
+                        - { name: strip }
+                i320:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [320] }
+                        - { name: strip }
+                i480:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [480] }
+                        - { name: strip }
+                i770:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [770] }
+                        - { name: strip }
+                i1200:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [1200] }
+                        - { name: strip }
+                i1920:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [1920] }
+                        - { name: strip }
+        ngadmin_group:
+            image_variations:
+                small:
+                    reference: original
+                    filters:
+                        - { name: geometry/scaledownonly, params: [100, 100] }
+                        - { name: strip }
+                medium:
+                    reference: original
+                    filters:
+                        - { name: geometry/scaledownonly, params: [200, 200] }
+                        - { name: strip }
+                large:
+                    reference: original
+                    filters:
+                        - { name: geometry/scaledownonly, params: [300, 300] }
+                        - { name: strip }
+
+liip_imagine:
+    filter_sets:
+        small:
+            quality: 85
+            jpeg_quality: 85
+        medium:
+            quality: 85
+            jpeg_quality: 85
+        large:
+            quality: 85
+            jpeg_quality: 85
+        i320:
+            quality: 85
+            jpeg_quality: 85
+        i480:
+            quality: 85
+            jpeg_quality: 85
+        i770:
+            quality: 85
+            jpeg_quality: 85
+        i1200:
+            quality: 75
+            jpeg_quality: 75
+        i1920:
+            quality: 75
+            jpeg_quality: 75

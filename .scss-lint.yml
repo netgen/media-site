@@ -1,0 +1,41 @@
+# Linter Options
+scss_files: 'sass/**/*.scss'
+exclude: 'node_modules/**/*.*'
+
+linters:
+  Indentation:
+    severity: warning
+    width: 4
+
+  Comment:
+    enabled: false
+
+  EmptyLineBetweenBlocks:
+    enabled: false
+
+  NestingDepth:
+    enabled: true
+    max_depth: 6
+    ignore_parent_selectors: true
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 6
+
+  ColorVariable:
+    enabled: false
+
+  PropertySortOrder:
+    enabled: false
+
+  SelectorFormat:
+    enabled: false
+
+  NameFormat:
+    enabled: false
+
+  DeclarationOrder:
+    enabled: false
+
+  IdSelector:
+    enabled: false

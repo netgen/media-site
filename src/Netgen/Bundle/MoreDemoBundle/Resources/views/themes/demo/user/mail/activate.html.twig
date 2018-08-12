@@ -1,0 +1,23 @@
+{% extends '@ezdesign/user/mail/layout.html.twig' %}
+
+{% trans_default_domain "ngmore_mail" %}
+
+{% block title %}
+    <a href="{{ site_url }}">{{ site_name }}</a>
+{% endblock %}
+
+{% block content %}
+    {{ "ngmore.user.account_information"|trans }}
+
+    <br>
+
+    {{ "ngmore.user.username"|trans }}: {{ user.login }}
+
+    <br>
+
+    {{ "ngmore.user.email"|trans }}: {{ user.email }}
+
+    <br><br>
+
+    {{ "ngmore.user.activate.text"|trans }} <a href="{{ url('ngmore_user_activate', {hash: hash}) }}">{{ url('ngmore_user_activate', {hash: hash}) }}</a>
+{% endblock %}

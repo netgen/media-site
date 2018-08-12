@@ -1,0 +1,34 @@
+{% extends ngbm.layoutTemplate %}
+
+{% import '@ezdesign/parts/video.html.twig' as video %}
+
+{% if not content.fields.line_intro.empty %}
+    {% set meta_data = {'description': content.fields.line_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
+{% endif %}
+
+{% block content %}
+    <div class="view-type view-type-{{ view_type }} ng-video vf3">
+        <div class="full-video-player">
+            {{ video.player(content, true) }}
+        </div>
+
+        <header class="full-video-header">
+            <h1 class="title">{{ ng_render_field(content.fields.title) }}</h1>
+            <p class="info">
+                <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
+            </p>
+        </header>
+
+        {% if not content.fields.line_intro.empty %}
+            <div class="short">
+                {{ ng_render_field(content.fields.line_intro) }}
+            </div>
+        {% endif %}
+
+        {% if not content.fields.description.empty %}
+            <div class="body">
+                {{ ng_render_field(content.fields.description) }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

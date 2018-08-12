@@ -1,0 +1,14 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<div class="view-type view-type-{{ view_type }} ng-news vl clearfix">
+
+    {{ content_fields.image(content, location) }}
+
+    <div class="info">
+        <div class="date">
+            {{ content.fields.publish_date.value.value|date('F j, Y.') }}
+        </div>
+        <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+        {{ content_fields.intro(content) }}
+    </div>
+</div>

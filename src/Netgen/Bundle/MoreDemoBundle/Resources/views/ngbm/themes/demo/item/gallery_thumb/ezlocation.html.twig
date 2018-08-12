@@ -1,0 +1,16 @@
+{{ render(
+    controller(
+        'ng_content:viewAction', {
+            'content': item.object.content,
+            'location': item.object,
+            'viewType': 'gallery_thumb',
+            'layout': false,
+            'params': {
+                'ngbm_item': item,
+                'image_type': image_type,
+                'show_details': show_details,
+                'show_details_on_hover': show_details_on_hover
+           }|merge(ezparams|default({}))
+        }
+    )
+) }}

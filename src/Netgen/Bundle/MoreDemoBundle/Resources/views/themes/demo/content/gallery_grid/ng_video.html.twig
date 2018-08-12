@@ -1,0 +1,9 @@
+{% import "@ezdesign/parts/video.html.twig" as video %}
+
+{% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
+    <div class="view-type view-type-{{ view_type }} ng-video vl3">
+        <a href="#" class="js-mfp-item js-video-poster" title="{{ content.fields.title.value.text }}">
+            {{ video.poster_slide(content, use_lazy_load|default(false)) }}
+        </a>
+    </div>
+{% endif %}

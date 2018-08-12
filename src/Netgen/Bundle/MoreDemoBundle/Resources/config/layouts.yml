@@ -1,0 +1,5 @@
+imports:
+    - { resource: layouts/blocks.yml }
+    - { resource: layouts/block_view.yml }
+    - { resource: layouts/item_view.yml }
+    - { resource: layouts/services.yml }

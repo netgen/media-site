@@ -1,0 +1,31 @@
+.main-navigation {
+    flex: 1;
+    .navbar-nav {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0 1rem;
+        a {
+            @extend %hover-underline;
+            display: flex;
+            height: $header-height;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $gray-54;
+            padding: 0 1.3333333333em;
+        }
+        .active {
+            a {
+                color: $black;
+                &::after {
+                    transform: scaleY(1);
+                }
+            }
+        }
+    }
+}

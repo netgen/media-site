@@ -1,0 +1,62 @@
+.bm-block {
+    // whitespace sizes
+    $sizes: (
+        sm: 2rem,
+        md: 4rem,
+        lg: 8rem,
+    );
+    // replaces string
+    @function str-replace($string, $search, $replace: '') {
+        $index: str-index($string, $search);
+        @if $index {
+            @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+        }
+        @return $string;
+    }
+    // builds neccessary classes from $sizes object
+    @mixin whitespace($padding) {
+        @each $size, $value in $sizes {
+            &.whitespace-#{$size} {
+                padding: unquote(str-replace($padding, 'size', $value));
+            }
+        }
+    }
+    &.whitespace-both {
+        @include whitespace('size 0');
+        @include media-breakpoint-down(sm) {
+            @include whitespace('size / 2 0');
+        }
+    }
+    &.whitespace-top {
+        @include whitespace('size 0 0');
+        @include media-breakpoint-down(sm) {
+            @include whitespace('size / 2 0 0');
+        }
+    }
+    &.whitespace-bottom {
+        @include whitespace('0 0 size');
+        @include media-breakpoint-down(sm) {
+            @include whitespace('0 0 size / 2');
+        }
+    }
+    &.with-bg-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* background colors */
+    &.bg-color-yellow {
+        background-color: $sunglow;
+    }
+    &.bg-color-light_gray {
+        background-color: $catskill-white;
+    }
+    &.bg-color-white {
+        background-color: $white;
+    }
+    &.bg-color-black {
+        background-color: $black;
+        color: $white;
+    }
+}

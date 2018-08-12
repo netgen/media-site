@@ -1,0 +1,18 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+{% if content.hasField('image') and not content.fields.image.empty %}
+    <div class="view-type view-type-{{ view_type }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl3">
+        {% set title = content_fields.name(content) %}
+
+        <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }}" class="js-mfp-item">
+            {{ ng_render_field(
+                content.fields.image, {
+                    parameters: {
+                        alias: 'i1200',
+                        alt_text: title
+                    }
+                }
+            ) }}
+        </a>
+    </div>
+{% endif %}

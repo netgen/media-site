@@ -1,0 +1,18 @@
+{% set valid_field_groups = ['', 'content'] %}
+
+<div class="fields">
+    {% for field in content.fields if not field.empty and field.innerFieldDefinition.fieldGroup in valid_field_groups %}
+        <div class="field {{ field.fieldTypeIdentifier }}">
+            <p><strong>{{ field.name }}</strong></p>
+
+            {% if field.fieldTypeIdentifier == 'ezxmltext' %}
+                {# Special handling of ezxmltext field to prevent output of too much text #}
+                {{ field.value.xml.saveXML()|striptags|trim|truncate(300) }}
+            {% elseif field.fieldTypeIdentifier == 'ezimage' %}
+                {{ ng_render_field(field, {parameters: {alias: 'i480'}}) }}
+            {% else %}
+                {{ ng_render_field(field) }}
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

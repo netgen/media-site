@@ -1,0 +1,51 @@
+/* sushi bar */
+.bm-vt-sushi_bar {
+    position: relative;
+    overflow: hidden;
+    .swiper-container {
+        overflow: visible;
+        position: static;
+    }
+    .swiper-slide {
+        pointer-events: none;
+        opacity: .2;
+        &.swiper-slide-visible {
+            opacity: 1;
+            pointer-events: initial;
+        }
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: absolute;
+        width: 3.5rem;
+        height: 3.5rem;
+        background: $black;
+        color: $white;
+        transition: background .25s;
+        margin: 0;
+        top: 4.375rem;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 1.125em;
+            height: 1.125em;
+            border-left: .2222222222em solid currentColor;
+            border-bottom: .2222222222em solid currentColor;
+            transform: rotate(45deg) translate3d(-50%, -20%, 0);
+            margin-left: -.1666666667em;
+        }
+        &:hover {
+            background: $gray-87;
+        }
+    }
+    .swiper-button-prev {
+        left: 0;
+    }
+    .swiper-button-next {
+        transform: rotate(180deg);
+        right: 0;
+    }
+}
