@@ -1,4 +1,5 @@
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/var/$1storage/images$2/$3" break;
+rewrite "^/var/([^/]+/)?storage/original/image/(.*)\.svg" "/var/$1storage/original/image/$2.svg" break;
 
 # Makes it possible to place your favicon at the root of your
 # eZ Platform instance. It will then be served directly.
@@ -14,6 +15,7 @@ rewrite "^/robots\.txt" "/robots.txt" break;
 rewrite "^/w3c/p3p\.xml" "/w3c/p3p.xml" break;
 
 # Following rule is needed to correctly display bundle and project assets
+rewrite "^/build(_dev)?/(.*)" "/build$1/$2" break;
 rewrite "^/bundles/(.*)" "/bundles/$1" break;
 rewrite "^/assets/(.*)" "/assets/$1" break;
 

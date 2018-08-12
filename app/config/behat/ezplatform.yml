@@ -1,5 +1,5 @@
 imports:
-    - { resource: ezplatform.yml }
+    - { resource: ../ezplatform.yml }
 
 ezpublish:
     siteaccess:
@@ -13,7 +13,3 @@ ezpublish:
 ezdesign:
     phpstorm:
         enabled: false
-
-ez_platform_standard_design:
-    # for pre eZ Design Engine tests use old template naming
-    override_kernel_templates: false

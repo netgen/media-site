@@ -1,65 +1,64 @@
+imports:
+    -
+        resource: ezplatform_system.yml
+    -
+        resource: '@NetgenMoreDemoBundle/Resources/config/ezplatform.yml'
 ezpublish:
-    # HttpCache settings, By default 'local' (Symfony HttpCache Proxy), by setting it to 'http' you can point it to Varnish
-    http_cache:
-        purge_type: '%purge_type%'
-
-    # Repositories configuration, setup default repository to support solr if enabled
-    repositories:
-        default:
-            storage: ~
-            search:
-                engine: '%search_engine%'
-                connection: default
-
-    # Siteaccess configuration, with one siteaccess per default
     siteaccess:
-        list: [site, admin]
+        default_siteaccess: eng
+        list:
+            - eng
+            - ngadminui
+            - admin
+            - legacy_admin
         groups:
-            site_group: [site]
-
-            # WARNING: Do not remove or rename this group.
-            # It's used to distinguish common siteaccesses from admin ones.
-            # In case of multisite with multiple admin panels, remember to add any additional admin siteaccess to this group.
-            admin_group: [admin]
-        default_siteaccess: site
-        match:
-            URIElement: 1
-
-    # System settings, grouped by siteaccess and/or siteaccess group
+            frontend_group:
+                - eng
+            ngadmin_group:
+                - ngadminui
+                - legacy_admin
+            admin_group:
+                - admin
     system:
-        site_group:
-            # Cache pool service, needs to be different per repository (database) on multi repository install.
-            cache_service_name: '%cache_pool%'
-            # These reflect the current installers, complete installation before you change them. For changing var_dir
-            # it is recommended to install clean, then change setting before you start adding binary content, otherwise you'll
-            # need to manually modify your database data to reflect this to avoid exceptions.
-            var_dir: var/site
-            # System languages. Note that by default, content, content types, and other data are in eng-GB locale,
-            # so removing eng-GB from this list may lead to errors or content not being shown, unless you change
-            # all eng-GB data to other locales first.
-            languages: [eng-GB]
-            content:
-                # As we by default enable EzSystemsPlatformHttpCacheBundle which is designed to expire all affected cache
-                # on changes, and as error / redirects now have separate ttl, we easier allow ttl to be greatly increased
-                default_ttl: '%httpcache_default_ttl%'
-            # HttpCache purge server(s) setting, eg Varnish, for when ezpublish.http_cache.purge_type is set to 'http'.
-            http_cache:
-                purge_servers: ['%purge_server%']
-
-        # WARNING: Do not remove or rename this group.
-        admin_group:
-            cache_service_name: '%cache_pool%'
-            var_dir: var/site
-            languages: [eng-GB]
-            content:
-                default_ttl: '%httpcache_default_ttl%'
-            http_cache:
-                purge_servers: ['%purge_server%']
-
-    url_alias:
-        slug_converter:
-            transformation: 'urlalias_lowercase'
-
-ez_platform_standard_design:
-    # makes Kernel default templates (in EzPublishCoreBundle/Resources/views) part of standard Design
-    override_kernel_templates: true
+        frontend_group:
+            translation_siteaccesses:
+                - eng
+        eng:
+            design: demo
+            languages:
+                - eng-GB
+            session:
+                name: eZSESSID
+        ngadminui:
+            design: ngadminui
+            languages:
+                - eng-GB
+            session:
+                name: eZSESSID
+        admin:
+            languages:
+                - eng-GB
+            session:
+                name: eZSESSID
+        legacy_admin:
+            languages:
+                - eng-GB
+netgen_block_manager:
+    design_list:
+        demo:
+            - demo
+    system:
+        frontend_group:
+            design: demo
+ezdesign:
+    design_list:
+        demo:
+            - demo
+            - common
+        ngadminui:
+            - ngadminui
+            - common
+ez_publish_legacy:
+    system:
+        legacy_admin:
+            legacy_mode: true

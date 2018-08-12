@@ -1,10 +1,11 @@
 imports:
-    - { resource: config_dev.yml }
-    - { resource: ezplatform_behat.yml }
+    # Keep ezplatform.yml before config.yml
+    - { resource: ezplatform.yml }
+    - { resource: ../dev/config.yml }
 
 framework:
     router:
-        resource: "%kernel.root_dir%/config/routing_behat.yml"
+        resource: "%kernel.root_dir%/config/behat/routing.yml"
     profiler:
         collect: false
 

@@ -1,22 +1,21 @@
 {
-    "name": "ezsystems/ezplatform",
-    "description": "eZ Platform distribution",
-    "homepage": "https://github.com/ezsystems/ezplatform",
+    "name": "netgen/more-site",
+    "description": "Netgen Base Site (Powered by Netgen Layouts & eZ Platform)",
+    "homepage": "https://www.netgenlabs.com",
     "license": "GPL-2.0-only",
     "type": "project",
     "authors": [
+        {
+            "name": "Netgen",
+            "homepage": "https://www.netgenlabs.com"
+        },
         {
             "name": "eZ dev-team & eZ Community",
             "homepage": "https://github.com/ezsystems/ezplatform/contributors"
         }
     ],
-    "replace": {
-        "ezsystems/ezpublish-community": "*"
-    },
     "autoload": {
-        "psr-4": {
-            "AppBundle\\": "src/AppBundle/"
-        },
+        "psr-0": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
@@ -25,34 +24,54 @@
     },
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.4.2",
-        "twig/twig": "^1.0||^2.0",
-        "twig/extensions": "^1.5.1",
+        "symfony/symfony": "^3.4.11",
+        "twig/extensions": "^1.5.2",
         "symfony/assetic-bundle": "^2.8.2",
         "symfony/swiftmailer-bundle": "^3.2.2",
         "symfony/monolog-bundle": "^3.3.0",
         "doctrine/doctrine-bundle": "^1.9.1",
-        "doctrine/orm": "^2.5",
+        "doctrine/orm": "^2.6.1",
         "sensio/distribution-bundle": "^5.0.22",
         "incenteev/composer-parameter-handler": "^2.1.3",
-        "ezsystems/ezpublish-kernel": "~7.2.1@dev",
-        "ezsystems/repository-forms": "~2.2.0@dev",
-        "ezsystems/ezplatform-solr-search-engine": "~1.5.2@dev",
-        "ezsystems/ez-support-tools": "~0.2.1@dev",
-        "ezsystems/ezplatform-http-cache": "~0.7.0@dev",
-        "ezsystems/ezplatform-admin-ui": "~1.2.1@dev",
-        "ezsystems/ezplatform-admin-ui-modules": "~1.2.1@dev",
-        "ezsystems/ezplatform-admin-ui-assets": "~3.0.0@dev",
-        "ezsystems/ezplatform-design-engine": "~2.0.0@dev",
-        "ezsystems/ezplatform-standard-design": "~0.1.0@dev",
-        "ezsystems/ezplatform-cron": "~2.0.0@dev",
+        "ezsystems/ezpublish-kernel": "~7.2.0",
+        "ezsystems/repository-forms": "~2.2.0",
+        "ezsystems/ezplatform-solr-search-engine": "^1.5.2.1",
+        "ezsystems/ezplatform-xmltext-fieldtype": "^1.6.1",
+        "ezsystems/ez-support-tools": "^0.2.1",
+        "ezsystems/ezplatform-http-cache": "^0.7",
+        "ezsystems/ezplatform-admin-ui": "~1.2.0",
+        "ezsystems/ezplatform-admin-ui-modules": "~1.2.0",
+        "ezsystems/ezplatform-admin-ui-assets": "~3.0.0",
+        "ezsystems/ezplatform-design-engine": "^2.0",
+        "ezsystems/ezplatform-standard-design": "^0.1",
+        "ezsystems/ezplatform-cron": "^2.0",
+        "ezsystems/ezpublish-legacy": ">=2018.06.1.1",
         "knplabs/knp-menu-bundle": "^2.2.1",
         "willdurand/js-translation-bundle": "^2.6.6",
         "friendsofsymfony/jsrouting-bundle": "^1.6.3",
-        "white-october/pagerfanta-bundle": "^1.2",
+        "white-october/pagerfanta-bundle": "^1.2.1",
         "roave/security-advisories": "dev-master",
-        "leafo/scssphp": "^0.7.6",
-        "symfony/thanks": "^1.0.7"
+        "leafo/scssphp": "^0.7.7",
+        "symfony/thanks": "^1.0.7",
+
+        "sentry/sentry-symfony": "^2.0.3",
+        "php-http/httplug-bundle": "^1.11",
+        "php-http/curl-client": "^1.7.1",
+
+        "netgen/more-site-data": "~2.7.0",
+        "netgen/more-bundle": "~4.2.0@dev",
+        "netgen/more-legacy-bundle": "~4.2.0@dev",
+        "netgen/more-generator-bundle": "~3.1.0",
+        "netgen/more-installer-bundle": "^2.0",
+        "netgen/information-collection-bundle": "^1.5.2",
+        "netgen/ezplatform-search-extra": "^1.0",
+        "netgen/admin-ui-bundle": "^2.3.1",
+
+        "netgen/block-manager-standard": "~0.11.0",
+        "netgen/block-manager-ezpublish": "~0.11.0",
+        "netgen/block-manager-site-api": "~0.11.0",
+        "netgen/admin-ui-layouts-bundle": "~0.11.0",
+        "netgen/ez-admin-ui-layouts-bundle": "~0.11.0"
     },
     "require-dev": {
         "behat/behat": "^3.4.3",
@@ -61,12 +80,13 @@
         "behat/mink-goutte-driver": "^1.2.1",
         "behat/mink-selenium2-driver": "^1.3.1",
         "ezsystems/behatbundle": "^6.5.3",
-        "phpunit/phpunit": "^6.4.4",
+        "phpunit/phpunit": "^7.3",
         "sensio/generator-bundle": "^3.1.7",
-        "symfony/phpunit-bridge": "^3.4.11"
+        "symfony/phpunit-bridge": "^4.1.2",
+        "franzl/studio": "*"
     },
     "conflict": {
-        "symfony/symfony": "3.4.9||3.4.12",
+        "symfony/symfony": "3.4.12",
         "doctrine/dbal": "2.7.0"
     },
     "scripts": {
@@ -74,8 +94,13 @@
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "eZ\\Bundle\\EzPublishCoreBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::installAssets",
+            "eZ\\Bundle\\EzPublishCoreBundle\\Composer\\ScriptHandler::dumpAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "@php bin/console assetic:dump"
+            "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::installLegacyBundlesExtensions",
+            "Netgen\\Bundle\\MoreBundle\\Composer\\ScriptHandler::installProjectSymlinks",
+            "Netgen\\Bundle\\MoreLegacyBundle\\Composer\\ScriptHandler::installLegacySymlinks",
+            "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::generateAutoloads"
         ],
         "post-install-cmd": [
             "@symfony-scripts"
@@ -83,18 +108,13 @@
         "post-update-cmd": [
             "@symfony-scripts"
         ],
-        "post-create-project-cmd": [
-            "eZ\\Bundle\\EzPublishCoreBundle\\Composer\\ScriptHandler::installWelcomeText"
-        ],
         "ezplatform-install": [
-            "@php bin/console ezplatform:install clean"
+            "@php bin/console ezplatform:install ngmore"
         ]
     },
     "config": {
         "bin-dir": "bin",
-        "preferred-install": {
-            "ezsystems/*": "dist"
-        }
+        "preferred-install": "dist"
     },
     "extra": {
         "symfony-app-dir": "app",
@@ -102,13 +122,14 @@
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
         "symfony-tests-dir": "tests",
+        "ezpublish-legacy-dir": "ezpublish_legacy",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "keep-outdated": true,
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.2.x-dev"
+            "dev-master": "4.0.x-dev"
         }
     }
 }

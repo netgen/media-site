@@ -1,0 +1,5 @@
+rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/var/$1storage/images$2/$3" break;
+rewrite "^/var/([^/]+/)?cache/(texttoimage|public)/(.*)" "/var/$1cache/$2/$3" break;
+rewrite "^/design/([^/]+)/(stylesheets|images|fonts|javascript)/(.*)" "/design/$1/$2/$3" break;
+rewrite "^/share/icons/(.*)" "/share/icons/$1" break;
+rewrite "^/extension/([^/]+)/design/([^/]+)/(stylesheets|flash|images||fonts|lib|javascripts?)/(.*)" "/extension/$1/design/$2/$3/$4" break;

@@ -1,0 +1,44 @@
+imports:
+    - { resource: '@NetgenMoreBundle/Resources/config/ezplatform.yml' }
+    - { resource: '@NetgenMoreLegacyBundle/Resources/config/ezplatform.yml' }
+    - { resource: '@NetgenAdminUIBundle/Resources/config/ezplatform.yml' }
+
+ezpublish:
+    http_cache:
+        purge_type: '%purge_type%'
+
+    imagemagick:
+        enabled: true
+        path: '%imagemagick_path%'
+
+    repositories:
+        default:
+            fields_groups:
+                list: [content, meta, extras]
+            storage: ~
+            search:
+                engine: '%search_engine%'
+                connection: default
+
+    system:
+        global:
+            repository: default
+            # Cache pool service, needs to be different per repository (database) on multi repository install.
+            cache_service_name: '%cache_pool%'
+            # These reflect the current installers, complete installation before you change them. For changing var_dir
+            # it is recommended to install clean, then change setting before you start adding binary content, otherwise you'll
+            # need to manually modify your database data to reflect this to avoid exceptions.
+            var_dir: var/site
+            # HttpCache purge server(s) setting, eg Varnish, for when ezpublish.http_cache.purge_type is set to 'http'.
+            http_cache:
+                purge_servers: ['%purge_server%']
+
+        default:
+            content:
+                # As we by default enable EzSystemsPlatformHttpCacheBundle which is designed to expire all affected cache
+                # on changes, and as error / redirects now have separate ttl, we easier allow ttl to be greatly increased
+                default_ttl: '%httpcache_default_ttl%'
+
+    url_alias:
+        slug_converter:
+            transformation: 'urlalias_lowercase'

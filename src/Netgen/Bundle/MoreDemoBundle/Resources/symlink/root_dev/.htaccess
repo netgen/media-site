@@ -59,11 +59,11 @@ RewriteRule ^\.well-known/acme-challenge/ - [L]
 # START: Multisite rewrite rules for robots.txt
 
 # RewriteRule ^robots_site1.txt$ - [L]
-# RewriteCond %{HTTP_HOST} ^site1.netgen.biz$ [NC]
+# RewriteCond %{HTTP_HOST} ^site1.example.com$ [NC]
 # RewriteRule ^robots.txt$ robots_site1.txt [L]
 
 # RewriteRule ^robots_site2.txt$ - [L]
-# RewriteCond %{HTTP_HOST} ^site2.netgen.biz$ [NC]
+# RewriteCond %{HTTP_HOST} ^site2.example.com$ [NC]
 # RewriteRule ^robots.txt$ robots_site2.txt [L]
 
 # END: Multisite rewrite rules for robots.txt

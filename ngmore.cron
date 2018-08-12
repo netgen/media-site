@@ -2,7 +2,7 @@
 EZPUBLISHROOT=/path/to/the/ez/publish/directory
 
 # The command used to call the cronjobs
-EZPUBLISHSCRIPT=app/console ezpublish:legacy:script runcronjobs.php
+EZPUBLISHSCRIPT=bin/console ezpublish:legacy:script runcronjobs.php
 
 # Siteaccess used for operations
 SITEACCESS=administration

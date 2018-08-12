@@ -12,6 +12,10 @@ parameters:
     locale: en
     ezpublish_rest.csrf_token_intention: authenticate
 
+# Switches Netgen Layouts and Netgen Content Browser to use filter search service adapter from Site API
+netgen_site_api_block_manager:
+    search_service_adapter: filter
+
 # Configuration for Database connection, can have several connections used by eZ Repositories in ezplatform.yml
 doctrine:
     dbal:
@@ -23,7 +27,7 @@ doctrine:
                 dbname: '%database_name%'
                 user: '%database_user%'
                 password: '%database_password%'
-                charset: UTF8
+                charset: utf8mb4
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -58,7 +62,7 @@ framework:
     # This is to avoid template name parsing with Twig engine, refusing specific characters
     # which are valid with legacy tpl files.
     templating:
-        engines: ['twig']
+        engines: ['eztpl', 'twig']
         #assets_version: SomeVersionScheme
     default_locale: '%locale_fallback%'
     trusted_hosts: ~
@@ -70,9 +74,11 @@ framework:
         # Note: eZ Platform also allows session name and session cookie configuration to be per SiteAccess, by
         #       default session name will be set to "eZSESSID{siteaccess_hash}" (unique session name per siteaccess)
         #       Further reading on sessions: http://doc.ezplatform.com/en/latest/guide/sessions/
+        cookie_httponly: true
     fragments: ~
     http_method_override: true
-    assets: true
+    assets:
+        json_manifest_path: '%kernel.project_dir%/web/build/manifest.json'
     php_errors:
         log: true
 
@@ -83,9 +89,12 @@ twig:
 
 # Assetic Configuration
 assetic:
-    debug: '%kernel.debug%'
-    use_controller: '%kernel.debug%'
-    bundles: [ EzPlatformAdminUiBundle ]
+    workers:
+        cache_busting:
+            enabled: true
+    debug: false
+    use_controller: false
+    bundles: []
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -97,6 +106,7 @@ assetic:
 swiftmailer:
     transport: '%mailer_transport%'
     host: '%mailer_host%'
+    port: '%mailer_port%'
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
@@ -118,6 +128,8 @@ fos_http_cache:
             # Should not be set to high, as cached 404's can cause issues for future routes, url aliases, wildcards, ..
             -
                 match:
+                    attributes:
+                        _route: "^(?!ngbm_api_|ngcb_api_)"
                     match_response: "!response.isFresh() && response.isNotFound()"
                 headers:
                     overwrite: true
@@ -139,3 +151,21 @@ jms_translation:
             output_dir: '%kernel.root_dir%/../vendor/ezsystems/ezplatform-admin-ui/src/bundle/Resources/translations/'
             excluded_dirs: [Behat, Tests]
             output_format: "xliff"
+
+# Liip Imagine Configuration
+liip_imagine:
+    driver: imagick
+
+# Sensio Framework Extra Configuration
+sensio_framework_extra:
+    router:
+        annotations: false
+
+# Httplug configuration
+httplug:
+    plugins:
+        logger: ~
+    clients:
+        default:
+            factory: httplug.factory.curl
+            plugins: [httplug.plugin.logger]

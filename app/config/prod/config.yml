@@ -1,6 +1,7 @@
 imports:
-    - { resource: config.yml }
-    - { resource: ezplatform_prod.yml }
+    # Keep ezplatform.yml before config.yml
+    - { resource: ezplatform.yml }
+    - { resource: ../config.yml }
 
 # Example below would make sure some of the symfony caches are written to apc / redis instead of disk
 # Make sure to verify if cache clearing is done as you expect when doing such changes.
@@ -20,6 +21,9 @@ imports:
 #            host:
 #            port:
 
+
+sentry:
+    dsn: '%sentry_dsn%'
 
 monolog:
     handlers:

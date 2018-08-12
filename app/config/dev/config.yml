@@ -1,12 +1,17 @@
 imports:
-    - { resource: config.yml }
-    - { resource: ezplatform_dev.yml }
+    # Keep ezplatform.yml before config.yml
+    - { resource: ezplatform.yml }
+    - { resource: ../config.yml }
 
 framework:
     router:
-        resource: '%kernel.project_dir%/app/config/routing_dev.yml'
+        resource: '%kernel.project_dir%/app/config/dev/routing.yml'
         strict_requirements: true
-    profiler: { only_exceptions: false }
+    profiler:
+        only_exceptions: false
+        only_master_requests: true
+    assets:
+        json_manifest_path: '%kernel.project_dir%/web/build_dev/manifest.json'
 
 web_profiler:
     toolbar: true
@@ -18,7 +23,7 @@ monolog:
             type: '%log_type%'
             path: '%log_path%'
             level: debug
-            channels: ['!event']
+            channels: ['!event', '!doctrine']
         console:
             type: console
             process_psr_3_messages: false
