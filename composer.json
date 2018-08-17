@@ -1,6 +1,6 @@
 {
-    "name": "netgen/more-site",
-    "description": "Netgen Base Site (Powered by Netgen Layouts & eZ Platform)",
+    "name": "netgen/media-site",
+    "description": "Netgen Media Site (Powered by Netgen Layouts & eZ Platform)",
     "homepage": "https://www.netgenlabs.com",
     "license": "GPL-2.0-only",
     "type": "project",
@@ -58,20 +58,18 @@
         "php-http/httplug-bundle": "^1.11",
         "php-http/curl-client": "^1.7.1",
 
-        "netgen/more-site-data": "~2.7.0",
-        "netgen/more-bundle": "~4.2.0@dev",
-        "netgen/more-legacy-bundle": "~4.2.0@dev",
-        "netgen/more-generator-bundle": "~3.1.0",
-        "netgen/more-installer-bundle": "^2.0",
-        "netgen/information-collection-bundle": "^1.5.2",
+        "netgen/media-site-data": "~1.0.0@dev",
+        "netgen/site-bundle": "~1.0.0@dev",
+        "netgen/site-legacy-bundle": "~1.0.0@dev",
+        "netgen/site-generator-bundle": "~1.0.0@dev",
+        "netgen/site-installer-bundle": "^1.0@dev",
+        "netgen/information-collection-bundle": "^1.5.3",
         "netgen/ezplatform-search-extra": "^1.0",
-        "netgen/admin-ui-bundle": "^2.3.1",
+        "netgen/admin-ui-bundle": "^2.4",
 
-        "netgen/block-manager-standard": "~0.11.0",
-        "netgen/block-manager-ezpublish": "~0.11.0",
-        "netgen/block-manager-site-api": "~0.11.0",
-        "netgen/admin-ui-layouts-bundle": "~0.11.0",
-        "netgen/ez-admin-ui-layouts-bundle": "~0.11.0"
+        "netgen/layouts-standard": "~0.12.0",
+        "netgen/layouts-ezplatform": "~0.12.0",
+        "netgen/layouts-ezplatform-site-api": "~0.12.0"
     },
     "require-dev": {
         "behat/behat": "^3.4.3",
@@ -85,6 +83,8 @@
         "symfony/phpunit-bridge": "^4.1.2",
         "franzl/studio": "*"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "conflict": {
         "symfony/symfony": "3.4.12",
         "doctrine/dbal": "2.7.0"
@@ -109,7 +109,7 @@
             "@symfony-scripts"
         ],
         "ezplatform-install": [
-            "@php bin/console ezplatform:install ngmore"
+            "@php bin/console ezplatform:install netgen-media"
         ]
     },
     "config": {

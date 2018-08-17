@@ -98,8 +98,8 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle();
 
-        $bundles[] = new Netgen\Bundle\CoreUIBundle\NetgenCoreUIBundle();
         $bundles[] = new Netgen\Bundle\ContentBrowserBundle\NetgenContentBrowserBundle();
+        $bundles[] = new Netgen\Bundle\ContentBrowserEzPlatformBundle\NetgenContentBrowserEzPlatformBundle();
         $bundles[] = new Netgen\Bundle\ContentBrowserUIBundle\NetgenContentBrowserUIBundle();
         $bundles[] = new Netgen\Bundle\BlockManagerBundle\NetgenBlockManagerBundle();
         $bundles[] = new Netgen\Bundle\BlockManagerStandardBundle\NetgenBlockManagerStandardBundle();
@@ -107,8 +107,6 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\BlockManagerAdminBundle\NetgenBlockManagerAdminBundle();
         $bundles[] = new Netgen\Bundle\EzPublishBlockManagerBundle\NetgenEzPublishBlockManagerBundle();
         $bundles[] = new Netgen\Bundle\SiteAPIBlockManagerBundle\NetgenSiteAPIBlockManagerBundle();
-        $bundles[] = new Netgen\Bundle\EzPlatformAdminUILayoutsBundle\NetgenEzPlatformAdminUILayoutsBundle();
-        $bundles[] = new Netgen\Bundle\AdminUILayoutsBundle\NetgenAdminUILayoutsBundle();
 
         $bundles[] = new Netgen\Bundle\MoreDemoBundle\NetgenMoreDemoBundle();
 

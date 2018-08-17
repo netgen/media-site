@@ -1,5 +1,5 @@
-Netgen Base Site frontend setup
-===============================
+Netgen Site frontend setup
+==========================
 
 Authors
 -------

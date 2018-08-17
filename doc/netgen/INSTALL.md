@@ -1,5 +1,5 @@
-Netgen Base Site install instructions
-=====================================
+Netgen Site install instructions
+================================
 
 Software requirements
 ---------------------
@@ -62,14 +62,11 @@ yarn build:dev
 Run the following command to import database schema and demo data:
 
 ```
-php bin/console ezplatform:install ngmore
+php bin/console ezplatform:install <SITE_NAME>
 ```
 
-You can also create a clean version of the site, without demo data with:
-
-```
-php bin/console ezplatform:install ngmore-clean
-```
+where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
+or `netgen-media-clean` for the clean version, without demo data.
 
 ### Setup Apache virtual host
 
