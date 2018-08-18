@@ -1,13 +1,3 @@
-{% macro inline_template(string, parameters) %}
-{% spaceless %}
-    {% if '{{' in string and '}}' in string and '{%' not in string and '{#' not in string %}
-        {{ include(template_from_string(string), parameters, with_context = false)|e }}
-    {% else %}
-        {{ string }}
-    {% endif %}
-{% endspaceless %}
-{% endmacro %}
-
 {% macro content_link(content, link_name, link_class) %}
 {% spaceless %}
     {% set url = '#' %}
