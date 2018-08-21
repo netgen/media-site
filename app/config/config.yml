@@ -94,7 +94,7 @@ assetic:
             enabled: true
     debug: false
     use_controller: false
-    bundles: [ EzPlatformAdminUiBundle ]
+    bundles: [ EzPlatformAdminUiBundle, NetgenTagsBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
