@@ -42,7 +42,7 @@
 
         <div class="container">
             {% block image %}
-                {% if not content.fields.image.empty or not content.fields.related_multimedia.empty %}
+                {% if not content.fields.image.empty %}
                     <div class="full-article-image">
                         {{ render(
                             controller(
