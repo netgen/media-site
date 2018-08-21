@@ -32,7 +32,7 @@
                             By
                             {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
                                 <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngmore_location_name(author_location_id) }}</a>
-                            {% endfor %} -
+                            {% endfor %} –
                         {% endif %}
                         <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
                     </div>
