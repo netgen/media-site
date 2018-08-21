@@ -10,4 +10,5 @@ ShowClasses[]=ng_frontpage
 ShowClasses[]=ng_category
 ShowClasses[]=ng_container
 ShowClasses[]=ng_topic
+ShowClasses[]=ng_feedback_form
 */ ?>
