@@ -30,7 +30,7 @@
             right: 0;
             top: 0;
             bottom: 0;
-            background: linear-gradient(180deg, rgba($black, .1) 0%, $black 100%);
+            background: linear-gradient(transparent,rgba(0,0,0,0.9));
             z-index: 2;
             transition: opacity .75s ease-out;
         }
