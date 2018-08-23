@@ -4,7 +4,7 @@
 
 <article class="view-type view-type-{{ view_type }} ng-article vl2">
     <i class="fas fa-camera article-icon" aria-hidden="true"></i>
-    {% if children is not empty %}
+    {% if children.searchHits is not empty %}
         {% set first_image = children[0].content %}
 
         <a href="{{ path(location) }}" class="image-16by9">
