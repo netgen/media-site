@@ -4,7 +4,7 @@
     {% if collections.default is defined %}
         <div class="grid-featured">
             {% for result in collections.default %}
-                <div class="item">
+                <div class="item {% if loop.index0 == 0 %}primary-item{% else %}secondary-item{% endif %}">
                     {{ ngbm_render_item(result.item, block.itemViewType) }}
                 </div>
             {% endfor %}

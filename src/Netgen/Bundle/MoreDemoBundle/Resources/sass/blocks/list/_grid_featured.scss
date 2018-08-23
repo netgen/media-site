@@ -18,4 +18,20 @@
             line-height: 1.2424;
         }
     }
+    @include media-breakpoint-down(lg) {
+        .primary-item {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .secondary-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        .secondary-item {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
 }
