@@ -4,4 +4,10 @@
     img {
         width: 100%;
     }
+    @include media-breakpoint-down(lg) {
+        width: 12rem;
+    }
+    @include media-breakpoint-down(md) {
+        width: 10rem;
+    }
 }

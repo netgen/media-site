@@ -6,8 +6,15 @@ $header-bg: $white;
     box-shadow: 0 .5rem 1rem 0 hsla(0, 0, 0, .08);
     position: relative;
     > .container {
+        height: $header-height;
         display: flex;
         align-items: center;
+    }
+    @include media-breakpoint-down(md) {
+        > .container {
+            height: $header-height-sm;
+            position: relative;
+        }
     }
 }
 
@@ -123,6 +130,20 @@ $header-bg: $white;
             .searchbox-toggle {
                 pointer-events: none;
             }
+        }
+    }
+    @include media-breakpoint-down(md) {
+        height: $header-height-sm;
+        position: absolute;
+        right: $gutter + $header-height-sm;
+        .searchbox-toggle {
+            line-height: $header-height-sm;
+        }
+    }
+    @include media-breakpoint-down(xs) {
+        right: $header-height-sm;
+        .searchbox-toggle {
+            width: 3rem;
         }
     }
 }
