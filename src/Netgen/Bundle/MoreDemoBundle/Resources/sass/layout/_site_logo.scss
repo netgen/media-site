@@ -1,23 +1,7 @@
 .site-logo {
     display: inline-block;
-    font-size: 2.0625rem;
-    position: relative;
-    font-weight: 900;
-    padding: 0 .3636363636em;
-    color: $black;
-    &:hover {
-        color: $black;
-    }
-    span {
-        position: relative;
-    }
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: .3636363636em;
-        height: .6060606061em;
-        background: $sunglow;
+    width: 14rem;
+    img {
+        width: 100%;
     }
 }
