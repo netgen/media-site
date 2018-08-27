@@ -187,6 +187,7 @@ $(document).ready(() => {
 
   /* get video poster */
   const getVideoPoster = (el, service) => {
+    if (el.attr('src')) return;
     const videoID = el.attr('data-id');
     const thumbname = el.attr('data-thumbname');
     let url;
@@ -217,6 +218,16 @@ $(document).ready(() => {
   });
   /* /get video poster */
 
+  Array.prototype.filter.call(document.getElementsByClassName('ajax-collection'), (el) => {
+    el.addEventListener('ajax-paging-added', () => {
+      $(el).find('img.vimeo-poster').each(function () {
+        getVideoPoster($(this), 'vimeo');
+      });
+      $(el).find('img.dailymotion-poster').each(function () {
+        getVideoPoster($(this), 'dailymotion');
+      });
+    }, false);
+  });
 
   $(document).on('poster:loaded', function () {
     const $link = $(this).closest('.js-video-poster');
