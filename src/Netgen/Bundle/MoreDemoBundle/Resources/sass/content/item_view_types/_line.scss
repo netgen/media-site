@@ -4,7 +4,7 @@
     display: flex;
     position: relative;
     .image {
-        width: 20rem;
+        width: 44%;
         a {
             display: block;
             position: relative;
@@ -56,6 +56,16 @@
         pointer-events: none;
         + .article-content {
             padding-left: 4.875rem;
+        }
+    }
+    @include media-breakpoint-down(xxs) {
+        display: block;
+        .image {
+            width: 100%;
+            + .article-content {
+                padding-left: 0;
+                padding-top: 1rem;
+            }
         }
     }
 }

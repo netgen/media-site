@@ -49,4 +49,9 @@
             padding-top: 3.5rem;
         }
     }
+    @include media-breakpoint-down(lg) {
+        .title {
+            font-size: 1.25rem;
+        }
+    }
 }

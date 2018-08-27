@@ -64,4 +64,11 @@
             }
         }
     }
+    @include media-breakpoint-down(sm) {
+        .footer-menu {
+            .navbar-nav {
+                display: block;
+            }
+        }
+    }
 }

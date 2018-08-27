@@ -52,6 +52,9 @@
             display: none;
         }
     }
+    @include media-breakpoint-down(lg) {
+        font-size: .75rem;
+    }
 }
 
 %item-title-link {

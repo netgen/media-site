@@ -5,6 +5,11 @@
         md: 4rem,
         lg: 8rem,
     );
+    $sm-sizes: (
+        sm: 1rem,
+        md: 2rem,
+        lg: 4rem,
+    );
     // replaces string
     @function str-replace($string, $search, $replace: '') {
         $index: str-index($string, $search);
@@ -14,7 +19,7 @@
         @return $string;
     }
     // builds neccessary classes from $sizes object
-    @mixin whitespace($padding) {
+    @mixin whitespace($padding, $sizes: $sizes) {
         @each $size, $value in $sizes {
             &.whitespace-#{$size} {
                 padding: unquote(str-replace($padding, 'size', $value));
@@ -23,21 +28,12 @@
     }
     &.whitespace-both {
         @include whitespace('size 0');
-        @include media-breakpoint-down(sm) {
-            @include whitespace('size / 2 0');
-        }
     }
     &.whitespace-top {
         @include whitespace('size 0 0');
-        @include media-breakpoint-down(sm) {
-            @include whitespace('size / 2 0 0');
-        }
     }
     &.whitespace-bottom {
         @include whitespace('0 0 size');
-        @include media-breakpoint-down(sm) {
-            @include whitespace('0 0 size / 2');
-        }
     }
     &.with-bg-image {
         background-repeat: no-repeat;
@@ -58,5 +54,17 @@
     &.bg-color-black {
         background-color: $black;
         color: $white;
+    }
+
+    @include media-breakpoint-down(sm) {
+        &.whitespace-both {
+            @include whitespace('size 0', $sm-sizes);
+        }
+        &.whitespace-top {
+            @include whitespace('size 0 0', $sm-sizes);
+        }
+        &.whitespace-bottom {
+            @include whitespace('0 0 size', $sm-sizes);
+        }
     }
 }

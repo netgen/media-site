@@ -46,6 +46,13 @@
     .title {
         font-size: 1.3125rem;
         margin: 0 0 .25rem;
+        line-height: 1.25;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 5em;
         a {
             @extend %item-title-link;
         }
@@ -62,9 +69,10 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: 3rem;
-        height: 3rem;
-        line-height: 3rem;
+        width: 3em;
+        height: 3em;
+        font-size: 1rem;
+        line-height: 3;
         text-align: center;
         background: $sunglow;
         color: $black;
@@ -80,6 +88,30 @@
             img {
                 transform: scale(1.08);
             }
+        }
+    }
+    @include media-breakpoint-down(lg) {
+        .article-header {
+            bottom: 1.25rem;
+            left: 1.5rem;
+            right: 1.5rem;
+        }
+        .title {
+            font-size: 1.25rem;
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        .article-header {
+            bottom: 1rem;
+            left: 1.25rem;
+            right: 1.25rem;
+        }
+        .title {
+            -webkit-line-clamp: 3;
+            max-height: 3.75em;
+        }
+        .article-icon {
+            font-size: .75rem;
         }
     }
 }

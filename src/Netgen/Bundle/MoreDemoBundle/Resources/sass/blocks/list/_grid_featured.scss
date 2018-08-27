@@ -15,23 +15,75 @@
         }
         .title {
             font-size: 2.0625rem;
-            line-height: 1.2424;
+            -webkit-line-clamp: 5;
+            max-height: 6.25em;
         }
     }
     @include media-breakpoint-down(lg) {
+        .vl2 {
+            .title {
+                font-size: 1.75rem;
+            }
+        }
+    }
+    @include media-breakpoint-down(md) {
         .primary-item {
             flex: 0 0 100%;
             max-width: 100%;
+            .vl2 {
+                .image-16by9 {
+                    padding-bottom: 56.25%;
+                }
+            }
         }
         .secondary-item {
             flex: 0 0 50%;
             max-width: 50%;
         }
+        .vl2 {
+            .title {
+                font-size: 1.75rem;
+            }
+        }
     }
     @include media-breakpoint-down(sm) {
+        .vl2 {
+            .title {
+                font-size: 1.375rem;
+            }
+        }
+    }
+    @include media-breakpoint-down(xs) {
+        .vl2 {
+            .title {
+                font-size: 1.5rem;
+            }
+        }
+        .secondary-item {
+            .vl2 {
+                .title {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(xxs) {
         .secondary-item {
             flex: 0 0 100%;
             max-width: 100%;
+        }
+        .primary-item,
+        .secondary-item {
+            .vl2 {
+                .title {
+                    font-size: 1.5rem;
+                    -webkit-line-clamp: 4;
+                    max-height: 5em;
+                }
+                .image-16by9 {
+                    padding-bottom: 75%;
+                }
+            }
         }
     }
 }
