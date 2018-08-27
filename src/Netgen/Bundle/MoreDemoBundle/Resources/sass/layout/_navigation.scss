@@ -6,28 +6,84 @@
         list-style-type: none;
         margin: 0;
         padding: 0 1rem;
-        a {
-            @extend %hover-underline;
-            display: flex;
-            height: $header-height;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: .75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: $gray-54;
-            padding: 0 1.3333333333em;
+        text-align: center;
+        > li {
+            position: relative;
+            > a,
+            > span {
+                @extend %hover-underline;
+                display: inline-block;
+                font-weight: 700;
+                font-size: .75rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding: 0 1.3333333333em;
+            }
         }
-        .active {
+    }
+    /* main submenu */
+    .menu_level_1 {
+        list-style-type: none;
+        padding: 1rem 0;
+        margin: 0;
+        display: none;
+        a {
+            display: block;
+            padding: .5em 1.5em;
+        }
+    }
+    /* large screen sizes */
+    @include media-breakpoint-up(lg) {
+        .navbar-nav {
+            > li:hover,
+            .active {
+                > a,
+                > span {
+                    color: $black;
+                    &::after {
+                        transform: scaleY(1);
+                    }
+                }
+            }
+            > li {
+                > a,
+                > span {
+                    display: flex;
+                    height: $header-height;
+                    align-items: center;
+                    justify-content: center;
+                    color: $gray-54;
+                }
+                &:hover {
+                    .menu_level_1 {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .menu_level_1 {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 16rem;
+            z-index: 20;
+            background: $sunglow;
             a {
-                color: $black;
-                &::after {
-                    transform: scaleY(1);
+                font-size: .75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                &:hover {
+                    background: hsla(0, 0, 0, .05);
                 }
             }
         }
     }
+    .submenu-trigger {
+        @extend %fontawesome;
+        display: none;
+    }
+    /* small screen sizes */
     @include media-breakpoint-down(md) {
         display: none;
         position: absolute;
@@ -40,18 +96,56 @@
             display: block;
             margin: 0;
             padding: 1rem 0;
-            text-align: center;
-            a {
-                height: auto;
-                padding: .5em 1em;
-                display: inline-block;
-                &::after {
-                    display: none;
+            > li {
+                > a,
+                > span {
+                    padding: .5em 1em;
+                    color: $gray-87;
+                    &::after {
+                        display: none;
+                    }
+                }
+                &[data-submenu='true'] {
+                    > a {
+                        margin: 0 1.875rem;
+                    }
+                }
+                &.submenu-active {
+                    .menu_level_1 {
+                        display: block;
+                    }
+                    .submenu-trigger {
+                        &::before {
+                            transform: rotate(180deg);
+                        }
+                    }
                 }
             }
         }
         .mainnav-active & {
             display: block;
+        }
+        .submenu-trigger {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            width: 1.875rem;
+            height: 1.875rem;
+            line-height: 1.875rem;
+            font-size: .875rem;
+            &::before {
+                display: block;
+                content: '\f078';
+            }
+        }
+        .menu_level_1 {
+            padding: 0 0 1rem;
+            a {
+                color: $gray-54;
+                font-size: .875rem;
+            }
         }
     }
     @include media-breakpoint-down(xs) {
@@ -59,6 +153,7 @@
         right: 0;
     }
 }
+
 .mainnav-toggle {
     display: none;
     position: absolute;

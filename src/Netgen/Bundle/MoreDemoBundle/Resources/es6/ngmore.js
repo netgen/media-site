@@ -175,7 +175,7 @@ $(document).ready(() => {
     });
 
     /* toggle mobile sumbmenu */
-    const mainNav = $('#main-nav').find('ul.navbar-nav');
+    const mainNav = $('.main-navigation').find('ul.navbar-nav');
     const submenuTrigContent = $('<i class="submenu-trigger"></i>');
     mainNav.find('.menu_level_1').before(submenuTrigContent).parent('li').attr('data-submenu', 'true');
     mainNav.on('click', 'i.submenu-trigger', function () {
