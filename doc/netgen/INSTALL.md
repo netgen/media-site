@@ -4,10 +4,14 @@ Netgen Site install instructions
 Software requirements
 ---------------------
 
-* Apache 2.4+ / Nginx 1.12+
+* PHP built in server / Apache 2.4+ / Nginx 1.12+
 * MySQL 5.6+
 * PHP 7.1+ (with `gd`, `imagick`, `curl`, `json`, `mysql`, `xsl`, `xml`, `intl` and `mbstring` extensions)
 * ImageMagick
+
+Optional dependencies
+---------------------
+
 * Varnish 4+
 * Solr 6.5+
 
@@ -68,10 +72,18 @@ php bin/console ezplatform:install <SITE_NAME>
 where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
 or `netgen-media-clean` for the clean version, without demo data.
 
-### Setup Apache virtual host
+### Run PHP built in server / Setup Apache virtual host
 
-Create a new Apache virtual host and set it up to point to `web/` directory
-inside repo root.
+For development purposes, you can use PHP built in server to run the site.
+
+Just start with:
+
+```
+php bin/console server:run -d web
+```
+
+Alternatively, you can create a new Apache virtual host and set it up to point
+to `web/` directory inside the repo root.
 
 An example virtual host is available at `doc/apache2/netgen-site-vhost.conf`
 
