@@ -1,3 +1,7 @@
 <a class="site-logo" href="{{ path(ezpublish.rootLocation) }}" title="{{ site_name }}">
-    <img src="{{ asset(ngmore.siteInfoContent.fields.site_logo.value.id, 'ezfile') }}" />
+    {% if not ngmore.siteInfoContent.fields.site_logo.empty %}
+        <img src="{{ asset(ngmore.siteInfoContent.fields.site_logo.value.id, 'ezfile') }}" />
+    {% else %}
+        {{ site_name }}
+    {% endif %}
 </a>
