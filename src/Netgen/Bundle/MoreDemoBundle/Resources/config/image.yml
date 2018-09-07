@@ -2,6 +2,11 @@ ezpublish:
     system:
         default:
             image_variations:
+                i30:
+                    reference: original
+                    filters:
+                        - { name: geometry/scalewidthdownonly, params: [30] }
+                        - { name: strip }
                 i160:
                     reference: original
                     filters:
@@ -61,6 +66,9 @@ liip_imagine:
         large:
             quality: 85
             jpeg_quality: 85
+        i30:
+            quality: 20
+            jpeg_quality: 20
         i320:
             quality: 85
             jpeg_quality: 85

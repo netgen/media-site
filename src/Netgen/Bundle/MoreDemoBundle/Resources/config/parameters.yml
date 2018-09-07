@@ -13,3 +13,6 @@ parameters:
         - file
 
     netgen_admin_ui.default.legacy_routes: [ez_urlalias, ngmore_content_search]
+
+    ngmore.default.lazy_loading.enabled: true
+    ngmore.default.lazy_loading.initial_image_alias: 'i30'
