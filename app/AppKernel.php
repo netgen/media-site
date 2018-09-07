@@ -89,7 +89,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\EnhancedSelectionBundle\NetgenEnhancedSelectionBundle();
         $bundles[] = new Netgen\Bundle\SiteAccessRoutesBundle\NetgenSiteAccessRoutesBundle();
         $bundles[] = new Netgen\Bundle\MoreGeneratorBundle\NetgenMoreGeneratorBundle();
-        $bundles[] = new Netgen\Bundle\MoreInstallerBundle\NetgenMoreInstallerBundle();
+        $bundles[] = new Netgen\Bundle\SiteInstallerBundle\NetgenSiteInstallerBundle();
         $bundles[] = new Netgen\Bundle\MoreBundle\NetgenMoreBundle();
         $bundles[] = new Netgen\Bundle\RichTextDataTypeBundle\NetgenRichTextDataTypeBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSiteApiBundle\NetgenEzPlatformSiteApiBundle();
