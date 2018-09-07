@@ -1,9 +1,4 @@
-netgen_more_legacy:
-    enabled_legacy_settings:
-        - content.ini
-        - ngmore.ini
-        - site.ini
-
+netgen_site_legacy:
     system:
         frontend_group:
             injected_merge_settings:
@@ -52,7 +47,7 @@ netgen_more_legacy:
                     DatabaseSettings/Charset: "utf8mb4"
                     SiteSettings/DefaultAccess: "%ezpublish.siteaccess.default%"
                     SiteSettings/SiteList: "%ezpublish.siteaccess.list%"
-                    SiteSettings/RootNodeDepth: "%ngmore.default.legacy.site_settings.root_node_depth%"
+                    SiteSettings/RootNodeDepth: 1
                     SiteSettings/SiteURL: "%ngmore.default.site_domain%"
                     SiteSettings/MetaDataArray: "%ngmore.default.site_settings.meta_data%"
 

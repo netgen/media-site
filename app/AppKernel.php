@@ -94,7 +94,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\RichTextDataTypeBundle\NetgenRichTextDataTypeBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSiteApiBundle\NetgenEzPlatformSiteApiBundle();
         $bundles[] = new Netgen\Bundle\AdminUIBundle\NetgenAdminUIBundle();
-        $bundles[] = new Netgen\Bundle\MoreLegacyBundle\NetgenMoreLegacyBundle();
+        $bundles[] = new Netgen\Bundle\SiteLegacyBundle\NetgenSiteLegacyBundle();
         $bundles[] = new Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle();
 
