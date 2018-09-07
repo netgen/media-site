@@ -6,6 +6,11 @@
 }
 
 .full-article-image {
+    @include media-breakpoint-down(md) {
+        img {
+            width: 100%;
+        }
+    }
     margin: 0;
     text-align: center;
 }
