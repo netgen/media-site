@@ -4,10 +4,9 @@ ngmore.user.login.username.placeholder: 'Enter your username or e-mail'
 ngmore.user.login.password.label: 'Password'
 ngmore.user.login.password.placeholder: 'Enter your password'
 ngmore.user.login.submit: 'Login'
-ngmore.user.login.forgot_password_text: 'Forgot password?'
-ngmore.user.login.forgot_password_link: 'No problem, <a href="%link%">click here</a> to reset your password.'
+ngmore.user.login.forgot_password_link: '<a href="%link%">Forgot password?</a>'
 ngmore.user.login.register_text: "Don't have an account?"
-ngmore.user.login.register_link: 'Please, <a href="%link%">click here</a> to register.'
+ngmore.user.login.register_link: '<a href="%link%">Register</a>.'
 
 ngmore.user.register.title: 'Register'
 ngmore.user.register.submit: 'Register'

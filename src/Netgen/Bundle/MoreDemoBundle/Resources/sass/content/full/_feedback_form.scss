@@ -1,24 +1,34 @@
 /* feedback gorm full view */
-.full-feedback-form-content {
+.full-form-content {
     padding: 2rem;
     margin: 0 auto 4rem;
     background: $white;
     max-width: 35rem;
+    a {
+        border-bottom: .25rem solid $sunglow;
+    }
 }
 
-.full-feedback-form-header {
-    padding-bottom: 14rem;
+.full-form-header {
+    padding-bottom: 10rem;
     margin-bottom: -10rem;
 }
 
-.feedback-form-response {
+.full-form-response {
     text-align: center;
     min-height: 15rem;
     p {
         font-size: 2rem;
         font-style: italic;
     }
-    a {
-        border-bottom: .25rem solid $sunglow;
+}
+
+.alert {
+    font-size: 1rem;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    &.alert-danger {
+        background: hsl(0, 100, 80);
+        color: $white;
     }
 }
