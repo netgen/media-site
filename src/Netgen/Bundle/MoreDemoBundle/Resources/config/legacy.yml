@@ -17,7 +17,7 @@ netgen_site_legacy:
                         - ezrichtext
                         - ngadminui
                         - ngsymfonytools
-                        - ngmore
+                        - ngsite
                         - ngclasslist
                         - xrowmetadata
                         - birthday
@@ -85,9 +85,3 @@ netgen_site_legacy:
                     MailSettings/TransportPassword: "%mailer_password%"
                     MailSettings/AdminEmail: "%ngmore.default.mail.sender_email%"
                     MailSettings/EmailSender: "%ngmore.default.mail.sender_email%"
-
-                ngmore.ini:
-                    GoogleMapsSettings/DefaultLatitude: "%ngmore.default.google_maps.latitude%"
-                    GoogleMapsSettings/DefaultLongitude: "%ngmore.default.google_maps.longitude%"
-                    GoogleMapsSettings/DefaultZoom: "%ngmore.default.google_maps.zoom%"
-                    GoogleMapsSettings/DefaultMapType: "%ngmore.default.google_maps.map_type%"
