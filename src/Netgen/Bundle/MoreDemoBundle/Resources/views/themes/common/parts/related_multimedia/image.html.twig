@@ -2,6 +2,7 @@
     {% set image = content.fields.image %}
     {% set image_uri = ng_image_alias(image, 'i1200').uri|default('') %}
     {% set alt_text = image.value.alternativeText|default('') %}
+    {% set lazy_loading = ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngmore') %}
 
     {% if is_slider %}
         <div class="swiper-slide">
@@ -10,7 +11,18 @@
                 {% if is_slider %}
                     <img class="swiper-lazy" data-src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
                 {% else %}
-                    <img src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
+                    <img
+                        {% if lazy_loading %}
+                            src="{{ ng_image_alias(image, ezpublish.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngmore')).uri }}"
+                            data-src="{{ image_uri }}"
+                            data-srcset="{{ ng_image_alias(image, 'i480').uri }} 600w,
+                                        {{ ng_image_alias(image, 'i770').uri }} 991w,
+                                        {{ image_uri }} 1200w"
+                        {% else %}
+                            src="{{ image_uri }}"
+                        {% endif %}
+                        {% if alt_text %} alt="{{ alt_text }}"{% endif %}
+                    />
                 {% endif %}
 
                 {% if content.fields.caption is defined and not content.fields.caption.empty %}
