@@ -55,7 +55,7 @@
 .ezxmltext-field {
     p {
         margin: 0 0 2em;
-        a {
+        a:not(.btn) {
             border-bottom: .25rem solid $sunglow;
             transition: border .3s;
             &:hover {
