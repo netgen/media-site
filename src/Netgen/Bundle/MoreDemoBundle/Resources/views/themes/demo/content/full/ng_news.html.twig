@@ -10,8 +10,6 @@
     {% set meta_data = {'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
 {% endif %}
 
-{% set poster_image = content_fields.background_poster(content) %}
-
 {% block content %}
     <article class="view-type view-type-{{ view_type }} ng-article vf1">
         {% block article_header %}
