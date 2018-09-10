@@ -5,7 +5,7 @@
     {{ content_fields.image(content, location) }}
 
     <div class="info">
-        <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+        <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title }}</a></h2>
         {{ content_fields.intro(content) }}
     </div>
 </div>

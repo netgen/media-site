@@ -1,14 +1,18 @@
-{% import '@ezdesign/parts/slide.html.twig' as slide %}
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 {% if not content.fields.image.empty %}
     <div class="view-type view-type-{{ view_type }} ng-news vl3">
-        {{ slide.image(content) }}
+        {% set title = content_fields.title(content) %}
 
-        <div class="info">
-            <div class="date">
-                {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
-            </div>
-            <h2 class="title"><a href={{ path(location) }}>{{ ng_render_field(content.fields.title) }}</a></h2>
-        </div>
+        <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }}" class="js-mfp-item">
+            {{ ng_render_field(
+                content.fields.image, {
+                    parameters: {
+                        alias: 'i1200',
+                        alt_text: title
+                    }
+                }
+            ) }}
+        </a>
     </div>
 {% endif %}

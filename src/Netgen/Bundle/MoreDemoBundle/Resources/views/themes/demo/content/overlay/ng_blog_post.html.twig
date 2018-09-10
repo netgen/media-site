@@ -6,7 +6,7 @@
     </a>
 
     <header class="article-header">
-        <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+        <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
         <div class="info">
             {% if not content.fields.authors.empty %}
                 {% for author_location_id in content.fields.authors.value.destinationLocationIds %}

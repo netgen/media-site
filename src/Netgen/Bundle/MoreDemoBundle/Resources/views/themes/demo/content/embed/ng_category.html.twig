@@ -1,7 +1,7 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ view_type }} ng-category">
-    <h3><a href="{{ path(content) }}">{{ ng_render_field(content.fields.title) }}</a></h3>
+    <h3><a href="{{ path(content) }}">{{ content_fields.title(content) }}</a></h3>
 
     {{ content_fields.image(content, null, 'i320') }}
 </div>

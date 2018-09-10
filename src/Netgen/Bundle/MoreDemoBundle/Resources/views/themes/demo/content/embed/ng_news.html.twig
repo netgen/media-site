@@ -4,6 +4,6 @@
 
     {{ content_fields.image(content, null, 'i320') }}
 
-    <h3><a href="{{ path(content) }}">{{ ng_render_field(content.fields.title) }}</a></h3>
+    <h3><a href="{{ path(content) }}">{{ content_fields.title(content) }}</a></h3>
 
 </div>
