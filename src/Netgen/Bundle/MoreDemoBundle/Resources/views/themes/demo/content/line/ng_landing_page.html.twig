@@ -1,7 +1,9 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
 <article class="view-type view-type-{{ view_type }} ng-landing-page vl4">
     <div class="article-content">
         <header class="article-header">
-            <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
         </header>
     </div>
 </article>
