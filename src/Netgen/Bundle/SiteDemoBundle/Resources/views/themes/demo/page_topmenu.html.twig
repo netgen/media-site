@@ -1,0 +1,12 @@
+<nav class="main-navigation" role="navigation">
+    {% block page_main_menu_header %}
+        {{ render_esi(
+            controller(
+                'ngsite.controller.menu:renderMenu', {
+                    menuName: 'ngsite_main_menu',
+                    activeItemId: main_category_location_id ?? 0
+                }
+            )
+        ) }}
+    {% endblock %}
+</nav>

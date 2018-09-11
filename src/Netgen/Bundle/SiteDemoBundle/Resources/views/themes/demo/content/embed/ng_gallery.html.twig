@@ -1,0 +1,12 @@
+<div class="view-type view-type-{{ view_type }} ng-gallery">
+    {{ render(
+        controller(
+            'ngsite.controller.parts:viewRelatedMultimediaItems', {
+                'locationId': content.contentInfo.mainLocationId,
+                'includeChildren': true,
+                'contentTypeIdentifiers': ['image', 'ng_video'],
+                'template': '@ezdesign/parts/related_multimedia.html.twig'
+            }
+        )
+    ) }}
+</div>

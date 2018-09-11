@@ -1,0 +1,7 @@
+<a class="site-logo" href="{{ path(ezpublish.rootLocation) }}" title="{{ site_name }}">
+    {% if not ngsite.siteInfoContent.fields.site_logo.empty %}
+        <img src="{{ asset(ngsite.siteInfoContent.fields.site_logo.value.id, 'ezfile') }}" />
+    {% else %}
+        {{ site_name }}
+    {% endif %}
+</a>

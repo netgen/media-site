@@ -1,0 +1,57 @@
+{% set site_info = ngsite.siteInfoContent %}
+
+<footer class="site-footer">
+    <div class="container">
+        {% include '@ezdesign/parts/site_logo.html.twig' %}
+
+        <div class="footer-menu">
+            {% block page_additional_menu_footer %}
+                {{ render_esi(
+                    controller(
+                        'ngsite.controller.menu:renderMenu', {
+                            menuName: 'ngsite_additional_menu',
+                            activeItemId: main_category_location_id ?? 0
+                        }
+                    )
+                ) }}
+            {% endblock %}
+        </div>
+
+        <div class="footer-social">
+            <ul>
+                {% if not site_info.fields.facebook.empty %}
+                    <li><a href="{{ site_info.fields.facebook.value.link }}"><i class="fab fa-facebook-f"></i><span class="tt">Facebook</span></a></li>
+                {% endif %}
+
+                {% if not site_info.fields.twitter.empty %}
+                    <li><a href="{{ site_info.fields.twitter.value.link }}"><i class="fab fa-twitter"></i><span class="tt">Twitter</span></a></li>
+                {% endif %}
+
+                {% if not site_info.fields.instagram.empty %}
+                    <li><a href="{{ site_info.fields.instagram.value.link }}"><i class="fab fa-instagram"></i><span class="tt">Instagram</span></a></li>
+                {% endif %}
+
+                {% if not site_info.fields.gplus.empty %}
+                    <li><a href="{{ site_info.fields.gplus.value.link }}"><i class="fab fa-google-plus"></i><span class="tt">Google+</span></a></li>
+                {% endif %}
+
+                {% if not site_info.fields.linkedin.empty %}
+                    <li><a href="{{ site_info.fields.linkedin.value.link }}"><i class="fab fa-linkedin"></i><span class="tt">LinkedIn</span></a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="footer-info">
+            {% if not site_info.fields.footer_block.empty %}
+                <div>
+                    {{ ng_render_field(site_info.fields.footer_block) }}
+                </div>
+            {% endif %}
+
+            <address>
+                {{ 'ngsite.layout.powered_by'|trans }} <a href="https://www.netgenlabs.com/What-we-do">Netgen &amp; eZ Platform</a>
+            </address>
+        </div>
+
+    </div>
+</footer>

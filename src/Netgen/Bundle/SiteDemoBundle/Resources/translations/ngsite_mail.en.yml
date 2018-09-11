@@ -1,0 +1,32 @@
+ngsite.user.welcome.subject: "Welcome"
+ngsite.user.welcome.text: "Thank you for registering at our site."
+
+ngsite.user.activate.subject: "Account activation"
+ngsite.user.activate.text: "Click the following link to activate your account:"
+ngsite.user.activate.already_active.subject: "Account activation attempt"
+ngsite.user.activate.already_active.text: "Your account is already active."
+ngsite.user.activate.disabled.subject: "Account activation attempt"
+ngsite.user.activate.disabled.text: "You have attempted to activate your account, but your account has been previously disabled."
+ngsite.user.activate.not_registered.subject: "Account activation attempt"
+ngsite.user.activate.not_registered.text: "You (or someone else) entered this e-mail address to receive an account activation link. However, this e-mail address is not registered on our site. If this was you, you probably used some other e-mail address during registration. If not, please ignore this e-mail."
+
+ngsite.user.activate.admin_activation_pending.subject: "Account activation pending"
+ngsite.user.activate.admin_activation_pending.text: "Your account is waiting activation"
+
+ngsite.user.activate.admin_activation_required.subject: "Account activation required"
+ngsite.user.activate.admin_activation_required.text: "This account is waiting for your activation"
+
+ngsite.user.forgot_password.subject: "Password reset"
+ngsite.user.forgot_password.text: "Click the following link to reset your password:"
+ngsite.user.forgot_password.disabled.subject: "Password reset attempt"
+ngsite.user.forgot_password.disabled.text: "You have attempted to reset your password, but your account has been previously disabled."
+ngsite.user.forgot_password.not_active.subject: "Password reset attempt"
+ngsite.user.forgot_password.not_active.text: "You have attempted to reset your password, but your account is not active yet."
+ngsite.user.forgot_password.not_registered.subject: "Password reset attempt"
+ngsite.user.forgot_password.not_registered.text: "You (or someone else) entered this e-mail address to receive a password reset link. However, this e-mail address is not registered on our site. If this was you, you probably used some other e-mail address during registration. If not, please ignore this e-mail."
+ngsite.user.forgot_password.password_changed.subject: "Password changed"
+ngsite.user.forgot_password.password_changed.text: "Your password has been successfully changed."
+
+ngsite.user.account_information: "Your account information"
+ngsite.user.username: "Username"
+ngsite.user.email: "E-mail"

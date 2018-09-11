@@ -48,10 +48,10 @@ netgen_content_browser:
     resource: '@NetgenContentBrowserBundle/Resources/config/routing.yml'
     prefix: '%netgen_content_browser.route_prefix%'
 
-# Netgen More routes follow. It is recommended to keep them at the end of file
+# Netgen Site routes follow. It is recommended to keep them at the end of file
 
-netgen_more:
-    resource: '@NetgenMoreBundle/Resources/config/routing.yml'
+netgen_site:
+    resource: '@NetgenSiteBundle/Resources/config/routing.yml'
 
 netgen_admin_ui:
     resource: '@NetgenAdminUIBundle/Resources/config/routing.yml'

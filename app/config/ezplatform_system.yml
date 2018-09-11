@@ -1,5 +1,5 @@
 imports:
-    - { resource: '@NetgenMoreBundle/Resources/config/ezplatform.yml' }
+    - { resource: '@NetgenSiteBundle/Resources/config/ezplatform.yml' }
     - { resource: '@NetgenAdminUIBundle/Resources/config/ezplatform.yml' }
 
 ezpublish:

@@ -1,0 +1,13 @@
+{% extends ngbm.layoutTemplate %}
+
+{% trans_default_domain 'ngsite_errors' %}
+
+{% set site_title = 'ngsite.errors.404.title'|trans %}
+
+{% block content %}
+	<div class="site-error">
+	    <h1>{{ 'ngsite.errors.404.title'|trans }}</h1>
+
+	    <div>{{ 'ngsite.errors.404.message'|trans }}</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% if available_translations|length > 1 %}
+    {% set prioritized_languages = ezpublish.configResolver.getParameter('languages') %}
+
+    <div class="language-selector dropdown">
+        <a href="#lang-selector" data-toggle="dropdown" class="current-lang">
+            {{ ngsite_language_name(prioritized_languages.0) }}&nbsp;<i class="fas fa-angle-down"></i>
+        </a>
+
+        <ul class="dropdown-menu">
+            {% for language in ezpublish.availableLanguages %}
+                {% set language_name = ngsite_language_name(language) %}
+
+                {% if available_translations[language] is defined %}
+                    {% if language != prioritized_languages.0 %}
+                        <li><a href="{{ available_translations[language] }}">{{ language_name }}</a></li>
+                    {% else %}
+                        <li class="current"><a href="#" data-toggle="dropdown">{{ language_name }}</a></li>
+                    {% endif %}
+                {% else %}
+                    <li><a href="{{ url(ezpublish.rootLocation, {'language': language}) }}">{{ language_name }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

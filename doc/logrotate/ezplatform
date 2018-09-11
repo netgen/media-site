@@ -1,0 +1,8 @@
+/var/www/html/*/var/logs/dev.log {
+    daily
+    missingok
+    rotate 5
+    size 10M
+    compress
+    create 664 www-data www-data
+}

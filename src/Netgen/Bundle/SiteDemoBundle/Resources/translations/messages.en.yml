@@ -1,0 +1,32 @@
+ngsite.layout.search: "Search"
+ngsite.layout.search.button: "Go"
+ngsite.layout.search_site: "Search %site_name%"
+ngsite.layout.site_frontpage: "%site_name% front page"
+ngsite.layout.meta_generator: "eZ Platform powered by Netgen"
+ngsite.layout.powered_by: "Powered by"
+ngsite.layout.cookie_settings: "Cookie settings"
+ngsite.layout.sponsored: 'Sponsored'
+
+ngsite.search.title: 'Search'
+ngsite.search.placeholder: 'Search'
+ngsite.search.button: 'Search'
+
+ngsite.search.results: 'Search for "%searchText%" returned %searchCount% matches'
+ngsite.search.no_results: 'No results were found when searching for "%searchText%".'
+
+ngsite.search.no_results.check_spelling: 'Check spelling of keywords.'
+ngsite.search.no_results.change_keywords: 'Try changing some keywords (eg, "car" instead of "cars").'
+ngsite.search.no_results.less_specific_keywords: 'Try searching with less specific keywords.'
+ngsite.search.no_results.reduce_keywords: 'Reduce number of keywords to get more results.'
+
+ngsite.collected_info.success_text: 'Thank you for your feedback.'
+ngsite.collected_info.return_to_site: 'Return to site'
+ngsite.collected_info.button.send: 'Send form'
+ngsite.collected_info.information_collected: 'The following information was collected'
+
+ngsite.layout.recipe.min: 'min'
+ngsite.layout.recipe.cal: 'cal'
+ngsite.layout.recipe.preparation_time: 'Preparation time'
+ngsite.layout.recipe.fat: 'fat'
+ngsite.layout.recipe.carbs: 'carbs'
+ngsite.layout.recipe.protein: 'protein'

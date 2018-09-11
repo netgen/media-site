@@ -1,0 +1,27 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<article class="view-type view-type-{{ view_type }} ng-article vl4">
+
+    {{ content_fields.image(content, location, 'i320') }}
+
+    <div class="article-content">
+        <header class="article-header">
+            <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
+            <div class="info">
+                {% if not content.fields.authors.empty %}
+                    {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
+                        <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngsite_location_name(author_location_id) }}</a>
+                    {% endfor %}
+                {% endif %}
+                {% if not content.fields.sponsored_content_disclosure.empty %}
+                    <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>
+                {% elseif not content.fields.main_topic.empty %}
+                    <a href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                {% endif %}
+            </div>
+        </header>
+        <div class="short">
+            {{ content_fields.intro(content) }}
+        </div>
+    </div>
+</article>

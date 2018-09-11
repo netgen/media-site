@@ -1,0 +1,59 @@
+{% extends ngbm.layoutTemplate %}
+
+{# PERSISTENT VARIABLE #}
+
+{% set content_info = null %}
+{% if ezpublish.legacy.has('content_info') %}
+    {% set content_info = ezpublish.legacy.get('content_info') %}
+{% endif %}
+
+{% if module_result.content_info is defined %}
+    {% set content_info = module_result.content_info %}
+{% endif %}
+
+{% set persistent_variable = null %}
+{% if content_info.persistent_variable is defined %}
+    {% set persistent_variable = content_info.persistent_variable %}
+{% endif %}
+
+{# SHOWING OR HIDING PATH #}
+
+{% if persistent_variable.show_path|default(true) is same as(false) %}
+    {% set show_path = false %}
+{% endif %}
+
+{# OPENGRAPH #}
+
+{% if persistent_variable.opengraph is defined %}
+    {% set open_graph = persistent_variable.opengraph %}
+{% endif %}
+
+{# SITE TITLE #}
+
+{% if persistent_variable.site_title is defined %}
+    {% set site_title = persistent_variable.site_title %}
+{% endif %}
+
+{# METADATA #}
+
+{% set config_meta_data = ezpublish.configResolver.getParameter('site_settings.meta_data', 'ngsite') %}
+{% set meta_data = [] %}
+{% for key in config_meta_data|keys %}
+    {% if persistent_variable[key] is defined %}
+        {% set meta_data = meta_data|merge({(key): persistent_variable[key]}) %}
+    {% endif %}
+{% endfor %}
+
+{# CANONICAL URL #}
+
+{% if persistent_variable.canonical_url is defined %}
+    {% set canonical_url = persistent_variable.canonical_url %}
+{% elseif persistent_variable.canonical_language_url is defined %}
+    {% set canonical_url = persistent_variable.canonical_language_url %}
+{% endif %}
+
+{# CONTENT BLOCK #}
+
+{% block content %}
+    {{ module_result.content|raw }}
+{% endblock %}

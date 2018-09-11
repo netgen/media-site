@@ -2,7 +2,7 @@ imports:
     -
         resource: ezplatform_system.yml
     -
-        resource: '@NetgenMoreDemoBundle/Resources/config/ezplatform.yml'
+        resource: '@NetgenSiteDemoBundle/Resources/config/ezplatform.yml'
 ezpublish:
     siteaccess:
         default_siteaccess: eng

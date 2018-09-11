@@ -1,0 +1,20 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ezdesign/parts/video.html.twig' as video %}
+
+{% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
+    <article class="view-type view-type-{{ view_type }} ng-video vl2">
+        <i class="fas fa-play article-icon" aria-hidden="true"></i>
+        {{ video.poster(content, location) }}
+
+        <header class="article-header">
+            <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
+            <div class="info">
+                {% if not content.fields.sponsored_content_disclosure.empty %}
+                    <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>
+                {% elseif not content.fields.main_topic.empty %}
+                    <span>{{ content.fields.main_topic.value.tags[0].keyword }}</span>
+                {% endif %}
+            </div>
+        </header>
+    </article>
+{% endif %}

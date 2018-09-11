@@ -1,0 +1,84 @@
+{% extends ngbm.layoutTemplate %}
+
+{% set show_path = false %}
+
+{% block pre_content %}
+    <form action="{{ path('ngsite_content_search') }}" method="get" class="form-search">
+        <header class="full-page-header full-search-header">
+            <div class="container">
+                <div class="search-inputs">
+                    <div class="input-group">
+                        <input type="text" value="{{ search_text }}" name="searchText" id="Search" class="form-control" placeholder="{{ 'ngsite.search.placeholder'|trans }}" />
+                        <button type="submit" class="btn btn-dark">{{ 'ngsite.search.button'|trans }}</button>
+                    </div>
+
+                    {% if search_text is not empty %}
+                        {% if pager.nbResults == 0 %}
+                            <div class="result-message result-message-error">
+                                <h2>{{ 'ngsite.search.no_results'|trans({'%searchText%': search_text}) }}</h2>
+                            </div>
+                        {% else %}
+                            <div class="result-message result-message-success">
+                                <h2>{{ 'ngsite.search.results'|trans({'%searchText%': search_text, '%searchCount%': pager.nbResults}) }}</h2>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+
+        <div class="full-search-results">
+            <div class="container">
+                {% if search_text is not empty %}
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {% if pager.nbResults > 0 %}
+                                {% if pager.haveToPaginate() %}
+                                    {{ pagerfanta(pager, 'ngsite') }}
+                                {% endif %}
+
+                                <div id="search-result">
+                                    {% for search_hit in pager.currentPageResults.searchHits %}
+                                        {% set score = null %}
+
+                                        {% if search_hit.score is not null %}
+                                            {% set score = (search_hit.score * 100)|round %}
+                                        {% endif %}
+
+                                        {{ render(
+                                            controller(
+                                                'ng_content:viewAction', {
+                                                    'content': search_hit.valueObject.content,
+                                                    'location': search_hit.valueObject,
+                                                    'viewType': 'search',
+                                                    'layout': false,
+                                                    'params': {
+                                                        'score_percent': score
+                                                    }
+                                                }
+                                            )
+                                        ) }}
+                                    {% endfor %}
+                                </div>
+
+                                {% if pager.haveToPaginate() %}
+                                    {{ pagerfanta(pager, 'ngsite') }}
+                                {% endif %}
+                            {% else %}
+                                <ul class="full-no-results-list">
+                                    <li>{{ 'ngsite.search.no_results.check_spelling'|trans }}</li>
+                                    <li>{{ 'ngsite.search.no_results.change_keywords'|trans }}</li>
+                                    <li>{{ 'ngsite.search.no_results.less_specific_keywords'|trans }}</li>
+                                    <li>{{ 'ngsite.search.no_results.reduce_keywords'|trans }}</li>
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+{% set children = location.filterChildren(['image'], 1).currentPageResults %}
+
+<article class="view-type view-type-{{ view_type }} ng-gallery vl4">
+    <i class="fas fa-camera article-icon" aria-hidden="true"></i>
+    {% if children.searchHits is not empty %}
+        {% set first_image = children[0].content %}
+
+        <figure class="image">
+            {{ ng_render_field(
+                first_image.fields.image, {
+                    parameters: {
+                        alias: 'i480',
+                        alt_text: first_image.fields.name.value,
+                        link_href: path(location),
+                    }
+                }
+            ) }}
+        </figure>
+    {% endif %}
+    <div class="article-content">
+        <header class="article-header">
+            <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
+            <div class="info">
+                {% if not content.fields.sponsored_content_disclosure.empty %}
+                    <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>
+                {% elseif not content.fields.main_topic.empty %}
+                    <a href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+                {% endif %}
+            </div>
+        </header>
+        {{ content_fields.intro(content) }}
+    </div>
+</article>

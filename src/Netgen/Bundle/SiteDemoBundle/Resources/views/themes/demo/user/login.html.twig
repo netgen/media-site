@@ -1,0 +1,50 @@
+{% extends ngbm.layoutTemplate %}
+
+{% trans_default_domain "ngsite_user" %}
+
+{% block pre_content %}
+    <header class="full-page-header full-form-header">
+        <div class="container">
+            <h1 class="full-page-title">{{ 'ngsite.user.login.title'|trans }}</h1>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    {% block login_content %}
+        <div class="full-form-content">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.message|trans }}</div>
+            {% endif %}
+
+            <form name="loginform" action="{{ path('login_check') }}" method="post" role="form">
+                {% block login_fields %}
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="username">{{ 'ngsite.user.login.username.label'|trans }}:</label>
+                            <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" required="required" autofocus="autofocus" autocomplete="on" placeholder="{{ 'ngsite.user.login.username.placeholder'|trans }}" />
+                        </div>
+                        <div class="form-group{% if error %} has-error{% endif %}">
+                            <label for="password">{{ 'ngsite.user.login.password.label'|trans }}:</label>
+                            <input type="password" id="password" class="form-control" name="_password" required="required" placeholder="{{ 'ngsite.user.login.password.placeholder'|trans }}" />
+                        </div>
+
+                        {% if app.request.attributes.get("csrf_enabled") %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token("authenticate") }}" />
+                        {% endif %}
+
+                        {#
+                            If you want to control the URL the user
+                            is redirected to on success (more details below)
+                            <input type="hidden" name="_target_path" value="/account" />
+                        #}
+                        <button name="login" type="submit" class="btn btn-primary">{{ "ngsite.user.login.submit"|trans }}</button>
+                        <div class="float-right">{{ "ngsite.user.login.forgot_password_link"|trans({'%link%': path('ngsite_user_forgot_password')})|raw }}</div>
+                    </fieldset>
+                {% endblock %}
+            </form>
+
+            <p class="text-center note mt-5">{{ "ngsite.user.login.register_text"|trans }} {{ "ngsite.user.login.register_link"|trans({'%link%': path('ngsite_user_register')})|raw }}</p>
+        </div>
+    {% endblock %}
+{% endblock %}

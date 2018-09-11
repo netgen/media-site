@@ -26,7 +26,7 @@ ssh -T $SSH_LOGIN <<-ENDSSH
 
   cd $REMOTE_PATH
 
-  php bin/console ngmore:database:dump $DBSYNC_FOLDER/$DATABASE_NAME
+  php bin/console ngsite:database:dump $DBSYNC_FOLDER/$DATABASE_NAME
 
 ENDSSH
 

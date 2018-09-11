@@ -1,0 +1,58 @@
+{% set site_info_metadata = ngsite.siteInfoContent.fields.metadata.value %}
+
+{% set default_meta_data = {
+    keywords: site_info_metadata.keywords,
+    description: site_info_metadata.description
+} %}
+
+{% set meta_data = default_meta_data|merge(meta_data|default([])) %}
+
+{% if content is defined %}
+    {% if content.hasField('metadata') and not content.fields.metadata.empty %}
+        {% set content_meta_data = content.fields.metadata.value %}
+        {% for key in default_meta_data|keys %}
+            {% if content_meta_data[key]|default('') is not empty %}
+                {% set meta_data = meta_data|merge({(key): content_meta_data[key]}) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if site_title is not defined %}
+    {% set site_title = '' %}
+
+    {% if path_array is not empty %}
+        {% if not ezpublish.configResolver.getParameter('site_settings.show_path_in_title', 'ngsite') %}
+            {% set site_title = path_array[path_array|length - 1].text %}
+        {% elseif path_array|length > 1 %}
+            {% for path_item in path_array %}
+                {% if not loop.first %}
+                    {% set site_title = path_item.text ~ (site_title is not empty ? ' - ' ~ site_title : '') %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+{% if site_title is not empty %}
+    {% set site_title = site_title ~ (site_name is not empty ? ' - ' ~ site_name : '') %}
+{% else %}
+    {% set site_title = site_name|default('') %}
+{% endif %}
+
+{% if content_meta_data.title|default('') is not empty %}
+    {% set site_title = content_meta_data.title %}
+{% endif %}
+
+<title>{{ site_title }}</title>
+
+{% for key in default_meta_data|keys %}
+    {% if meta_data[key]|default('') is not empty %}
+        <meta name="{{ key }}" content="{{ meta_data[key] }}" />
+    {% endif %}
+{% endfor %}
+
+<meta name="generator" content="{{ 'ngsite.layout.meta_generator'|trans }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+{% include '@ezdesign/link.html.twig' %}

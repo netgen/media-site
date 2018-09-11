@@ -1,0 +1,32 @@
+{% extends ngbm.layoutTemplate %}
+
+{% if not content.fields.teaser_intro.empty %}
+    {% set meta_data = {'description': content.fields.teaser_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
+{% endif %}
+
+{% block content %}
+    <div class="view-type view-type-{{ view_type }} ng-audio clearfix">
+
+        <h1 class="page-header">{{ ng_render_field(content.fields.title) }}</h1>
+
+        {% if not content.fields.teaser_intro.empty %}
+            <div class="short">
+                {{ ng_render_field(content.fields.teaser_intro) }}
+            </div>
+        {% endif %}
+
+        {% if not content.fields.file.empty %}
+            <audio controls>
+                <source type="audio/mpeg" src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields.file.id}) }}" />
+                Your browser does not support the audio element.
+            </audio>
+        {% endif %}
+
+        {% if not content.fields.description.empty %}
+            <div class="body">
+                {{ ng_render_field(content.fields.description) }}
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

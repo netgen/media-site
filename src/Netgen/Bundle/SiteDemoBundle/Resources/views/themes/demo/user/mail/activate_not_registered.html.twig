@@ -1,0 +1,15 @@
+{% extends '@ezdesign/user/mail/layout.html.twig' %}
+
+{% trans_default_domain "ngsite_mail" %}
+
+{% block title %}
+    <a href="{{ site_url }}">{{ site_name }}</a>
+{% endblock %}
+
+{% block content %}
+    {{ "ngsite.user.activate.not_registered.text"|trans }}
+
+    <br><br>
+
+    <a href="{{ site_url }}">{{ site_name }}</a>
+{% endblock %}

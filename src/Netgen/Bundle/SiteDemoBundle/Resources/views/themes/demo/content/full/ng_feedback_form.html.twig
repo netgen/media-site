@@ -1,0 +1,73 @@
+{% extends ngbm.layoutTemplate %}
+
+{% form_theme form '@ezdesign/forms/theme.html.twig' %}
+
+{% set show_path = false %}
+
+{% if not content.fields.teaser_intro.empty %}
+    {% set meta_data = {'description': content.fields.teaser_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
+{% elseif not content.fields.full_intro.empty %}
+    {% set meta_data = {'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
+{% endif %}
+
+{% block success %}
+    <div class="full-form-response">
+        {% if not content.fields.success_text.empty %}
+            {{ ng_render_field(content.fields.success_text) }}
+        {% else %}
+            <p>{{ 'ngsite.collected_info.success_text'|trans }}</p>
+        {% endif %}
+
+        {#
+        <p>{{ 'ngsite.collected_info.information_collected'|trans }}:</p>
+
+        {% for collected_field, collected_field_value in collected_fields %}
+            <p><strong>{{ content.fields[collected_field].name }}:</strong> {{ collected_field_value }}</p>
+        {% endfor %}
+        #}
+
+        <a href="{{ path(location.parent) }}">{{ 'ngsite.collected_info.return_to_site'|trans }}</a>
+    </div>
+{% endblock %}
+
+{% block pre_content %}
+    <header class="full-page-header full-form-header">
+        <div class="container">
+            <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
+            {% if not is_valid and not content.fields.full_intro.empty %}
+                <div class="full-page-intro">
+                    {{ ng_render_field(content.fields.full_intro) }}
+                </div>
+            {% endif %}
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div class="view-type view-type-{{ view_type }} ng-feedback-form">
+        <div class="full-form-content">
+            {% if not is_valid %}
+                {% if not content.fields.body.empty %}
+                    {{ ng_render_field(content.fields.body) }}
+                {% endif %}
+
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    <fieldset>
+                        {{ form_row(form.sender_name, {attr: {class: 'form-control'}}) }}
+                        {{ form_row(form.email, {attr: {class: 'form-control'}}) }}
+                        {{ form_row(form.subject, {attr: {class: 'form-control'}}) }}
+                        {{ form_row(form.message, {attr: {class: 'form-control'}}) }}
+
+                        <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
+                    </fieldset>
+
+                    {{ form_rest(form) }}
+                {{ form_end(form) }}
+            {% else %}
+                {{ block('success') }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

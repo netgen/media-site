@@ -98,7 +98,7 @@
             "eZ\\Bundle\\EzPublishCoreBundle\\Composer\\ScriptHandler::dumpAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::installLegacyBundlesExtensions",
-            "Netgen\\Bundle\\MoreBundle\\Composer\\ScriptHandler::installProjectSymlinks",
+            "Netgen\\Bundle\\SiteBundle\\Composer\\ScriptHandler::installProjectSymlinks",
             "Netgen\\Bundle\\SiteLegacyBundle\\Composer\\ScriptHandler::installLegacySymlinks",
             "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::generateAutoloads"
         ],

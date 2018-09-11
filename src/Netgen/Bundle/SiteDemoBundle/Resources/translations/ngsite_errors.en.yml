@@ -1,0 +1,8 @@
+ngsite.errors.403.title: "This is a restricted area"
+ngsite.errors.403.message: "You don't have necessary permissions to access this page."
+ngsite.errors.404.title: "This page does not exist"
+ngsite.errors.404.message: "The requested page could not be found. Please use main navigation or search to find what you are looking for."
+ngsite.errors.500.title: "Something went wrong"
+ngsite.errors.500.message: "There is a problem with the page you are looking for, and it cannot be displayed. Please try again later."
+ngsite.errors.default.title: "A problem occurred"
+ngsite.errors.default.message: "We are sorry, a problem occurred. Please try again later. If the problem persists please contact us."

@@ -1,0 +1,16 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<article class="view-type-{{ view_type }} ng-video vl6 t1">
+    <h2 class="title">
+        <a href="{{ path(location) }}">
+            <i class="fas fa-play article-icon" aria-hidden="true"></i>{{ content_fields.title(content) }}
+        </a>
+    </h2>
+    <div class="info">
+        {% if not content.fields.sponsored_content_disclosure.empty %}
+            <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>
+        {% elseif not content.fields.main_topic.empty %}
+            <a href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+        {% endif %}
+    </div>
+</article>

@@ -90,7 +90,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\SiteAccessRoutesBundle\NetgenSiteAccessRoutesBundle();
         $bundles[] = new Netgen\Bundle\SiteGeneratorBundle\NetgenSiteGeneratorBundle();
         $bundles[] = new Netgen\Bundle\SiteInstallerBundle\NetgenSiteInstallerBundle();
-        $bundles[] = new Netgen\Bundle\MoreBundle\NetgenMoreBundle();
+        $bundles[] = new Netgen\Bundle\SiteBundle\NetgenSiteBundle();
         $bundles[] = new Netgen\Bundle\RichTextDataTypeBundle\NetgenRichTextDataTypeBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSiteApiBundle\NetgenEzPlatformSiteApiBundle();
         $bundles[] = new Netgen\Bundle\AdminUIBundle\NetgenAdminUIBundle();
@@ -108,7 +108,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\EzPublishBlockManagerBundle\NetgenEzPublishBlockManagerBundle();
         $bundles[] = new Netgen\Bundle\SiteAPIBlockManagerBundle\NetgenSiteAPIBlockManagerBundle();
 
-        $bundles[] = new Netgen\Bundle\MoreDemoBundle\NetgenMoreDemoBundle();
+        $bundles[] = new Netgen\Bundle\SiteDemoBundle\NetgenSiteDemoBundle();
 
         return $bundles;
     }

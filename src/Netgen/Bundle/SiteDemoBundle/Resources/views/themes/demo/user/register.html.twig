@@ -1,0 +1,39 @@
+{% extends ngbm.layoutTemplate %}
+
+{% form_theme form '@ezdesign/forms/theme.html.twig' %}
+
+{% trans_default_domain "ngsite_user" %}
+
+{% block pre_content %}
+    <header class="full-page-header full-form-header">
+        <div class="container">
+            <h1 class="full-page-title">{{ 'ngsite.user.register.title'|trans }}</h1>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div class="full-form-content">
+        {% if error is defined %}
+            {% if error == 'email_in_use' %}
+                <div class="alert alert-danger">{{ "ngsite.user.register.error.email_in_use"|trans }}</div>
+            {% elseif error == 'username_taken' %}
+                <div class="alert alert-danger">{{ "ngsite.user.register.error.username_taken"|trans }}</div>
+            {% else %}
+                <div class="alert alert-danger">{{ "ngsite.user.register.error.other"|trans }}</div>
+            {% endif %}
+        {% endif %}
+
+        {{ form_start(form) }}
+
+        <fieldset>
+            {% for form_child in form.children %}
+                {{ form_row(form_child, {attr: {class: 'form-control'}}) }}
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">{{ 'ngsite.user.register.submit'|trans }}</button>
+        </fieldset>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

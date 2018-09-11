@@ -25,5 +25,5 @@ parameters:
     server_environment: dev
     imagemagick_path: /usr/bin/convert
 
-    ngmore.default.site_domain: localhost
-    ngmore.default.locations.site_info.id: 65
+    ngsite.default.site_domain: localhost
+    ngsite.default.locations.site_info.id: 65
