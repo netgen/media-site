@@ -7,7 +7,7 @@
     <header class="article-header">
 	    <h2 class="title">
             <a href="{{ path(location) }}">
-                {{ ng_render_field(content.fields.title) }}
+                {{ content_fields.title(content) }}
             </a>
         </h2>
 	</header>

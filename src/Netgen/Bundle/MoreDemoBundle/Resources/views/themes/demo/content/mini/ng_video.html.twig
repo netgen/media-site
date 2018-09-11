@@ -1,3 +1,4 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 {% import '@ezdesign/parts/video.html.twig' as video %}
 
 {% set location_path = path(location) %}
@@ -10,7 +11,7 @@
         </figure>
 
         <header class="article-header">
-            <h2 class="title"><a href="{{ location_path }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            <h2 class="title"><a href="{{ location_path }}">{{ content_fields.title(content) }}</a></h2>
             <div class="info">
                 {% if not content.fields.sponsored_content_disclosure.empty %}
                     <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>

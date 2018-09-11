@@ -1,3 +1,4 @@
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 {% import '@ezdesign/parts/video.html.twig' as video %}
 
 {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
@@ -6,7 +7,7 @@
         {{ video.poster(content, location) }}
 
         <header class="article-header">
-            <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.fields.title) }}</a></h2>
+            <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
             <div class="info">
                 {% if not content.fields.sponsored_content_disclosure.empty %}
                     <span class="sponsored-tag">{{ 'ngmore.layout.sponsored'|trans }}</span>
