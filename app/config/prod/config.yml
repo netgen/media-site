@@ -1,7 +1,6 @@
 imports:
-    # Keep ezplatform.yml before config.yml
-    - { resource: ezplatform.yml }
     - { resource: ../config.yml }
+    - { resource: ezplatform.yml }
 
 # Example below would make sure some of the symfony caches are written to apc / redis instead of disk
 # Make sure to verify if cache clearing is done as you expect when doing such changes.

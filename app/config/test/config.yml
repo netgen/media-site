@@ -1,7 +1,6 @@
 imports:
-    # Keep ezplatform.yml before config.yml
-    - { resource: ezplatform.yml }
     - { resource: ../dev/config.yml }
+    - { resource: ezplatform.yml }
 
 framework:
     test: ~
