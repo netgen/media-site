@@ -27,10 +27,11 @@
 {% endspaceless %}
 {% endmacro %}
 
-{% macro image_link(field, alias) %}
+{% macro image_link(content, field, alias, lazy_loading) %}
 {% spaceless %}
     {% set url = '#' %}
     {% set open_in_new_window = false %}
+    {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
     {% if not content.fields.url.empty %}
         {% set url = content.fields.url.value.link %}
@@ -47,11 +48,12 @@
     {% endif %}
 
     {{ ng_render_field(
-        field, {
+        content.fields[field], {
             'parameters': {
                 'alias': alias,
                 'link_href': url,
-                'link_target': open_in_new_window ? '_blank' : ''
+                'link_target': open_in_new_window ? '_blank' : '',
+                'lazy_loading': lazy_loading,
             }
         }
     ) }}

@@ -5,7 +5,7 @@
 
     {% if not content.fields.image.empty %}
         <figure class="image">
-            {{ macros.image_link(content.fields.image, 'i480') }}
+            {{ macros.image_link(content, 'image', 'i480') }}
         </figure>
     {% endif %}
 

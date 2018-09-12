@@ -1,7 +1,6 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-<article class="view-type view-type-{{ view_type }} ng-blog-post vl1">
-
+<article class="view-type view-type-{{ view_type }} ng-recipe vl1">
     {{ content_fields.image(content, location, null, false) }}
 
     <header class="article-header">
@@ -12,12 +11,19 @@
                     <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngsite_location_name(author_location_id) }}</a>
                 {% endfor %}
             {% endif %}
-            <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
             {% if not content.fields.sponsored_content_disclosure.empty %}
                 <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>
             {% elseif not content.fields.main_topic.empty %}
                 <a href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
             {% endif %}
+            <span class="recipe-details">
+                {% if not content.fields.preparation_time.empty %}
+                    <span><i class="far fa-clock"></i> {{ ng_render_field(content.fields.preparation_time) }} {{ 'ngsite.layout.recipe.min'|trans }}</span>
+                {% endif %}
+                {% if not content.fields.serving_calories.empty %}
+                    <span><i class="fas fa-fire"></i> {{ ng_render_field(content.fields.serving_calories) }} {{ 'ngsite.layout.recipe.cal'|trans }}</span>
+                {% endif %}
+            </span>
         </div>
     </header>
 

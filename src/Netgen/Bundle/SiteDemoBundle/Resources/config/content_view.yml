@@ -544,6 +544,10 @@ ezpublish:
                         template: "@ezdesign/content/ngcb_preview/ng_news.html.twig"
                         match:
                             Identifier\ContentType: ng_news
+                    ng_recipe:
+                        template: "@ezdesign/content/ngcb_preview/ng_recipe.html.twig"
+                        match:
+                            Identifier\ContentType: ng_recipe
                     ng_video:
                         template: "@ezdesign/content/ngcb_preview/ng_video.html.twig"
                         match:
