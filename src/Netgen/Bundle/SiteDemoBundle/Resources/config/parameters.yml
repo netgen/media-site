@@ -1,6 +1,4 @@
 parameters:
-    ngsite.default.pagelayout: "@@ezdesign/pagelayout.html.twig"
-
     ngsite.default.search.content_types:
         - ng_blog_post
         - ng_article
