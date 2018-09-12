@@ -1,0 +1,27 @@
+{% set root_location_path = path(ezpublish.rootLocation) %}
+
+{% if canonical_url|default('') is not empty %}
+    <link rel="canonical" href="{{ canonical_url }}" />
+{% endif %}
+
+<link rel="home" href="{{ root_location_path }}" title="{{ 'ngsite.layout.site_frontpage'|trans({'%site_name%': site_name}) }}" />
+<link rel="index" href="{{ root_location_path }}" />
+<link rel="search" href="{{ path('ngsite_content_search') }}" title="{{ 'ngsite.layout.search_site'|trans({'%site_name%': site_name}) }}" />
+
+<link rel="icon apple-touch-icon-precomposed" sizes="152x152" href="{{ asset('bundles/app/images/favicon/favicon-152.png') }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('bundles/app/images/favicon/favicon-144.png') }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="120x120" href="{{ asset('bundles/app/images/favicon/favicon-120.png') }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('bundles/app/images/favicon/favicon-114.png') }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="76x76" href="{{ asset('bundles/app/images/favicon/favicon-76.png') }}">
+<link rel="icon apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('bundles/app/images/favicon/favicon-72.png') }}">
+<link rel="icon apple-touch-icon-precomposed" href="{{ asset('bundles/app/images/favicon/favicon-57.png') }}">
+
+<link rel="icon" href="{{ asset('bundles/app/images/favicon/favicon.png') }}" type="image/x-icon" />
+
+{% if available_translations|length > 1 %}
+    {% set locale_conversion_map = ezpublish.configResolver.getParameter('locale.conversion_map', 'ngsite') %}
+
+    {% for language, url in available_translations %}
+        <link rel="alternate" href="{{ url }}" hreflang="{{ locale_conversion_map[language]|lower|replace({'_': '-'}) }}" />
+    {% endfor %}
+{% endif %}

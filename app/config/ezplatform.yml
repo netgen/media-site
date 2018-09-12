@@ -2,7 +2,7 @@ imports:
     -
         resource: ezplatform_system.yml
     -
-        resource: '@NetgenSiteDemoBundle/Resources/config/ezplatform.yml'
+        resource: '@AppBundle/Resources/config/ezplatform.yml'
 ezpublish:
     siteaccess:
         default_siteaccess: eng
@@ -24,7 +24,7 @@ ezpublish:
             translation_siteaccesses:
                 - eng
         eng:
-            design: demo
+            design: app
             languages:
                 - eng-GB
             session:
@@ -45,15 +45,15 @@ ezpublish:
                 - eng-GB
 netgen_block_manager:
     design_list:
-        demo:
-            - demo
+        app:
+            - app
     system:
         frontend_group:
-            design: demo
+            design: app
 ezdesign:
     design_list:
-        demo:
-            - demo
+        app:
+            - app
             - common
         ngadminui:
             - ngadminui

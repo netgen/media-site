@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Netgen\Bundle\SiteDemoBundle;
+namespace AppBundle;
 
 use Netgen\Bundle\SiteBundle\NetgenSiteProjectBundleInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class NetgenSiteDemoBundle extends Bundle implements NetgenSiteProjectBundleInterface
+final class AppBundle extends Bundle implements NetgenSiteProjectBundleInterface
 {
 }

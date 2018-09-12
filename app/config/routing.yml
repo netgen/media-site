@@ -55,3 +55,6 @@ netgen_site:
 
 netgen_admin_ui:
     resource: '@NetgenAdminUIBundle/Resources/config/routing.yml'
+
+app:
+    resource: '@AppBundle/Resources/config/routing.yml'

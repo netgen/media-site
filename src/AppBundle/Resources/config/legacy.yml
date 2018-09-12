@@ -11,7 +11,7 @@ netgen_site_legacy:
             injected_merge_settings:
                 site.ini:
                     ExtensionSettings/ActiveExtensions:
-                        - ngsite_demo
+                        - app
                         - nglayouts
                         - ezplatformsearch
                         - ezrichtext

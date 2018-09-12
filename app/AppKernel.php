@@ -108,7 +108,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\EzPublishBlockManagerBundle\NetgenEzPublishBlockManagerBundle();
         $bundles[] = new Netgen\Bundle\SiteAPIBlockManagerBundle\NetgenSiteAPIBlockManagerBundle();
 
-        $bundles[] = new Netgen\Bundle\SiteDemoBundle\NetgenSiteDemoBundle();
+        $bundles[] = new AppBundle\AppBundle();
 
         return $bundles;
     }
