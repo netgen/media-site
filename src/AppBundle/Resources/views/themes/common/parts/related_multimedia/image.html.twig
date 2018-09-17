@@ -1,6 +1,7 @@
 {% if not content.fields.image.empty %}
     {% set image = content.fields.image %}
-    {% set image_uri = ng_image_alias(image, 'i1200').uri|default('') %}
+    {% set image_alias = ng_image_alias(image, 'i1200') %}
+    {% set image_uri = image_alias ? image_alias.uri : '//:0' %}
     {% set alt_text = image.value.alternativeText|default('') %}
     {% set lazy_loading = ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
@@ -13,11 +14,14 @@
                 {% else %}
                     <img
                         {% if lazy_loading %}
-                            src="{{ ng_image_alias(image, ezpublish.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngsite')).uri }}"
+                            {% set lazy_image_alias = ng_image_alias(image, ezpublish.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngsite')) %}
+                            src="{% if lazy_image_alias %}{{ lazy_image_alias.uri }}{% else %}//:0{% endif %}"
                             data-src="{{ image_uri }}"
-                            data-srcset="{{ ng_image_alias(image, 'i480').uri }} 600w,
-                                        {{ ng_image_alias(image, 'i770').uri }} 991w,
-                                        {{ image_uri }} 1200w"
+                            {% if image_alias %}
+                                data-srcset="{{ ng_image_alias(image, 'i480').uri }} 600w,
+                                            {{ ng_image_alias(image, 'i770').uri }} 991w,
+                                            {{ image_uri }} 1200w"
+                            {% endif %}
                         {% else %}
                             src="{{ image_uri }}"
                         {% endif %}
