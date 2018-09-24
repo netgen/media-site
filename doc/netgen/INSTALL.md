@@ -66,7 +66,8 @@ yarn build:prod
 
 ### Import database schema and demo data
 
-Run the following command to import database schema and demo data:
+Run the following command to import database schema and demo data (add `--env=prod`
+after `bin/console` if running in prod mode):
 
 ```
 php bin/console ezplatform:install <SITE_NAME>
