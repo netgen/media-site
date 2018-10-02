@@ -84,3 +84,28 @@
         </div>
     </article>
 {% endblock %}
+
+{% block structuredData %}
+    {# structured data #}
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Blog",
+            "headline": "{{ content.fields.title.value.text }}",
+            "datePublished": "{{ content.contentInfo.publishedDate.date|date('Y-m-d') }}",
+            {% if not content.fields.authors.empty %}
+                "author": {
+                    "@type": "Person",
+                    "name": "{% for author in content.fieldRelations('authors') %}{% if loop.index0 > 0 %} ,{% endif %}{{ author.name }}{% endfor %}"
+                },
+            {% endif %}
+            {% if not content.fields.image.empty %}
+                "image": "{{ absolute_url(ng_image_alias(content.fields.image, 'i1200').uri) }}",
+            {% endif %}
+            "publisher": {
+                "type": "Organization",
+                "name": "{{ site_name }}"
+            }
+        }
+    </script>
+{% endblock %}
