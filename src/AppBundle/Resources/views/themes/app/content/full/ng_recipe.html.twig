@@ -28,8 +28,8 @@
                     <div class="full-page-info">
                         {% if not content.fields.authors.empty %}
                             By
-                            {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
-                                <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngsite_location_name(author_location_id) }}</a>
+                            {% for author in content.fieldRelations('authors') %}
+                                <a href="{{ path('ez_urlalias', {locationId: author.mainLocationId}) }}" class="article-author">{{ author.name }}</a>
                             {% endfor %}
                         {% endif %}
                     </div>
@@ -111,4 +111,38 @@
             </div>
         </div>
     </article>
+{% endblock %}
+
+{% block structuredData %}
+    {# structured data #}
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Recipe",
+            "name": "{{ content.fields.title.value.text }}",
+            "datePublished": "{{ content.contentInfo.publishedDate.date|date('Y-m-d') }}",
+            "totalTime": "PT{{ content.fields.preparation_time.value.value }}M",
+            "nutrition": {
+                "@type": "NutritionInformation",
+                "calories": "{{ content.fields.serving_calories.value.value }}",
+                "fatContent": "{{ content.fields.serving_fat.value.value }}",
+                "carbohydrateContent": "{{ content.fields.serving_carbohydrates.value.value }}",
+                "proteinContent": "{{ content.fields.serving_protein.value.value }}"
+            },
+            "description": "{{ ng_render_field(content.fields.full_intro)|striptags }}",
+            {% if not content.fields.authors.empty %}
+                "author": {
+                    "@type": "Person",
+                    "name": "{% for author in content.fieldRelations('authors') %}{% if loop.index0 > 0 %} ,{% endif %}{{ author.name }}{% endfor %}"
+                },
+            {% endif %}
+            {% if not content.fields.image.empty %}
+                "image": "{{ absolute_url(ng_image_alias(content.fields.image, 'i1200').uri) }}",
+            {% endif %}
+            "publisher": {
+                "type": "Organization",
+                "name": "{{ site_name }}"
+            }
+        }
+    </script>
 {% endblock %}

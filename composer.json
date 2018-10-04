@@ -57,6 +57,7 @@
         "sentry/sentry-symfony": "^2.0.3",
         "php-http/httplug-bundle": "^1.11",
         "php-http/curl-client": "^1.7.1",
+        "guzzlehttp/psr7": "^1.4.2",
 
         "netgen/media-site-data": "~1.0.0@dev",
         "netgen/site-bundle": "~1.0.0@dev",

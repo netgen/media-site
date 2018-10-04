@@ -9,8 +9,8 @@
 
         <div class="date">
             {% if not content.fields.authors.empty %}
-                {% for author_location_id in content.fields.authors.value.destinationLocationIds %}
-                    <a href="{{ path('ez_urlalias', {locationId: author_location_id}) }}" class="article-author">{{ ngsite_location_name(author_location_id) }}</a>
+                {% for author in content.fieldRelations('authors') %}
+                    <a href="{{ path('ez_urlalias', {locationId: author.mainLocationId}) }}" class="article-author">{{ author.name }}</a>
                 {% endfor %} |
             {% endif %}
             {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
