@@ -5,7 +5,7 @@
     <div class="info">
         {% if not content.fields.authors.empty %}
             {% for author in content.fieldRelations('authors') %}
-                <a href="{{ path('ez_urlalias', {locationId: author.mainLocationId}) }}" class="article-author">{{ author.name }}</a>
+                <a href="{{ path(author) }}" class="article-author">{{ author.name }}</a>
             {% endfor %}
         {% endif %}
         {% if not content.fields.sponsored_content_disclosure.empty %}
