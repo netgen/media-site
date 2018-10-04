@@ -11,10 +11,10 @@
             {% set open_in_new_window = true %}
         {% endif %}
     {% elseif not content.fields.related_object.empty %}
-        {% set related_content_id = content.fields.related_object.value.destinationContentId %}
+        {% set related_content = content.fieldRelation('related_object') %}
 
-        {% if related_content_id != content.id %} {# dead loop #}
-            {% set url = path('ez_urlalias', {'contentId': related_content_id}) %}
+        {% if related_content.id != content.id %} {# dead loop #}
+            {% set url = path(related_content) %}
         {% endif %}
     {% endif %}
 
@@ -40,10 +40,10 @@
             {% set open_in_new_window = true %}
         {% endif %}
     {% elseif not content.fields.related_object.empty %}
-        {% set related_content_id = content.fields.related_object.value.destinationContentId %}
+        {% set related_content = content.fieldRelation('related_object') %}
 
-        {% if related_content_id != content.id %} {# dead loop #}
-            {% set url = path('ez_urlalias', {'contentId': related_content_id}) %}
+        {% if related_content.id != content.id %} {# dead loop #}
+            {% set url = path(related_content) %}
         {% endif %}
     {% endif %}
 
@@ -72,10 +72,10 @@
             {% set open_in_new_window = true %}
         {% endif %}
     {% elseif not content.fields.related_object.empty %}
-        {% set related_content_id = content.fields.related_object.value.destinationContentId %}
+        {% set related_content = content.fieldRelation('related_object') %}
 
-        {% if related_content_id != content.id %} {# dead loop #}
-            {% set url = path('ez_urlalias', {'contentId': related_content_id}) %}
+        {% if related_content.id != content.id %} {# dead loop #}
+            {% set url = path(related_content) %}
         {% endif %}
     {% endif %}
 
