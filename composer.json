@@ -86,8 +86,6 @@
         "symfony/phpunit-bridge": "^4.1.2",
         "franzl/studio": "*"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "conflict": {
         "symfony/symfony": "3.4.12 || 3.4.16",
         "doctrine/dbal": "2.7.0"
