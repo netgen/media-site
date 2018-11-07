@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&subset=latin,latin-ext">
 
-<link rel="stylesheet" type="text/css" href="{{ asset('build' ~ (app.debug ? '_dev' : '') ~ '/app.css') }}"/>
+{{ encore_entry_link_tags('app') }}
 <link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'ngbm_' ~ (ngbm.debug ? 'dev_' : '') ~ 'css') }}"/>
 <link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'ngbm_standard_' ~ (ngbm.debug ? 'dev_' : '') ~ 'css') }}"/>

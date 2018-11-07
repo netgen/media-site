@@ -12,6 +12,10 @@ framework:
     assets:
         json_manifest_path: '%kernel.project_dir%/web/build_dev/manifest.json'
 
+webpack_encore:
+    # The path where Encore is building the assets - i.e. Encore.setOutputPath()
+    output_path: '%kernel.project_dir%/web/build_dev'
+
 web_profiler:
     toolbar: true
     intercept_redirects: false

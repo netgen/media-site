@@ -1,7 +1,7 @@
 /* globals jwplayer */
 import $ from 'jquery';
 import 'magnific-popup';
-import Swiper from 'swiper';
+import Swiper from 'swiper/dist/js/swiper';
 import 'bootstrap';
 import CookieControl from '@netgen/javascript-cookie-control';
 

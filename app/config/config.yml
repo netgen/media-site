@@ -82,6 +82,10 @@ framework:
     php_errors:
         log: true
 
+webpack_encore:
+    # The path where Encore is building the assets - i.e. Encore.setOutputPath()
+    output_path: '%kernel.project_dir%/web/build'
+
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
