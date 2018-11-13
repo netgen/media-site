@@ -1,7 +1,8 @@
-{% macro poster(content, location, alias_name) %}
+{% macro poster(content, location, alias_name, alt_text) %}
     {% set alias_name = alias_name|default('i480') %}
+    {% set alt_text = alt_text ?? null %}
 
-    <a href="{{ path(location is not empty ? location : content) }}" class="image-16by9">
+    <a href="{{ path(location is not empty ? location : content) }}" class="image-16by9" aria-label="{{ alt_text }}">
         <figure>
             {% if not content.fields.poster.empty %}
                 {{ ng_render_field(content.fields.poster, {'parameters': {'alias': alias_name}}) }}
@@ -10,23 +11,24 @@
                 {% set video_types = content.fields.video_type.value.identifiers %}
 
                 {% if 'youtube' in video_types %}
-                    <img data-src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
+                    <img data-src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" alt="{{ alt_text }}" />
                 {% elseif 'vimeo' in video_types %}
-                    <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" />
+                    <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" alt="{{ alt_text }}" />
                 {% elseif 'dailymotion' in video_types %}
-                    <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" />
+                    <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" alt="{{ alt_text }}" />
                 {% endif %}
             {% else %}
-                    <img data-src="{{ asset('bundles/app/images/video_poster.png') }}" />
+                    <img data-src="{{ asset('bundles/app/images/video_poster.png') }}" alt="{{ alt_text }}" />
             {% endif %}
         </figure>
     </a>
 {% endmacro %}
 
-{% macro poster_slide(content, use_lazy_load) %}
+{% macro poster_slide(content, use_lazy_load, alt_text) %}
     {% import '@ezdesign/parts/slide.html.twig' as slide %}
 
     {% set use_lazy_load = use_lazy_load|default(false) %}
+    {% set alt_text = alt_text ?? null %}
 
     {% if not content.fields.poster.empty %}
         {{ slide.image(content, 'poster', 'i1200', use_lazy_load) }}
@@ -35,14 +37,14 @@
         {% set video_types = content.fields.video_type.value.identifiers %}
 
         {% if 'youtube' in video_types %}
-            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" />
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" alt="{{ alt_text }}" />
         {% elseif 'vimeo' in video_types %}
-            <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" />
+            <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" alt="{{ alt_text }}" />
         {% elseif 'dailymotion' in video_types %}
-            <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" />
+            <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" alt="{{ alt_text }}" />
         {% endif %}
     {% else %}
-            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset('bundles/app/images/video_poster.png') }}" />
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset('bundles/app/images/video_poster.png') }}" alt="{{ alt_text }}" />
     {% endif %}
 {% endmacro %}
 

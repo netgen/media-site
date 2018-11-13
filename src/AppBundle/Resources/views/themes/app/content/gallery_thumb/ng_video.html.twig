@@ -3,7 +3,7 @@
 {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
     <div class="view-type view-type-{{ view_type }} ng-video vl3  {% if show_details_on_hover %}show_details_on_hover{% endif %}">
         {% if image_type == 'main' %}
-            {{ video.poster_slide(content, true) }}
+            {{ video.poster_slide(content, true, content.fields.title.value.text) }}
 
             {% if show_details %}
                 <div class="info">
@@ -15,7 +15,7 @@
                 </div>
             {% endif %}
         {% elseif image_type == 'thumb' %}
-            {{ video.poster_slide(content, false) }}
+            {{ video.poster_slide(content, false, content.fields.title.value.text) }}
         {% endif %}
     </div>
 {% endif %}

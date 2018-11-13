@@ -3,7 +3,7 @@
 
 {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
     <div class="view-type view-type-{{ view_type }} ng-video vl3">
-        {{ video.poster_slide(content, use_lazy_load|default(false)) }}
+        {{ video.poster_slide(content, use_lazy_load|default(false), content_fields.title(content)) }}
 
         <div class="info">
             <h2 class="title">
