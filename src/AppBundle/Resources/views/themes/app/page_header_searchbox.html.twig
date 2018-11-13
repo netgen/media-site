@@ -4,7 +4,7 @@
     </a>
     <form class="navbar-search" method="get" action="{{ path('ngsite_content_search') }}" id="site-wide-search">
         <span class="d-none">{{ 'ngsite.layout.search'|trans }}</span>
-        <input class="search-query" type="search" name="searchText" id="site-wide-search-field" placeholder="{{ 'ngsite.layout.search'|trans }}" />
+        <input class="search-query" type="search" name="searchText" id="site-wide-search-field" placeholder="{{ 'ngsite.layout.search'|trans }}" aria-label="{{ 'ngsite.layout.search'|trans }}" />
         <button type="submit" class="search-submit">{{ 'ngsite.layout.search.button'|trans }}</button>
     </form>
 </div>
