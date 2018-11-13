@@ -6,11 +6,14 @@
     </a>
     -->
     <div class="ng-cc-modal">
-        <a href="#" class="ng-cc-close ng-cc-close-btn"><i class="fas fa-times"></i></a>
+        <a href="#" class="ng-cc-close ng-cc-close-btn" aria-label="Close"><i class="fas fa-times"></i></a>
         <div class="ng-cc-content">
             <h3>This site uses cookies.</h3>
             <p>Some of these cookies are essential, while others help us improve your experience by providing insights into how the site is being used.</p>
             <p>For more detailed information on the cookies we use, please check our <a href="#">Privacy Policy</a>.</p>
+            <div class="ng-cc-actions">
+                <button id="ng-cc-accept" class="btn btn-primary">I'm OK with this</button>
+            </div>
             <ul class="ng-cc-optional-list">
                 <li>
                     <input type="checkbox" class="ng-cc-optional-checkbox" id="ng-cc-necessary" data-name="necessary" checked disabled />
@@ -18,9 +21,6 @@
                     <p>Necessary cookies enable core functionality. The website cannot function properly without these cookies, and can only be disabled by changing your browser preferences.</p>
                 </li>
             </ul>
-            <div class="ng-cc-actions">
-                <button id="ng-cc-accept" class="btn btn-primary">I'm OK with this</button>
-            </div>
         </div>
     </div>
 </div>
