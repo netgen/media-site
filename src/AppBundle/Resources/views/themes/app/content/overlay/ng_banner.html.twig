@@ -3,7 +3,7 @@
 
 {% block content %}
 <article class="view-type view-type-{{ view_type }} ng-banner vl2">
-    <a {{ macros.content_link_parameters(content) }} class="image-16by9">
+    <a {{ macros.content_link_parameters(content) }} class="image-16by9" aria-label="{{ not content.fields.url.empty ? content.fields.url.value.text : content.fields.title.value.text|trim }}">
         {{ content_fields.image(content) }}
     </a>
 
