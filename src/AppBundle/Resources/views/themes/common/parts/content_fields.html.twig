@@ -8,7 +8,6 @@
     {% elseif content.hasField('image') and not content.fields.image.empty %}
         {% set image_field = content.fields.image %}
     {% endif %}
-    {% set link_class = link_class ?? null %}
 
     {% if image_field %}
         <figure class="image">
@@ -18,7 +17,7 @@
                         'alias': alias_name,
                         'link_href': location is not empty ? path(location) : null,
                         'lazy_loading': lazy_loading,
-                        'link_class': link_class,
+                        'link_class': link_class ?? null,
                     }
                 }
             ) }}
