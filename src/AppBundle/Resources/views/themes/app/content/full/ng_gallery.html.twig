@@ -19,9 +19,11 @@
                 </div>
             {% endif %}
             <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
-            <p class="full-page-info">
-                <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
-            </p>
+            {% if content.contentInfo.publishedDate %}
+                <p class="full-page-info">
+                    <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
+                </p>
+            {% endif %}
         </div>
     </header>
 {% endblock %}

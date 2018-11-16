@@ -32,7 +32,9 @@
                                 <a href="{{ path(author) }}" class="article-author">{{ author.name }}</a>
                             {% endfor %} –
                         {% endif %}
-                        <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
+                        {% if content.contentInfo.publishedDate %}
+                            <time>{{ content.contentInfo.publishedDate.date|date('F jS, Y') }}</time>
+                        {% endif %}
                     </div>
                 </div>
             </header>
@@ -92,7 +94,9 @@
             "@context": "http://schema.org",
             "@type": "NewsArticle",
             "headline": "{{ content.fields.title.value.text }}",
-            "datePublished": "{{ content.contentInfo.publishedDate.date|date('Y-m-d') }}",
+            {% if content.contentInfo.publishedDate %}
+                "datePublished": "{{ content.contentInfo.publishedDate.date|date('Y-m-d') }}",
+            {% endif %}
             {% if not content.fields.authors.empty %}
                 "author": {
                     "@type": "Person",
