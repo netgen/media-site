@@ -14,9 +14,11 @@
 
         <header class="full-video-header">
             <h1 class="title">{{ ng_render_field(content.fields.title) }}</h1>
-            <p class="info">
-                <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
-            </p>
+            {% if content.contentInfo.publishedDate %}
+                <p class="info">
+                    <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
+                </p>
+            {% endif %}
         </header>
 
         {% if not content.fields.teaser_intro.empty %}
