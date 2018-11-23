@@ -26,23 +26,10 @@ Use the following MySQL DDL to create a database which will be used for your pro
 CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 ```
 
-### Clone the repo
-
-Clone this repo to an empty directory and position yourself in newly created directory.
-
-### Run Composer to install dependencies
-
-If you're setting up the site in development environment, you can simply run:
+### Create the new project based on this repo
 
 ```
-composer install
-```
-
-However, if you're setting up the site in production environment,
-Composer **must** be ran as follows:
-
-```
-SYMFONY_ENV=prod composer install --no-dev -o
+composer create-project netgen/media-site
 ```
 
 Near the end of vendor installation procedure, when asked, be sure to specify
