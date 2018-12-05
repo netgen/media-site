@@ -50,7 +50,7 @@ Encore
 
 if (Encore.isProduction()) {
   Encore.configureFilenames({
-    js: '[name].js?v=[chunkhash]',
+    js: '[name].js?v=[contenthash]',
     css: '[name].css?v=[contenthash]',
     images: 'images/[name].[ext]?v=[hash:8]',
     fonts: 'fonts/[name].[ext]?v=[hash:8]',
