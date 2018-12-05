@@ -51,6 +51,26 @@ yarn install
 yarn build:prod
 ```
 
+### Generate image variations
+
+If using demo content, it can be quite resource intensive to generate all needed image variations
+at request time, especially when demo content uses high quality and high resolution images.
+
+To overcome this, you can use the following command to generate all image variations for all images:
+
+```
+php bin/console ngsite:content:generate-image-variations
+```
+
+This command will take a couple of minutes to complete, so grab a cup of coffee while it's running.
+
+You can also limit the command only to a subset of image variations, subtrees, content types and
+content fields. Use the following command to list all available options:
+
+```
+php bin/console ngsite:content:generate-image-variations --help
+```
+
 ### Import database schema and demo data
 
 Run the following command to import database schema and demo data (add `--env=prod`
