@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.1.0",
     "@symfony/webpack-encore": "^0.22.2",
     "autoprefixer": "^9.0.0",
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
