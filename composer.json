@@ -90,7 +90,8 @@
         "franzl/studio": "*"
     },
     "conflict": {
-        "doctrine/dbal": "2.7.0"
+        "doctrine/dbal": "2.7.0",
+        "twig/twig": "2.6.1"
     },
     "scripts": {
         "symfony-scripts": [
