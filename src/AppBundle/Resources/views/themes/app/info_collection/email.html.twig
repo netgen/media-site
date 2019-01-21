@@ -1,6 +1,5 @@
-{% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
-
 {% block subject %}{% spaceless %}
+    {% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
     {{ site_name }} – {{ ez_content_name(content) }} [{{ collected_fields.email }}]
 {% endspaceless %}{% endblock %}
 
