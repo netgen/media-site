@@ -26,7 +26,7 @@ Instantiate media site with eZ Launchpad:
 ez init netgen/media-site CURRENT_VERSION INSTALL_TYPE
 ```
 
-where `netgen/media-site` is the name of Media Site package in Composer, `CURRENT_VERSION` is a version string, e.g. `'1.1.3 and' `INSTALL_TYPE` is the type of site to install, currently there are two options `netgen-media` that contains demo data and `netgen-media-clean` which has no demo data at all.
+where `netgen/media-site` is the name of Media Site package in Composer, `CURRENT_VERSION` is a version string, e.g. `'1.1.3'` and `INSTALL_TYPE` is the type of site to install, currently there are two options `netgen-media` that contains demo data and `netgen-media-clean` which has no demo data at all.
 Now just select `0` for standard installation and wait for Docker to finish creating containers.
 
 When the whole process of creating containers finishes, eZ Launchpad will print out very nice report page with all currently running containers.
