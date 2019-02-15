@@ -13,11 +13,11 @@ Installation instructions
 
 ### Docker containers
 
-First create directory where Media site project will habitate and enter it:
+First create directory where you want to create Media site project and enter it:
 
 ```bash
-mkdir my-project-with-media-suite
-cd my-project-with-media-suite
+mkdir my-project-with-media-site
+cd my-project-with-media-site
 ```
 
 Instantiate media site with eZ Launchpad:
@@ -26,7 +26,7 @@ Instantiate media site with eZ Launchpad:
 ez init netgen/media-site 1.1.3 netgen-media
 ```
 
-where `netgen/media-site` is the repository that hosts media site, `1.1.3` is the lastest version of media site and `netgen-media` is the database schema to import, currently there are two options `netgen-media` that contains demo data and `netgen-media-clean`.
+where `netgen/media-site` is the name of Media Site package in Composer, `1.1.3` is the latest version of media site and `netgen-media` is the type of site to install, currently there are two options `netgen-media` that contains demo data and `netgen-media-clean` which has no demo data at all.
 Now just select `0` for standard installation and wait for Docker to finish creating containers.
 
 When the whole process of creating containers finishes, eZ Launchpad will print out very nice report page with all currently running containers.
