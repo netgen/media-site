@@ -33,7 +33,13 @@ When the whole process of creating containers finishes, eZ Launchpad will print 
 
 ### Generate frontend assets
 
-Run the following to generate development versions of the assets:
+First enter project directory:
+
+```bash
+cd ezplatform
+```
+
+Then run the following to generate development versions of the assets:
 
 ```
 yarn install
@@ -45,6 +51,12 @@ or to build production versions of the assets:
 ```
 yarn install
 yarn build:prod
+```
+
+Go back to parent directory:
+
+```bash
+cd ..
 ```
 
 ### Generate image variations
