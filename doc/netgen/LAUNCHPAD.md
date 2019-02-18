@@ -4,7 +4,7 @@ Netgen Site development with eZ Launchpad and Docker
 Software requirements
 ---------------------
 
-* [Docker](https://docs.docker.com/) 
+* [Docker](https://docs.docker.com) 
 * [eZ Launchpad](https://ezsystems.github.io/launchpad/)
 * [Yarn](https://yarnpkg.com/en/)
 
@@ -13,27 +13,28 @@ Installation instructions
 
 ### Docker containers
 
-First create directory where you want to create Media site project and enter it:
+First create the directory where you want your Media Site project to live and enter it:
 
 ```bash
 mkdir my-project-with-media-site
 cd my-project-with-media-site
 ```
 
-Instantiate media site with eZ Launchpad:
+Instantiate the Media Site with eZ Launchpad:
 
 ```bash
 ez init netgen/media-site CURRENT_VERSION INSTALL_TYPE
 ```
 
-where `netgen/media-site` is the name of Media Site package in Composer, `CURRENT_VERSION` is a version string, e.g. `1.1.3` and `INSTALL_TYPE` is the type of site to install, currently there are two options `netgen-media` that contains demo data and `netgen-media-clean` which has no demo data at all.
-Now just select `0` for standard installation and wait for Docker to finish creating containers.
+where `netgen/media-site` is the name of Media Site package in Composer, `CURRENT_VERSION` is a version string, e.g. `1.1.3` and `INSTALL_TYPE`
+is the type of site to install. Currently there are two options: `netgen-media` that contains demo data and `netgen-media-clean` which has no
+demo data at all. Now just select `0` for standard installation and wait for Docker to finish creating containers.
 
-When the whole process of creating containers finishes, eZ Launchpad will print out very nice report page with all currently running containers.
+When the whole process of creating containers is done, eZ Launchpad will print out a very nice report page with all currently running containers.
 
 ### Generate frontend assets
 
-First enter project directory:
+First enter the project directory:
 
 ```bash
 cd ezplatform
