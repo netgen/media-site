@@ -4,7 +4,7 @@ Netgen Site development with eZ Launchpad and Docker
 Software requirements
 ---------------------
 
-* [Docker](https://docs.docker.com) 
+* [Docker](https://docs.docker.com)
 * [eZ Launchpad](https://ezsystems.github.io/launchpad/)
 * [Yarn](https://yarnpkg.com/en/)
 
