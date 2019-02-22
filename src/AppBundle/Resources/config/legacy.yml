@@ -1,6 +1,11 @@
 netgen_site_legacy:
     system:
         frontend_group:
+            injected_settings:
+                site.ini:
+                    # The following parameter need to be "false" string
+                    # since eZ legacy config uses string as config, as opposed to booleans
+                    SiteAccessSettings/RequireUserLogin: "false"
             injected_merge_settings:
                 site.ini:
                     SiteAccessRules/Rules:
