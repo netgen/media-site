@@ -1,0 +1,8 @@
+ngsite.errors.403.title: "Dies ist ein eingeschränkter Bereich"
+ngsite.errors.403.message: "Sie haben keine Berechtigungen auf diese Seite zuzugreifen."
+ngsite.errors.404.title: "Diese Seite existiert nicht"
+ngsite.errors.404.message: "Die angeforderte Seite konnte nicht gefunden werden. Bitte benutzen Sie die Hauptnavigation oder suchen Sie nach, wonach Sie suchen."
+ngsite.errors.500.title: "Etwas ist schief gelaufen"
+ngsite.errors.500.message: "Es gibt ein Problem mit der von Ihnen gesuchten Seite und kann nicht angezeigt werden. Bitte versuchen Sie es später erneut."
+ngsite.errors.default.title: "Ein Problem ist aufgetreten"
+ngsite.errors.default.message: "Es tut uns leid, ein Problem ist aufgetreten. Bitte versuchen Sie es später erneut. Bleibt das Problem bestehen, kontaktieren Sie uns bitte."
