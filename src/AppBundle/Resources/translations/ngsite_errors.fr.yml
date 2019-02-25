@@ -1,0 +1,8 @@
+ngsite.errors.403.title: "Vous n'avez pas les permissions nécessaires pour accéder à cet espace."
+ngsite.errors.403.message: "Vous n'avez pas les permissions nécessaires pour accéder à cette page."
+ngsite.errors.404.title: "Cette page n'existe pas."
+ngsite.errors.404.message: "La page demandée n'a pas pu être trouvée. Veuillez utiliser la navigation principale ou la recherche pour trouver ce que vous cherchez."
+ngsite.errors.500.title: "Quelque chose ne fonctionne pas. Si le problème persiste, veuillez nous contacter."
+ngsite.errors.500.message: "Il y a un problème avec la page que vous recherchez. Veuillez réessayer plus tard."
+ngsite.errors.default.title: "Un problème est survenu."
+ngsite.errors.default.message: "Nous sommes désolés, un problème est survenu. Veuillez réessayer plus tard et si le problème persiste, veuillez nous contacter."
