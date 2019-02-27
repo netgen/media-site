@@ -2,10 +2,11 @@
 EZPUBLISHROOT=/path/to/the/ez/publish/directory
 
 # The command used to call the cronjobs
+# In production, add --env=prod after "bin/console" to speed up things a bit
 EZPUBLISHSCRIPT=bin/console ezpublish:legacy:script runcronjobs.php
 
 # Siteaccess used for operations
-SITEACCESS=administration
+SITEACCESS=ngadminui
 
 # Location of the PHP Command Line Interface binary.
 PHP=/usr/bin/php
