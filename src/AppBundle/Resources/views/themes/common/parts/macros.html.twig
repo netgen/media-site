@@ -1,6 +1,6 @@
 {% macro content_link(content, link_name, link_class) %}
 {% spaceless %}
-    {% set url = '#' %}
+    {% set url = false %}
     {% set open_in_new_window = false %}
     {% set link_class = link_class|default %}
 
@@ -18,12 +18,18 @@
         {% endif %}
     {% endif %}
 
-    <a href="{{ url }}"
+    {% if url %}
+        <a href="{{ url }}"
         {% if link_class is not empty %}class="{{ link_class }}"{% endif %}
         {% if open_in_new_window %}target="_blank" rel="noopener noreferrer" {% endif %}
-    >
-        {{ link_name|default }}
-    </a>
+        >
+    {% endif %}
+
+    {{ link_name|default }}
+
+    {% if url %}
+        </a>
+    {% endif %}
 {% endspaceless %}
 {% endmacro %}
 
