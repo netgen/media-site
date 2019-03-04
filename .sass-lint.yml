@@ -1,9 +1,3 @@
-# Linter Options
-options:
-files:
-  include: 'sass/**/*.s+(a|c)ss'
-  ignore:
-    - 'sass/vendor/**/*.*'
 # Rule Configuration
 rules:
   indentation:
@@ -22,3 +16,4 @@ rules:
   force-attribute-nesting: 0
   force-pseudo-nesting: 0
   force-element-nesting: 0
+  mixins-before-declarations: 0

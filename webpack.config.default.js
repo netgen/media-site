@@ -62,6 +62,8 @@ const config = Encore.getWebpackConfig();
 config.watchOptions = { poll: true, ignored: /node_modules/ };
 config.name = siteConfig.name;
 
+config.devServer.disableHostCheck = true;
+
 if (Encore.isProduction()) {
   config.optimization = {
     minimizer: [

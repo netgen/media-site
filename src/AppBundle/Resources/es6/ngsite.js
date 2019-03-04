@@ -16,10 +16,10 @@ global.Swiper = Swiper;
 
     const rect = el.getBoundingClientRect();
     return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+      rect.top >= 0
+      && rect.left >= 0
+      && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+      && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
 
@@ -127,7 +127,7 @@ $(document).ready(() => {
         },
         autoHeight: true,
         on: {
-          lazyImageReady: function () {
+          lazyImageReady() {
             this.updateAutoHeight();
           },
         },
@@ -271,6 +271,6 @@ $(document).ready(() => {
     this.href = $('img', this).attr('src');
   });
 
-  const cookieControl = new CookieControl(window.__ngCcConfig);
+  const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
   cookieControl.init();
 });

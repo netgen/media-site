@@ -1,8 +1,7 @@
 {
-  "parser": "babel-eslint",
   "extends": "airbnb",
   "rules": {
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "max-len": 0,
     "no-plusplus": 0,
     "func-names": 0,
@@ -11,6 +10,9 @@
         "allowTernary": true
       }
     ],
+    "no-param-reassign": ["error", {
+        "props": false
+    }],
     "comma-dangle": ["error", {
         "arrays": "always-multiline",
         "objects": "always-multiline",
