@@ -48,8 +48,9 @@
     {% endif %}
 {% endmacro %}
 
-{% macro player(content, use_external_embed) %}
+{% macro player(content, use_external_embed, is_slider) %}
     {% set use_external_embed = use_external_embed|default(false) %}
+    {% set is_slider = is_slider|default(false) %}
 
     {% set video_types = content.fields.video_type.value.identifiers %}
     {% set autoplay = content.fields.autoplay.value.bool and not is_slider %}
