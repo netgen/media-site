@@ -1,47 +1,62 @@
 {
-  "browserslist": [
-    "> 0.25%",
-    "not dead"
-  ],
-  "scripts": {
-    "dev": "encore dev",
-    "build:dev": "encore dev",
-    "prod": "encore production",
-    "build:prod": "encore production",
-    "watch": "encore dev --watch",
-    "start": "encore dev-server",
-    "server": "encore dev-server",
-    "site:dev": "encore dev --config-name",
-    "site:prod": "encore production --config-name",
-    "site:watch": "encore dev --watch --config-name",
-    "site:server": "encore dev-server --config-name"
-  },
-  "private": true,
-  "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "@symfony/webpack-encore": "^0.24.0",
-    "autoprefixer": "^9.4.9",
-    "eslint": "^5.15.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.10.0",
-    "node-sass": "^4.11.0",
-    "path": "^0.12.7",
-    "postcss-loader": "^3.0.0",
-    "sass-lint": "^1.12.1",
-    "sass-loader": "^7.1.0",
-    "uglifyjs-webpack-plugin": "^2.1.2"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.2.5",
-    "@fortawesome/fontawesome-free": "^5.7.2",
-    "@netgen/javascript-cookie-control": "^0.0.5",
-    "bootstrap": "~4.3.1",
-    "jquery": "^3.3.1",
-    "magnific-popup": "^1.1.0",
-    "popper.js": "^1.14.7",
-    "swiper": "^4.5.0"
-  }
+    "browserslist": {
+        "defaults": [
+            "last 2 versions",
+            "Safari >= 10",
+            "iOS >= 10",
+            "not ie <= 10",
+            "> 1%"
+        ],
+        "evergreen": [
+            "last 2 Chrome versions",
+            "last 2 ChromeAndroid versions",
+            "last 2 Firefox versions",
+            "last 2 FirefoxAndroid versions",
+            "last 2 Safari versions",
+            "last 2 iOS versions",
+            "last 2 Edge versions",
+            "last 2 Opera versions"
+        ]
+    },
+    "scripts": {
+        "dev": "encore dev",
+        "build:dev": "encore dev",
+        "prod": "encore production",
+        "build:prod": "encore production",
+        "watch": "encore dev --watch",
+        "start": "encore dev-server",
+        "server": "encore dev-server",
+        "site:dev": "encore dev --config-name",
+        "site:prod": "encore production --config-name",
+        "site:watch": "encore dev --watch --config-name",
+        "site:server": "encore dev-server --config-name"
+    },
+    "private": true,
+    "devDependencies": {
+        "@babel/core": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
+        "@symfony/webpack-encore": "^0.24.0",
+        "autoprefixer": "^9.4.9",
+        "eslint": "^5.15.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.10.0",
+        "node-sass": "^4.11.0",
+        "path": "^0.12.7",
+        "postcss-loader": "^3.0.0",
+        "sass-lint": "^1.12.1",
+        "sass-loader": "^7.1.0",
+        "uglifyjs-webpack-plugin": "^2.1.2"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.2.5",
+        "@fortawesome/fontawesome-free": "^5.7.2",
+        "@netgen/javascript-cookie-control": "^0.0.6",
+        "bootstrap": "~4.3.1",
+        "jquery": "^3.3.1",
+        "magnific-popup": "^1.1.0",
+        "popper.js": "^1.14.7",
+        "swiper": "^4.5.0"
+    }
 }
