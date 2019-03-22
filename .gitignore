@@ -37,6 +37,9 @@ node_modules/
 /vendor/
 /web/build_dev*/
 /web/bundles/
+/web/assets/
+!/web/assets/translations/.gitkeep
+!/web/assets/build/
 /web/css/
 /web/js/
 /web/fonts/

@@ -47,15 +47,22 @@ final class AppKernel extends Kernel
             new eZ\Bundle\EzPublishLegacyBundle\EzPublishLegacyBundle($this),
             new EzSystems\EzSupportToolsBundle\EzSystemsEzSupportToolsBundle(),
             new EzSystems\PlatformInstallerBundle\EzSystemsPlatformInstallerBundle(),
+            new EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle(),
             new EzSystems\RepositoryFormsBundle\EzSystemsRepositoryFormsBundle(),
             new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle(),
             new EzSystems\EzPlatformXmlTextFieldTypeBundle\EzSystemsEzPlatformXmlTextFieldTypeBundle(),
             new EzSystems\EzPlatformDesignEngineBundle\EzPlatformDesignEngineBundle(),
             new EzSystems\EzPlatformRichTextBundle\EzPlatformRichTextBundle(),
             new EzSystems\EzPlatformAdminUiBundle\EzPlatformAdminUiBundle(),
+            new EzSystems\EzPlatformUserBundle\EzPlatformUserBundle(),
             new EzSystems\EzPlatformAdminUiModulesBundle\EzPlatformAdminUiModulesBundle(),
             new EzSystems\EzPlatformAdminUiAssetsBundle\EzPlatformAdminUiAssetsBundle(),
             new EzSystems\EzPlatformCronBundle\EzPlatformCronBundle(),
+            new EzSystems\EzPlatformEncoreBundle\EzSystemsEzPlatformEncoreBundle(),
+            new EzSystems\EzPlatformGraphQL\EzSystemsEzPlatformGraphQLBundle(),
+            new EzSystems\EzPlatformMatrixFieldtypeBundle\EzPlatformMatrixFieldtypeBundle(),
+            // OverblogGraphQLBundle has to be loaded after EzSystemsEzPlatformGraphQLBundle
+            new Overblog\GraphQLBundle\OverblogGraphQLBundle(),
 
             // Netgen dependencies
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
@@ -79,6 +86,7 @@ final class AppKernel extends Kernel
                 $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
                 $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
                 $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+                $bundles[] = new Overblog\GraphiQLBundle\OverblogGraphiQLBundle();
                 $bundles[] = new Netgen\Bundle\BlockManagerDebugBundle\NetgenBlockManagerDebugBundle();
         }
 

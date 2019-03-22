@@ -18,6 +18,9 @@ ezpublish:
                 engine: '%search_engine%'
                 connection: default
 
+    # System settings, read in following order: `default`, <siteaccess-group>, <siteacces>, and `global`
+    # TIP: For multisite installations organize shared config into SiteAccess groups,
+    #      on single-site you can place shared config under "default" for simplicity as shown below.
     system:
         default:
             repository: default
@@ -27,14 +30,14 @@ ezpublish:
             # it is recommended to install clean, then change setting before you start adding binary content, otherwise you'll
             # need to manually modify your database data to reflect this to avoid exceptions.
             var_dir: var/site
-            # HttpCache purge server(s) setting, eg Varnish, for when ezpublish.http_cache.purge_type is set to 'http'.
-            http_cache:
-                purge_servers: ['%purge_server%']
-                varnish_invalidate_token: '%varnish_invalidate_token%'
             content:
                 # As we by default enable EzSystemsPlatformHttpCacheBundle which is designed to expire all affected cache
                 # on changes, and as error / redirects now have separate ttl, we easier allow ttl to be greatly increased
                 default_ttl: '%httpcache_default_ttl%'
+            # HttpCache purge server(s) setting, eg Varnish, for when ezpublish.http_cache.purge_type is set to 'http'.
+            http_cache:
+                purge_servers: ['%purge_server%']
+                varnish_invalidate_token: '%varnish_invalidate_token%'
 
     url_alias:
         slug_converter:

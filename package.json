@@ -29,12 +29,14 @@
         "site:dev": "encore dev --config-name",
         "site:prod": "encore production --config-name",
         "site:watch": "encore dev --watch --config-name",
-        "site:server": "encore dev-server --config-name"
+        "site:server": "encore dev-server --config-name",
+        "ezplatform": "encore production --config=webpack.config.ezplatform.js"
     },
     "private": true,
     "devDependencies": {
         "@babel/core": "^7.3.4",
         "@babel/preset-env": "^7.3.4",
+        "@babel/preset-react": "^7.0.0",
         "@symfony/webpack-encore": "^0.24.0",
         "autoprefixer": "^9.4.9",
         "eslint": "^5.15.0",
