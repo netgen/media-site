@@ -1,0 +1,59 @@
+ezpublish:
+    siteaccess:
+        default_siteaccess: eng
+        list:
+            - eng
+            - ngadminui
+            - admin
+            - legacy_admin
+        groups:
+            frontend_group:
+                - eng
+            ngadmin_group:
+                - ngadminui
+                - legacy_admin
+            admin_group:
+                - admin
+    system:
+        frontend_group:
+            translation_siteaccesses:
+                - eng
+        eng:
+            design: app
+            languages:
+                - eng-GB
+            session:
+                name: eZSESSID
+        ngadminui:
+            design: ngadminui
+            languages:
+                - eng-GB
+            session:
+                name: eZSESSID
+        admin:
+            languages:
+                - eng-GB
+            session:
+                name: eZSESSID
+        legacy_admin:
+            languages:
+                - eng-GB
+netgen_block_manager:
+    design_list:
+        app:
+            - app
+    system:
+        frontend_group:
+            design: app
+ezdesign:
+    design_list:
+        app:
+            - app
+            - common
+        ngadminui:
+            - ngadminui
+            - common
+ez_publish_legacy:
+    system:
+        legacy_admin:
+            legacy_mode: true
