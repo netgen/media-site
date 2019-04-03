@@ -13,7 +13,7 @@ final class AppKernel extends Kernel
      */
     private $containerLoader;
 
-    public function registerBundles(): array
+    public function registerBundles(): iterable
     {
         $bundles = [
             // Symfony
