@@ -60,7 +60,7 @@
         "willdurand/js-translation-bundle": "^2.6.6",
 
         "ezsystems/ezplatform-xmltext-fieldtype": "^1.6.1",
-        "ezsystems/ezpublish-legacy": ">=2018.09",
+        "ezsystems/ezpublish-legacy": ">=2019.03@rc",
 
         "guzzlehttp/psr7": "^1.4.2",
         "php-http/curl-client": "^1.7.1",
