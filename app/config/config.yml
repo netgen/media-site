@@ -104,21 +104,6 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
-# Assetic Configuration
-assetic:
-    workers:
-        cache_busting:
-            enabled: true
-    debug: false
-    use_controller: false
-    bundles: [ EzPlatformAdminUiBundle, NetgenTagsBundle ]
-    #java: /usr/bin/java
-    filters:
-        cssrewrite: ~
-        scssphp:
-            formatter: 'Leafo\ScssPhp\Formatter\Crunched'
-            import_paths: ['%kernel.project_dir%/web/']
-
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
