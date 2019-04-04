@@ -36,10 +36,9 @@ node_modules/
 !var/sessions/.gitkeep
 /vendor/
 /web/build_dev*/
+/web/assets/*
+!/web/assets/ezplatform
 /web/bundles/
-/web/assets/
-!/web/assets/translations/.gitkeep
-!/web/assets/build/
 /web/design
 /web/extension
 /web/share
