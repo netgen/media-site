@@ -59,7 +59,8 @@ final class AppKernel extends Kernel
             new EzSystems\EzPlatformCronBundle\EzPlatformCronBundle(),
             new EzSystems\EzPlatformEncoreBundle\EzSystemsEzPlatformEncoreBundle(),
             new EzSystems\EzPlatformGraphQL\EzSystemsEzPlatformGraphQLBundle(),
-            new EzSystems\EzPlatformMatrixFieldtypeBundle\EzPlatformMatrixFieldtypeBundle(),
+            // Matrix field type bundle disabled for now since it is incompatible with eZ Publish Legacy data type
+            // new EzSystems\EzPlatformMatrixFieldtypeBundle\EzPlatformMatrixFieldtypeBundle(),
             // OverblogGraphQLBundle has to be loaded after EzSystemsEzPlatformGraphQLBundle
             new Overblog\GraphQLBundle\OverblogGraphQLBundle(),
 
