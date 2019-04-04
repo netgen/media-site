@@ -86,17 +86,19 @@ framework:
     fragments: ~
     http_method_override: true
     assets:
-        json_manifest_path: '%kernel.project_dir%/web/build/manifest.json'
         packages:
+            app:
+                json_manifest_path: '%kernel.project_dir%/web/build/manifest.json'
             ezplatform:
                 json_manifest_path: '%kernel.project_dir%/web/assets/ezplatform/build/manifest.json'
     php_errors:
         log: true
 
 webpack_encore:
-    # The path where Encore is building the assets - i.e. Encore.setOutputPath()
-    output_path: '%kernel.project_dir%/web/build'
+    output_path: false
     builds:
+        # The path where Encore is building the assets - i.e. Encore.setOutputPath()
+        app: '%kernel.project_dir%/web/build'
         ezplatform: '%kernel.project_dir%/web/assets/ezplatform/build'
 
 # Twig Configuration
