@@ -59,13 +59,13 @@
         "white-october/pagerfanta-bundle": "^1.2.2",
         "willdurand/js-translation-bundle": "^2.6.6",
 
-        "ezsystems/ezplatform-xmltext-fieldtype": "^1.6.1",
+        "ezsystems/ezplatform-xmltext-fieldtype": "^1.8.2",
         "ezsystems/ezpublish-legacy": ">=2019.03@rc",
 
-        "guzzlehttp/psr7": "^1.4.2",
+        "guzzlehttp/psr7": "^1.5.2",
         "php-http/curl-client": "^1.7.1",
-        "php-http/httplug-bundle": "^1.11",
-        "sentry/sentry-symfony": "^2.0.3",
+        "php-http/httplug-bundle": "^1.15",
+        "sentry/sentry-symfony": "^2.3",
         "symfony/webpack-encore-bundle": "^1.4",
 
         "netgen/media-site-data": "~1.0.0",
@@ -73,9 +73,9 @@
         "netgen/site-legacy-bundle": "~1.0.0",
         "netgen/site-generator-bundle": "~1.1.0",
         "netgen/site-installer-bundle": "^1.0",
-        "netgen/information-collection-bundle": "^1.5.3",
-        "netgen/ezplatform-search-extra": "^1.0",
-        "netgen/admin-ui-bundle": "^2.4.1",
+        "netgen/information-collection-bundle": "^1.6.6",
+        "netgen/ezplatform-search-extra": "^1.6",
+        "netgen/admin-ui-bundle": "^2.5.1",
 
         "netgen/layouts-standard": "~0.12.0",
         "netgen/layouts-ezplatform": "~0.12.0",
@@ -91,7 +91,7 @@
         "ezsystems/behat-screenshot-image-driver-cloudinary": "^1.1.0",
         "ezsystems/behatbundle": "^6.5.4",
         "overblog/graphiql-bundle": "^0.1.2",
-        "phpunit/phpunit": "^7.5.2",
+        "phpunit/phpunit": "^7.5.8",
         "sensio/generator-bundle": "^3.1.7",
         "symfony/phpunit-bridge": "^4.2",
         "franzl/studio": "*"
