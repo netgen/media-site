@@ -15,7 +15,6 @@ rewrite "^/robots\.txt" "/robots.txt" break;
 rewrite "^/w3c/p3p\.xml" "/w3c/p3p.xml" break;
 
 # Following rule is needed to correctly display bundle and project assets
-rewrite "^/build(_dev)?/(.*)" "/build$1/$2" break;
 rewrite "^/bundles/(.*)" "/bundles/$1" break;
 rewrite "^/assets/(.*)" "/assets/$1" break;
 

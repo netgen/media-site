@@ -67,7 +67,7 @@ What Webpack Encore does
 
 1. Watches `public/sass` and `public/es6` directories if started with `--watch`
 2. Compiles Sass and ES6 files
-3. Copies all assets (images, fonts...) referenced in CSS to `web/build` folder (or `web/build_dev` in development environment)
+3. Copies all assets (images, fonts...) referenced in CSS to `web/assets/app/build` folder (or `web/assets/app/build_dev` in development environment)
 4. Adds vendor prefixes to css (`-moz`, `-webkit` ...)
 5. Compiles es6 `.js` files to supported syntax and transpiles required node modules to `app.js`
 6. Adds hashes to `manifest.json` for cache busting if building production assets

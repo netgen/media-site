@@ -15,12 +15,12 @@ const siteConfig = {
 
 Encore
   // the project directory where all compiled assets will be stored
-  .setOutputPath(`./web/${siteConfig.buildLocation}/`)
+  .setOutputPath(`./web/assets/app/${siteConfig.buildLocation}/`)
 
   // the public path used by the web server to access the previous directory
-  .setPublicPath(`/${siteConfig.buildLocation}`)
+  .setPublicPath(`/assets/app/${siteConfig.buildLocation}`)
 
-  // will create web/build/app.js and web/build/app.css
+  // will create web/assets/app/build/app.js and web/assets/app/build/app.css
   .addEntry('app', `./${siteConfig.resourcesLocation}/es6/app.js`)
 
   // allow sass/scss files to be processed
