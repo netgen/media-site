@@ -40,7 +40,6 @@ node_modules/
 /web/assets/build/*
 /web/assets/ezplatform/*
 !/web/assets/ezplatform/build/
-/web/assets/translations/*
 /web/bundles/
 /web/design
 /web/extension
