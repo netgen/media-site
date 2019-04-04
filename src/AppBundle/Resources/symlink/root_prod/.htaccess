@@ -94,7 +94,4 @@ RewriteRule ^robots\.txt - [L]
 RewriteRule ^bundles/ - [L]
 RewriteRule ^assets/ - [L]
 
-# Additional Assetic rules
-RewriteRule ^(css|js|fonts?)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
-
 RewriteRule .* app\.php
