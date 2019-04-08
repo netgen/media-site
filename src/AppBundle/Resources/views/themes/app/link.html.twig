@@ -18,10 +18,10 @@
 
 <link rel="icon" href="{{ asset('bundles/app/images/favicon/favicon.png') }}" type="image/x-icon" />
 
-{% if available_translations|length > 1 %}
+{% if available_hreflang_translations|default|length > 1 %}
     {% set locale_conversion_map = ezpublish.configResolver.getParameter('locale.conversion_map', 'ngsite') %}
 
-    {% for language, url in available_translations %}
+    {% for language, url in available_hreflang_translations %}
         <link rel="alternate" href="{{ url }}" hreflang="{{ locale_conversion_map[language]|lower|replace({'_': '-'}) }}" />
     {% endfor %}
 {% endif %}

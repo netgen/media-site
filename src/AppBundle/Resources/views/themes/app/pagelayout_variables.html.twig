@@ -28,6 +28,7 @@
 
 {% if available_translations is not defined %}
     {% set available_translations = [] %}
+    {% set available_hreflang_translations = [] %}
     {% set current_content_language = null %}
 
     {% if content is defined %}
@@ -49,16 +50,21 @@
             {% if translation_site_access is not empty %}
                 {% set siteaccess_languages = ezpublish.configResolver.parameter('languages', null, translation_site_access) %}
                 {% set route_reference = ez_route(params={'siteaccess': translation_site_access}) %}
+                {% set homepage_url = url(ezpublish.rootLocation, {siteaccess: translation_site_access}) %}
 
                 {% if route_reference.route is not empty %}
                     {% if content is not defined %}
                         {% set url = url(route_reference) %}
                         {% set available_translations = available_translations|merge({(language): url}) %}
-                    {% elseif current_content_language in siteaccess_languages or content.contentInfo.alwaysAvailable %}
+                        {% set available_hreflang_translations = available_hreflang_translations|merge({(language): url}) %}
+                    {% elseif language in content.versionInfo.languageCodes or content.contentInfo.alwaysAvailable %}
                         {% set url = url(route_reference, {'language': language}) %}
                         {% if '/view/content/' not in url %}
                             {% set available_translations = available_translations|merge({(language): url}) %}
+                            {% set available_hreflang_translations = available_hreflang_translations|merge({(language): url}) %}
                         {% endif %}
+                    {% else %}
+                        {% set available_translations = available_translations|merge({(language): homepage_url}) %}
                     {% endif %}
                 {% endif %}
             {% endif %}
