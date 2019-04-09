@@ -14,7 +14,7 @@ parameters:
     ezpublish_rest.csrf_token_intention: authenticate
 
 # Switches Netgen Layouts and Netgen Content Browser to use filter search service adapter from Site API
-netgen_site_api_block_manager:
+netgen_layouts_ez_platform_site_api:
     search_service_adapter: filter
 
 # Configuration for Database connection, can have several connections used by eZ Repositories in ezplatform.yml
@@ -134,7 +134,7 @@ fos_http_cache:
             -
                 match:
                     attributes:
-                        _route: "^(?!ngbm_api_|ngcb_api_)"
+                        _route: "^(?!nglayouts_api_|ngcb_api_)"
                     match_response: "!response.isFresh() && response.isNotFound()"
                 headers:
                     overwrite: true

@@ -1,4 +1,4 @@
-netgen_block_manager:
+netgen_layouts:
     block_definitions:
         title:
             view_types:

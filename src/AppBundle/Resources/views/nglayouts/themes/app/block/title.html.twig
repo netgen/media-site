@@ -1,6 +1,6 @@
-{% extends '@ngbm/block/block.html.twig' %}
+{% extends '@nglayouts/block/block.html.twig' %}
 
-{% import '@NetgenBlockManager/parts/macros.html.twig' as macros %}
+{% import '@NetgenLayouts/parts/macros.html.twig' as macros %}
 
 {% set tag = block.parameter('tag').value|default('h1') %}
 {% set link = block.parameter('link') %}
@@ -19,7 +19,7 @@
         {% endif %}
 
         {% if block.parameter('use_link').value and not link.empty %}
-            {{ ngbm_render_parameter(link, {content: title}) }}
+            {{ nglayouts_render_parameter(link, {content: title}) }}
         {% else %}
             {{ title }}
         {% endif %}

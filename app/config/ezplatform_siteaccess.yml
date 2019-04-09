@@ -38,7 +38,7 @@ ezpublish:
         legacy_admin:
             languages:
                 - eng-GB
-netgen_block_manager:
+netgen_layouts:
     design_list:
         app:
             - app

@@ -88,7 +88,7 @@ final class AppKernel extends Kernel
                 $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
                 $bundles[] = new Overblog\GraphiQLBundle\OverblogGraphiQLBundle();
                 $bundles[] = new Snc\RedisBundle\SncRedisBundle();
-                $bundles[] = new Netgen\Bundle\BlockManagerDebugBundle\NetgenBlockManagerDebugBundle();
+                $bundles[] = new Netgen\Bundle\LayoutsDebugBundle\NetgenLayoutsDebugBundle();
         }
 
         $bundles[] = new Netgen\Bundle\EzFormsBundle\NetgenEzFormsBundle();
@@ -112,12 +112,12 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\ContentBrowserBundle\NetgenContentBrowserBundle();
         $bundles[] = new Netgen\Bundle\ContentBrowserEzPlatformBundle\NetgenContentBrowserEzPlatformBundle();
         $bundles[] = new Netgen\Bundle\ContentBrowserUIBundle\NetgenContentBrowserUIBundle();
-        $bundles[] = new Netgen\Bundle\BlockManagerBundle\NetgenBlockManagerBundle();
-        $bundles[] = new Netgen\Bundle\BlockManagerStandardBundle\NetgenBlockManagerStandardBundle();
-        $bundles[] = new Netgen\Bundle\BlockManagerUIBundle\NetgenBlockManagerUIBundle();
-        $bundles[] = new Netgen\Bundle\BlockManagerAdminBundle\NetgenBlockManagerAdminBundle();
-        $bundles[] = new Netgen\Bundle\EzPublishBlockManagerBundle\NetgenEzPublishBlockManagerBundle();
-        $bundles[] = new Netgen\Bundle\SiteAPIBlockManagerBundle\NetgenSiteAPIBlockManagerBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsBundle\NetgenLayoutsBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsStandardBundle\NetgenLayoutsStandardBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsUIBundle\NetgenLayoutsUIBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsAdminBundle\NetgenLayoutsAdminBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsEzPlatformBundle\NetgenLayoutsEzPlatformBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\NetgenLayoutsEzPlatformSiteApiBundle();
 
         $bundles[] = new AppBundle\AppBundle();
 

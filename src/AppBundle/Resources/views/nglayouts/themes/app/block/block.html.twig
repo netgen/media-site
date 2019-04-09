@@ -21,7 +21,7 @@
 {% set use_bg_color = block.hasParameter('background_color:enabled') and block.parameter('background_color:enabled').value is same as(true) %}
 {% set use_bg_color = use_bg_color and bg_color is not empty %}
 
-{% set css_classes = ['bm-block', 'bm-' ~ block.definition.identifier, 'bm-vt-' ~ block.viewType, css_class|default(block.parameter('css_class').value)] %}
+{% set css_classes = ['ngl-block', 'ngl-' ~ block.definition.identifier, 'ngl-vt-' ~ block.viewType, css_class|default(block.parameter('css_class').value)] %}
 
 {% if use_whitespace and whitespace_position is not null and whitespace_size is not null %}
     {% set css_classes = css_classes|merge(['whitespace-' ~ whitespace_position, 'whitespace-' ~ whitespace_size]) %}
