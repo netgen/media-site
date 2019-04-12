@@ -75,7 +75,7 @@
         "netgen/site-installer-bundle": "^1.0",
         "netgen/information-collection-bundle": "^1.6.6",
         "netgen/ezplatform-search-extra": "^1.6",
-        "netgen/admin-ui-bundle": "^2.5.1",
+        "netgen/admin-ui-bundle": "^2.5.2",
 
         "netgen/layouts-standard": "~0.12.0",
         "netgen/layouts-ezplatform": "~0.12.0",
