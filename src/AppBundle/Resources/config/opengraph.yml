@@ -8,11 +8,11 @@ netgen_open_graph:
                     - { handler: literal/text, tag: "og:type", params: [website] }
                     - { handler: ngsite/site_name, tag: "og:title" }
                     - { handler: ngsite/site_name, tag: "og:description" }
-                    - { handler: literal/url, tag: "og:image", params: ["/bundles/app/images/opengraph.png"] }
+                    - { handler: ngsite/site_image, tag: "og:image" }
                 ng_landing_page:
                     - { handler: literal/text, tag: "og:type", params: [website] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
-                    - { handler: literal/url, tag: "og:image", params: ["/bundles/app/images/opengraph.png"] }
+                    - { handler: ngsite/site_image, tag: "og:image" }
                 ng_category:
                     - { handler: literal/text, tag: "og:type", params: [website] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
@@ -36,4 +36,4 @@ netgen_open_graph:
                     - { handler: literal/text, tag: "og:type", params: [article] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
                     - { handler: field_type/ezxmltext, tag: "og:description", params: [full_intro] }
-                    - { handler: literal/url, tag: "og:image", params: ["/bundles/app/images/opengraph.png"] }
+                    - { handler: ngsite/site_image, tag: "og:image" }

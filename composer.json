@@ -69,8 +69,8 @@
         "symfony/webpack-encore-bundle": "^1.5",
 
         "netgen/media-site-data": "~1.1.0@dev",
-        "netgen/site-bundle": "~1.0.0",
-        "netgen/site-legacy-bundle": "~1.0.0",
+        "netgen/site-bundle": "~1.1.0@dev",
+        "netgen/site-legacy-bundle": "~1.1.0@dev",
         "netgen/site-generator-bundle": "~1.1.0",
         "netgen/site-installer-bundle": "^1.0",
         "netgen/information-collection-bundle": "^1.6.6",
