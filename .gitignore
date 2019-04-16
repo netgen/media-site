@@ -34,6 +34,9 @@ node_modules/
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
+!/var/encore
+/var/encore/*
+!var/encore/.gitkeep
 /vendor/
 /web/assets/app/*
 !/web/assets/app/build/
