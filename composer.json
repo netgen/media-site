@@ -64,16 +64,16 @@
 
         "guzzlehttp/psr7": "^1.5.2",
         "php-http/curl-client": "^1.7.1",
-        "php-http/httplug-bundle": "^1.15",
+        "php-http/httplug-bundle": "^1.15.1",
         "sentry/sentry-symfony": "^2.3",
         "symfony/webpack-encore-bundle": "^1.5",
 
         "netgen/media-site-data": "~1.1.0@dev",
         "netgen/site-bundle": "~1.1.0@dev",
         "netgen/site-legacy-bundle": "~1.1.0@dev",
-        "netgen/site-generator-bundle": "~1.1.0",
-        "netgen/site-installer-bundle": "^1.0",
-        "netgen/information-collection-bundle": "^1.6.6",
+        "netgen/site-generator-bundle": "~1.1.0@dev",
+        "netgen/site-installer-bundle": "^1.1@dev",
+        "netgen/information-collection-bundle": "^1.6.7",
         "netgen/ezplatform-search-extra": "^1.6",
         "netgen/admin-ui-bundle": "^2.5.2",
 
