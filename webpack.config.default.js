@@ -1,7 +1,7 @@
 // webpack.config.default.js
 const Encore = require('@symfony/webpack-encore');
 const Webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const path = require('path');
 
@@ -69,8 +69,8 @@ if (config.devServer) {
 if (Encore.isProduction()) {
   config.optimization = {
     minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
+      new TerserPlugin({
+        terserOptions: {
           output: {
             comments: false,
           },
