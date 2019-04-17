@@ -51,6 +51,32 @@ yarn install
 yarn build:prod
 ```
 
+### Note for eZ Platform official WebPack support
+
+This repo completely replaces the default `webpack.config.js` file coming from eZ Platform with
+Netgen Site specific version which is used **only** for frontend of the project. The eZ Systems provided
+file is renamed to `webpack.config.ezplatform.js` without changes.
+
+Also, automatic building of eZ Platform Admin UI assets on every `composer install` or `composer update`
+has been disabled so there's no need to install `nodejs` or `yarn` on your production servers to build
+those assets. Either deploy them via your deployment procedures, or commit the entire `web/assets` folder
+to the git repository.
+
+If, however, you wish to bring back building eZ Platform Admin UI assets when running Composer, add the
+`web/assets/` folder to `.gitignore` and add the following to `symfony-scripts` in your `composer.json`:
+
+```json
+"@php bin/console bazinga:js-translation:dump web/assets --merge-domains",
+"@php bin/console assetic:dump",
+"yarn install",
+"bin/compile_assets.sh"
+```
+
+Note that you do NOT need to rename `webpack.config.ezplatform.js` back to its old name since
+`bin/compile_assets.sh` takes the new name into account.
+
+More info: https://github.com/ezsystems/ezplatform/pull/392
+
 ### Generate image variations
 
 If using demo content, it can be quite resource intensive to generate all needed image variations
