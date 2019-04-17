@@ -7,6 +7,7 @@ node_modules/
 /bin/doctrine.php
 /bin/doctrine-dbal
 /bin/doctrine-migrations
+/bin/fastest
 /bin/php-parse
 /bin/phpunit
 /bin/pscss
