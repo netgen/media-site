@@ -67,7 +67,6 @@ If, however, you wish to bring back building eZ Platform Admin UI assets when ru
 
 ```json
 "@php bin/console bazinga:js-translation:dump web/assets --merge-domains",
-"@php bin/console assetic:dump",
 "yarn install",
 "bin/compile_assets.sh"
 ```
