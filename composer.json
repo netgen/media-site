@@ -109,7 +109,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "@php bin/console bazinga:js-translation:dump web/assets --merge-domains",
             "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::installLegacyBundlesExtensions",
             "Netgen\\Bundle\\SiteBundle\\Composer\\ScriptHandler::installProjectSymlinks",
             "Netgen\\Bundle\\SiteLegacyBundle\\Composer\\ScriptHandler::installLegacySymlinks",
@@ -124,6 +123,10 @@
         ],
         "ezplatform-install": [
             "@php bin/console ezplatform:install netgen-media"
+        ],
+        "ezplatform-compile-assets": [
+            "@php bin/console bazinga:js-translation:dump web/assets --merge-domains",
+            "EzSystems\\EzPlatformEncoreBundle\\Composer\\ScriptHandler::compileAssets"
         ]
     },
     "config": {
