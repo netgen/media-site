@@ -126,7 +126,7 @@
         ],
         "ezplatform-compile-assets": [
             "@php bin/console bazinga:js-translation:dump web/assets --merge-domains",
-            "EzSystems\\EzPlatformEncoreBundle\\Composer\\ScriptHandler::compileAssets"
+            "yarn ezplatform"
         ]
     },
     "config": {
