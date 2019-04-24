@@ -78,9 +78,9 @@
         "netgen/ezplatform-search-extra": "^1.6",
         "netgen/admin-ui-bundle": "^2.5.2",
 
-        "netgen/layouts-standard": "~0.12.0",
-        "netgen/layouts-ezplatform": "~0.12.0",
-        "netgen/layouts-ezplatform-site-api": "~0.12.0"
+        "netgen/layouts-standard": "~0.13.0",
+        "netgen/layouts-ezplatform": "~0.13.0",
+        "netgen/layouts-ezplatform-site-api": "~0.13.0"
     },
     "require-dev": {
         "behat/behat": "^3.5.0",
