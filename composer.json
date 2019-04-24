@@ -124,7 +124,7 @@
         "ezplatform-install": [
             "@php bin/console ezplatform:install netgen-media"
         ],
-        "ezplatform-compile-assets": [
+        "ezplatform-assets": [
             "@php bin/console bazinga:js-translation:dump web/assets --merge-domains",
             "yarn ezplatform"
         ]

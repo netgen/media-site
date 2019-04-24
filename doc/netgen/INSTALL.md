@@ -61,7 +61,7 @@ Also, automatic building of eZ Platform Admin UI assets on every `composer insta
 has been disabled so there's no need to install `nodejs` or `yarn` on your production servers to build
 those assets. Either deploy them via your deployment procedures, or commit the entire `web/assets` folder
 to the git repository. You can build the eZ Platform Admin UI assets on demand simply by executing
-`composer ezplatform-compile-assets`.
+`composer ezplatform-assets`.
 
 If, however, you wish to bring back building eZ Platform Admin UI assets when running Composer, add the
 `web/assets/` folder to `.gitignore` and add the following to `symfony-scripts` in your `composer.json`:
