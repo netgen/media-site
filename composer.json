@@ -31,7 +31,7 @@
         "ezsystems/ezplatform-admin-ui": "~1.5.0",
         "ezsystems/ezplatform-admin-ui-assets": "^4.1.0",
         "ezsystems/ezplatform-admin-ui-modules": "~1.5.0",
-        "ezsystems/ezplatform-core": "^1.0@dev",
+        "ezsystems/ezplatform-core": "^1.0",
         "ezsystems/ezplatform-cron": "^2.0",
         "ezsystems/ezplatform-design-engine": "^2.0",
         "ezsystems/ezplatform-graphql": "^1.0",
@@ -65,7 +65,7 @@
 
         "guzzlehttp/psr7": "^1.5.2",
         "php-http/curl-client": "^1.7.1",
-        "php-http/httplug-bundle": "^1.15.1",
+        "php-http/httplug-bundle": "^1.15.2",
         "sentry/sentry-symfony": "^2.3",
         "symfony/webpack-encore-bundle": "^1.5",
 
@@ -92,7 +92,7 @@
         "ezsystems/behat-screenshot-image-driver-cloudinary": "^1.1.0",
         "ezsystems/behatbundle": "^6.5.4",
         "overblog/graphiql-bundle": "^0.1.2",
-        "phpunit/phpunit": "^7.5.8",
+        "phpunit/phpunit": "^7.5.9",
         "sensio/generator-bundle": "^3.1.7",
         "symfony/phpunit-bridge": "^4.2",
         "liuggio/fastest": "^1.6",
