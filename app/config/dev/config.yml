@@ -23,6 +23,7 @@ webpack_encore:
 web_profiler:
     toolbar: true
     intercept_redirects: false
+    excluded_ajax_paths: '(^/(app(_[\\w]+)?\\.php/)?_wdt)|/notifications/count'
 
 monolog:
     handlers:
