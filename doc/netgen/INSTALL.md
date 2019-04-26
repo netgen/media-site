@@ -69,11 +69,11 @@ If, however, you wish to bring back building eZ Platform Admin UI assets when ru
 ```json
 "@php bin/console bazinga:js-translation:dump web/assets --merge-domains",
 "yarn install",
-"EzSystems\\EzPlatformEncoreBundle\\Composer\\ScriptHandler::compileAssets"
+"yarn ezplatform"
 ```
 
 Note that you do NOT need to rename `webpack.config.ezplatform.js` back to its old name since
-`bin/compile_assets.sh` takes the new name into account.
+`yarn ezplatform` takes the new name into account.
 
 More info: https://github.com/ezsystems/ezplatform/pull/392
 
