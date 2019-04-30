@@ -77,6 +77,18 @@ Note that you do NOT need to rename `webpack.config.ezplatform.js` back to its o
 
 More info: https://github.com/ezsystems/ezplatform/pull/392
 
+### Import database schema and demo data
+
+Run the following command to import database schema and demo data (add `--env=prod`
+after `bin/console` if running in prod mode):
+
+```
+php bin/console ezplatform:install <SITE_NAME>
+```
+
+where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
+or `netgen-media-clean` for the clean version, without demo data.
+
 ### Generate image variations
 
 If using demo content, it can be quite resource intensive to generate all needed image variations
@@ -96,18 +108,6 @@ content fields. Use the following command to list all available options:
 ```
 php bin/console ngsite:content:generate-image-variations --help
 ```
-
-### Import database schema and demo data
-
-Run the following command to import database schema and demo data (add `--env=prod`
-after `bin/console` if running in prod mode):
-
-```
-php bin/console ezplatform:install <SITE_NAME>
-```
-
-where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
-or `netgen-media-clean` for the clean version, without demo data.
 
 ### Run PHP built in server / Setup Apache virtual host
 
