@@ -1,6 +1,7 @@
 ezpublish:
     system:
         default:
+            image_host: /
             image_variations:
                 i30:
                     reference: original
