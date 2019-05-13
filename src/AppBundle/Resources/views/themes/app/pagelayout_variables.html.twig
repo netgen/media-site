@@ -32,8 +32,8 @@
     {% set current_content_language = null %}
 
     {% if content is defined %}
-        {% for language in ezpublish.configResolver.parameter('languages') if current_content_language is empty %}
-            {% if language in content.versionInfo.languageCodes %}
+        {% for language in ezpublish.configResolver.parameter('languages') %}
+            {% if current_content_language is empty and language in content.versionInfo.languageCodes %}
                 {% set current_content_language = language %}
             {% endif %}
         {% endfor %}
