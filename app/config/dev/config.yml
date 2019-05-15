@@ -20,6 +20,15 @@ webpack_encore:
         # The path where Encore is building the assets - i.e. Encore.setOutputPath()
         app: '%kernel.project_dir%/web/assets/app/build_dev'
 
+snc_redis:
+    clients:
+        symfony_profiler:
+            type: '%profiler_storage_driver%'
+            alias: symfony_profiler
+            dsn: 'redis://%profiler_storage_dsn%'
+            options:
+                prefix: '%profiler_storage_namespace%'
+
 web_profiler:
     toolbar: true
     intercept_redirects: false

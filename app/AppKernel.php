@@ -87,6 +87,7 @@ final class AppKernel extends Kernel
                 $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
                 $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
                 $bundles[] = new Overblog\GraphiQLBundle\OverblogGraphiQLBundle();
+                $bundles[] = new Snc\RedisBundle\SncRedisBundle();
                 $bundles[] = new Netgen\Bundle\BlockManagerDebugBundle\NetgenBlockManagerDebugBundle();
         }
 
@@ -161,6 +162,10 @@ final class AppKernel extends Kernel
 
         $serverEnvironment = $container->getParameter('server_environment');
         $this->containerLoader->load($this->getRootDir() . '/config/server/' . $serverEnvironment . '.yml');
+
+        if ($this->getEnvironment() === 'dev' && $container->getParameter('profiler_storage') === 'redis') {
+            $this->containerLoader->load($this->getRootDir() . '/config/dev/profiler_storage/redis.yml');
+        }
 
         return $container;
     }
