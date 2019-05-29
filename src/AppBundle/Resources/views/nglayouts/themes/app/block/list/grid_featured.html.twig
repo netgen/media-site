@@ -5,7 +5,7 @@
         <div class="grid-featured">
             {% for result in collections.default %}
                 <div class="item {% if loop.index0 == 0 %}primary-item{% else %}secondary-item{% endif %}">
-                    {{ nglayouts_render_item(result.item, block.itemViewType) }}
+                    {{ nglayouts_render_result(result, null, block.itemViewType) }}
                 </div>
             {% endfor %}
         </div>
