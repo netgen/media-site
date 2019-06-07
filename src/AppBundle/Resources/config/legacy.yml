@@ -26,8 +26,6 @@ netgen_site_legacy:
                         - ngclasslist
                         - xrowmetadata
                         - birthday
-                        - childrenindexer
-                        - parentindexer
                         - hideuntildate
                         - ezclasslists
                         - ezchangeclass
