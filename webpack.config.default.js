@@ -1,7 +1,6 @@
 // webpack.config.default.js
 const Encore = require('@symfony/webpack-encore');
 const Webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
-const TerserPlugin = require('terser-webpack-plugin');
 
 const path = require('path');
 
@@ -26,6 +25,7 @@ Encore
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
     options.includePaths = [path.resolve(__dirname, 'node_modules')]; // eslint-disable-line no-param-reassign
+    options.outputStyle = Encore.isProduction() ? 'compressed' : 'nested';
   })
 
   // allow legacy applications to use $/jQuery as a global variable
@@ -42,6 +42,16 @@ Encore
   .enablePostCssLoader((options) => {
     options.config = { // eslint-disable-line no-param-reassign
       path: 'postcss.config.js',
+    };
+  })
+
+  .configureTerserPlugin((options) => {
+    options.cache = true;
+    options.parallel = true;
+    options.terserOptions = {
+      output: {
+        comments: false,
+      },
     };
   })
 
@@ -64,20 +74,6 @@ config.name = siteConfig.name;
 
 if (config.devServer) {
   config.devServer.disableHostCheck = true;
-}
-
-if (Encore.isProduction()) {
-  config.optimization = {
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          output: {
-            comments: false,
-          },
-        },
-      }),
-    ],
-  };
 }
 
 // export the final configuration
