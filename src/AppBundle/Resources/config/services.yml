@@ -1,3 +1,9 @@
 parameters:
 
 services:
+    app.event_listener.webpack_encore_reset:
+        class: AppBundle\EventListener\WebpackEncoreResetListener
+        arguments:
+            - "@webpack_encore.entrypoint_lookup_collection"
+        tags:
+            - { name: kernel.event_subscriber }
