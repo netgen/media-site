@@ -42,15 +42,15 @@ netgen_layouts:
 
     view:
         block_view:
-            api:
+            app:
                 list\numbered:
-                    template: "@NetgenLayoutsStandard/api/block/list/list.html.twig"
+                    template: "@NetgenLayoutsStandard/app/block/list/list.html.twig"
                     match:
                         block\definition: list
                         block\view_type: list_numbered
 
                 list\grid_featured:
-                    template: "@NetgenLayoutsStandard/api/block/list/grid.html.twig"
+                    template: "@NetgenLayoutsStandard/app/block/list/grid.html.twig"
                     match:
                         block\definition: list
                         block\view_type: grid_featured
