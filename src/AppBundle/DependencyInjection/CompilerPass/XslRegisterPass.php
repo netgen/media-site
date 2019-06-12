@@ -22,13 +22,13 @@ final class XslRegisterPass implements CompilerPassInterface
 
         // Adding ezxml_tags.xsl to all scopes
         foreach ($scopes as $scope) {
-            if (!$container->hasParameter("ezsettings.${scope}.fieldtypes.ezxml.custom_xsl")) {
+            if (!$container->hasParameter("ezsettings.{$scope}.fieldtypes.ezxml.custom_xsl")) {
                 continue;
             }
 
-            $xslConfig = $container->getParameter("ezsettings.${scope}.fieldtypes.ezxml.custom_xsl");
+            $xslConfig = $container->getParameter("ezsettings.{$scope}.fieldtypes.ezxml.custom_xsl");
             $xslConfig[] = ['path' => __DIR__ . '/../../Resources/xsl/ezxml_tags.xsl', 'priority' => 10000];
-            $container->setParameter("ezsettings.${scope}.fieldtypes.ezxml.custom_xsl", $xslConfig);
+            $container->setParameter("ezsettings.{$scope}.fieldtypes.ezxml.custom_xsl", $xslConfig);
         }
     }
 }
