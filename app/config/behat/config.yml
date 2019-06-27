@@ -14,3 +14,10 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+monolog:
+    handlers:
+        travis:
+            type: stream
+            path: "%kernel.logs_dir%/travis_test.log"
+            level: error

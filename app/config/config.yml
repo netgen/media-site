@@ -94,17 +94,18 @@ framework:
     php_errors:
         log: true
 
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+
+# Webpack Encore Configuration
 webpack_encore:
     output_path: false
     builds:
         # The path where Encore is building the assets - i.e. Encore.setOutputPath()
         app: '%kernel.project_dir%/web/assets/app/build'
         ezplatform: '%kernel.project_dir%/web/assets/ezplatform/build'
-
-# Twig Configuration
-twig:
-    debug: '%kernel.debug%'
-    strict_variables: '%kernel.debug%'
 
 # Swiftmailer Configuration
 swiftmailer:
