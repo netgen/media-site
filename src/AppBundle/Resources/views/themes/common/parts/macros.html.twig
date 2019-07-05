@@ -21,7 +21,7 @@
     {% if url %}
         <a href="{{ url }}"
         {% if link_class is not empty %}class="{{ link_class }}"{% endif %}
-        {% if open_in_new_window %}target="_blank" rel="noopener noreferrer" {% endif %}
+        {% if open_in_new_window %}target="_blank" rel="nofollow noopener noreferrer" {% endif %}
         >
     {% endif %}
 
@@ -85,6 +85,6 @@
         {% endif %}
     {% endif %}
 
-    href="{{ url }}"{% if open_in_new_window %} target="_blank" rel="noopener noreferrer"{% endif %}
+    href="{{ url }}"{% if open_in_new_window %} target="_blank" rel="nofollow noopener noreferrer"{% endif %}
 {% endspaceless %}
 {% endmacro %}
