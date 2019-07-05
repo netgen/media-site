@@ -136,22 +136,6 @@ sub ez_purge {
             }
             return (synth(200, "Banned"));
         }
-
-        if (req.http.X-Layout-Id) {
-            ban("obj.http.X-Layout-Id ~ " + req.http.X-Layout-Id);
-            if (client.ip ~ debuggers) {
-                set req.http.X-Debug = "Ban done for layout with ID " + req.http.X-Layout-Id;
-            }
-            return (synth(200, "Banned"));
-        }
-
-        if (req.http.X-Block-Id) {
-            ban("obj.http.X-Block-Id ~ " + req.http.X-Block-Id);
-            if (client.ip ~ debuggers) {
-                set req.http.X-Debug = "Ban done for block with ID " + req.http.X-Block-Id;
-            }
-            return (synth(200, "Banned"));
-        }
     }
 
     if (req.method == "PURGE") {
