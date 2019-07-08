@@ -1,0 +1,3 @@
+# Switches Netgen Layouts and Netgen Content Browser to use filter search service adapter from Site API
+netgen_layouts_ez_platform_site_api:
+    search_service_adapter: filter

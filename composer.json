@@ -67,8 +67,6 @@
 
         "ezsystems/ezplatform-xmltext-fieldtype": "^2.0@dev",
 
-        "guzzlehttp/psr7": "^1.6.1",
-        "php-http/curl-client": "^2.0",
         "php-http/httplug-bundle": "^1.16",
         "sentry/sentry-symfony": "^2.3",
         "symfony/webpack-encore-bundle": "^1.6.2",

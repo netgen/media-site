@@ -1,6 +1,9 @@
 web_profiler:
     toolbar: true
     intercept_redirects: false
+    excluded_ajax_paths: '(^/((index|app(_[\w]+)?)\.php/)?_wdt)|/notifications/count'
 
 framework:
-    profiler: { only_exceptions: false }
+    profiler:
+        only_exceptions: false
+        only_master_requests: true

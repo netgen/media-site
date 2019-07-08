@@ -1,3 +1,6 @@
+imports:
+    - { resource: '@AppBundle/Resources/config/ezplatform.yml' }
+
 parameters:
     locale_fallback: en
 
@@ -35,28 +38,27 @@ ezpublish:
     http_cache:
         purge_type: '%purge_type%'
 
+    # ImageMagick configuration
+    imagemagick:
+        enabled: true
+        path: '%imagemagick_path%'
+
     # Repositories configuration, setup default repository to support solr if enabled
     repositories:
         default:
+            fields_groups:
+                list: [content, meta, extras]
             storage: ~
             search:
                 engine: '%search_engine%'
                 connection: default
-
-    # Siteaccess configuration, with one siteaccess per default
-    siteaccess:
-        list: [site]
-        groups:
-            site_group: [site]
-        default_siteaccess: site
-        match:
-            URIElement: 1
 
     # System settings, read in following order: `default`, <siteaccess-group>, <siteacces>, and `global`
     # TIP: For multisite installations organize shared config into SiteAccess groups,
     #      on single-site you can place shared config under "default" for simplicity as shown below.
     system:
         default:
+            repository: default
             # Cache pool service, needs to be different per repository (database) on multi repository install.
             cache_service_name: '%cache_pool%'
             # These reflect the current installers, complete installation before you change them. For changing var_dir
@@ -71,9 +73,6 @@ ezpublish:
             http_cache:
                 purge_servers: ['%purge_server%']
                 # varnish_invalidate_token: '%varnish_invalidate_token%' # @todo enable ezplatform-http-cache first
-
-        site:
-            languages: [eng-GB]
 
     url_alias:
         slug_converter:

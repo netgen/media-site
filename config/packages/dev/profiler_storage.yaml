@@ -1,0 +1,10 @@
+# Settings used to control the profiler storage in development
+parameters:
+    ## Available options: local (for filesystem storage), redis
+    profiler_storage: local
+
+    ## Available options for redis: predis (uses predis/predis) and phpredis (uses redis PHP extension)
+    profiler_storage_driver: predis
+    profiler_storage_dsn: localhost
+    profiler_storage_namespace: app
+    profiler_storage_ttl: 120

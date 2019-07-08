@@ -1,0 +1,5 @@
+framework:
+    assets:
+        packages:
+            app:
+                json_manifest_path: '%kernel.project_dir%/public/assets/app/build_dev/manifest.json'

@@ -35,6 +35,13 @@ class Kernel extends BaseKernel
         $loader->load($confDir.'/{packages}/'.$this->environment.'/**/*'.self::CONFIG_EXTS, 'glob');
         $loader->load($confDir.'/{services}'.self::CONFIG_EXTS, 'glob');
         $loader->load($confDir.'/{services}_'.$this->environment.self::CONFIG_EXTS, 'glob');
+
+        $serverEnvironment = $container->getParameter('server_environment');
+        $loader->load($confDir.'/packages/server/' . $serverEnvironment.self::CONFIG_EXTS, 'glob');
+
+        if ($this->environment === 'dev' && $container->getParameter('profiler_storage') === 'redis') {
+            $loader->load($confDir.'/packages/profiler_storage/redis'.self::CONFIG_EXTS, 'glob');
+        }
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes): void

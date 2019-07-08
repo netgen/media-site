@@ -1,0 +1,12 @@
+snc_redis:
+    clients:
+        symfony_profiler:
+            type: '%profiler_storage_driver%'
+            alias: symfony_profiler
+            dsn: 'redis://%profiler_storage_dsn%'
+            options:
+                prefix: '%profiler_storage_namespace%'
+
+    profiler_storage:
+        client: symfony_profiler
+        ttl: '%profiler_storage_ttl%'

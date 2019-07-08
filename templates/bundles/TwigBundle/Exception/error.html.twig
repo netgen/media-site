@@ -1,0 +1,4 @@
+{% include ezpublish.configResolver.hasParameter('template.errors.' ~ status_code, 'ngsite') ?
+    ezpublish.configResolver.getParameter('template.errors.' ~ status_code, 'ngsite') :
+    ezpublish.configResolver.getParameter('template.errors.default', 'ngsite')
+ignore missing %}

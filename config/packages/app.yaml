@@ -1,0 +1,5 @@
+parameters:
+    ngsite.default.site_domain: localhost
+    ngsite.default.locations.site_info.id: 65
+    imagemagick_path: /usr/bin/convert
+    server_environment: dev
