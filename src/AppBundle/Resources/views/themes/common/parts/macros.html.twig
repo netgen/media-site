@@ -37,7 +37,7 @@
 {% spaceless %}
     {% set url = '#' %}
     {% set open_in_new_window = false %}
-    {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+    {% set lazy_loading = lazy_loading ?? ezplatform.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
     {% if not content.fields.url.empty %}
         {% set url = content.fields.url.value.link %}

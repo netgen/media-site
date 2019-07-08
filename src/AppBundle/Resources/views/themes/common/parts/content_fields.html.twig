@@ -1,6 +1,6 @@
 {% macro image(content, location, alias_name, lazy_loading, link_class) %}
     {% set alias_name = alias_name ?? 'i480' %}
-    {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+    {% set lazy_loading = lazy_loading ?? ezplatform.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
     {% set image_field = false %}
     {% if content.hasField('teaser_image') and not content.fields.teaser_image.empty %}

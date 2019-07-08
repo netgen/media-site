@@ -32,7 +32,7 @@
     {% set current_content_language = null %}
 
     {% if content is defined %}
-        {% for language in ezpublish.configResolver.parameter('languages') %}
+        {% for language in ezplatform.configResolver.parameter('languages') %}
             {% if current_content_language is empty and language in content.versionInfo.languageCodes %}
                 {% set current_content_language = language %}
             {% endif %}
@@ -43,13 +43,13 @@
         {% endif %}
     {% endif %}
 
-    {% for language in ezpublish.availableLanguages %}
-        {% set translation_site_access = ezpublish.translationSiteAccess(language) %}
+    {% for language in ezplatform.availableLanguages %}
+        {% set translation_site_access = ezplatform.translationSiteAccess(language) %}
 
         {% if translation_site_access is not empty %}
-            {% set siteaccess_languages = ezpublish.configResolver.parameter('languages', null, translation_site_access) %}
+            {% set siteaccess_languages = ezplatform.configResolver.parameter('languages', null, translation_site_access) %}
             {% set route_reference = ez_route(params={'siteaccess': translation_site_access}) %}
-            {% set homepage_url = url(ezpublish.rootLocation, {siteaccess: translation_site_access}) %}
+            {% set homepage_url = url(ezplatform.rootLocation, {siteaccess: translation_site_access}) %}
 
             {% if route_reference.route is not empty %}
                 {% if content is not defined %}
