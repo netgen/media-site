@@ -18,13 +18,13 @@ default:
 
         Behat\Symfony2Extension:
             kernel:
-                bootstrap: vendor/autoload.php
-                path: app/AppKernel.php
-                class: AppKernel
+                bootstrap: config/bootstrap.php
+                path: src/Kernel.php
+                class: App\Kernel
                 env: behat
                 debug: false
 
-        EzSystems\PlatformBehatBundle\ServiceContainer\EzBehatExtension: ~
+        EzSystems\BehatBundle\BehatExtension: ~
 
         Liuggio\Fastest\Behat\ListFeaturesExtension\Extension: ~
 
@@ -42,7 +42,6 @@ default:
 
 imports:
     - vendor/ezsystems/ezpublish-kernel/eZ/Bundle/EzPublishCoreBundle/behat_suites.yml
-    - vendor/ezsystems/ezpublish-kernel/eZ/Bundle/EzPublishRestBundle/behat_suites.yml
     - vendor/ezsystems/repository-forms/behat_suites.yml
     - vendor/ezsystems/ezplatform-admin-ui/behat_suites.yml
-    - vendor/ezsystems/behatbundle/EzSystems/BehatBundle/behat_suites.yml
+    - vendor/ezsystems/behatbundle/behat_suites.yml
