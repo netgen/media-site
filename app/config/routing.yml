@@ -54,9 +54,6 @@ overblog_graphql_endpoint:
         _controller: Overblog\GraphQLBundle\Controller\GraphController::endpointAction
         _format: json
 
-ezpublish_legacy:
-    resource: '@EzPublishLegacyBundle/Resources/config/routing.yml'
-
 netgen_tags:
     resource: '@NetgenTagsBundle/Resources/config/routing.yml'
 
@@ -75,9 +72,6 @@ netgen_content_browser:
 
 netgen_site:
     resource: '@NetgenSiteBundle/Resources/config/routing.yml'
-
-netgen_admin_ui:
-    resource: '@NetgenAdminUIBundle/Resources/config/routing.yml'
 
 app:
     resource: '@AppBundle/Resources/config/routing.yml'

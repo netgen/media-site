@@ -4,7 +4,6 @@ imports:
     - { resource: content_view.yml }
     - { resource: image.yml }
     - { resource: opengraph.yml }
-    - { resource: legacy.yml }
     - { resource: info_collection.yml }
     - { resource: layouts.yml }
     - { resource: browser.yml }
@@ -15,13 +14,6 @@ ezpublish:
             pagelayout: "@ezdesign/pagelayout.html.twig"
             user:
                 login_template: "@ezdesign/user/login.html.twig"
-
-ez_publish_legacy:
-    system:
-        frontend_group:
-            templating:
-                view_layout: "@ezdesign/pagelayout_legacy.html.twig"
-                module_layout: "@ezdesign/pagelayout_module.html.twig"
 
 netgen_tags:
     system:

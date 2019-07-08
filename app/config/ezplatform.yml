@@ -1,6 +1,5 @@
 imports:
     - { resource: 'ezplatform_siteaccess.yml' }
-    - { resource: '@NetgenAdminUIBundle/Resources/config/ezplatform.yml' }
     - { resource: '@AppBundle/Resources/config/ezplatform.yml' }
 
 ezpublish:

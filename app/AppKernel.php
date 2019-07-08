@@ -43,7 +43,6 @@ final class AppKernel extends Kernel
             new eZ\Bundle\EzPublishLegacySearchEngineBundle\EzPublishLegacySearchEngineBundle(),
             new eZ\Bundle\EzPublishIOBundle\EzPublishIOBundle(),
             new eZ\Bundle\EzPublishRestBundle\EzPublishRestBundle(),
-            new eZ\Bundle\EzPublishLegacyBundle\EzPublishLegacyBundle($this),
             new EzSystems\EzSupportToolsBundle\EzSystemsEzSupportToolsBundle(),
             new EzSystems\PlatformInstallerBundle\EzSystemsPlatformInstallerBundle(),
             new EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle(),
@@ -102,10 +101,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\SiteGeneratorBundle\NetgenSiteGeneratorBundle();
         $bundles[] = new Netgen\Bundle\SiteInstallerBundle\NetgenSiteInstallerBundle();
         $bundles[] = new Netgen\Bundle\SiteBundle\NetgenSiteBundle();
-        $bundles[] = new Netgen\Bundle\RichTextDataTypeBundle\NetgenRichTextDataTypeBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSiteApiBundle\NetgenEzPlatformSiteApiBundle();
-        $bundles[] = new Netgen\Bundle\AdminUIBundle\NetgenAdminUIBundle();
-        $bundles[] = new Netgen\Bundle\SiteLegacyBundle\NetgenSiteLegacyBundle();
         $bundles[] = new Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle();
 

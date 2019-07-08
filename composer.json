@@ -60,7 +60,6 @@
         "willdurand/js-translation-bundle": "^2.6.6",
 
         "ezsystems/ezplatform-xmltext-fieldtype": "^1.8.2",
-        "ezsystems/ezpublish-legacy": ">=2019.03",
 
         "guzzlehttp/psr7": "^1.5.2",
         "php-http/curl-client": "^1.7.1",
@@ -70,12 +69,10 @@
 
         "netgen/media-site-data": "~1.2.0",
         "netgen/site-bundle": "~1.2.0",
-        "netgen/site-legacy-bundle": "~1.2.0",
         "netgen/site-generator-bundle": "~1.2.0",
         "netgen/site-installer-bundle": "^1.1",
         "netgen/information-collection-bundle": "^1.6.7",
         "netgen/ezplatform-search-extra": "^1.6",
-        "netgen/admin-ui-bundle": "^2.6",
 
         "netgen/layouts-standard": "~1.0.0",
         "netgen/layouts-ezplatform": "~1.0.0",
@@ -108,12 +105,8 @@
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "eZ\\Bundle\\EzPublishCoreBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::installLegacyBundlesExtensions",
             "Netgen\\Bundle\\SiteBundle\\Composer\\ScriptHandler::installProjectSymlinks",
-            "Netgen\\Bundle\\SiteLegacyBundle\\Composer\\ScriptHandler::installLegacySymlinks",
-            "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::generateAutoloads",
             "@php bin/security-checker security:check"
         ],
         "post-install-cmd": [
@@ -140,7 +133,6 @@
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
         "symfony-tests-dir": "tests",
-        "ezpublish-legacy-dir": "ezpublish_legacy",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "keep-outdated": true,
