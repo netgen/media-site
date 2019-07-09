@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\AppBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface;
 
@@ -26,7 +26,7 @@ final class WebpackEncoreResetListener implements EventSubscriberInterface
         return [KernelEvents::EXCEPTION => 'onKernelException'];
     }
 
-    public function onKernelException(GetResponseForExceptionEvent $event): void
+    public function onKernelException(ExceptionEvent $event): void
     {
         $this->entryPointLookupCollection->getEntrypointLookup('app')->reset();
     }
