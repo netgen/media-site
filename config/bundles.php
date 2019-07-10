@@ -76,7 +76,7 @@ return [
     Netgen\Bundle\SiteInstallerBundle\NetgenSiteInstallerBundle::class => ['all' => true],
     Netgen\Bundle\SiteBundle\NetgenSiteBundle::class => ['all' => true],
     Netgen\Bundle\EzPlatformSiteApiBundle\NetgenEzPlatformSiteApiBundle::class => ['all' => true],
-    //Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle::class => ['all' => true],
+    Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle::class => ['all' => true],
     Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle::class => ['all' => true],
     Snc\RedisBundle\SncRedisBundle::class => ['dev' => true],
     App\AppBundle\AppBundle::class => ['all' => true],

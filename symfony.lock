@@ -313,6 +313,9 @@
             "config/packages/buzz.yaml"
         ]
     },
+    "league/csv": {
+        "version": "8.2.3"
+    },
     "league/flysystem": {
         "version": "1.0.53"
     },
@@ -382,6 +385,9 @@
     },
     "netgen/ezplatform-site-api": {
         "version": "3.0.x-dev"
+    },
+    "netgen/information-collection-bundle": {
+        "version": "2.0.x-dev"
     },
     "netgen/layouts-core": {
         "version": "1.0.0"

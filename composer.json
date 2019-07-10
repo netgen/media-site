@@ -75,6 +75,7 @@
         "netgen/site-bundle": "^2.0@dev",
         "netgen/site-generator-bundle": "^2.0@dev",
         "netgen/site-installer-bundle": "^2.0@dev",
+        "netgen/information-collection-bundle": "^2.0@dev",
         "netgen/ezplatform-search-extra": "^1.9@dev",
 
         "netgen/layouts-standard": "~1.0.0",
