@@ -1,7 +1,7 @@
-{% block subject %}{% spaceless %}
+{% block subject %}{% apply spaceless %}
     {% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
     {{ site_name }} – {{ ez_content_name(content) }} [{{ collected_fields.email }}]
-{% endspaceless %}{% endblock %}
+{% endapply %}{% endblock %}
 
 {#% block sender %}{{ collected_fields.email }}{% endblock %#}
 

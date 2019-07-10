@@ -1,5 +1,5 @@
 {% macro content_link(content, link_name, link_class) %}
-{% spaceless %}
+{% apply spaceless %}
     {% set url = false %}
     {% set open_in_new_window = false %}
     {% set link_class = link_class|default %}
@@ -30,11 +30,11 @@
     {% if url %}
         </a>
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endmacro %}
 
 {% macro image_link(content, field, alias, lazy_loading) %}
-{% spaceless %}
+{% apply spaceless %}
     {% set url = '#' %}
     {% set open_in_new_window = false %}
     {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
@@ -63,11 +63,11 @@
             }
         }
     ) }}
-{% endspaceless %}
+{% endapply %}
 {% endmacro %}
 
 {% macro content_link_parameters(content) %}
-{% spaceless %}
+{% apply spaceless %}
     {% set url = '#' %}
     {% set open_in_new_window = false %}
 
@@ -86,5 +86,5 @@
     {% endif %}
 
     href="{{ url }}"{% if open_in_new_window %} target="_blank" rel="nofollow noopener noreferrer"{% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endmacro %}

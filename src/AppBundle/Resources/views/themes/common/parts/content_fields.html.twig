@@ -26,7 +26,7 @@
 {% endmacro %}
 
 {% macro title(content) %}
-{% spaceless %}
+{% apply spaceless %}
     {% if content.hasField('teaser_title') and not content.fields.teaser_title.empty %}
         {{ content.fields.teaser_title.value.text }}
     {% elseif content.hasField('title') and not content.fields.title.empty %}
@@ -36,7 +36,7 @@
     {% else %}
         {{ content.name }}
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endmacro %}
 
 {% macro intro(content) %}
@@ -52,7 +52,7 @@
 {% endmacro %}
 
 {% macro background_poster(content, field, alias_name) %}
-{% spaceless %}
+{% apply spaceless %}
     {% set alias_name = alias_name|default('original') %}
     {% set field = field|default('image') %}
 
@@ -66,5 +66,5 @@
     {% endif %}
 
     {{ poster_image }}
-{% endspaceless %}
+{% endapply %}
 {% endmacro %}
