@@ -368,6 +368,9 @@
     "netgen/enhanced-selection-bundle": {
         "version": "4.x-dev"
     },
+    "netgen/ez-forms-bundle": {
+        "version": "3.x-dev"
+    },
     "netgen/ezplatform-search-extra": {
         "version": "1.9.x-dev"
     },
