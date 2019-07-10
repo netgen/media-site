@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use EzSystems\PlatformHttpCacheBundle\AppCache as PlatformHttpCacheBundleAppCache;
@@ -7,6 +9,6 @@ use EzSystems\PlatformHttpCacheBundle\AppCache as PlatformHttpCacheBundleAppCach
 /**
  * For easier upgrade do not change this file, prefer to adapt public/index.php instead.
  */
-class CacheKernel extends PlatformHttpCacheBundleAppCache
+final class CacheKernel extends PlatformHttpCacheBundleAppCache
 {
 }
