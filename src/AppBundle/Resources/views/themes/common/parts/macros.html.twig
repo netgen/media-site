@@ -13,7 +13,7 @@
     {% elseif not content.fields.related_object.empty %}
         {% set related_content = content.fieldRelation('related_object') %}
 
-        {% if related_content.id != content.id %} {# dead loop #}
+        {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
             {% set url = path(related_content) %}
         {% endif %}
     {% endif %}
@@ -48,7 +48,7 @@
     {% elseif not content.fields.related_object.empty %}
         {% set related_content = content.fieldRelation('related_object') %}
 
-        {% if related_content.id != content.id %} {# dead loop #}
+        {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
             {% set url = path(related_content) %}
         {% endif %}
     {% endif %}
@@ -80,7 +80,7 @@
     {% elseif not content.fields.related_object.empty %}
         {% set related_content = content.fieldRelation('related_object') %}
 
-        {% if related_content.id != content.id %} {# dead loop #}
+        {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
             {% set url = path(related_content) %}
         {% endif %}
     {% endif %}
