@@ -7,8 +7,8 @@
 !bin/vhost.sh
 !bin/sync_db_and_var.sh
 
-/app/config/server/local/
-/app/config/server/local.yml
+/config/packages/server/local/
+/config/packages/server/local.yml
 
 /doc/docker/entrypoint/*/*.sql
 /dfsdata
