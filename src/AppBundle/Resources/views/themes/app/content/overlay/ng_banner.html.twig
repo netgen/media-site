@@ -1,15 +1,17 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 {% import "@ezdesign/parts/macros.html.twig" as macros %}
 
+{% set content_link = macros.content_link_parameters(content) %}
+
 {% block content %}
 <article class="view-type view-type-{{ view_type }} ng-banner vl2">
-    <a {{ macros.content_link_parameters(content) }} class="image-16by9" aria-label="{{ not content.fields.url.empty ? content.fields.url.value.text : content.fields.title.value.text|trim }}">
+    <a {{ content_link }} class="image-16by9" aria-label="{{ not content.fields.url.empty ? content.fields.url.value.text : content.fields.title.value.text|trim }}">
         {{ content_fields.image(content) }}
     </a>
 
     <header class="article-header">
         <h2 class="title">
-            <a {{ macros.content_link_parameters(content) }}>
+            <a {{ content_link }}>
                 {% if not content.fields.url.empty %}
                     {{ content.fields.url.value.text }}
                 {% else %}
