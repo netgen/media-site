@@ -5,7 +5,6 @@ imports:
     - { resource: image.yml }
     - { resource: opengraph.yml }
     - { resource: info_collection.yml }
-    - { resource: layouts.yml }
     - { resource: browser.yml }
 
 ezpublish:

@@ -1,56 +1,55 @@
-netgen_layouts:
-    system:
-        frontend_group:
-            view:
-                block_view:
-                    default:
-                        title\centered:
-                            template: "@nglayouts/block/title/centered.html.twig"
-                            match:
-                                block\definition: title
-                                block\view_type: title_centered
+system:
+    frontend_group:
+        view:
+            block_view:
+                default:
+                    title\centered:
+                        template: "@nglayouts/block/title/centered.html.twig"
+                        match:
+                            block\definition: title
+                            block\view_type: title_centered
 
-                        title\section:
-                            template: "@nglayouts/block/title/section.html.twig"
-                            match:
-                                block\definition: title
-                                block\view_type: section
+                    title\section:
+                        template: "@nglayouts/block/title/section.html.twig"
+                        match:
+                            block\definition: title
+                            block\view_type: section
 
-                        title\section_centered:
-                            template: "@nglayouts/block/title/section_centered.html.twig"
-                            match:
-                                block\definition: title
-                                block\view_type: section_centered
+                    title\section_centered:
+                        template: "@nglayouts/block/title/section_centered.html.twig"
+                        match:
+                            block\definition: title
+                            block\view_type: section_centered
 
-                        list\numbered:
-                            template: "@nglayouts/block/list/numbered.html.twig"
-                            match:
-                                block\definition: list
-                                block\view_type: list_numbered
+                    list\numbered:
+                        template: "@nglayouts/block/list/numbered.html.twig"
+                        match:
+                            block\definition: list
+                            block\view_type: list_numbered
 
-                        list\grid_featured:
-                            template: "@nglayouts/block/list/grid_featured.html.twig"
-                            match:
-                                block\definition: list
-                                block\view_type: grid_featured
-                    ajax:
-                        list\numbered:
-                            template: "@nglayouts/block/list/list_ajax.html.twig"
-                            match:
-                                block\definition: list
-                                block\view_type: list_numbered
+                    list\grid_featured:
+                        template: "@nglayouts/block/list/grid_featured.html.twig"
+                        match:
+                            block\definition: list
+                            block\view_type: grid_featured
+                ajax:
+                    list\numbered:
+                        template: "@nglayouts/block/list/list_ajax.html.twig"
+                        match:
+                            block\definition: list
+                            block\view_type: list_numbered
 
-    view:
-        block_view:
-            app:
-                list\numbered:
-                    template: "@NetgenLayoutsStandard/app/block/list/list.html.twig"
-                    match:
-                        block\definition: list
-                        block\view_type: list_numbered
+view:
+    block_view:
+        app:
+            list\numbered:
+                template: "@NetgenLayoutsStandard/app/block/list/list.html.twig"
+                match:
+                    block\definition: list
+                    block\view_type: list_numbered
 
-                list\grid_featured:
-                    template: "@NetgenLayoutsStandard/app/block/list/grid.html.twig"
-                    match:
-                        block\definition: list
-                        block\view_type: grid_featured
+            list\grid_featured:
+                template: "@NetgenLayoutsStandard/app/block/list/grid.html.twig"
+                match:
+                    block\definition: list
+                    block\view_type: grid_featured
