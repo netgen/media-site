@@ -6,7 +6,6 @@ imports:
     - { resource: opengraph.yml }
     - { resource: legacy.yml }
     - { resource: info_collection.yml }
-    - { resource: layouts.yml }
     - { resource: browser.yml }
 
 ezpublish:

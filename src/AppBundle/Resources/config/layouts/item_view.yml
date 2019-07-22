@@ -1,39 +1,38 @@
-netgen_layouts:
-    system:
-        frontend_group:
-            view:
-                item_view:
-                    default:
-                        ezcontent\gallery_thumb:
-                            template: "@nglayouts/item/gallery_thumb/ezcontent.html.twig"
-                            match:
-                                item\value_type: ezcontent
-                                item\view_type: gallery_thumb
-                        ezlocation\gallery_thumb:
-                            template: "@nglayouts/item/gallery_thumb/ezlocation.html.twig"
-                            match:
-                                item\value_type: ezlocation
-                                item\view_type: gallery_thumb
-                    ajax:
-                        ezcontent\gallery_thumb:
-                            template: "@nglayouts/item/gallery_thumb/ezcontent.html.twig"
-                            match:
-                                item\value_type: ezcontent
-                                item\view_type: gallery_thumb
-                        ezlocation\gallery_thumb:
-                            template: "@nglayouts/item/gallery_thumb/ezlocation.html.twig"
-                            match:
-                                item\value_type: ezlocation
-                                item\view_type: gallery_thumb
+system:
+    frontend_group:
+        view:
+            item_view:
+                default:
+                    ezcontent\gallery_thumb:
+                        template: "@nglayouts/item/gallery_thumb/ezcontent.html.twig"
+                        match:
+                            item\value_type: ezcontent
+                            item\view_type: gallery_thumb
+                    ezlocation\gallery_thumb:
+                        template: "@nglayouts/item/gallery_thumb/ezlocation.html.twig"
+                        match:
+                            item\value_type: ezlocation
+                            item\view_type: gallery_thumb
+                ajax:
+                    ezcontent\gallery_thumb:
+                        template: "@nglayouts/item/gallery_thumb/ezcontent.html.twig"
+                        match:
+                            item\value_type: ezcontent
+                            item\view_type: gallery_thumb
+                    ezlocation\gallery_thumb:
+                        template: "@nglayouts/item/gallery_thumb/ezlocation.html.twig"
+                        match:
+                            item\value_type: ezlocation
+                            item\view_type: gallery_thumb
 
-    view:
-        item_view:
-            app:
-                ezcontent\siteapi:
-                    template: "@App/nglayouts/app/item/ezcontent.html.twig"
-                    match:
-                        item\value_type: ezcontent
-                ezlocation\siteapi:
-                    template: "@App/nglayouts/app/item/ezlocation.html.twig"
-                    match:
-                        item\value_type: ezlocation
+view:
+    item_view:
+        app:
+            ezcontent\siteapi\override:
+                template: "@App/nglayouts/app/item/ezcontent.html.twig"
+                match:
+                    item\value_type: ezcontent
+            ezlocation\siteapi\override:
+                template: "@App/nglayouts/app/item/ezlocation.html.twig"
+                match:
+                    item\value_type: ezlocation
