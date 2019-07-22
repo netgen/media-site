@@ -1,13 +1,10 @@
 {% if ezpublish.configResolver.parameter('render_content_directly', 'ngsite') %}
     {{ ng_view_content(
         item.object.content,
-        'gallery_thumb', {
+        view_type, {
             'params': {
                 'nglayouts_item': item,
-                'image_type': image_type,
-                'show_details': show_details,
-                'show_details_on_hover': show_details_on_hover
-           }|merge(ezparams|default({}))
+            }|merge(ezparams|default({}))
         }
     ) }}
 {% else %}
@@ -16,14 +13,11 @@
             'ng_content:viewAction', {
                 'content': item.object.content,
                 'location': item.object.mainLocation,
-                'viewType': 'gallery_thumb',
+                'viewType': view_type,
                 'layout': false,
                 'params': {
                     'nglayouts_item': item,
-                    'image_type': image_type,
-                    'show_details': show_details,
-                    'show_details_on_hover': show_details_on_hover
-               }|merge(ezparams|default({}))
+                }|merge(ezparams|default({}))
             }
         )
     ) }}
