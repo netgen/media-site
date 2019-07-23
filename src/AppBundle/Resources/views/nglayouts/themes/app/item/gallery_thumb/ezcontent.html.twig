@@ -1,4 +1,4 @@
-{% if ezpublish.configResolver.parameter('render_content_directly', 'ngsite') %}
+{% if ezplatform.configResolver.parameter('render_content_directly', 'ngsite') %}
     {{ ng_view_content(
         item.object.content,
         'gallery_thumb', {
