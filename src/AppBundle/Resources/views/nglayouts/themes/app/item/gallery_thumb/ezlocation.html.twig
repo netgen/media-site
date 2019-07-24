@@ -1,15 +1,14 @@
 {% if ezpublish.configResolver.parameter('render_content_directly', 'ngsite') %}
-    {{ ng_view_content(
-        item.object,
-        'gallery_thumb', {
-            'params': {
-                'nglayouts_item': item,
-                'image_type': image_type,
-                'show_details': show_details,
-                'show_details_on_hover': show_details_on_hover
-           }|merge(ezparams|default({}))
-        }
-    ) }}
+    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+        object: item.object,
+        view_type: 'gallery_thumb',
+        params: {
+            'nglayouts_item': item,
+            'image_type': image_type,
+            'show_details': show_details,
+            'show_details_on_hover': show_details_on_hover
+        }|merge(ezparams|default({}))
+    } only %}
 {% else %}
     {{ render(
         controller(
