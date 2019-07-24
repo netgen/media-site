@@ -17,4 +17,4 @@ parameters:
 
     # This flag depends on eZ Platform Site API v3
     # Make sure to install it before enabling this
-    ngsite.default.render_content_directly: true
+    ngsite.default.render_content_directly: false
