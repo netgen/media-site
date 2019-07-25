@@ -1,12 +1,9 @@
 {% if ezplatform.configResolver.parameter('render_content_directly', 'ngsite') %}
-    {{ ng_view_content(
-        item.object.content,
-        'nglayouts_app_preview', {
-            'params': {
-                'nglayouts_item': item,
-            }
-        }
-    ) }}
+    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+        object: item.object.content,
+        view_type: 'nglayouts_app_preview',
+        params: { 'nglayouts_item': item }
+    } only %}
 {% else %}
     {{ render(
         controller(
