@@ -103,7 +103,7 @@
         "phpunit/phpunit": "^8.2",
 
         "symfony/phpunit-bridge": "^4.3",
-        "snc/redis-bundle": "^3.0@rc",
+        "snc/redis-bundle": "^3.0",
         "predis/predis": "^1.1.1",
         "franzl/studio": "*"
     },
