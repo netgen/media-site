@@ -95,7 +95,7 @@
         "sensio/generator-bundle": "^3.1.7",
         "symfony/phpunit-bridge": "^4.2",
         "liuggio/fastest": "^1.6",
-        "snc/redis-bundle": "^2.1.9 || ^3.0@rc",
+        "snc/redis-bundle": "^3.0",
         "predis/predis": "^1.1.1",
         "franzl/studio": "*"
     },
