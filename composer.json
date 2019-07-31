@@ -1,13 +1,13 @@
 {
     "name": "netgen/media-site",
     "description": "Netgen Media Site (Powered by Netgen Layouts & eZ Platform)",
-    "homepage": "https://www.netgenlabs.com",
+    "homepage": "https://netgen.io",
     "license": "GPL-2.0-only",
     "type": "project",
     "authors": [
         {
             "name": "Netgen",
-            "homepage": "https://www.netgenlabs.com"
+            "homepage": "https://netgen.io"
         },
         {
             "name": "eZ dev team & eZ Community",
