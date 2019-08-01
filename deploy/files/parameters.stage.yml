@@ -1,0 +1,17 @@
+parameters:
+    env(SYMFONY_SECRET): ThisEzPlatformTokenIsNotSoSecret_PleaseChangeIt
+    env(DATABASE_DRIVER): pdo_mysql
+    env(DATABASE_HOST): localhost
+    env(DATABASE_PORT): null
+    env(DATABASE_NAME): example
+    env(DATABASE_USER): root
+    env(DATABASE_PASSWORD): password
+    env(SEARCH_ENGINE): legacy
+    env(SOLR_DSN): 'http://localhost:8983/solr'
+    env(SENTRY_DSN): null
+    env(HTTPCACHE_PURGE_SERVER): 'http://localhost:6081'
+    purge_type: local
+    server_environment: dev
+    imagemagick_path: /usr/bin/convert
+    ngsite.default.site_domain: example.stage.com
+    ngsite.default.locations.site_info.id: 65

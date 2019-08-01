@@ -102,7 +102,8 @@
         "symfony/phpunit-bridge": "^5.0",
         "snc/redis-bundle": "^3.1",
         "predis/predis": "^1.1.1",
-        "franzl/studio": "*"
+        "franzl/studio": "*",
+        "deployer/recipes": "^6.2"
     },
     "conflict": {
         "doctrine/dbal": "2.7.0",
