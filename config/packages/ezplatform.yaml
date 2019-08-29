@@ -1,6 +1,3 @@
-imports:
-    - { resource: '@AppBundle/Resources/config/ezplatform.yml' }
-
 parameters:
     locale_fallback: en
 

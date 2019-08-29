@@ -4,18 +4,25 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\DependencyInjection\AppExtension;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use App\DependencyInjection\CompilerPass;
 
 final class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
     private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
+
+    public function build(ContainerBuilder $container): void
+    {
+        $container->addCompilerPass(new CompilerPass\XslRegisterPass());
+    }
 
     public function registerBundles(): iterable
     {
@@ -38,12 +45,20 @@ final class Kernel extends BaseKernel
         $loader->load($confDir . '/{services}' . self::CONFIG_EXTS, 'glob');
         $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTS, 'glob');
 
+        $loader->load($confDir . '/app/packages/*' . self::CONFIG_EXTS, 'glob');
+        // TODO: Fix
+        // $loader->load($confDir . '/app/services/*' . self::CONFIG_EXTS, 'glob');
+        $loader->load($confDir . '/app/services' . self::CONFIG_EXTS, 'glob');
+
         $serverEnvironment = $container->getParameter('server_environment');
         $loader->load($confDir . '/packages/server/' . $serverEnvironment . self::CONFIG_EXTS, 'glob');
 
         if ($this->environment === 'dev' && $container->getParameter('profiler_storage') === 'redis') {
             $loader->load($confDir . '/packages/profiler_storage/redis' . self::CONFIG_EXTS, 'glob');
         }
+
+        $container->registerExtension(new AppExtension());
+        $container->loadFromExtension('app');
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes): void
@@ -53,5 +68,9 @@ final class Kernel extends BaseKernel
         $routes->import($confDir . '/{routes}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, '/', 'glob');
         $routes->import($confDir . '/{routes}/*' . self::CONFIG_EXTS, '/', 'glob');
         $routes->import($confDir . '/{routes}' . self::CONFIG_EXTS, '/', 'glob');
+
+        // TODO: Fix
+        // $routes->import($confDir . '/app/routes/*' . self::CONFIG_EXTS, '/', 'glob');
+        $routes->import($confDir . '/app/routes' . self::CONFIG_EXTS, '/', 'glob');
     }
 }

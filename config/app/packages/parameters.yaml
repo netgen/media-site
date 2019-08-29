@@ -1,4 +1,10 @@
 parameters:
+    ngsite.layouts.block.plugin.background_color.colors:
+        yellow: 'block.plugin.background_color.yellow'
+        light_gray: 'block.plugin.background_color.light_gray'
+        white: 'block.plugin.background_color.white'
+        black: 'block.plugin.background_color.black'
+
     ngsite.default.search.content_types:
         - ng_blog_post
         - ng_article

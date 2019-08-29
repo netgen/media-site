@@ -9,7 +9,7 @@ Encore.reset();
 const siteConfig = {
   name: 'default',
   buildLocation: Encore.isProduction() ? 'build' : 'build_dev',
-  resourcesLocation: 'src/AppBundle/Resources',
+  resourcesLocation: 'src/Resources',
 };
 
 Encore

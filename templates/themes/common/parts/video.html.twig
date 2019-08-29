@@ -18,7 +18,7 @@
                     <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
                 {% endif %}
             {% else %}
-                    <img data-src="{{ asset('bundles/app/images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                    <img data-src="{{ asset('images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
             {% endif %}
         </figure>
     </a>
@@ -44,7 +44,7 @@
             <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
         {% endif %}
     {% else %}
-            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset('bundles/app/images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset('images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
     {% endif %}
 {% endmacro %}
 
@@ -54,7 +54,7 @@
     {% set video_types = content.fields.video_type.value.identifiers %}
     {% set autoplay = content.fields.autoplay.value.bool %}
 
-    {% set image_path = asset('bundles/app/images/video_poster.png') %}
+    {% set image_path = asset('images/video_poster.png') %}
     {% if not content.fields.poster.empty %}
         {% set poster_alias = ng_image_alias(content.fields.poster, 'i1200') %}
 
@@ -122,7 +122,7 @@
 
     {% set video_types = content.fields.video_type.value.identifiers %}
 
-    {% set image_path = asset('bundles/app/images/video_poster.png') %}
+    {% set image_path = asset('images/video_poster.png') %}
     {% if not content.fields.poster.empty %}
         {% set poster_alias = ng_image_alias(content.fields.poster, 'i1200') %}
 

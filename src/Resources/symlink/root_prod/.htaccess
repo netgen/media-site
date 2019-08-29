@@ -91,6 +91,7 @@ RewriteRule ^favicon\.ico - [L]
 RewriteRule ^robots\.txt - [L]
 
 # The following rules are needed to correctly display bundle and project assets
+RewriteRule ^images/ - [L]
 RewriteRule ^bundles/ - [L]
 RewriteRule ^assets/ - [L]
 

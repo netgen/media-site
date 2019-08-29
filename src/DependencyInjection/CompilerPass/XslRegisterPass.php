@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\AppBundle\DependencyInjection\CompilerPass;
+namespace App\DependencyInjection\CompilerPass;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\ConfigResolver;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;

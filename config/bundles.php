@@ -78,5 +78,4 @@ return [
     Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle::class => ['all' => true],
     Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle::class => ['all' => true],
     Snc\RedisBundle\SncRedisBundle::class => ['dev' => true],
-    App\AppBundle\AppBundle::class => ['all' => true],
 ];
