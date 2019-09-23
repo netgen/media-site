@@ -37,7 +37,7 @@
         "@babel/core": "^7.4.3",
         "@babel/preset-env": "^7.4.3",
         "@babel/preset-react": "^7.0.0",
-        "@symfony/webpack-encore": "^0.27.0",
+        "@symfony/webpack-encore": "^0.28.0",
         "autoprefixer": "^9.5.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb": "^17.1.0",
