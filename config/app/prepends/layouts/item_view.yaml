@@ -29,10 +29,10 @@ view:
     item_view:
         app:
             ezcontent\siteapi\override:
-                template: "@App/nglayouts/app/item/ezcontent.html.twig"
+                template: "nglayouts/app/item/ezcontent.html.twig"
                 match:
                     item\value_type: ezcontent
             ezlocation\siteapi\override:
-                template: "@App/nglayouts/app/item/ezlocation.html.twig"
+                template: "nglayouts/app/item/ezlocation.html.twig"
                 match:
                     item\value_type: ezlocation
