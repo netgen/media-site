@@ -1,5 +1,3 @@
-# app: ~
-
 ezpublish:
     system:
         frontend_group:
