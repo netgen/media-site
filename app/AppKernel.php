@@ -116,6 +116,8 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\LayoutsStandardBundle\NetgenLayoutsStandardBundle();
         $bundles[] = new Netgen\Bundle\LayoutsUIBundle\NetgenLayoutsUIBundle();
         $bundles[] = new Netgen\Bundle\LayoutsAdminBundle\NetgenLayoutsAdminBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsEzPlatformRelationListQueryBundle\NetgenLayoutsEzPlatformRelationListQueryBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsEzPlatformTagsQueryBundle\NetgenLayoutsEzPlatformTagsQueryBundle();
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformBundle\NetgenLayoutsEzPlatformBundle();
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\NetgenLayoutsEzPlatformSiteApiBundle();
 
