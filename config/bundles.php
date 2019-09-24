@@ -61,6 +61,8 @@ return [
     Netgen\Bundle\LayoutsDebugBundle\NetgenLayoutsDebugBundle::class => ['dev' => true, 'test' => true],
     Netgen\Bundle\LayoutsStandardBundle\NetgenLayoutsStandardBundle::class => ['all' => true],
     Netgen\Bundle\ContentBrowserEzPlatformBundle\NetgenContentBrowserEzPlatformBundle::class => ['all' => true],
+    Netgen\Bundle\LayoutsEzPlatformRelationListQueryBundle\NetgenLayoutsEzPlatformRelationListQueryBundle::class => ['all' => true],
+    Netgen\Bundle\LayoutsEzPlatformTagsQueryBundle\NetgenLayoutsEzPlatformTagsQueryBundle::class => ['all' => true],
     Netgen\Bundle\LayoutsEzPlatformBundle\NetgenLayoutsEzPlatformBundle::class => ['all' => true],
     Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\NetgenLayoutsEzPlatformSiteApiBundle::class => ['all' => true],
     Lolautruche\EzCoreExtraBundle\EzCoreExtraBundle::class => ['all' => true],
