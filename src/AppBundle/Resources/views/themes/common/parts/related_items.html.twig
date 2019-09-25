@@ -1,14 +1,9 @@
 {% if related_items|length > 0 %}
     {% for related_item in related_items %}
-        {{ render(
-            controller(
-                'ng_content:viewAction', {
-                    'content': related_item.content,
-                    'location': related_item,
-                    'viewType': view_type,
-                    'layout': false
-                }
-            )
-        ) }}
+        {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+            content: related_item.content,
+            location: related_item,
+            view_type: view_type
+        } only %}
     {% endfor %}
 {% endif %}

@@ -55,16 +55,11 @@
                         <ul class="listitem-list">
                             {% for pager_item in pager %}
                                 <li>
-                                    {{ render(
-                                        controller(
-                                            'ng_content:viewAction', {
-                                                'content': pager_item.content,
-                                                'location': pager_item,
-                                                'viewType': children_view_type,
-                                                'layout': false
-                                            }
-                                        )
-                                    ) }}
+                                    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                                        content: pager_item.content,
+                                        location: pager_item,
+                                        view_type: children_view_type
+                                    } only %}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -72,16 +67,11 @@
                         <div class="row">
                             {% for pager_item in pager %}
                                 <div class="{{ column_css_class[columns] }}">
-                                    {{ render(
-                                        controller(
-                                            'ng_content:viewAction', {
-                                                'content': pager_item.content,
-                                                'location': pager_item,
-                                                'viewType': children_view_type,
-                                                'layout': false
-                                            }
-                                        )
-                                    ) }}
+                                    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                                        content: pager_item.content,
+                                        location: pager_item,
+                                        view_type: children_view_type
+                                    } only %}
                                 </div>
                             {% endfor %}
                         </div>

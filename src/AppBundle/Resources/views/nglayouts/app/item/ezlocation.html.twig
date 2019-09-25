@@ -1,21 +1,6 @@
-{% if ezpublish.configResolver.parameter('render_content_directly', 'ngsite') %}
-    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
-        object: item.object,
-        view_type: 'nglayouts_app_preview',
-        params: { 'nglayouts_item': item }
-    } only %}
-{% else %}
-    {{ render(
-        controller(
-            'ng_content:viewAction', {
-                'content': item.object.content,
-                'location': item.object,
-                'viewType': 'nglayouts_app_preview',
-                'layout': false,
-                'params': {
-                    'nglayouts_item': item,
-                }
-            }
-        )
-    ) }}
-{% endif %}
+{% include '@ezdesign/parts/ng_view_content.html.twig' with {
+    content: item.object.content,
+    location: item.object,
+    view_type: 'nglayouts_app_preview',
+    params: { 'nglayouts_item': item }
+} only %}
