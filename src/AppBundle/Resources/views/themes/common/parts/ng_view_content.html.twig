@@ -1,6 +1,6 @@
 {% if ezpublish.configResolver.parameter('render_content_directly', 'ngsite') %}
     {{ ng_view_content(
-        location is defined and location is not empty ? location : content,
+        location|default(null) is not empty ? location : content,
         view_type, {
             'params': params|default([])
         }
@@ -10,7 +10,8 @@
         controller(
             'ng_content:viewAction', {
                 'content': content,
-                'location': location,
+                'location': location|default(null),
+                'locationId': location_id|default(null),
                 'viewType': view_type,
                 'layout': false,
                 'params': params|default([])
