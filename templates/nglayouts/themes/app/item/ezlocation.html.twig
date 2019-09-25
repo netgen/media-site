@@ -1,21 +1,6 @@
-{% if ezplatform.configResolver.parameter('render_content_directly', 'ngsite') %}
-    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
-        object: item.object,
-        view_type: view_type,
-        params: { 'nglayouts_item': item }|merge(ezparams|default({}))
-    } only %}
-{% else %}
-    {{ render(
-        controller(
-            'ng_content:viewAction', {
-                'content': item.object.content,
-                'location': item.object,
-                'viewType': view_type,
-                'layout': false,
-                'params': {
-                    'nglayouts_item': item,
-                }|merge(ezparams|default({}))
-            }
-        )
-    ) }}
-{% endif %}
+{% include '@ezdesign/parts/ng_view_content.html.twig' with {
+    content: item.object.content,
+    location: item.object,
+    view_type: view_type,
+    params: { 'nglayouts_item': item }|merge(ezparams|default({}))
+} only %}

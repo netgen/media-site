@@ -1,10 +1,5 @@
-{{ render(
-    controller(
-        'ng_content:viewAction', {
-            'content': item.content,
-            'location': item.location,
-            'viewType': 'ngcb_preview',
-            'layout': false,
-        }
-    )
-) }}
+{% include '@ezdesign/parts/ng_view_content.html.twig' with {
+    content: item.content,
+    location: item.location,
+    view_type: 'ngcb_preview'
+} only %}

@@ -1,6 +1,21 @@
-{{ ng_view_content(
-    object,
-    view_type, {
-        'params': params|default([])
-    }
-) }}
+{% if ezpublish.configResolver.parameter('render_content_directly', 'ngsite') %}
+    {{ ng_view_content(
+        location|default(null) is not empty ? location : content,
+        view_type, {
+            'params': params|default([])
+        }
+    ) }}
+{% else %}
+    {{ render(
+        controller(
+            'ng_content:viewAction', {
+                'content': content,
+                'location': location|default(null),
+                'locationId': location_id|default(null),
+                'viewType': view_type,
+                'layout': false,
+                'params': params|default([])
+            }
+        )
+    ) }}
+{% endif %}

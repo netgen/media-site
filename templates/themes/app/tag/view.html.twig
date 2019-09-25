@@ -18,16 +18,11 @@
             <div class="row">
                 {% for related_content_item in related_content %}
                     <div class="col-sm-6 col-md-6 col-lg-4">
-                        {{ render(
-                            controller(
-                                "ng_content:viewAction", {
-                                    "contentId": related_content_item.id,
-                                    "locationId": related_content_item.mainLocationId,
-                                    "viewType": "standard_with_intro",
-                                    "layout": false
-                                }
-                            )
-                        ) }}
+                        {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                            content: related_content_item,
+                            location_id: related_content_item.contentInfo.mainLocationId,
+                            view_type: 'standard_with_intro'
+                        } only %}
                     </div>
                 {% endfor %}
             </div>

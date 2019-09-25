@@ -20,7 +20,4 @@ parameters:
 
     ngsite.default.lazy_loading.enabled: true
     ngsite.default.lazy_loading.initial_image_alias: 'i30'
-
-    # This flag depends on eZ Platform Site API v3
-    # Make sure to install it before enabling this
-    ngsite.default.render_content_directly: false
+    ngsite.default.render_content_directly: true

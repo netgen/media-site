@@ -45,19 +45,12 @@
                                             {% set score = (search_hit.score * 100)|round %}
                                         {% endif %}
 
-                                        {{ render(
-                                            controller(
-                                                'ng_content:viewAction', {
-                                                    'content': search_hit.valueObject.content,
-                                                    'location': search_hit.valueObject,
-                                                    'viewType': 'search',
-                                                    'layout': false,
-                                                    'params': {
-                                                        'score_percent': score
-                                                    }
-                                                }
-                                            )
-                                        ) }}
+                                        {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                                            content: search_hit.valueObject.content,
+                                            location: search_hit.valueObject,
+                                            view_type: 'search',
+                                            params: { 'score_percent': score }
+                                        } only %}
                                     {% endfor %}
                                 </div>
 
