@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace App;
 
 use App\DependencyInjection\AppExtension;
+use App\DependencyInjection\CompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
-use App\DependencyInjection\CompilerPass;
 
 final class Kernel extends BaseKernel
 {
