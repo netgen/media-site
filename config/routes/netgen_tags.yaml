@@ -1,2 +1,2 @@
 netgen_tags:
-    resource: '@NetgenTagsBundle/Resources/config/routing.yml'
+    resource: '@NetgenTagsBundle/Resources/config/routing.yaml'

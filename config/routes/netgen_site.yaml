@@ -1,2 +1,2 @@
 netgen_site:
-    resource: '@NetgenSiteBundle/Resources/config/routing.yml'
+    resource: '@NetgenSiteBundle/Resources/config/routing.yaml'
