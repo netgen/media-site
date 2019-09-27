@@ -36,3 +36,4 @@ ezdesign:
         app:
             - app
             - common
+            - standard
