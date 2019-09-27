@@ -59,15 +59,15 @@ file is renamed to `webpack.config.ezplatform.js` without changes.
 
 Also, automatic building of eZ Platform Admin UI assets on every `composer install` or `composer update`
 has been disabled so there's no need to install `nodejs` or `yarn` on your production servers to build
-those assets. Either deploy them via your deployment procedures, or commit the entire `web/assets` folder
+those assets. Either deploy them via your deployment procedures, or commit the entire `public/assets` folder
 to the git repository. You can build the eZ Platform Admin UI assets on demand simply by executing
 `composer ezplatform-assets`.
 
 If, however, you wish to bring back building eZ Platform Admin UI assets when running Composer, add the
-`web/assets/` folder to `.gitignore` and add the following to `symfony-scripts` in your `composer.json`:
+`public/assets/` folder to `.gitignore` and add the following to `symfony-scripts` in your `composer.json`:
 
 ```json
-"@php bin/console bazinga:js-translation:dump web/assets --merge-domains",
+"@php bin/console bazinga:js-translation:dump public/assets --merge-domains",
 "yarn install",
 "yarn ezplatform"
 ```
@@ -111,16 +111,16 @@ php bin/console ngsite:content:generate-image-variations --help
 
 ### Run PHP built in server / Setup Apache virtual host
 
-For development purposes, you can use PHP built in server to run the site.
+For development purposes, you can use [Symfony CLI](https://symfony.com/download) server to run the site.
 
-Just start with:
+Just start it from the project root with:
 
 ```
-php bin/console server:run -d web
+symfony server:start
 ```
 
 Alternatively, you can create a new Apache virtual host and set it up to point
-to `web/` directory inside the repo root.
+to `public/` directory inside the repo root.
 
 An example virtual host is available at `doc/apache2/netgen-site-vhost.conf`
 
@@ -134,8 +134,8 @@ You need to setup file and directory permissions so eZ Platform can write to cac
 log and var folders:
 
 ```bash
-$ setfacl -R -m u:<web-user>:rwX -m g:<web-user>:rwX var web/var
-$ setfacl -dR -m u:<web-user>:rwX -m g:<web-user>:rwX var web/var
+$ setfacl -R -m u:<web-user>:rwX -m g:<web-user>:rwX var public/var
+$ setfacl -dR -m u:<web-user>:rwX -m g:<web-user>:rwX var public/var
 ```
 
 In case `setfacl` is not available on your system, refer to [Symfony installation instructions]

@@ -11,9 +11,9 @@ fi
 SSH_LOGIN=$1
 REMOTE_PATH=$2
 
-DBSYNC_FOLDER='web/var/dbsync'
+DBSYNC_FOLDER='var/dbsync'
 DATABASE_NAME='db.sql'
-STORAGE_FOLDER='web/var/site/storage'
+STORAGE_FOLDER='public/var/site/storage'
 
 mkdir -p $DBSYNC_FOLDER
 mkdir -p $STORAGE_FOLDER
