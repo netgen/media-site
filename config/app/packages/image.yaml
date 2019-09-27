@@ -38,23 +38,6 @@ ezpublish:
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [1920] }
                         - { name: strip }
-        ngadmin_group:
-            image_variations:
-                small:
-                    reference: original
-                    filters:
-                        - { name: geometry/scaledownonly, params: [100, 100] }
-                        - { name: strip }
-                medium:
-                    reference: original
-                    filters:
-                        - { name: geometry/scaledownonly, params: [200, 200] }
-                        - { name: strip }
-                large:
-                    reference: original
-                    filters:
-                        - { name: geometry/scaledownonly, params: [300, 300] }
-                        - { name: strip }
 
 liip_imagine:
     filter_sets:
