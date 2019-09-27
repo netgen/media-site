@@ -50,7 +50,7 @@ final class Kernel extends BaseKernel
         $loader->load($confDir . '/app/{services}' . self::CONFIG_EXTS, 'glob');
 
         $serverEnvironment = $container->getParameter('server_environment');
-        $loader->load($confDir . '/packages/server/' . $serverEnvironment . self::CONFIG_EXTS, 'glob');
+        $loader->load($confDir . '/app/server/' . $serverEnvironment . self::CONFIG_EXTS, 'glob');
 
         if ($this->environment === 'dev' && $container->getParameter('profiler_storage') === 'redis') {
             $loader->load($confDir . '/packages/profiler_storage/redis' . self::CONFIG_EXTS, 'glob');
