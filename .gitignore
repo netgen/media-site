@@ -13,9 +13,6 @@
 /doc/docker/entrypoint/*/*.sql
 /dfsdata
 
-/extension/
-/ezpublish_legacy/
-
 /var/*
 !/var/cache
 /var/cache/*
@@ -36,14 +33,8 @@
 /public/assets/ezplatform/*
 !/public/assets/ezplatform/build/
 
-/public/design
-/public/extension
-/public/share
 /public/var
 /public/.htaccess
-/public/index_treemenu.php
-/public/index_rest.php
-/public/index_cluster.php
 /public/robots.txt
 
 auth.json
@@ -62,6 +53,7 @@ studio.json
 /public/bundles/
 /vendor/
 ###< symfony/framework-bundle ###
+
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
