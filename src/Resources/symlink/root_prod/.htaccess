@@ -1,46 +1,50 @@
-## eZ Platform/Symfony ENVIRONMENT variables, for customizing app.php* execution
-# * Only SYMFONY_ENV and SYMFONY_DEBUG supported by console command, rest are eZ Platform features in app.php.
+## eZ Platform/Symfony ENVIRONMENT variables, for customizing index.php* execution
+# * Only APP_ENV and APP_DEBUG supported by console command, rest are eZ Platform features in index.php.
 
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
 # Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
-#SetEnvIf REQUEST_URI ".*" SYMFONY_ENV=prod
+#SetEnvIf Request_URI ".*" APP_ENV=prod
 
-# Whether to use debugging.
-# Possible values: 0 or 1
-# Defaults to 0 if omitted, unless SYMFONY_ENV is set to: "dev"
-#SetEnv SYMFONY_DEBUG 0
+# Optional: Whether to use debugging.
+# Possible values: 0, 1 or ""
+# Defaults to enabled if APP_ENV is set to "dev" if env value is omitted or empty
+#SetEnv APP_DEBUG "0"
 
 # Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
-# Possible values: 0 or 1
-# Defaults to 1 if omitted, unless SYMFONY_ENV is set to: "dev"
-SetEnv SYMFONY_HTTP_CACHE 0
+# Possible values: 0, 1 or ""
+# Defaults to disabled if APP_ENV is set to "dev" or APP_TRUSTED_PROXIES is set,
+# and if this env value is omitted or empty
+SetEnv APP_HTTP_CACHE "0"
 
-# Defines the proxies to trust.
-# Separate entries by a comma
-# Example: "ip1,ip2"
-# By default, no trusted proxies are set
-#SetEnv SYMFONY_TRUSTED_PROXIES "127.0.0.1"
+# Optional: Defines the proxies to trust
+# Needed when using Varnish as proxy, if so disable APP_HTTP_CACHE.
+# Separate entries by a comma, example: "ip1,ip2"
+# Defaults to not be set if env value is omitted or empty
+#SetEnv APP_TRUSTED_PROXIES "127.0.0.1"
 
 # TIP: There are many more environment variables supported by eZ Platform. However unlike those listed above
 #      they should in most cases rather be set in the environment then in vhost config to make sure cronjobs
 #      and cli command usage takes them into account as well.
 
 AddOutputFilterByType DEFLATE text/plain
-AddOutputFilterByType DEFLATE text/html
+# NOTE: Using gzip on text/html can be a security issue. See http://breachattack.com.
+# AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/xml
 AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
 AddOutputFilterByType DEFLATE application/xml
 AddOutputFilterByType DEFLATE application/json
 AddOutputFilterByType DEFLATE application/xhtml+xml
 AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/xml+rss
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
 
 AddDefaultCharset UTF-8
 
-DirectoryIndex app.php
+DirectoryIndex index.php
 
 Options +FollowSymlinks
 Options -Indexes
@@ -51,7 +55,7 @@ RewriteCond %{REQUEST_URI} \.svn|\.git
 RewriteRule .* / [L,R=301]
 
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^app(_.+)?\.php(/(.*)|$) /$3 [R=301,L]
+RewriteRule ^index\.php(/(.*)|$) /$2 [R=301,L]
 
 # Let's Encrypt support
 RewriteRule ^\.well-known/acme-challenge/ - [L]
@@ -82,10 +86,6 @@ RewriteRule ^var/.*(?i)\.(php3?|phar|phtml|sh|exe|pl|bin)$ - [F]
 
 RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
 RewriteRule ^var/([^/]+/)?storage/original/image/(.*)\.svg - [L]
-RewriteRule ^var/([^/]+/)?cache/(texttoimage|public)/.* - [L]
-RewriteRule ^design/[^/]+/(stylesheets|images|fonts|javascript)/.* - [L]
-RewriteRule ^share/icons/.* - [L]
-RewriteRule ^extension/[^/]+/design/[^/]+/(stylesheets|flash|images|fonts|lib|javascripts?)/.* - [L]
 
 RewriteRule ^favicon\.ico - [L]
 RewriteRule ^robots\.txt - [L]
@@ -95,4 +95,4 @@ RewriteRule ^images/ - [L]
 RewriteRule ^bundles/ - [L]
 RewriteRule ^assets/ - [L]
 
-RewriteRule .* app\.php
+RewriteRule .* index\.php
