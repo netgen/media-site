@@ -1,8 +1,7 @@
-/var/www/html/*/var/logs/dev.log {
+/var/www/html/*/var/log/dev.log {
     daily
     missingok
-    rotate 5
-    size 10M
+    rotate 3
     compress
     create 664 www-data www-data
 }
