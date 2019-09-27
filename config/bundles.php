@@ -73,7 +73,6 @@ return [
     Netgen\TagsBundle\NetgenTagsBundle::class => ['all' => true],
     Netgen\Bundle\EnhancedSelectionBundle\NetgenEnhancedSelectionBundle::class => ['all' => true],
     Netgen\Bundle\SiteAccessRoutesBundle\NetgenSiteAccessRoutesBundle::class => ['all' => true],
-    Netgen\Bundle\SiteGeneratorBundle\NetgenSiteGeneratorBundle::class => ['all' => true],
     Netgen\Bundle\SiteInstallerBundle\NetgenSiteInstallerBundle::class => ['all' => true],
     Netgen\Bundle\SiteBundle\NetgenSiteBundle::class => ['all' => true],
     Netgen\Bundle\EzPlatformSiteApiBundle\NetgenEzPlatformSiteApiBundle::class => ['all' => true],
