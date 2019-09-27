@@ -6,13 +6,13 @@ Software requirements
 
 * PHP built in server / Apache 2.4+ / Nginx 1.12+
 * MySQL 5.7+
-* PHP 7.1+ (with `gd`, `imagick`, `curl`, `json`, `mysql`, `xsl`, `xml`, `intl` and `mbstring` extensions)
+* PHP 7.3+ (with `gd`, `imagick`, `curl`, `json`, `mysql`, `xsl`, `xml`, `intl` and `mbstring` extensions)
 * ImageMagick
 
 Optional dependencies
 ---------------------
 
-* Varnish 5+
+* Varnish 6.0
 * Solr 6.5+
 
 Installation instructions
@@ -109,7 +109,7 @@ content fields. Use the following command to list all available options:
 php bin/console ngsite:content:generate-image-variations --help
 ```
 
-### Run PHP built in server / Setup Apache virtual host
+### Run the Symfony CLI server / Setup Apache virtual host
 
 For development purposes, you can use [Symfony CLI](https://symfony.com/download) server to run the site.
 
