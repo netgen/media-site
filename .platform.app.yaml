@@ -114,15 +114,12 @@ hooks:
         nvm current
         nvm install 10.15.3
 
-        if ["$COMPOSER_AUTH" == ""]; then
+        if [ -z "$COMPOSER_AUTH" ]; then
             echo "TIP: If you need to authenticate against Github/Gitlab/updates.ez.no, use COMPOSER_AUTH env variable"
             echo "See: https://docs.platform.sh/tutorials/composer-auth.html#set-the-envcomposerauth-project-variable"
         fi
 
         composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
-
-        # Generic cleanup to remove files we don't want to be deployed to prod (you don't need this for "dev" ENV)
-        rm web/app_dev.php
 
     # Deploy hook, access to services & done once (per cluster, not per node), only mounts are writable at this point
     # Note: Http traffic is paused while this is running, so for prod code this should finish as fast as possible, < 30s
@@ -142,7 +139,7 @@ hooks:
 
         # Now that mounts are available, clear cache on mount.
         # Note: Skip on PE Cluster setup using e.g. "if [$PLATFORM_BRANCH" != 'production']; then" & get p.sh to enable this on internal per node "pre_start" hook
-        ./bin/platformsh/pre_start-per_node-clear_cache.sh
+        sh bin/platformsh/pre_start-per_node-clear_cache.sh
 
         # If you also need to clear Redis cache on every deploy, you can either use this command or redis-cli
         # Normally this should only be needed if cached data structures changes (upgrades), or you change data via sql (e.g. restore backup)
