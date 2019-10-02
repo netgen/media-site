@@ -1,7 +1,7 @@
 ezpublish:
     system:
         frontend_group:
-            pagelayout: "@ezdesign/pagelayout.html.twig"
+            page_layout: "@ezdesign/pagelayout.html.twig"
             user:
                 login_template: "@ezdesign/user/login.html.twig"
 
