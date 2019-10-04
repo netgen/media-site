@@ -1,58 +1,110 @@
-<div id="ng-cc">
-    <div class="ng-cc-overlay"></div>
-    <!--
-    <a class="ng-cc-toggle">
-        <i class="fas fa-cog"></i>
-    </a>
-    -->
-    <div class="ng-cc-modal">
-        <a href="#" class="ng-cc-close ng-cc-close-btn" aria-label="Close"><i class="fas fa-times"></i></a>
-        <div class="ng-cc-content">
-            <h3>This site uses cookies.</h3>
-            <p>Some of these cookies are essential, while others help us improve your experience by providing insights into how the site is being used.</p>
-            <p>For more detailed information on the cookies we use, please check our <a href="#">Privacy Policy</a>.</p>
-            <div class="ng-cc-actions">
-                <button id="ng-cc-accept" class="btn btn-primary">I'm OK with this</button>
+{% if ngsite.siteInfoContent.hasField('related_cookie_policy') and not ngsite.siteInfoContent.fields.related_cookie_policy.empty %}
+
+    {% set cookie_policy = ngsite.siteInfoContent.fieldRelation('related_cookie_policy') %}
+      
+    <div id="ng-cc">
+        <div class="ng-cc-overlay"></div>
+
+        <div class="ng-cc-modal">
+            <a href="#" class="ng-cc-close ng-cc-close-btn" aria-label="Close"><i class="fas fa-times"></i></a>
+            <div class="ng-cc-content">
+                {% if not cookie_policy.fields.ribbon_heading.empty %}
+                    <h3>{{ ng_render_field(cookie_policy.fields.ribbon_heading) }}</h3>
+                {% endif %}
+                {% if not cookie_policy.fields.ribbon_description.empty %}
+                    {{ ng_render_field(cookie_policy.fields.ribbon_description) }}
+                {% endif %}
+                <div class="ng-cc-actions">
+                    <button id="ng-cc-accept" class="btn btn-primary">
+                        {% if not cookie_policy.fields.ribbon_button_label.empty %}
+                            {{ ng_render_field(cookie_policy.fields.ribbon_button_label) }}
+                        {% endif %}
+                    </button>
+                </div>
+                <ul class="ng-cc-optional-list">
+                    <li>
+                        <input type="checkbox" class="ng-cc-optional-checkbox" id="ng-cc-necessary" data-name="necessary" checked disabled />
+                        <label for="ng-cc-necessary">
+                            <i class="ng-cc-checkbox-icon"><span></span></i>
+                            {% if not cookie_policy.fields.necessary_label.empty %}
+                                {{ ng_render_field(cookie_policy.fields.necessary_label) }}
+                            {% endif %}
+                        </label>
+                        {% if not cookie_policy.fields.necessary_description.empty %}
+                            {{ ng_render_field(cookie_policy.fields.necessary_description) }}
+                        {% endif %}
+                    </li>
+                </ul>
             </div>
-            <ul class="ng-cc-optional-list">
-                <li>
-                    <input type="checkbox" class="ng-cc-optional-checkbox" id="ng-cc-necessary" data-name="necessary" checked disabled />
-                    <label for="ng-cc-necessary"><i class="ng-cc-checkbox-icon"><span></span></i>Necessary cookies</label>
-                    <p>Necessary cookies enable core functionality. The website cannot function properly without these cookies, and can only be disabled by changing your browser preferences.</p>
-                </li>
-            </ul>
         </div>
     </div>
-</div>
 
-<script>
-    window.__ngCcConfig = {
-        options: {
-          lifetime: 30,
-        },
-        optionalCookies: [
-          {
-            name: 'analytics',
-            label: 'Analytics cookies',
-            description: 'Analytics cookies help us to improve our website by collecting and reporting information on its usage.',
-            accepted: true,
-            onRevoke: function() {
-              // Turn off analytics here
+    <script>
+        window.__ngCcConfig = {
+            options: {
+              lifetime: 30,
             },
-          },
-          {
-            name: 'marketing',
-            label: 'Marketing cookies',
-            description: 'We use marketing cookies to help us improve the relevancy of advertising campaigns you receive.',
-          },
-          {
-            name: 'socialsharing',
-            label: 'Social sharing cookies',
-            description: 'We use some social sharing plugins, to allow you to share certain pages of our website on social media.',
-            onAccept: function() {
-              // Social sharing scripts go here
-            },
-          },
-        ],
-      }
-</script>
+            optionalCookies: [
+              {% if cookie_policy.fields.analytics_is_active.value.bool %}
+              {
+                name: 'analytics',
+                label: '{% if not cookie_policy.fields.analytics_label.empty %}{{ cookie_policy.fields.analytics_label.value }}{% endif %}',
+                description: '{% if not cookie_policy.fields.analytics_label.empty %}{{ ng_render_field(cookie_policy.fields.analytics_description)|replace({"\n":'', "\r":''})|raw }}{% endif %}',
+                {% if cookie_policy.fields.analytics_default_state.value.bool %}
+                accepted: true,
+                {% endif %}
+                onAccept: function() {
+                  {% if not cookie_policy.fields.analytics_on_accept.empty %}
+                  {{ cookie_policy.fields.analytics_on_accept.value|raw }}
+                  {% endif %}
+                },
+                onRevoke: function() {
+                  {% if not cookie_policy.fields.analytics_on_revoke.empty %}
+                  {{ cookie_policy.fields.analytics_on_revoke.value|raw }}
+                  {% endif %}
+                },
+              },
+              {% endif %}
+              {% if cookie_policy.fields.marketing_is_active.value.bool %}
+              {
+                name: 'marketing',
+                label: '{% if not cookie_policy.fields.marketing_label.empty %}{{ cookie_policy.fields.marketing_label.value }}{% endif %}',
+                description: '{% if not cookie_policy.fields.marketing_label.empty %}{{ ng_render_field(cookie_policy.fields.marketing_description)|replace({"\n":'', "\r":''})|raw }}{% endif %}',
+                {% if cookie_policy.fields.marketing_default_state.value.bool %}
+                accepted: true,
+                {% endif %}
+                onAccept: function() {
+                  {% if not cookie_policy.fields.marketing_on_accept.empty %}
+                  {{ cookie_policy.fields.marketing_on_accept.value|raw }}
+                  {% endif %}
+                },
+                onRevoke: function() {
+                  {% if not cookie_policy.fields.marketing_on_revoke.empty %}
+                  {{ cookie_policy.fields.marketing_on_revoke.value|raw }}
+                  {% endif %}
+                },
+              },
+              {% endif %}
+              {% if cookie_policy.fields.social_sharing_is_active.value.bool %}
+              {
+                name: 'social_sharing',
+                label: '{% if not cookie_policy.fields.social_sharing_label.empty %}{{ cookie_policy.fields.social_sharing_label.value }}{% endif %}',
+                description: '{% if not cookie_policy.fields.social_sharing_label.empty %}{{ ng_render_field(cookie_policy.fields.social_sharing_description)|replace({"\n":'', "\r":''})|raw }}{% endif %}',
+                {% if cookie_policy.fields.social_sharing_default_state.value.bool %}
+                accepted: true,
+                {% endif %}
+                onAccept: function() {
+                  {% if not cookie_policy.fields.social_sharing_on_accept.empty %}
+                  {{ cookie_policy.fields.social_sharing_on_accept.value|raw }}
+                  {% endif %}
+                },
+                onRevoke: function() {
+                  {% if not cookie_policy.fields.social_sharing_on_revoke.empty %}
+                  {{ cookie_policy.fields.social_sharing_on_revoke.value|raw }}
+                  {% endif %}
+              },
+              {% endif %}
+            ],
+          }
+    </script>
+{% endif %}
