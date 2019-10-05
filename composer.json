@@ -69,7 +69,7 @@
         "ezsystems/ezplatform-xmltext-fieldtype": "^2.0@dev",
 
         "php-http/httplug-bundle": "^1.16",
-        "sentry/sentry-symfony": "^3.1",
+        "sentry/sentry-symfony": "^3.2",
         "symfony/webpack-encore-bundle": "^1.6.2",
 
         "netgen/media-site-data": "^2.0@dev",
