@@ -1,7 +1,6 @@
 {% if ngsite.siteInfoContent.hasField('related_cookie_policy') and not ngsite.siteInfoContent.fields.related_cookie_policy.empty %}
-
     {% set cookie_policy = ngsite.siteInfoContent.fieldRelation('related_cookie_policy') %}
-      
+
     <div id="ng-cc">
         <div class="ng-cc-overlay"></div>
 
@@ -11,9 +10,11 @@
                 {% if not cookie_policy.fields.ribbon_heading.empty %}
                     <h3>{{ ng_render_field(cookie_policy.fields.ribbon_heading) }}</h3>
                 {% endif %}
+
                 {% if not cookie_policy.fields.ribbon_description.empty %}
                     {{ ng_render_field(cookie_policy.fields.ribbon_description) }}
                 {% endif %}
+
                 <div class="ng-cc-actions">
                     <button id="ng-cc-accept" class="btn btn-primary">
                         {% if not cookie_policy.fields.ribbon_button_label.empty %}
@@ -21,15 +22,18 @@
                         {% endif %}
                     </button>
                 </div>
+
                 <ul class="ng-cc-optional-list">
                     <li>
                         <input type="checkbox" class="ng-cc-optional-checkbox" id="ng-cc-necessary" data-name="necessary" checked disabled />
                         <label for="ng-cc-necessary">
                             <i class="ng-cc-checkbox-icon"><span></span></i>
+
                             {% if not cookie_policy.fields.necessary_label.empty %}
                                 {{ ng_render_field(cookie_policy.fields.necessary_label) }}
                             {% endif %}
                         </label>
+
                         {% if not cookie_policy.fields.necessary_description.empty %}
                             {{ ng_render_field(cookie_policy.fields.necessary_description) }}
                         {% endif %}
@@ -65,6 +69,7 @@
                 },
               },
               {% endif %}
+
               {% if cookie_policy.fields.marketing_is_active.value.bool %}
               {
                 name: 'marketing',
@@ -85,6 +90,7 @@
                 },
               },
               {% endif %}
+
               {% if cookie_policy.fields.social_sharing_is_active.value.bool %}
               {
                 name: 'social_sharing',
