@@ -35,11 +35,6 @@ ezpublish:
     http_cache:
         purge_type: '%purge_type%'
 
-    # ImageMagick configuration
-    imagemagick:
-        enabled: true
-        path: '%imagemagick_path%'
-
     # Repositories configuration, setup default repository to support solr if enabled
     repositories:
         default:
