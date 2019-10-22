@@ -30,7 +30,6 @@ final class AppExtension extends Extension implements PrependExtensionInterface
             'layouts/blocks.yml' => 'netgen_layouts',
             'layouts/block_view.yml' => 'netgen_layouts',
             'layouts/item_view.yml' => 'netgen_layouts',
-            'content_view.yml' => 'ezpublish',
         ];
 
         foreach ($prependConfigs as $configFile => $prependConfig) {
