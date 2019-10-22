@@ -103,7 +103,7 @@
         "symfony/debug-pack": "^1.0",
         "symfony/maker-bundle": "^1.0",
         "symfony/test-pack": "^1.0",
-        "phpunit/phpunit": "^8.3",
+        "phpunit/phpunit": "^8.4",
 
         "symfony/phpunit-bridge": "^4.3",
         "snc/redis-bundle": "^3.1",
