@@ -53,7 +53,7 @@
               {
                 name: 'analytics',
                 label: '{% if not cookie_policy.fields.analytics_label.empty %}{{ cookie_policy.fields.analytics_label.value }}{% endif %}',
-                description: '{% if not cookie_policy.fields.analytics_label.empty %}{{ ng_render_field(cookie_policy.fields.analytics_description)|replace({"\n":'', "\r":''})|raw }}{% endif %}',
+                description: '{% if not cookie_policy.fields.analytics_label.empty %}{{ ng_render_field(cookie_policy.fields.analytics_description)|replace({"\n": "", "\r": ""})|raw }}{% endif %}',
                 {% if cookie_policy.fields.analytics_default_state.value.bool %}
                 accepted: true,
                 {% endif %}
@@ -74,7 +74,7 @@
               {
                 name: 'marketing',
                 label: '{% if not cookie_policy.fields.marketing_label.empty %}{{ cookie_policy.fields.marketing_label.value }}{% endif %}',
-                description: '{% if not cookie_policy.fields.marketing_label.empty %}{{ ng_render_field(cookie_policy.fields.marketing_description)|replace({"\n":'', "\r":''})|raw }}{% endif %}',
+                description: '{% if not cookie_policy.fields.marketing_label.empty %}{{ ng_render_field(cookie_policy.fields.marketing_description)|replace({"\n": "", "\r": ""})|raw }}{% endif %}',
                 {% if cookie_policy.fields.marketing_default_state.value.bool %}
                 accepted: true,
                 {% endif %}
@@ -95,7 +95,7 @@
               {
                 name: 'social_sharing',
                 label: '{% if not cookie_policy.fields.social_sharing_label.empty %}{{ cookie_policy.fields.social_sharing_label.value }}{% endif %}',
-                description: '{% if not cookie_policy.fields.social_sharing_label.empty %}{{ ng_render_field(cookie_policy.fields.social_sharing_description)|replace({"\n":'', "\r":''})|raw }}{% endif %}',
+                description: '{% if not cookie_policy.fields.social_sharing_label.empty %}{{ ng_render_field(cookie_policy.fields.social_sharing_description)|replace({"\n": "", "\r": ""})|raw }}{% endif %}',
                 {% if cookie_policy.fields.social_sharing_default_state.value.bool %}
                 accepted: true,
                 {% endif %}
@@ -111,6 +111,6 @@
               },
               {% endif %}
             ],
-          }
+        }
     </script>
 {% endif %}
