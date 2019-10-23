@@ -1,0 +1,1 @@
+{redirect('/'|ezurl('no', 'full'))}
