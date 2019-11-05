@@ -74,7 +74,7 @@
         "netgen/site-generator-bundle": "~1.2.0",
         "netgen/site-installer-bundle": "^1.1",
         "netgen/information-collection-bundle": "^1.6.8",
-        "netgen/ezplatform-site-api": "^3.0.2",
+        "netgen/ezplatform-site-api": "^3.1.0",
         "netgen/ezplatform-search-extra": "^1.9",
         "netgen/admin-ui-bundle": "^2.6",
 
