@@ -24,6 +24,7 @@ require __DIR__ . '/deploy/tasks/overrides.php';
 set('git_tty', true);
 
 add('copy_dirs', ['vendor']);
+add('writable_dirs', ['var/encore']);
 
 set('use_relative_symlink', false);
 
@@ -37,7 +38,7 @@ set('sentry', [
 
 /** Execution */
 task('deploy', [
-    // Upload server specific parameters.yml file. Those file are NOT to be committed to the repository
+    // Upload server specific parameters.yml file. Those files are NOT to be committed to the repository
     'server:upload_parameters',
     // Upload server specific .env file. Those file are NOT to be committed to the repository
     'server:upload_env',
@@ -65,20 +66,22 @@ task('deploy', [
     // Optional: if the project uses kaliop migrations
     //database:kaliop:migrate
     'deploy:symlink',
-    // Netgen specific setup
+    // Netgen specific setup, comment out what's not needed
     'server:symlink_web',
     'cachetool:clear:opcache',
+    // Cleanup and finish the deploy
     'deploy:unlock',
     'cleanup',
 ])->desc('Deploy your project');
 
 // after successful deploy
-after('deploy', 'varnish:ban');
+after('deploy', 'httpcache:invalidate');
 after('deploy', 'deploy:log:remote');
+after('deploy', 'success');
 
 // If deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
 after('rollback', 'cachetool:clear:opcache');
-after('rollback', 'varnish:ban');
+after('rollback', 'httpcache:invalidate');
 after('rollback', 'deploy:log:rollback:remote');

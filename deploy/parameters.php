@@ -14,7 +14,10 @@ add('shared_dirs', ['ezpublish_legacy/var/site/storage']);
 
 set('keep_releases', 5);
 
+set('http_cache_invalidate_method', 'fos');
+
 set('varnish_use_sudo', false);
+set('apache_use_sudo', true);
 
 set('legacy_error_log', 'web/var/log/error.log');
 set('symfony_error_log', 'var/logs/prod.log');

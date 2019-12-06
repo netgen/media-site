@@ -35,7 +35,7 @@ task('deploy:log:remote', function () {
     upload($tmpFile, $newReleaseFilename);
     unlink($tmpFile);
 
-    $oldestRelease = $releasesList[get('keep_releases')-1] - 1;
+    $oldestRelease = $releasesList[min(get('keep_releases'), count($releasesList))-1] - 1;
     $oldestReleaseFilename = get('deploy_path') . '/' . $oldestRelease . '_' . $filename;
 
     if (test("[ -f {$oldestReleaseFilename} ]")) {
