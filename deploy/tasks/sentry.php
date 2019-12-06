@@ -2,8 +2,6 @@
 
 namespace Deployer;
 
-require_once 'vendor/sentry/sentry/lib/Raven/Autoloader.php';
-
 use Closure;
 use DateTime;
 use Raven_Client;
