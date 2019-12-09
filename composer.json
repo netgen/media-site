@@ -99,7 +99,7 @@
         "overblog/graphiql-bundle": "^0.1.2",
         "phpunit/phpunit": "^8.3",
         "sensio/generator-bundle": "^3.1.7",
-        "symfony/phpunit-bridge": "^4.3",
+        "symfony/phpunit-bridge": "^5.0",
         "snc/redis-bundle": "^3.1",
         "predis/predis": "^1.1.1",
         "franzl/studio": "*"
