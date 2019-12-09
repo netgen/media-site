@@ -104,7 +104,8 @@
         "snc/redis-bundle": "^3.2.1",
         "predis/predis": "^1.1.3",
         "franzl/studio": "*",
-        "deployer/recipes": "^6.2"
+        "deployer/recipes": "^6.2",
+        "captainhook/captainhook": "^5.3"
     },
     "conflict": {
         "doctrine/dbal": "2.7.0",
@@ -123,6 +124,7 @@
             "Netgen\\Bundle\\SiteBundle\\Composer\\ScriptHandler::installProjectSymlinks",
             "Netgen\\Bundle\\SiteLegacyBundle\\Composer\\ScriptHandler::installLegacySymlinks",
             "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::generateAutoloads",
+            "@php bin/captainhook install --force",
             "@php bin/security-checker security:check"
         ],
         "post-install-cmd": [
