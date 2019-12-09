@@ -46,7 +46,7 @@
         "ezsystems/symfony-tools": "~1.0.0",
         "friendsofsymfony/jsrouting-bundle": "^1.6.3",
         "incenteev/composer-parameter-handler": "^2.1.3",
-        "knplabs/knp-menu-bundle": "^2.2.1",
+        "knplabs/knp-menu-bundle": "^2.2.1 || ^3.0",
         "monolog/monolog": "^1.25.2",
         "overblog/graphql-bundle": "^0.11.11",
         "scssphp/scssphp": "~1.0",
