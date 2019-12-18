@@ -26,6 +26,9 @@ parameters:
     mailer_user: '%env(MAILER_USER)%'
     mailer_password: '%env(MAILER_PASSWORD)%'
 
+    collected_info_sender: '%env(COLLECTED_INFO_SENDER)%'
+    collected_info_recipient: '%env(COLLECTED_INFO_RECIPIENT)%'
+
     # One of `legacy` (default) or `solr`
     search_engine: '%env(SEARCH_ENGINE)%'
 
@@ -72,6 +75,9 @@ parameters:
     env(MAILER_PORT):       ~
     env(MAILER_USER):       ~
     env(MAILER_PASSWORD):   ~
+
+    env(COLLECTED_INFO_SENDER):   info@netgen.io
+    env(COLLECTED_INFO_RECIPIENT):   test@netgen.io
 
     env(SEARCH_ENGINE): legacy
 
