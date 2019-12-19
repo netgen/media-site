@@ -6,8 +6,8 @@ netgen_information_collection:
                     templates:
                         default: "@ezdesign/info_collection/email.html.twig"
                     default_variables:
-                        sender: "info@netgen.hr"
-                        recipient: "info@netgen.hr"
+                        sender: "%collected_info_sender%"
+                        recipient: "%collected_info_recipient%"
             actions:
                 default:
                     - database
