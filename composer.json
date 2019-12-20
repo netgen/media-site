@@ -79,9 +79,9 @@
         "netgen/ezplatform-search-extra": "^1.9",
         "netgen/admin-ui-bundle": "^2.6",
 
-        "netgen/layouts-standard": "~1.0.0",
-        "netgen/layouts-ezplatform": "~1.0.0",
-        "netgen/layouts-ezplatform-site-api": "~1.0.0",
+        "netgen/layouts-standard": "~1.1.0",
+        "netgen/layouts-ezplatform": "~1.1.0",
+        "netgen/layouts-ezplatform-site-api": "~1.1.0",
         "netgen/layouts-ezplatform-relation-list-query": "^1.0",
         "netgen/layouts-ezplatform-tags-query": "^1.0"
     },

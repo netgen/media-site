@@ -64,11 +64,11 @@ netgen_information_collection:
     resource: '@NetgenInformationCollectionBundle/Resources/config/routing.yml'
 
 netgen_layouts:
-    resource: '@NetgenLayoutsBundle/Resources/config/routing.yml'
+    resource: '@NetgenLayoutsBundle/Resources/config/routing.yaml'
     prefix: '%netgen_layouts.route_prefix%'
 
 netgen_content_browser:
-    resource: '@NetgenContentBrowserBundle/Resources/config/routing.yml'
+    resource: '@NetgenContentBrowserBundle/Resources/config/routing.yaml'
     prefix: '%netgen_content_browser.route_prefix%'
 
 # Netgen Site routes follow. It is recommended to keep them at the end of file
