@@ -7,7 +7,7 @@ namespace AppBundle\DependencyInjection\CompilerPass;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class DisableLegacyContentViewFallbackPass implements CompilerPassInterface
+final class DisableLegacyContentViewFallbackPass implements CompilerPassInterface
 {
     private const SiteApiLegacyFallbackContentViewProvider = 'netgen_site_legacy.site_api.content_view_provider';
     private const SiteApiLegacyFallbackLocationViewProvider = 'netgen_site_legacy.site_api.location_view_provider';
