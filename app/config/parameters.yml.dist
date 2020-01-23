@@ -22,7 +22,7 @@ parameters:
     env(SEARCH_ENGINE): legacy
     env(SOLR_DSN): http://localhost:8983/solr
     env(SENTRY_DSN): ~
-    env(HTTPCACHE_PURGE_SERVER): http://localhost:6081
+    env(HTTPCACHE_PURGE_SERVER): http://localhost:80
 
     purge_type: local
     server_environment: dev
