@@ -1,558 +1,556 @@
-ezpublish:
-    system:
-        frontend_group:
-            ngcontent_view:
-                full:
-                    ng_frontpage:
-                        template: "@ezdesign/content/full/ng_frontpage.html.twig"
-                        match:
-                            Identifier\ContentType: ng_frontpage
-                    ng_category:
-                        template: "@ezdesign/content/full/ng_category.html.twig"
-                        controller: "ngsite.controller.full_view:viewNgCategory"
-                        match:
-                            Identifier\ContentType: ng_category
-                    ng_landing_page:
-                        template: "@ezdesign/content/full/ng_landing_page.html.twig"
-                        controller: "ngsite.controller.full_view:viewNgLandingPage"
-                        match:
-                            Identifier\ContentType: ng_landing_page
-                    ng_article:
-                        template: "@ezdesign/content/full/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_news:
-                        template: "@ezdesign/content/full/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_blog_post:
-                        template: "@ezdesign/content/full/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_feedback_form:
-                        template: "@ezdesign/content/full/ng_feedback_form.html.twig"
-                        controller: "netgen_information_collection.controller:displayAndHandle"
-                        match:
-                            Identifier\ContentType: ng_feedback_form
-                    ng_audio:
-                        template: "@ezdesign/content/full/ng_audio.html.twig"
-                        match:
-                            Identifier\ContentType: ng_audio
-                    ng_gallery:
-                        template: "@ezdesign/content/full/ng_gallery.html.twig"
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    ng_video:
-                        template: "@ezdesign/content/full/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    ng_recipe:
-                        template: "@ezdesign/content/full/ng_recipe.html.twig"
-                        match:
-                            Identifier\ContentType: ng_recipe
-                    ng_topic:
-                        template: "@ezdesign/content/full/ng_topic.html.twig"
-                        match:
-                            Identifier\ContentType: ng_topic
-                    ng_htmlbox:
-                        template: "@ezdesign/content/full/ng_htmlbox.html.twig"
-                        match:
-                            Identifier\ContentType: ng_htmlbox
-                line:
-                    ng_category:
-                        template: "@ezdesign/content/line/ng_category.html.twig"
-                        match:
-                            Identifier\ContentType: ng_category
-                    ng_landing_page:
-                        template: "@ezdesign/content/line/ng_landing_page.html.twig"
-                        match:
-                            Identifier\ContentType: ng_landing_page
-                    ng_article:
-                        template: "@ezdesign/content/line/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_news:
-                        template: "@ezdesign/content/line/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_blog_post:
-                        template: "@ezdesign/content/line/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_audio:
-                        template: "@ezdesign/content/line/ng_audio.html.twig"
-                        match:
-                            Identifier\ContentType: ng_audio
-                    ng_gallery:
-                        template: "@ezdesign/content/line/ng_gallery.html.twig"
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    ng_video:
-                        template: "@ezdesign/content/line/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    ng_feedback_form:
-                        template: "@ezdesign/content/line/ng_feedback_form.html.twig"
-                        match:
-                            Identifier\ContentType: ng_feedback_form
-                    file:
-                        template: "@ezdesign/content/line/file.html.twig"
-                        match:
-                            Identifier\ContentType: file
-                    ng_recipe:
-                        template: "@ezdesign/content/line/ng_recipe.html.twig"
-                        match:
-                            Identifier\ContentType: ng_recipe
-                    line:
-                        template: "@ezdesign/content/line.html.twig"
-                        match: ~
-                listitem:
-                    ng_article:
-                        template: "@ezdesign/content/listitem/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_audio:
-                        template: "@ezdesign/content/listitem/ng_audio.html.twig"
-                        match:
-                            Identifier\ContentType: ng_audio
-                    ng_blog_post:
-                        template: "@ezdesign/content/listitem/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_news:
-                        template: "@ezdesign/content/listitem/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_video:
-                        template: "@ezdesign/content/listitem/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    ng_gallery:
-                        template: "@ezdesign/content/listitem/ng_gallery.html.twig"
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    file:
-                        template: "@ezdesign/content/listitem/file.html.twig"
-                        match:
-                            Identifier\ContentType: file
-                    ng_recipe:
-                        template: "@ezdesign/content/listitem/ng_recipe.html.twig"
-                        match:
-                            Identifier\ContentType: ng_recipe
-                    listitem:
-                        template: "@ezdesign/content/listitem.html.twig"
-                        match: ~
-                listitem_with_intro:
-                    listitem_with_intro:
-                        template: "@ezdesign/content/listitem.html.twig"
-                        params:
-                            with_intro: true
-                        match: ~
-                standard:
-                    ng_article:
-                        template: "@ezdesign/content/standard/ng_article.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_audio:
-                        template: "@ezdesign/content/standard/ng_audio.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_audio
-                    ng_banner:
-                        template: "@ezdesign/content/standard/ng_banner.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_banner
-                    ng_blog_post:
-                        template: "@ezdesign/content/standard/ng_blog_post.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_category:
-                        template: "@ezdesign/content/standard/ng_category.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_category
-                    ng_feedback_form:
-                        template: "@ezdesign/content/standard/ng_feedback_form.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_feedback_form
-                    ng_frontpage:
-                        template: "@ezdesign/content/standard/ng_frontpage.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_frontpage
-                    ng_gallery:
-                        template: "@ezdesign/content/standard/ng_gallery.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    ng_htmlbox:
-                        template: "@ezdesign/content/standard/ng_htmlbox.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_htmlbox
-                    ng_landing_page:
-                        template: "@ezdesign/content/standard/ng_landing_page.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_landing_page
-                    ng_news:
-                        template: "@ezdesign/content/standard/ng_news.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_video:
-                        template: "@ezdesign/content/standard/ng_video.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_video
-                    file:
-                        template: "@ezdesign/content/standard/file.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: file
-                    image:
-                        template: "@ezdesign/content/standard/image.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: image
-                    ng_recipe:
-                        template: "@ezdesign/content/standard/ng_recipe.html.twig"
-                        params:
-                            with_intro: false
-                        match:
-                            Identifier\ContentType: ng_recipe
-                    standard:
-                        template: "@ezdesign/content/standard.html.twig"
-                        params:
-                            with_intro: false
-                        match: ~
-                standard_with_intro:
-                    ng_article:
-                        template: "@ezdesign/content/standard/ng_article.html.twig"
-                        params:
-                            with_intro: true
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_audio:
-                        template: "@ezdesign/content/standard/ng_audio.html.twig"
-                        params:
-                            with_intro: true
-                        match:
-                            Identifier\ContentType: ng_audio
-                    ng_banner:
-                        template: "@ezdesign/content/standard/ng_banner.html.twig"
-                        params:
-                            with_intro: true
-                        match:
-                            Identifier\ContentType: ng_banner
-                    ng_blog_post:
-                        template: "@ezdesign/content/standard/ng_blog_post.html.twig"
-                        params:
-                            with_intro: true
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_gallery:
-                        template: "@ezdesign/content/standard/ng_gallery.html.twig"
-                        params:
-                            with_intro: true
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    ng_news:
-                        template: "@ezdesign/content/standard/ng_news.html.twig"
-                        params:
-                            with_intro: true
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_video:
-                        template: "@ezdesign/content/standard/ng_video.html.twig"
-                        params:
-                            with_intro: true
-                        match:
-                            Identifier\ContentType: ng_video
-                    ng_recipe:
-                        template: "@ezdesign/content/standard/ng_recipe.html.twig"
-                        params:
-                            with_intro: true
-                        match:
-                            Identifier\ContentType: ng_recipe
-                    standard_with_intro:
-                        template: "@ezdesign/content/standard.html.twig"
-                        params:
-                            with_intro: true
-                        match: ~
-                mini:
-                    ng_article:
-                        template: "@ezdesign/content/mini/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_news:
-                        template: "@ezdesign/content/mini/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_blog_post:
-                        template: "@ezdesign/content/mini/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_video:
-                        template: "@ezdesign/content/mini/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    ng_audio:
-                        template: "@ezdesign/content/mini/ng_audio.html.twig"
-                        match:
-                            Identifier\ContentType: ng_audio
-                    ng_gallery:
-                        template: "@ezdesign/content/mini/ng_gallery.html.twig"
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    file:
-                        template: "@ezdesign/content/mini/file.html.twig"
-                        match:
-                            Identifier\ContentType: file
-                    ng_recipe:
-                        template: "@ezdesign/content/mini/ng_recipe.html.twig"
-                        match:
-                            Identifier\ContentType: ng_recipe
-                    mini:
-                        template: "@ezdesign/content/mini.html.twig"
-                        match: ~
-                overlay:
-                    ng_article:
-                        template: "@ezdesign/content/overlay/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_news:
-                        template: "@ezdesign/content/overlay/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_video:
-                        template: "@ezdesign/content/overlay/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    ng_blog_post:
-                        template: "@ezdesign/content/overlay/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_banner:
-                        template: "@ezdesign/content/overlay/ng_banner.html.twig"
-                        match:
-                            Identifier\ContentType: ng_banner
-                    ng_recipe:
-                        template: "@ezdesign/content/overlay/ng_recipe.html.twig"
-                        match:
-                            Identifier\ContentType: ng_recipe
-                    ng_gallery:
-                        template: "@ezdesign/content/overlay/ng_gallery.html.twig"
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    overlay:
-                        template: "@ezdesign/content/overlay.html.twig"
-                        match: ~
-                slide:
-                    ng_article:
-                        template: "@ezdesign/content/slide/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_banner:
-                        template: "@ezdesign/content/slide/ng_banner.html.twig"
-                        match:
-                            Identifier\ContentType: ng_banner
-                    ng_blog_post:
-                        template: "@ezdesign/content/slide/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_news:
-                        template: "@ezdesign/content/slide/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_video:
-                        template: "@ezdesign/content/slide/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    image:
-                        template: "@ezdesign/content/slide/image.html.twig"
-                        match:
-                            Identifier\ContentType: image
-                    slide:
-                        template: "@ezdesign/content/slide.html.twig"
-                        match: ~
-                gallery_thumb:
-                    ng_article:
-                        template: "@ezdesign/content/gallery_thumb/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_banner:
-                        template: "@ezdesign/content/gallery_thumb/ng_banner.html.twig"
-                        match:
-                            Identifier\ContentType: ng_banner
-                    ng_blog_post:
-                        template: "@ezdesign/content/gallery_thumb/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_news:
-                        template: "@ezdesign/content/gallery_thumb/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_video:
-                        template: "@ezdesign/content/gallery_thumb/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    image:
-                        template: "@ezdesign/content/gallery_thumb/image.html.twig"
-                        match:
-                            Identifier\ContentType: image
-                    gallery_thumb:
-                        template: "@ezdesign/content/gallery_thumb.html.twig"
-                        match: ~
-                gallery_grid:
-                    ng_article:
-                        template: "@ezdesign/content/gallery_grid/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_banner:
-                        template: "@ezdesign/content/gallery_grid/ng_banner.html.twig"
-                        match:
-                            Identifier\ContentType: ng_banner
-                    ng_blog_post:
-                        template: "@ezdesign/content/gallery_grid/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_news:
-                        template: "@ezdesign/content/gallery_grid/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_video:
-                        template: "@ezdesign/content/gallery_grid/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    image:
-                        template: "@ezdesign/content/gallery_grid/image.html.twig"
-                        match:
-                            Identifier\ContentType: image
-                    gallery_grid:
-                        template: "@ezdesign/content/gallery_grid.html.twig"
-                        match: ~
-                embed:
-                    ng_frontpage:
-                        template: "@ezdesign/content/embed/ng_frontpage.html.twig"
-                        match:
-                            Identifier\ContentType: ng_frontpage
-                    ng_category:
-                        template: "@ezdesign/content/embed/ng_category.html.twig"
-                        match:
-                            Identifier\ContentType: ng_category
-                    ng_landing_page:
-                        template: "@ezdesign/content/embed/ng_landing_page.html.twig"
-                        match:
-                            Identifier\ContentType: ng_landing_page
-                    ng_article:
-                        template: "@ezdesign/content/embed/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_news:
-                        template: "@ezdesign/content/embed/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_blog_post:
-                        template: "@ezdesign/content/embed/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_audio:
-                        template: "@ezdesign/content/embed/ng_audio.html.twig"
-                        match:
-                            Identifier\ContentType: ng_audio
-                    ng_gallery:
-                        template: "@ezdesign/content/embed/ng_gallery.html.twig"
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    ng_video:
-                        template: "@ezdesign/content/embed/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    ng_htmlbox:
-                        template: "@ezdesign/content/embed/ng_htmlbox.html.twig"
-                        match:
-                            Identifier\ContentType: ng_htmlbox
-                    ng_feedback_form:
-                        template: "@ezdesign/content/embed/ng_feedback_form.html.twig"
-                        match:
-                            Identifier\ContentType: ng_feedback_form
-                    ng_shortcut:
-                        template: "@ezdesign/content/embed/ng_shortcut.html.twig"
-                        match:
-                            Identifier\ContentType: ng_shortcut
-                    ng_banner:
-                        template: "@ezdesign/content/embed/ng_banner.html.twig"
-                        match:
-                            Identifier\ContentType: ng_banner
-                    image:
-                        template: "@ezdesign/content/embed/image.html.twig"
-                        controller: "ngsite.controller.embed_view:embedImage"
-                        match:
-                            Identifier\ContentType: image
-                    file:
-                        template: "@ezdesign/content/embed/file.html.twig"
-                        match:
-                            Identifier\ContentType: file
-                search:
-                    search:
-                        template: "@ezdesign/content/search.html.twig"
-                        match: ~
+frontend_group:
+    ngcontent_view:
+        full:
+            ng_frontpage:
+                template: "@ezdesign/content/full/ng_frontpage.html.twig"
+                match:
+                    Identifier\ContentType: ng_frontpage
+            ng_category:
+                template: "@ezdesign/content/full/ng_category.html.twig"
+                controller: "ngsite.controller.full_view:viewNgCategory"
+                match:
+                    Identifier\ContentType: ng_category
+            ng_landing_page:
+                template: "@ezdesign/content/full/ng_landing_page.html.twig"
+                controller: "ngsite.controller.full_view:viewNgLandingPage"
+                match:
+                    Identifier\ContentType: ng_landing_page
+            ng_article:
+                template: "@ezdesign/content/full/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_news:
+                template: "@ezdesign/content/full/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_blog_post:
+                template: "@ezdesign/content/full/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_feedback_form:
+                template: "@ezdesign/content/full/ng_feedback_form.html.twig"
+                controller: "netgen_information_collection.controller:displayAndHandle"
+                match:
+                    Identifier\ContentType: ng_feedback_form
+            ng_audio:
+                template: "@ezdesign/content/full/ng_audio.html.twig"
+                match:
+                    Identifier\ContentType: ng_audio
+            ng_gallery:
+                template: "@ezdesign/content/full/ng_gallery.html.twig"
+                match:
+                    Identifier\ContentType: ng_gallery
+            ng_video:
+                template: "@ezdesign/content/full/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            ng_recipe:
+                template: "@ezdesign/content/full/ng_recipe.html.twig"
+                match:
+                    Identifier\ContentType: ng_recipe
+            ng_topic:
+                template: "@ezdesign/content/full/ng_topic.html.twig"
+                match:
+                    Identifier\ContentType: ng_topic
+            ng_htmlbox:
+                template: "@ezdesign/content/full/ng_htmlbox.html.twig"
+                match:
+                    Identifier\ContentType: ng_htmlbox
+        line:
+            ng_category:
+                template: "@ezdesign/content/line/ng_category.html.twig"
+                match:
+                    Identifier\ContentType: ng_category
+            ng_landing_page:
+                template: "@ezdesign/content/line/ng_landing_page.html.twig"
+                match:
+                    Identifier\ContentType: ng_landing_page
+            ng_article:
+                template: "@ezdesign/content/line/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_news:
+                template: "@ezdesign/content/line/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_blog_post:
+                template: "@ezdesign/content/line/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_audio:
+                template: "@ezdesign/content/line/ng_audio.html.twig"
+                match:
+                    Identifier\ContentType: ng_audio
+            ng_gallery:
+                template: "@ezdesign/content/line/ng_gallery.html.twig"
+                match:
+                    Identifier\ContentType: ng_gallery
+            ng_video:
+                template: "@ezdesign/content/line/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            ng_feedback_form:
+                template: "@ezdesign/content/line/ng_feedback_form.html.twig"
+                match:
+                    Identifier\ContentType: ng_feedback_form
+            file:
+                template: "@ezdesign/content/line/file.html.twig"
+                match:
+                    Identifier\ContentType: file
+            ng_recipe:
+                template: "@ezdesign/content/line/ng_recipe.html.twig"
+                match:
+                    Identifier\ContentType: ng_recipe
+            line:
+                template: "@ezdesign/content/line.html.twig"
+                match: ~
+        listitem:
+            ng_article:
+                template: "@ezdesign/content/listitem/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_audio:
+                template: "@ezdesign/content/listitem/ng_audio.html.twig"
+                match:
+                    Identifier\ContentType: ng_audio
+            ng_blog_post:
+                template: "@ezdesign/content/listitem/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_news:
+                template: "@ezdesign/content/listitem/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_video:
+                template: "@ezdesign/content/listitem/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            ng_gallery:
+                template: "@ezdesign/content/listitem/ng_gallery.html.twig"
+                match:
+                    Identifier\ContentType: ng_gallery
+            file:
+                template: "@ezdesign/content/listitem/file.html.twig"
+                match:
+                    Identifier\ContentType: file
+            ng_recipe:
+                template: "@ezdesign/content/listitem/ng_recipe.html.twig"
+                match:
+                    Identifier\ContentType: ng_recipe
+            listitem:
+                template: "@ezdesign/content/listitem.html.twig"
+                match: ~
+        listitem_with_intro:
+            listitem_with_intro:
+                template: "@ezdesign/content/listitem.html.twig"
+                params:
+                    with_intro: true
+                match: ~
+        standard:
+            ng_article:
+                template: "@ezdesign/content/standard/ng_article.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_article
+            ng_audio:
+                template: "@ezdesign/content/standard/ng_audio.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_audio
+            ng_banner:
+                template: "@ezdesign/content/standard/ng_banner.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_banner
+            ng_blog_post:
+                template: "@ezdesign/content/standard/ng_blog_post.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_category:
+                template: "@ezdesign/content/standard/ng_category.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_category
+            ng_feedback_form:
+                template: "@ezdesign/content/standard/ng_feedback_form.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_feedback_form
+            ng_frontpage:
+                template: "@ezdesign/content/standard/ng_frontpage.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_frontpage
+            ng_gallery:
+                template: "@ezdesign/content/standard/ng_gallery.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_gallery
+            ng_htmlbox:
+                template: "@ezdesign/content/standard/ng_htmlbox.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_htmlbox
+            ng_landing_page:
+                template: "@ezdesign/content/standard/ng_landing_page.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_landing_page
+            ng_news:
+                template: "@ezdesign/content/standard/ng_news.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_news
+            ng_video:
+                template: "@ezdesign/content/standard/ng_video.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_video
+            file:
+                template: "@ezdesign/content/standard/file.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: file
+            image:
+                template: "@ezdesign/content/standard/image.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: image
+            ng_recipe:
+                template: "@ezdesign/content/standard/ng_recipe.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType: ng_recipe
+            standard:
+                template: "@ezdesign/content/standard.html.twig"
+                params:
+                    with_intro: false
+                match: ~
+        standard_with_intro:
+            ng_article:
+                template: "@ezdesign/content/standard/ng_article.html.twig"
+                params:
+                    with_intro: true
+                match:
+                    Identifier\ContentType: ng_article
+            ng_audio:
+                template: "@ezdesign/content/standard/ng_audio.html.twig"
+                params:
+                    with_intro: true
+                match:
+                    Identifier\ContentType: ng_audio
+            ng_banner:
+                template: "@ezdesign/content/standard/ng_banner.html.twig"
+                params:
+                    with_intro: true
+                match:
+                    Identifier\ContentType: ng_banner
+            ng_blog_post:
+                template: "@ezdesign/content/standard/ng_blog_post.html.twig"
+                params:
+                    with_intro: true
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_gallery:
+                template: "@ezdesign/content/standard/ng_gallery.html.twig"
+                params:
+                    with_intro: true
+                match:
+                    Identifier\ContentType: ng_gallery
+            ng_news:
+                template: "@ezdesign/content/standard/ng_news.html.twig"
+                params:
+                    with_intro: true
+                match:
+                    Identifier\ContentType: ng_news
+            ng_video:
+                template: "@ezdesign/content/standard/ng_video.html.twig"
+                params:
+                    with_intro: true
+                match:
+                    Identifier\ContentType: ng_video
+            ng_recipe:
+                template: "@ezdesign/content/standard/ng_recipe.html.twig"
+                params:
+                    with_intro: true
+                match:
+                    Identifier\ContentType: ng_recipe
+            standard_with_intro:
+                template: "@ezdesign/content/standard.html.twig"
+                params:
+                    with_intro: true
+                match: ~
+        mini:
+            ng_article:
+                template: "@ezdesign/content/mini/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_news:
+                template: "@ezdesign/content/mini/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_blog_post:
+                template: "@ezdesign/content/mini/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_video:
+                template: "@ezdesign/content/mini/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            ng_audio:
+                template: "@ezdesign/content/mini/ng_audio.html.twig"
+                match:
+                    Identifier\ContentType: ng_audio
+            ng_gallery:
+                template: "@ezdesign/content/mini/ng_gallery.html.twig"
+                match:
+                    Identifier\ContentType: ng_gallery
+            file:
+                template: "@ezdesign/content/mini/file.html.twig"
+                match:
+                    Identifier\ContentType: file
+            ng_recipe:
+                template: "@ezdesign/content/mini/ng_recipe.html.twig"
+                match:
+                    Identifier\ContentType: ng_recipe
+            mini:
+                template: "@ezdesign/content/mini.html.twig"
+                match: ~
+        overlay:
+            ng_article:
+                template: "@ezdesign/content/overlay/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_news:
+                template: "@ezdesign/content/overlay/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_video:
+                template: "@ezdesign/content/overlay/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            ng_blog_post:
+                template: "@ezdesign/content/overlay/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_banner:
+                template: "@ezdesign/content/overlay/ng_banner.html.twig"
+                match:
+                    Identifier\ContentType: ng_banner
+            ng_recipe:
+                template: "@ezdesign/content/overlay/ng_recipe.html.twig"
+                match:
+                    Identifier\ContentType: ng_recipe
+            ng_gallery:
+                template: "@ezdesign/content/overlay/ng_gallery.html.twig"
+                match:
+                    Identifier\ContentType: ng_gallery
+            overlay:
+                template: "@ezdesign/content/overlay.html.twig"
+                match: ~
+        slide:
+            ng_article:
+                template: "@ezdesign/content/slide/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_banner:
+                template: "@ezdesign/content/slide/ng_banner.html.twig"
+                match:
+                    Identifier\ContentType: ng_banner
+            ng_blog_post:
+                template: "@ezdesign/content/slide/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_news:
+                template: "@ezdesign/content/slide/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_video:
+                template: "@ezdesign/content/slide/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            image:
+                template: "@ezdesign/content/slide/image.html.twig"
+                match:
+                    Identifier\ContentType: image
+            slide:
+                template: "@ezdesign/content/slide.html.twig"
+                match: ~
+        gallery_thumb:
+            ng_article:
+                template: "@ezdesign/content/gallery_thumb/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_banner:
+                template: "@ezdesign/content/gallery_thumb/ng_banner.html.twig"
+                match:
+                    Identifier\ContentType: ng_banner
+            ng_blog_post:
+                template: "@ezdesign/content/gallery_thumb/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_news:
+                template: "@ezdesign/content/gallery_thumb/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_video:
+                template: "@ezdesign/content/gallery_thumb/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            image:
+                template: "@ezdesign/content/gallery_thumb/image.html.twig"
+                match:
+                    Identifier\ContentType: image
+            gallery_thumb:
+                template: "@ezdesign/content/gallery_thumb.html.twig"
+                match: ~
+        gallery_grid:
+            ng_article:
+                template: "@ezdesign/content/gallery_grid/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_banner:
+                template: "@ezdesign/content/gallery_grid/ng_banner.html.twig"
+                match:
+                    Identifier\ContentType: ng_banner
+            ng_blog_post:
+                template: "@ezdesign/content/gallery_grid/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_news:
+                template: "@ezdesign/content/gallery_grid/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_video:
+                template: "@ezdesign/content/gallery_grid/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            image:
+                template: "@ezdesign/content/gallery_grid/image.html.twig"
+                match:
+                    Identifier\ContentType: image
+            gallery_grid:
+                template: "@ezdesign/content/gallery_grid.html.twig"
+                match: ~
+        embed:
+            ng_frontpage:
+                template: "@ezdesign/content/embed/ng_frontpage.html.twig"
+                match:
+                    Identifier\ContentType: ng_frontpage
+            ng_category:
+                template: "@ezdesign/content/embed/ng_category.html.twig"
+                match:
+                    Identifier\ContentType: ng_category
+            ng_landing_page:
+                template: "@ezdesign/content/embed/ng_landing_page.html.twig"
+                match:
+                    Identifier\ContentType: ng_landing_page
+            ng_article:
+                template: "@ezdesign/content/embed/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_news:
+                template: "@ezdesign/content/embed/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_blog_post:
+                template: "@ezdesign/content/embed/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_audio:
+                template: "@ezdesign/content/embed/ng_audio.html.twig"
+                match:
+                    Identifier\ContentType: ng_audio
+            ng_gallery:
+                template: "@ezdesign/content/embed/ng_gallery.html.twig"
+                match:
+                    Identifier\ContentType: ng_gallery
+            ng_video:
+                template: "@ezdesign/content/embed/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            ng_htmlbox:
+                template: "@ezdesign/content/embed/ng_htmlbox.html.twig"
+                match:
+                    Identifier\ContentType: ng_htmlbox
+            ng_feedback_form:
+                template: "@ezdesign/content/embed/ng_feedback_form.html.twig"
+                match:
+                    Identifier\ContentType: ng_feedback_form
+            ng_shortcut:
+                template: "@ezdesign/content/embed/ng_shortcut.html.twig"
+                match:
+                    Identifier\ContentType: ng_shortcut
+            ng_banner:
+                template: "@ezdesign/content/embed/ng_banner.html.twig"
+                match:
+                    Identifier\ContentType: ng_banner
+            image:
+                template: "@ezdesign/content/embed/image.html.twig"
+                controller: "ngsite.controller.embed_view:embedImage"
+                match:
+                    Identifier\ContentType: image
+            file:
+                template: "@ezdesign/content/embed/file.html.twig"
+                match:
+                    Identifier\ContentType: file
+        search:
+            search:
+                template: "@ezdesign/content/search.html.twig"
+                match: ~
 
-        default:
-            ngcontent_view:
-                ngcb_preview:
-                    ng_article:
-                        template: "@ezdesign/content/ngcb_preview/ng_article.html.twig"
-                        match:
-                            Identifier\ContentType: ng_article
-                    ng_audio:
-                        template: "@ezdesign/content/ngcb_preview/ng_audio.html.twig"
-                        match:
-                            Identifier\ContentType: ng_audio
-                    ng_banner:
-                        template: "@ezdesign/content/ngcb_preview/ng_banner.html.twig"
-                        match:
-                            Identifier\ContentType: ng_banner
-                    ng_blog_post:
-                        template: "@ezdesign/content/ngcb_preview/ng_blog_post.html.twig"
-                        match:
-                            Identifier\ContentType: ng_blog_post
-                    ng_gallery:
-                        template: "@ezdesign/content/ngcb_preview/ng_gallery.html.twig"
-                        match:
-                            Identifier\ContentType: ng_gallery
-                    ng_news:
-                        template: "@ezdesign/content/ngcb_preview/ng_news.html.twig"
-                        match:
-                            Identifier\ContentType: ng_news
-                    ng_recipe:
-                        template: "@ezdesign/content/ngcb_preview/ng_recipe.html.twig"
-                        match:
-                            Identifier\ContentType: ng_recipe
-                    ng_video:
-                        template: "@ezdesign/content/ngcb_preview/ng_video.html.twig"
-                        match:
-                            Identifier\ContentType: ng_video
-                    image:
-                        template: "@ezdesign/content/ngcb_preview/image.html.twig"
-                        match:
-                            Identifier\ContentType: image
+default:
+    ngcontent_view:
+        ngcb_preview:
+            ng_article:
+                template: "@ezdesign/content/ngcb_preview/ng_article.html.twig"
+                match:
+                    Identifier\ContentType: ng_article
+            ng_audio:
+                template: "@ezdesign/content/ngcb_preview/ng_audio.html.twig"
+                match:
+                    Identifier\ContentType: ng_audio
+            ng_banner:
+                template: "@ezdesign/content/ngcb_preview/ng_banner.html.twig"
+                match:
+                    Identifier\ContentType: ng_banner
+            ng_blog_post:
+                template: "@ezdesign/content/ngcb_preview/ng_blog_post.html.twig"
+                match:
+                    Identifier\ContentType: ng_blog_post
+            ng_gallery:
+                template: "@ezdesign/content/ngcb_preview/ng_gallery.html.twig"
+                match:
+                    Identifier\ContentType: ng_gallery
+            ng_news:
+                template: "@ezdesign/content/ngcb_preview/ng_news.html.twig"
+                match:
+                    Identifier\ContentType: ng_news
+            ng_recipe:
+                template: "@ezdesign/content/ngcb_preview/ng_recipe.html.twig"
+                match:
+                    Identifier\ContentType: ng_recipe
+            ng_video:
+                template: "@ezdesign/content/ngcb_preview/ng_video.html.twig"
+                match:
+                    Identifier\ContentType: ng_video
+            image:
+                template: "@ezdesign/content/ngcb_preview/image.html.twig"
+                match:
+                    Identifier\ContentType: image

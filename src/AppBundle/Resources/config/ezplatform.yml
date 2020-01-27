@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: templates.yml }
-    - { resource: content_view.yml }
     - { resource: image.yml }
     - { resource: opengraph.yml }
     - { resource: legacy.yml }
