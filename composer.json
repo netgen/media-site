@@ -67,7 +67,7 @@
         "php-http/curl-client": "^1.7.1",
         "php-http/httplug-bundle": "^1.15.2",
         "sentry/sentry-symfony": "^3.1",
-        "symfony/webpack-encore-bundle": "^1.6.2",
+        "symfony/webpack-encore-bundle": "^1.7.3",
 
         "netgen/media-site-data": "~1.2.0",
         "netgen/site-bundle": "~1.2.0",
