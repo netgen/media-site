@@ -4,7 +4,7 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 <article class="view-type view-type-{{ view_type }} ng-article vl6">
-	<h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
+	<h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.firstNonEmptyField('teaser_title', 'title', 'name')) }}</a></h2>
     <div class="info">
         {% if not content.fields.authors.empty %}
             {% for author in content.fieldRelations('authors') %}

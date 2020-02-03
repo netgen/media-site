@@ -4,7 +4,7 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ view_type }} ng-audio">
-    <h2 class="title">{{ content_fields.title(content) }}</h2>
+    <h2 class="title">{{ ng_render_field(content.firstNonEmptyField('teaser_title', 'title', 'name')) }}</h2>
 
     {% if not content.fields.file.empty %}
         <audio controls>

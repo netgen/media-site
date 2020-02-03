@@ -25,20 +25,6 @@
     {% endif %}
 {% endmacro %}
 
-{% macro title(content) %}
-{% apply spaceless %}
-    {% if content.hasField('teaser_title') and not content.fields.teaser_title.empty %}
-        {{ content.fields.teaser_title.value.text }}
-    {% elseif content.hasField('title') and not content.fields.title.empty %}
-        {{ content.fields.title.value.text }}
-    {% elseif content.hasField('name') and not content.fields.name.empty %}
-        {{ content.fields.name.value.text }}
-    {% else %}
-        {{ content.name }}
-    {% endif %}
-{% endapply %}
-{% endmacro %}
-
 {% macro intro(content) %}
     {% if content.hasField('teaser_intro') and not content.fields.teaser_intro.empty %}
         <div class="short">

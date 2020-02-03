@@ -5,7 +5,7 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ view_type }} image vl3">
-    {% set title = content_fields.title(content) %}
+    {% set title = content.firstNonEmptyField('teaser_title', 'title', 'name').value.text %}
 
     <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }}" class="js-mfp-item">
         {{ slide.image(content) }}

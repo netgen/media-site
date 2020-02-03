@@ -5,7 +5,7 @@
 
 {% if content.hasField('image') and not content.fields.image.empty %}
     <div class="view-type view-type-{{ view_type }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl3">
-        {% set title = content_fields.title(content) %}
+        {% set title = content.firstNonEmptyField('teaser_title', 'title', 'name').value.text %}
 
         <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }}" class="js-mfp-item">
             {{ ng_render_field(

@@ -12,7 +12,7 @@
         {% endif %}
 
         {% set date = content.fields.publish_date.value.value|date('j. n. Y.') %}
-        {% set title = content_fields.title(content) %}
+        {% set title = content.firstNonEmptyField('teaser_title', 'title', 'name').value.text %}
 
         <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }} by {{ author }} ({{ date }})" class="js-mfp-item">
             {{ ng_render_field(
