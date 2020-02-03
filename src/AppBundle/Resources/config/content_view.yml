@@ -218,7 +218,7 @@ frontend_group:
                 template: "@ezdesign/content/embed.html.twig"
                 match: ~
         search:
-            search:
+            match_all:
                 template: "@ezdesign/content/search.html.twig"
                 match: ~
 
