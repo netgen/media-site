@@ -27,12 +27,9 @@
 
 {% macro title(content) %}
 {% apply spaceless %}
-    {% if content.hasField('teaser_title') and not content.fields.teaser_title.empty %}
-        {{ content.fields.teaser_title.value.text }}
-    {% elseif content.hasField('title') and not content.fields.title.empty %}
-        {{ content.fields.title.value.text }}
-    {% elseif content.hasField('name') and not content.fields.name.empty %}
-        {{ content.fields.name.value.text }}
+    {% set title = content.firstNonEmptyField('teaser_title', 'title', 'name') %}
+    {% if not title.empty %}
+        {{ title.value.text }}
     {% else %}
         {{ content.name }}
     {% endif %}
