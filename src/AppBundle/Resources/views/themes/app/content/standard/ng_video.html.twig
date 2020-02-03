@@ -8,11 +8,11 @@
     <article class="view-type view-type-{{ view_type }} ng-video vl1">
         <i class="fas fa-play article-icon" aria-hidden="true"></i>
         <figure class="image">
-            {{ video.poster(content, location, null, content.firstNonEmptyField('teaser_title', 'title', 'name').value.text) }}
+            {{ video.poster(content, location, null, content_fields.title(content)) }}
         </figure>
 
         <header class="article-header">
-            <h2 class="title"><a href="{{ path(location) }}">{{ ng_render_field(content.firstNonEmptyField('teaser_title', 'title', 'name')) }}</a></h2>
+            <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
             <div class="info">
                 {% if not content.fields.sponsored_content_disclosure.empty %}
                     <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>

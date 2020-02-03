@@ -4,5 +4,5 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ view_type }} ng-feedback-form">
-    <h3><a href="{{ path(content) }}">{{ ng_render_field(content.firstNonEmptyField('teaser_title', 'title', 'name')) }}</a></h3>
+    <h3><a href="{{ path(content) }}">{{ content_fields.title(content) }}</a></h3>
 </div>

@@ -13,7 +13,7 @@
                 {{ ng_render_field(
                     content.fields[field_name], {
                         parameters: {
-                            alt_text: content.firstNonEmptyField('teaser_title', 'title', 'name').value.text,
+                            alt_text: content_fields.title(content),
                             disable_src_attribute: true
                         },
                         attr: {
@@ -28,7 +28,7 @@
                 content.fields[field_name], {
                     parameters: {
                         alias: alias_name,
-                        alt_text: content.firstNonEmptyField('teaser_title', 'title', 'name').value.text
+                        alt_text: content_fields.title(content)
                     }
                 }
             ) }}
