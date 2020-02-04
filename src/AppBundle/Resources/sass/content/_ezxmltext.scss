@@ -56,11 +56,11 @@
     p {
         margin: 0 0 2em;
         a:not(.btn) {
-            border-bottom: .25rem solid $sunglow;
+            border-bottom: .25rem solid $primary;
             transition: border .3s;
             &:hover {
                 color: inherit;
-                border-color: darken($sunglow, 15%);
+                border-color: darken($primary, 15%);
             }
         }
     }
@@ -79,7 +79,7 @@
                 top: .2777777778em;
                 width: .8888888889em;
                 height: .8888888889em;
-                background: $sunglow;
+                background: $primary;
             }
         }
     }
@@ -98,13 +98,13 @@
                 position: absolute;
                 left: 0;
                 font-weight: 900;
-                color: $sunglow;
+                color: $primary;
             }
         }
     }
     blockquote {
         background-color: rgba(254, 215, 47, .04);
-        border-bottom: .375rem solid $sunglow;
+        border-bottom: .375rem solid $primary;
         padding: 2rem;
         margin-bottom: 2rem;
         text-align: center;
@@ -114,7 +114,7 @@
             &::before {
                 @extend %fontawesome;
                 content: '\f10d';
-                color: $sunglow;
+                color: $primary;
                 font-size: 2.5em;
             }
         }
