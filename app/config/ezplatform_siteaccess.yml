@@ -50,6 +50,10 @@ ezdesign:
         app:
             - app
             - common
+        admin:
+            - admin
+            - standard
+            - common
         ngadminui:
             - ngadminui
             - common
