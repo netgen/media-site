@@ -54,15 +54,14 @@ task('deploy', [
     // copy vendors folder between releases before running composer install to speed it up
     'deploy:copy_dirs',
     'deploy:vendors',
-    'deploy:assets:install',
+    //'deploy:assets:install',
     'deploy:sentry:symfony',
     'deploy:sentry',
-    'deploy:sentry:capture',
     'deploy:cache:clear',
     'deploy:cache:warmup',
     'deploy:writable',
     // Migrate database before symlink new release.
-    'database:migrate',
+    //  'database:migrate',
     // Optional: if the project uses kaliop migrations
     //database:kaliop:migrate
     'deploy:symlink',

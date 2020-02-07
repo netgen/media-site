@@ -4,10 +4,7 @@ namespace Deployer;
 
 use Closure;
 use DateTime;
-use Raven_Client;
-use Raven_Autoloader;
 use Symfony\Component\Yaml\Yaml;
-
 
 desc('Update release version in Sentry configuration on Symfony');
 task('deploy:sentry:symfony', function () {
@@ -22,31 +19,6 @@ task('deploy:sentry:symfony', function () {
     upload($tmpFile, $file);
 
     unlink($tmpFile);
-});
-
-desc('Send notification to sentry regarding deploy');
-task('deploy:sentry:capture', function () {
-    Raven_Autoloader::register();
-
-    $sentryDsn = get('sentry_dsn');
-    $client = (new Raven_Client($sentryDsn))->install();
-
-    $user = get('user');
-    $target = get('target');
-    $releasePath = get('release_path');
-    $releaseNumber = explode('/', $releasePath);
-    $releaseNumber = end($releaseNumber);
-
-    $client->captureMessage(
-        "Deploy by {$user} to {$target}, release {$releaseNumber}",
-        [],
-        [
-            'level' => 'info',
-            'user' => [
-                'name' => $user
-            ]
-        ]
-    );
 });
 
 function getSentryConfig(): array
@@ -124,7 +96,7 @@ function getCommitsInformation(): Closure
                 return [
                     'id' => $ref,
                     'author_name' => $authorName,
-                    'author_email' => $authorEmail,
+                    'author_email' => strpos($authorEmail, '@') !== false ? $authorEmail : 'missing@email.com',
                     'message' => $subject,
                     'timestamp' => date(DateTime::ATOM, (int) $timestamp),
                     'repository' => get('repository_name') ?: get('repository')
