@@ -110,7 +110,7 @@ set('apache_use_sudo', true);
 desc('Reload Apache');
 task('server:reload_apache', function() {
     $command = 'service apache2 reload';
-    $command = get('varnish_use_sudo') ? 'sudo '.$command : $command;
+    $command = get('apache_use_sudo') ? 'sudo '.$command : $command;
 
     run($command);
 });
