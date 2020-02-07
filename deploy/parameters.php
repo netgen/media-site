@@ -13,7 +13,7 @@ add('shared_files', ['.env', 'app/config/parameters.yml']);
 add('shared_dirs', ['ezpublish_legacy/var/site/storage']);
 
 add('writable_dirs', ['ezpublish_legacy/var']);
-set('writable_use_sudo', true);
+set('writable_use_sudo', false);
 
 set('keep_releases', 5);
 
