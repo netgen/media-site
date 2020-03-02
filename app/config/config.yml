@@ -174,7 +174,8 @@ jms_translation:
 
 # Liip Imagine Configuration
 liip_imagine:
-    driver: imagick
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "%liip_imagine_driver%"
 
 # Sensio Framework Extra Configuration
 sensio_framework_extra:

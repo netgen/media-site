@@ -137,6 +137,9 @@ parameters:
     varnish_invalidate_token: '%env(HTTPCACHE_VARNISH_INVALIDATE_TOKEN)%'
     env(HTTPCACHE_VARNISH_INVALIDATE_TOKEN): ~
 
+    # LiipImagineBundle - imagine driver
+    liip_imagine_driver: 'imagick'
+
     # Settings used to control the profiler storage in development
 
     ## Available options: local (for filesystem storage), redis
