@@ -37,3 +37,7 @@ ezdesign:
             - app
             - common
             - standard
+        admin:
+            - admin
+            - standard
+            - common

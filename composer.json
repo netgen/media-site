@@ -72,13 +72,13 @@
 
         "php-http/httplug-bundle": "^1.16",
         "sentry/sentry-symfony": "^3.2",
-        "symfony/webpack-encore-bundle": "^1.6.2",
+        "symfony/webpack-encore-bundle": "^1.7.3",
 
         "netgen/media-site-data": "^2.0@dev",
         "netgen/site-bundle": "^2.0@dev",
         "netgen/site-installer-bundle": "^2.0@dev",
         "netgen/information-collection-bundle": "^2.0@dev",
-        "netgen/ezplatform-site-api": "^3.1",
+        "netgen/ezplatform-site-api": "^3.4",
         "netgen/ezplatform-search-extra": "^1.9@dev",
 
         "netgen/layouts-standard": "~1.1.0",

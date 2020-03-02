@@ -67,7 +67,7 @@
             left: 0;
             width: 16rem;
             z-index: 20;
-            background: $sunglow;
+            background: $primary;
             box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
             a {
                 font-size: .75rem;
@@ -92,7 +92,7 @@
         right: $gutter;
         top: $header-height-sm;
         z-index: 1000;
-        background: $sunglow;
+        background: $primary;
         box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
         .navbar-nav {
             display: block;
@@ -190,7 +190,7 @@
         }
     }
     .mainnav-active & {
-        background: $sunglow;
+        background: $primary;
         .hamburger {
             background: transparent;
             transition: background 100ms ease-out;

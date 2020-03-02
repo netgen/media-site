@@ -19,7 +19,7 @@
                 vertical-align: middle;
                 width: .25rem;
                 height: .25rem;
-                background: $sunglow;
+                background: $primary;
                 margin: 0 .25rem .125rem 0;
             }
         }
@@ -27,7 +27,7 @@
     a,
     .sponsored-tag {
         font-weight: 700;
-        color: $scooter;
+        color: $tertiary;
     }
     a {
         transition: border-color .15s;
@@ -37,7 +37,7 @@
         }
     }
     .recipe-details {
-        background: $catskill-white;
+        background: $secondary;
         padding: 0 .6153846154em;
         color: $gray-87;
         i {
@@ -62,6 +62,6 @@
     border-bottom: 4px solid transparent;
     &:hover {
         color: inherit;
-        border-bottom-color: $sunglow;
+        border-bottom-color: $primary;
     }
 }
