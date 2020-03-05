@@ -8,7 +8,6 @@ require 'vendor/deployer/recipes/recipe/rsync.php';
 require 'vendor/deployer/recipes/recipe/sentry.php';
 require 'vendor/deployer/recipes/recipe/slack.php';
 
-require __DIR__ . '/deploy/parameters.php';
 require __DIR__ . '/deploy/hosts.php';
 require __DIR__ . '/deploy/tasks/server.php';
 require __DIR__ . '/deploy/tasks/database.php';
@@ -17,6 +16,7 @@ require __DIR__ . '/deploy/tasks/deploy_log.php';
 require __DIR__ . '/deploy/tasks/sentry.php';
 require __DIR__ . '/deploy/tasks/logs.php';
 require __DIR__ . '/deploy/tasks/overrides.php';
+require __DIR__ . '/deploy/parameters.php';
 // optional: slack integration
 //require __DIR__ . '/deploy/tasks/slack.php';
 
