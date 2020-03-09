@@ -24,7 +24,6 @@ require __DIR__ . '/deploy/parameters.php';
 set('git_tty', true);
 
 add('copy_dirs', ['vendor']);
-add('writable_dirs', ['var/encore']);
 
 set('use_relative_symlink', false);
 
