@@ -17,4 +17,3 @@ final class DisableVerticalWhitespacePass implements CompilerPassInterface
         $container->removeDefinition('ngsite.layouts.block.plugin.vertical_whitespace');
     }
 }
-

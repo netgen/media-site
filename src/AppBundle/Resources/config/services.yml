@@ -8,5 +8,3 @@ services:
             - "%ngsite.layouts.block.plugin.vertical_whitespace_v2.bottom%"
         tags:
             - { name: netgen_layouts.block_definition_handler.plugin, priority: 200 }
-
-
