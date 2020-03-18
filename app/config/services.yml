@@ -14,11 +14,3 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    ngsite.layouts.block.plugin.vertical_whitespace_v2:
-        class: Netgen\Bundle\SiteBundle\Layouts\Block\Plugin\VerticalWhitespaceV2Plugin
-        arguments:
-            - "%ngsite.layouts.block.plugin.vertical_whitespace_v2.top%"
-            - "%ngsite.layouts.block.plugin.vertical_whitespace_v2.bottom%"
-        tags:
-            - { name: netgen_layouts.block_definition_handler.plugin, priority: 200 }
-
