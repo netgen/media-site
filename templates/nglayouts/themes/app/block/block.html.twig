@@ -10,8 +10,8 @@
 {% set container_size = block.parameter('set_container:size').value %}
 
 {% set use_whitespace = block.parameter('vertical_whitespace:enabled').value is same as(true) %}
-{% set whitespace_position = block.parameter('vertical_whitespace:position').value %}
-{% set whitespace_size = block.parameter('vertical_whitespace:size').value %}
+{% set whitespace_top = block.parameter('vertical_whitespace:top').value %}
+{% set whitespace_bottom = block.parameter('vertical_whitespace:bottom').value %}
 
 {% set bg_image = block.dynamicParameter('background_image:image_content') %}
 {% set use_bg_image = block.hasParameter('background_image:enabled') and block.parameter('background_image:enabled').value is same as(true) %}
@@ -23,8 +23,9 @@
 
 {% set css_classes = ['ngl-block', 'ngl-' ~ block.definition.identifier, 'ngl-vt-' ~ block.viewType, css_class|default(block.parameter('css_class').value)] %}
 
-{% if use_whitespace and whitespace_position is not null and whitespace_size is not null %}
-    {% set css_classes = css_classes|merge(['whitespace-' ~ whitespace_position, 'whitespace-' ~ whitespace_size]) %}
+{% if use_whitespace %}
+    {% set css_classes = css_classes|merge(['whitespace-top-' ~ whitespace_top]) %}
+    {% set css_classes = css_classes|merge(['whitespace-bottom-' ~ whitespace_bottom]) %}
 {% endif %}
 
 {% if use_bg_image %}

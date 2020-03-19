@@ -1,1 +1,7 @@
 services:
+    Netgen\Bundle\SiteBundle\Layouts\Block\Plugin\VerticalWhitespaceV2Plugin:
+        arguments:
+            - "%ngsite.layouts.block.plugin.vertical_whitespace.top%"
+            - "%ngsite.layouts.block.plugin.vertical_whitespace.bottom%"
+        tags:
+            - { name: netgen_layouts.block_definition_handler.plugin, priority: 200 }
