@@ -1,39 +1,22 @@
 .ngl-block {
     // whitespace sizes
     $sizes: (
-        sm: 2rem,
-        md: 4rem,
-        lg: 8rem,
+        small: 2rem,
+        medium: 4rem,
+        large: 8rem,
     );
     $sm-sizes: (
-        sm: 1rem,
-        md: 2rem,
-        lg: 4rem,
+        small: 1rem,
+        medium: 2rem,
+        large: 4rem,
     );
-    // replaces string
-    @function str-replace($string, $search, $replace: '') {
-        $index: str-index($string, $search);
-        @if $index {
-            @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @each $keyMap, $valueMap in $sizes {
+        &.whitespace-top-#{$keyMap} {
+              padding-top: $valueMap;
         }
-        @return $string;
-    }
-    // builds neccessary classes from $sizes object
-    @mixin whitespace($padding, $sizes: $sizes) {
-        @each $size, $value in $sizes {
-            &.whitespace-#{$size} {
-                padding: unquote(str-replace($padding, 'size', $value));
-            }
+        &.whitespace-bottom-#{$keyMap} {
+              padding-bottom: $valueMap;
         }
-    }
-    &.whitespace-both {
-        @include whitespace('size 0');
-    }
-    &.whitespace-top {
-        @include whitespace('size 0 0');
-    }
-    &.whitespace-bottom {
-        @include whitespace('0 0 size');
     }
     &.with-bg-image {
         background-repeat: no-repeat;
@@ -57,14 +40,13 @@
     }
 
     @include media-breakpoint-down(sm) {
-        &.whitespace-both {
-            @include whitespace('size 0', $sm-sizes);
-        }
-        &.whitespace-top {
-            @include whitespace('size 0 0', $sm-sizes);
-        }
-        &.whitespace-bottom {
-            @include whitespace('0 0 size', $sm-sizes);
+        @each $keyMap, $valueMap in $sm-sizes {
+            &.whitespace-top-#{$keyMap} {
+                  padding-top: $valueMap;
+            }
+            &.whitespace-bottom-#{$keyMap} {
+                  padding-bottom: $valueMap;
+            }
         }
     }
 }
