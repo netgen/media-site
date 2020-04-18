@@ -1,1 +1,2 @@
 rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/app.php" break;
+rewrite "^/var/([^/]+/)?cache/(texttoimage|public)/(.*)" "/index_cluster.php" break;
