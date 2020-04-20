@@ -11,6 +11,8 @@
 /config/packages/server/local/
 /config/packages/server/local.yml
 
+/config/graphql/
+
 /doc/docker/entrypoint/*/*.sql
 /dfsdata
 
