@@ -29,8 +29,8 @@ SetEnv SYMFONY_HTTP_CACHE "0"
 #      and cli command usage takes them into account as well.
 
 # NOTE: Using gzip on text/html can be a security issue. See http://breachattack.com.
+# AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/plain
-AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/xml
 AddOutputFilterByType DEFLATE text/css
 AddOutputFilterByType DEFLATE application/xml
