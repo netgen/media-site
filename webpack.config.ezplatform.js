@@ -14,7 +14,7 @@ Encore.setOutputPath('public/assets/build')
 
 // Put your config here.
 Encore.addEntry('app_default', [
-    path.resolve(__dirname, './assets/scss/welcome-page.scss'),
+    // path.resolve(__dirname, './path/to/file.scss'),
 ]);
 
 const projectConfig = Encore.getWebpackConfig();
