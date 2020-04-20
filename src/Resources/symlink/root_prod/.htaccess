@@ -14,7 +14,7 @@
 # Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
 # Possible values: 0, 1 or ""
-# Defaults to disabled if APP_ENV is set to "dev" or APP_TRUSTED_PROXIES is set,
+# Defaults to disabled if APP_ENV is set to "dev" or TRUSTED_PROXIES is set,
 # and if this env value is omitted or empty
 SetEnv APP_HTTP_CACHE "0"
 
@@ -28,9 +28,9 @@ SetEnv APP_HTTP_CACHE "0"
 #      they should in most cases rather be set in the environment then in vhost config to make sure cronjobs
 #      and cli command usage takes them into account as well.
 
-AddOutputFilterByType DEFLATE text/plain
 # NOTE: Using gzip on text/html can be a security issue. See http://breachattack.com.
 # AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/xml
 AddOutputFilterByType DEFLATE text/css
 AddOutputFilterByType DEFLATE text/javascript
@@ -50,9 +50,6 @@ Options +FollowSymlinks
 Options -Indexes
 
 RewriteEngine On
-
-RewriteCond %{REQUEST_URI} \.svn|\.git
-RewriteRule .* / [L,R=301]
 
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
 RewriteRule ^index\.php(/(.*)|$) /$2 [R=301,L]
@@ -87,6 +84,7 @@ RewriteRule ^var/.*(?i)\.(php3?|phar|phtml|sh|exe|pl|bin)$ - [F]
 RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
 RewriteRule ^var/([^/]+/)?storage/original/image/(.*)\.svg - [L]
 
+# Makes it possible to placed your favicon and robots.txt at the root of your web folder
 RewriteRule ^favicon\.ico - [L]
 RewriteRule ^robots\.txt - [L]
 
@@ -94,5 +92,8 @@ RewriteRule ^robots\.txt - [L]
 RewriteRule ^images/ - [L]
 RewriteRule ^bundles/ - [L]
 RewriteRule ^assets/ - [L]
+
+# Prevent access to website with direct usage of index.php in URL
+RewriteRule ^([^/]+/)?index\.php([/?#]|$) - [R=404,L]
 
 RewriteRule .* index\.php
