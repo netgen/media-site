@@ -4,18 +4,18 @@
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
 # Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
-SetEnvIf REQUEST_URI ".*" SYMFONY_ENV=dev
+SetEnvIf Request_URI ".*" SYMFONY_ENV=dev
 
 # Whether to use debugging.
 # Possible values: 0 or 1
 # Defaults to 0 if omitted, unless SYMFONY_ENV is set to: "dev"
-#SetEnv SYMFONY_DEBUG 0
+#SetEnv SYMFONY_DEBUG "0"
 
 # Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
 # Possible values: 0 or 1
 # Defaults to 1 if omitted, unless SYMFONY_ENV is set to: "dev"
-#SetEnv SYMFONY_HTTP_CACHE 1
+#SetEnv SYMFONY_HTTP_CACHE "1"
 
 # Defines the proxies to trust.
 # Separate entries by a comma
@@ -27,6 +27,7 @@ SetEnvIf REQUEST_URI ".*" SYMFONY_ENV=dev
 #      they should in most cases rather be set in the environment then in vhost config to make sure cronjobs
 #      and cli command usage takes them into account as well.
 
+# NOTE: Using gzip on text/html can be a security issue. See http://breachattack.com.
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/xml
@@ -46,9 +47,6 @@ Options +FollowSymlinks
 Options -Indexes
 
 RewriteEngine On
-
-RewriteCond %{REQUEST_URI} \.svn|\.git
-RewriteRule .* / [L,R=301]
 
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
 RewriteRule ^app(_.+)?\.php(/(.*)|$) /$3 [R=301,L]
@@ -87,11 +85,15 @@ RewriteRule ^design/[^/]+/(stylesheets|images|fonts|javascript)/.* - [L]
 RewriteRule ^share/icons/.* - [L]
 RewriteRule ^extension/[^/]+/design/[^/]+/(stylesheets|flash|images|fonts|lib|javascripts?)/.* - [L]
 
+# Makes it possible to placed your favicon and robots.txt at the root of your web folder
 RewriteRule ^favicon\.ico - [L]
 RewriteRule ^robots\.txt - [L]
 
 # The following rules are needed to correctly display bundle and project assets
 RewriteRule ^bundles/ - [L]
 RewriteRule ^assets/ - [L]
+
+# Prevent access to website with direct usage of app.php in URL
+RewriteRule ^([^/]+/)?app\.php([/?#]|$) - [R=404,L]
 
 RewriteRule .* app\.php
