@@ -6,21 +6,22 @@
 # Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
 SetEnvIf Request_URI ".*" SYMFONY_ENV=dev
 
-# Whether to use debugging.
-# Possible values: 0 or 1
-# Defaults to 0 if omitted, unless SYMFONY_ENV is set to: "dev"
+# Optional: Whether to use debugging.
+# Possible values: 0, 1 or ""
+# Defaults to enabled if SYMFONY_ENV is set to "dev" if env value is omitted or empty
 #SetEnv SYMFONY_DEBUG "0"
 
 # Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
-# Possible values: 0 or 1
-# Defaults to 1 if omitted, unless SYMFONY_ENV is set to: "dev"
+# Possible values: 0, 1 or ""
+# Defaults to disabled if SYMFONY_ENV is set to "dev" or SYMFONY_TRUSTED_PROXIES is set,
+# and if this env value is omitted or empty
 #SetEnv SYMFONY_HTTP_CACHE "1"
 
-# Defines the proxies to trust.
-# Separate entries by a comma
-# Example: "ip1,ip2"
-# By default, no trusted proxies are set
+# Optional: Defines the proxies to trust
+# Needed when using Varnish as proxy, if so disable SYMFONY_HTTP_CACHE.
+# Separate entries by a comma, example: "ip1,ip2"
+# Defaults to not be set if env value is omitted or empty
 #SetEnv SYMFONY_TRUSTED_PROXIES "127.0.0.1"
 
 # TIP: There are many more environment variables supported by eZ Platform. However unlike those listed above
