@@ -24,7 +24,6 @@ final class Kernel extends BaseKernel
     {
         $container->addCompilerPass(new CompilerPass\DisableLegacyContentViewFallbackPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, 20);
         $container->addCompilerPass(new CompilerPass\XslRegisterPass());
-        $container->addCompilerPass(new CompilerPass\DisableVerticalWhitespacePass());
     }
 
     public function registerBundles(): iterable
