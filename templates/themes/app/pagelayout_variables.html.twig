@@ -49,15 +49,15 @@
         {% if translation_site_access is not empty %}
             {% set siteaccess_languages = ezplatform.configResolver.parameter('languages', null, translation_site_access) %}
             {% set route_reference = ez_route(params={'siteaccess': translation_site_access}) %}
-            {% set homepage_url = url(ezplatform.rootLocation, {siteaccess: translation_site_access}) %}
+            {% set homepage_url = ez_url(ezplatform.rootLocation, {siteaccess: translation_site_access}) %}
 
             {% if route_reference.route is not empty %}
                 {% if content is not defined %}
-                    {% set url = url(route_reference) %}
+                    {% set url = ez_url(route_reference) %}
                     {% set available_translations = available_translations|merge({(language): url}) %}
                     {% set available_hreflang_translations = available_hreflang_translations|merge({(language): url}) %}
                 {% elseif language in content.versionInfo.languageCodes or content.contentInfo.alwaysAvailable %}
-                    {% set url = url(route_reference, {'language': language}) %}
+                    {% set url = ez_url(route_reference, {'language': language}) %}
                     {% if '/view/content/' not in url %}
                         {% set available_translations = available_translations|merge({(language): url}) %}
                         {% set available_hreflang_translations = available_hreflang_translations|merge({(language): url}) %}

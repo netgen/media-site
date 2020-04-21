@@ -1,4 +1,4 @@
-{% set root_location_path = path(ezplatform.rootLocation) %}
+{% set root_location_path = ez_path(ezplatform.rootLocation) %}
 
 {% if canonical_url|default('') is not empty %}
     <link rel="canonical" href="{{ canonical_url }}" />

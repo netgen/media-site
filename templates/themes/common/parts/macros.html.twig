@@ -14,7 +14,7 @@
         {% set related_content = content.fieldRelation('related_object') %}
 
         {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
-            {% set url = path(related_content) %}
+            {% set url = ez_path(related_content) %}
         {% endif %}
     {% endif %}
 
@@ -49,7 +49,7 @@
         {% set related_content = content.fieldRelation('related_object') %}
 
         {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
-            {% set url = path(related_content) %}
+            {% set url = ez_path(related_content) %}
         {% endif %}
     {% endif %}
 
@@ -81,7 +81,7 @@
         {% set related_content = content.fieldRelation('related_object') %}
 
         {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
-            {% set url = path(related_content) %}
+            {% set url = ez_path(related_content) %}
         {% endif %}
     {% endif %}
 

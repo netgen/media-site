@@ -2,7 +2,7 @@
     {% set alias_name = alias_name|default('i480') %}
     {% set alt_text = alt_text ?? null %}
 
-    <a href="{{ path(location is not empty ? location : content) }}" class="image-16by9" {% if alt_text is not empty %}aria-label="{{ alt_text }}"{% endif %}>
+    <a href="{{ ez_path(location is not empty ? location : content) }}" class="image-16by9" {% if alt_text is not empty %}aria-label="{{ alt_text }}"{% endif %}>
         <figure>
             {% if not content.fields.poster.empty %}
                 {{ ng_render_field(content.fields.poster, {'parameters': {'alias': alias_name}}) }}

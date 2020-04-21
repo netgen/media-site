@@ -17,7 +17,7 @@
                         <li class="current"><a href="#" data-toggle="dropdown">{{ language_name }}</a></li>
                     {% endif %}
                 {% else %}
-                    <li><a href="{{ url(ezplatform.rootLocation, {'language': language}) }}">{{ language_name }}</a></li>
+                    <li><a href="{{ ez_url(ezplatform.rootLocation, {'language': language}) }}">{{ language_name }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>

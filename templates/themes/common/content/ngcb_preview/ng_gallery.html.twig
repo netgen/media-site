@@ -3,7 +3,7 @@
 
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-{% set location_path = path(location) %}
+{% set location_path = ez_path(location) %}
 {% set children = location.filterChildren(['image'], 1).currentPageResults %}
 
 <article class="view-type view-type-{{ view_type }} ng-gallery vl1">

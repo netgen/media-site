@@ -32,7 +32,7 @@
                         {% if not content.fields.authors.empty %}
                             By
                             {% for author in content.fieldRelations('authors') %}
-                                <a href="{{ path(author) }}" class="article-author">{{ author.name }}</a>
+                                <a href="{{ ez_path(author) }}" class="article-author">{{ author.name }}</a>
                             {% endfor %}
                         {% endif %}
                     </div>
@@ -75,7 +75,7 @@
                         {% if not content.fields.tags.empty %}
                             <div class="full-article-tags">
                                 {% for tag in content.fields.tags.value.tags %}
-                                    <a href="{{ path(tag) }}">{{ tag.keyword }}</a>
+                                    <a href="{{ ez_path(tag) }}">{{ tag.keyword }}</a>
                                 {% endfor %}
                             </div>
                         {% endif %}

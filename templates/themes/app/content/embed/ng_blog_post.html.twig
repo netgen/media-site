@@ -4,7 +4,7 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ view_type }} ng-blog-post">
-    <h3><a href="{{ path(content) }}">{{ content_fields.title(content) }}</a></h3>
+    <h3><a href="{{ ez_path(content) }}">{{ content_fields.title(content) }}</a></h3>
 
     <div class="date">
         {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
@@ -12,7 +12,7 @@
 
     {% if not content.fields.authors.empty %}
         {% for author in content.fieldRelations('authors') %}
-            <a href="{{ path(author) }}" class="article-author">{{ author.name }}</a>
+            <a href="{{ ez_path(author) }}" class="article-author">{{ author.name }}</a>
         {% endfor %}
     {% endif %}
 
