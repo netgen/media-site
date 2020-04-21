@@ -22,7 +22,7 @@
                         {% elseif content.hasField('full_intro') and not content.fields.full_intro.empty %}
                             {{ ng_render_field(content.fields.full_intro) }}
                         {% elseif content.hasField('body') and not content.fields.body.empty %}
-                            {{ content.fields.body.value.xml.saveXML()|striptags|trim|truncate(210) }}
+                            {{ content.fields.body.value.xml.saveXML()|striptags|trim|u.truncate(210) }}
                         {% endif %}
                     </div>
                 </div>
