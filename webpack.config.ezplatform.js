@@ -14,6 +14,8 @@ Encore.setOutputPath('public/assets/build')
 
 // Put your config here.
 Encore.addEntry('app_default', [
+    // 'bootstrap' is added as a dummy entry to prevent crashing the build
+    'bootstrap',
     // path.resolve(__dirname, './path/to/file.scss'),
 ]);
 
