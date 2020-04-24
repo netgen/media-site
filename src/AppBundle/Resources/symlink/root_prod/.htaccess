@@ -96,6 +96,6 @@ RewriteRule ^assets/ - [L]
 
 # Prevent access to website with direct usage of app.php in URL
 # Does not work in .htaccess for some reason
-RewriteRule ^([^/]+/)?app\.php([/?#]|$) - [R=404,L]
+# RewriteRule ^([^/]+/)?app\.php([/?#]|$) - [R=404,L]
 
 RewriteRule .* app\.php
