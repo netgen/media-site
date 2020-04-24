@@ -95,6 +95,6 @@ RewriteRule ^assets/ - [L]
 
 # Prevent access to website with direct usage of index.php in URL
 # Does not work in .htaccess for some reason
-RewriteRule ^([^/]+/)?index\.php([/?#]|$) - [R=404,L]
+# RewriteRule ^([^/]+/)?index\.php([/?#]|$) - [R=404,L]
 
 RewriteRule .* index\.php
