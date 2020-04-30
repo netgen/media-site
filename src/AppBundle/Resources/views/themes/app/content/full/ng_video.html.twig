@@ -19,7 +19,7 @@
             <h1 class="title">{{ ng_render_field(content.fields.title) }}</h1>
             {% if content.contentInfo.publishedDate %}
                 <p class="info">
-                    <time>{{ content.contentInfo.publishedDate.date|date('j M Y') }}</time>
+                    <time>{{ content.contentInfo.publishedDate|date('j M Y') }}</time>
                 </p>
             {% endif %}
         </header>
