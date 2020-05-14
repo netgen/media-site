@@ -18,5 +18,7 @@ host('stage')
     ->stage('stage')
     ->user('deployer')
     ->set('http_user', 'www-data')
-    ->set('branch', 'test-branch') // by default, master is used, this is the way to set up different branch per host
+    // ->set('branch', 'test-branch') // by default, master is used, this is the way to set up different branch per host
+    ->set('cachetool', '/var/run/php/exampleweb.sock')
+    ->add('varnish_ban_hosts', ['stage.example.com'])
 ;
