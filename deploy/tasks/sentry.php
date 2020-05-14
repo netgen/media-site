@@ -14,6 +14,7 @@ task('deploy:sentry:symfony', function () {
 
     $tmpFile = tempnam(sys_get_temp_dir(), 'tmp_sentry');
     file_put_contents($tmpFile, $sentryYaml);
+    chmod($tmpFile, 0644);
 
     $file = get('release_path').'/'.get('sentry_file');
     upload($tmpFile, $file);
