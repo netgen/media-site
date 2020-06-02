@@ -36,6 +36,7 @@
 /public/assets/ezplatform/*
 !/public/assets/ezplatform/build/
 
+/web
 /public/var
 /public/.htaccess
 /public/robots.txt
