@@ -8,7 +8,7 @@
 {% else %}
     {{ render(
         controller(
-            'ng_content:viewAction', {
+            'ng_content::viewAction', {
                 'content': content,
                 'location': location|default(null),
                 'locationId': location_id|default(null),
