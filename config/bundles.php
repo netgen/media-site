@@ -78,5 +78,6 @@ return [
     Netgen\Bundle\SiteBundle\NetgenSiteBundle::class => ['all' => true],
     Netgen\Bundle\EzPlatformSiteApiBundle\NetgenEzPlatformSiteApiBundle::class => ['all' => true],
     Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle::class => ['all' => true],
+    Netgen\Bundle\EzFormsBundle\NetgenEzFormsBundle::class => ['all' => true],
     Snc\RedisBundle\SncRedisBundle::class => ['dev' => true],
 ];
