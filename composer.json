@@ -81,6 +81,7 @@
         "netgen/site-bundle": "^2.0@dev",
         "netgen/site-installer-bundle": "^2.0@dev",
         "netgen/ezplatform-site-api": "dev-ezp3 as 3.4.1",
+        "netgen/ezplatform-search-extra": "dev-ezp3 as 1.11.0",
 
         "netgen/layouts-standard": "~1.1.0",
         "netgen/layouts-ezplatform": "~1.1.0",
