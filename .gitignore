@@ -12,7 +12,6 @@ node_modules/
 /app/config/parameters.yml
 /app/config/server/local/
 /app/config/server/local.yml
-/app/solr
 /doc/docker/entrypoint/*/*.sql
 /dfsdata
 /extension/
