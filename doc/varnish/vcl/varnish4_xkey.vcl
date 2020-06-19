@@ -1,7 +1,9 @@
 // Varnish VCL for:
-// - Varnish 5.1 or higher with xkey vmod (via varnish-modules package, or via Varnish Plus)
-// - eZ Platform 2.x or higher (with bundled ezplatform-http-cache package)
-// DEPRECATED; please use VCL from https://github.com/ezsystems/ezplatform-http-cache/blob/1.0/docs/varnish/vcl/varnish5.vcl
+// - Varnish 5.0 or higher (6.0LTS recommended, and is what we mainly test against)
+//   - Varnish xkey vmod (via varnish-modules package 0.10.2 or higher, or via Varnish Plus)
+// - eZ Platform 2.5LTS or higher with ezplatform-http-cache (this) bundle
+//
+// Make sure to at least adjust default parameters.vcl, defaults there reflect our testing needs with docker.
 
 vcl 4.0;
 import std;
@@ -187,7 +189,7 @@ sub ez_user_context_hash {
             || req.http.x-user-hash
         )
     ) {
-        return (synth(400, "Bad Request"));
+        return (synth(400));
     }
 
     if (req.restarts == 0 && (req.method == "GET" || req.method == "HEAD")) {
@@ -235,7 +237,7 @@ sub ez_invalidate_token {
             || req.http.x-backend-invalidate-token
         )
     ) {
-        return (synth(400, "Bad Request"));
+        return (synth(400));
     }
 
     if (req.restarts == 0 && req.method == "PURGE" && req.http.x-invalidate-token) {
@@ -307,8 +309,7 @@ sub vcl_deliver {
         if (obj.hits > 0) {
             set resp.http.X-Cache = "HIT";
             set resp.http.X-Cache-Hits = obj.hits;
-            // For Varnihs 5.1+ you can uncomment this to get debug of remaining TTL
-            //set resp.http.X-Cache-TTL = obj.ttl;
+            set resp.http.X-Cache-TTL = obj.ttl;
         } else {
             set resp.http.X-Cache = "MISS";
         }
