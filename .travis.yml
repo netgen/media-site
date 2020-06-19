@@ -1,7 +1,7 @@
 dist: trusty
 language: php
 php:
-  - 7.1
+  - 7.4
 
 services:
   - docker
@@ -51,11 +51,17 @@ matrix:
         - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/varnish.yml:doc/docker/redis.yml:doc/docker/selenium.yml"
         - BEHAT_OPTS="--profile=adminui --suite=adminui"
         - WEB_HOST="varnish"
+    # Nightly and triggered jobs for Clean OSS
     - if: type in (cron, api)
       name: "Admin UI tests using different personas"
       env:
         - SETUP_BEHAT_OPTS="--profile=setup --suite=personas --tags=@setup"
         - BEHAT_OPTS="--profile=adminui --suite=personas"
+    - if: type in (cron, api)
+      name: "[PHP 7.1] Admin UI on Clean Platform"
+      env:
+        - BEHAT_OPTS="--profile=adminui --suite=adminui"
+        - PHP_IMAGE=ezsystems/php:7.1-v1
 
 # reduce depth (history) of git checkout
 git:
@@ -64,8 +70,7 @@ git:
 notifications:
   slack:
     rooms:
-      - secure: ESkZY5bzNWua0eHc9rBkuE7AZrCNzLeCV1Rtn97h9KIBeuxsiB3heDUAOi3xZkqO4AyKD5AitAM2k7dTdQKvC8WMooHFWFdjlsSepUvjJISy8keY9kiXywUJ1S/YCwMPwT+HAWB4Qk2zyKmlLmZ8IfAK5aBtndXFQFQCqyeW4PE=
-      - secure: NlXxYbeVV7mWDTUgeFK0VrUdXGBF4lPVpMLZ3WXYDTUWfFyM8tiChENo/u/9n7tSz6KIxdWpy0j7h8+EjVUVCGxS+4q+kdzkfm1Vwq3ANhMsGBDcwdm7gYWhdd43aXV9ZaZPVUWv5C3yizzmYXeuNtviFDA5DEvrE5Rdp6sBsRE=
+      - secure: Au7OQWGBO73aY34ovy3RtO99I47OzcmaJD2jX7e3wLd/u05xpKL+AkTP5fwaiAS8kWwUYQYOKd7Z7PBol6ExJRAfXKm1uCpGcCEH8x+s3mG1BvPbr5/uSchtsVA0hlEdIJ1nTkWSYiiT1GRjtjWcrLw9dCuwlYyublObQgHVrLE=
     on_success: change
     on_failure: always
     on_pull_requests: false
