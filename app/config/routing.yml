@@ -67,6 +67,9 @@ netgen_layouts:
     resource: '@NetgenLayoutsBundle/Resources/config/routing.yaml'
     prefix: '%netgen_layouts.route_prefix%'
 
+netgen_layouts_ezplatform:
+    resource: '@NetgenLayoutsEzPlatformBundle/Resources/config/routing.yaml'
+
 netgen_content_browser:
     resource: '@NetgenContentBrowserBundle/Resources/config/routing.yaml'
     prefix: '%netgen_content_browser.route_prefix%'
