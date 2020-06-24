@@ -69,7 +69,6 @@ return [
     Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\NetgenLayoutsEzPlatformSiteApiBundle::class => ['all' => true],
     Lolautruche\EzCoreExtraBundle\EzCoreExtraBundle::class => ['all' => true],
     Netgen\Bundle\OpenGraphBundle\NetgenOpenGraphBundle::class => ['all' => true],
-    Netgen\Bundle\MetadataBundle\NetgenMetadataBundle::class => ['all' => true],
     Netgen\Bundle\ContentTypeListBundle\NetgenContentTypeListBundle::class => ['all' => true],
     Netgen\Bundle\BirthdayBundle\NetgenBirthdayBundle::class => ['all' => true],
     Netgen\TagsBundle\NetgenTagsBundle::class => ['all' => true],
