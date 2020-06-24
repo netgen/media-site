@@ -1,0 +1,2 @@
+_novaezseo_routes:
+    resource: '@NovaeZSEOBundle/Resources/config/routing/main.yaml'

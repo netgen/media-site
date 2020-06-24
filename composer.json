@@ -76,6 +76,7 @@
         "doctrine/orm": "^2.7",
         "php-http/httplug-bundle": "^1.18",
         "sentry/sentry-symfony": "^3.4",
+        "novactive/ezseobundle": "^5.0",
 
         "netgen/media-site-data": "^2.0@dev",
         "netgen/site-bundle": "^2.0@dev",

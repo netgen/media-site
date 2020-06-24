@@ -5,10 +5,6 @@ rewrite "^/var/([^/]+/)?storage/original/image/(.*)\.svg" "/var/$1storage/origin
 # eZ Platform instance. It will then be served directly.
 rewrite "^/favicon\.ico" "/favicon.ico" break;
 
-# Give direct access to robots.txt for use by crawlers (Google,
-# Bing, Spammers..)
-rewrite "^/robots\.txt" "/robots.txt" break;
-
 # Platform for Privacy Preferences Project ( P3P ) related files
 # for Internet Explorer
 # More info here : http://en.wikipedia.org/wiki/P3p
