@@ -84,11 +84,11 @@
         "netgen/ezplatform-site-api": "dev-ezp3 as 3.4.1",
         "netgen/ezplatform-search-extra": "dev-ezp3 as 1.11.0",
 
-        "netgen/layouts-standard": "~1.1.0",
-        "netgen/layouts-ezplatform": "~1.1.0",
-        "netgen/layouts-ezplatform-site-api": "~1.1.0",
-        "netgen/layouts-ezplatform-relation-list-query": "^1.0",
-        "netgen/layouts-ezplatform-tags-query": "^1.0"
+        "netgen/layouts-standard": "~1.2.0",
+        "netgen/layouts-ezplatform": "~1.2.0",
+        "netgen/layouts-ezplatform-site-api": "~1.2.0",
+        "netgen/layouts-ezplatform-relation-list-query": "^1.2",
+        "netgen/layouts-ezplatform-tags-query": "^1.2"
     },
     "require-dev": {
         "behat/behat": "^3.6",
