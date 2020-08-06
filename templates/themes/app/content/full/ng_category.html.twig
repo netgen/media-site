@@ -33,7 +33,7 @@
         <div class="category-featured-content">
             {{ render(
                 controller(
-                    'ngsite.controller.parts:viewRelatedItems', {
+                    'ngsite.controller.relations.related_items', {
                         'contentId': content.id,
                         'fieldDefinitionIdentifier': 'featured_content',
                         'template': '@ezdesign/parts/related_items.html.twig'

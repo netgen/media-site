@@ -5,7 +5,7 @@ ezpublish:
                 full:
                     ng_category:
                         template: "@ezdesign/content/full/ng_category.html.twig"
-                        controller: "ngsite.controller.full_view:viewNgCategory"
+                        controller: ngsite.controller.full_view.category
                         match:
                             Identifier\ContentType: ng_category
                     ng_feedback_form:
@@ -15,7 +15,7 @@ ezpublish:
                             Identifier\ContentType: ng_feedback_form
                     ng_landing_page:
                         template: "@ezdesign/content/full/ng_landing_page.html.twig"
-                        controller: "ngsite.controller.full_view:viewNgLandingPage"
+                        controller: ngsite.controller.full_view.landing_page
                         match:
                             Identifier\ContentType: ng_landing_page
                     common:
@@ -194,7 +194,7 @@ ezpublish:
                 embed:
                     image:
                         template: "@ezdesign/content/embed/image.html.twig"
-                        controller: "ngsite.controller.embed_view:embedImage"
+                        controller: ngsite.controller.embed_view.image
                         match:
                             Identifier\ContentType: image
                     common:

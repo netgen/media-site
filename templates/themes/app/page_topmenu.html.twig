@@ -2,7 +2,7 @@
     {% block page_main_menu_header %}
         {{ render_esi(
             controller(
-                'ngsite.controller.menu::renderMenu', {
+                'ngsite.controller.menu', {
                     menuName: 'ngsite_main_menu',
                     activeItemId: main_category_location_id ?? 0
                 }

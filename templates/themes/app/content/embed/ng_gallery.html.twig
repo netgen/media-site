@@ -4,7 +4,7 @@
 <div class="view-type view-type-{{ view_type }} ng-gallery">
     {{ render(
         controller(
-            'ngsite.controller.parts:viewRelatedMultimediaItems', {
+            'ngsite.controller.relations.related_multimedia_items', {
                 'locationId': content.contentInfo.mainLocationId,
                 'includeChildren': true,
                 'contentTypeIdentifiers': ['image', 'ng_video'],

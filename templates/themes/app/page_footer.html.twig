@@ -8,7 +8,7 @@
             {% block page_additional_menu_footer %}
                 {{ render_esi(
                     controller(
-                        'ngsite.controller.menu::renderMenu', {
+                        'ngsite.controller.menu', {
                             menuName: 'ngsite_additional_menu',
                             activeItemId: main_category_location_id ?? 0
                         }
