@@ -1,9 +1,9 @@
 {% block subject %}{% apply spaceless %}
     {% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
-    {{ site_name }} – {{ ez_content_name(content) }} [{{ collected_fields.email }}]
+    {{ site_name }} – {{ ez_content_name(content) }} [{{ collected_fields.email.value }}]
 {% endapply %}{% endblock %}
 
-{#% block sender %}{{ collected_fields.email }}{% endblock %#}
+{#% block sender %}{{ collected_fields.email.value }}{% endblock %#}
 
 {% block recipient %}{{ ez_field_value(content, 'recipient') }}{% endblock %}
 
@@ -40,7 +40,7 @@
             {{ ez_field_name(content, collected_field) }}:
         </td>
         <td width="60%" style="padding-bottom: 10px" valign="top">
-            <strong>{{ collected_field_value }}</strong>
+            <strong>{{ collected_field_value.value }}</strong>
         </td>
     </tr>
 {% endfor %}
