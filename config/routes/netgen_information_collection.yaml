@@ -1,0 +1,2 @@
+netgen_information_collection:
+    resource: '@NetgenInformationCollectionBundle/Resources/config/routing.yaml'
