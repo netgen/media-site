@@ -1,0 +1,14 @@
+netgen_information_collection:
+    system:
+        default:
+            action_config:
+                Netgen\InformationCollection\Core\Action\EmailAction:
+                    templates:
+                        default: "@ezdesign/info_collection/email.html.twig"
+                    default_variables:
+                        sender: "%collected_info_sender%"
+                        recipient: "%collected_info_recipient%"
+            actions:
+                default:
+                    - 'Netgen\InformationCollection\Core\Action\DatabaseAction'
+                    - 'Netgen\InformationCollection\Core\Action\EmailAction'
