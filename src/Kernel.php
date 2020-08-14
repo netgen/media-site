@@ -9,7 +9,6 @@ use App\DependencyInjection\CompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
@@ -22,7 +21,6 @@ final class Kernel extends BaseKernel
 
     public function build(ContainerBuilder $container): void
     {
-        $container->addCompilerPass(new CompilerPass\DisableLegacyContentViewFallbackPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, 20);
         $container->addCompilerPass(new CompilerPass\XslRegisterPass());
     }
 
