@@ -1,5 +1,6 @@
 imports:
     - { resource: ../config.yml }
+    - { resource: ../sentry.yml }
     - { resource: ezplatform.yml }
 
 # Example below would make sure some of the symfony caches are written to apc / redis instead of disk
@@ -19,10 +20,6 @@ imports:
 #            type: redis
 #            host:
 #            port:
-
-
-sentry:
-    dsn: '%sentry_dsn%'
 
 monolog:
     handlers:
