@@ -2,7 +2,7 @@ netgen_information_collection:
     system:
         default:
             action_config:
-                Netgen\InformationCollection\Core\Action\EmailAction:
+                email:
                     templates:
                         default: "@ezdesign/info_collection/email.html.twig"
                     default_variables:
@@ -10,5 +10,5 @@ netgen_information_collection:
                         recipient: "%collected_info_recipient%"
             actions:
                 default:
-                    - 'Netgen\InformationCollection\Core\Action\DatabaseAction'
-                    - 'Netgen\InformationCollection\Core\Action\EmailAction'
+                    - database
+                    - email
