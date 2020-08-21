@@ -72,7 +72,7 @@ final class Kernel extends BaseKernel
             throw new RuntimeException('Server environment contains an invalid format. Valid format contains only alpha-numeric characters and an underscore.');
         }
 
-        $loader->load($confDir . '/app/server/' . $serverEnvironment . self::CONFIG_EXTS, 'glob');
+        $loader->load($confDir . '/app/server/' . $serverEnvironment . '.yaml');
 
         if ($this->environment === 'dev' && $container->getParameter('profiler_storage') === 'redis') {
             $loader->load($confDir . '/packages/profiler_storage/redis' . self::CONFIG_EXTS, 'glob');
