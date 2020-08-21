@@ -1,3 +1,5 @@
 imports:
     -
         resource: dev/ezplatform_siteaccess.yaml
+    -
+        resource: dev/parameters.yaml

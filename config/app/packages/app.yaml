@@ -13,9 +13,3 @@ parameters:
     ngsite.default.lazy_loading.enabled: true
     ngsite.default.lazy_loading.initial_image_alias: 'i30'
     ngsite.default.render_content_directly: true
-
-    ngsite.default.site_domain: localhost
-    ngsite.default.locations.site_info.id: 65
-    collected_info_sender: info@netgen.io
-    collected_info_recipient: test@netgen.io
-    server_environment: dev

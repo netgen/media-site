@@ -12,6 +12,7 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use RuntimeException;
 
 final class Kernel extends BaseKernel
 {
@@ -66,7 +67,11 @@ final class Kernel extends BaseKernel
         $loader->load($confDir . '/app/{services}/*' . self::CONFIG_EXTS, 'glob');
         $loader->load($confDir . '/app/{services}' . self::CONFIG_EXTS, 'glob');
 
-        $serverEnvironment = $container->getParameter('server_environment');
+        $serverEnvironment = $_SERVER['SERVER_ENVIRONMENT'];
+        if (preg_match('/^\w+$/', $serverEnvironment) !== 1) {
+            throw new RuntimeException('Server environment contains an invalid format. Valid format contains only alpha-numeric characters and an underscore.');
+        }
+
         $loader->load($confDir . '/app/server/' . $serverEnvironment . self::CONFIG_EXTS, 'glob');
 
         if ($this->environment === 'dev' && $container->getParameter('profiler_storage') === 'redis') {
