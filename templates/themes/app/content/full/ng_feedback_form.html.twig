@@ -59,9 +59,7 @@
 
                     <fieldset>
                         {% for field in form.children.fieldsData %}
-                            <div class="form-control">
-                                {{ form_widget(field) }}
-                            </div>
+                            {{ form_widget(field) }}
                         {% endfor %}
                         <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
                     </fieldset>
