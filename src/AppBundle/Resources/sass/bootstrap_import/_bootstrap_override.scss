@@ -15,8 +15,9 @@
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active,
     &:hover {
-        background-color: $gray-87;
-        border-color: $gray-87;
+        background-color: $primary;
+        border-color: $primary;
+        color: $black;
     }
 }
 
