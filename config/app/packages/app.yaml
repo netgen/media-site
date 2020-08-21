@@ -1,4 +1,19 @@
 parameters:
+    ngsite.default.search.content_types:
+        - ng_blog_post
+        - ng_article
+        - ng_news
+        - ng_category
+        - ng_feedback_form
+        - ng_landing_page
+        - ng_video
+        - ng_audio
+        - file
+
+    ngsite.default.lazy_loading.enabled: true
+    ngsite.default.lazy_loading.initial_image_alias: 'i30'
+    ngsite.default.render_content_directly: true
+
     ngsite.default.site_domain: localhost
     ngsite.default.locations.site_info.id: 65
     collected_info_sender: info@netgen.io
