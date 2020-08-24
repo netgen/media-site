@@ -58,9 +58,11 @@
                     {{ form_errors(form) }}
 
                     <fieldset>
-                        {% for field in form.children.fieldsData %}
-                            {{ form_widget(field) }}
-                        {% endfor %}
+                        {{ form_widget(form.sender_name) }}
+                        {{ form_widget(form.email) }}
+                        {{ form_widget(form.subject) }}
+                        {{ form_widget(form.message) }}
+
                         <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
                     </fieldset>
 
