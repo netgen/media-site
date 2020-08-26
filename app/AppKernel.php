@@ -134,19 +134,19 @@ final class AppKernel extends Kernel
     public function getCacheDir(): string
     {
         if (!empty($_SERVER['SYMFONY_TMP_DIR'])) {
-            return rtrim($_SERVER['SYMFONY_TMP_DIR'], '/') . '/var/cache/' . $this->getEnvironment();
+            return \rtrim($_SERVER['SYMFONY_TMP_DIR'], '/') . '/var/cache/' . $this->getEnvironment();
         }
 
-        return dirname(__DIR__) . '/var/cache/' . $this->getEnvironment();
+        return \dirname(__DIR__) . '/var/cache/' . $this->getEnvironment();
     }
 
     public function getLogDir(): string
     {
         if (!empty($_SERVER['SYMFONY_TMP_DIR'])) {
-            return rtrim($_SERVER['SYMFONY_TMP_DIR'], '/') . '/var/logs';
+            return \rtrim($_SERVER['SYMFONY_TMP_DIR'], '/') . '/var/logs';
         }
 
-        return dirname(__DIR__) . '/var/logs';
+        return \dirname(__DIR__) . '/var/logs';
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader): void

@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 final class DisableVerticalWhitespacePass implements CompilerPassInterface
 {
     /**
-     * Unregister deprecated vertical whitespace plugin
+     * Unregister deprecated vertical whitespace plugin.
      */
     public function process(ContainerBuilder $container): void
     {
