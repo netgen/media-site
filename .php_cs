@@ -12,6 +12,7 @@ return PhpCsFixer\Config::create()
         'multiline_whitespace_before_semicolons' => false,
         'native_function_invocation' => ['include' => ['@all']],
         'no_superfluous_phpdoc_tags' => false,
+        'no_unset_on_property' => false,
         'ordered_imports' => ['imports_order' => ['class', 'function', 'const']],
         'php_unit_internal_class' => false,
         'php_unit_test_case_static_method_calls' => ['call_type' => 'self'],
