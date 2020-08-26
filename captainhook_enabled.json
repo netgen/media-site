@@ -1,0 +1,65 @@
+{
+    "commit-msg": {
+        "enabled": true,
+        "actions": [
+            {
+                "action": "\\App\\GitHooks\\Action\\Regex",
+                "options": {
+                    "regex": "/^[A-Z]+-\\d+:?\\s/",
+                    "error": "Your commit message MUST start with a ticket ID"
+                }
+            }
+        ]
+    },
+    "pre-push": {
+        "enabled": false,
+        "actions": []
+    },
+    "pre-commit": {
+        "enabled": true,
+        "actions": [
+            {
+                "action": "\\App\\GitHooks\\Action\\CheckForBlockedWords",
+                "options": {
+                    "extensions": ["php", "twig"],
+                    "keyword_blocklist": ["var_dump", "dump", "dd"],
+                    "allowed_files": []
+                }
+            },
+            {
+                "action": "\\CaptainHook\\App\\Hook\\Composer\\Action\\CheckLockFile"
+            },
+            {
+                "action": "\\App\\GitHooks\\Action\\PHPCSFixer"
+            },
+            {
+                "action": "\\App\\GitHooks\\Action\\CheckLockFileCommitted",
+                "options": {
+                    "enabled": true
+                }
+            },
+            {
+                "action": "\\App\\GitHooks\\Action\\CheckAssetsAction",
+                "options": {
+                    "enabled": true
+                }
+            }
+        ]
+    },
+    "prepare-commit-msg": {
+        "enabled": false,
+        "actions": []
+    },
+    "post-commit": {
+        "enabled": false,
+        "actions": []
+    },
+    "post-merge": {
+        "enabled": false,
+        "actions": []
+    },
+    "post-checkout": {
+        "enabled": false,
+        "actions": []
+    }
+}
