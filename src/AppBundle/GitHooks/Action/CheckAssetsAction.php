@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace AppBundle\GitHooks\Action;
 
-use AppBundle\GitHooks\Action\Action;
 use CaptainHook\App\Config;
 use CaptainHook\App\Console\IO;
 use SebastianFeldmann\Git\Repository;
+use function count;
+use function in_array;
+use function mb_strpos;
 
 final class CheckAssetsAction extends Action
 {
@@ -44,20 +46,19 @@ final class CheckAssetsAction extends Action
         $allowList = $action->getOptions()->get('allowlist');
 
         foreach ($changedSassFiles as $changedSassFile) {
-            if (!\in_array($changedSassFile, $allowList, true)) {
+            if (!in_array($changedSassFile, $allowList, true)) {
                 return false;
             }
         }
 
         foreach ($changedJSFiles as $changedJSFile) {
-            if (!\in_array($changedJSFile, $allowList, true)) {
+            if (!in_array($changedJSFile, $allowList, true)) {
                 return false;
             }
         }
 
         return true;
     }
-
 
     private function checkAssetsConfigFiles(Repository $repository): bool
     {
@@ -66,13 +67,13 @@ final class CheckAssetsAction extends Action
         $entrypointFound = false;
         $manifestFound = false;
         foreach ($changedJsonFiles as $jsonFile) {
-            if (\mb_strpos($jsonFile, 'build/entrypoints.json') !== false) {
+            if (mb_strpos($jsonFile, 'build/entrypoints.json') !== false) {
                 $entrypointFound = true;
 
                 continue;
             }
 
-            if (\mb_strpos($jsonFile, 'build/manifest.json') !== false) {
+            if (mb_strpos($jsonFile, 'build/manifest.json') !== false) {
                 $manifestFound = true;
 
                 continue;
@@ -87,7 +88,7 @@ final class CheckAssetsAction extends Action
         $cssBuildFound = count($changedSassFiles) ? false : true;
 
         foreach ($changedCssFiles as $cssFile) {
-            if (\mb_strpos($cssFile, 'build') === false) {
+            if (mb_strpos($cssFile, 'build') === false) {
                 continue;
             }
 
@@ -101,7 +102,7 @@ final class CheckAssetsAction extends Action
     {
         $jsBuildFound = count($changedJSFiles) ? false : true;
         foreach ($changedJSFiles as $changedJSFile) {
-            if (\mb_strpos($changedJSFile, 'build') !== false) {
+            if (mb_strpos($changedJSFile, 'build') !== false) {
                 $jsBuildFound = true;
 
                 break;

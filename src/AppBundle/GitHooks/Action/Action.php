@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace AppBundle\GitHooks\Action;
 
 use CaptainHook\App\Config;
-use CaptainHook\App\Console\IO;
 use CaptainHook\App\Config\Action as ActionConfig;
 use CaptainHook\App\Config\Options;
+use CaptainHook\App\Console\IO;
 use CaptainHook\App\Exception\ActionFailed;
 use CaptainHook\App\Hook\Action as ActionInterface;
 use SebastianFeldmann\Git\Repository;
@@ -25,7 +25,16 @@ abstract class Action implements ActionInterface
         $this->doExecute($config, $io, $repository, $action);
     }
 
-    protected abstract function doExecute(Config $config, IO $io, Repository $repository, Config\Action $action): void;
+    abstract protected function doExecute(Config $config, IO $io, Repository $repository, Config\Action $action): void;
+
+    protected function throwError(ActionConfig $config, IO $io): void
+    {
+        $errorMessage = $this->getErrorMessage($config->getOptions());
+
+        $io->writeError("<error>{$errorMessage}</error>");
+
+        throw new ActionFailed($errorMessage);
+    }
 
     private function getErrorMessage(Options $options): string
     {
@@ -35,14 +44,5 @@ abstract class Action implements ActionInterface
     private function isEnabled(ActionConfig $action): bool
     {
         return $action->getOptions()->get('enabled', true);
-    }
-
-    protected function throwError(ActionConfig $config, IO $io): void
-    {
-        $errorMessage = $this->getErrorMessage($config->getOptions());
-
-        $io->writeError("<error>{$errorMessage}</error>");
-
-        throw new ActionFailed($errorMessage);
     }
 }

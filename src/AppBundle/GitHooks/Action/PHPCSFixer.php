@@ -8,6 +8,7 @@ use CaptainHook\App\Config;
 use CaptainHook\App\Console\IO;
 use SebastianFeldmann\Cli\Processor\ProcOpen as Processor;
 use SebastianFeldmann\Git\Repository;
+use function escapeshellarg;
 
 final class PHPCSFixer extends Action
 {
@@ -35,7 +36,7 @@ final class PHPCSFixer extends Action
     protected function fixFile($file): array
     {
         $process = new Processor();
-        $result = $process->run('php-cs-fixer fix --dry-run --diff ' . \escapeshellarg($file));
+        $result = $process->run('php-cs-fixer fix --dry-run --diff ' . escapeshellarg($file));
 
         return [
             'success' => $result->isSuccessful(),
