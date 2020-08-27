@@ -28,7 +28,7 @@ final class XslRegisterPass implements CompilerPassInterface
             }
 
             $xslConfig = $container->getParameter("ezsettings.{$scope}.fieldtypes.ezxml.custom_xsl");
-            $xslConfig[] = ['path' => __DIR__ . '/../../Resources/xsl/ezxml_tags.xsl', 'priority' => 10000];
+            $xslConfig[] = ['path' => __DIR__ . '/../../../assets/xsl/ezxml_tags.xsl', 'priority' => 10000];
             $container->setParameter("ezsettings.{$scope}.fieldtypes.ezxml.custom_xsl", $xslConfig);
         }
     }

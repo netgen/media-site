@@ -9,7 +9,7 @@ Encore.reset();
 const siteConfig = {
   name: 'default',
   buildLocation: Encore.isProduction() ? 'build' : 'build_dev',
-  resourcesLocation: 'src/Resources',
+  assetsLocation: 'assets',
 };
 
 Encore
@@ -20,7 +20,7 @@ Encore
   .setPublicPath(`/assets/app/${siteConfig.buildLocation}`)
 
   // will create public/assets/app/build/app.js and public/assets/app/build/app.css
-  .addEntry('app', `./${siteConfig.resourcesLocation}/es6/app.js`)
+  .addEntry('app', `./${siteConfig.assetsLocation}/es6/app.js`)
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
