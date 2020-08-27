@@ -3,7 +3,7 @@
         "enabled": true,
         "actions": [
             {
-                "action": "\\AppBundle\\GitHooks\\Action\\Regex",
+                "action": "\\Netgen\\GitHooks\\Action\\Regex",
                 "options": {
                     "regex": "/^[A-Z]+-\\d+:?\\s/",
                     "error": "Your commit message MUST start with a ticket ID"
@@ -19,7 +19,7 @@
         "enabled": true,
         "actions": [
             {
-                "action": "\\AppBundle\\GitHooks\\Action\\CheckForBlockedWords",
+                "action": "\\Netgen\\GitHooks\\Action\\CheckForBlockedWords",
                 "options": {
                     "extensions": ["php", "twig"],
                     "keyword_blocklist": ["var_dump", "dump", "dd"],
@@ -30,16 +30,16 @@
                 "action": "\\CaptainHook\\App\\Hook\\Composer\\Action\\CheckLockFile"
             },
             {
-                "action": "\\AppBundle\\GitHooks\\Action\\PHPCSFixer"
+                "action": "\\Netgen\\GitHooks\\Action\\PHPCSFixer"
             },
             {
-                "action": "\\AppBundle\\GitHooks\\Action\\CheckLockFileCommitted",
+                "action": "\\Netgen\\GitHooks\\Action\\CheckLockFileCommitted",
                 "options": {
                     "enabled": true
                 }
             },
             {
-                "action": "\\AppBundle\\GitHooks\\Action\\CheckAssetsAction",
+                "action": "\\Netgen\\GitHooks\\Action\\CheckAssetsAction",
                 "options": {
                     "enabled": true
                 }
