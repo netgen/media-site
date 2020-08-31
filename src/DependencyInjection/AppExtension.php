@@ -33,5 +33,10 @@ final class AppExtension extends Extension implements PrependExtensionInterface
             $container->prependExtensionConfig($prependConfig, $config);
             $container->addResource(new FileResource($configFile));
         }
+
+        $configFile = __DIR__ . '/../../config/app/prepends/content_view.yaml';
+        $config = Yaml::parse(file_get_contents($configFile));
+        $container->prependExtensionConfig('ezpublish', ['system' => $config]);
+        $container->addResource(new FileResource($configFile));
     }
 }
