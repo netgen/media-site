@@ -12,7 +12,7 @@ use function array_merge;
 final class XslRegisterPass implements CompilerPassInterface
 {
     /**
-     * Registers ezxml_tags.xsl as custom XSL stylesheet for ezxmltext field type.
+     * Registers various Docbook XSL files as custom XSL stylesheets for ezrichtext field type.
      */
     public function process(ContainerBuilder $container): void
     {
@@ -21,15 +21,18 @@ final class XslRegisterPass implements CompilerPassInterface
             $container->getParameter('ezpublish.siteaccess.list')
         );
 
-        // Adding ezxml_tags.xsl to all scopes
         foreach ($scopes as $scope) {
-            if (!$container->hasParameter("ezsettings.{$scope}.fieldtypes.ezxml.custom_xsl")) {
-                continue;
+            if ($container->hasParameter("ezsettings.{$scope}.fieldtypes.ezrichtext.output_custom_xsl")) {
+                $xslConfig = $container->getParameter("ezsettings.{$scope}.fieldtypes.ezrichtext.output_custom_xsl");
+                $xslConfig[] = ['path' => __DIR__ . '/../../../assets/docbook/output/core.xsl', 'priority' => 10000];
+                $container->setParameter("ezsettings.{$scope}.fieldtypes.ezrichtext.output_custom_xsl", $xslConfig);
             }
 
-            $xslConfig = $container->getParameter("ezsettings.{$scope}.fieldtypes.ezxml.custom_xsl");
-            $xslConfig[] = ['path' => __DIR__ . '/../../../assets/xsl/ezxml_tags.xsl', 'priority' => 10000];
-            $container->setParameter("ezsettings.{$scope}.fieldtypes.ezxml.custom_xsl", $xslConfig);
+            if ($container->hasParameter("ezsettings.{$scope}.fieldtypes.ezrichtext.edit_custom_xsl")) {
+                $xslConfig = $container->getParameter("ezsettings.{$scope}.fieldtypes.ezrichtext.edit_custom_xsl");
+                $xslConfig[] = ['path' => __DIR__ . '/../../../assets/docbook/edit/core.xsl', 'priority' => 10000];
+                $container->setParameter("ezsettings.{$scope}.fieldtypes.ezrichtext.edit_custom_xsl", $xslConfig);
+            }
         }
     }
 }
