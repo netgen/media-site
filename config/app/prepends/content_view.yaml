@@ -1,5 +1,13 @@
 frontend_group:
-    ngcontent_view:
+    ng_site_api:
+        site_api_is_primary_content_view: true
+        fail_on_missing_field: '%kernel.debug%'
+        render_missing_field_info: false
+        named_objects:
+            locations:
+                home: '%ezsettings.default.content.tree_root.location_id%'
+        named_queries: []
+    ng_content_view:
         full:
             ng_category:
                 template: "@ezdesign/content/full/ng_category.html.twig"
