@@ -1,11 +1,11 @@
 frontend_group:
     ng_site_api:
         site_api_is_primary_content_view: true
-        fail_on_missing_field: '%kernel.debug%'
+        fail_on_missing_field: "%kernel.debug%"
         render_missing_field_info: false
         named_objects:
             locations:
-                home: '%ezsettings.default.content.tree_root.location_id%'
+                home: "%ezsettings.default.content.tree_root.location_id%"
         named_queries: []
     ng_content_view:
         full:
