@@ -16,6 +16,15 @@
                         {% if pager.nbResults == 0 %}
                             <div class="result-message result-message-error">
                                 <h2>{{ 'ngsite.search.no_results'|trans({'%searchText%': search_text}) }}</h2>
+
+                                {% if search_suggestion is not empty %}
+                                    <p>
+                                        {{ 'ngsite.search.did_you_mean'|trans }}
+                                        "<a href="{{ path('ngsite_content_search', {'searchText': search_suggestion}) }}">
+                                            {{ search_suggestion }}
+                                        </a>"?
+                                    </p>
+                                {% endif %}
                             </div>
                         {% else %}
                             <div class="result-message result-message-success">
