@@ -1,7 +1,7 @@
 Search spellcheck & suggestions
 ===============================
 
-There's an implementation of the "did you mean" functionality for search. It's using Solr’s
+There's an implementation of the "did you mean" functionality for search. It's using Solr's
 SpellCheck component to provide inline query suggestions based on other, similar, terms.
 
 **Note:** This feature is available only with the Solr search engine.
