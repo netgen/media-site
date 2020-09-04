@@ -231,7 +231,7 @@ frontend_group:
                 match: ~
 
 default:
-    ngcontent_view:
+    ng_content_view:
         ngcb_preview:
             common:
                 template: "@ezdesign/content/ngcb_preview/{content_type}.html.twig"
