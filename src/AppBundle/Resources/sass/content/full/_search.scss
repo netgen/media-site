@@ -3,6 +3,12 @@
     .search-inputs {
         margin: 0 auto;
         max-width: 45rem;
+        .result-notice {
+            a {
+                transition: border-color .15s;
+                border-bottom: .125rem solid $black;
+            }
+        }
     }
     .form-control {
         border: 0;
