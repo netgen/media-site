@@ -37,9 +37,7 @@ set('sentry', [
 
 /** Execution */
 task('deploy', [
-    // Upload server specific parameters.yml file. Those files are NOT to be committed to the repository
-    'server:upload_parameters',
-    // Upload server specific .env file. Those file are NOT to be committed to the repository
+    // Upload server specific .env.local file. Those file are NOT to be committed to the repository
     'server:upload_env',
     'deploy:info',
     'deploy:prepare',
@@ -65,7 +63,7 @@ task('deploy', [
     //database:kaliop:migrate
     'deploy:symlink',
     // Netgen specific setup, comment out what's not needed
-    'server:symlink_web',
+    'server:symlink_public',
     'cachetool:clear:opcache',
     // Cleanup and finish the deploy
     'deploy:unlock',

@@ -6,7 +6,7 @@ set('bin/cachetool', function(){
     return 'cachetool.phar';
 });
 
-// overridden to make sure web folder is correctly symlinked (L79)
+// overridden to make sure public folder is correctly symlinked (L79)
 desc('Rollback to previous release');
 task('rollback', function () {
     $releases = get('releases_list');
@@ -15,8 +15,8 @@ task('rollback', function () {
         // Symlink to old release.
         run("cd {{deploy_path}} && {{bin/symlink}} $releaseDir current");
 
-        // Symlink web folder again to correct release
-        run("{{bin/symlink}} {$releaseDir}/web {{deploy_path}}");
+        // Symlink public folder again to correct release
+        run("{{bin/symlink}} {$releaseDir}/public {{deploy_path}}");
 
         // Remove release
         run("rm -rf {{deploy_path}}/releases/{$releases[0]}");

@@ -2,10 +2,10 @@
 
 namespace Deployer;
 
-set('rsync_src_storage', '{{deploy_path}}/shared/ezpublish_legacy/var/site/storage');
-set('rsync_dest_storage', __DIR__ . '/../../ezpublish_legacy/var/site/storage');
+set('rsync_src_storage', '{{deploy_path}}/shared/public/var/site/storage');
+set('rsync_dest_storage', __DIR__ . '/../../public/var/site/storage');
 
-desc('Rsync legacy storage remote->local');
+desc('Rsync storage remote->local');
 task('rsync:storage', function() {
     $config = get('rsync');
 

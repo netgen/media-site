@@ -4,7 +4,7 @@ namespace Deployer;
 
 use Symfony\Component\Console\Input\InputOption;
 
-desc('Upload appropriate .env file to the server');
+desc('Upload appropriate .env.local file to the server');
 task('server:upload_env', function() {
     $stage = 'dev';
     if (input()->hasArgument('stage')) {
@@ -12,10 +12,10 @@ task('server:upload_env', function() {
     }
 
     $path = get('deploy_path');
-    $localFile = 'deploy/files/.env.'.$stage;
+    $localFile = 'deploy/files/.env.local.'.$stage;
 
     if (!file_exists($localFile)) {
-        writeln('<info>.env file for selected stage does not exist. Skipping...</info>');
+        writeln('<info>.env.local file for selected stage does not exist. Skipping...</info>');
 
         return;
     }
@@ -24,35 +24,12 @@ task('server:upload_env', function() {
         run("mkdir -p ".$path.'/shared/');
     }
 
-    upload($localFile, $path.'/shared/.env');
+    upload($localFile, $path.'/shared/.env.local');
 });
 
-desc('Upload appropriate parameters.yml file to the server');
-task('server:upload_parameters', function() {
-    $stage = 'dev';
-    if (input()->hasArgument('stage')) {
-        $stage = input()->getArgument('stage');
-    }
-
-    $path = get('deploy_path');
-    $localFile = 'deploy/files/parameters.'.$stage.'.yml';
-
-    if (!file_exists($localFile)) {
-        writeln('<info>parameters.yml file for selected stage does not exist. Skipping...</info>');
-
-        return;
-    }
-
-    if (!test("[ -d ".$path.'/shared/app/config/'." ]")) {
-        run("mkdir -p ".$path.'/shared/app/config/');
-    }
-
-    upload($localFile, $path.'/shared/app/config/parameters.yml');
-});
-
-desc('Symlink web folder to appropriate place');
-task('server:symlink_web', function() {
-    run("{{bin/symlink}} {{release_path}}/web {{deploy_path}}");
+desc('Symlink public folder to appropriate place');
+task('server:symlink_public', function() {
+    run("{{bin/symlink}} {{release_path}}/public {{deploy_path}}");
 });
 
 set('varnish_ban_hosts', []);
