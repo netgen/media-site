@@ -2,7 +2,7 @@
 
 namespace Deployer;
 
-require 'recipe/symfony3.php';
+require 'recipe/symfony5.php';
 require 'vendor/deployer/recipes/recipe/cachetool.php';
 require 'vendor/deployer/recipes/recipe/rsync.php';
 require 'vendor/deployer/recipes/recipe/sentry.php';
