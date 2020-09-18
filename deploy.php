@@ -45,9 +45,7 @@ task('deploy', [
     'deploy:release',
     'deploy:update_code',
     'deploy:clear_paths',
-    'deploy:create_cache_dir',
     'deploy:shared',
-    'deploy:assets',
     // copy vendors folder between releases before running composer install to speed it up
     'deploy:copy_dirs',
     'deploy:vendors',
