@@ -83,7 +83,7 @@
         "netgen/site-installer-bundle": "^2.0@dev",
         "netgen/ezplatform-site-api": "^4.0",
         "netgen/ezplatform-search-extra": "^2.1",
-        "netgen/information-collection-bundle": "^2.0@dev",
+        "netgen/information-collection-bundle": "^2.0@alpha",
 
         "netgen/layouts-standard": "~1.2.0",
         "netgen/layouts-ezplatform": "~1.2.0",
