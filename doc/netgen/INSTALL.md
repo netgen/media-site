@@ -31,13 +31,6 @@ CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 composer create-project netgen/media-site
 ```
 
-To install beta version of eZ Platform 3 compatible version of Media Site, you
-can use `--stability=beta` flag for `create-project` command:
-
-```
-composer create-project netgen/media-site --stability=beta
-```
-
 ### Generate frontend assets
 
 Run the following to generate development versions of the assets:
