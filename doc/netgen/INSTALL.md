@@ -28,7 +28,7 @@ CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 ### Create the new project based on this repo
 
 ```
-composer create-project netgen/media-site
+composer create-project netgen/media-site --stability=beta
 ```
 
 ### Generate frontend assets
