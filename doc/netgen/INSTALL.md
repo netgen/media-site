@@ -78,6 +78,13 @@ More info: https://github.com/ezsystems/ezplatform/pull/392
 
 ### Import database schema and demo data
 
+Configure your database in `.env.local` file in your project root folder (change the username,
+password and database name as required, based on your setup):
+
+```
+DATABASE_URL=mysql://root:mypass@localhost/media_site
+```
+
 Run the following command to import database schema and demo data (add `--env=prod`
 after `bin/console` if running in prod mode):
 
@@ -87,6 +94,12 @@ php bin/console ezplatform:install <SITE_NAME>
 
 where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
 or `netgen-media-clean` for the clean version, without demo data.
+
+Finally, generate the GraphQL schema for admin interface:
+
+```
+php bin/console ezplatform:graphql:generate-schema
+```
 
 ### Generate image variations
 
