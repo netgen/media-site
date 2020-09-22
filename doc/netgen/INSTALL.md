@@ -100,16 +100,16 @@ php bin/console ezplatform:graphql:generate-schema
 If using demo content, it can be quite resource intensive to generate all needed image variations
 at request time, especially when demo content uses high quality and high resolution images.
 
-To overcome this, you can use the following command to generate all image variations for all images:
+To overcome this, you can use the following command to generate most used image variations for all images:
 
 ```
-php bin/console ngsite:content:generate-image-variations
+php bin/console ngsite:content:generate-image-variations --variations=i30,i480,i320,i160,nglayouts_app_preview,ngcb_thumbnail
 ```
 
 This command will take a couple of minutes to complete, so grab a cup of coffee while it's running.
 
-You can also limit the command only to a subset of image variations, subtrees, content types and
-content fields. Use the following command to list all available options:
+In addition to limiting the command on specific image variations, you can also limit it to a subset of
+subtrees, content types and content fields. Use the following command to list all available options:
 
 ```
 php bin/console ngsite:content:generate-image-variations --help
