@@ -31,9 +31,6 @@ CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 composer create-project netgen/media-site
 ```
 
-Near the end of vendor installation procedure, when asked, be sure to specify
-the correct database connection for the site.
-
 ### Generate frontend assets
 
 Run the following to generate development versions of the assets:
