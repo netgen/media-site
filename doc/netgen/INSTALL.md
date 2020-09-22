@@ -103,7 +103,7 @@ at request time, especially when demo content uses high quality and high resolut
 To overcome this, you can use the following command to generate most used image variations for all images:
 
 ```
-php bin/console ngsite:content:generate-image-variations --variations=i30,i480,i320,i160,nglayouts_app_preview,ngcb_thumbnail
+php bin/console ngsite:content:generate-image-variations --variations=i30,i160,i320,i480,nglayouts_app_preview,ngcb_thumbnail
 ```
 
 This command will take a couple of minutes to complete, so grab a cup of coffee while it's running.
