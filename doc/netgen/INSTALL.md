@@ -76,10 +76,10 @@ More info: https://github.com/ezsystems/ezplatform/pull/392
 ### Import database schema and demo data
 
 Configure your database in `.env.local` file in your project root folder (change the username,
-password and database name as required, based on your setup):
+password, database host and name as required, based on your setup):
 
 ```
-DATABASE_URL=mysql://root:mypass@localhost/media_site
+DATABASE_URL=mysql://root:mypass@127.0.0.1/media_site
 ```
 
 Run the following command to import database schema and demo data (add `--env=prod`
