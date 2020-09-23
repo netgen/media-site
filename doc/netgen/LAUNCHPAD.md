@@ -68,7 +68,7 @@ at request time, especially when demo content uses high quality and high resolut
 To overcome this, you can use the following command to generate all image variations for all images:
 
 ```
-ez sfrun ngsite:content:generate-image-variations --variations=i30,i160,i320,i480,nglayouts_app_preview,ngcb_thumbnail
+ez sfrun "ngsite:content:generate-image-variations --variations=i30,i160,i320,i480,nglayouts_app_preview,ngcb_thumbnail"
 ```
 
 This command will take a couple of minutes to complete, so grab a cup of coffee while it's running.
