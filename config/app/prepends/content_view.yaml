@@ -1,6 +1,7 @@
 frontend_group:
     ng_site_api:
         site_api_is_primary_content_view: true
+        fallback_to_secondary_content_view: false
         fail_on_missing_field: "%kernel.debug%"
         render_missing_field_info: false
         named_objects: []
