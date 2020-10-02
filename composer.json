@@ -81,7 +81,7 @@
         "netgen/media-site-data": "^2.0@beta",
         "netgen/site-bundle": "^2.0@beta",
         "netgen/site-installer-bundle": "^2.0@beta",
-        "netgen/ezplatform-site-api": "^4.0",
+        "netgen/ezplatform-site-api": "^4.1",
         "netgen/ezplatform-search-extra": "^2.1",
         "netgen/information-collection-bundle": "^2.0@alpha",
 
