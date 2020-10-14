@@ -3,6 +3,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: cache_pool/cache.tagaware.filesystem.yml }
+    - { resource: cache_pool/cache.redis.yml }
     - { resource: env/generic.php }
     - { resource: env/platformsh.php }
     - { resource: services.yml }
