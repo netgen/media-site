@@ -58,3 +58,4 @@ yarn-error.log
 .php_cs.cache
 .phpunit.result.cache
 .web-server-pid
+.php-version
