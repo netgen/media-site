@@ -46,6 +46,7 @@ package-lock.json
 studio.json
 .DS_Store
 .php_cs.cache
+.php-version
 .rules
 
 ###> symfony/framework-bundle ###
