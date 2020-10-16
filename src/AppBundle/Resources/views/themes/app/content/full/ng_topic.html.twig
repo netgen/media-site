@@ -8,7 +8,7 @@
 {% set show_path = false %}
 
 {% if not content.fields.full_intro.empty %}
-    {% set meta_data = {'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate(152)} %}
+    {% set meta_data = {'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|truncate(152)|raw} %}
 {% endif %}
 
 {% set topic_tag = content.fields.title.value.text|trim %}
