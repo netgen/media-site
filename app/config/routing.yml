@@ -54,6 +54,9 @@ overblog_graphql_endpoint:
         _controller: Overblog\GraphQLBundle\Controller\GraphController::endpointAction
         _format: json
 
+prime_translations:
+    resource: '@PrimeTranslationsBundle/Resources/config/routing.yml'
+
 ezpublish_legacy:
     resource: '@EzPublishLegacyBundle/Resources/config/routing.yml'
 

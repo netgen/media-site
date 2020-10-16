@@ -63,6 +63,8 @@ final class AppKernel extends Kernel
             // new EzSystems\EzPlatformMatrixFieldtypeBundle\EzPlatformMatrixFieldtypeBundle(),
             // OverblogGraphQLBundle has to be loaded after EzSystemsEzPlatformGraphQLBundle
             new Overblog\GraphQLBundle\OverblogGraphQLBundle(),
+            new Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
+            new Prime\Bundle\TranslationsBundle\PrimeTranslationsBundle(),
 
             // Netgen dependencies
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
