@@ -31,3 +31,6 @@ ngsite.layout.recipe.preparation_time: 'Preparation time'
 ngsite.layout.recipe.fat: 'fat'
 ngsite.layout.recipe.carbs: 'carbs'
 ngsite.layout.recipe.protein: 'protein'
+
+ngsite.pagination.previous: 'Previous'
+ngsite.pagination.next: 'Next'
