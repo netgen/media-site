@@ -30,3 +30,4 @@ parameters:
 
     ngsite.default.site_domain: localhost
     ngsite.default.locations.site_info.id: 65
+    ngsite.default.locations.tree_root.id: 385

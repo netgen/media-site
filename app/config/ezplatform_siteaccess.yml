@@ -20,7 +20,7 @@ ezpublish:
                 - eng
             content:
                 tree_root:
-                    location_id: 385
+                    location_id: '%ngsite.default.locations.tree_root.id%'
         eng:
             design: app
             languages:
