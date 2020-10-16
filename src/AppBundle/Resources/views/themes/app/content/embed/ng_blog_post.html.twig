@@ -7,14 +7,10 @@
     <h3><a href="{{ path(content) }}">{{ content_fields.title(content) }}</a></h3>
 
     <div class="date">
-        {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
+        {% include '@ezdesign/parts/time.html.twig' with {'in_bivt_embed': true} %}
     </div>
 
-    {% if not content.fields.authors.empty %}
-        {% for author in content.fieldRelations('authors') %}
-            <a href="{{ path(author) }}" class="article-author">{{ author.name }}</a>
-        {% endfor %}
-    {% endif %}
+    {% include '@ezdesign/parts/author.html.twig' with {'in_bivt': true} %}
 
     {{ content_fields.image(content, null, 'i320') }}
 </div>

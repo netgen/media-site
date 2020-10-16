@@ -1,0 +1,20 @@
+{#
+    TIP: time.html.twig include in full view or bivt with parameter (in-full, in-bivt, or other) for readability
+    EXAMPLE: {% include '@ezdesign/parts/time.html.twig' with {'in_full': true} %}
+#}
+
+{% if content.contentInfo.publishedDate %}
+
+    {% if in_full|default(false) %}
+        <time>{{ content.contentInfo.publishedDate|date('F jS, Y') }}</time>    
+    {% elseif in_bivt|default(false) %}
+        <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
+    {% elseif in_bivt_slide|default(false) or in_bivt_thumb|default(false) or in_bivt_embed|default(false) %}
+        {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
+    {% endif %}
+
+{% endif %}
+
+
+
+

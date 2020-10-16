@@ -11,7 +11,7 @@
         {% if show_details %}
             <div class="info">
                 <div class="date">
-                    {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
+                    {% include '@ezdesign/parts/time.html.twig' with {'in_bivt_thumb': true} %}
                 </div>
                 <h2 class="title"><a href={{ path(location) }}>{{ content_fields.title(content) }}</a></h2>
             </div>
