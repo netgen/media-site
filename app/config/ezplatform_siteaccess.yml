@@ -18,6 +18,9 @@ ezpublish:
         frontend_group:
             translation_siteaccesses:
                 - eng
+            content:
+                tree_root:
+                    location_id: 385
         eng:
             design: app
             languages:
