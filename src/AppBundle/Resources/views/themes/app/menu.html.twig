@@ -1,3 +1,51 @@
 {% extends '@KnpMenu/menu.html.twig' %}
 
 {# To override this template, copy and paste relevant blocks from '@KnpMenu/menu.html.twig' and 'knp_menu.html.twig' #}
+
+{% block item %}
+    {% if item.displayed %}
+        {# building the class of the item #}
+        {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : [] %}
+        {%- if matcher.isAncestor(item, options.matchingDepth) %}
+            {%- set classes = classes|merge([options.ancestorClass]) %}
+        {%- endif %}
+        {%- if item.actsLikeFirst %}
+            {%- set classes = classes|merge([options.firstClass]) %}
+        {%- endif %}
+        {%- if item.actsLikeLast %}
+            {%- set classes = classes|merge([options.lastClass]) %}
+        {%- endif %}
+
+        {# Mark item as "leaf" (no children) or as "branch" (has children that are displayed) #}
+        {%- if item.hasChildren and options.depth is not same as(0) %}
+            {%- if options.branch_class is not empty and item.displayChildren %}
+                {%- set classes = classes|merge([options.branch_class]) %}
+            {%- endif %}
+        {%- elseif options.leaf_class is not empty %}
+            {%- set classes = classes|merge([options.leaf_class]) %}
+        {%- endif %}
+
+        {%- set attributes = item.attributes %}
+        {%- if classes is not empty %}
+            {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
+        {%- endif %}
+
+        {%- if item.extras.ezlocation is defined and item.extras.ezlocation is not empty %}
+            {%- set attributes = attributes|merge({'data-location-id': item.extras.ezlocation.id}) %}
+        {%- endif %}
+        {# displaying the item #}
+        {% import _self as knp_menu %}
+        <li{{ knp_menu.attributes(attributes) }}>
+            {%- if item.uri is not empty and (not matcher.isCurrent(item) or options.currentAsLink) %}
+                {{ block('linkElement') }}
+            {%- else %}
+                {{ block('spanElement') }}
+            {%- endif %}
+            {# render the list of children#}
+            {%- set childrenClasses = item.childrenAttribute('class') is not empty ? [item.childrenAttribute('class')] : [] %}
+            {%- set childrenClasses = childrenClasses|merge(['menu_level_' ~ item.level]) %}
+            {%- set listAttributes = item.childrenAttributes|merge({'class': childrenClasses|join(' ') }) %}
+            {{ block('list') }}
+        </li>
+    {% endif %}
+{% endblock %}
