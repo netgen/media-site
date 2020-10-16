@@ -185,6 +185,23 @@ $(document).ready(() => {
 
   /* /header actions */
 
+  /* set active state on location menu items */
+  if (page.dataset.path) {
+    const activeItemsList = JSON.parse(page.dataset.path);
+    const navigationList = document.querySelectorAll('ul.nav.navbar-nav');
+
+    navigationList.forEach((navigation) => {
+      activeItemsList.forEach((activeItemId) => {
+        const item = navigation.querySelector(`[data-location-id="${activeItemId}"]`);
+        if (item) {
+          item.classList.add('active', 'submenu-active');
+        }
+      });
+    });
+  }
+  /* /set active state on location menu items */
+
+
   /* lazy image loading */
   const lazyImageLoad = (image) => {
     if (image.hasAttribute('data-src')) image.setAttribute('src', image.getAttribute('data-src'));
