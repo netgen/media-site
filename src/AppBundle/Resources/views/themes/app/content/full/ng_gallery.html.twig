@@ -12,21 +12,13 @@
 {% block pre_content %}
     <header class="full-page-header full-gallery-header">
         <div class="container">
-            {% if not content.fields.sponsored_content_disclosure.empty %}
-                <div class="full-page-sponsored-tag">
-                    <span>{{ content.fields.sponsored_content_disclosure.value.text }}</span>
-                </div>
-            {% elseif not content.fields.main_topic.empty %}
-                <div class="full-page-main-tag">
-                    <a href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
-                </div>
-            {% endif %}
+            {% include '@ezdesign/parts/main_tag.html.twig' with {'in_full': true} %}
+
             <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
-            {% if content.contentInfo.publishedDate %}
-                <p class="full-page-info">
-                    <time>{{ content.contentInfo.publishedDate|date('F jS, Y') }}</time>
-                </p>
-            {% endif %}
+
+            <div class="full-page-info">
+                {% include '@ezdesign/parts/time.html.twig' with {'in_full': true} %}
+            </div>
         </div>
     </header>
 {% endblock %}

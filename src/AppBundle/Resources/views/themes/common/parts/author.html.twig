@@ -1,0 +1,19 @@
+{#
+    TIP: author.html.twig include in full view or bivt with parameter (in-full, in-bivt, or other) for readability
+    EXAMPLE: {% include '@ezdesign/parts/author.html.twig' with {'in_full': true} %}
+#}
+
+{% if not content.fields.authors.empty %}
+
+    {% if in_full|default(false) %}
+        By
+        {% for author in content.fieldRelations('authors') %}
+            <a class="author" href="{{ path(author) }}">{{ author.name }}</a>
+        {% endfor %} –
+    {% elseif in_bivt|default(false) %}
+        {% for author in content.fieldRelations('authors') %}
+            <a class="author" href="{{ path(author) }}">{{ author.name }}</a>
+        {% endfor %}
+    {% endif %}
+
+{% endif %}

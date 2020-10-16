@@ -1,0 +1,7 @@
+{% if not content.fields.tags.empty %}
+    <div class="full-article-tags">
+        {% for tag in content.fields.tags.value.tags %}
+            <a href="{{ path(tag) }}">{{ tag.keyword }}</a>
+        {% endfor %}
+    </div>
+{% endif %}

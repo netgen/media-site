@@ -1,0 +1,26 @@
+{#
+    TIP: main_tag.html.twig include in full view or bivt with parameter (in-full, in-bivt, or other) for readability
+    EXAMPLE: {% include '@ezdesign/parts/main_tag.html.twig' with {'in_full': true} %}
+#}
+
+{% if not content.fields.sponsored_content_disclosure.empty %}
+
+    {% if in_full|default(false) %}
+        <div class="full-page-sponsored-text">
+            <span class="sponsored-text">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
+        </div>
+    {% elseif in_bivt|default(false) %}
+        <span class="sponsored-text">{{ 'ngsite.layout.sponsored'|trans }}</span>
+    {% endif %}
+
+{% elseif not content.fields.main_topic.empty %}
+
+    {% if in_full|default(false) %}
+        <div class="full-page-main-topic">
+            <a class="main-topic" href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+        </div>
+    {% elseif in_bivt|default(false) %}
+        <a class="main-topic" href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+    {% endif %}
+
+{% endif %}

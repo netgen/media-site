@@ -18,26 +18,13 @@
         {% block article_header %}
             <header class="full-page-header full-article-header">
                 <div class="container">
-                    {% if not content.fields.sponsored_content_disclosure.empty %}
-                        <div class="full-page-sponsored-tag">
-                            <span>{{ content.fields.sponsored_content_disclosure.value.text }}</span>
-                        </div>
-                    {% elseif not content.fields.main_topic.empty %}
-                        <div class="full-page-main-tag">
-                            <a href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
-                        </div>
-                    {% endif %}
+                    {% include '@ezdesign/parts/main_tag.html.twig' with {'in_full': true} %}
+
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
+
                     <div class="full-page-info">
-                        {% if not content.fields.authors.empty %}
-                            By
-                            {% for author in content.fieldRelations('authors') %}
-                                <a href="{{ path(author) }}" class="article-author">{{ author.name }}</a>
-                            {% endfor %} –
-                        {% endif %}
-                        {% if content.contentInfo.publishedDate %}
-                            <time>{{ content.contentInfo.publishedDate|date('F jS, Y') }}</time>
-                        {% endif %}
+                        {% include '@ezdesign/parts/author.html.twig' with {'in_full': true} %}
+                        {% include '@ezdesign/parts/time.html.twig' with {'in_full': true} %}
                     </div>
                 </div>
             </header>
@@ -75,13 +62,7 @@
                             {{ ng_render_field(content.fields.body) }}
                         {% endif %}
 
-                        {% if not content.fields.tags.empty %}
-                            <div class="full-article-tags">
-                                {% for tag in content.fields.tags.value.tags %}
-                                    <a href="{{ path(tag) }}">{{ tag.keyword }}</a>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
+                        {% include '@ezdesign/parts/tags.html.twig' %}
                     </div>
                 {% endblock %}
 

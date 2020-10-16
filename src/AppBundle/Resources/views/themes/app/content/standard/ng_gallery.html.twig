@@ -26,11 +26,7 @@
     <header class="article-header">
         <h2 class="title"><a href="{{ location_path }}">{{ content_fields.title(content) }}</a></h2>
         <div class="info">
-            {% if not content.fields.sponsored_content_disclosure.empty %}
-                <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>
-            {% elseif not content.fields.main_topic.empty %}
-                <a href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
-            {% endif %}
+            {% include '@ezdesign/parts/main_tag.html.twig' with {'in_bivt': true} %}
         </div>
     </header>
 
