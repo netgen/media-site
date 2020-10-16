@@ -83,7 +83,8 @@
         "netgen/layouts-ezplatform": "~1.2.0",
         "netgen/layouts-ezplatform-site-api": "~1.2.0",
         "netgen/layouts-ezplatform-relation-list-query": "^1.2",
-        "netgen/layouts-ezplatform-tags-query": "^1.2"
+        "netgen/layouts-ezplatform-tags-query": "^1.2",
+        "primedigital/translations-bundle": "^1.0"
     },
     "require-dev": {
         "behat/behat": "^3.7.0",
