@@ -32,7 +32,7 @@
 
 {% include '@NetgenSite/parts/facebook_api.html.twig' %}
 
-<div id="page"{% if page_css_class|default is not empty %} class="{{ page_css_class }}"{% endif %}>
+<div id="page"{% if page_css_class|default is not empty %} class="{{ page_css_class }}"{% endif %}{% if current_location_path is not empty %} data-path='["{{ current_location_path|join('","')|raw }}"]'{% endif %}>
     {% block layout %}
         {% block header %}
             {% include '@ezdesign/page_header.html.twig' %}
