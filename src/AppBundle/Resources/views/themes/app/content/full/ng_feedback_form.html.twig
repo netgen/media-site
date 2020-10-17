@@ -58,10 +58,10 @@
                     {{ form_errors(form) }}
 
                     <fieldset>
-                        {{ form_row(form.sender_name, {attr: {class: 'form-control'}}) }}
-                        {{ form_row(form.email, {attr: {class: 'form-control'}}) }}
-                        {{ form_row(form.subject, {attr: {class: 'form-control'}}) }}
-                        {{ form_row(form.message, {attr: {class: 'form-control'}}) }}
+                        {{ form_row(form.sender_name) }}
+                        {{ form_row(form.email)}}
+                        {{ form_row(form.subject) }}
+                        {{ form_row(form.message) }}
 
                         <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
                     </fieldset>
