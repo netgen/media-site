@@ -1,22 +1,11 @@
 {% macro content_link(content, link_name, link_class) %}
 {% apply spaceless %}
-    {% set url = false %}
+    {% set url = _self.link_generator(content)|trim %}
     {% set open_in_new_window = false %}
-    {% set link_class = link_class|default %}
-
-    {% if not content.fields.url.empty %}
-        {% set url = content.fields.url.value.link %}
-
-        {% if content.fields.target_blank.value.bool %}
-            {% set open_in_new_window = true %}
-        {% endif %}
-    {% elseif not content.fields.related_object.empty %}
-        {% set related_content = content.fieldRelation('related_object') %}
-
-        {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
-            {% set url = path(related_content) %}
-        {% endif %}
+    {% if content.fields.target_blank.value.bool %}
+        {% set open_in_new_window = true %}
     {% endif %}
+    {% set link_class = link_class|default %}
 
     {% if url %}
         <a href="{{ url }}"
@@ -35,23 +24,12 @@
 
 {% macro image_link(content, field, alias, lazy_loading) %}
 {% apply spaceless %}
-    {% set url = '#' %}
+    {% set url = _self.link_generator(content)|trim|default("#") %}
     {% set open_in_new_window = false %}
-    {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
-
-    {% if not content.fields.url.empty %}
-        {% set url = content.fields.url.value.link %}
-
-        {% if content.fields.target_blank.value.bool %}
-            {% set open_in_new_window = true %}
-        {% endif %}
-    {% elseif not content.fields.related_object.empty %}
-        {% set related_content = content.fieldRelation('related_object') %}
-
-        {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
-            {% set url = path(related_content) %}
-        {% endif %}
+    {% if content.fields.target_blank.value.bool %}
+        {% set open_in_new_window = true %}
     {% endif %}
+    {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
     {{ ng_render_field(
         content.fields[field], {
@@ -68,23 +46,30 @@
 
 {% macro content_link_parameters(content) %}
 {% apply spaceless %}
-    {% set url = '#' %}
+    {% set url = _self.link_generator(content)|trim|default("#") %}
     {% set open_in_new_window = false %}
+    {% if content.fields.target_blank.value.bool %}
+        {% set open_in_new_window = true %}
+    {% endif %}
 
-    {% if not content.fields.url.empty %}
+    href="{{ url }}"{% if open_in_new_window %} target="_blank" rel="nofollow noopener noreferrer"{% endif %}
+{% endapply %}
+{% endmacro %}
+
+{% macro link_generator(content) %}
+{% apply spaceless %}
+    {% set url = null %}
+    {% if content.hasField('url') and not content.fields.url.empty %}
         {% set url = content.fields.url.value.link %}
-
-        {% if content.fields.target_blank.value.bool %}
-            {% set open_in_new_window = true %}
-        {% endif %}
-    {% elseif not content.fields.related_object.empty %}
+    {% elseif content.hasField('related_object') and not content.fields.related_object.empty %}
         {% set related_content = content.fieldRelation('related_object') %}
 
         {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
             {% set url = path(related_content) %}
         {% endif %}
     {% endif %}
+    
+    {{ url }}
 
-    href="{{ url }}"{% if open_in_new_window %} target="_blank" rel="nofollow noopener noreferrer"{% endif %}
 {% endapply %}
 {% endmacro %}
