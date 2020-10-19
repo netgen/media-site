@@ -25,7 +25,7 @@
 
         <div class="container">
             {% if not content.fields.body.empty %}
-                <div class="category-body">
+                <div class="full-page-body">
                     {{ ng_render_field(content.fields.body) }}
                 </div>
             {% endif %}
@@ -43,44 +43,42 @@
             </div>
 
             {% if content.fields.show_children.value.bool %}
-                <div class="category-children">
-                    {% if pager|length > 0 %}
-                        {% set children_view_type = content.fields.view_type.value.identifiers[0]|default('standard') %}
-                        {% set columns = content.fields.grid_columns.value.identifiers[0]|default('3') %}
-                        {% set column_css_class = {
-                            '1': 'col-12',
-                            '2': 'col-sm-6',
-                            '3': 'col-md-4 col-sm-6',
-                            '4': 'col-lg-3 col-md-4 col-sm-6'
-                        } %}
+                {% if pager|length > 0 %}
+                    {% set children_view_type = content.fields.view_type.value.identifiers[0]|default('standard') %}
+                    {% set columns = content.fields.grid_columns.value.identifiers[0]|default('3') %}
+                    {% set column_css_class = {
+                        '1': 'col-12',
+                        '2': 'col-sm-6',
+                        '3': 'col-md-4 col-sm-6',
+                        '4': 'col-lg-3 col-md-4 col-sm-6'
+                    } %}
 
-                        {% if children_view_type == 'listitem' %}
-                            <ul class="listitem-list">
-                                {% for pager_item in pager %}
-                                    <li>
-                                        {% include '@ezdesign/parts/ng_view_content.html.twig' with {
-                                            content: pager_item.content,
-                                            location: pager_item,
-                                            view_type: children_view_type
-                                        } only %}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            <div class="row">
-                                {% for pager_item in pager %}
-                                    <div class="{{ column_css_class[columns] }}">
-                                        {% include '@ezdesign/parts/ng_view_content.html.twig' with {
-                                            content: pager_item.content,
-                                            location: pager_item,
-                                            view_type: children_view_type
-                                        } only %}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
+                    {% if children_view_type == 'listitem' %}
+                        <ul class="listitem-list">
+                            {% for pager_item in pager %}
+                                <li>
+                                    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                                        content: pager_item.content,
+                                        location: pager_item,
+                                        view_type: children_view_type
+                                    } only %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div class="row">
+                            {% for pager_item in pager %}
+                                <div class="{{ column_css_class[columns] }}">
+                                    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                                        content: pager_item.content,
+                                        location: pager_item,
+                                        view_type: children_view_type
+                                    } only %}
+                                </div>
+                            {% endfor %}
+                        </div>
                     {% endif %}
-                </div>
+                {% endif %}
 
                 {% if pager.haveToPaginate() %}
                     {{ pagerfanta(pager, 'ngsite') }}

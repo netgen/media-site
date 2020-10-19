@@ -16,7 +16,7 @@
 {% block content %}
     <article class="view-type view-type-{{ view_type }} ng-article vf1">
         {% block article_header %}
-            <header class="full-page-header full-article-header">
+            <header class="full-page-header">
                 <div class="container">
                     {% if not content.fields.sponsored_content_disclosure.empty %}
                         <div class="full-page-sponsored-tag">
@@ -46,7 +46,7 @@
         <div class="container">
             {% block image %}
                 {% if not content.fields.image.empty or not content.fields.related_multimedia.empty %}
-                    <div class="full-article-image">
+                    <div class="full-page-image">
                         {{ render(
                             controller(
                                 'ngsite.controller.parts:viewRelatedMultimediaItems', {
@@ -61,31 +61,29 @@
                 {% endif %}
             {% endblock %}
 
-            <div class="full-article-content">
 
-                {% block body %}
-                    <div class="full-article-body">
-                        {% if not content.fields.full_intro.empty %}
-                            <div class="article-intro">
-                                {{ ng_render_field(content.fields.full_intro) }}
-                            </div>
-                        {% endif %}
+            {% block body %}
+                <div class="full-page-body">
+                    {% if not content.fields.full_intro.empty %}
+                        <div class="full-page-intro">
+                            {{ ng_render_field(content.fields.full_intro) }}
+                        </div>
+                    {% endif %}
 
-                        {% if not content.fields.body.empty %}
-                            {{ ng_render_field(content.fields.body) }}
-                        {% endif %}
+                    {% if not content.fields.body.empty %}
+                        {{ ng_render_field(content.fields.body) }}
+                    {% endif %}
 
-                        {% if not content.fields.tags.empty %}
-                            <div class="full-article-tags">
-                                {% for tag in content.fields.tags.value.tags %}
-                                    <a href="{{ path(tag) }}">{{ tag.keyword }}</a>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                {% endblock %}
+                    {% if not content.fields.tags.empty %}
+                        <div class="full-page-tags">
+                            {% for tag in content.fields.tags.value.tags %}
+                                <a href="{{ path(tag) }}">{{ tag.keyword }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endblock %}
 
-            </div>
         </div>
     </article>
 {% endblock %}
