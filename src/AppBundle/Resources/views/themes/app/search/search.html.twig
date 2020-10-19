@@ -49,9 +49,8 @@
                                 <div id="search-result">
                                     {% for search_hit in pager.currentPageResults.searchHits %}
                                         {% set score = null %}
-
-                                        {% if search_hit.score is not null %}
-                                            {% set score = (search_hit.score * 100)|round %}
+                                        {% if search_hit.score is not null and pager.adapter.maxScore is defined and pager.adapter.maxScore is not null %}
+                                            {% set score = (search_hit.score / pager.adapter.maxScore * 100)|round %}
                                         {% endif %}
 
                                         {% include '@ezdesign/parts/ng_view_content.html.twig' with {
