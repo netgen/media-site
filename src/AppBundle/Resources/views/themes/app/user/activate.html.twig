@@ -2,6 +2,8 @@
 
 {% trans_default_domain "ngsite_user" %}
 
+{% form_theme form '@ezdesign/forms/theme.html.twig' %}
+
 {% block content %}
     <div class="page-header">
         <h1>{{ 'ngsite.user.activate.title'|trans }}</h1>
@@ -13,7 +15,7 @@
 
     <fieldset>
         <div class="form-group">
-            {{ form_row(form.email, {'label': 'ngsite.user.activate.email.label', 'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.email, {'label': 'ngsite.user.activate.email.label'}) }}
         </div>
 
         <button type="submit" class="btn btn-primary">{{ 'ngsite.user.activate.submit'|trans }}</button>
