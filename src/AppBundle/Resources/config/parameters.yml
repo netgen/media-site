@@ -15,3 +15,4 @@ parameters:
     ngsite.default.lazy_loading.enabled: true
     ngsite.default.lazy_loading.initial_image_alias: 'i30'
     ngsite.default.render_content_directly: true
+    ngsite.default.template.pagerfanta.ngsite: '@@NetgenSite/pagerfanta/ngsite2.html.twig'
