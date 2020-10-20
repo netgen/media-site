@@ -1,28 +1,38 @@
-.pagination {
-    .page-item {
-        margin: 0 1px 0 0;
-    }
-    .page-link {
-        background: $black;
-        color: $white;
-        border: 0;
-        margin: 0;
-        font-size: 1.125rem;
-        font-weight: 900;
-        padding: .9em 1.2em;
-    }
-    a.page-link {
-        &:hover {
-            background: $gray-87;
-        }
-    }
-    span.page-link {
-        cursor: default !important;
-    }
-    .active {
-        .page-link {
-            background: $white;
-            color: $black;
+.ajax-navigation.ajax-navigation, .page-navigation {
+    ul {
+        margin: 1rem 0;
+        display: flex;
+        padding-left: 0;
+        list-style: none;
+        border-radius: 0;
+        justify-content: center;
+        & > li {
+            margin: 0 1px 0 0;
+            
+            &.current {
+                opacity: 1;
+                .page-link, .ajax-nav-link {
+                    background: $white;
+                    color: $black;
+                }
+            }
+            .page-link, .ajax-nav-link, a {
+                position: relative;
+                display: block;
+                background: $black;
+                color: $white;
+                border: 0;
+                margin: 0;
+                font-size: 1.125rem;
+                font-weight: 900;
+                padding: .9em 1.2em;
+                line-height: 1.25;
+            }
+            a.page-link, a.ajax-nav-link {
+                &:hover {
+                    background: $gray-87;
+                }
+            }
         }
     }
 }
