@@ -13,6 +13,9 @@ ezpublish:
         frontend_group:
             translation_siteaccesses:
                 - eng
+            content:
+                tree_root:
+                    location_id: '%ngsite.default.locations.tree_root.id%'
         eng:
             design: app
             languages:
