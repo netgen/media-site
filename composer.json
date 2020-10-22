@@ -78,13 +78,13 @@
         "netgen/ezplatform-site-api": "^3.4.1",
         "netgen/ezplatform-search-extra": "^1.11",
         "netgen/admin-ui-bundle": "^2.6.6",
+        "primedigital/translations-bundle": "^1.0",
 
         "netgen/layouts-standard": "~1.2.0",
         "netgen/layouts-ezplatform": "~1.2.0",
         "netgen/layouts-ezplatform-site-api": "~1.2.0",
         "netgen/layouts-ezplatform-relation-list-query": "^1.2",
-        "netgen/layouts-ezplatform-tags-query": "^1.2",
-        "primedigital/translations-bundle": "^1.0"
+        "netgen/layouts-ezplatform-tags-query": "^1.2"
     },
     "require-dev": {
         "behat/behat": "^3.7.0",
