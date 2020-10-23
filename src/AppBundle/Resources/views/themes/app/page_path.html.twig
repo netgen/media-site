@@ -1,13 +1,17 @@
 {% if show_path and path_array|length > 1 %}
-    <div class="breadcrumb-wrapper">
-        <div class="container">
-            <ol class="breadcrumb">
-                {% for path_item in path_array %}
-                    {% if path_item.url != false %}
-                        <li><a href="{{ path_item.url }}">{{ path_item.text }}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-        </div>
-    </div>
+    <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {% for path_item in path_array %}
+                {% if path_item.url != false %}
+                    <li class="breadcrumb-item">
+                        <a href="{{ path_item.url }}">{{ path_item.text }}</a>
+                    </li>
+                {% else %}
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <span>{{ path_item.text }}</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </nav>
 {% endif %}
