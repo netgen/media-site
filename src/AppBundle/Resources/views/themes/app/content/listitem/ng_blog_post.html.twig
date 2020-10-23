@@ -6,8 +6,8 @@
 <article class="view-type view-type-{{ view_type }} ng-blog-post vl6">
     <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
     <div class="info">
-        {% include '@ezdesign/parts/author.html.twig' with {'in_bivt': true} %}
-        {% include '@ezdesign/parts/time.html.twig' with {'in_bivt': true} %}
-        {% include '@ezdesign/parts/main_tag.html.twig' with {'in_bivt': true} %}
+        {% include '@ezdesign/parts/author.html.twig' %}
+        {% include '@ezdesign/parts/time.html.twig' %}
+        {% include '@ezdesign/parts/main_tag.html.twig' with {'shortened': true} %}
     </div>
 </article>

@@ -16,13 +16,13 @@
         {% block article_header %}
             <header class="full-page-header">
                 <div class="container">
-                    {% include '@ezdesign/parts/main_tag.html.twig' with {'in_full': true} %}
+                    {% include '@ezdesign/parts/main_tag.html.twig' %}
 
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
 
                     <div class="full-page-info">
-                        {% include '@ezdesign/parts/author.html.twig' with {'in_full': true} %}
-                        {% include '@ezdesign/parts/time.html.twig' with {'in_full': true} %}
+                        By {% include '@ezdesign/parts/author.html.twig' %} -
+                        {% include '@ezdesign/parts/time.html.twig' %}
                     </div>
                 </div>
             </header>
