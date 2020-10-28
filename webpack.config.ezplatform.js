@@ -10,25 +10,30 @@ Encore.setOutputPath('public/assets/build')
     .setPublicPath('/assets/build')
     .enableSassLoader()
     .enableReactPreset()
-    .enableSingleRuntimeChunk()
-    .copyFiles({
-        from: './assets/images',
-        to: 'images/[path][name].[ext]',
-        pattern: /\.(png|svg)$/
-    });
+    .enableSingleRuntimeChunk();
+//    .copyFiles({
+//        from: './assets/images',
+//        to: 'images/[path][name].[ext]',
+//        pattern: /\.(png|svg)$/
+//    });
 
 // Welcome page stylesheets
-Encore.addEntry('welcome_page', [
-    path.resolve(__dirname, './assets/scss/welcome-page.scss'),
-]);
+// Encore.addEntry('welcome_page', [
+//     path.resolve(__dirname, './assets/scss/welcome-page.scss'),
+// ]);
 
 // Put your config here.
-Encore.addEntry('app_js', [
-    path.resolve(__dirname, './assets/app.js'),
-]);
+// Encore.addEntry('app_js', [
+//     path.resolve(__dirname, './assets/app.js'),
+// ]);
 
-Encore.addEntry('app_styles', [
-    path.resolve(__dirname, './assets/styles/app.css'),
+// Encore.addEntry('app_styles', [
+//     path.resolve(__dirname, './assets/styles/app.css'),
+// ]);
+
+// 'bootstrap' is added as a dummy entry to prevent crashing the build
+Encore.addEntry('app_dummy', [
+    'bootstrap'
 ]);
 
 const projectConfig = Encore.getWebpackConfig();
