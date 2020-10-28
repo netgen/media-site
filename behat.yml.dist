@@ -30,7 +30,7 @@ default:
 
         DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
 
-        FriendsOfBehat\SymfonyExtension\ServiceContainer\SymfonyExtension:
+        FriendsOfBehat\SymfonyExtension:
             kernel:
                 path: src/Kernel.php
                 class: App\Kernel
@@ -54,7 +54,10 @@ default:
         Allure\Behat\AllureFormatterExtension:
             image_attachment_limit: 5
 
-    suites: ~
+    suites:
+        default:
+            contexts:
+                - App\Tests\Behat\DemoContext
 
 imports:
     - vendor/ezsystems/ezplatform-kernel/eZ/Bundle/EzPublishCoreBundle/behat_suites.yml
