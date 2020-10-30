@@ -16,7 +16,7 @@
         {% block article_header %}
             <header class="full-page-header">
                 <div class="container">
-                    {% include '@ezdesign/parts/main_tag.html.twig' %}
+                    {% include '@ezdesign/parts/main_tag.html.twig' with {'use_field': false} %}
 
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
 

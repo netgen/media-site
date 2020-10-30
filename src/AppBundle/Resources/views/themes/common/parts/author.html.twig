@@ -1,4 +1,4 @@
-{% if not content.fields.authors.empty %}
+{% if content.hasField('authors') and not content.fields.authors.empty %}
     {% for author in content.fieldRelations('authors') %}
         <a class="author" href="{{ path(author) }}">{{ author.name }}</a>
     {% endfor %}
