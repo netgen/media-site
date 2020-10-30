@@ -1,4 +1,14 @@
-{# if sponsored_content_discolosure exists, show it's own value in full view, or ngsite.layout.sponsored's value in bivt, else show main_topic #}
+{#
+
+While the logic in this template may seem weird, the point here is not to display main topic if the article has sponsored content.
+
+Article is sponsored if sponsored_content_disclosure field has content.
+
+However, an additional condition (use_field) is used if the article is sponsored, because some templates (e.g. BIVTs) do not have
+necessary space to display full sponsored content disclosure. In that case, even if sponsored_content_disclosure field has content,
+we will display the short format provided by a translation string.
+
+#}
 
 {% if content.hasField('sponsored_content_disclosure') and not content.fields.sponsored_content_disclosure.empty %}
     {% if use_field|default(false) %}
@@ -6,7 +16,6 @@
     {% else %}
         <span class="sponsored-text">{{ 'ngsite.layout.sponsored'|trans }}</span>    
     {% endif %}
-
 {% elseif content.hasField('main_topic') and not content.fields.main_topic.empty %}
     <a class="main-topic" href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
 {% endif %}
