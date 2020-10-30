@@ -1,8 +1,8 @@
 {% if content.hasField('sponsored_content_disclosure') and not content.fields.sponsored_content_disclosure.empty %}
-    {% if use_field|default(true) %}
-        <span class="sponsored-text">{{ 'ngsite.layout.sponsored'|trans }}</span>    
-    {% else %}
+    {% if use_field|default(false) %}
         <span class="sponsored-text">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
+    {% else %}
+        <span class="sponsored-text">{{ 'ngsite.layout.sponsored'|trans }}</span>    
     {% endif %}
 
 {% elseif content.hasField('main_topic') and not content.fields.main_topic.empty %}
