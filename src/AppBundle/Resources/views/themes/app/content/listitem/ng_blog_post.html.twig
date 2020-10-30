@@ -18,4 +18,8 @@
             <a href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
         {% endif %}
     </div>
+
+    {% if with_intro|default(false) %}
+        {{ content_fields.intro(content) }}
+    {% endif %}
 </article>
