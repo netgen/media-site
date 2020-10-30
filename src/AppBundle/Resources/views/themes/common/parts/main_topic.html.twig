@@ -1,3 +1,5 @@
+{# if sponsored_content_discolosure exists, show it's own value in full view, or ngsite.layout.sponsored's value in bivt, else show main_topic #}
+
 {% if content.hasField('sponsored_content_disclosure') and not content.fields.sponsored_content_disclosure.empty %}
     {% if use_field|default(false) %}
         <span class="sponsored-text">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
