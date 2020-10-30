@@ -1,6 +1,6 @@
 {% macro content_link(content, link_name, link_class) %}
 {% apply spaceless %}
-    {% set url = _self.link_generator(content)|trim %}
+    {% set url = _self.related_content_link(content)|trim %}
     {% set open_in_new_window = false %}
     {% if content.fields.target_blank.value.bool %}
         {% set open_in_new_window = true %}
@@ -24,7 +24,7 @@
 
 {% macro image_link(content, field, alias, lazy_loading) %}
 {% apply spaceless %}
-    {% set url = _self.link_generator(content)|trim|default("#") %}
+    {% set url = _self.related_content_link(content)|trim|default("#") %}
     {% set open_in_new_window = false %}
     {% if content.fields.target_blank.value.bool %}
         {% set open_in_new_window = true %}
@@ -46,7 +46,7 @@
 
 {% macro content_link_parameters(content) %}
 {% apply spaceless %}
-    {% set url = _self.link_generator(content)|trim|default("#") %}
+    {% set url = _self.related_content_link(content)|trim|default("#") %}
     {% set open_in_new_window = false %}
     {% if content.fields.target_blank.value.bool %}
         {% set open_in_new_window = true %}
@@ -56,7 +56,7 @@
 {% endapply %}
 {% endmacro %}
 
-{% macro link_generator(content) %}
+{% macro related_content_link(content) %}
 {% apply spaceless %}
     {% set url = null %}
     {% if content.hasField('url') and not content.fields.url.empty %}
