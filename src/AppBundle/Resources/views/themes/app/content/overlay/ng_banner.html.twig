@@ -4,24 +4,16 @@
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 {% import "@ezdesign/parts/macros.html.twig" as macros %}
 
-{% set content_link = macros.content_link_parameters(content) %}
-
 {% block content %}
 <article class="view-type view-type-{{ view_type }} ng-banner vl2">
-    <a {{ content_link }} class="image-16by9" aria-label="{{ not content.fields.url.empty ? content.fields.url.value.text : content.fields.title.value.text|trim }}">
-        {{ content_fields.image(content) }}
-    </a>
-
+    <figure class="image">
+        {{ macros.image_link(content, 'image', 'i480') }}
+    </figure>
     <header class="article-header">
         <h2 class="title">
-            <a {{ content_link }}>
-                {% if not content.fields.url.empty %}
-                    {{ content.fields.url.value.text }}
-                {% else %}
-                    {{ ng_render_field(content.fields.title) }}
-                {% endif %}
-            </a>
+            {{ macros.content_link(content, content.fields.title.value.text) }}
         </h2>
     </header>
+    
 </article>
 {% endblock %}

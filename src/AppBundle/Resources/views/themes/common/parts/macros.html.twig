@@ -24,35 +24,30 @@
 
 {% macro image_link(content, field, alias, lazy_loading) %}
 {% apply spaceless %}
-    {% set url = _self.related_content_link(content)|trim|default("#") %}
+    {% set url = _self.related_content_link(content)|trim %}
     {% set open_in_new_window = false %}
     {% if content.fields.target_blank.value.bool %}
         {% set open_in_new_window = true %}
     {% endif %}
     {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
+    {% if not url %}
+        <span>
+    {% endif %}
     {{ ng_render_field(
         content.fields[field], {
             'parameters': {
                 'alias': alias,
-                'link_href': url,
+                'link_href': url ? url : '',
                 'link_target': open_in_new_window ? '_blank' : '',
                 'lazy_loading': lazy_loading,
             }
         }
     ) }}
-{% endapply %}
-{% endmacro %}
-
-{% macro content_link_parameters(content) %}
-{% apply spaceless %}
-    {% set url = _self.related_content_link(content)|trim|default("#") %}
-    {% set open_in_new_window = false %}
-    {% if content.fields.target_blank.value.bool %}
-        {% set open_in_new_window = true %}
+    {% if not url %}
+        </span>
     {% endif %}
-
-    href="{{ url }}"{% if open_in_new_window %} target="_blank" rel="nofollow noopener noreferrer"{% endif %}
+    
 {% endapply %}
 {% endmacro %}
 
