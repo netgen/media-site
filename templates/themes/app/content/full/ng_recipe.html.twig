@@ -5,8 +5,6 @@
 
 {% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
 
-{% set show_path = false %}
-
 {% if not content.fields.teaser_intro.empty %}
     {% set meta_data = {'description': content.fields.teaser_intro.value.xml.saveXML()|striptags|trim|u.truncate(152)} %}
 {% elseif not content.fields.full_intro.empty %}
@@ -16,7 +14,7 @@
 {% block content %}
     <article class="view-type view-type-{{ view_type }} ng-recipe vf1">
         {% block article_header %}
-            <header class="full-page-header full-article-header">
+            <header class="full-page-header">
                 <div class="container">
                     {% if not content.fields.sponsored_content_disclosure.empty %}
                         <div class="full-page-sponsored-tag">
@@ -43,7 +41,7 @@
         <div class="container">
             {% block image %}
                 {% if not content.fields.image.empty or not content.fields.related_multimedia.empty %}
-                    <div class="full-article-image">
+                    <div class="full-page-image">
                         {{ render(
                             controller(
                                 'ngsite.controller.relations.related_multimedia_items', {
@@ -58,60 +56,57 @@
                 {% endif %}
             {% endblock %}
 
-            <div class="full-article-content">
+            {% block body %}
+                <div class="full-page-body">
+                    {% if not content.fields.full_intro.empty %}
+                        <div class="full-page-intro">
+                            {{ ng_render_field(content.fields.full_intro) }}
+                        </div>
+                    {% endif %}
 
-                {% block body %}
-                    <div class="full-article-body">
-                        {% if not content.fields.full_intro.empty %}
-                            <div class="article-intro">
-                                {{ ng_render_field(content.fields.full_intro) }}
-                            </div>
+                    {% if not content.fields.body.empty %}
+                        {{ ng_render_field(content.fields.body) }}
+                    {% endif %}
+
+                    {% if not content.fields.tags.empty %}
+                        <div class="full-article-tags">
+                            {% for tag in content.fields.tags.value.tags %}
+                                <a href="{{ ez_path(tag) }}">{{ tag.keyword }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endblock %}
+
+            {% block recipe_info %}
+                <div class="full-recipe-info">
+                    {% if not content.fields.serving_calories.empty %}
+                        <div class="recipe-calories">
+                            {{ ng_render_field(content.fields.serving_calories) }} {{ 'ngsite.layout.recipe.cal'|trans }}
+                        </div>
+                    {% endif %}
+
+                    <ul class="recipe-serving-info">
+                        {% if not content.fields.serving_fat.empty %}
+                            <li>{{ ng_render_field(content.fields.serving_fat) }} <span class="tt">{{ 'ngsite.layout.recipe.fat'|trans }}</span></li>
                         {% endif %}
-
-                        {% if not content.fields.body.empty %}
-                            {{ ng_render_field(content.fields.body) }}
+                        {% if not content.fields.serving_carbohydrates.empty %}
+                            <li>{{ ng_render_field(content.fields.serving_carbohydrates) }} <span class="tt">{{ 'ngsite.layout.recipe.carbs'|trans }}</span></li>
                         {% endif %}
-
-                        {% if not content.fields.tags.empty %}
-                            <div class="full-article-tags">
-                                {% for tag in content.fields.tags.value.tags %}
-                                    <a href="{{ ez_path(tag) }}">{{ tag.keyword }}</a>
-                                {% endfor %}
-                            </div>
+                        {% if not content.fields.serving_protein.empty %}
+                            <li>{{ ng_render_field(content.fields.serving_protein) }} <span class="tt">{{ 'ngsite.layout.recipe.protein'|trans }}</span></li>
                         {% endif %}
-                    </div>
-                {% endblock %}
+                    </ul>
 
-                {% block recipe_info %}
-                    <div class="full-recipe-info">
-                        {% if not content.fields.serving_calories.empty %}
-                            <div class="recipe-calories">
-                                {{ ng_render_field(content.fields.serving_calories) }} {{ 'ngsite.layout.recipe.cal'|trans }}
-                            </div>
-                        {% endif %}
+                    {% if not content.fields.preparation_time.empty %}
+                        <div class="recipe-time">
+                            {{ 'ngsite.layout.recipe.preparation_time'|trans }}
+                            <time>{{ ng_render_field(content.fields.preparation_time) }} {{ 'ngsite.layout.recipe.min'|trans }}</time>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endblock %}
 
-                        <ul class="recipe-serving-info">
-                            {% if not content.fields.serving_fat.empty %}
-                                <li>{{ ng_render_field(content.fields.serving_fat) }} <span class="tt">{{ 'ngsite.layout.recipe.fat'|trans }}</span></li>
-                            {% endif %}
-                            {% if not content.fields.serving_carbohydrates.empty %}
-                                <li>{{ ng_render_field(content.fields.serving_carbohydrates) }} <span class="tt">{{ 'ngsite.layout.recipe.carbs'|trans }}</span></li>
-                            {% endif %}
-                            {% if not content.fields.serving_protein.empty %}
-                                <li>{{ ng_render_field(content.fields.serving_protein) }} <span class="tt">{{ 'ngsite.layout.recipe.protein'|trans }}</span></li>
-                            {% endif %}
-                        </ul>
-
-                        {% if not content.fields.preparation_time.empty %}
-                            <div class="recipe-time">
-                                {{ 'ngsite.layout.recipe.preparation_time'|trans }}
-                                <time>{{ ng_render_field(content.fields.preparation_time) }} {{ 'ngsite.layout.recipe.min'|trans }}</time>
-                            </div>
-                        {% endif %}
-                    </div>
-                {% endblock %}
-
-            </div>
         </div>
     </article>
 {% endblock %}

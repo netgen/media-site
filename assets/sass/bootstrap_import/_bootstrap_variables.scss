@@ -836,14 +836,14 @@ $headings-font-weight:        900;
 
 // $breadcrumb-padding-y:              .75rem;
 // $breadcrumb-padding-x:              1rem;
-// $breadcrumb-item-padding:           .5rem;
+$breadcrumb-item-padding:           .25rem;
 
-// $breadcrumb-margin-bottom:          1rem;
+$breadcrumb-margin-bottom:          0;
 
-// $breadcrumb-bg:                     $gray-200;
-// $breadcrumb-divider-color:          $gray-600;
-// $breadcrumb-active-color:           $gray-600;
-// $breadcrumb-divider:                "/";
+$breadcrumb-bg:                     transparent;
+$breadcrumb-divider-color:          $black;
+$breadcrumb-active-color:           $gray-64;
+$breadcrumb-divider:                "/";
 
 
 // Carousel

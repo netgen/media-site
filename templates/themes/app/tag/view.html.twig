@@ -4,15 +4,13 @@
 {% set site_title = tag.keyword %}
 {% set topic_tag = tag.keyword %}
 
-{% block pre_content %}
+{% block content %}
     <header class="full-page-header">
         <div class="container">
             <h1 class="full-page-title">{{ tag.keyword }}</h1>
         </div>
     </header>
-{% endblock %}
 
-{% block content %}
     <div class="full-tag-results">
         {% if related_content|length > 0 %}
             <div class="row">
