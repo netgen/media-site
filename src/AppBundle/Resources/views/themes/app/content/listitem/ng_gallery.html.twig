@@ -12,4 +12,8 @@
     <div class="info">
         {% include '@ezdesign/parts/main_topic.html.twig' %}
     </div>
+
+    {% if with_intro|default(false) %}
+        {{ content_fields.intro(content) }}
+    {% endif %}
 </article>
