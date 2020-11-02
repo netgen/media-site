@@ -31,20 +31,20 @@
     {% endif %}
     {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
-    {% if not url %}
+    {% if url is not empty %}
         <span>
     {% endif %}
     {{ ng_render_field(
         content.fields[field], {
             'parameters': {
                 'alias': alias,
-                'link_href': url ? url : '',
+                'link_href': url,
                 'link_target': open_in_new_window ? '_blank' : '',
                 'lazy_loading': lazy_loading,
             }
         }
     ) }}
-    {% if not url %}
+    {% if url is not empty %}
         </span>
     {% endif %}
     
