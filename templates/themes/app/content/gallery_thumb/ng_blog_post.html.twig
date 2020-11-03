@@ -13,12 +13,8 @@
                 <h2 class="title"><a href={{ ez_path(location) }}>{{ content_fields.title(content) }}</a></h2>
 
                 <div class="date">
-                    {% if not content.fields.authors.empty %}
-                        {% for author in content.fieldRelations('authors') %}
-                            <a href="{{ ez_path(author) }}" class="article-author">{{ author.name }}</a>
-                        {% endfor %} |
-                    {% endif %}
-                    {{ content.fields.publish_date.value.value|date('j. n. Y.') }}
+                    {% include '@ezdesign/parts/author.html.twig' %}
+                    {% include '@ezdesign/parts/time.html.twig' %}
                 </div>
             </div>
         {% endif %}

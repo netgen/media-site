@@ -3,16 +3,17 @@
 
 {% import "@ezdesign/parts/macros.html.twig" as macros %}
 
-{% block content %}
-<article class="view-type view-type-{{ view_type }} ng-banner vl2">
-    <figure class="image">
-        {{ macros.image_link(content, 'image', 'i480') }}
-    </figure>
+<article class="view-type view-type-{{ view_type }} ng-banner vl5">
+
+    {% if not content.fields.image.empty %}
+        <figure class="image">
+            {{ macros.image_link(content, 'image', 'i160') }}
+        </figure>
+    {% endif %}
+
     <header class="article-header">
         <h2 class="title">
             {{ macros.content_link(content, content.fields.title.value.text) }}
         </h2>
     </header>
-    
 </article>
-{% endblock %}

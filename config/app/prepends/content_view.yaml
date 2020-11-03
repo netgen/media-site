@@ -45,6 +45,7 @@ frontend_group:
                         - file
                         - ng_article
                         - ng_audio
+                        - ng_banner
                         - ng_blog_post
                         - ng_category
                         - ng_feedback_form
@@ -66,6 +67,7 @@ frontend_group:
                         - file
                         - ng_article
                         - ng_audio
+                        - ng_banner
                         - ng_blog_post
                         - ng_gallery
                         - ng_news
@@ -131,6 +133,7 @@ frontend_group:
                         - file
                         - ng_article
                         - ng_audio
+                        - ng_banner
                         - ng_blog_post
                         - ng_gallery
                         - ng_news

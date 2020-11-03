@@ -1,0 +1,15 @@
+{# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
+{# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
+
+{% import "@ezdesign/parts/macros.html.twig" as macros %}
+
+<article class="view-type view-type-{{ view_type }} ng-banner vl6">
+	<h2 class="title">
+        {{ macros.content_link(content, content.fields.title.value.text) }}
+    </h2>
+    {% if with_intro|default(false) %}
+        <div class="short">
+            {{ ng_render_field(content.fields.short_description) }}
+        </div>
+    {% endif %}
+</article>

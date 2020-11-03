@@ -9,4 +9,8 @@
             <i class="fas fa-volume-up article-icon" aria-hidden="true"></i>{{ content_fields.title(content) }}
         </a>
     </h2>
+
+    {% if with_intro|default(false) %}
+        {{ content_fields.intro(content) }}
+    {% endif %}
 </article>
