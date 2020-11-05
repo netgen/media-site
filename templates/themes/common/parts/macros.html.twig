@@ -29,7 +29,7 @@
     {% if content.fields.target_blank.value.bool %}
         {% set open_in_new_window = true %}
     {% endif %}
-    {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+    {% set lazy_loading = lazy_loading ?? ezplatform.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
     {% if url is not empty %}
         <span>
@@ -47,7 +47,7 @@
     {% if url is not empty %}
         </span>
     {% endif %}
-    
+
 {% endapply %}
 {% endmacro %}
 
