@@ -152,19 +152,20 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-            "security-checker security:check": "script"
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
         },
         "project-scripts": [
             "@php bin/console ngsite:symlink:project"
         ],
         "post-install-cmd": [
             "@auto-scripts",
-            "@project-scripts"
+            "@project-scripts",
+            "@php bin/security-checker security:check || true"
         ],
         "post-update-cmd": [
             "@auto-scripts",
-            "@project-scripts"
+            "@project-scripts",
+            "@php bin/security-checker security:check || true"
         ],
         "ezplatform-assets": [
             "@php bin/console bazinga:js-translation:dump public/assets --merge-domains",
