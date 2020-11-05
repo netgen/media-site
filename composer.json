@@ -127,7 +127,7 @@
             "Netgen\\Bundle\\SiteLegacyBundle\\Composer\\ScriptHandler::installLegacySymlinks",
             "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::generateAutoloads",
             "@php bin/console lexik:translations:import AppBundle",
-            "@php bin/security-checker security:check"
+            "@php bin/security-checker security:check || true"
         ],
         "post-install-cmd": [
             "@symfony-scripts"
