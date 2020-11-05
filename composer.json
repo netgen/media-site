@@ -126,6 +126,7 @@
             "Netgen\\Bundle\\SiteBundle\\Composer\\ScriptHandler::installProjectSymlinks",
             "Netgen\\Bundle\\SiteLegacyBundle\\Composer\\ScriptHandler::installLegacySymlinks",
             "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::generateAutoloads",
+            "@php bin/console lexik:translations:import AppBundle",
             "@php bin/security-checker security:check"
         ],
         "post-install-cmd": [
