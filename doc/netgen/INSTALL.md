@@ -58,8 +58,6 @@ As either way you will not be developing on a tagged (stable) version, you need 
 
 After this, you can run `composer install`, and follow the rest of the instructions.
 
-
-
 Near the end of vendor installation procedure, when asked, be sure to specify
 the correct database connection for the site.
 
@@ -116,6 +114,15 @@ php bin/console ezplatform:install <SITE_NAME>
 
 where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
 or `netgen-media-clean` for the clean version, without demo data.
+
+Import the translations to the database with:
+
+```
+php bin/console lexik:translations:import AppBundle
+```
+
+This is required so Prime Translations Bundle can be used to edit translations through admin interface.
+Note that after every change to the translation files, you need to run the above command again.
 
 Finally, generate the GraphQL schema for admin interface:
 
