@@ -10,7 +10,7 @@ set('branch', 'master');
 set('repository_name', 'netgen/example');
 
 add('shared_files', ['.env', 'app/config/parameters.yml']);
-add('shared_dirs', ['ezpublish_legacy/var/site/storage']);
+add('shared_dirs', ['ezpublish_legacy/var/site/storage', 'ezpublish_legacy/var/storage']);
 
 add('writable_dirs', ['var/encore', 'ezpublish_legacy/var']);
 set('writable_use_sudo', false);
