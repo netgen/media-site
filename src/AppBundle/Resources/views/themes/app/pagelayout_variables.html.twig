@@ -24,14 +24,6 @@
     {% endif %}
 {% endif %}
 
-{# CURRENT LOCATION PATH ID ARRAY #}
-{% set current_location_path = [] %}
-{% if app.request.attributes.get('_route') == 'ez_urlalias' and app.request.attributes.has('view') %}
-    {% if location is defined and location|default(null) is not empty %}
-        {% set current_location_path = location.path|slice(1) %}
-    {% endif %}
-{% endif %}
-
 {# AVAILABLE TRANSLATIONS #}
 
 {% if available_translations is not defined %}
