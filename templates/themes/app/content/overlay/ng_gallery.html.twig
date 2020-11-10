@@ -10,8 +10,8 @@
     {% if children.searchHits is not empty %}
         {% set first_image = children[0].content %}
 
-        <a href="{{ ez_path(location) }}" class="image-16by9" aria-label="{{ first_image.fields.name.value }}">
-            <figure class="image">
+        <figure class="image">
+            <a href="{{ ez_path(location) }}" aria-label="{{ first_image.fields.name.value }}">
                 {{ ng_render_field(
                     first_image.fields.image, {
                         parameters: {
@@ -20,8 +20,8 @@
                         }
                     }
                 ) }}
-            </figure>
-        </a>
+            </a>
+        </figure>
     {% endif %}
 
     <header class="article-header">
