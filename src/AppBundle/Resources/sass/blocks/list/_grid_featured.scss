@@ -10,7 +10,7 @@
     }
     .vl2 {
         margin: 0;
-        .image-16by9 {
+        .image {
             padding-bottom: 100%;
         }
         .title {
@@ -31,7 +31,7 @@
             flex: 0 0 100%;
             max-width: 100%;
             .vl2 {
-                .image-16by9 {
+                .image {
                     padding-bottom: 56.25%;
                 }
             }
@@ -80,7 +80,7 @@
                     -webkit-line-clamp: 4;
                     max-height: 5em;
                 }
-                .image-16by9 {
+                .image {
                     padding-bottom: 75%;
                 }
             }
