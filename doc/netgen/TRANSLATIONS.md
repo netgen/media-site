@@ -13,7 +13,7 @@ lexik_translation:
     fallback_locale: [en]
     managed_locales: [en]
 
-    base_layout: "PrimeTranslationsBundle::pagelayout.html.twig"
+    base_layout: "@PrimeTranslations/pagelayout.html.twig"
     grid_input_type: text
     grid_toggle_similar: false
     storage:
