@@ -15,14 +15,14 @@ frontend_group:
                     Identifier\ContentType: ng_category
                 queries:
                     subtree:
-                        query_type: 'SiteAPI:Location/Subtree'
-                        max_per_page: '@=content.getFieldValue("page_limit").value > 0 ? content.getFieldValue("page_limit").value : 12'
-                        page: '@=queryParam("page", 1)'
+                        query_type: "SiteAPI:Location/Subtree"
+                        max_per_page: "@=content.getFieldValue('page_limit').value > 0 ? content.getFieldValue('page_limit').value : 12"
+                        page: "@=queryParam('page', 1)"
                         parameters:
-                            content_type: '@=split(content.getFieldValue("children_class_filter_include").text, ",")'
+                            content_type: "@=split(content.getFieldValue('children_class_filter_include').text, ',')"
                             visible: true
-                            relative_depth: '@=content.getFieldValue("fetch_subtree").bool ? null : 1'
-                            sort: '@=location.innerLocation.getSortClauses()'
+                            relative_depth: "@=content.getFieldValue('fetch_subtree').bool ? null : 1"
+                            sort: "@=location.innerLocation.getSortClauses()"
             ng_feedback_form:
                 template: "@ezdesign/content/full/ng_feedback_form.html.twig"
                 controller: netgen_information_collection.controller.collect_information
