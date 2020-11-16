@@ -43,6 +43,8 @@
             </div>
 
             {% if content.fields.show_children.value.bool %}
+                {% set pager = ng_query('subtree') %}
+
                 {% if pager|length > 0 %}
                     {% set children_view_type = content.fields.view_type.value.identifiers[0]|default('standard') %}
                     {% set columns = content.fields.grid_columns.value.identifiers[0]|default('3') %}
