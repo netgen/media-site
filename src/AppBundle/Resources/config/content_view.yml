@@ -3,9 +3,7 @@ frontend_group:
         full:
             ng_category:
                 template: "@ezdesign/content/full/ng_category.html.twig"
-                controller: "ngsite.controller.check_redirect"
-                match:
-                    Identifier\ContentType: ng_category
+                controller: ngsite.controller.check_redirect
                 queries:
                     subtree:
                         query_type: "SiteAPI:Location/Subtree"
@@ -16,6 +14,8 @@ frontend_group:
                             visible: true
                             relative_depth: "@=content.getFieldValue('fetch_subtree').bool ? null : 1"
                             sort: "@=location.innerLocation.getSortClauses()"
+                match:
+                    Identifier\ContentType: ng_category
             ng_feedback_form:
                 template: "@ezdesign/content/full/ng_feedback_form.html.twig"
                 controller: "netgen_information_collection.controller:displayAndHandle"
@@ -23,7 +23,7 @@ frontend_group:
                     Identifier\ContentType: ng_feedback_form
             ng_landing_page:
                 template: "@ezdesign/content/full/ng_landing_page.html.twig"
-                controller: "ngsite.controller.check_redirect"
+                controller: ngsite.controller.check_redirect
                 match:
                     Identifier\ContentType: ng_landing_page
             common:
