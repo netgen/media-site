@@ -20,7 +20,6 @@ frontend_group:
                         page: "@=queryParam('page', 1)"
                         parameters:
                             content_type: "@=split(content.getFieldValue('children_class_filter_include').text, ',')"
-                            visible: true
                             relative_depth: "@=content.getFieldValue('fetch_subtree').bool ? null : 1"
                             sort: "@=location.innerLocation.getSortClauses()"
             ng_feedback_form:
