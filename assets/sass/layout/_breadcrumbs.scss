@@ -2,9 +2,13 @@
     .breadcrumb {
         background-color: transparent;
         margin: 0;
-        padding: 3rem 0;
+        padding: 1.5rem 0;
         font-size: 1.125rem;
         line-height: 1.3125rem;
-        color: $black;
+        .breadcrumb-item {
+            & + .breadcrumb-item::before {
+                color: inherit;
+            }
+        }
     }
 }

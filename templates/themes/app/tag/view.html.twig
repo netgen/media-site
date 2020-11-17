@@ -5,13 +5,13 @@
 {% set topic_tag = tag.keyword %}
 
 {% block content %}
-    <header class="full-page-header">
+    <header class="full-page-header no-breadcrumbs">
         <div class="container">
             <h1 class="full-page-title">{{ tag.keyword }}</h1>
         </div>
     </header>
 
-    <div class="full-tag-results">
+    <div class="container">
         {% if related_content|length > 0 %}
             <div class="row">
                 {% for related_content_item in related_content %}

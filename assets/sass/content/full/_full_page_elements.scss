@@ -1,7 +1,10 @@
 .full-page-header {
     background: $primary;
-    padding: 4rem 0;
-    text-align: center;
+    padding: 2rem 0 4rem;
+    margin-bottom: 4rem;
+    &.no-breadcrumbs {
+        padding: 4rem 0 4rem;
+    }
     .main-topic, .sponsored-text {
         display: inline-block;
         font-size: .75rem;
@@ -21,6 +24,8 @@
 .full-page-intro {
     color: $black;
     opacity: .54;
+    font-size: 1.3125rem;
+    font-style: italic;
     p {
         margin: 0;
         + p {
@@ -108,12 +113,6 @@
     .object-right > .view-type-embed {
         margin-right: -4rem;
     }
-}
-
-.full-page-intro {
-    font-size: 1.3125rem;
-    font-style: italic;
-    color: $gray-54;
 }
 
 /* full page newsletter box */
