@@ -14,8 +14,6 @@
             "homepage": "https://github.com/ezsystems/ezplatform/contributors"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": "^7.3",
         "ext-ctype": "*",
@@ -79,9 +77,9 @@
         "sentry/sentry-symfony": "^3.4",
         "novactive/ezseobundle": "^5.0",
 
-        "netgen/media-site-data": "^2.0@beta",
-        "netgen/site-bundle": "^2.0@beta",
-        "netgen/site-installer-bundle": "^2.0@beta",
+        "netgen/media-site-data": "^2.0",
+        "netgen/site-bundle": "^2.0",
+        "netgen/site-installer-bundle": "^2.0",
         "netgen/ezplatform-site-api": "^4.2",
         "netgen/ezplatform-search-extra": "^2.5",
         "netgen/information-collection-bundle": "^2.0@alpha",
