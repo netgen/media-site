@@ -7,13 +7,13 @@
 {% set site_title = tag_keyword %}
 
 {% block content %}
-    <header class="full-page-header">
+    <header class="full-page-header full-page-header-without-breacrumbs">
         <div class="container">
             <h1 class="full-page-title">{{ tag_keyword }}</h1>
         </div>
     </header>
 
-    <div class="full-tag-results">
+    <div class="container">
         {% if related_content|length > 0 %}
             <div class="row">
                 {% for related_content_item in related_content %}
