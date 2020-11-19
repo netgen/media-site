@@ -80,6 +80,15 @@ composer ezplatform-install
 
 **Tip:** For a more complete and better performing setup using Apache or Nginx, see how to [install Ibexa Platform manually](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform/).
 
+Alternatively, you can deploy this repository on [Platform.sh](https://platform.sh/) using the link below.
+
+<p align="center">
+<a href="https://console.platform.sh/projects/create-project?template=https://github.com/netgen/media-site.git&utm_content=netgen_media_site&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
+    <img src="https://platform.sh/images/deploy/lg-blue.svg" alt="Deploy on Platform.sh" width="180px" />
+</a>
+</p>
+
+
 ## Issue tracker
 Submitting bugs, improvements and stories is possible on [https://jira.ez.no/browse/EZP](https://jira.ez.no/browse/EZP).
 If you discover a security issue, please see how to responsibly report such issues in ["Reporting security issues in Ibexa products"](https://doc.ibexa.co/en/latest/guide/reporting_issues/#reporting-security-issues-in-ez-systems-products).
