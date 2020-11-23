@@ -83,11 +83,10 @@ composer ezplatform-install
 Alternatively, you can deploy this repository on [Platform.sh](https://platform.sh/) using the link below.
 
 <p align="center">
-<a href="https://console.platform.sh/projects/create-project?template=https://github.com/netgen/media-site.git&utm_content=netgen_media_site&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
-    <img src="https://platform.sh/images/deploy/lg-blue.svg" alt="Deploy on Platform.sh" width="180px" />
-</a>
+    <a href="https://console.platform.sh/projects/create-project?template=https://github.com/netgen/media-site.git&utm_content=netgen_media_site&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
+        <img src="https://platform.sh/images/deploy/lg-blue.svg" alt="Deploy on Platform.sh" width="180px" />
+    </a>
 </p>
-
 
 ## Issue tracker
 Submitting bugs, improvements and stories is possible on [https://jira.ez.no/browse/EZP](https://jira.ez.no/browse/EZP).
