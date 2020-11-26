@@ -22,7 +22,7 @@
         "ezsystems/doctrine-dbal-schema": "~1.0.0",
         "ezsystems/ez-support-tools": "~2.2.0",
         "ezsystems/ezplatform-admin-ui": "~2.2.0",
-        "ezsystems/ezplatform-admin-ui-assets": "~5.2.0",
+        "ezsystems/ezplatform-admin-ui-assets": "~5.2.2",
         "ezsystems/ezplatform-content-forms": "~1.2.0",
         "ezsystems/ezplatform-core": "~2.2.0",
         "ezsystems/ezplatform-cron": "~3.0.2",
