@@ -104,7 +104,6 @@
         "symfony/phpunit-bridge": "^5.0",
         "snc/redis-bundle": "^3.2.1",
         "predis/predis": "^1.1.3",
-        "franzl/studio": "*",
         "deployer/recipes": "^6.2",
 
         "netgen/git-hooks": "^1.0"
