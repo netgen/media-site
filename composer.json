@@ -179,6 +179,7 @@
     },
     "extra": {
         "symfony": {
+            "require": "~5.1.0",
             "allow-contrib": true
         },
         "branch-alias": {
