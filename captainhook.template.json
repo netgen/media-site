@@ -30,7 +30,10 @@
                 "action": "\\CaptainHook\\App\\Hook\\Composer\\Action\\CheckLockFile"
             },
             {
-                "action": "\\Netgen\\GitHooks\\Action\\PHPCSFixer"
+                "action": "\\Netgen\\GitHooks\\Action\\PHPCSFixer",
+                "options": {
+                    "excluded_files": ["/^.*\\.ini\\.append\\.php$/"]
+                }
             },
             {
                 "action": "\\Netgen\\GitHooks\\Action\\CheckLockFileCommitted",
