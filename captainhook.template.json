@@ -32,7 +32,7 @@
             {
                 "action": "\\Netgen\\GitHooks\\Action\\PHPCSFixer",
                 "options": {
-                    "allowed_files": ["/^.*\\.(ini\\.append\\.php)$/"]
+                    "excluded_files": ["/^.*\\.ini\\.append\\.php$/"]
                 }
             },
             {
