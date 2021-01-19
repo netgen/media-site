@@ -128,7 +128,7 @@ hooks:
 
         if [ -z "$COMPOSER_AUTH" ]; then
             echo "TIP: If you need to authenticate against Github/Gitlab/updates.ez.no, use COMPOSER_AUTH env variable"
-            echo "See: https://docs.platform.sh/tutorials/composer-auth.html#set-the-envcomposerauth-project-variable"
+            echo "See: https://docs.platform.sh/guides/general/composer-auth.html#set-the-envcomposer_auth-project-variable"
         fi
 
         composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
@@ -145,7 +145,7 @@ hooks:
         if [ ! -f public/var/.platform.installed ]; then
             # To workaround issues with p.sh Varnish we clear container cache & temporary set Symfony Proxy
             rm -Rf var/cache/$APP_ENV/*.*
-            HTTPCACHE_PURGE_TYPE="local" php -d memory_limit=-1 `which composer` ezplatform-install
+            SKIP_HTTPCACHE_PURGE="1" php -d memory_limit=-1 `which composer` ezplatform-install
             touch public/var/.platform.installed
         fi
 
