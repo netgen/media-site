@@ -51,7 +51,6 @@
         "overblog/graphql-bundle": "^0.11.11",
         "scssphp/scssphp": "~1.0",
         "sensio/distribution-bundle": "^5.0.23",
-        "sensiolabs/security-checker": "^5.0",
         "symfony/monolog-bundle": "^3.3.1",
         "symfony/swiftmailer-bundle": "^3.2.4",
         "symfony/symfony": "^3.4.35",
@@ -124,8 +123,7 @@
             "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::installLegacyBundlesExtensions",
             "Netgen\\Bundle\\SiteBundle\\Composer\\ScriptHandler::installProjectSymlinks",
             "Netgen\\Bundle\\SiteLegacyBundle\\Composer\\ScriptHandler::installLegacySymlinks",
-            "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::generateAutoloads",
-            "@php bin/security-checker security:check || true"
+            "eZ\\Bundle\\EzPublishLegacyBundle\\Composer\\ScriptHandler::generateAutoloads"
         ],
         "post-install-cmd": [
             "@symfony-scripts"
