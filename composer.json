@@ -46,7 +46,6 @@
         "php-http/guzzle6-adapter": "^2.0",
         "platformsh/symfonyflex-bridge": "^2.2",
         "sensio/framework-extra-bundle": "^5.6",
-        "sensiolabs/security-checker": "^6.0",
         "symfony/asset": "^5.2.1",
         "symfony/cache": "^5.2.1",
         "symfony/console": "^5.2.1",
@@ -156,13 +155,11 @@
         ],
         "post-install-cmd": [
             "@auto-scripts",
-            "@project-scripts",
-            "@php bin/security-checker security:check || true"
+            "@project-scripts"
         ],
         "post-update-cmd": [
             "@auto-scripts",
-            "@project-scripts",
-            "@php bin/security-checker security:check || true"
+            "@project-scripts"
         ],
         "ezplatform-assets": [
             "@php bin/console bazinga:js-translation:dump public/assets --merge-domains",
