@@ -14,7 +14,7 @@ set('asset_exclude_paths', [
    'assets/app/build_dev'
 ]);
 set('asset_install_command', 'yarn install');
-set('asset_build_command', 'yarn encore production');
+set('asset_build_command', 'yarn build:prod');
 set('asset_ezplatform_build_command', 'composer ezplatform-assets');
 
 task('assets:deploy', [
