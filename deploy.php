@@ -16,6 +16,8 @@ require __DIR__ . '/deploy/tasks/deploy_log.php';
 require __DIR__ . '/deploy/tasks/sentry.php';
 require __DIR__ . '/deploy/tasks/logs.php';
 require __DIR__ . '/deploy/tasks/overrides.php';
+require __DIR__ . '/deploy/tasks/assets.php';
+require __DIR__ . '/deploy/tasks/app.php';
 require __DIR__ . '/deploy/parameters.php';
 // optional: slack integration
 //require __DIR__ . '/deploy/tasks/slack.php';

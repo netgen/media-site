@@ -28,11 +28,7 @@
 /var/encore/*
 !var/encore/.gitkeep
 
-/public/assets/app/*
-!/public/assets/app/build/
-/public/assets/build/*
-/public/assets/ezplatform/*
-!/public/assets/ezplatform/build/
+/public/assets/
 
 /web
 /public/var
