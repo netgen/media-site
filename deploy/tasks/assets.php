@@ -7,7 +7,6 @@ set('asset_resource_paths', [
     'src/AppBundle/Resources/es6',
     'src/AppBundle/Resources/sass'
 ]);
-set('asset_build_base', 'web');
 set('asset_build_paths', [
     'assets',
 ]);
@@ -52,6 +51,6 @@ task('assets:upload', function() {
     }
 
     foreach ($assetPaths as $path) {
-        upload("{{asset_build_base}}/{$path}", '{{release_path}}/{{asset_build_base}}', $config);
+        upload("web/{$path}", '{{release_path}}/web', $config);
     }
 });
