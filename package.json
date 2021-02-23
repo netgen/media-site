@@ -19,9 +19,7 @@
         ]
     },
     "scripts": {
-        "dev": "encore dev",
         "build:dev": "encore dev",
-        "prod": "encore production",
         "build:prod": "encore production",
         "watch": "encore dev --watch",
         "start": "encore dev-server",

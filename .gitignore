@@ -32,11 +32,7 @@ node_modules/
 /var/encore/*
 !var/encore/.gitkeep
 /vendor/
-/web/assets/app/*
-!/web/assets/app/build/
-/web/assets/build/*
-/web/assets/ezplatform/*
-!/web/assets/ezplatform/build/
+/web/assets
 /web/bundles/
 /web/design
 /web/extension
