@@ -40,12 +40,6 @@
                 "options": {
                     "enabled": true
                 }
-            },
-            {
-                "action": "\\Netgen\\GitHooks\\Action\\CheckAssetsAction",
-                "options": {
-                    "enabled": true
-                }
             }
         ]
     },
