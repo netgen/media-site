@@ -73,7 +73,7 @@
             "@type": "NewsArticle",
             "headline": "{{ content.fields.title.value.text }}",
             {% if content.contentInfo.publishedDate %}
-                "datePublished": "{{ content.contentInfo.publishedDate|date('Y-m-d') }}",
+                "datePublished": "{{ content.contentInfo.publishedDate|format_date(pattern='Y-MM-dd') }}",
             {% endif %}
             {% if not content.fields.authors.empty %}
                 "author": {

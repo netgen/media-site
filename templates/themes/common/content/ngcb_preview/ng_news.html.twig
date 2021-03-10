@@ -15,7 +15,7 @@
                     <a href="{{ ez_path(author) }}" class="article-author">{{ author.name }}</a>
                 {% endfor %}
             {% endif %}
-            <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
+            <time>{{ content.fields.publish_date.value.value|format_date(pattern='d MMM Y') }}</time>
             {% if not content.fields.sponsored_content_disclosure.empty %}
                 <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>
             {% elseif not content.fields.main_topic.empty %}

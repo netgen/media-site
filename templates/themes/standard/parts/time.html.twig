@@ -1,5 +1,5 @@
 {% if content.hasField('publish_date') and not content.fields.publish_date.empty %}
-    <time>{{ content.fields.publish_date.value.value|date('j M Y') }}</time>
+    <time>{{ content.fields.publish_date.value.value|format_date(pattern='d MMM Y') }}</time>
 {% else %}
-    <time>{{ content.contentInfo.publishedDate|date('j M Y') }}</time>
+    <time>{{ content.contentInfo.publishedDate|format_date(pattern='d MMM Y') }}</time>
 {% endif %}

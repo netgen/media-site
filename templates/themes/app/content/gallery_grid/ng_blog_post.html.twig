@@ -11,7 +11,7 @@
             {% set author = content.owner.name %}
         {% endif %}
 
-        {% set date = content.fields.publish_date.value.value|date('j. n. Y.') %}
+        {% set date = content.fields.publish_date.value.value|format_date(pattern='d. M. Y.') %}
         {% set title = content_fields.title(content) %}
 
         <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }} by {{ author }} ({{ date }})" class="js-mfp-item">
