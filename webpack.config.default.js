@@ -56,6 +56,12 @@ Encore
   })
 
   .enableSingleRuntimeChunk()
+
+    // enables @babel/preset-env polyfills
+  .configureBabelPresetEnv((config) => {
+    config.useBuiltIns = 'entry';
+    config.corejs = 3;
+  })
 ;
 
 if (Encore.isProduction()) {
