@@ -54,7 +54,6 @@
         "webpack-notifier": "^1.6.0"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.4.3",
         "@fortawesome/fontawesome-free": "^5.8.1",
         "@netgen/javascript-cookie-control": "^0.0.6",
         "bootstrap": "^4.3.1",

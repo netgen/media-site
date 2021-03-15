@@ -24,8 +24,8 @@ Encore
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
-    options.includePaths = [path.resolve(__dirname, 'node_modules')]; // eslint-disable-line no-param-reassign
-    options.outputStyle = Encore.isProduction() ? 'compressed' : 'nested';
+    options.sassOptions.includePaths = [path.resolve(__dirname, 'node_modules')]; // eslint-disable-line no-param-reassign
+    options.sassOptions.outputStyle = Encore.isProduction() ? 'compressed' : 'nested';
   })
 
   // allow legacy applications to use $/jQuery as a global variable
