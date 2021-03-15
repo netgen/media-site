@@ -1,39 +1,49 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
 .idea/
 
 /bin/*
-!bin/.ci/
-!bin/.travis/
 !bin/console
-!bin/platformsh_prestart_cacheclear.sh
-!bin/vhost.sh
 !bin/sync_db_and_var.sh
 
 /config/packages/server/local/
 /config/packages/server/local.yml
 
-/doc/docker/entrypoint/*/*.sql
-/dfsdata
-
-/var/*
-!/var/cache
-/var/cache/*
-!var/cache/.gitkeep
-!/var/log
-/var/log/*
-!var/log/.gitkeep
-!/var/sessions
-/var/sessions/*
-!var/sessions/.gitkeep
-!/var/encore
-/var/encore/*
-!var/encore/.gitkeep
-
 /public/assets/
-
-/web
 /public/var
 /public/.htaccess
 /public/robots.txt
+/web
 
 auth.json
 composer.phar
@@ -43,45 +53,3 @@ studio.json
 .DS_Store
 .php_cs.cache
 .php-version
-.rules
-
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/public/bundles/
-/vendor/
-###< symfony/framework-bundle ###
-
-###> liip/imagine-bundle ###
-/public/media/cache/
-###< liip/imagine-bundle ###
-
-###> symfony/webpack-encore-bundle ###
-/node_modules/
-/public/build/
-npm-debug.log
-yarn-error.log
-###< symfony/webpack-encore-bundle ###
-
-###> behat/symfony2-extension ###
-behat.yml
-###< behat/symfony2-extension ###
-
-###> symfony/phpunit-bridge ###
-.phpunit
-/phpunit.xml
-###< symfony/phpunit-bridge ###
-
-###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
-###< phpunit/phpunit ###
-
-###> friends-of-behat/symfony-extension ###
-/behat.yml
-###< friends-of-behat/symfony-extension ###
-
-###> lexik/jwt-authentication-bundle ###
-/config/jwt/*.pem
-###< lexik/jwt-authentication-bundle ###

@@ -112,7 +112,7 @@ Run the following command to import database schema and demo data (add `--env=pr
 after `bin/console` if running in prod mode):
 
 ```
-php bin/console ezplatform:install <SITE_NAME>
+php bin/console ibexa:install <SITE_NAME>
 ```
 
 where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
@@ -121,7 +121,7 @@ or `netgen-media-clean` for the clean version, without demo data.
 Finally, generate the GraphQL schema for admin interface:
 
 ```
-php bin/console ezplatform:graphql:generate-schema
+php bin/console ibexa:graphql:generate-schema
 ```
 
 ### Generate image variations

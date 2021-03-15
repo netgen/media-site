@@ -9,88 +9,77 @@ use App\DependencyInjection\CompilerPass;
 use RuntimeException;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
-use Symfony\Component\Routing\RouteCollectionBuilder;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use function dirname;
+use function is_file;
 use function preg_match;
 
 final class Kernel extends BaseKernel
 {
-    use MicroKernelTrait;
-
-    private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
+    use MicroKernelTrait {
+        registerContainerConfiguration as public registerKernelContainerConfiguration;
+    }
 
     public function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new CompilerPass\XslRegisterPass());
     }
 
-    public function registerBundles(): iterable
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
-        $contents = require $this->getProjectDir() . '/config/bundles.php';
-        foreach ($contents as $class => $envs) {
-            if ($envs[$this->environment] ?? $envs['all'] ?? false) {
-                yield new $class();
+        $this->registerKernelContainerConfiguration($loader);
+
+        $loader->load(
+            static function (ContainerBuilder $container): void {
+                $container->registerExtension(new AppExtension());
+                $container->loadFromExtension('app');
             }
+        );
+    }
+
+    protected function configureContainer(ContainerConfigurator $container): void
+    {
+        $container->import('../config/{packages}/*.yaml');
+        $container->import('../config/{packages}/' . $this->environment . '/*.yaml');
+
+        if (is_file(dirname(__DIR__) . '/config/services.yaml')) {
+            $container->import('../config/services.yaml');
+            $container->import('../config/{services}_' . $this->environment . '.yaml');
+        } elseif (is_file($path = dirname(__DIR__) . '/config/services.php')) {
+            (require $path)($container->withPath($path), $this);
         }
-    }
 
-    // can be removed when bumping to Symfony 5.2
-    public function getCacheDir()
-    {
-        if (isset($_SERVER['APP_CACHE_DIR'])) {
-            return $_SERVER['APP_CACHE_DIR'] . '/' . $this->environment;
-        }
-
-        return parent::getCacheDir();
-    }
-
-    // can be removed when bumping to Symfony 5.2
-    public function getLogDir()
-    {
-        return $_SERVER['APP_LOG_DIR'] ?? parent::getLogDir();
-    }
-
-    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
-    {
-        $container->addResource(new FileResource($this->getProjectDir() . '/config/bundles.php'));
-        $container->setParameter('container.dumper.inline_class_loader', true);
-        $confDir = $this->getProjectDir() . '/config';
-
-        $loader->load($confDir . '/{packages}/*' . self::CONFIG_EXTS, 'glob');
-        $loader->load($confDir . '/{packages}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, 'glob');
-        $loader->load($confDir . '/{services}' . self::CONFIG_EXTS, 'glob');
-        $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTS, 'glob');
-
-        $loader->load($confDir . '/app/{packages}/*' . self::CONFIG_EXTS, 'glob');
-        $loader->load($confDir . '/app/{services}/*' . self::CONFIG_EXTS, 'glob');
-        $loader->load($confDir . '/app/{services}' . self::CONFIG_EXTS, 'glob');
+        $container->import('../config/app/{packages}/*.yaml');
+        $container->import('../config/app/{services}/*.yaml');
+        $container->import('../config/app/services.yaml');
 
         $serverEnvironment = $_SERVER['SERVER_ENVIRONMENT'];
         if (preg_match('/^\w+$/', $serverEnvironment) !== 1) {
             throw new RuntimeException('Server environment contains an invalid format. Valid format contains only alpha-numeric characters and an underscore.');
         }
 
-        $loader->load($confDir . '/app/server/' . $serverEnvironment . '.yaml');
+        $container->import('../config/app/server/' . $serverEnvironment . '.yaml');
 
         if ($this->environment === 'dev' && $container->getParameter('profiler_storage') === 'redis') {
-            $loader->load($confDir . '/packages/profiler_storage/redis' . self::CONFIG_EXTS, 'glob');
+            $container->import('../config/packages/profiler_storage/redis.yaml');
         }
-
-        $container->registerExtension(new AppExtension());
-        $container->loadFromExtension('app');
     }
 
-    protected function configureRoutes(RouteCollectionBuilder $routes): void
+    protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $confDir = $this->getProjectDir() . '/config';
+        $routes->import('../config/{routes}/' . $this->environment . '/*.yaml');
+        $routes->import('../config/{routes}/*.yaml');
 
-        $routes->import($confDir . '/{routes}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, '/', 'glob');
-        $routes->import($confDir . '/{routes}/*' . self::CONFIG_EXTS, '/', 'glob');
-        $routes->import($confDir . '/{routes}' . self::CONFIG_EXTS, '/', 'glob');
+        if (is_file(dirname(__DIR__) . '/config/routes.yaml')) {
+            $routes->import('../config/routes.yaml');
+        } elseif (is_file($path = dirname(__DIR__) . '/config/routes.php')) {
+            (require $path)($routes->withPath($path), $this);
+        }
 
-        $routes->import($confDir . '/app/{routes}/*' . self::CONFIG_EXTS, '/', 'glob');
-        $routes->import($confDir . '/app/{routes}' . self::CONFIG_EXTS, '/', 'glob');
+        $routes->import('../config/app/{routes}/*.yaml');
+        $routes->import('../config/app/routes.yaml');
     }
 }

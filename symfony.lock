@@ -1,111 +1,90 @@
 {
-    "friends-of-behat/symfony-extension": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.0",
-            "ref": "3d21344765fd3440a85bdd27d4cada186ec628bd"
-        },
-        "files": [
-            "behat.yml.dist",
-            "config/services_test.yaml",
-            "features/demo.feature",
-            "tests/Behat/DemoContext.php"
-        ]
-    },
     "google/recaptcha": {
-        "version": "1.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.1",
-            "ref": "d087df3e087f50da3955f2def05079380da5894b"
-        },
+        "version": "1.2.4",
         "files": [
             "config/packages/google_recaptcha.yaml"
         ]
     },
-    "sensiolabs/security-checker": {
-        "version": "4.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.0",
-            "ref": "160c9b600564faa1224e8f387d49ef13ceb8b793"
-        },
+    "ibexa/oss": {
+        "version": "3.3.1",
         "files": [
-            "config/packages/security_checker.yaml"
+            "config/packages/dfs/dfs.yaml",
+            "config/packages/cache_pool/cache.memcached.yaml",
+            "config/packages/cache_pool/cache.tagaware.filesystem.yaml",
+            "config/packages/cache_pool/cache.redis.yaml",
+            "config/packages/ezplatform_doctrine_schema.yaml",
+            "config/packages/security.yaml",
+            "config/packages/ezplatform_http_cache.yaml",
+            "config/packages/ezplatform_admin_ui.yaml",
+            "config/packages/ezplatform.yaml",
+            "config/packages/graphql.yaml",
+            "config/packages/ezplatform_welcome_page.yaml",
+            "config/packages/ezplatform_assets.yaml",
+            "config/packages/ezplatform_solr.yaml",
+            "config/routes/ezplatform_rest.yaml",
+            "config/routes/ezplatform_search.yaml",
+            "config/routes/ezplatform_support_tools.yaml",
+            "config/routes/ezplatform_user.yaml",
+            "config/routes/ezplatform_http_cache.yaml",
+            "config/routes/ezplatform_admin_ui.yaml",
+            "config/routes/ezplatform.yaml",
+            "config/routes/ezplatform_query_field_type.yaml",
+            "config/routes/graphql.yaml",
+            "config/routes/ezplatform_content_forms.yaml",
+            "ez.webpack.config.js",
+            "package.json",
+            "ez.webpack.config.manager.js",
+            "webpack.config.js",
+            "ez.webpack.custom.configs.js",
+            "templates/themes/standard/full/welcome_page.html.twig",
+            "templates/themes/standard/pagelayout.html.twig",
+            "translations/ibexa_platform_welcome_page.en.xlf",
+            "assets/images/file-text-info-icon.svg",
+            "assets/images/conversation-chat-icon.svg",
+            "assets/images/folder-icon.svg",
+            "assets/scss/welcome-page.scss",
+            "assets/bootstrap.js"
         ]
     },
     "snc/redis-bundle": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.0",
-            "ref": "85bbdb3d2db531e20874de29bab0587f93604fa8"
-        },
+        "version": "3.3.0",
         "files": [
             "config/packages/snc_redis.yaml"
         ]
     },
     "symfony/framework-bundle": {
-        "version": "5.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.1",
-            "ref": "37b4ec59eda3eb89705f21a0da7231862495ce0a"
-        },
+        "version": "5.2.5",
         "files": [
+            "config/services.yaml",
+            "config/packages/test/framework.yaml",
             "config/packages/cache.yaml",
             "config/packages/framework.yaml",
-            "config/packages/test/framework.yaml",
             "config/routes/dev/framework.yaml",
-            "config/services.yaml",
+            "config/preload.php",
             "public/index.php",
-            "src/Controller/.gitignore",
-            "src/Kernel.php"
+            "src/Kernel.php",
+            "src/Controller/.gitignore"
         ]
     },
     "symfony/monolog-bundle": {
-        "version": "3.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.3",
-            "ref": "d7249f7d560f6736115eee1851d02a65826f0a56"
-        },
+        "version": "3.6.0",
         "files": [
             "config/packages/dev/monolog.yaml",
+            "config/packages/test/monolog.yaml",
             "config/packages/prod/deprecations.yaml",
-            "config/packages/prod/monolog.yaml",
-            "config/packages/test/monolog.yaml"
+            "config/packages/prod/monolog.yaml"
         ]
     },
     "symfony/routing": {
-        "version": "5.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.1",
-            "ref": "b4f3e7c95e38b606eef467e8a42a8408fc460c43"
-        },
+        "version": "5.2.4",
         "files": [
-            "config/packages/prod/routing.yaml",
             "config/packages/routing.yaml",
+            "config/packages/prod/routing.yaml",
             "config/routes.yaml"
         ]
     },
     "symfony/twig-bundle": {
-        "version": "5.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.0",
-            "ref": "fab9149bbaa4d5eca054ed93f9e1b66cc500895d"
-        },
+        "version": "5.2.4",
         "files": [
             "config/packages/test/twig.yaml",
             "config/packages/twig.yaml",
@@ -113,20 +92,17 @@
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.6",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.6",
-            "ref": "69e1d805ad95964088bd510c05995e87dc391564"
-        },
+        "version": "1.11.1",
         "files": [
-            "assets/css/app.css",
-            "assets/js/app.js",
-            "config/packages/assets.yaml",
-            "config/packages/prod/webpack_encore.yaml",
+            "assets/app.js",
+            "assets/controllers.json",
+            "assets/styles/app.css",
+            "assets/controllers/hello_controller.js",
+            "assets/bootstrap.js",
             "config/packages/test/webpack_encore.yaml",
+            "config/packages/assets.yaml",
             "config/packages/webpack_encore.yaml",
+            "config/packages/prod/webpack_encore.yaml",
             "package.json",
             "webpack.config.js"
         ]

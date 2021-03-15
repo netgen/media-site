@@ -35,8 +35,10 @@
         "@babel/core": "^7.4.3",
         "@babel/preset-env": "^7.4.3",
         "@babel/preset-react": "^7.0.0",
-        "@symfony/webpack-encore": "^0.28.0",
+        "@symfony/stimulus-bridge": "^1.1.0",
+        "@symfony/webpack-encore": "^0.32.0",
         "autoprefixer": "^9.5.1",
+        "core-js": "^3.0.0",
         "eslint": "^5.16.0",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-plugin-import": "^2.17.2",
@@ -45,8 +47,11 @@
         "node-sass": "^4.11.0",
         "path": "^0.12.7",
         "postcss-loader": "^3.0.0",
+        "regenerator-runtime": "^0.13.2",
         "sass-lint": "^1.12.1",
-        "sass-loader": "^7.1.0"
+        "sass-loader": "^9.0.1",
+        "stimulus": "^2.0.0",
+        "webpack-notifier": "^1.6.0"
     },
     "dependencies": {
         "@babel/polyfill": "^7.4.3",

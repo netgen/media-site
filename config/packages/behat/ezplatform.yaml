@@ -1,6 +1,0 @@
-ezdesign:
-    phpstorm:
-        enabled: false
-
-parameters:
-    ezsettings.admin_group.notifications.success.timeout: 20000

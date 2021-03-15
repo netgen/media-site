@@ -6,30 +6,35 @@ const eZConfig = getEzConfig(Encore);
 const customConfigs = require('./ez.webpack.custom.configs.js');
 
 Encore.reset();
-Encore.setOutputPath('public/assets/build')
-    .setPublicPath('/assets/build')
+Encore
+    .setOutputPath('public/build/')
+    .setPublicPath('/build')
+//    .enableStimulusBridge('./assets/controllers.json')
     .enableSassLoader()
     .enableReactPreset()
-    .enableSingleRuntimeChunk();
+    .enableSingleRuntimeChunk()
 //    .copyFiles({
 //        from: './assets/images',
 //        to: 'images/[path][name].[ext]',
 //        pattern: /\.(png|svg)$/
-//    });
+//    })
+    .configureBabel((config) => {
+        config.plugins.push('@babel/plugin-proposal-class-properties');
+    })
+
+    // enables @babel/preset-env polyfills
+    .configureBabelPresetEnv((config) => {
+        config.useBuiltIns = 'usage';
+        config.corejs = 3;
+    })
+;
 
 // Welcome page stylesheets
 // Encore.addEntry('welcome_page', [
 //     path.resolve(__dirname, './assets/scss/welcome-page.scss'),
 // ]);
 
-// Put your config here.
-// Encore.addEntry('app_js', [
-//     path.resolve(__dirname, './assets/app.js'),
-// ]);
-
-// Encore.addEntry('app_styles', [
-//     path.resolve(__dirname, './assets/styles/app.css'),
-// ]);
+// Encore.addEntry('app', './assets/app.js');
 
 // 'bootstrap' is added as a dummy entry to prevent crashing the build
 Encore.addEntry('app_dummy', [

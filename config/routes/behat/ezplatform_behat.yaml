@@ -1,2 +1,0 @@
-_ezplatform_behat:
-    resource: '@eZBehatBundle/Resources/config/routing.yaml'
