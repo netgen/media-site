@@ -62,10 +62,6 @@ final class Kernel extends BaseKernel
         }
 
         $container->import('../config/app/server/' . $serverEnvironment . '.yaml');
-
-        if ($this->environment === 'dev' && $container->getParameter('profiler_storage') === 'redis') {
-            $container->import('../config/packages/profiler_storage/redis.yaml');
-        }
     }
 
     protected function configureRoutes(RoutingConfigurator $routes): void

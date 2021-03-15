@@ -80,6 +80,5 @@ return [
     Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle::class => ['all' => true],
     Netgen\Bundle\EzFormsBundle\NetgenEzFormsBundle::class => ['all' => true],
     Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle::class => ['all' => true],
-    Snc\RedisBundle\SncRedisBundle::class => ['dev' => true],
     ContextualCode\EzPlatformAlloyEditorElementWidth\EzPlatformAlloyEditorElementWidthBundle::class => ['all' => true],
 ];

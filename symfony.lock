@@ -46,12 +46,6 @@
             "assets/bootstrap.js"
         ]
     },
-    "snc/redis-bundle": {
-        "version": "3.3.0",
-        "files": [
-            "config/packages/snc_redis.yaml"
-        ]
-    },
     "symfony/framework-bundle": {
         "version": "5.2.5",
         "files": [

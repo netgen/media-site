@@ -81,8 +81,6 @@
         "symfony/css-selector": "^5.2",
         "symfony/phpunit-bridge": "^5.2",
 
-        "snc/redis-bundle": "^3.3",
-        "predis/predis": "^1.1.6",
         "deployer/recipes": "^6.2",
 
         "netgen/git-hooks": "^2.0"
