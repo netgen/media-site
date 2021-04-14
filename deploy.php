@@ -9,6 +9,7 @@ require 'vendor/deployer/recipes/recipe/sentry.php';
 require 'vendor/deployer/recipes/recipe/slack.php';
 
 require __DIR__ . '/deploy/hosts.php';
+require __DIR__ . '/deploy/tasks/translations.php';
 require __DIR__ . '/deploy/tasks/server.php';
 require __DIR__ . '/deploy/tasks/database.php';
 require __DIR__ . '/deploy/tasks/rsync.php';
