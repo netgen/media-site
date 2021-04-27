@@ -5,29 +5,36 @@
         <div class="ng-cc-overlay"></div>
 
         <div class="ng-cc-modal">
-            <a href="#" class="ng-cc-close ng-cc-close-btn" aria-label="Close"><i class="fas fa-times"></i></a>
             <div class="ng-cc-content">
-                {% if not cookie_policy.fields.ribbon_heading.empty %}
-                    <h3>{{ ng_render_field(cookie_policy.fields.ribbon_heading) }}</h3>
-                {% endif %}
-
+              <div class="wrapper">
                 {% if not cookie_policy.fields.ribbon_description.empty %}
                     {{ ng_render_field(cookie_policy.fields.ribbon_description) }}
                 {% endif %}
+                </div>
 
                 <div class="ng-cc-actions">
+                    <a href="#" class="optional-list-toggle">
+                      {% if not cookie_policy.fields.ribbon_settings_label.empty %}
+                        {{ ng_render_field(cookie_policy.fields.ribbon_settings_label) }}
+                        <span class="cookie-angle-up"></span>
+                      {% endif %}
+                    </a>
                     <button id="ng-cc-accept" class="btn btn-primary">
                         {% if not cookie_policy.fields.ribbon_button_label.empty %}
                             {{ ng_render_field(cookie_policy.fields.ribbon_button_label) }}
                         {% endif %}
                     </button>
                 </div>
-
-                <ul class="ng-cc-optional-list">
+                </div>
+            <div class="ng-cc-optional-list">
+              <ul>
                     <li>
                         <input type="checkbox" class="ng-cc-optional-checkbox" id="ng-cc-necessary" data-name="necessary" checked disabled />
                         <label for="ng-cc-necessary">
-                            <i class="ng-cc-checkbox-icon"><span></span></i>
+                            <i class="ng-cc-checkbox-icon">
+                              <span class="on ng-cc-on">{{ 'ngsite.layout.cookie_on'|trans }}</span>
+                              <span class="off ng-cc-off">{{ 'ngsite.layout.cookie_off'|trans }}</span>
+                            </i>
 
                             {% if not cookie_policy.fields.necessary_label.empty %}
                                 {{ ng_render_field(cookie_policy.fields.necessary_label) }}
@@ -39,6 +46,11 @@
                         {% endif %}
                     </li>
                 </ul>
+                <div class="ng-cc-optional-actions clearfix">
+                  <button id="ng-cc-optional-save" class="btn btn-outline-primary">
+                    {{ 'ngsite.layout.cookie_save'|trans }}
+                  </button>
+              </div>
             </div>
         </div>
     </div>
