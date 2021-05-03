@@ -1,79 +1,386 @@
 @import '@netgen/javascript-cookie-control/scss/style';
 
 ##{$ngCcId} {
-    .ng-cc-optional-list {
-        .ng-cc-optional-checkbox {
-            opacity: 0;
-            left: -9999em;
-            + label {
-                padding: 0 0 0 3.25em;
-                .ng-cc-checkbox-icon {
-                    position: absolute;
-                    left: 0;
-                    top: .25em;
-                    border-radius: 500em;
-                    width: 2.6em;
-                    height: 1em;
-                    background: #fff;
-                    border: 2px solid #fff;
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        height: 100%;
-                        width: 50%;
-                        left: 0;
-                        top: 0;
-                        border-radius: 500em;
-                        background: hsl(200, 0, 50);
-                        transition: all .3s;
-                        z-index: 2;
-                    }
-                    span {
-                        font-size: .5em;
-                        font-weight: 700;
-                        font-style: normal;
-                        text-transform: uppercase;
-                        color: #333;
-                        display: flex;
-                        align-items: center;
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        right: 0;
-                        bottom: 0;
-                        &::before,
-                        &::after {
-                            flex: 1;
-                            text-align: center;
-                        }
-                        &::before {
-                            content: 'On';
-                        }
-                        &::after {
-                            content: 'Off';
-                            opacity: .6;
-                        }
-                    }
+    opacity: 0;
+    transition: opacity 400ms;
+    z-index: 1000;
+
+    .ng-cc-modal {
+        position: fixed;
+        top: auto;
+        bottom: 30px;
+        left: 30px;
+        right: 30px;
+        z-index: 1000;
+        width: auto;
+        height: auto;
+        transform: translate3d(0, 100%, 0);
+        padding: 0;
+        background: $white;
+        color: #000;
+        margin: 0 auto;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, .5);
+        max-height: calc(100% - 60px);
+
+        .ng-cc-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3.875rem 0;
+            margin: 0 3.25rem;
+            border-bottom: 1px solid #ddd;
+
+            .wrapper {
+                padding-right: 20%;
+                width: 70%;
+
+                p {
+                    margin-bottom: 0;
+                    line-height: 1.5;
+                    font-weight: 400;
+                }
+
+                a {
+                    color: inherit;
+                    text-decoration: underline;
+                }
+
+                a:not(.btn) {
+                    border-bottom: 0;
                 }
             }
-            &:checked {
-                + label {
-                    .ng-cc-checkbox-icon {
-                        &::before {
-                            left: 50%;
-                            background: hsl(200, 95, 30);
+
+            .ng-cc-actions {
+                margin-top: 0;
+                display: flex;
+                justify-content: flex-end;
+                width: 30%;
+
+                .btn {
+                    background-color: $primary;
+                    border-color: $primary;
+                    color: #212121;
+                }
+
+                .optional-list-toggle {
+                    margin-right: 3rem;
+                    color: inherit;
+                    display: flex; align-items: center;
+                    padding-left: 1em;
+                    position: relative;
+                    white-space: nowrap;
+
+                    .cookie-angle-up {
+                        margin-left: .75rem;
+                        transition: .2s ease transform;
+                        position: relative;
+                        display: block;
+                        width: 10px;
+                        &:before,
+                        &:after {
+                            content:"";
+                            width: 8px;
+                            height:2px;
+                            background-color: #000;
+                            display: block;
+                            position: absolute;
+                            top: -2px;
+                        }
+                        &:before {
+                            transform: rotate(45deg);
+                            left: 5px;
+                        }
+                        &:after {
+                            transform: rotate(-45deg);
+                            left: 0;
                         }
                     }
-                }
-            }
-            &:disabled {
-                + label {
-                    cursor: default;
-                    .ng-cc-checkbox-icon {
-                        opacity: .2;
+
+                    &.rotate-arrow {
+                        .cookie-angle-up {
+                            transform: rotate(180deg);
+                        }
                     }
                 }
             }
         }
+
+        .ng-cc-close-btn {
+            top: 7px;
+            right: 0;
+            width: 1em;
+            height: 1em;
+            font-size: .9375rem;
+
+            &::before, &::after {
+                content: "";
+                width: 1px;
+                height: 1em;
+                display: block;
+                background-color: $white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform-origin: center center;
+            }
+
+            &::before {
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    .ng-cc-optional-list {
+        display: none;
+        margin: 0;
+
+        & > ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+            > li {
+                width: 33.3%;
+                float: left;
+                padding: 1.875rem 3.25rem;
+                > p { margin: 0; }
+            }
+        }
+
+        .ng-cc-optional-checkbox {
+            opacity: 0;
+            left: -9999em;
+
+            + label {
+                padding: 3.5rem 0 0 0;
+
+                .ng-cc-checkbox-icon {
+                    position: absolute;
+                    left: 0;
+                    top: .25em;
+                    border-radius: 13px;
+                    width: 44px;
+                    height: 26px;
+                    background: #fff;
+                    border: 2px solid #888;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        height: 18px;
+                        width: 18px;
+                        left: 3px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border-radius: 50%;
+                        background: #888;
+                        transition: all .3s;
+                        z-index: 2;
+                    }
+
+                    span {
+                        font-size: 0.875rem;
+                        font-style: normal;
+                        text-transform: capitalize;
+                        color: #000;
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        left: 4rem;
+                        top: 50%;
+                        transform: translate(0%, -50%);
+                        white-space: nowrap;
+
+                        &.on,
+                        &.off {
+                            flex: 1;
+                            text-align: center;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            font-weight: normal;
+                            white-space: nowrap;
+                        }
+
+                        &.on {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &:checked {
+                + label {
+                    .ng-cc-checkbox-icon {
+                        background: $primary;
+                        border-color: $primary;
+
+                        &::before {
+                            left: 50%;
+                            background: $white;
+                        }
+                        
+
+                        span.on {
+                            display: inline-flex;
+                        }
+
+                        span.off {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &:disabled {
+                + label {
+                    cursor: default;            
+
+                    .ng-cc-checkbox-icon {
+                        opacity: .4;
+                    }
+                }
+            }
+        }
+        .ng-cc-optional-actions {
+            padding: 2.875rem 0;
+            margin: 0 3.25rem;
+            display: block;
+            .btn {
+                float: right;
+                color: #212121;
+                border-color: #212121;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        font-size: 1.145rem;
+        .ng-cc-modal {
+            .ng-cc-content {
+                flex-direction: column;
+
+                .wrapper {
+                    padding-right: 0;
+                    width: auto;
+                }
+
+                .ng-cc-actions {
+                    width: 100%;
+                    margin-top: 1.5rem;
+                    justify-content: space-between;
+
+                    .optional-list-toggle {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+
+        .ng-cc-optional-list {
+            > ul > li {
+                width: 100%;
+                padding: 0 3.25rem 1.875rem;
+
+                &:first-child {
+                    padding-top: 1.875rem;
+                }
+            }
+            .ng-cc-optional-checkbox {
+                + label {
+                    padding: 2.5rem 0 0 0;
+                }
+            }
+        }
+        
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1rem;
+        .ng-cc-optional-list {
+            > ul > li {
+                p { margin-bottom: 0; }
+            }
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        .ng-cc-modal {
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            max-height: calc(100% - 30px);
+
+            .ng-cc-content {
+                padding: 15px 0;
+                margin: 0 15px;
+                border: none;
+                .wrapper {
+                    padding-right: 0;
+
+                    p:before {
+                        content: "";
+                        float: right;
+                        width: 30px;
+                        height: 20px;
+                    }
+                }
+
+                .ng-cc-actions {
+                    flex-wrap: wrap;
+
+                    .btn {
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+
+        .ng-cc-optional-list {
+            > ul > li {
+                padding: 0 15px 30px;
+                border-top: 0;
+
+                &:first-child {
+                    padding-top: 30px;
+                }
+                
+            }
+            .ng-cc-optional-actions {
+                padding: 15px 0;
+                margin: 0 15px;
+                .btn { margin-top: 10px; }
+            }
+        }
+    }
+
+    @include media-breakpoint-down (xxs) {
+        .ng-cc-modal .ng-cc-content .ng-cc-actions {
+            .optional-list-toggle {
+                &:before {
+                    top: 10px;
+                }
+
+                &.rotate-arrow:before {
+                    top: 5px;
+                }
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+
+    .ng-cc-overlay {
+        // display: none;
+        background: rgba(0, 0, 0, 0.65);
+    }
+
+    &[open] {
+        opacity: 1;
     }
 }
+
