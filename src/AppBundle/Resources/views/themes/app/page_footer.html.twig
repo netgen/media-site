@@ -44,6 +44,7 @@
             {% if not site_info.fields.footer_block.empty %}
                 <div>
                     {{ ng_render_field(site_info.fields.footer_block) }}
+                    <a href="#" class="js-open-ng-cc d-block mb-2">{{ 'ngsite.layout.cookie_settings'|trans }}</a>
                 </div>
             {% endif %}
 

@@ -266,6 +266,36 @@ $(document).ready(() => {
   });
   /* /get video poster */
 
+  
+  /* COOKIE CONTROL */
+  const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
+  cookieControl.init();
+
+  /* cookie control optional list toggle */
+  $(".optional-list-toggle").on('click', function (e) {
+    e.preventDefault();
+
+    $(this).toggleClass("rotate-arrow");
+    var list = $(".ng-cc-optional-list");
+
+    if (list.hasClass("shown")) {
+        list.removeClass("shown").slideUp();
+    } else {
+        list.addClass("shown").slideDown();
+    }
+  });
+  /* /cookie control optional list toggle */
+
+  /* cookie consent changed */
+  $("#ng-cc-accept, #ng-cc-optional-save").on("click", function(e){
+    e.preventDefault();
+    dataLayer.push({
+      "event": "ngcc-changed",
+    });
+  });
+  /* /cookie consent changed */
+  /* /COOKIE CONTROL */
+  
   Array.prototype.filter.call(document.getElementsByClassName('ajax-collection'), (el) => {
     el.addEventListener('ajax-paging-added', () => {
       $(el).find('img.vimeo-poster').each(function () {
@@ -288,6 +318,4 @@ $(document).ready(() => {
     this.href = $('img', this).attr('src');
   });
 
-  const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
-  cookieControl.init();
 });

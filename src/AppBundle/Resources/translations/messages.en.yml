@@ -5,6 +5,9 @@ ngsite.layout.site_frontpage: "%site_name% front page"
 ngsite.layout.meta_generator: "eZ Platform powered by Netgen"
 ngsite.layout.powered_by: "Powered by"
 ngsite.layout.cookie_settings: "Cookie settings"
+ngsite.layout.cookie_save: "Save settings"
+ngsite.layout.cookie_on: "Accepted"
+ngsite.layout.cookie_off: "Not accepted"
 ngsite.layout.sponsored: 'Sponsored'
 
 ngsite.search.title: 'Search'
