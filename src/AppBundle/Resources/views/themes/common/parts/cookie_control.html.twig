@@ -32,8 +32,8 @@
                         <input type="checkbox" class="ng-cc-optional-checkbox" id="ng-cc-necessary" data-name="necessary" checked disabled />
                         <label for="ng-cc-necessary">
                             <i class="ng-cc-checkbox-icon">
-                              <span class="on ng-cc-on">{{ 'ngsite.layout.cookie_on'|trans }}</span>
-                              <span class="off ng-cc-off">{{ 'ngsite.layout.cookie_off'|trans }}</span>
+                              <span class="on ng-cc-on">{{ 'ngsite.layout.cookie_settings.accepted'|trans }}</span>
+                              <span class="off ng-cc-off">{{ 'ngsite.layout.cookie_settings.not_accepted'|trans }}</span>
                             </i>
 
                             {% if not cookie_policy.fields.necessary_label.empty %}
@@ -48,7 +48,7 @@
                 </ul>
                 <div class="ng-cc-optional-actions clearfix">
                   <button id="ng-cc-optional-save" class="btn btn-outline-primary">
-                    {{ 'ngsite.layout.cookie_save'|trans }}
+                    {{ 'ngsite.layout.cookie_settings.save'|trans }}
                   </button>
               </div>
             </div>
