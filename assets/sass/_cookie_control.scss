@@ -221,7 +221,6 @@
                             left: 50%;
                             background: $white;
                         }
-                        
 
                         span.on {
                             display: inline-flex;
@@ -236,7 +235,7 @@
 
             &:disabled {
                 + label {
-                    cursor: default;            
+                    cursor: default;
 
                     .ng-cc-checkbox-icon {
                         opacity: .4;
@@ -294,7 +293,6 @@
                 }
             }
         }
-        
     }
 
     @include media-breakpoint-down(sm) {
@@ -346,7 +344,6 @@
                 &:first-child {
                     padding-top: 30px;
                 }
-                
             }
             .ng-cc-optional-actions {
                 padding: 15px 0;
@@ -383,4 +380,3 @@
         opacity: 1;
     }
 }
-

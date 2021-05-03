@@ -266,7 +266,7 @@ $(document).ready(() => {
   });
   /* /get video poster */
 
-  
+ 
   /* COOKIE CONTROL */
   const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
   cookieControl.init();
@@ -295,7 +295,7 @@ $(document).ready(() => {
   });
   /* /cookie consent changed */
   /* /COOKIE CONTROL */
-  
+
   Array.prototype.filter.call(document.getElementsByClassName('ajax-collection'), (el) => {
     el.addEventListener('ajax-paging-added', () => {
       $(el).find('img.vimeo-poster').each(function () {
