@@ -36,7 +36,7 @@ final class Kernel extends BaseKernel
             static function (ContainerBuilder $container): void {
                 $container->registerExtension(new AppExtension());
                 $container->loadFromExtension('app');
-            }
+            },
         );
     }
 

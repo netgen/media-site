@@ -18,7 +18,7 @@ final class XslRegisterPass implements CompilerPassInterface
     {
         $scopes = array_merge(
             [ConfigResolver::SCOPE_DEFAULT],
-            $container->getParameter('ezpublish.siteaccess.list')
+            $container->getParameter('ezpublish.siteaccess.list'),
         );
 
         foreach ($scopes as $scope) {
