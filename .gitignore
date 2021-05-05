@@ -52,4 +52,5 @@ package-lock.json
 studio.json
 .DS_Store
 .php_cs.cache
+.php-cs-fixer.cache
 .php-version
