@@ -52,6 +52,7 @@ studio.json
 yarn-error.log
 .DS_Store
 .php_cs.cache
+.php-cs-fixer.cache
 .phpunit.result.cache
 .web-server-pid
 .php-version
