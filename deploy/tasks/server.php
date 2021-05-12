@@ -5,7 +5,17 @@ namespace Deployer;
 use Symfony\Component\Console\Input\InputOption;
 
 desc('Ask for confirmation');
+option('force', null, InputOption::VALUE_NONE, 'Force deploy without confirmation.');
 task('deploy:confirm', function() {
+    $force = false;
+    if (input()->hasOption('force')) {
+        $force = input()->getOption('force');
+    }
+
+    if ($force === true) {
+        return;
+    }
+
     $stage = null;
     if (input()->hasArgument('stage')) {
         $stage = input()->getArgument('stage');
