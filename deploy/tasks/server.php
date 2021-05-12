@@ -4,6 +4,24 @@ namespace Deployer;
 
 use Symfony\Component\Console\Input\InputOption;
 
+desc('Ask for confirmation');
+task('deploy:confirm', function() {
+    $stage = null;
+    if (input()->hasArgument('stage')) {
+        $stage = input()->getArgument('stage');
+    }
+
+    $question = 'Please confirm deploy';
+
+    if ($stage !== null) {
+        $question .= ' on ' . $stage;
+    }
+
+    if(!askConfirmation($question)) {
+        die("Ok, no deploy then.\n");
+    }
+})->onStage('prod');
+
 desc('Upload appropriate .env file to the server');
 task('server:upload_env', function() {
     $stage = 'dev';
