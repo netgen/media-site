@@ -39,6 +39,7 @@ set('sentry', [
 
 /** Execution */
 task('deploy', [
+    'deploy:confirm',
     // Upload server specific .env.local file. Those file are NOT to be committed to the repository
     'server:upload_env',
     'deploy:info',
