@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "symfony/flex": "^1.11.0",
