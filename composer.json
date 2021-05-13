@@ -68,22 +68,22 @@
         "sentry/sentry-symfony": "^4.1.1",
         "symfony/webpack-encore-bundle": "^1.8",
 
-        "netgen/media-site-data": "~1.6.0",
-        "netgen/site-bundle": "~1.4.0",
-        "netgen/site-generator-bundle": "~1.3.1",
-        "netgen/site-legacy-bundle": "^1.3",
-        "netgen/site-installer-bundle": "^1.1",
+        "netgen/media-site-data": "~1.7.0",
+        "netgen/site-bundle": "~1.5.0",
+        "netgen/site-generator-bundle": "~1.4.0",
+        "netgen/site-legacy-bundle": "^1.4",
+        "netgen/site-installer-bundle": "^1.2",
         "netgen/information-collection-bundle": "^1.9",
         "netgen/ezplatform-site-api": "^3.7",
         "netgen/ezplatform-search-extra": "^1.15",
-        "netgen/admin-ui-bundle": "^2.7",
+        "netgen/admin-ui-bundle": "^2.8",
         "primedigital/translations-bundle": "^1.0",
 
-        "netgen/layouts-standard": "~1.2.0",
-        "netgen/layouts-ezplatform": "~1.2.0",
-        "netgen/layouts-ezplatform-site-api": "~1.2.0",
-        "netgen/layouts-ezplatform-relation-list-query": "^1.2",
-        "netgen/layouts-ezplatform-tags-query": "^1.2"
+        "netgen/layouts-standard": "~1.3.0",
+        "netgen/layouts-ezplatform": "~1.3.0",
+        "netgen/layouts-ezplatform-site-api": "~1.3.0",
+        "netgen/layouts-ezplatform-relation-list-query": "^1.3",
+        "netgen/layouts-ezplatform-tags-query": "^1.3"
     },
     "require-dev": {
         "behat/behat": "^3.7.0",
