@@ -23,7 +23,7 @@
                 "options": {
                     "extensions": ["php", "twig"],
                     "keyword_blocklist": ["var_dump", "dump", "dd"],
-                    "allowed_files": []
+                    "excluded_files": []
                 }
             },
             {
@@ -32,7 +32,7 @@
             {
                 "action": "\\Netgen\\GitHooks\\Action\\PHPCSFixer",
                 "options": {
-                    "excluded_files": ["/^.*\\.ini\\.append\\.php$/"]
+                    "excluded_files": ["/^.*\\.ini\\.append\\.php$/", "deploy.php", "/^deploy.*/"]
                 }
             },
             {
