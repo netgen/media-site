@@ -1,2 +1,5 @@
 sentry:
     dsn: '%sentry_dsn%'
+    options:
+        excluded_exceptions:
+            - 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException'
