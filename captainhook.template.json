@@ -23,7 +23,7 @@
                 "options": {
                     "extensions": ["php", "twig"],
                     "keyword_blocklist": ["var_dump", "dump", "dd"],
-                    "allowed_files": []
+                    "excluded_files": []
                 }
             },
             {
