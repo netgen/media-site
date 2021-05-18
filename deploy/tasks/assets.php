@@ -11,7 +11,7 @@ set('asset_build_paths', [
     'assets',
 ]);
 set('asset_exclude_paths', [
-   'assets/app/build_dev'
+    'assets/app/build_dev'
 ]);
 set('asset_install_command', 'yarn install');
 set('asset_build_command', 'yarn build:prod');
