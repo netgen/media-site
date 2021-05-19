@@ -45,7 +45,7 @@ cd media-site
 If you are contributing to the latest version, skip the next step. Otherwise, take care to checkout the branch you wish to contribute to, for example:
 
 ```
-git checkout 1.9
+git checkout 1.10
 ```
 
 As either way you will not be developing on a tagged (stable) version, you need to modify `composer.json` and add the following:
