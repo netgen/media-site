@@ -9,6 +9,12 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/
@@ -23,12 +29,6 @@ yarn-error.log
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
-
-###> symfony/phpunit-bridge ###
-.phpunit
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
 
 .idea/
 
