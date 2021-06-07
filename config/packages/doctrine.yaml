@@ -7,14 +7,12 @@ doctrine:
         #server_version: '13'
     orm:
         auto_generate_proxy_classes: true
-        entity_managers:
-            default:
-                naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
-                auto_mapping: true
-                mappings:
-                    App:
-                        is_bundle: false
-                        type: annotation
-                        dir: '%kernel.project_dir%/src/Entity'
-                        prefix: 'App\Entity'
-                        alias: App
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App
