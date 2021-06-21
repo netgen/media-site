@@ -111,7 +111,8 @@
         "doctrine/dbal": "2.7.0",
         "doctrine/persistence": "1.3.2",
         "twig/twig": "2.6.1",
-        "symfony/symfony": "3.4.43"
+        "symfony/symfony": "3.4.43",
+        "laminas/laminas-code": "^4.4"
     },
     "scripts": {
         "symfony-scripts": [
