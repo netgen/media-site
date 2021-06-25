@@ -47,7 +47,8 @@ function getReleaseVersion(): Closure
             return trim(run($config['git_version_command']));
         }
 
-        $user = get('user');
+        // Removes accented characters from Sentry release name due to Sentry bug
+        $user = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', get('user'));
         $user = preg_replace('/\s+/', '_', $user);
 
         $releasePath = get('release_path');
