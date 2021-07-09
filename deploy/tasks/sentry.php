@@ -48,7 +48,9 @@ function getReleaseVersion(): Closure
         }
 
         // Removes accented characters from Sentry release name due to Sentry bug
+        setlocale(LC_ALL, 'en_US.utf8');
         $user = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', get('user'));
+
         $user = preg_replace('/\s+/', '_', $user);
 
         $releasePath = get('release_path');
