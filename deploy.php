@@ -18,6 +18,7 @@ require __DIR__ . '/deploy/tasks/sentry.php';
 require __DIR__ . '/deploy/tasks/logs.php';
 require __DIR__ . '/deploy/tasks/overrides.php';
 require __DIR__ . '/deploy/tasks/assets.php';
+require __DIR__ . '/deploy/tasks/git.php';
 require __DIR__ . '/deploy/tasks/app.php';
 require __DIR__ . '/deploy/parameters.php';
 // optional: slack integration
@@ -60,6 +61,7 @@ task('deploy', [
     //'deploy:assets:install',
     'deploy:sentry:symfony',
     'deploy:sentry',
+    'git:tag:add',
     'deploy:cache:clear',
     'deploy:cache:warmup',
     'deploy:writable',
