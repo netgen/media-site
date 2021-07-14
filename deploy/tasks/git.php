@@ -14,8 +14,8 @@ task('git:tag:add', function () {
 
     cd('{{release_path}}');
 
-    $commitHash = trim(run('git rev-parse HEAD'));
+    $commitHash = run('git rev-parse HEAD');
 
-    runLocally("$git tag -a $tag -m '" . $message . "' " . $commitHash);
+    runLocally("$git tag -a $tag -m '" . $message . "' " . trim($commitHash));
     runLocally("$git push origin $tag");
 })->onStage('prod');
