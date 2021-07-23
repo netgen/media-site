@@ -115,6 +115,9 @@ php bin/console ezplatform:install <SITE_NAME>
 where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
 or `netgen-media-clean` for the clean version, without demo data.
 
+Both of these sets of demo data add an administrator user to the database.
+This user's username is `admin` and its password is `publish`.
+
 Import the translations to the database with:
 
 ```
