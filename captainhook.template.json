@@ -59,5 +59,8 @@
     "post-checkout": {
         "enabled": false,
         "actions": []
+    },
+    "config": {
+        "php-path": "/usr/bin/php"
     }
 }
