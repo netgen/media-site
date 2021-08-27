@@ -193,8 +193,8 @@ httplug:
             plugins: [httplug.plugin.logger]
 
 lexik_translation:
-    fallback_locale: [en]
-    managed_locales: [en]
+    fallback_locale: ['%locale_fallback%']
+    managed_locales: ['%locale_fallback%', fr, de]
 
     base_layout: "@PrimeTranslations/pagelayout.html.twig"
     grid_input_type: text
