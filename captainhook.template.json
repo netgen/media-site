@@ -32,7 +32,8 @@
             {
                 "action": "\\Netgen\\GitHooks\\Action\\PHPCSFixer",
                 "options": {
-                    "excluded_files": ["/^.*\\.ini\\.append\\.php$/"]
+                    "excluded_files": ["/^.*\\.ini\\.append\\.php$/"],
+                    "fixer_path": "/usr/local/bin/php-cs-fixer"
                 }
             },
             {
