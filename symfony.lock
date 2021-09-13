@@ -6,7 +6,7 @@
         ]
     },
     "ibexa/oss": {
-        "version": "3.3.1",
+        "version": "3.3.3",
         "files": [
             "config/packages/dfs/dfs.yaml",
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -47,7 +47,7 @@
         ]
     },
     "symfony/framework-bundle": {
-        "version": "5.2.5",
+        "version": "5.2.12",
         "files": [
             "config/services.yaml",
             "config/packages/test/framework.yaml",
@@ -61,7 +61,7 @@
         ]
     },
     "symfony/monolog-bundle": {
-        "version": "3.6.0",
+        "version": "3.7.0",
         "files": [
             "config/packages/dev/monolog.yaml",
             "config/packages/test/monolog.yaml",
@@ -70,7 +70,7 @@
         ]
     },
     "symfony/routing": {
-        "version": "5.2.4",
+        "version": "5.2.12",
         "files": [
             "config/packages/routing.yaml",
             "config/packages/prod/routing.yaml",
@@ -78,7 +78,7 @@
         ]
     },
     "symfony/twig-bundle": {
-        "version": "5.2.4",
+        "version": "5.2.12",
         "files": [
             "config/packages/test/twig.yaml",
             "config/packages/twig.yaml",
@@ -86,7 +86,7 @@
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.11.1",
+        "version": "1.12.0",
         "files": [
             "assets/app.js",
             "assets/controllers.json",
