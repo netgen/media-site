@@ -41,7 +41,7 @@
         "ezsystems/ezplatform-solr-search-engine": "^1.7.7",
         "ezsystems/ezplatform-standard-design": "^0.2.2",
         "ezsystems/ezplatform-user": "^1.0.7",
-        "ezsystems/ezpublish-kernel": "~7.5.17",
+        "ezsystems/ezpublish-kernel": "~7.5.23",
         "ezsystems/repository-forms": "~2.5.9",
         "ezsystems/symfony-tools": "^1.1.2",
         "friendsofsymfony/jsrouting-bundle": "^1.6.3",
