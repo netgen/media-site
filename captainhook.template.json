@@ -61,6 +61,6 @@
         "actions": []
     },
     "config": {
-        "php-path": "/usr/bin/php"
+        "php-path": "/usr/bin/env php7.4"
     }
 }
