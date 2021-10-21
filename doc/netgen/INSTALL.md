@@ -32,6 +32,11 @@ CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 composer create-project "netgen/media-site:^1.10"
 ```
 
+Run the following to generate basic siteaccess configuration and set up project for development:
+```
+bin/console ngsite:generate:project
+```
+
 ### Create project for contribution
 
 If you are a developer wishing to contribute to the `media-site`, do not use the above `composer create-project` command.
