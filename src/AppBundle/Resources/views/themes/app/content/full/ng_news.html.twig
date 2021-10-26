@@ -82,7 +82,7 @@
                 },
             {% endif %}
             {% if not content.fields.image.empty %}
-                "image": "{{ absolute_url(ng_image_alias(content.fields.image, 'i1200').uri) }}",
+                "image": "{{ ngsite_image_absolute_url(content, 'image', 'i1200') }}",
             {% endif %}
             "publisher": {
                 "type": "Organization",
