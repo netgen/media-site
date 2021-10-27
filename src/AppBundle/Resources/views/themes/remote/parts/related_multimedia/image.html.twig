@@ -1,0 +1,44 @@
+{# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
+{# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
+
+{% if not content.fields.image.empty %}
+    {% set image = content.fields.image %}
+    {% set image_alias = netgen_remote_variation(content.innerContent, 'image', 'i1200') %}
+    {% set image_uri = image_alias ? image_alias.url : '//:0' %}
+    {% set alt_text = image.value.alternativeText|default('') %}
+    {% set lazy_loading = ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+
+    {% if is_slider %}
+        <div class="swiper-slide">
+    {% endif %}
+            <figure class="image-wrapper">
+                {% if is_slider %}
+                    <img class="swiper-lazy" data-src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
+                {% else %}
+                    <img
+                        {% if lazy_loading %}
+                            {% set lazy_image_alias = netgen_remote_variation(content.innerContent, 'image', ezpublish.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngsite')) %}
+                            src="{% if lazy_image_alias %}{{ lazy_image_alias.url }}{% else %}//:0{% endif %}"
+                            data-src="{{ image_uri }}"
+                            {% if image_alias %}
+                                data-srcset="{{ netgen_remote_variation(content.innerContent, 'image', 'i480').url }} 600w,
+                                            {{ netgen_remote_variation(content.innerContent, 'image', 'i770').url }} 991w,
+                                            {{ image_uri }} 1200w"
+                            {% endif %}
+                        {% else %}
+                            src="{{ image_uri }}"
+                        {% endif %}
+                        {% if alt_text %} alt="{{ alt_text }}"{% endif %}
+                    />
+                {% endif %}
+
+                {% if content.fields.caption is defined and not content.fields.caption.empty %}
+                    <figcaption>
+                        {{ ng_render_field(content.fields.caption) }}
+                    </figcaption>
+                {% endif %}
+            </figure>
+    {% if is_slider %}
+        </div>
+    {% endif %}
+{% endif %}

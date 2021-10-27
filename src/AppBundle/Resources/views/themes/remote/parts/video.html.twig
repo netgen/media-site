@@ -1,0 +1,182 @@
+{% macro poster(content, location, alias_name, alt_text) %}
+    {% set alias_name = alias_name|default('i480') %}
+    {% set alt_text = alt_text ?? null %}
+
+    <figure class="image">
+        <a href="{{ path(location is not empty ? location : content) }}" class="image-16by9" {% if alt_text is not empty %}aria-label="{{ alt_text }}"{% endif %}>
+            {% if not content.fields.poster.empty %}
+                {{ ng_render_field(content.fields.poster, {'parameters': {'alias': alias_name}}) }}
+            {% elseif not content.fields.video_identifier.empty %}
+                {% set video_identifier = content.fields.video_identifier.value.text %}
+                {% set video_types = content.fields.video_type.value.identifiers %}
+
+                {% if 'youtube' in video_types %}
+                    <img data-src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                {% elseif 'vimeo' in video_types %}
+                    <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                {% elseif 'dailymotion' in video_types %}
+                    <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                {% endif %}
+            {% else %}
+                    <img data-src="{{ asset('bundles/app/images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+            {% endif %}
+        </a>
+    </figure>
+{% endmacro %}
+
+{% macro poster_slide(content, use_lazy_load, alt_text) %}
+    {% import '@ezdesign/parts/slide.html.twig' as slide %}
+
+    {% set use_lazy_load = use_lazy_load|default(false) %}
+    {% set alt_text = alt_text ?? null %}
+
+    {% if not content.fields.poster.empty %}
+        {{ slide.image(content, 'poster', 'i1200', use_lazy_load) }}
+    {% elseif not content.fields.video_identifier.empty %}
+        {% set video_identifier = content.fields.video_identifier.value.text %}
+        {% set video_types = content.fields.video_type.value.identifiers %}
+
+        {% if 'youtube' in video_types %}
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+        {% elseif 'vimeo' in video_types %}
+            <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+        {% elseif 'dailymotion' in video_types %}
+            <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+        {% endif %}
+    {% else %}
+            <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset('bundles/app/images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+    {% endif %}
+{% endmacro %}
+
+{% macro player(content, use_external_embed) %}
+    {% set use_external_embed = use_external_embed|default(false) %}
+
+    {% set video_types = content.fields.video_type.value.identifiers %}
+    {% set autoplay = content.fields.autoplay.value.bool %}
+
+    {% set image_path = asset('bundles/app/images/video_poster.png') %}
+    {% if not content.fields.poster.empty %}
+        {% set poster_alias = netgen_remote_variation(content.innerContent, 'poster', 'i1200') %}    
+
+        {% if poster_alias %}
+            {% set image_path = asset(poster_alias.url) %}
+        {% endif %}
+    {% endif %}
+
+    {% if 'upload' in video_types %}
+        {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty %}
+            {% set field_name = content.fields.video_file_hd.empty ? 'video_file' : 'video_file_hd' %}
+
+            <div class="video-config video-local-{{ content.id }}"
+                 data-video_player_id="video-local-{{ content.id }}"
+                 data-width="770"
+                 data-height="433"
+                 data-autostart="{% if autoplay %}true{% else %}false{% endif %}"
+                 data-image="{{ image_path }}"
+                 data-file="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
+                 data-videotype="local"
+                 data-mimetype="{{ content.fields[field_name].value.mimeType }}">
+            </div>
+
+            <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
+        {% endif %}
+    {% elseif not content.fields.video_identifier.empty %}
+        {% set video_identifier = content.fields.video_identifier.value.text %}
+
+        {% if 'youtube' in video_types %}
+            {% if use_external_embed %}
+                <div class="video-youtube embed-responsive embed-responsive-16by9">
+                    <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+                </div>
+            {% else %}
+                <div class="video-youtube">
+                    <div class="video-config video-external-{{ content.id }}"
+                         data-video_player_id="video-external-{{ content.id }}"
+                         data-width="770"
+                         data-height="433"
+                         data-autostart="{% if autoplay %}true{% else %}false{% endif %}"
+                         data-image="{{ image_path }}"
+                         data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
+                         data-videotype="youtube">
+                    </div>
+
+                    <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
+                </div>
+            {% endif %}
+        {% elseif 'vimeo' in video_types %}
+            {# JW Player does not support Vimeo so only embed is available #}
+            <div class="video-vimeo embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            </div>
+        {% elseif 'dailymotion' in video_types %}
+            {# JW Player does not support Daily Motion so only embed is available #}
+            <div class="video-dailymotion embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{% macro player_slide(content, use_external_embed) %}
+    {% set use_external_embed = use_external_embed|default(false) %}
+
+    {% set video_types = content.fields.video_type.value.identifiers %}
+
+    {% set image_path = asset('bundles/app/images/video_poster.png') %}
+    {% if not content.fields.poster.empty %}
+        {% set poster_alias = netgen_remote_variation(content.innerContent, 'poster', 'i1200') %}
+
+        {% if poster_alias %}
+            {% set image_path = asset(poster_alias.url) %}
+        {% endif %}
+    {% endif %}
+
+    {% if 'upload' in video_types %}
+        {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty %}
+            {% set field_name = content.fields.video_file_hd.empty ? 'video_file' : 'video_file_hd' %}
+
+            <div class="video-config video-local-{{ content.id }}" style="display: none;"
+                 data-video_player_id="video-local-{{ content.id }}"
+                 data-autostart="false"
+                 data-image="{{ image_path }}"
+                 data-file="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
+                 data-videotype="local"
+                 data-mimetype="{{ content.fields[field_name].value.mimeType }}">
+            </div>
+
+            <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
+        {% endif %}
+    {% elseif not content.fields.video_identifier.empty %}
+        {% set video_identifier = content.fields.video_identifier.value.text %}
+
+        {% if 'youtube' in video_types %}
+            {% if use_external_embed %}
+                <div class="video-youtube embed-responsive embed-responsive-16by9">
+                    <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+                </div>
+            {% else %}
+                <div class="video-youtube">
+                    <div class="video-config video-external-{{ content.id }}" style="display: none;"
+                         data-video_player_id="video-external-{{ content.id }}"
+                         data-autostart="false"
+                         data-image="{{ image_path }}"
+                         data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
+                         data-videotype="youtube">
+                    </div>
+
+                    <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
+                </div>
+            {% endif %}
+        {% elseif 'vimeo' in video_types %}
+            {# JW Player does not support Vimeo so only embed is available #}
+            <div class="video-vimeo embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+            </div>
+        {% elseif 'dailymotion' in video_types %}
+            {# JW Player does not support Daily Motion so only embed is available #}
+            <div class="video-dailymotion embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endmacro %}
