@@ -156,6 +156,10 @@ final class AppKernel extends Kernel
     {
         $loader->load($this->getRootDir() . '/config/' . $this->getEnvironment() . '/config.yml');
 
+        if (file_exists($this->getRootDir() . '/config/remote_media.yml')) {
+            $loader->load($this->getRootDir() . '/config/remote_media.yml');
+        }
+
         // We save the loader to a variable in order
         // not to recreate it later in buildContainer
         $this->containerLoader = $loader;
