@@ -67,18 +67,7 @@
         {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty %}
             {% set field_name = content.fields.video_file_hd.empty ? 'video_file' : 'video_file_hd' %}
 
-            <div class="video-config video-local-{{ content.id }}"
-                 data-video_player_id="video-local-{{ content.id }}"
-                 data-width="770"
-                 data-height="433"
-                 data-autostart="{% if autoplay %}true{% else %}false{% endif %}"
-                 data-image="{{ image_path }}"
-                 data-file="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
-                 data-videotype="local"
-                 data-mimetype="{{ content.fields[field_name].value.mimeType }}">
-            </div>
-
-            <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
+            {{ ng_render_field(content.fields[field_name]) }}
         {% endif %}
     {% elseif not content.fields.video_identifier.empty %}
         {% set video_identifier = content.fields.video_identifier.value.text %}
@@ -135,16 +124,7 @@
         {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty %}
             {% set field_name = content.fields.video_file_hd.empty ? 'video_file' : 'video_file_hd' %}
 
-            <div class="video-config video-local-{{ content.id }}" style="display: none;"
-                 data-video_player_id="video-local-{{ content.id }}"
-                 data-autostart="false"
-                 data-image="{{ image_path }}"
-                 data-file="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
-                 data-videotype="local"
-                 data-mimetype="{{ content.fields[field_name].value.mimeType }}">
-            </div>
-
-            <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
+            {{ ng_render_field(content.fields[field_name]) }}
         {% endif %}
     {% elseif not content.fields.video_identifier.empty %}
         {% set video_identifier = content.fields.video_identifier.value.text %}
