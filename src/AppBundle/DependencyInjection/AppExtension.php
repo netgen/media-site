@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace AppBundle\DependencyInjection;
 
+use Netgen\Bundle\RemoteMediaBundle\NetgenRemoteMediaBundle;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -32,6 +33,11 @@ final class AppExtension extends Extension implements PrependExtensionInterface
             'layouts/block_view.yml' => 'netgen_layouts',
             'layouts/item_view.yml' => 'netgen_layouts',
         ];
+
+        $activatedBundles = $container->getParameter('kernel.bundles');
+        if (in_array(NetgenRemoteMediaBundle::class, $activatedBundles, true)) {
+            $prependConfigs['remote_media.yml'] = 'netgen_remote_media';
+        }
 
         foreach ($prependConfigs as $configFile => $prependConfig) {
             $configFile = __DIR__ . '/../Resources/config/' . $configFile;
