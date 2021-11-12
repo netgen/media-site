@@ -1,22 +1,22 @@
 system:
-    default:
+    ngadmin_group:
         image_variations:
             default:
                 small:
                     transformations:
-                        - { name: crop, params: [100, 100] }
-                        - { name: fill, params: [100, 100] }
-                        - { name: quality, params: ['auto', 'eco'] }
+                        - { name: fill, params: [ 100, 100 ] }
+                        - { name: quality, params: [ 'auto', 'eco' ] }
                 medium:
                     transformations:
-                        - { name: crop, params: [200, 200] }
-                        - { name: fill, params: [200, 200] }
-                        - { name: quality, params: ['auto', 'eco'] }
+                        - { name: fill, params: [ 200, 200 ] }
+                        - { name: quality, params: [ 'auto', 'eco' ] }
                 large:
                     transformations:
-                        - { name: crop, params: [300, 300] }
-                        - { name: fill, params: [300, 300] }
-                        - { name: quality, params: ['auto', 'eco'] }
+                        - { name: fill, params: [ 300, 300 ] }
+                        - { name: quality, params: [ 'auto', 'eco' ] }
+    default:
+        image_variations:
+            default:
                 i30:
                     transformations:
                         - { name: crop, params: [30, 30] }
