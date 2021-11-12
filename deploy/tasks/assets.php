@@ -21,13 +21,13 @@ set('asset_ezplatform_build_command', function() {
    return $composer . ' ezplatform-assets';
 });
 
-task('assets:deploy', [
-    'assets:build',
-    'assets:ezplatform:build',
-    'assets:upload'
+task('app:assets:deploy', [
+    'app:assets:build',
+    'app:assets:ezplatform:build',
+    'app:assets:upload'
 ]);
 
-task('assets:build', function() {
+task('app:assets:build', function() {
     writeln('<comment>Checking for changes in asset files. If this fails, commit or stash your changes before deploying.</comment>');
     $assetResourcePaths = get('asset_resource_paths');
     foreach ($assetResourcePaths as $resourcePath) {
@@ -41,11 +41,11 @@ task('assets:build', function() {
     run($buildCmd);
 })->local();
 
-task('assets:ezplatform:build', function() {
+task('app:assets:ezplatform:build', function() {
     run("{{asset_ezplatform_build_command}}");
 })->local();
 
-task('assets:upload', function() {
+task('app:assets:upload', function() {
     $assetPaths = get('asset_build_paths');
     $excludedPaths = get('asset_exclude_paths', []);
 
