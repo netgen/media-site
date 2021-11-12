@@ -54,6 +54,9 @@ task('deploy', [
     'deploy:clear_paths',
     'deploy:create_cache_dir',
     'deploy:shared',
+    // build and upload assets
+    'app:assets:deploy',
+    // symfony recipe - set asset timestamp (see https://github.com/deployphp/deployer/blob/6.x/recipe/symfony.php#L85)
     'deploy:assets',
     // copy vendors folder between releases before running composer install to speed it up
     'deploy:copy_dirs',
