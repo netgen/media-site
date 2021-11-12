@@ -47,6 +47,7 @@ netgen_site_legacy:
                         - ezgmaplocation
                         - ezdemo
                         - ezoe
+                        - ngremotemedia
 
             injected_settings:
                 content.ini:

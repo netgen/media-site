@@ -1,0 +1,70 @@
+system:
+    default:
+        image_variations:
+            default:
+                i30:
+                    transformations:
+                        - { name: crop, params: [30, 30] }
+                        - { name: fill, params: [30, 30] }
+                        - { name: quality, params: ['auto', 'eco'] }
+                i160:
+                    transformations:
+                        - { name: crop, params: [160, 90] }
+                        - { name: fill, params: [160, 90] }
+                        - { name: quality, params: ['auto', 'eco'] }
+                i320:
+                    transformations:
+                        - { name: crop, params: [320, 180] }
+                        - { name: fill, params: [320, 180] }
+                        - { name: quality, params: ['auto', 'eco'] }
+                i480:
+                    transformations:
+                        - { name: crop, params: [480, 270] }
+                        - { name: fill, params: [480, 270] }
+                        - { name: quality, params: ['auto', 'eco'] }
+                i770:
+                    transformations:
+                        - { name: crop, params: [770, 433] }
+                        - { name: fill, params: [770, 433] }
+                        - { name: quality, params: ['auto', 'eco'] }
+                i1200:
+                    transformations:
+                        - { name: crop, params: [1200, 675] }
+                        - { name: fill, params: [1200, 675] }
+                        - { name: quality, params: ['auto', 'eco'] }
+                i1920:
+                    transformations:
+                        - { name: crop, params: [1920, 1080] }
+                        - { name: fill, params: [1920, 1080] }
+                        - { name: quality, params: ['auto', 'eco'] }
+            embedded:
+                small:
+                    transformations:
+                        - { name: crop, params: [ 100, 100 ] }
+                        - { name: fill, params: [ 100, 100 ] }
+                        - { name: quality, params: ['auto', 'eco'] }
+                medium:
+                    transformations:
+                        - { name: crop, params: [ 200, 200 ] }
+                        - { name: fill, params: [ 200, 200 ] }
+                        - { name: quality, params: ['auto', 'eco'] }
+                large:
+                    transformations:
+                        - { name: crop, params: [ 300, 300 ] }
+                        - { name: fill, params: [ 300, 300 ] }
+                        - { name: quality, params: ['auto', 'eco'] }
+    ngadmin_group:
+        image_variations:
+            default:
+                small:
+                    transformations:
+                        - { name: fill, params: [ 100, 100 ] }
+                        - { name: quality, params: [ 'auto', 'eco' ] }
+                medium:
+                    transformations:
+                        - { name: fill, params: [ 200, 200 ] }
+                        - { name: quality, params: [ 'auto', 'eco' ] }
+                large:
+                    transformations:
+                        - { name: fill, params: [ 300, 300 ] }
+                        - { name: quality, params: [ 'auto', 'eco' ] }

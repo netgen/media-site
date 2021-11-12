@@ -1,0 +1,66 @@
+{% macro image(content, location, alias_name, lazy_loading, link_class) %}
+    {% set alias_name = alias_name ?? 'i480' %}
+    {% set lazy_loading = lazy_loading ?? ezpublish.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+
+    {% set image_field = false %}
+    {% if content.hasField('teaser_image') and not content.fields.teaser_image.empty %}
+        {% set image_field = content.fields.teaser_image %}
+    {% elseif content.hasField('image') and not content.fields.image.empty %}
+        {% set image_field = content.fields.image %}
+    {% endif %}
+
+    {% if image_field %}
+        <figure class="image">
+            {{ ng_render_field(
+                image_field, {
+                    'parameters': {
+                        'alias': alias_name,
+                        'link_href': location is not empty ? path(location) : null,
+                        'lazy_loading': lazy_loading,
+                        'link_class': link_class ?? null,
+                    }
+                }
+            ) }}
+        </figure>
+    {% endif %}
+{% endmacro %}
+
+{% macro title(content) %}
+{% apply spaceless %}
+    {% set title = content.firstNonEmptyField('teaser_title', 'title', 'name') %}
+    {% if not title.empty %}
+        {{ title.value.text }}
+    {% else %}
+        {{ content.name }}
+    {% endif %}
+{% endapply %}
+{% endmacro %}
+
+{% macro intro(content) %}
+    {% if content.hasField('teaser_intro') and not content.fields.teaser_intro.empty %}
+        <div class="short">
+            {{ ng_render_field(content.fields.teaser_intro) }}
+        </div>
+    {% elseif content.hasField('full_intro') and not content.fields.full_intro.empty %}
+        <div class="short">
+            {{ ng_render_field(content.fields.full_intro) }}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro background_poster(content, field, alias_name) %}
+{% apply spaceless %}
+    {% set alias_name = alias_name|default('original') %}
+    {% set field = field|default('image') %}
+
+    {% set poster_image = '' %}
+    {% if not content.fields[field].empty %}
+        {% set poster_alias = netgen_remote_variation(content.innerContent, field, alias_name) %}    
+        {% if poster_alias %}
+            {% set poster_image = asset(poster_alias.url) %}
+        {% endif %}
+    {% endif %}
+
+    {{ poster_image }}
+{% endapply %}
+{% endmacro %}

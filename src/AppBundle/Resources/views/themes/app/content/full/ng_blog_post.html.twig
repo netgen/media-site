@@ -67,24 +67,23 @@
 {% endblock %}
 
 {% block structuredData %}
-    {# structured data #}
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
             "@type": "Blog",
             "headline": "{{ content.fields.title.value.text }}",
-            {% if content.contentInfo.publishedDate %}
+            {% if content.contentInfo.publishedDate -%}
                 "datePublished": "{{ content.contentInfo.publishedDate|date('Y-m-d') }}",
-            {% endif %}
-            {% if not content.fields.authors.empty %}
+            {% endif -%}
+            {% if not content.fields.authors.empty -%}
                 "author": {
                     "@type": "Person",
                     "name": "{% for author in content.fieldRelations('authors') %}{% if loop.index0 > 0 %} ,{% endif %}{{ author.name }}{% endfor %}"
                 },
-            {% endif %}
-            {% if not content.fields.image.empty %}
-                "image": "{{ absolute_url(ng_image_alias(content.fields.image, 'i1200').uri) }}",
-            {% endif %}
+            {% endif -%}
+            {% if not content.fields.image.empty -%}
+                "image": "{{ absolute_url(ngsite_image_url(content, 'image', 'i1200')) }}",
+            {% endif -%}
             "publisher": {
                 "type": "Organization",
                 "name": "{{ site_name }}"

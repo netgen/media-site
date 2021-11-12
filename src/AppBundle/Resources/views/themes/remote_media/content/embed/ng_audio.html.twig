@@ -1,0 +1,21 @@
+{# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
+{# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
+
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<div class="view-type view-type-{{ view_type }} ng-audio">
+    <h2 class="title">{{ content_fields.title(content) }}</h2>
+
+    {% if not content.fields.file.empty %}
+        <audio controls>
+            <source type="audio/mpeg" src="{{ content.fields.file.value.secure_url }}" />
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+
+    {% if not content.fields.description.empty %}
+        <div class="short">
+            {{ ng_render_field(content.fields.description) }}
+        </div>
+    {% endif %}
+</div>

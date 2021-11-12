@@ -110,6 +110,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\SiteLegacyBundle\NetgenSiteLegacyBundle();
         $bundles[] = new Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle();
+        $bundles[] = new Netgen\Bundle\RemoteMediaBundle\NetgenRemoteMediaBundle();
 
         $bundles[] = new Netgen\Bundle\ContentBrowserBundle\NetgenContentBrowserBundle();
         $bundles[] = new Netgen\Bundle\ContentBrowserEzPlatformBundle\NetgenContentBrowserEzPlatformBundle();
@@ -122,6 +123,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformTagsQueryBundle\NetgenLayoutsEzPlatformTagsQueryBundle();
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformBundle\NetgenLayoutsEzPlatformBundle();
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\NetgenLayoutsEzPlatformSiteApiBundle();
+        $bundles[] = new Netgen\Bundle\LayoutsRemoteMediaBundle\NetgenLayoutsRemoteMediaBundle();
 
         $bundles[] = new AppBundle\AppBundle();
 
@@ -154,6 +156,10 @@ final class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load($this->getRootDir() . '/config/' . $this->getEnvironment() . '/config.yml');
+
+        if (file_exists($this->getRootDir() . '/config/remote_media.yml')) {
+            $loader->load($this->getRootDir() . '/config/remote_media.yml');
+        }
 
         // We save the loader to a variable in order
         // not to recreate it later in buildContainer

@@ -1,0 +1,28 @@
+{# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
+{# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
+
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+{% if not content.fields.image.empty %}
+    <div class="view-type view-type-{{ view_type }} ng-blog-post vl3">
+        {% if not content.fields.authors.empty %}
+            {% set author = content.fieldRelations('authors')[0].name %}
+        {% else %}
+            {% set author = content.owner.name %}
+        {% endif %}
+
+        {% set date = content.fields.publish_date.value.value|date('j. n. Y.') %}
+        {% set title = content_fields.title(content) %}
+
+        <a href="{{ asset(netgen_remote_variation(content.innerContent, 'image', 'i1200').url) }}" title="{{ title }} by {{ author }} ({{ date }})" class="js-mfp-item">
+            {{ ng_render_field(
+                content.fields.image, {
+                    parameters: {
+                        alias: 'i1200',
+                        alt_text: title
+                    }
+                }
+            ) }}
+        </a>
+    </div>
+{% endif %}
