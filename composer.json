@@ -75,6 +75,7 @@
         "netgen/site-legacy-bundle": "^1.4",
         "netgen/site-installer-bundle": "^1.2",
         "netgen/information-collection-bundle": "^1.9",
+        "netgen/remote-media-bundle": "^2.0@alpha",
         "netgen/ezplatform-site-api": "^3.7",
         "netgen/ezplatform-search-extra": "^1.15",
         "netgen/admin-ui-bundle": "^2.8",
@@ -85,7 +86,6 @@
         "netgen/layouts-ezplatform-site-api": "~1.3.0",
         "netgen/layouts-ezplatform-relation-list-query": "^1.3",
         "netgen/layouts-ezplatform-tags-query": "^1.3",
-        "netgen/remote-media-bundle": "^2.0@alpha",
         "netgen/layouts-remote-media": "^1.1"
     },
     "require-dev": {
