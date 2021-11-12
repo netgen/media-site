@@ -15,7 +15,11 @@ set('asset_exclude_paths', [
 ]);
 set('asset_install_command', 'yarn install');
 set('asset_build_command', 'yarn build:prod');
-set('asset_ezplatform_build_command', 'composer ezplatform-assets');
+set('asset_ezplatform_build_command', function() {
+   $composer = get('bin/composer');
+
+   return $composer . ' ezplatform-assets';
+});
 
 task('assets:deploy', [
     'assets:build',
