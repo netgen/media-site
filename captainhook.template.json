@@ -5,7 +5,7 @@
             {
                 "action": "\\Netgen\\GitHooks\\Action\\Regex",
                 "options": {
-                    "regex": "/^[A-Z]+-\\d+:?\\s/",
+                    "regex": "/^[A-Z0-9]+-\\d+:?\\s/",
                     "error": "Your commit message MUST start with a ticket ID"
                 }
             }
