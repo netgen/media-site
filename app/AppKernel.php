@@ -110,7 +110,6 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\SiteLegacyBundle\NetgenSiteLegacyBundle();
         $bundles[] = new Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle();
         $bundles[] = new Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle();
-        $bundles[] = new Netgen\Bundle\RemoteMediaBundle\NetgenRemoteMediaBundle();
 
         $bundles[] = new Netgen\Bundle\ContentBrowserBundle\NetgenContentBrowserBundle();
         $bundles[] = new Netgen\Bundle\ContentBrowserEzPlatformBundle\NetgenContentBrowserEzPlatformBundle();
@@ -123,7 +122,11 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformTagsQueryBundle\NetgenLayoutsEzPlatformTagsQueryBundle();
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformBundle\NetgenLayoutsEzPlatformBundle();
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\NetgenLayoutsEzPlatformSiteApiBundle();
-        $bundles[] = new Netgen\Bundle\LayoutsRemoteMediaBundle\NetgenLayoutsRemoteMediaBundle();
+
+        if (file_exists($this->getRootDir() . '/config/remote_media.yml')) {
+            $bundles[] = new Netgen\Bundle\RemoteMediaBundle\NetgenRemoteMediaBundle();
+            $bundles[] = new Netgen\Bundle\LayoutsRemoteMediaBundle\NetgenLayoutsRemoteMediaBundle();
+        }
 
         $bundles[] = new AppBundle\AppBundle();
 
