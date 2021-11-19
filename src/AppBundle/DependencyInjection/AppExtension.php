@@ -13,6 +13,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Yaml\Yaml;
 use function file_get_contents;
+use function in_array;
 
 final class AppExtension extends Extension implements PrependExtensionInterface
 {

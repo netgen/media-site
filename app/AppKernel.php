@@ -123,7 +123,7 @@ final class AppKernel extends Kernel
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformBundle\NetgenLayoutsEzPlatformBundle();
         $bundles[] = new Netgen\Bundle\LayoutsEzPlatformSiteApiBundle\NetgenLayoutsEzPlatformSiteApiBundle();
 
-        if (file_exists($this->getRootDir() . '/config/remote_media.yml')) {
+        if (\file_exists($this->getRootDir() . '/config/remote_media.yml')) {
             $bundles[] = new Netgen\Bundle\RemoteMediaBundle\NetgenRemoteMediaBundle();
             $bundles[] = new Netgen\Bundle\LayoutsRemoteMediaBundle\NetgenLayoutsRemoteMediaBundle();
         }
@@ -160,7 +160,7 @@ final class AppKernel extends Kernel
     {
         $loader->load($this->getRootDir() . '/config/' . $this->getEnvironment() . '/config.yml');
 
-        if (file_exists($this->getRootDir() . '/config/remote_media.yml')) {
+        if (\file_exists($this->getRootDir() . '/config/remote_media.yml')) {
             $loader->load($this->getRootDir() . '/config/remote_media.yml');
         }
 
