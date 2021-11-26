@@ -78,6 +78,29 @@ task('server:upload_parameters', function() {
     upload($localFile, $path.'/shared/app/config/parameters.yml');
 });
 
+desc('Upload appropriate remote_media.yml file to the server');
+task('server:upload_remote_media', function() {
+    $stage = 'dev';
+    if (input()->hasArgument('stage')) {
+        $stage = input()->getArgument('stage');
+    }
+
+    $path = get('deploy_path');
+    $localFile = 'deploy/files/remote_media.'.$stage.'.yml';
+
+    if (!file_exists($localFile)) {
+        writeln('<info>remote_media.yml file for selected stage does not exist. Skipping...</info>');
+
+        return;
+    }
+
+    if (!test("[ -d ".$path.'/shared/app/config/'." ]")) {
+        run("mkdir -p ".$path.'/shared/app/config/');
+    }
+
+    upload($localFile, $path.'/shared/app/config/remote_media.yml');
+});
+
 desc('Symlink web folder to appropriate place');
 task('server:symlink_web', function() {
     run("{{bin/symlink}} {{release_path}}/web {{deploy_path}}");
