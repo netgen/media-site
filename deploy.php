@@ -44,7 +44,9 @@ task('deploy', [
     'deploy:confirm',
     // Upload server specific parameters.yml file. Those files are NOT to be committed to the repository
     'server:upload_parameters',
-    // Upload server specific .env file. Those file are NOT to be committed to the repository
+    // Upload server specific remote_media.yml file. Those files are NOT to be committed to the repository
+    'server:upload_remote_media',
+    // Upload server specific .env file. Those files are NOT to be committed to the repository
     'server:upload_env',
     'deploy:info',
     'deploy:prepare',

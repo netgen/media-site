@@ -1,0 +1,4 @@
++netgen_remote_media:
+    account_name: ACCOUNT_NAME_GOES_HERE
+    account_key: ACCOUNT_KEY_GOES_HERE
+    account_secret: ACCOUNT_SECRET_GOES_HERE

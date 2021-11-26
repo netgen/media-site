@@ -10,6 +10,7 @@ node_modules/
 !bin/vhost.sh
 !bin/sync_db_and_var.sh
 /app/config/parameters.yml
+/app/config/remote_media.yml
 /app/config/server/local/
 /app/config/server/local.yml
 /app/solr
