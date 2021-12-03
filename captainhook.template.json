@@ -37,6 +37,18 @@
                 }
             },
             {
+                "action": "\\Netgen\\GitHooks\\Action\\JSLinter",
+                "options": {
+                    "excluded_files": []
+                }
+            },
+            {
+                "action": "\\Netgen\\GitHooks\\Action\\JSPrettier",
+                "options": {
+                    "excluded_files": []
+                }
+            },
+            {
                 "action": "\\Netgen\\GitHooks\\Action\\CheckLockFileCommitted",
                 "options": {
                     "enabled": true
