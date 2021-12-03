@@ -108,7 +108,7 @@
         "predis/predis": "^1.1.7",
         "deployer/recipes": "^6.2",
 
-        "netgen/git-hooks": "^2.0"
+        "netgen/git-hooks": "^2.2"
     },
     "conflict": {
         "doctrine/dbal": "2.7.0",
