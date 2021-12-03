@@ -24,8 +24,8 @@ Encore
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
-    options.includePaths = [path.resolve(__dirname, 'node_modules')]; // eslint-disable-line no-param-reassign
-    options.outputStyle = Encore.isProduction() ? 'compressed' : 'nested';
+    options.sassOptions.includePaths = [path.resolve(__dirname, 'node_modules')]; // eslint-disable-line no-param-reassign
+    options.sassOptions.outputStyle = Encore.isProduction() ? 'compressed' : 'nested';
   })
 
   // allow legacy applications to use $/jQuery as a global variable
@@ -40,30 +40,33 @@ Encore
   .enableVersioning(Encore.isProduction())
 
   .enablePostCssLoader((options) => {
-    options.config = { // eslint-disable-line no-param-reassign
-      path: 'postcss.config.js',
+    options.postcssOptions = {
+        path: 'postcss.config.js',
     };
   })
 
   .configureTerserPlugin((options) => {
-    options.cache = true;
     options.parallel = true;
     options.terserOptions = {
-      output: {
+      format: {
         comments: false,
       },
+      nameCache: {},
     };
   })
 
-  .enableSingleRuntimeChunk()
-;
+  .enableSingleRuntimeChunk();
 
 if (Encore.isProduction()) {
   Encore.configureFilenames({
     js: '[name].js?v=[contenthash]',
     css: '[name].css?v=[contenthash]',
-    images: 'images/[name].[ext]?v=[hash:8]',
-    fonts: 'fonts/[name].[ext]?v=[hash:8]',
+  });
+  Encore.configureImageRule({
+    filename: 'images/[name].[ext]?v=[hash:8]',
+  });
+  Encore.configureFontRule({
+    filename: 'fonts/[name].[ext]?v=[hash:8]',
   });
 }
 
