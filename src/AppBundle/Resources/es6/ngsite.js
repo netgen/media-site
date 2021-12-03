@@ -1,4 +1,4 @@
-/* globals jwplayer */
+/* global jwplayer, page, dataLayer */
 import $ from 'jquery';
 import 'magnific-popup';
 import Swiper from 'swiper/dist/js/swiper';
@@ -16,10 +16,10 @@ global.Swiper = Swiper;
 
     const rect = el.getBoundingClientRect();
     return (
-      rect.top >= 0
-      && rect.left >= 0
-      && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-      && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
 
@@ -38,12 +38,14 @@ global.Swiper = Swiper;
       const $this = $(this);
 
       if ($this.hasClass('in_viewport')) return;
-      $(window).on('scroll:end', () => {
-        if (isElementInViewport($this)) {
-          $this.trigger('in_viewport');
-          if (cb) cb.call($this);
-        }
-      }).addClass('in_viewport');
+      $(window)
+        .on('scroll:end', () => {
+          if (isElementInViewport($this)) {
+            $this.trigger('in_viewport');
+            if (cb) cb.call($this);
+          }
+        })
+        .addClass('in_viewport');
     });
   };
 })();
@@ -61,14 +63,18 @@ function jwplayerInit(videoObjectClass, videoObj) {
   const width = '100%';
 
   if (videoObject.data('videotype') === 'local') {
-    sources = [{
-      file: videoObject.data('file'),
-      type: videoObject.data('mimetype'),
-    }];
+    sources = [
+      {
+        file: videoObject.data('file'),
+        type: videoObject.data('mimetype'),
+      },
+    ];
   } else {
-    sources = [{
-      file: videoObject.data('file'),
-    }];
+    sources = [
+      {
+        file: videoObject.data('file'),
+      },
+    ];
   }
 
   jwplayer(videoId).setup({
@@ -77,10 +83,12 @@ function jwplayerInit(videoObjectClass, videoObj) {
     aspectratio: aspectRatio,
     autostart: videoObject.data('autostart'),
     controlbar: [{ idlehide: 'true' }],
-    playlist: [{
-      sources,
-      image: videoObject.data('image'),
-    }],
+    playlist: [
+      {
+        sources,
+        image: videoObject.data('image'),
+      },
+    ],
   });
 }
 /* /JWPLAYER INIT  -----------------------------------------------*/
@@ -138,6 +146,7 @@ $(document).ready(() => {
 
   /* header actions */
   /* plugin for click outside */
+  // prettier-ignore
   (function($,c,b){$.map('click dblclick mousemove mousedown mouseup mouseover mouseout change select submit keydown keypress keyup'.split(' '),function(d){a(d)});a('focusin','focus'+b);a('focusout','blur'+b);$.addOutsideEvent=a;function a(g,e){e=e||g+b;var d=$(),h=g+'.'+e+'-special-event';$.event.special[e]={setup:function(){d=d.add(this);if(d.length===1){$(c).bind(h,f)}},teardown:function(){d=d.not(this);if(d.length===0){$(c).unbind(h)}},add:function(i){var j=i.handler;i.handler=function(l,k){l.target=k;j.apply(this,arguments)}}};function f(i){$(d).each(function(){var j=$(this);if(this!==i.target&&!j.has(i.target).length){j.triggerHandler(e,[i.target])}})}}})($,document,'outside'); // eslint-disable-line
   /* /plugin for click outside */
 
@@ -177,7 +186,11 @@ $(document).ready(() => {
     /* toggle mobile submenu */
     const mainNav = $('.main-navigation').find('ul.navbar-nav');
     const submenuTrigContent = $('<i class="submenu-trigger"></i>');
-    mainNav.find('.menu_level_1').before(submenuTrigContent).parent('li').attr('data-submenu', 'true');
+    mainNav
+      .find('.menu_level_1')
+      .before(submenuTrigContent)
+      .parent('li')
+      .attr('data-submenu', 'true');
     mainNav.on('click', 'i.submenu-trigger', function () {
       $(this).parent('li').toggleClass('submenu-active');
     });
@@ -201,18 +214,18 @@ $(document).ready(() => {
   }
   /* /set active state on location menu items */
 
-
   /* lazy image loading */
   const lazyImageLoad = (image) => {
     if (image.hasAttribute('data-src')) image.setAttribute('src', image.getAttribute('data-src'));
-    if (image.hasAttribute('data-srcset')) image.setAttribute('srcset', image.getAttribute('data-srcset'));
+    if (image.hasAttribute('data-srcset'))
+      image.setAttribute('srcset', image.getAttribute('data-srcset'));
     image.onload = () => {
       image.removeAttribute('data-src');
       image.removeAttribute('data-srcset');
     };
   };
   const loadAllLazy = () => {
-    [].forEach.call(document.querySelectorAll('img[data-src]'), img => lazyImageLoad(img));
+    [].forEach.call(document.querySelectorAll('img[data-src]'), (img) => lazyImageLoad(img));
   };
   if ('IntersectionObserver' in window) {
     const lazyImageObserver = new IntersectionObserver((entries) => {
@@ -242,10 +255,10 @@ $(document).ready(() => {
     let getUrl;
     if (service === 'dailymotion') {
       url = `https://api.dailymotion.com/video/${videoID}?fields=${thumbname}`;
-      getUrl = obj => obj[thumbname];
+      getUrl = (obj) => obj[thumbname];
     } else if (service === 'vimeo') {
       url = `https://vimeo.com/api/v2/video/${videoID}.json`;
-      getUrl = obj => obj[0][thumbname];
+      getUrl = (obj) => obj[0][thumbname];
     }
     $.ajax({
       type: 'GET',
@@ -266,47 +279,54 @@ $(document).ready(() => {
   });
   /* /get video poster */
 
- 
   /* COOKIE CONTROL */
   const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
   cookieControl.init();
 
   /* cookie control optional list toggle */
-  $(".optional-list-toggle").on('click', function (e) {
+  $('.optional-list-toggle').on('click', function (e) {
     e.preventDefault();
 
-    $(this).toggleClass("rotate-arrow");
-    var list = $(".ng-cc-optional-list");
+    $(this).toggleClass('rotate-arrow');
+    const list = $('.ng-cc-optional-list');
 
-    if (list.hasClass("shown")) {
-        list.removeClass("shown").slideUp();
+    if (list.hasClass('shown')) {
+      list.removeClass('shown').slideUp();
     } else {
-        list.addClass("shown").slideDown();
+      list.addClass('shown').slideDown();
     }
   });
   /* /cookie control optional list toggle */
 
   /* cookie consent changed */
-  $("#ng-cc-accept, #ng-cc-optional-save").on("click", function(e){
+  $('#ng-cc-accept, #ng-cc-optional-save').on('click', (e) => {
     e.preventDefault();
     dataLayer.push({
-      "event": "ngcc-changed",
+      event: 'ngcc-changed',
     });
   });
   /* /cookie consent changed */
   /* /COOKIE CONTROL */
 
   Array.prototype.filter.call(document.getElementsByClassName('ajax-collection'), (el) => {
-    el.addEventListener('ajax-paging-added', () => {
-      $(el).find('img.vimeo-poster').each(function () {
-        getVideoPoster($(this), 'vimeo');
-      });
-      $(el).find('img.dailymotion-poster').each(function () {
-        getVideoPoster($(this), 'dailymotion');
-      });
-      /* load lazy images for results */
-      [].forEach.call(el.querySelectorAll('img[data-src]'), img => lazyImageLoad(img));
-    }, false);
+    el.addEventListener(
+      'ajax-paging-added',
+      () => {
+        $(el)
+          .find('img.vimeo-poster')
+          .each(function () {
+            getVideoPoster($(this), 'vimeo');
+          });
+        $(el)
+          .find('img.dailymotion-poster')
+          .each(function () {
+            getVideoPoster($(this), 'dailymotion');
+          });
+        /* load lazy images for results */
+        [].forEach.call(el.querySelectorAll('img[data-src]'), (img) => lazyImageLoad(img));
+      },
+      false
+    );
   });
 
   $(document).on('poster:loaded', function () {
@@ -317,5 +337,4 @@ $(document).ready(() => {
   $('.js-video-poster').each(function () {
     this.href = $('img', this).attr('src');
   });
-
 });
