@@ -60,5 +60,8 @@
         "magnific-popup": "^1.1.0",
         "popper.js": "^1.15.0",
         "swiper": "^4.5.0"
+    },
+    "engines": {
+        "node": "^12 || ^14"
     }
 }
