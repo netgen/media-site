@@ -35,7 +35,7 @@
         "@babel/core": "^7.4.3",
         "@babel/preset-env": "^7.4.3",
         "@babel/preset-react": "^7.0.0",
-        "@symfony/webpack-encore": "^1.7.0",
+        "@symfony/webpack-encore": "^0.28.0",
         "autoprefixer": "^9.5.1",
         "eslint": "^8.3.0",
         "eslint-config-airbnb": "^19.0.2",
@@ -44,12 +44,12 @@
         "eslint-plugin-jsx-a11y": "^6.2.1",
         "eslint-plugin-react": "^7.12.4",
         "eslint-plugin-react-hooks": "^4.3.0",
-        "node-sass": "^6.0.1",
+        "node-sass": "^4.11.0",
         "path": "^0.12.7",
-        "postcss-loader": "^6.2.1",
+        "postcss-loader": "^3.0.0",
         "prettier": "^2.5.0",
         "sass-lint": "^1.12.1",
-        "sass-loader": "^12.3.0"
+        "sass-loader": "^7.1.0"
     },
     "dependencies": {
         "@babel/polyfill": "^7.4.3",
