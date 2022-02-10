@@ -40,13 +40,12 @@ Encore
   .enableVersioning(Encore.isProduction())
 
   .enablePostCssLoader((options) => {
-    options.config = { // eslint-disable-line no-param-reassign
-      path: 'postcss.config.js',
+    options.postcssOptions = {
+      config: path.resolve(__dirname, 'postcss.config.js')
     };
   })
 
   .configureTerserPlugin((options) => {
-    options.cache = true;
     options.parallel = true;
     options.terserOptions = {
       output: {
@@ -68,8 +67,14 @@ if (Encore.isProduction()) {
   Encore.configureFilenames({
     js: '[name].js?v=[contenthash]',
     css: '[name].css?v=[contenthash]',
-    images: 'images/[name].[ext]?v=[hash:8]',
-    fonts: 'fonts/[name].[ext]?v=[hash:8]',
+  });
+
+  Encore.configureImageRule({
+    filename: 'images/[name][ext]?v=[hash:8]'
+  });
+
+  Encore.configureFontRule({
+    filename: 'fonts/[name][ext]?v=[hash:8]'
   });
 }
 

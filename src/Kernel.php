@@ -13,14 +13,14 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
-use function dirname;
-use function is_file;
 use function preg_match;
 
 final class Kernel extends BaseKernel
 {
     use MicroKernelTrait {
         registerContainerConfiguration as public registerKernelContainerConfiguration;
+        configureContainer as private configureKernelContainer;
+        configureRoutes as private configureKernelRoutes;
     }
 
     public function build(ContainerBuilder $container): void
@@ -40,42 +40,31 @@ final class Kernel extends BaseKernel
         );
     }
 
-    protected function configureContainer(ContainerConfigurator $container): void
+    private function configureContainer(ContainerConfigurator $container, LoaderInterface $loader, ContainerBuilder $builder): void
     {
-        $container->import('../config/{packages}/*.yaml');
-        $container->import('../config/{packages}/' . $this->environment . '/*.yaml');
+        $this->configureKernelContainer($container, $loader, $builder);
 
-        if (is_file(dirname(__DIR__) . '/config/services.yaml')) {
-            $container->import('../config/services.yaml');
-            $container->import('../config/{services}_' . $this->environment . '.yaml');
-        } elseif (is_file($path = dirname(__DIR__) . '/config/services.php')) {
-            (require $path)($container->withPath($path), $this);
-        }
+        $configDir = $this->getConfigDir();
 
-        $container->import('../config/app/{packages}/*.yaml');
-        $container->import('../config/app/{services}/*.yaml');
-        $container->import('../config/app/services.yaml');
+        $container->import($configDir . '/app/{packages}/*.yaml');
+        $container->import($configDir . '/app/{services}/*.yaml');
+        $container->import($configDir . '/app/services.yaml');
 
         $serverEnvironment = $_SERVER['SERVER_ENVIRONMENT'];
         if (preg_match('/^\w+$/', $serverEnvironment) !== 1) {
             throw new RuntimeException('Server environment contains an invalid format. Valid format contains only alpha-numeric characters and an underscore.');
         }
 
-        $container->import('../config/app/server/' . $serverEnvironment . '.yaml');
+        $container->import($configDir . '/app/server/' . $serverEnvironment . '.yaml');
     }
 
-    protected function configureRoutes(RoutingConfigurator $routes): void
+    private function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import('../config/{routes}/' . $this->environment . '/*.yaml');
-        $routes->import('../config/{routes}/*.yaml');
+        $this->configureKernelRoutes($routes);
 
-        if (is_file(dirname(__DIR__) . '/config/routes.yaml')) {
-            $routes->import('../config/routes.yaml');
-        } elseif (is_file($path = dirname(__DIR__) . '/config/routes.php')) {
-            (require $path)($routes->withPath($path), $this);
-        }
+        $configDir = $this->getConfigDir();
 
-        $routes->import('../config/app/{routes}/*.yaml');
-        $routes->import('../config/app/routes.yaml');
+        $routes->import($configDir . '/app/{routes}/*.yaml');
+        $routes->import($configDir . '/app/routes.yaml');
     }
 }

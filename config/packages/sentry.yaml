@@ -3,7 +3,7 @@ sentry:
     options:
         integrations:
             - 'Sentry\Integration\IgnoreErrorsIntegration'
- 
+
 services:
     Sentry\Integration\IgnoreErrorsIntegration:
         arguments:

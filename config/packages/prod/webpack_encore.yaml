@@ -1,5 +1,4 @@
 webpack_encore:
-    output_path: false
     builds:
         # The path where Encore is building the assets - i.e. Encore.setOutputPath()
         app: '%kernel.project_dir%/public/assets/app/build'

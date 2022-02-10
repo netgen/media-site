@@ -1,12 +1,6 @@
 {
-    "google/recaptcha": {
-        "version": "1.2.4",
-        "files": [
-            "config/packages/google_recaptcha.yaml"
-        ]
-    },
     "ibexa/oss": {
-        "version": "3.3.3",
+        "version": "3.3.14",
         "files": [
             "config/packages/dfs/dfs.yaml",
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -42,51 +36,38 @@
             "assets/images/file-text-info-icon.svg",
             "assets/images/conversation-chat-icon.svg",
             "assets/images/folder-icon.svg",
-            "assets/scss/welcome-page.scss",
-            "assets/bootstrap.js"
+            "assets/scss/welcome-page.scss"
         ]
     },
     "symfony/framework-bundle": {
-        "version": "5.2.12",
+        "version": "5.4.4",
         "files": [
             "config/services.yaml",
-            "config/packages/test/framework.yaml",
             "config/packages/cache.yaml",
             "config/packages/framework.yaml",
-            "config/routes/dev/framework.yaml",
+            "config/routes/framework.yaml",
             "config/preload.php",
             "public/index.php",
             "src/Kernel.php",
             "src/Controller/.gitignore"
         ]
     },
-    "symfony/monolog-bundle": {
-        "version": "3.7.0",
-        "files": [
-            "config/packages/dev/monolog.yaml",
-            "config/packages/test/monolog.yaml",
-            "config/packages/prod/deprecations.yaml",
-            "config/packages/prod/monolog.yaml"
-        ]
-    },
     "symfony/routing": {
-        "version": "5.2.12",
+        "version": "5.4.3",
         "files": [
             "config/packages/routing.yaml",
-            "config/packages/prod/routing.yaml",
             "config/routes.yaml"
         ]
     },
     "symfony/twig-bundle": {
-        "version": "5.2.12",
+        "version": "5.4.3",
         "files": [
-            "config/packages/test/twig.yaml",
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.12.0",
+        "version": "1.13.2",
         "files": [
             "assets/app.js",
             "assets/controllers.json",
