@@ -3,7 +3,7 @@ parameters:
 
     # Identifier used to generate the CSRF token. Commenting this line will result in authentication
     # issues both in AdminUI and REST calls
-    ezpublish_rest.csrf_token_intention: authenticate
+    ibexa.rest.csrf_token_intention: authenticate
 
     # You can uncomment following parameters to override the setting.
     # Their values correspond to the defaults being used.
@@ -12,7 +12,7 @@ parameters:
     #search_engine: '%env(SEARCH_ENGINE)%'
 
     # Session save path as used by symfony session handlers (eg. used for dsn with redis)
-    #ezplatform.session.save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+    #ibexa.session.save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
 
     # Predefined pools are located in config/packages/cache_pool/
     # You can add your own cache pool to the folder mentioned above.
@@ -21,7 +21,7 @@ parameters:
     #cache_pool: '%env(CACHE_POOL)%'
 
     # By default cache ttl is set to 24h, when using Varnish you can set a much higher value. High values depends on
-    # using EzSystemsPlatformHttpCacheBundle (default as of v1.12) which by design expires affected cache on changes
+    # using IbexaHttpCacheBundle (default as of v1.12) which by design expires affected cache on changes
     #httpcache_default_ttl: '%env(HTTPCACHE_DEFAULT_TTL)%'
 
     # Settings for HttpCache
@@ -36,14 +36,14 @@ parameters:
 
     ## Session handler, by default set to file based (instead of ~) in order to be able to use %ezplatform.session.save_path%
     # env: SESSION_HANDLER_ID
-    #ezplatform.session.handler_id: session.handler.native_file
+    #ibexa.session.handler_id: session.handler.native_file
 
     ## Purge type used by HttpCache system ("local", "varnish"/"http", and on ee also "fastly")
     #purge_type: '%env(HTTPCACHE_PURGE_TYPE)%'
 
     env(HTTPCACHE_PURGE_TYPE): local # default value to maintain BC
 
-ezplatform:
+ibexa:
     # HttpCache settings, By default 'local' (Symfony HttpCache Proxy), by setting it to 'varnish' you can point it to Varnish
     http_cache:
         purge_type: '%purge_type%'
@@ -71,13 +71,18 @@ ezplatform:
             # need to manually modify your database data to reflect this to avoid exceptions.
             var_dir: var/site
             content:
-                # As we by default enable EzSystemsPlatformHttpCacheBundle which is designed to expire all affected cache
+                # As we by default enable IbexaHttpCacheBundle which is designed to expire all affected cache
                 # on changes, and as error / redirects now have separate ttl, we easier allow ttl to be greatly increased
                 default_ttl: '%httpcache_default_ttl%'
             # HttpCache purge server(s) setting, eg Varnish, for when ezpublish.http_cache.purge_type is set to 'varnish'.
             http_cache:
                 purge_servers: ['%purge_server%']
                 varnish_invalidate_token: '%varnish_invalidate_token%'
+
+            assets:
+                icon_sets:
+                    public_icons: /bundles/ibexaadminui/img/ibexa-icons.svg
+                default_icon_set: public_icons
 
     url_alias:
         slug_converter:

@@ -36,7 +36,7 @@ final class AppExtension extends Extension implements PrependExtensionInterface
 
         $configFile = __DIR__ . '/../../config/app/prepends/content_view.yaml';
         $config = Yaml::parse(file_get_contents($configFile));
-        $container->prependExtensionConfig('ezpublish', ['system' => $config]);
+        $container->prependExtensionConfig('ibexa', ['system' => $config]);
         $container->addResource(new FileResource($configFile));
     }
 }

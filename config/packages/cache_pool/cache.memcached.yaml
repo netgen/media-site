@@ -1,7 +1,7 @@
 # Reusable service for memcache cache for use in generic.php and plaformsh.php on demand
 #
-# For further reading on setup with eZ Platform and Memcached:
-# https://doc.ezplatform.com/en/latest/guide/persistence_cache/#memcached
+# For further reading on setup with Ibexa and Memcached:
+# https://doc.ibexa.co/en/latest/guide/persistence_cache/#memcached
 parameters:
     cache_namespace: '%env(CACHE_NAMESPACE)%'
     cache_dsn: '%env(CACHE_DSN)%'

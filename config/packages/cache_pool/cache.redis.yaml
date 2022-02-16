@@ -3,8 +3,8 @@
 # On platform.sh this is setup automatically in env/plaformsh.php.
 # For any other kind of use it can be enabled with CACHE_POOL, detected by env/generic.php.
 #
-# For further reading on setup with eZ Platform and Redis:
-# https://doc.ezplatform.com/en/latest/guide/persistence_cache/#redis
+# For further reading on setup with Ibexa and Redis:
+# https://doc.ibexa.co/en/latest/guide/persistence_cache/#redis
 parameters:
     cache_namespace: '%env(CACHE_NAMESPACE)%'
     cache_dsn: '%env(CACHE_DSN)%'

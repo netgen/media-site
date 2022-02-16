@@ -4,7 +4,7 @@ parameters:
     database_collation: '%env(DATABASE_COLLATION)%'
 
 # If you are not using MySQL, you can comment-out this section
-ez_doctrine_schema:
+ibexa_doctrine_schema:
     tables:
         options:
             charset: '%database_charset%'

@@ -130,7 +130,7 @@ task('crontab:list', function () {
 desc('Reindex solr');
 task('solr:reindex', function () {
     $siteaccess = get('reindexing_siteaccess');
-    $result = run("{{bin/php}} {{bin/console}} ezplatform:reindex --processes=1 --siteaccess={$siteaccess} {{console_options}}");
+    $result = run("{{bin/php}} {{bin/console}} ibexa:reindex --processes=1 --siteaccess={$siteaccess} {{console_options}}");
 
     writeln($result);
 });

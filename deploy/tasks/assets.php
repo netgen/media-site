@@ -15,11 +15,11 @@ set('asset_exclude_paths', [
 ]);
 set('asset_install_command', 'yarn install');
 set('asset_build_command', 'yarn build:prod');
-set('asset_ezplatform_build_command', 'composer ezplatform-assets');
+set('asset_ibexa_build_command', 'composer ibexa-assets');
 
 task('assets:deploy', [
     'assets:build',
-    'assets:ezplatform:build',
+    'assets:ibexa:build',
     'assets:upload'
 ]);
 
@@ -37,8 +37,8 @@ task('assets:build', function() {
     run($buildCmd);
 })->local();
 
-task('assets:ezplatform:build', function() {
-    run("{{asset_ezplatform_build_command}}");
+task('assets:ibexa:build', function() {
+    run("{{asset_ibexa_build_command}}");
 })->local();
 
 task('assets:upload', function() {

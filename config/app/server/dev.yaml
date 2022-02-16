@@ -1,5 +1,5 @@
 imports:
     -
-        resource: dev/ezplatform_siteaccess.yaml
+        resource: dev/ibexa_siteaccess.yaml
     -
         resource: dev/parameters.yaml

@@ -2,7 +2,7 @@
 fos_http_cache:
     cache_control:
         rules:
-            # Make sure already cacheable (fresh) responses from eZ Platform which are errors/redirect gets lower ttl (then default_ttl)
+            # Make sure already cacheable (fresh) responses from Ibexa which are errors/redirect gets lower ttl (then default_ttl)
             -   match:
                     attributes:
                         _route: "^(?!nglayouts_app_api_|ngcb_api_)"

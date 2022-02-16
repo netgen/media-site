@@ -1,4 +1,4 @@
-ezpublish:
+ibexa:
     siteaccess:
         default_siteaccess: eng
         list:
@@ -34,7 +34,7 @@ netgen_layouts:
     system:
         frontend_group:
             design: app
-ezdesign:
+ibexa_design_engine:
     design_list:
         app:
             - app

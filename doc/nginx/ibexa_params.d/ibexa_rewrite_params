@@ -2,7 +2,7 @@ rewrite "^/var/([^/]+/)?storage/images(-versioned)?/(.*)" "/var/$1storage/images
 rewrite "^/var/([^/]+/)?storage/original/image/(.*)\.svg" "/var/$1storage/original/image/$2.svg" break;
 
 # Makes it possible to place your favicon at the root of your
-# eZ Platform instance. It will then be served directly.
+# Ibexa Platform instance. It will then be served directly.
 rewrite "^/favicon\.ico" "/favicon.ico" break;
 
 # Platform for Privacy Preferences Project ( P3P ) related files

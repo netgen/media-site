@@ -9,7 +9,7 @@ frontend_group:
     ng_content_view:
         full:
             ng_category:
-                template: "@ezdesign/content/full/ng_category.html.twig"
+                template: "@ibexadesign/content/full/ng_category.html.twig"
                 controller: ngsite.controller.check_redirect
                 queries:
                     subtree:
@@ -23,17 +23,17 @@ frontend_group:
                 match:
                     Identifier\ContentType: ng_category
             ng_feedback_form:
-                template: "@ezdesign/content/full/ng_feedback_form.html.twig"
+                template: "@ibexadesign/content/full/ng_feedback_form.html.twig"
                 controller: netgen_information_collection.controller.collect_information
                 match:
                     Identifier\ContentType: ng_feedback_form
             ng_landing_page:
-                template: "@ezdesign/content/full/ng_landing_page.html.twig"
+                template: "@ibexadesign/content/full/ng_landing_page.html.twig"
                 controller: ngsite.controller.check_redirect
                 match:
                     Identifier\ContentType: ng_landing_page
             common:
-                template: "@ezdesign/content/full/{content_type}.html.twig"
+                template: "@ibexadesign/content/full/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - ng_article
@@ -48,7 +48,7 @@ frontend_group:
                         - ng_video
         line:
             common:
-                template: "@ezdesign/content/line/{content_type}.html.twig"
+                template: "@ibexadesign/content/line/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - file
@@ -64,11 +64,11 @@ frontend_group:
                         - ng_recipe
                         - ng_video
             match_all:
-                template: "@ezdesign/content/line.html.twig"
+                template: "@ibexadesign/content/line.html.twig"
                 match: ~
         listitem:
             common:
-                template: "@ezdesign/content/listitem/{content_type}.html.twig"
+                template: "@ibexadesign/content/listitem/{content_type}.html.twig"
                 params:
                     with_intro: false
                 match:
@@ -83,7 +83,7 @@ frontend_group:
                         - ng_recipe
                         - ng_video
             match_all:
-                template: "@ezdesign/content/listitem.html.twig"
+                template: "@ibexadesign/content/listitem.html.twig"
                 params:
                     with_intro: false
                 match: ~
@@ -93,13 +93,13 @@ frontend_group:
                 params:
                     with_intro: true
             match_all:
-                template: "@ezdesign/content/listitem.html.twig"
+                template: "@ibexadesign/content/listitem.html.twig"
                 params:
                     with_intro: true
                 match: ~
         standard:
             common:
-                template: "@ezdesign/content/standard/{content_type}.html.twig"
+                template: "@ibexadesign/content/standard/{content_type}.html.twig"
                 params:
                     with_intro: false
                 match:
@@ -120,7 +120,7 @@ frontend_group:
                         - ng_recipe
                         - ng_video
             match_all:
-                template: "@ezdesign/content/standard.html.twig"
+                template: "@ibexadesign/content/standard.html.twig"
                 params:
                     with_intro: false
                 match: ~
@@ -130,13 +130,13 @@ frontend_group:
                 params:
                     with_intro: true
             match_all:
-                template: "@ezdesign/content/standard.html.twig"
+                template: "@ibexadesign/content/standard.html.twig"
                 params:
                     with_intro: true
                 match: ~
         mini:
             common:
-                template: "@ezdesign/content/mini/{content_type}.html.twig"
+                template: "@ibexadesign/content/mini/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - file
@@ -149,11 +149,11 @@ frontend_group:
                         - ng_recipe
                         - ng_video
             match_all:
-                template: "@ezdesign/content/mini.html.twig"
+                template: "@ibexadesign/content/mini.html.twig"
                 match: ~
         overlay:
             common:
-                template: "@ezdesign/content/overlay/{content_type}.html.twig"
+                template: "@ibexadesign/content/overlay/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - ng_article
@@ -164,11 +164,11 @@ frontend_group:
                         - ng_recipe
                         - ng_video
             match_all:
-                template: "@ezdesign/content/overlay.html.twig"
+                template: "@ibexadesign/content/overlay.html.twig"
                 match: ~
         slide:
             common:
-                template: "@ezdesign/content/slide/{content_type}.html.twig"
+                template: "@ibexadesign/content/slide/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - image
@@ -178,11 +178,11 @@ frontend_group:
                         - ng_news
                         - ng_video
             match_all:
-                template: "@ezdesign/content/slide.html.twig"
+                template: "@ibexadesign/content/slide.html.twig"
                 match: ~
         gallery_thumb:
             common:
-                template: "@ezdesign/content/gallery_thumb/{content_type}.html.twig"
+                template: "@ibexadesign/content/gallery_thumb/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - image
@@ -192,11 +192,11 @@ frontend_group:
                         - ng_news
                         - ng_video
             match_all:
-                template: "@ezdesign/content/gallery_thumb.html.twig"
+                template: "@ibexadesign/content/gallery_thumb.html.twig"
                 match: ~
         gallery_grid:
             common:
-                template: "@ezdesign/content/gallery_grid/{content_type}.html.twig"
+                template: "@ibexadesign/content/gallery_grid/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - image
@@ -206,16 +206,16 @@ frontend_group:
                         - ng_news
                         - ng_video
             match_all:
-                template: "@ezdesign/content/gallery_grid.html.twig"
+                template: "@ibexadesign/content/gallery_grid.html.twig"
                 match: ~
         embed:
             image:
-                template: "@ezdesign/content/embed/image.html.twig"
+                template: "@ibexadesign/content/embed/image.html.twig"
                 controller: ngsite.controller.embed_view.image
                 match:
                     Identifier\ContentType: image
             common:
-                template: "@ezdesign/content/embed/{content_type}.html.twig"
+                template: "@ibexadesign/content/embed/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - file
@@ -234,18 +234,18 @@ frontend_group:
                         - ng_shortcut
                         - ng_video
             match_all:
-                template: "@ezdesign/content/embed.html.twig"
+                template: "@ibexadesign/content/embed.html.twig"
                 match: ~
         search:
             match_all:
-                template: "@ezdesign/content/search.html.twig"
+                template: "@ibexadesign/content/search.html.twig"
                 match: ~
 
 default:
     ng_content_view:
         ngcb_preview:
             common:
-                template: "@ezdesign/content/ngcb_preview/{content_type}.html.twig"
+                template: "@ibexadesign/content/ngcb_preview/{content_type}.html.twig"
                 match:
                     Identifier\ContentType:
                         - image

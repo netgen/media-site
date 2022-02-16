@@ -1,15 +1,15 @@
-ezpublish:
+ibexa:
     system:
         frontend_group:
-            page_layout: "@ezdesign/pagelayout.html.twig"
+            page_layout: "@ibexadesign/pagelayout.html.twig"
             user:
-                login_template: "@ezdesign/user/login.html.twig"
+                login_template: "@ibexadesign/user/login.html.twig"
 
 netgen_tags:
     system:
         frontend_group:
             tag_view:
-                template: "@ezdesign/tag/view.html.twig"
+                template: "@ibexadesign/tag/view.html.twig"
                 related_content_list:
                     limit: 6
                     return_content_info: false

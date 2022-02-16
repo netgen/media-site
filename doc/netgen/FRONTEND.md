@@ -72,8 +72,8 @@ What Webpack Encore does
 5. Compiles es6 `.js` files to supported syntax and transpiles required node modules to `app.js`
 6. Adds hashes to `manifest.json` for cache busting if building production assets
 
-eZ Platform
------------
+Ibexa Platform
+--------------
 
 Clear cache after adding/removing files. From project root directory execute:
 

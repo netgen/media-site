@@ -1,4 +1,4 @@
-{% include ezplatform.configResolver.hasParameter('template.errors.' ~ status_code, 'ngsite') ?
-    ezplatform.configResolver.getParameter('template.errors.' ~ status_code, 'ngsite') :
-    ezplatform.configResolver.getParameter('template.errors.default', 'ngsite')
+{% include ibexa.configResolver.hasParameter('template.errors.' ~ status_code, 'ngsite') ?
+    ibexa.configResolver.getParameter('template.errors.' ~ status_code, 'ngsite') :
+    ibexa.configResolver.getParameter('template.errors.default', 'ngsite')
 ignore missing %}

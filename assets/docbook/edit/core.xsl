@@ -3,8 +3,8 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:docbook="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml"
-    xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom"
+    xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+    xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
     exclude-result-prefixes="docbook xlink ezxhtml ezcustom"
     version="1.0">
     <xsl:output indent="yes" encoding="UTF-8"/>

@@ -4,7 +4,7 @@ netgen_information_collection:
             action_config:
                 email:
                     templates:
-                        default: "@ezdesign/info_collection/email.html.twig"
+                        default: "@ibexadesign/info_collection/email.html.twig"
                     default_variables:
                         sender: "%collected_info_sender%"
                         recipient: "%collected_info_recipient%"
