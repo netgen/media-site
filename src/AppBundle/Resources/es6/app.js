@@ -5,7 +5,7 @@
 import '@babel/polyfill';
 import $ from 'jquery';
 import './ngsite';
-import '../sass/style-core.scss';
+import '../sass/style.scss';
 
 $(() => {
   // Put your code here
