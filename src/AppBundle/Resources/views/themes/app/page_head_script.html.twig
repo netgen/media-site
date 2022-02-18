@@ -1,4 +1,4 @@
-{% for src in encore_entry_js_files('app-core', 'app') %}
+{% for src in encore_entry_js_files('app', 'app') %}
 	{% if 'vendor' in src %}
 		<script defer type="text/javascript" src="{{ src }}"></script>
 	{% else %}

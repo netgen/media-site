@@ -1,6 +1,6 @@
 <link rel="preload" as="style" type="text/css" crossorigin href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&subset=latin,latin-ext" onload="this.onload=null;this.rel='stylesheet'">
 
-{% for href in encore_entry_css_files('app-core', 'app') %}
+{% for href in encore_entry_css_files('app', 'app') %}
     <link rel="preload" as="style" type="text/css" href="{{ href }}" onload="this.onload=null;this.rel='stylesheet';"></link>
 {% endfor %}
 {% for href in encore_entry_css_files('app-noncore', 'app') %}
