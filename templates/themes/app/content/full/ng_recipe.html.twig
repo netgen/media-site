@@ -3,7 +3,7 @@
 
 {% extends nglayouts.layoutTemplate %}
 
-{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
 
 {% if not content.fields.teaser_intro.empty %}
     {% set meta_data = {'description': content.fields.teaser_intro.value.xml.saveXML()|striptags|trim|u.truncate(152)} %}
@@ -16,12 +16,12 @@
         {% block article_header %}
             <header class="full-page-header">
                 <div class="container">
-                    {% include '@ezdesign/parts/main_topic.html.twig' with {'use_field': true} %}
+                    {% include '@ibexadesign/parts/main_topic.html.twig' with {'use_field': true} %}
 
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
 
                     <div class="full-page-info">
-                        By {% include '@ezdesign/parts/author.html.twig' %} -
+                        By {% include '@ibexadesign/parts/author.html.twig' %} -
                     </div>
                 </div>
             </header>
@@ -37,7 +37,7 @@
                                     'locationId': location.id,
                                     'includeChildren': true,
                                     'contentTypeIdentifiers': ['image', 'ng_video'],
-                                    'template': '@ezdesign/parts/related_multimedia.html.twig'
+                                    'template': '@ibexadesign/parts/related_multimedia.html.twig'
                                 }
                             )
                         ) }}
@@ -57,7 +57,7 @@
                         {{ ng_render_field(content.fields.body) }}
                     {% endif %}
 
-                    {% include '@ezdesign/parts/tags.html.twig' %}
+                    {% include '@ibexadesign/parts/tags.html.twig' %}
                 </div>
             {% endblock %}
 

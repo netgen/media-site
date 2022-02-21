@@ -53,7 +53,7 @@
                                             {% set score = (search_hit.score / pager.adapter.maxScore * 100)|round %}
                                         {% endif %}
 
-                                        {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                                        {% include '@ibexadesign/parts/ng_view_content.html.twig' with {
                                             content: search_hit.valueObject.content,
                                             location: search_hit.valueObject,
                                             view_type: 'search',

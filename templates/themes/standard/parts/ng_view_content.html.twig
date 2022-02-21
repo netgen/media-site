@@ -1,4 +1,4 @@
-{% if ezplatform.configResolver.parameter('render_content_directly', 'ngsite') %}
+{% if ibexa.configResolver.parameter('render_content_directly', 'ngsite') %}
     {{ ng_view_content(
         location|default(null) is not empty ? location : content,
         view_type, {

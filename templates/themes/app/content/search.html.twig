@@ -1,7 +1,7 @@
 {# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
 {# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
 
-{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
 
 <article class="view-type view-type-search {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl7">
     <div class="row">
@@ -11,7 +11,7 @@
 
                 <div class="article-content-text">
                     <header class="article-header">
-                        <h2 class="title"><a href="{{ ez_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+                        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
                         <div class="info">
                             <time>Last updated: {{ content.contentInfo.modificationDate|date('F jS, Y H:i') }}</time>
                             <time>Last updated: {{ content.contentInfo.modificationDate|format_datetime(pattern='MMMM d, Y HH:mm') }}</time>

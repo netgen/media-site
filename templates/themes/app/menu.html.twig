@@ -34,9 +34,9 @@
         {%- if classes is not empty %}
             {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
         {%- endif %}
-        {# NGSTACK-448 add data-location-id parameter to all menu items with eZ location #}
-        {%- if item.extras.ezlocation is defined and item.extras.ezlocation is not empty %}
-            {%- set attributes = attributes|merge({'data-location-id': item.extras.ezlocation.id}) %}
+        {# NGSTACK-448 add data-location-id parameter to all menu items with Ibexa location #}
+        {%- if item.extras.ibexa_location is defined and item.extras.ibexa_location is not empty %}
+            {%- set attributes = attributes|merge({'data-location-id': item.extras.ibexa_location.id}) %}
         {%- endif %}
         {# END NGSTACK-448 #}
         {# displaying the item #}

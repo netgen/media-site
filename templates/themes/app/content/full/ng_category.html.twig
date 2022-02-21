@@ -36,7 +36,7 @@
                         'ngsite.controller.relations.related_items', {
                             'contentId': content.id,
                             'fieldDefinitionIdentifier': 'featured_content',
-                            'template': '@ezdesign/parts/related_items.html.twig'
+                            'template': '@ibexadesign/parts/related_items.html.twig'
                         }
                     )
                 ) }}
@@ -59,7 +59,7 @@
                         <ul class="listitem-list">
                             {% for pager_item in pager %}
                                 <li>
-                                    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                                    {% include '@ibexadesign/parts/ng_view_content.html.twig' with {
                                         content: pager_item.content,
                                         location: pager_item,
                                         view_type: children_view_type
@@ -71,7 +71,7 @@
                         <div class="row">
                             {% for pager_item in pager %}
                                 <div class="{{ column_css_class[columns] }}">
-                                    {% include '@ezdesign/parts/ng_view_content.html.twig' with {
+                                    {% include '@ibexadesign/parts/ng_view_content.html.twig' with {
                                         content: pager_item.content,
                                         location: pager_item,
                                         view_type: children_view_type

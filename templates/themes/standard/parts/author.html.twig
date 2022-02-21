@@ -1,5 +1,5 @@
 {% if content.hasField('authors') and not content.fields.authors.empty %}
     {% for author in content.fieldRelations('authors') %}
-        <a class="author" href="{{ ez_path(author) }}">{{ author.name }}</a>
+        <a class="author" href="{{ ibexa_path(author) }}">{{ author.name }}</a>
     {% endfor %}
 {% endif %}

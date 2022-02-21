@@ -29,7 +29,7 @@
     {% if content.fields.target_blank.value.bool %}
         {% set open_in_new_window = true %}
     {% endif %}
-    {% set lazy_loading = lazy_loading ?? ezplatform.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+    {% set lazy_loading = lazy_loading ?? ibexa.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
     {% if url is not empty %}
         <span>
@@ -60,7 +60,7 @@
         {% set related_content = content.fieldRelation('related_object') %}
 
         {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
-            {% set url = ez_path(related_content) %}
+            {% set url = ibexa_path(related_content) %}
         {% endif %}
     {% endif %}
 

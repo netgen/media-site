@@ -1,13 +1,13 @@
 {# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
 {# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
 
-{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
 
 <article class="view-type view-type-{{ view_type }} ng-recipe vl6">
-	<h2 class="title"><a href="{{ ez_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+	<h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
     <div class="info">
-        {% include '@ezdesign/parts/author.html.twig' %}
-        {% include '@ezdesign/parts/main_topic.html.twig' %}
+        {% include '@ibexadesign/parts/author.html.twig' %}
+        {% include '@ibexadesign/parts/main_topic.html.twig' %}
 
         <span class="recipe-details">
             {% if not content.fields.preparation_time.empty %}

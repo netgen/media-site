@@ -1,4 +1,4 @@
-{% set root_location_path = ez_path(ezplatform.rootLocation) %}
+{% set root_location_path = ibexa_path(ibexa.rootLocation) %}
 
 {% if canonical_url|default('') is not empty %}
     <link rel="canonical" href="{{ canonical_url }}" />
@@ -18,7 +18,7 @@
 <link rel="icon" href="{{ asset('images/favicon/favicon.png') }}" type="image/x-icon" />
 
 {% if available_hreflang_translations|default|length > 1 %}
-    {% set locale_conversion_map = ezplatform.configResolver.getParameter('locale.conversion_map', 'ngsite') %}
+    {% set locale_conversion_map = ibexa.configResolver.getParameter('locale.conversion_map', 'ngsite') %}
 
     {% for language, url in available_hreflang_translations %}
         <link rel="alternate" href="{{ url }}" hreflang="{{ locale_conversion_map[language]|lower|replace({'_': '-'}) }}" />

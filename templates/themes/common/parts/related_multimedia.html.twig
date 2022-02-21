@@ -12,7 +12,7 @@
     {% endif %}
 
     {% for multimedia_item in multimedia_items %}
-        {% include '@ezdesign/parts/related_multimedia/' ~ multimedia_item.contentInfo.contentTypeIdentifier ~ '.html.twig'
+        {% include '@ibexadesign/parts/related_multimedia/' ~ multimedia_item.contentInfo.contentTypeIdentifier ~ '.html.twig'
             ignore missing
             with {
                 'content': multimedia_item.content,

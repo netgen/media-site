@@ -1,4 +1,4 @@
-{% extends '@ezdesign/pagelayout_variables.html.twig' %}
+{% extends '@ibexadesign/pagelayout_variables.html.twig' %}
 
 {% block pagelayout_content %}
 <!DOCTYPE html>
@@ -7,15 +7,15 @@
     <meta charset="utf-8">
 
     {% block page_head %}
-        {% include '@ezdesign/page_head.html.twig' %}
+        {% include '@ibexadesign/page_head.html.twig' %}
     {% endblock %}
 
     {% block page_head_style %}
-        {% include '@ezdesign/page_head_style.html.twig' %}
+        {% include '@ibexadesign/page_head_style.html.twig' %}
     {% endblock %}
 
     {% block page_head_script %}
-        {% include '@ezdesign/page_head_script.html.twig' %}
+        {% include '@ibexadesign/page_head_script.html.twig' %}
     {% endblock %}
 
     {% block open_graph %}
@@ -35,11 +35,11 @@
 <div id="page"{% if page_css_class|default is not empty %} class="{{ page_css_class }}"{% endif %}{% if location is defined and location is not empty %} data-path='["{{ location.path|join('","') }}"]'{% endif %}>
     {% block layout %}
         {% block header %}
-            {% include '@ezdesign/page_header.html.twig' %}
+            {% include '@ibexadesign/page_header.html.twig' %}
         {% endblock %}
 
         {% block breadcrumb %}
-            {% include '@ezdesign/page_path.html.twig' %}
+            {% include '@ibexadesign/page_path.html.twig' %}
         {% endblock %}
 
         <div id="main" class="clearfix">
@@ -47,16 +47,16 @@
         </div>
 
         {% block footer %}
-            {% include '@ezdesign/page_footer.html.twig' %}
+            {% include '@ibexadesign/page_footer.html.twig' %}
         {% endblock %}
     {% endblock %}
 </div>
 
 {% block page_footer_script %}
-    {% include '@ezdesign/page_footer_script.html.twig' %}
+    {% include '@ibexadesign/page_footer_script.html.twig' %}
 {% endblock %}
 
-{% include '@ezdesign/parts/cookie_control.html.twig' %}
+{% include '@ibexadesign/parts/cookie_control.html.twig' %}
 
 </body>
 </html>

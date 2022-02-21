@@ -6,7 +6,7 @@
     {% set image_alias = ng_image_alias(image, 'i1200') %}
     {% set image_uri = image_alias ? image_alias.uri : '//:0' %}
     {% set alt_text = image.value.alternativeText|default('') %}
-    {% set lazy_loading = ezplatform.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+    {% set lazy_loading = ibexa.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
     {% if is_slider %}
         <div class="swiper-slide">
@@ -17,7 +17,7 @@
                 {% else %}
                     <img
                         {% if lazy_loading %}
-                            {% set lazy_image_alias = ng_image_alias(image, ezplatform.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngsite')) %}
+                            {% set lazy_image_alias = ng_image_alias(image, ibexa.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngsite')) %}
                             src="{% if lazy_image_alias %}{{ lazy_image_alias.uri }}{% else %}//:0{% endif %}"
                             data-src="{{ image_uri }}"
                             {% if image_alias %}

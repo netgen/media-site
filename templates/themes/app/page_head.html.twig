@@ -22,7 +22,7 @@
     {% set site_title = '' %}
 
     {% if path_array is not empty %}
-        {% if not ezplatform.configResolver.getParameter('site_settings.show_path_in_title', 'ngsite') %}
+        {% if not ibexa.configResolver.getParameter('site_settings.show_path_in_title', 'ngsite') %}
             {% set site_title = path_array[path_array|length - 1].text %}
         {% elseif path_array|length > 1 %}
             {% for path_item in path_array %}
@@ -55,4 +55,4 @@
 <meta name="generator" content="{{ 'ngsite.layout.meta_generator'|trans }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
 
-{% include '@ezdesign/link.html.twig' %}
+{% include '@ibexadesign/link.html.twig' %}

@@ -1,11 +1,11 @@
-{% include '@ezdesign/parts/ng_view_content.html.twig' with {
+{% include '@ibexadesign/parts/ng_view_content.html.twig' with {
     content: item.object.content,
-    location: item.object,
+    location: item.object.mainLocation,
     view_type: 'gallery_thumb',
     params: {
         'nglayouts_item': item,
         'image_type': image_type,
         'show_details': show_details,
         'show_details_on_hover': show_details_on_hover
-    }|merge(ezparams|default({}))
+    }|merge(ibexa_params|default({}))
 } only %}

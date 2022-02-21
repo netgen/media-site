@@ -13,12 +13,12 @@
     <div class="view-type view-type-{{ view_type }} ng-gallery">
         <header class="full-page-header full-gallery-header">
             <div class="container">
-                {% include '@ezdesign/parts/main_topic.html.twig' with {'use_field': true} %}
+                {% include '@ibexadesign/parts/main_topic.html.twig' with {'use_field': true} %}
 
                 <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
 
                 <div class="full-page-info">
-                    {% include '@ezdesign/parts/time.html.twig' %}
+                    {% include '@ibexadesign/parts/time.html.twig' %}
                 </div>
             </div>
         </header>
@@ -30,7 +30,7 @@
                         'locationId': location.id,
                         'includeChildren': true,
                         'contentTypeIdentifiers': ['image', 'ng_video'],
-                        'template': '@ezdesign/parts/related_multimedia.html.twig'
+                        'template': '@ibexadesign/parts/related_multimedia.html.twig'
                     }
                 )
             ) }}

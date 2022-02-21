@@ -3,7 +3,7 @@
 
 {% extends nglayouts.layoutTemplate %}
 
-{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
 
 {% if not content.fields.full_intro.empty %}
     {% set meta_data = {'description': content.fields.full_intro.value.xml.saveXML()|striptags|trim|u.truncate(152)} %}

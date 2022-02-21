@@ -1,6 +1,6 @@
-{% include '@ezdesign/parts/ng_view_content.html.twig' with {
+{% include '@ibexadesign/parts/ng_view_content.html.twig' with {
     content: item.object.content,
-    location: item.object.mainLocation,
+    location: item.object,
     view_type: 'nglayouts_app_preview',
     params: { 'nglayouts_item': item }
 } only %}

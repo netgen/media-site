@@ -1,9 +1,9 @@
-{% extends '@ezdesign/user/mail/layout.html.twig' %}
+{% extends '@ibexadesign/user/mail/layout.html.twig' %}
 
 {% trans_default_domain "ngsite_mail" %}
 
 {% block title %}
-    <a href="{{ ez_url(ezplatform.rootLocation) }}">{{ ngsite.siteInfoContent.fields.site_name.value.text|trim }}</a>
+    <a href="{{ ibexa_url(ibexa.rootLocation) }}">{{ ngsite.siteInfoContent.fields.site_name.value.text|trim }}</a>
 {% endblock %}
 
 {% block content %}
@@ -23,5 +23,5 @@
 
     <br><br>
 
-    <a href="{{ ez_url(ezplatform.rootLocation) }}">{{ ngsite.siteInfoContent.fields.site_name.value.text|trim }}</a>
+    <a href="{{ ibexa_url(ibexa.rootLocation) }}">{{ ngsite.siteInfoContent.fields.site_name.value.text|trim }}</a>
 {% endblock %}

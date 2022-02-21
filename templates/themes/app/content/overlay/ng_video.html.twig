@@ -1,8 +1,8 @@
 {# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
 {# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
 
-{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
-{% import '@ezdesign/parts/video.html.twig' as video %}
+{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ibexadesign/parts/video.html.twig' as video %}
 
 {% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
     <article class="view-type view-type-{{ view_type }} ng-video vl2">
@@ -10,7 +10,7 @@
         {{ video.poster(content, location) }}
 
         <header class="article-header">
-            <h2 class="title"><a href="{{ ez_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+            <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
             <div class="info">
                 {% if not content.fields.sponsored_content_disclosure.empty %}
                     <span class="sponsored-tag">{{ 'ngsite.layout.sponsored'|trans }}</span>
