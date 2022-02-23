@@ -1,3 +1,3 @@
 parameters:
-    netgen_content_browser.ezplatform.item_template: '@@ezdesign/browser/item.html.twig'
-    netgen_content_browser.ezplatform.preview_template: '@@ezdesign/browser/ngcb_preview.html.twig'
+    netgen_content_browser.ibexa.item_template: '@@ibexadesign/browser/item.html.twig'
+    netgen_content_browser.ibexa.preview_template: '@@ibexadesign/browser/ngcb_preview.html.twig'

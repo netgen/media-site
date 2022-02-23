@@ -1,2 +1,2 @@
-netgen_layouts_ezplatform:
-    resource: '@NetgenLayoutsEzPlatformBundle/Resources/config/routing.yaml'
+netgen_layouts_ibexa:
+    resource: '@NetgenLayoutsIbexaBundle/Resources/config/routing.yaml'
