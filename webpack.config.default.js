@@ -21,6 +21,7 @@ Encore
 
   // will create web/assets/app/build/app.js and web/assets/app/build/app.css
   .addEntry('app', `./${siteConfig.resourcesLocation}/es6/app.js`)
+  .addEntry('app-noncore', `./${siteConfig.resourcesLocation}/es6/app-noncore.js`)
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
