@@ -11,7 +11,7 @@
         },
         {
             "name": "Ibexa dev team & Ibexa Community",
-            "homepage": "https://github.com/ibexa/oss-skeleton/contributors"
+            "homepage": "https://github.com/ibexa/core/contributors"
         }
     ],
     "require": {
@@ -60,23 +60,23 @@
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
 
-        "novactive/ezseobundle": "^6.0",
+        "novactive/ezseobundle": "dev-ibexa",
         "php-http/httplug-bundle": "^1.25",
         "sentry/sentry-symfony": "^4.2",
         "twig/intl-extra": "^3.3",
 
-        "netgen/media-site-data": "^2.2",
-        "netgen/site-bundle": "^2.1",
-        "netgen/site-installer-bundle": "^2.1",
+        "netgen/media-site-data": "^3.0",
+        "netgen/site-bundle": "^3.0",
+        "netgen/site-installer-bundle": "^3.0",
         "netgen/ezplatform-site-api": "^4.3",
         "netgen/ezplatform-search-extra": "^2.6",
-        "netgen/information-collection-bundle": "^2.0@alpha",
+        "netgen/information-collection-bundle": "^3.0",
 
         "netgen/layouts-standard": "~1.3.0",
-        "netgen/layouts-ezplatform": "~1.3.0",
-        "netgen/layouts-ezplatform-site-api": "~1.3.0",
-        "netgen/layouts-ezplatform-relation-list-query": "^1.3",
-        "netgen/layouts-ezplatform-tags-query": "^1.3"
+        "netgen/layouts-ibexa": "~1.3.0",
+        "netgen/layouts-ibexa-site-api": "~1.3.0",
+        "netgen/layouts-ibexa-relation-list-query": "^1.3",
+        "netgen/layouts-ibexa-tags-query": "^1.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
@@ -92,6 +92,11 @@
 
         "netgen/git-hooks": "^2.2"
     },
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/emodric/NovaeZSEOBundle.git" }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
