@@ -74,8 +74,8 @@ return [
     Netgen\Bundle\SiteAccessRoutesBundle\NetgenSiteAccessRoutesBundle::class => ['all' => true],
     Netgen\Bundle\SiteInstallerBundle\NetgenSiteInstallerBundle::class => ['all' => true],
     Netgen\Bundle\SiteBundle\NetgenSiteBundle::class => ['all' => true],
-    Netgen\Bundle\EzPlatformSiteApiBundle\NetgenEzPlatformSiteApiBundle::class => ['all' => true],
     Netgen\Bundle\EzPlatformSearchExtraBundle\NetgenEzPlatformSearchExtraBundle::class => ['all' => true],
     Netgen\Bundle\EzFormsBundle\NetgenEzFormsBundle::class => ['all' => true],
     Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle::class => ['all' => true],
+    Netgen\Bundle\IbexaSiteApiBundle\NetgenIbexaSiteApiBundle::class => ['all' => true],
 ];
