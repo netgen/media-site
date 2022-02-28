@@ -24,12 +24,12 @@
     {%- endif -%}
 {%- endblock form_errors -%}
 
-{%- block _ezforms_create_user_user_account_row -%}
+{%- block _ibexa_forms_create_user_user_account_row -%}
     {{- form_errors(form) -}}
     {{- form_widget(form) -}}
 {%- endblock -%}
 
-{%- block _ezforms_create_user_user_account_widget -%}
+{%- block _ibexa_forms_create_user_user_account_widget -%}
     {% for identifier, child in form %}
         {% if identifier == 'password' %}
             {{ form_row(child.first, {attr: attr}) }}
