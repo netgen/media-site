@@ -69,8 +69,8 @@
         "netgen/media-site-data": "^3.0",
         "netgen/site-bundle": "^3.0",
         "netgen/site-installer-bundle": "^3.0",
-        "netgen/ibexa-site-api": "dev-ibexa_migration as 5.0",
-        "netgen/ezplatform-search-extra": "^2.6",
+        "netgen/ibexa-site-api": "^5.0",
+        "netgen/ibexa-search-extra": "^3.0",
         "netgen/information-collection-bundle": "^3.0",
 
         "netgen/layouts-standard": "~1.3.0",
