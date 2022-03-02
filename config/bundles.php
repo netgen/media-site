@@ -51,7 +51,6 @@ return [
     Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
     Http\HttplugBundle\HttplugBundle::class => ['all' => true],
     Lolautruche\EzCoreExtraBundle\EzCoreExtraBundle::class => ['all' => true],
-    Novactive\Bundle\eZSEOBundle\NovaeZSEOBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
     Netgen\Bundle\ContentBrowserUIBundle\NetgenContentBrowserUIBundle::class => ['all' => true],
     Netgen\Bundle\ContentBrowserBundle\NetgenContentBrowserBundle::class => ['all' => true],
@@ -77,4 +76,5 @@ return [
     Netgen\Bundle\IbexaSiteApiBundle\NetgenIbexaSiteApiBundle::class => ['all' => true],
     Netgen\Bundle\IbexaFormsBundle\NetgenIbexaFormsBundle::class => ['all' => true],
     Netgen\Bundle\IbexaSearchExtraBundle\NetgenIbexaSearchExtraBundle::class => ['all' => true],
+    Novactive\Bundle\eZSEOBundle\NovaeZSEOBundle::class => ['all' => true],
 ];
