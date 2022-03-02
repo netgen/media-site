@@ -1,0 +1,102 @@
+{
+    "ibexa/oss": {
+        "version": "4.0.2",
+        "files": [
+            "config/packages/dfs/dfs.yaml",
+            "config/packages/ibexa_welcome_page.yaml",
+            "config/packages/ibexa_assets.yaml",
+            "config/packages/cache_pool/cache.memcached.yaml",
+            "config/packages/cache_pool/cache.tagaware.filesystem.yaml",
+            "config/packages/cache_pool/cache.redis.yaml",
+            "config/packages/ibexa.yaml",
+            "config/packages/ibexa_solr.yaml",
+            "config/packages/ibexa_admin_ui.yaml",
+            "config/packages/ibexa_http_cache.yaml",
+            "config/packages/security.yaml",
+            "config/packages/ibexa_doctrine_schema.yaml",
+            "config/packages/ibexa_jms_translation.yaml",
+            "config/packages/graphql.yaml",
+            "config/routes/ibexa_content_forms.yaml",
+            "config/routes/ibexa.yaml",
+            "config/routes/ibexa_admin_ui.yaml",
+            "config/routes/ibexa_http_cache.yaml",
+            "config/routes/ibexa_search.yaml",
+            "config/routes/ibexa_rest.yaml",
+            "config/routes/ibexa_system_info.yaml",
+            "config/routes/ibexa_fieldtype_query.yaml",
+            "config/routes/ibexa_user.yaml",
+            "config/routes/graphql.yaml",
+            "package.json",
+            "ibexa.webpack.config.manager.js",
+            "webpack.config.js",
+            "ibexa.webpack.custom.configs.js",
+            "ibexa.webpack.config.js",
+            "templates/themes/standard/full/welcome_page.html.twig",
+            "templates/themes/standard/pagelayout.html.twig",
+            "translations/ibexa_welcome_page.en.xlf",
+            "assets/images/file-text-info-icon.svg",
+            "assets/images/conversation-chat-icon.svg",
+            "assets/images/folder-icon.svg",
+            "assets/scss/welcome-page.scss"
+        ]
+    },
+    "symfony/debug-bundle": {
+        "version": "5.4.3",
+        "files": [
+            "config/packages/debug.yaml"
+        ]
+    },
+    "symfony/framework-bundle": {
+        "version": "5.4.5",
+        "files": [
+            "config/services.yaml",
+            "config/packages/cache.yaml",
+            "config/packages/framework.yaml",
+            "config/routes/framework.yaml",
+            "config/preload.php",
+            "public/index.php",
+            "src/Kernel.php",
+            "src/Controller/.gitignore"
+        ]
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.7.1",
+        "files": [
+            "config/packages/monolog.yaml"
+        ]
+    },
+    "symfony/routing": {
+        "version": "5.4.3",
+        "files": [
+            "config/packages/routing.yaml",
+            "config/routes.yaml"
+        ]
+    },
+    "symfony/twig-bundle": {
+        "version": "5.4.3",
+        "files": [
+            "config/packages/twig.yaml",
+            "templates/base.html.twig"
+        ]
+    },
+    "symfony/web-profiler-bundle": {
+        "version": "5.4.5",
+        "files": [
+            "config/packages/web_profiler.yaml",
+            "config/routes/web_profiler.yaml"
+        ]
+    },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.13.2",
+        "files": [
+            "assets/app.js",
+            "assets/controllers.json",
+            "assets/styles/app.css",
+            "assets/controllers/hello_controller.js",
+            "assets/bootstrap.js",
+            "config/packages/webpack_encore.yaml",
+            "package.json",
+            "webpack.config.js"
+        ]
+    }
+}
