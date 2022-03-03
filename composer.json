@@ -95,7 +95,8 @@
     },
     "repositories": [
         { "type": "vcs", "url": "https://github.com/emodric/NovaeZSEOBundle.git" },
-        { "type": "vcs", "url": "https://github.com/emodric/EzCoreExtraBundle.git" }
+        { "type": "vcs", "url": "https://github.com/emodric/EzCoreExtraBundle.git" },
+        { "type": "vcs", "url": "https://github.com/emodric/graphql-php" }
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
