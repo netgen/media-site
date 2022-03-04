@@ -1,0 +1,79 @@
+{% extends '@IbexaCore/content_fields.html.twig' %}
+
+{% block ezimage_field %}
+{% apply spaceless %}
+    {% if not ibexa_field_is_empty(content, field) %}
+        {% set link_href = parameters.link_href|default('') %}
+        {% set link_target = parameters.link_target|default('') %}
+        {% set use_image_size = parameters.use_image_size|default(false) %}
+        {% set image_alias = ibexa_image_alias(field, versionInfo, parameters.alias|default('original')) %}
+        {% set alt_text = parameters.alt_text|default(field.value.alternativeText ?: content.name) %}
+        {% set lazy_loading = ibexa.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+        {% if parameters.lazy_loading is defined %}
+            {% set lazy_loading = parameters.lazy_loading %}
+        {% endif %}
+
+        {% if link_href is not empty %}
+            <a href="{{ link_href }}"
+                {% if link_target is not empty %} target="{{ link_target }}" {% if link_target == '_blank' %}rel="nofollow noopener noreferrer"{% endif %} {% endif %}
+                {% if parameters.link_id|default('') is not empty %} id="{{ parameters.link_id }}" {% endif %}
+                {% if parameters.link_class|default('') is not empty %} class="{{ parameters.link_class }}" {% endif %}
+                {% if parameters.link_title|default('') is not empty %} title="{{ parameters.link_title }}" {% endif %}
+                aria-label="{{ alt_text }}"
+            >
+        {% endif %}
+
+        <img
+            {% if lazy_loading %}
+                {% set lazy_image_alias = ibexa_image_alias(field, versionInfo, ibexa.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngsite')) %}
+                src="{% if lazy_image_alias %}{{ asset(lazy_image_alias.uri) }}{% else %}//:0{% endif %}"
+                data-src="{% if image_alias %}{{ asset(image_alias.uri) }}{% else %}//:0{% endif %}"
+            {% else %}
+                src="{% if image_alias %}{{ asset(image_alias.uri) }}{% else %}//:0{% endif %}"
+            {% endif %}
+            {% if parameters.image_class|default('') is not empty %} class="{{ parameters.image_class }}" {% endif %}
+            {% if use_image_size and image_alias.width|default('') is not empty %} width="{{ image_alias.width }}" {% endif %}
+            {% if use_image_size and image_alias.height|default('') is not empty %} height="{{ image_alias.height }}" {% endif %}
+            alt="{{ alt_text }}"
+            {{ block('field_attributes') }} />
+
+        {% if link_href is not empty %}
+            </a>
+        {% endif %}
+    {% elseif parameters.force_tag|default(false) %}
+        <img src="//:0" alt="" />
+    {% endif %}
+{% endapply %}
+{% endblock %}
+
+{% block ezgmaplocation_field %}
+{% apply spaceless %}
+    {% set map_height = map_height|default(500) %}
+    {% set zoom = zoom|default(false) %}
+    {% set map_type = map_type|default(false) %}
+
+    {% set latitude = field.value.latitude|default(false) %}
+    {% set longitude = field.value.longitude|default(false) %}
+
+    {% include
+        '@NetgenSite/parts/google_maps.html.twig' with {
+            'container_id': field.id,
+            'latitude': latitude,
+            'longitude': longitude,
+            'map_height': map_height,
+            'zoom': zoom,
+            'map_type': map_type
+        }
+    %}
+{% endapply %}
+{% endblock %}
+
+{% block ezbinaryfile_field %}
+{% apply spaceless %}
+    {% if not ibexa_field_is_empty(content, field) %}
+        <a href="{{ path('ngsite_download', { contentId: contentInfo.id, fieldId: field.id }) }}" {{ block('field_attributes') }}>
+            {{ field.value.fileName }}
+        </a>&nbsp;({{ field.value.fileSize|ibexa_file_size(1) }})
+    {% endif %}
+{% endapply %}
+{% endblock %}

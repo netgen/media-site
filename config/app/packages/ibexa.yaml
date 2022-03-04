@@ -4,6 +4,8 @@ ibexa:
             page_layout: "@ibexadesign/pagelayout.html.twig"
             user:
                 login_template: "@ibexadesign/user/login.html.twig"
+            field_templates:
+                - { template: "@ibexadesign/parts/content_fields.html.twig", priority: 5000 }
 
 netgen_tags:
     system:
