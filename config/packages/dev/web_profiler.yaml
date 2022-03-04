@@ -8,4 +8,4 @@ framework:
     profiler:
         only_exceptions: false
         # Optional: Skips generating profiles for subrequests by default due to dev performance
-        only_master_requests: true
+        only_main_requests: true
