@@ -1,7 +1,7 @@
 {# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
 {# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
 
-{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ibexadesign/parts/content_field_macros.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ view_type }} ng-blog-post">
     <h3><a href="{{ ibexa_path(content) }}">{{ content_fields.title(content) }}</a></h3>
