@@ -46,6 +46,9 @@ frontend_group:
                         - ng_recipe
                         - ng_topic
                         - ng_video
+            match_all:
+                permanent_redirect: '@=namedLocation("homepage")'
+                match: ~
         line:
             common:
                 template: "@ibexadesign/content/line/{content_type}.html.twig"
@@ -242,6 +245,13 @@ frontend_group:
                 match: ~
 
 default:
+    ng_site_api:
+        named_objects:
+            locations:
+                homepage: '@=config("content.tree_root.location_id")'
+                site_info: '@=config("locations.site_info.id", "ngsite")'
+            content:
+                current_user: '@=currentUserId'
     ng_content_view:
         ngcb_preview:
             common:
