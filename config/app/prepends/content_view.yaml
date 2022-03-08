@@ -46,6 +46,9 @@ frontend_group:
                         - ng_recipe
                         - ng_topic
                         - ng_video
+            match_all:
+                permanent_redirect: '@=namedLocation("homepage")'
+                match: ~
         line:
             common:
                 template: "@ibexadesign/content/line/{content_type}.html.twig"
