@@ -39,8 +39,14 @@
             "assets/scss/welcome-page.scss"
         ]
     },
+    "symfony/debug-bundle": {
+        "version": "5.4.3",
+        "files": [
+            "config/packages/debug.yaml"
+        ]
+    },
     "symfony/framework-bundle": {
-        "version": "5.4.4",
+        "version": "5.4.5",
         "files": [
             "config/services.yaml",
             "config/packages/cache.yaml",
@@ -50,6 +56,12 @@
             "public/index.php",
             "src/Kernel.php",
             "src/Controller/.gitignore"
+        ]
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.7.1",
+        "files": [
+            "config/packages/monolog.yaml"
         ]
     },
     "symfony/routing": {
@@ -66,6 +78,13 @@
             "templates/base.html.twig"
         ]
     },
+    "symfony/web-profiler-bundle": {
+        "version": "5.4.5",
+        "files": [
+            "config/packages/web_profiler.yaml",
+            "config/routes/web_profiler.yaml"
+        ]
+    },
     "symfony/webpack-encore-bundle": {
         "version": "1.13.2",
         "files": [
@@ -74,10 +93,7 @@
             "assets/styles/app.css",
             "assets/controllers/hello_controller.js",
             "assets/bootstrap.js",
-            "config/packages/test/webpack_encore.yaml",
-            "config/packages/assets.yaml",
             "config/packages/webpack_encore.yaml",
-            "config/packages/prod/webpack_encore.yaml",
             "package.json",
             "webpack.config.js"
         ]
