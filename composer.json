@@ -143,7 +143,12 @@
     },
     "config": {
         "bin-dir": "bin",
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "ezsystems/ezpublish-legacy-installer": true,
+            "symfony/thanks": true,
+            "netgen/git-hooks": true
+        }
     },
     "extra": {
         "symfony-app-dir": "app",
