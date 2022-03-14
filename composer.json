@@ -60,7 +60,7 @@
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
 
-        "novactive/ezseobundle": "dev-ibexa",
+        "novactive/ezseobundle": "^7.0@rc",
         "lolautruche/ez-core-extra-bundle": "dev-ibexa as 3.0",
         "php-http/httplug-bundle": "^1.25",
         "sentry/sentry-symfony": "^4.2",
@@ -94,7 +94,6 @@
         "netgen/git-hooks": "^2.2"
     },
     "repositories": [
-        { "type": "vcs", "url": "https://github.com/emodric/NovaeZSEOBundle.git" },
         { "type": "vcs", "url": "https://github.com/emodric/EzCoreExtraBundle.git" },
         { "type": "vcs", "url": "https://github.com/emodric/graphql-php" }
     ],
