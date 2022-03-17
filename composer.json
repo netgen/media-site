@@ -62,7 +62,6 @@
         "twig/twig": "^2.12|^3.0",
 
         "novactive/ezseobundle": "^7.0@rc",
-        "lolautruche/ez-core-extra-bundle": "dev-ibexa as 3.0",
         "php-http/httplug-bundle": "^1.25",
         "sentry/sentry-symfony": "^4.2",
         "twig/intl-extra": "^3.3",
