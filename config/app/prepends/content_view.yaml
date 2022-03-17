@@ -47,10 +47,7 @@ frontend_group:
                         - ng_topic
                         - ng_video
             match_all:
-                redirect:
-                    target: '@=namedLocation("homepage")'
-                    permanent: true
-                    keep_request_method: '%kernel.debug%'
+                permanent_redirect: '@=namedLocation("homepage")'
                 match: ~
         line:
             common:
