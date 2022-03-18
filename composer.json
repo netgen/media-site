@@ -93,9 +93,6 @@
 
         "netgen/git-hooks": "^2.2"
     },
-    "repositories": [
-        { "type": "vcs", "url": "https://github.com/emodric/EzCoreExtraBundle.git" }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
