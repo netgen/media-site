@@ -50,7 +50,6 @@ frontend_group:
                 redirect:
                     target: '@=namedLocation("homepage")'
                     permanent: "@=!parameter('kernel.debug')"
-                    keep_request_method: '%kernel.debug%'
                 match: ~
         line:
             common:
