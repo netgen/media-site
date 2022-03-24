@@ -47,7 +47,10 @@ frontend_group:
                         - ng_topic
                         - ng_video
             match_all:
-                permanent_redirect: '@=namedLocation("homepage")'
+                redirect:
+                    target: '@=namedLocation("homepage")'
+                    permanent: "@=!parameter('kernel.debug')"
+                    keep_request_method: '%kernel.debug%'
                 match: ~
         line:
             common:
