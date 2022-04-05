@@ -146,7 +146,8 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*"
+        "symfony/symfony": "*",
+        "symfony/expression-language": "5.4.7"
     },
     "extra": {
         "symfony": {
