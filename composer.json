@@ -151,7 +151,10 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "endpoint": "https://flex.ibexa.co",
+            "endpoint": [
+                "https://api.github.com/repos/ibexa/recipes-dev/contents/index.json?ref=flex/main",
+                "flex://defaults"
+            ],
             "require": "5.4.*",
             "docker": false
         },
