@@ -153,7 +153,7 @@
         "symfony": {
             "allow-contrib": true,
             "endpoint": [
-                "https://api.github.com/repos/ibexa/recipes-dev/contents/index.json?ref=flex/main",
+                "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main",
                 "flex://defaults"
             ],
             "require": "5.4.*",
