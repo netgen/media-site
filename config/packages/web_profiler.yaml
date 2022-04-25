@@ -1,0 +1,20 @@
+when@dev:
+    web_profiler:
+        toolbar: true
+        intercept_redirects: false
+        # By default disable showing of Admin UI "notifications/count" in web debug toolbar AJAX calls list to make it more manageable.
+        excluded_ajax_paths: '(^/(app(_[\\w]+)?\\.php/)?_wdt)|/notifications/count'
+
+    framework:
+        profiler:
+            only_exceptions: false
+            # Optional: Skips generating profiles for subrequests by default due to dev performance
+            only_main_requests: true
+
+when@test:
+    web_profiler:
+        toolbar: false
+        intercept_redirects: false
+
+    framework:
+        profiler: { collect: false }

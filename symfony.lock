@@ -1,99 +1,137 @@
 {
     "ibexa/oss": {
-        "version": "4.0.2",
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes",
+            "branch": "master-serverless",
+            "version": "4.1",
+            "ref": "b17a54c3e2b97f4a3683cda7e9521f76d40c31aa"
+        },
         "files": [
-            "config/packages/dfs/dfs.yaml",
-            "config/packages/ibexa_welcome_page.yaml",
-            "config/packages/ibexa_assets.yaml",
             "config/packages/cache_pool/cache.memcached.yaml",
-            "config/packages/cache_pool/cache.tagaware.filesystem.yaml",
             "config/packages/cache_pool/cache.redis.yaml",
-            "config/packages/ibexa.yaml",
-            "config/packages/ibexa_solr.yaml",
-            "config/packages/ibexa_admin_ui.yaml",
-            "config/packages/ibexa_http_cache.yaml",
-            "config/packages/security.yaml",
-            "config/packages/ibexa_doctrine_schema.yaml",
-            "config/packages/ibexa_jms_translation.yaml",
+            "config/packages/cache_pool/cache.tagaware.filesystem.yaml",
+            "config/packages/dfs/dfs.yaml",
             "config/packages/graphql.yaml",
-            "config/routes/ibexa_content_forms.yaml",
+            "config/packages/ibexa.yaml",
+            "config/packages/ibexa_admin_ui.yaml",
+            "config/packages/ibexa_assets.yaml",
+            "config/packages/ibexa_doctrine_schema.yaml",
+            "config/packages/ibexa_http_cache.yaml",
+            "config/packages/ibexa_jms_translation.yaml",
+            "config/packages/ibexa_solr.yaml",
+            "config/packages/ibexa_welcome_page.yaml",
+            "config/packages/security.yaml",
+            "config/routes/graphql.yaml",
             "config/routes/ibexa.yaml",
             "config/routes/ibexa_admin_ui.yaml",
-            "config/routes/ibexa_http_cache.yaml",
-            "config/routes/ibexa_search.yaml",
-            "config/routes/ibexa_rest.yaml",
-            "config/routes/ibexa_system_info.yaml",
+            "config/routes/ibexa_content_forms.yaml",
             "config/routes/ibexa_fieldtype_query.yaml",
+            "config/routes/ibexa_http_cache.yaml",
+            "config/routes/ibexa_rest.yaml",
+            "config/routes/ibexa_search.yaml",
+            "config/routes/ibexa_system_info.yaml",
             "config/routes/ibexa_user.yaml",
-            "config/routes/graphql.yaml",
-            "package.json",
-            "ibexa.webpack.config.manager.js",
-            "webpack.config.js",
-            "ibexa.webpack.custom.configs.js",
             "ibexa.webpack.config.js",
+            "ibexa.webpack.config.manager.js",
+            "ibexa.webpack.custom.configs.js",
+            "package.json",
+            "webpack.config.js",
             "templates/themes/standard/full/welcome_page.html.twig",
             "templates/themes/standard/pagelayout.html.twig",
             "translations/ibexa_welcome_page.en.xlf",
-            "assets/images/file-text-info-icon.svg",
             "assets/images/conversation-chat-icon.svg",
+            "assets/images/file-text-info-icon.svg",
             "assets/images/folder-icon.svg",
             "assets/scss/welcome-page.scss"
         ]
     },
     "symfony/debug-bundle": {
-        "version": "5.4.3",
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "5aa8aa48234c8eb6dbdd7b3cd5d791485d2cec4b"
+        },
         "files": [
             "config/packages/debug.yaml"
         ]
     },
     "symfony/framework-bundle": {
-        "version": "5.4.5",
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.4",
+            "ref": "3cd216a4d007b78d8554d44a5b1c0a446dab24fb"
+        },
         "files": [
-            "config/services.yaml",
             "config/packages/cache.yaml",
             "config/packages/framework.yaml",
-            "config/routes/framework.yaml",
             "config/preload.php",
+            "config/routes/framework.yaml",
+            "config/services.yaml",
             "public/index.php",
-            "src/Kernel.php",
-            "src/Controller/.gitignore"
+            "src/Controller/.gitignore",
+            "src/Kernel.php"
         ]
     },
     "symfony/monolog-bundle": {
-        "version": "3.7.1",
+        "version": "3.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.7",
+            "ref": "213676c4ec929f046dfde5ea8e97625b81bc0578"
+        },
         "files": [
             "config/packages/monolog.yaml"
         ]
     },
     "symfony/routing": {
-        "version": "5.4.3",
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "85de1d8ae45b284c3c84b668171d2615049e698f"
+        },
         "files": [
             "config/packages/routing.yaml",
             "config/routes.yaml"
         ]
     },
-    "symfony/twig-bundle": {
-        "version": "5.4.3",
-        "files": [
-            "config/packages/twig.yaml",
-            "templates/base.html.twig"
-        ]
+    "symfony/twig-bridge": {
+        "version": "v5.4.7"
     },
     "symfony/web-profiler-bundle": {
-        "version": "5.4.5",
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "24bbc3d84ef2f427f82104f766014e799eefcc3e"
+        },
         "files": [
             "config/packages/web_profiler.yaml",
             "config/routes/web_profiler.yaml"
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.13.2",
+        "version": "1.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.10",
+            "ref": "2858aeed7e1d81a45365c049eb533cc8827e380b"
+        },
         "files": [
             "assets/app.js",
-            "assets/controllers.json",
-            "assets/styles/app.css",
-            "assets/controllers/hello_controller.js",
             "assets/bootstrap.js",
+            "assets/controllers.json",
+            "assets/controllers/hello_controller.js",
+            "assets/styles/app.css",
             "config/packages/webpack_encore.yaml",
             "package.json",
             "webpack.config.js"

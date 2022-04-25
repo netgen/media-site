@@ -33,3 +33,19 @@ webpack_encore:
     # Cache the entrypoints.json (rebuild Symfony's cache when entrypoints.json changes)
     # Put in config/packages/prod/webpack_encore.yaml
     # cache: true
+
+when@dev:
+    webpack_encore:
+        builds:
+            # The path where Encore is building the assets - i.e. Encore.setOutputPath()
+            app: '%kernel.project_dir%/public/assets/app/build_dev'
+
+when@prod:
+    webpack_encore:
+        builds:
+            # The path where Encore is building the assets - i.e. Encore.setOutputPath()
+            app: '%kernel.project_dir%/public/assets/app/build'
+
+#when@test:
+#    webpack_encore:
+#        strict_mode: false
