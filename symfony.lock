@@ -102,8 +102,18 @@
             "config/routes.yaml"
         ]
     },
-    "symfony/twig-bridge": {
-        "version": "v5.4.7"
+    "symfony/twig-bundle": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.4",
+            "ref": "bb2178c57eee79e6be0b297aa96fc0c0def81387"
+        },
+        "files": [
+            "config/packages/twig.yaml",
+            "templates/base.html.twig"
+        ]
     },
     "symfony/web-profiler-bundle": {
         "version": "5.4",
