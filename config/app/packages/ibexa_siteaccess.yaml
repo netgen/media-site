@@ -22,7 +22,7 @@ ibexa:
                 - eng-GB
             session:
                 name: eZSESSID
-        admin:
+        admin_group:
             languages:
                 - eng-GB
             session:
