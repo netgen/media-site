@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
@@ -44,6 +46,6 @@ return (new PhpCsFixer\Config())
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->in(['src', 'tests'])
+            ->in(['src', 'tests']),
     )
 ;
