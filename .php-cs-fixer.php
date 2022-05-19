@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
@@ -46,6 +48,6 @@ return (new PhpCsFixer\Config())
         PhpCsFixer\Finder::create()
             ->exclude(['ezpublish_legacy'])
             ->in('src')
-            ->append(['app/AppKernel.php'])
+            ->append(['app/AppKernel.php']),
     )
 ;
