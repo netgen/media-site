@@ -29,7 +29,7 @@ CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 ### Create the new project based on this repo
 
 ```
-composer create-project "netgen/media-site:^1.10"
+composer create-project "netgen/media-site:^1.11"
 ```
 
 Run the following to generate basic siteaccess configuration and set up project for development:
@@ -51,7 +51,7 @@ cd media-site
 If you are contributing to the latest version, skip the next step. Otherwise, take care to checkout the branch you wish to contribute to, for example:
 
 ```
-git checkout 1.10
+git checkout 1.11
 ```
 
 As either way you will not be developing on a tagged (stable) version, you need to modify `composer.json`, please add the following:
