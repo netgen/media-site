@@ -24,6 +24,13 @@
     },
     "require": {
         "php": "^7.4",
+        "ext-gd": "*",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-xsl": "*",
+        "ext-xml": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
         "doctrine/doctrine-bundle": "^1.9.1",
         "doctrine/orm": "^2.6.3",
         "ezsystems/doctrine-dbal-schema": "^0.1.4",
