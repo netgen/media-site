@@ -2,4 +2,4 @@ imports:
     -
         resource: dev/ibexa_siteaccess.yaml
     -
-        resource: dev/parameters.yaml
+        resource: dev/app.yaml
