@@ -7,6 +7,7 @@ namespace App\DependencyInjection;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Yaml\Yaml;
 use function file_get_contents;
@@ -21,22 +22,12 @@ final class AppExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container): void
     {
-        $prependConfigs = [
-            'layouts/blocks.yaml' => 'netgen_layouts',
-            'layouts/block_view.yaml' => 'netgen_layouts',
-            'layouts/item_view.yaml' => 'netgen_layouts',
-        ];
-
-        foreach ($prependConfigs as $configFile => $prependConfig) {
-            $configFile = __DIR__ . '/../../config/app/prepends/' . $configFile;
-            $config = Yaml::parse(file_get_contents($configFile));
-            $container->prependExtensionConfig($prependConfig, $config);
-            $container->addResource(new FileResource($configFile));
+        foreach ((new Finder())->in(__DIR__ . '/../../config/app/prepends')->directories() as $directory) {
+            foreach ((new Finder())->files()->in($directory->getPathname()) as $file) {
+                $config = Yaml::parse(file_get_contents($file->getPathname()));
+                $container->prependExtensionConfig($directory->getBasename(), $config);
+                $container->addResource(new FileResource($file->getPathname()));
+            }
         }
-
-        $configFile = __DIR__ . '/../../config/app/prepends/content_view.yaml';
-        $config = Yaml::parse(file_get_contents($configFile));
-        $container->prependExtensionConfig('ibexa', ['system' => $config]);
-        $container->addResource(new FileResource($configFile));
     }
 }
