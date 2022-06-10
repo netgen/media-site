@@ -73,6 +73,6 @@
         "actions": []
     },
     "config": {
-        "php-path": "/usr/bin/env php7.4"
+        "php-path": "/usr/bin/env php8.1"
     }
 }
