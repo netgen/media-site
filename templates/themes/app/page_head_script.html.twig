@@ -1,3 +1,14 @@
-{{ encore_entry_script_tags('app', null, 'app') }}
-<script type="text/javascript" src="{{ asset('app.js', 'nglayouts_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'js') }}"></script>
-<script type="text/javascript" src="{{ asset('app.js', 'nglayouts_standard_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'js') }}"></script>
+{% for src in encore_entry_js_files('app', 'app') %}
+    {% if 'vendor' in src %}
+        <script defer type="text/javascript" src="{{ src }}"></script>
+    {% else %}
+        <script type="text/javascript" src="{{ src }}"></script>
+    {% endif %}
+{% endfor %}
+
+{% for src in encore_entry_js_files('app-noncore', 'app') %}
+    <script defer type="text/javascript" src="{{ src }}"></script>
+{% endfor %}
+
+<script defer type="text/javascript" src="{{ asset('app.js', 'nglayouts_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'js') }}"></script>
+<script defer type="text/javascript" src="{{ asset('app.js', 'nglayouts_standard_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'js') }}"></script>

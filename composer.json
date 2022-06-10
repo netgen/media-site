@@ -16,6 +16,13 @@
     ],
     "require": {
         "php": ">=7.4",
+        "ext-gd": "*",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-xsl": "*",
+        "ext-xml": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/annotations": "^1.0",

@@ -1,7 +1,7 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "prettier"],
   "rules": {
-    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "indent":0,
     "max-len": 0,
     "no-plusplus": 0,
     "func-names": 0,
@@ -13,14 +13,7 @@
     "no-param-reassign": ["error", {
         "props": false
     }],
-    "comma-dangle": ["error", {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "ignore"
-      }
-    ],
+    "comma-dangle": 0,
     "react/require-default-props": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": 0,

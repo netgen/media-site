@@ -41,7 +41,7 @@ set('sentry', [
 /** Execution */
 task('deploy', [
     'deploy:confirm',
-    // Upload server specific .env.local file. Those file are NOT to be committed to the repository
+    // Upload server specific .env.local file. Those files are NOT to be committed to the repository
     'server:upload_env',
     'deploy:info',
     'deploy:prepare',
@@ -50,6 +50,8 @@ task('deploy', [
     'deploy:update_code',
     'deploy:clear_paths',
     'deploy:shared',
+    // build and upload assets
+    'app:assets:deploy',
     // copy vendors folder between releases before running composer install to speed it up
     'deploy:copy_dirs',
     'deploy:vendors',

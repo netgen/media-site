@@ -15,15 +15,19 @@ set('asset_exclude_paths', [
 ]);
 set('asset_install_command', 'yarn install');
 set('asset_build_command', 'yarn build:prod');
-set('asset_ibexa_build_command', 'composer ibexa-assets');
+set('asset_ibexa_build_command', function() {
+   $composer = get('bin/composer');
 
-task('assets:deploy', [
-    'assets:build',
-    'assets:ibexa:build',
-    'assets:upload'
+   return $composer . ' ibexa-assets';
+});
+
+task('app:assets:deploy', [
+    'app:assets:build',
+    'app:assets:ibexa:build',
+    'app:assets:upload'
 ]);
 
-task('assets:build', function() {
+task('app:assets:build', function() {
     writeln('<comment>Checking for changes in asset files. If this fails, commit or stash your changes before deploying.</comment>');
     $assetResourcePaths = get('asset_resource_paths');
     foreach ($assetResourcePaths as $resourcePath) {
@@ -37,11 +41,11 @@ task('assets:build', function() {
     run($buildCmd);
 })->local();
 
-task('assets:ibexa:build', function() {
+task('app:assets:ibexa:build', function() {
     run("{{asset_ibexa_build_command}}");
 })->local();
 
-task('assets:upload', function() {
+task('app:assets:upload', function() {
     $assetPaths = get('asset_build_paths');
     $excludedPaths = get('asset_exclude_paths', []);
 

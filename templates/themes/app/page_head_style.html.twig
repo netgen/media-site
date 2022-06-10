@@ -1,5 +1,11 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&subset=latin,latin-ext">
+<link rel="preload" as="style" type="text/css" crossorigin href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&subset=latin,latin-ext" onload="this.onload=null;this.rel='stylesheet'">
 
-{{ encore_entry_link_tags('app', null, 'app') }}
-<link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'nglayouts_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'css') }}"/>
-<link rel="stylesheet" type="text/css" href="{{ asset('style.css', 'nglayouts_standard_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'css') }}"/>
+{% for href in encore_entry_css_files('app', 'app') %}
+    <link rel="preload" as="style" type="text/css" href="{{ href }}" onload="this.onload=null;this.rel='stylesheet';"></link>
+{% endfor %}
+{% for href in encore_entry_css_files('app-noncore', 'app') %}
+    <link rel="prefetch" as="style" type="text/css" href="{{ href }}" onload="this.onload=null;this.rel='stylesheet';"></link>
+{% endfor %}
+
+<link rel="preload" as="style" type="text/css" href="{{ asset('style.css', 'nglayouts_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'css') }}" onload="this.onload=null;this.rel='stylesheet';"/>
+<link rel="preload" as="style" type="text/css" href="{{ asset('style.css', 'nglayouts_standard_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'css') }}" onload="this.onload=null;this.rel='stylesheet';"/>
