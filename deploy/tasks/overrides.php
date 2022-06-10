@@ -3,7 +3,7 @@
 namespace Deployer;
 
 set('bin/cachetool', function(){
-    return 'cachetool.phar';
+    return 'cachetool-7.0.0.phar';
 });
 
 // overridden to make sure public folder is correctly symlinked (L79)
