@@ -29,6 +29,7 @@ CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 
 ```
 composer create-project netgen/media-site
+```
 
 Run the following to generate basic siteaccess configuration and set up project for development:
 
