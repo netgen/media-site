@@ -33,6 +33,7 @@ composer create-project "netgen/media-site:^1.11"
 ```
 
 Run the following to generate basic siteaccess configuration and set up project for development:
+
 ```
 bin/console ngsite:generate:project
 ```
