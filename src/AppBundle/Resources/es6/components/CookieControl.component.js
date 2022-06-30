@@ -1,9 +1,11 @@
 import $ from 'jquery';
 import CookieControl from '@netgen/javascript-cookie-control';
 
+
 export default class CookieControlClass {
     constructor(element, options) {
         this.options = options;
+
         this.onInit();
     }
 
