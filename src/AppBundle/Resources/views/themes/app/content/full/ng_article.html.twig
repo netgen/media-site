@@ -59,7 +59,9 @@
                         {{ ng_render_field(content.fields.body) }}
                     {% endif %}
 
-                    {% include '@ezdesign/parts/tags.html.twig' %}
+                    <div class="full-page-tags">
+                        {% include '@ezdesign/parts/tags.html.twig' %}
+                    </div>
                 </div>
             {% endblock %}
 

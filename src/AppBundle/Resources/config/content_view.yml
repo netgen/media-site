@@ -33,6 +33,7 @@ frontend_group:
                         - ng_article
                         - ng_audio
                         - ng_blog_post
+                        - ng_event
                         - ng_frontpage
                         - ng_gallery
                         - ng_htmlbox
@@ -102,6 +103,7 @@ frontend_group:
                         - ng_banner
                         - ng_blog_post
                         - ng_category
+                        - ng_event
                         - ng_feedback_form
                         - ng_frontpage
                         - ng_gallery
@@ -134,6 +136,7 @@ frontend_group:
                         - ng_audio
                         - ng_banner
                         - ng_blog_post
+                        - ng_event
                         - ng_gallery
                         - ng_news
                         - ng_video
@@ -148,6 +151,7 @@ frontend_group:
                         - ng_article
                         - ng_banner
                         - ng_blog_post
+                        - ng_event
                         - ng_gallery
                         - ng_news
                         - ng_video
@@ -163,6 +167,7 @@ frontend_group:
                         - ng_article
                         - ng_banner
                         - ng_blog_post
+                        - ng_event
                         - ng_news
                         - ng_video
             match_all:
@@ -213,6 +218,7 @@ frontend_group:
                         - ng_banner
                         - ng_blog_post
                         - ng_category
+                        - ng_event
                         - ng_feedback_form
                         - ng_frontpage
                         - ng_gallery
@@ -241,6 +247,7 @@ default:
                         - ng_audio
                         - ng_banner
                         - ng_blog_post
+                        - ng_event
                         - ng_gallery
                         - ng_news
                         - ng_video

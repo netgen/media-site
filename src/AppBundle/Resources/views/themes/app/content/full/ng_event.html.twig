@@ -12,7 +12,7 @@
 {% endif %}
 
 {% block content %}
-    <article class="view-type view-type-{{ view_type }} ng-news vf1">
+    <article class="view-type view-type-{{ view_type }} ng-event vf1">
         {% block article_header %}
             <header class="full-page-header">
                 <div class="container">
@@ -21,8 +21,15 @@
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
 
                     <div class="full-page-info">
-                        By {% include '@ezdesign/parts/author.html.twig' %} -
-                        {% include '@ezdesign/parts/time.html.twig' %}
+                        {% if not content.fields.start_date.empty %}
+                            <time>      
+                                {{ content.fields.start_date.value.value|localizeddate('full', 'full', app.request.locale, null, "d MMM Y" ) }}
+                                
+                                {% if not content.fields.end_date.empty %}
+                                    - {{ content.fields.end_date.value.value|localizeddate('full', 'full', app.request.locale, null, "d MMM y" ) }}
+                                {% endif %}
+                            </time>
+                        {% endif %}
                     </div>
                 </div>
             </header>
@@ -54,8 +61,8 @@
                         </div>
                     {% endif %}
 
-                    {% if not content.fields.body.empty %}
-                        {{ ng_render_field(content.fields.body) }}
+                    {% if not content.fields.description.empty %}
+                        {{ ng_render_field(content.fields.description) }}
                     {% endif %}
 
                     <div class="full-page-tags">
@@ -65,30 +72,4 @@
             {% endblock %}
         </div>
     </article>
-{% endblock %}
-
-{% block structuredData %}
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "NewsArticle",
-            "headline": "{{ content.fields.title.value.text }}",
-            {% if content.contentInfo.publishedDate -%}
-                "datePublished": "{{ content.contentInfo.publishedDate|date('Y-m-d') }}",
-            {% endif -%}
-            {% if not content.fields.authors.empty -%}
-                "author": {
-                    "@type": "Person",
-                    "name": "{% for author in content.fieldRelations('authors') %}{% if loop.index0 > 0 %} ,{% endif %}{{ author.name }}{% endfor %}"
-                },
-            {% endif -%}
-            {% if not content.fields.image.empty -%}
-                "image": "{{ absolute_url(ngsite_image_url(content, 'image', 'i1200')) }}",
-            {% endif -%}
-            "publisher": {
-                "type": "Organization",
-                "name": "{{ site_name }}"
-            }
-        }
-    </script>
 {% endblock %}
