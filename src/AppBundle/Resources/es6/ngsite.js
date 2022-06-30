@@ -214,10 +214,6 @@ $(document).ready(() => {
   }
   /* /set active state on location menu items */
 
-  /* lazy image loading */
-
-  /* /lazy image loading */
-
   /* get video poster */
   const getVideoPoster = (el, service) => {
     if (el.attr('src')) return;
