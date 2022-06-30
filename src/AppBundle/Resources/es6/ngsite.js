@@ -153,86 +153,6 @@ $(document).ready(() => {
 
   /* /header actions */
 
-  /* set active state on location menu items */
-  if (page.dataset.path) {
-    const activeItemsList = JSON.parse(page.dataset.path);
-    const navigationList = document.querySelectorAll('ul.nav.navbar-nav');
-
-    navigationList.forEach((navigation) => {
-      activeItemsList.forEach((activeItemId) => {
-        const item = navigation.querySelector(`[data-location-id="${activeItemId}"]`);
-        if (item) {
-          item.classList.add('active', 'submenu-active');
-        }
-      });
-    });
-  }
-  /* /set active state on location menu items */
-
-  /* lazy image loading */
-  const lazyImageLoad = (image) => {
-    if (image.hasAttribute('data-src')) image.setAttribute('src', image.getAttribute('data-src'));
-    if (image.hasAttribute('data-srcset'))
-      image.setAttribute('srcset', image.getAttribute('data-srcset'));
-    image.onload = () => {
-      image.removeAttribute('data-src');
-      image.removeAttribute('data-srcset');
-    };
-  };
-  const loadAllLazy = () => {
-    [].forEach.call(document.querySelectorAll('img[data-src]'), (img) => lazyImageLoad(img));
-  };
-  if ('IntersectionObserver' in window) {
-    const lazyImageObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const lazyImage = entry.target;
-          lazyImageLoad(lazyImage);
-          lazyImageObserver.unobserve(lazyImage);
-        }
-      });
-    });
-
-    [].forEach.call(document.querySelectorAll('img[data-src]'), (lazyImage) => {
-      lazyImageObserver.observe(lazyImage);
-    });
-  } else {
-    loadAllLazy();
-  }
-  /* /lazy image loading */
-
-  /* get video poster */
-  const getVideoPoster = (el, service) => {
-    if (el.attr('src')) return;
-    const videoID = el.attr('data-id');
-    const thumbname = el.attr('data-thumbname');
-    let url;
-    let getUrl;
-    if (service === 'dailymotion') {
-      url = `https://api.dailymotion.com/video/${videoID}?fields=${thumbname}`;
-      getUrl = (obj) => obj[thumbname];
-    } else if (service === 'vimeo') {
-      url = `https://vimeo.com/api/v2/video/${videoID}.json`;
-      getUrl = (obj) => obj[0][thumbname];
-    }
-    $.ajax({
-      type: 'GET',
-      url,
-      jsonp: 'callback',
-      dataType: 'jsonp',
-      success: (data) => {
-        el.attr('src', getUrl(data));
-        el.trigger('poster:loaded');
-      },
-    });
-  };
-  $('img.vimeo-poster').each(function () {
-    getVideoPoster($(this), 'vimeo');
-  });
-  $('img.dailymotion-poster').each(function () {
-    getVideoPoster($(this), 'dailymotion');
-  });
-  /* /get video poster */
 
   /* COOKIE CONTROL */
   const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
@@ -282,14 +202,5 @@ $(document).ready(() => {
       },
       false
     );
-  });
-
-  $(document).on('poster:loaded', function () {
-    const $link = $(this).closest('.js-video-poster');
-    $link.attr('href', this.src);
-  });
-
-  $('.js-video-poster').each(function () {
-    this.href = $('img', this).attr('src');
   });
 });
