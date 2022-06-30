@@ -24,6 +24,8 @@ block_definitions:
                         name: 'List item'
                     listitem_with_intro:
                         name: 'List item (with intro)'
+                    hero:
+                        name: 'Hero'
             list_numbered:
                 name: 'List (numbered)'
                 item_view_types: *list_item_view_types

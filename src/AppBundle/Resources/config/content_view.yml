@@ -40,6 +40,21 @@ frontend_group:
                         - ng_recipe
                         - ng_topic
                         - ng_video
+        hero:
+            common:
+                template: "@ezdesign/content/hero/{content_type}.html.twig"
+                match:
+                    Identifier\ContentType:
+                        - ng_article
+                        - ng_banner
+                        - ng_blog_post
+                        - ng_gallery
+                        - ng_news
+                        - ng_recipe
+                        - ng_video
+            match_all:
+                template: "@ezdesign/content/hero.html.twig"
+                match: ~
         line:
             common:
                 template: "@ezdesign/content/line/{content_type}.html.twig"

@@ -1,0 +1,17 @@
+{# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
+{# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
+
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+<article class="view-type view-type-{{ view_type }} ng-news vl8">
+    {{ content_fields.image(content, location) }}
+
+    <header class="article-header">
+        <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
+        <div class="info">
+            {% include '@ezdesign/parts/author.html.twig' %}
+            {% include '@ezdesign/parts/time.html.twig' %}
+            {% include '@ezdesign/parts/main_topic.html.twig' %}
+        </div>
+    </header>
+</article>

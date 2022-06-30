@@ -1,0 +1,33 @@
+{# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
+{# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
+
+{% import '@ezdesign/parts/content_fields.html.twig' as content_fields %}
+
+{% set children = location.filterChildren(['image'], 1).currentPageResults %}
+
+<article class="view-type view-type-{{ view_type }} ng-gallery vl8">
+
+    {% if children.searchHits is not empty %}
+        {% set first_image = children[0].content %}
+
+        <figure class="image">
+            <a href="{{ path(location) }}" aria-label="{{ first_image.fields.name.value }}">
+                {{ ng_render_field(
+                    first_image.fields.image, {
+                        parameters: {
+                            alias: 'i480',
+                            alt_text: first_image.fields.name.value,
+                        }
+                    }
+                ) }}
+            </a>
+        </figure>
+    {% endif %}
+
+    <header class="article-header">
+        <h2 class="title"><a href="{{ path(location) }}">{{ content_fields.title(content) }}</a></h2>
+        <div class="info">
+            {% include '@ezdesign/parts/main_topic.html.twig' %}
+        </div>
+    </header>
+</article>
