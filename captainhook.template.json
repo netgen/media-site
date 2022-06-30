@@ -39,7 +39,7 @@
             {
                 "action": "\\Netgen\\GitHooks\\Action\\PHPStan",
                 "options": {
-                    "excluded_files": ["/^.*\\.ini\\.append\\.php$/", "/^deploy.*/", "/^src\\/AppBundle\\/ezpublish_legacy\\/*/"]
+                    "excluded_files": ["/^deploy.*/", "/^src\\/AppBundle\\/ezpublish_legacy\\/*/"]
                 }
             },
             {
