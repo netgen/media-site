@@ -37,6 +37,13 @@
                 }
             },
             {
+                "action": "\\Netgen\\GitHooks\\Action\\PHPStan",
+                "options": {
+                    "excluded_files": ["/^deploy.*/", "/^src\\/AppBundle\\/ezpublish_legacy\\/*/"],
+                    "phpstan_path": "bin/phpstan"
+                }
+            },
+            {
                 "action": "\\Netgen\\GitHooks\\Action\\JSLinter",
                 "options": {
                     "excluded_files": []
