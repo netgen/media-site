@@ -13,9 +13,9 @@
                 {% if 'youtube' in video_types %}
                     <img data-src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
                 {% elseif 'vimeo' in video_types %}
-                    <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                    <img src="" class="video-poster vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
                 {% elseif 'dailymotion' in video_types %}
-                    <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                    <img src="" class="video-poster dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
                 {% endif %}
             {% else %}
                     <img data-src="{{ asset('images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
@@ -39,9 +39,9 @@
         {% if 'youtube' in video_types %}
             <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
         {% elseif 'vimeo' in video_types %}
-            <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+            <img src="" class="vimeo-poster video-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
         {% elseif 'dailymotion' in video_types %}
-            <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+            <img src="" class="dailymotion-poster video-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
         {% endif %}
     {% else %}
             <img {% if use_lazy_load %}class="swiper-lazy" data-{% endif %}src="{{ asset('images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />

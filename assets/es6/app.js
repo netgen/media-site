@@ -9,6 +9,9 @@ import './ngsite';
 import '../sass/style.scss';
 
 import HeaderNav from './components/HeaderNav.component';
+import LazyLoading from './components/LazyLoading.component';
+import CookieControlClass from './components/CookieControl.component';
+import VideoPoster from './components/VideoPoster.component';
 
 $(() => {
   // Put your code here
@@ -32,6 +35,27 @@ const components = [
       submenuTriggerClass: 'submenu-trigger',
       submenuDataParam: 'data-submenu',
       submenuActiveClass: 'submenu-active'
+    }
+  },
+  {
+    class: LazyLoading,
+    selector: 'html',
+    options: {
+      triggerElement: 'img'
+    }
+  },
+  {
+    class: CookieControlClass,
+    selector: 'html',
+    options: {}
+  },
+  {
+    class: VideoPoster,
+    selector: '.video-poster',
+    options: {
+      vimeoClass: 'vimeo-poster',
+      dailymotionClass: 'dailymotion-poster',
+      posterLinkElement: '.js-video-poster'
     }
   }
 ]

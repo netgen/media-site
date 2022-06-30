@@ -152,54 +152,6 @@ $(document).ready(() => {
 
   /* /header actions */
 
-  /* set active state on location menu items */
-  if (page.dataset.path) {
-    const activeItemsList = JSON.parse(page.dataset.path);
-    const navigationList = document.querySelectorAll('ul.nav.navbar-nav');
-
-    navigationList.forEach((navigation) => {
-      activeItemsList.forEach((activeItemId) => {
-        const item = navigation.querySelector(`[data-location-id="${activeItemId}"]`);
-        if (item) {
-          item.classList.add('active', 'submenu-active');
-        }
-      });
-    });
-  }
-  /* /set active state on location menu items */
-
-  /* get video poster */
-  const getVideoPoster = (el, service) => {
-    if (el.attr('src')) return;
-    const videoID = el.attr('data-id');
-    const thumbname = el.attr('data-thumbname');
-    let url;
-    let getUrl;
-    if (service === 'dailymotion') {
-      url = `https://api.dailymotion.com/video/${videoID}?fields=${thumbname}`;
-      getUrl = (obj) => obj[thumbname];
-    } else if (service === 'vimeo') {
-      url = `https://vimeo.com/api/v2/video/${videoID}.json`;
-      getUrl = (obj) => obj[0][thumbname];
-    }
-    $.ajax({
-      type: 'GET',
-      url,
-      jsonp: 'callback',
-      dataType: 'jsonp',
-      success: (data) => {
-        el.attr('src', getUrl(data));
-        el.trigger('poster:loaded');
-      },
-    });
-  };
-  $('img.vimeo-poster').each(function () {
-    getVideoPoster($(this), 'vimeo');
-  });
-  $('img.dailymotion-poster').each(function () {
-    getVideoPoster($(this), 'dailymotion');
-  });
-  /* /get video poster */
 
   Array.prototype.filter.call(document.getElementsByClassName('ajax-collection'), (el) => {
     el.addEventListener(
@@ -220,14 +172,5 @@ $(document).ready(() => {
       },
       false
     );
-  });
-
-  $(document).on('poster:loaded', function () {
-    const $link = $(this).closest('.js-video-poster');
-    $link.attr('href', this.src);
-  });
-
-  $('.js-video-poster').each(function () {
-    this.href = $('img', this).attr('src');
   });
 });

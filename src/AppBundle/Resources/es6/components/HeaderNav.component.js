@@ -19,6 +19,8 @@ export default class HeaderNav {
     onInit() {
         const self = this;
 
+        this.setActiveStateOnMenuItems();
+
         this.navToggle.addEventListener('click', (e) => {
             this.pageToggleClass(e, this.options.navActiveClass);
         })
@@ -86,51 +88,21 @@ export default class HeaderNav {
     toggleMobileSubmenu(el) {
         el.parentElement.classList.toggle(this.options.submenuActiveClass)
     }
+
+    setActiveStateOnMenuItems() {
+        if (page.dataset.path) {
+            const activeItemsList = JSON.parse(page.dataset.path);
+            const navigationList = document.querySelectorAll('ul.nav.navbar-nav');
+        
+            navigationList.forEach((navigation) => {
+                activeItemsList.forEach((activeItemId) => {
+                    const item = navigation.querySelector(`[data-location-id="${activeItemId}"]`);
+                    
+                    if (item) {
+                        item.classList.add('active', this.options.submenuActiveClass);
+                    }
+                });
+            });
+        }
+    }
 }
-
-
-// OLD CODE FROM ngsite.js
-
-// const page = $('#page');
-// const navToggle = $('.mainnav-toggle');
-// const searchToggle = $('.searchbox-toggle');
-// const searchForm = $('.header-search');
-// const searchInput = searchForm.find('input.search-query');
-// const pageToggleClass = (e, classToToggle, classToRemove) => {
-//   e.preventDefault();
-//   page.toggleClass(classToToggle);
-//   if (classToRemove) {
-//     page.removeClass(classToRemove);
-//   }
-// };
-// /* toggle mobile menu */
-// navToggle.on('click', (e) => {
-//   pageToggleClass(e, 'mainnav-active');
-// });
-// /* toggle searchbox */
-// searchToggle.on('click', (e) => {
-//   pageToggleClass(e, 'searchbox-active', 'mainnav-active');
-//   searchInput.focus();
-// });
-// searchForm.on('clickoutside', () => {
-//   page.removeClass('searchbox-active');
-// });
-// searchInput.on('input', function () {
-//   if ($(this).val() !== '') {
-//     searchForm.addClass('filled');
-//   } else {
-//     searchForm.removeClass('filled');
-//   }
-// });
-
-// /* toggle mobile submenu */
-// const mainNav = $('.main-navigation').find('ul.navbar-nav');
-// const submenuTrigContent = $('<i class="submenu-trigger"></i>');
-// mainNav
-//   .find('.menu_level_1')
-//   .before(submenuTrigContent)
-//   .parent('li')
-//   .attr('data-submenu', 'true');
-// mainNav.on('click', 'i.submenu-trigger', function () {
-//   $(this).parent('li').toggleClass('submenu-active');
-// });
