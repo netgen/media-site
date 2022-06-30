@@ -5,6 +5,14 @@
     transition: opacity 400ms;
     z-index: 1000;
 
+    @include media-breakpoint-down(lg) {
+        font-size: 1.145rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1rem;
+    }
+
     .ng-cc-modal {
         position: fixed;
         top: auto;
@@ -22,6 +30,13 @@
         box-shadow: 0 2px 20px rgba(0, 0, 0, .5);
         max-height: calc(100% - 60px);
 
+        @include media-breakpoint-down(xs) {
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            max-height: calc(100% - 30px);
+        }
+
         .ng-cc-content {
             display: flex;
             align-items: center;
@@ -30,14 +45,38 @@
             margin: 0 3.25rem;
             border-bottom: 1px solid #ddd;
 
+            @include media-breakpoint-down(lg) {
+                flex-direction: column;
+            }
+
+            @include media-breakpoint-down(xs) {
+                padding: 15px 0;
+                margin: 0 15px;
+                border: none;
+            }
+
             .wrapper {
                 padding-right: 20%;
                 width: 70%;
+
+                @include media-breakpoint-down(lg) {
+                    padding-right: 0;
+                    width: auto;
+                }
 
                 p {
                     margin-bottom: 0;
                     line-height: 1.5;
                     font-weight: 400;
+
+                    &::before {
+                        @include media-breakpoint-down(xs) {
+                            content: "";
+                            float: right;
+                            width: 30px;
+                            height: 20px;
+                        }
+                    }
                 }
 
                 a {
@@ -56,10 +95,28 @@
                 justify-content: flex-end;
                 width: 30%;
 
+                @include media-breakpoint-down(lg) {
+                    width: 100%;
+                    margin-top: 1.5rem;
+                    justify-content: space-between;
+                }
+
+                @include media-breakpoint-down(xs) {
+                    flex-wrap: wrap;
+                }
+
                 .btn {
                     background-color: $primary;
                     border-color: $primary;
                     color: #212121;
+
+                    @include media-breakpoint-down(xs) {
+                        margin-top: 1rem;
+                    }
+
+                    @include media-breakpoint-down (xxs) {
+                        width: 100%;
+                    }
                 }
 
                 .optional-list-toggle {
@@ -69,6 +126,10 @@
                     padding-left: 1em;
                     position: relative;
                     white-space: nowrap;
+
+                    @include media-breakpoint-down(lg) {
+                        padding-left: 0;
+                    }
 
                     .cookie-angle-up {
                         margin-left: .75rem;
@@ -97,6 +158,12 @@
                     }
 
                     &.rotate-arrow {
+
+                        &:before {
+                            @include media-breakpoint-down (xxs) {
+                                top: 5px;
+                            }
+                        }
                         .cookie-angle-up {
                             transform: rotate(180deg);
                         }
@@ -142,11 +209,39 @@
             list-style-type: none;
             padding-left: 0;
             margin: 0;
+
             > li {
                 width: 33.3%;
                 float: left;
                 padding: 1.875rem 3.25rem;
+
+                @include media-breakpoint-down(lg) {
+                    width: 100%;
+                    padding: 0 3.25rem 1.875rem;
+                }
+
+                @include media-breakpoint-down(xs) {
+                    padding: 0 15px 30px;
+                    border-top: 0;
+                }
+
+                &:first-child {
+                    @include media-breakpoint-down(lg) {
+                        padding-top: 1.875rem;
+                    }
+
+                    @include media-breakpoint-down(xs) {
+                        padding-top: 30px;
+                    }
+                }
+
                 > p { margin: 0; }
+
+                p {
+                    @include media-breakpoint-down(sm) {
+                        margin-bottom: 0;
+                    }
+                }
             }
         }
 
@@ -156,6 +251,10 @@
 
             + label {
                 padding: 3.5rem 0 0 0;
+
+                @include media-breakpoint-down(lg) {
+                    padding: 2.5rem 0 0 0;
+                }
 
                 .ng-cc-checkbox-icon {
                     position: absolute;
@@ -243,130 +342,25 @@
                 }
             }
         }
+
         .ng-cc-optional-actions {
             padding: 2.875rem 0;
             margin: 0 3.25rem;
             display: block;
+
+            @include media-breakpoint-down(xs) {
+                padding: 15px 0;
+                margin: 0 15px;
+            }
+
             .btn {
                 float: right;
                 color: #212121;
                 border-color: #212121;
-            }
-        }
-    }
 
-    @include media-breakpoint-down(lg) {
-        font-size: 1.145rem;
-        .ng-cc-modal {
-            .ng-cc-content {
-                flex-direction: column;
-
-                .wrapper {
-                    padding-right: 0;
-                    width: auto;
+                @include media-breakpoint-down(xs) {
+                    margin-top: 10px; 
                 }
-
-                .ng-cc-actions {
-                    width: 100%;
-                    margin-top: 1.5rem;
-                    justify-content: space-between;
-
-                    .optional-list-toggle {
-                        padding-left: 0;
-                    }
-                }
-            }
-        }
-
-        .ng-cc-optional-list {
-            > ul > li {
-                width: 100%;
-                padding: 0 3.25rem 1.875rem;
-
-                &:first-child {
-                    padding-top: 1.875rem;
-                }
-            }
-            .ng-cc-optional-checkbox {
-                + label {
-                    padding: 2.5rem 0 0 0;
-                }
-            }
-        }
-    }
-
-    @include media-breakpoint-down(sm) {
-        font-size: 1rem;
-        .ng-cc-optional-list {
-            > ul > li {
-                p { margin-bottom: 0; }
-            }
-        }
-    }
-
-    @include media-breakpoint-down(xs) {
-        .ng-cc-modal {
-            bottom: 15px;
-            left: 15px;
-            right: 15px;
-            max-height: calc(100% - 30px);
-
-            .ng-cc-content {
-                padding: 15px 0;
-                margin: 0 15px;
-                border: none;
-                .wrapper {
-                    padding-right: 0;
-
-                    p:before {
-                        content: "";
-                        float: right;
-                        width: 30px;
-                        height: 20px;
-                    }
-                }
-
-                .ng-cc-actions {
-                    flex-wrap: wrap;
-
-                    .btn {
-                        margin-top: 1rem;
-                    }
-                }
-            }
-        }
-
-        .ng-cc-optional-list {
-            > ul > li {
-                padding: 0 15px 30px;
-                border-top: 0;
-
-                &:first-child {
-                    padding-top: 30px;
-                }
-            }
-            .ng-cc-optional-actions {
-                padding: 15px 0;
-                margin: 0 15px;
-                .btn { margin-top: 10px; }
-            }
-        }
-    }
-
-    @include media-breakpoint-down (xxs) {
-        .ng-cc-modal .ng-cc-content .ng-cc-actions {
-            .optional-list-toggle {
-                &:before {
-                    top: 10px;
-                }
-
-                &.rotate-arrow:before {
-                    top: 5px;
-                }
-            }
-
-            .btn {
-                width: 100%;
             }
         }
     }

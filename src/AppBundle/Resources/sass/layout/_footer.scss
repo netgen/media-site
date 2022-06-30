@@ -21,6 +21,11 @@
             justify-content: center;
             margin: 0 0 1.5rem;
             padding: 0;
+
+            @include media-breakpoint-down(sm) {
+                display: block;
+            }
+
             a {
                 font-size: .875rem;
                 text-transform: uppercase;
@@ -61,13 +66,6 @@
             color: $white;
             a {
                 font-weight: 900;
-            }
-        }
-    }
-    @include media-breakpoint-down(sm) {
-        .footer-menu {
-            .navbar-nav {
-                display: block;
             }
         }
     }
