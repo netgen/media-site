@@ -41,24 +41,21 @@
         max-width: 1500px;
         padding-left: 2 * $gutter;
         padding-right: 2 * $gutter;
+
+        @include media-breakpoint-down(xs) {
+            padding-left: $gutter;
+            padding-right: $gutter;
+        }
     }
     &-narrow {
         max-width: 768px;
-    }
-    @include media-breakpoint-down(md) {
-        &-narrow {
+
+        @include media-breakpoint-down(md) {
             max-width: 600px;
         }
-    }
-    @include media-breakpoint-down(sm) {
-        &-narrow {
+
+        @include media-breakpoint-down(sm) {
             max-width: 460px;
-        }
-    }
-    @include media-breakpoint-down(xs) {
-        &-wide {
-            padding-left: $gutter;
-            padding-right: $gutter;
         }
     }
 }
