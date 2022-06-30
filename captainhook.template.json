@@ -37,6 +37,12 @@
                 }
             },
             {
+                "action": "\\Netgen\\GitHooks\\Action\\PHPStan",
+                "options": {
+                    "excluded_files": ["/^.*\\.ini\\.append\\.php$/", "/^deploy.*/", "/^src\\/AppBundle\\/ezpublish_legacy\\/*/"]
+                }
+            },
+            {
                 "action": "\\Netgen\\GitHooks\\Action\\JSLinter",
                 "options": {
                     "excluded_files": []
