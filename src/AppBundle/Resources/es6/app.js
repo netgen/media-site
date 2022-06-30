@@ -6,6 +6,27 @@ import '@babel/polyfill';
 import $ from 'jquery';
 import './ngsite';
 import '../sass/style.scss';
+import LazyLoading from './components/LazyLoading.component';
+
+const components = [
+  {
+    class: LazyLoading,
+    options: {
+      triggerElement: 'img'
+    },
+    selector: 'html'
+  },
+];
+
+window.addEventListener('DOMContentLoaded', (e) => {
+  components.forEach((component) => {
+    if (document.querySelector(component.selector) !== null) {
+      document.querySelectorAll(component.selector).forEach(
+        element => new component.class(element, component.options)
+      );
+    }
+  });
+});
 
 $(() => {
   // Put your code here
