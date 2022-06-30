@@ -41,8 +41,8 @@
 {% endif %}
 
 {% set use_margin = block.parameter('vertical_margin:enabled').value is same as(true) %}
-{% set margin_on_top = block.parameter('vertical_margin:onTop').value %}
-{% set margin_on_bottom = block.parameter('vertical_margin:onBottom').value %}
+{% set margin_on_top = block.parameter('vertical_margin:top').value %}
+{% set margin_on_bottom = block.parameter('vertical_margin:bottom').value %}
 
 {% if use_margin and margin_on_top is not null and margin_on_bottom is not null %}
     {% set css_classes = css_classes|merge(['margin-top-' ~ margin_on_top, 'margin-bottom-' ~ margin_on_bottom]) %}
