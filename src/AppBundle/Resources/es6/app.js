@@ -7,6 +7,7 @@ import $ from 'jquery';
 import './ngsite';
 import '../sass/style.scss';
 import LazyLoading from './components/LazyLoading.component';
+import CookieControlClass from './components/CookieControl.component';
 
 const components = [
   {
@@ -16,6 +17,13 @@ const components = [
     },
     selector: 'html'
   },
+  {
+    class: CookieControlClass,
+    options: {
+      triggerElement: 'html'
+    },
+    selector: 'html'
+  }
 ];
 
 window.addEventListener('DOMContentLoaded', (e) => {
