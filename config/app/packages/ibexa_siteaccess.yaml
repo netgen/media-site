@@ -3,12 +3,12 @@ ibexa:
         default_siteaccess: eng
         list:
             - eng
-            - admin
+            - '%ngsite.admin_siteaccess_name%'
         groups:
             frontend_group:
                 - eng
             admin_group:
-                - admin
+                - '%ngsite.admin_siteaccess_name%'
     system:
         frontend_group:
             translation_siteaccesses:
