@@ -3,7 +3,6 @@ import $ from 'jquery';
 import 'magnific-popup';
 import Swiper from 'swiper/dist/js/swiper';
 import 'bootstrap';
-import CookieControl from '@netgen/javascript-cookie-control';
 
 global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
 global.Swiper = Swiper;
@@ -201,35 +200,6 @@ $(document).ready(() => {
     getVideoPoster($(this), 'dailymotion');
   });
   /* /get video poster */
-
-  /* COOKIE CONTROL */
-  const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
-  cookieControl.init();
-
-  /* cookie control optional list toggle */
-  $('.optional-list-toggle').on('click', function (e) {
-    e.preventDefault();
-
-    $(this).toggleClass('rotate-arrow');
-    const list = $('.ng-cc-optional-list');
-
-    if (list.hasClass('shown')) {
-      list.removeClass('shown').slideUp();
-    } else {
-      list.addClass('shown').slideDown();
-    }
-  });
-  /* /cookie control optional list toggle */
-
-  /* cookie consent changed */
-  $('#ng-cc-accept, #ng-cc-optional-save').on('click', (e) => {
-    e.preventDefault();
-    dataLayer.push({
-      event: 'ngcc-changed',
-    });
-  });
-  /* /cookie consent changed */
-  /* /COOKIE CONTROL */
 
   Array.prototype.filter.call(document.getElementsByClassName('ajax-collection'), (el) => {
     el.addEventListener(

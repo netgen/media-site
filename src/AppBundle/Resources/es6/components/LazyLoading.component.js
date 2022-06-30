@@ -1,8 +1,6 @@
 export default class LazyLoading {
     constructor(element, options) {
         this.options = options;
-        this.images = document.getElementsByTagName(options.triggerElement); 
-
         this.onInit();
     }
 
@@ -27,7 +25,7 @@ export default class LazyLoading {
             }
         }
 
-    lazyImageLoad(image) {
+    lazyImageLoad(image) {;
         if (image.hasAttribute('data-src')) image.setAttribute('src', image.getAttribute('data-src'));
         if (image.hasAttribute('data-srcset'))
             image.setAttribute('srcset', image.getAttribute('data-srcset'));
