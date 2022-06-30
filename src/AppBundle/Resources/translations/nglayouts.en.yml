@@ -2,8 +2,3 @@ block.plugin.background_color.primary: 'Primary (Yellow)'
 block.plugin.background_color.secondary: 'Secondary (Light gray)'
 block.plugin.background_color.white: 'White'
 block.plugin.background_color.black: 'Black'
-
-block.plugin.vertical_margin.enabled: 'Use vertical margin'
-block.plugin.vertical_margin.onTop: 'On top'
-block.plugin.vertical_margin.onBottom: 'On bottom'
-

@@ -1,9 +1,4 @@
 parameters:
-    ngsite.layouts.block.plugin.vertical_margin.sizes:
-        none: 'block.plugin.vertical_whitespace.none'
-        small: 'block.plugin.vertical_whitespace.small'
-        medium: 'block.plugin.vertical_whitespace.medium'
-        large: 'block.plugin.vertical_whitespace.large'
 
 services:
     ngsite.layouts.block.plugin.vertical_whitespace_v2:
@@ -11,14 +6,5 @@ services:
         arguments:
             - "%ngsite.layouts.block.plugin.vertical_whitespace.top%"
             - "%ngsite.layouts.block.plugin.vertical_whitespace.bottom%"
-        tags:
-            - { name: netgen_layouts.block_definition_handler.plugin, priority: 200 }
-
-    app.block.block_definition.handler.plugin.vertical_margin:
-        class: AppBundle\Block\BlockDefinition\Handler\VerticalMarginPlugin
-        public: false
-        arguments:
-            - "%ngsite.layouts.block.plugin.vertical_whitespace.positions%"
-            - "%ngsite.layouts.block.plugin.vertical_margin.sizes%"
         tags:
             - { name: netgen_layouts.block_definition_handler.plugin, priority: 200 }
