@@ -12,11 +12,22 @@
 .object-left,
 .object-right {
     max-width: 47.5%;
+
+    @include media-breakpoint-down(xs) {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 .object-center {
     .view-type-embed {
         max-width: 75%;
         margin: 0 auto;
+
+        @include media-breakpoint-down(xs) {
+            max-width: 100%;
+        }
     }
 }
 .view-type-embed {
@@ -33,21 +44,6 @@
 }
 .clear {
     clear: both;
-}
-
-@include media-breakpoint-down(xs) {
-    .object-left,
-    .object-right {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .object-center {
-        .view-type-embed {
-            max-width: 100%;
-        }
-    }
 }
 /* /EMBEDED OBJECTS */
 

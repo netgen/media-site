@@ -4,6 +4,11 @@
     text-transform: uppercase;
     font-size: .8125rem;
     letter-spacing: 1px;
+
+    @include media-breakpoint-down(lg) {
+        font-size: .75rem;
+    }
+    
     > span,
     > time,
     > a {
@@ -51,9 +56,6 @@
         &::before {
             display: none;
         }
-    }
-    @include media-breakpoint-down(lg) {
-        font-size: .75rem;
     }
 }
 

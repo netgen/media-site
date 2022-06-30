@@ -20,6 +20,11 @@
         font-size: 1.5rem;
         font-weight: 900;
         margin: 0 0 .25rem;
+
+        @include media-breakpoint-down(lg) {
+            font-size: 1.25rem;
+        }
+
         a {
             @extend %item-title-link;
         }
@@ -47,11 +52,6 @@
         pointer-events: none;
         + .article-header {
             padding-top: 3.5rem;
-        }
-    }
-    @include media-breakpoint-down(lg) {
-        .title {
-            font-size: 1.25rem;
         }
     }
 }

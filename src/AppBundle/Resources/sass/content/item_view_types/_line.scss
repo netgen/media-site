@@ -3,8 +3,18 @@
     margin: 0 0 2rem;
     display: flex;
     position: relative;
+
+    @include media-breakpoint-down(xxs) {
+        display: block;
+    }
+
     .image {
         width: 44%;
+
+        @include media-breakpoint-down(xxs) {
+            width: 100%;
+        }
+
         a, span {
             display: block;
             position: relative;
@@ -20,6 +30,11 @@
         }
         + .article-content {
             padding-left: $gap;
+
+            @include media-breakpoint-down(xxs) {
+                padding-left: 0;
+                padding-top: 1rem;
+            }
         }
     }
     .article-content {
@@ -56,16 +71,6 @@
         pointer-events: none;
         + .article-content {
             padding-left: 4.875rem;
-        }
-    }
-    @include media-breakpoint-down(xxs) {
-        display: block;
-        .image {
-            width: 100%;
-            + .article-content {
-                padding-left: 0;
-                padding-top: 1rem;
-            }
         }
     }
 }
