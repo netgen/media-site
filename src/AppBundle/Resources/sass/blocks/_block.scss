@@ -50,32 +50,6 @@
         }
     }
 
-    // @mixin marginTop($padding, $sizes: $sizes) {
-    //     @each $size, $value in $sizes {
-    //         &.margin-#{$size} {
-    //             margin-top: #{$value};
-    //         }
-    //     }
-    // }
-
-    // @mixin marginBottom($padding, $sizes: $sizes) {
-    //     @each $size, $value in $sizes {
-    //         &.margin-#{$size} {
-    //             margin-bottom: #{$value};
-    //         }
-    //     }
-    // }
-
-    // &.margin-top,
-    // .container.margin-top {
-    //     @include marginTop('size');
-    // }
-
-    // &.margin-bottom,
-    // .container.margin-bottom {
-    //     @include marginBottom('size');
-    // }
-        
     &.with-bg-image {
         background-repeat: no-repeat;
         background-size: cover;
