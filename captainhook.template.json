@@ -39,7 +39,8 @@
             {
                 "action": "\\Netgen\\GitHooks\\Action\\PHPStan",
                 "options": {
-                    "excluded_files": ["/^deploy.*/", "/^src\\/AppBundle\\/ezpublish_legacy\\/*/"]
+                    "excluded_files": ["/^deploy.*/", "/^src\\/AppBundle\\/ezpublish_legacy\\/*/"],
+                    "phpstan_path": "bin/phpstan"
                 }
             },
             {
