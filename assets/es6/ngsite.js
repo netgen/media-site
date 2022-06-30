@@ -107,41 +107,6 @@ $(document).ready(() => {
   });
   /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
 
-  /* idangero.us swiper */
-  const relatedSwiper = [];
-  $('.related-multimedia.swiper-container').each(function (index) {
-    const swiperId = `relatedMultimediaSwiper-${index + 1}`;
-    const data = $(this).data();
-    $(this).attr('id', swiperId);
-    relatedSwiper.push(
-      new Swiper($(this), {
-        navigation: {
-          nextEl: `#${swiperId} .swiper-button-next`,
-          prevEl: `#${swiperId} .swiper-button-prev`,
-        },
-        pagination: {
-          el: `#${swiperId} .swiper-pagination`,
-          type: 'fraction',
-        },
-        preloadImages: false,
-        loop: data.loop,
-        effect: data.effect,
-        autoplay: data.autoplay ? { delay: data.autoplay * 1000 } : false,
-        lazy: {
-          loadPrevNext: true,
-          loadPrevNextAmount: 1,
-          loadOnTransitionStart: true,
-        },
-        autoHeight: true,
-        on: {
-          lazyImageReady() {
-            this.updateAutoHeight();
-          },
-        },
-      })
-    );
-  });
-  /* /idangero.us swiper */
 
   /* header actions */
   /* plugin for click outside */
