@@ -150,51 +150,6 @@ $(document).ready(() => {
   (function($,c,b){$.map('click dblclick mousemove mousedown mouseup mouseover mouseout change select submit keydown keypress keyup'.split(' '),function(d){a(d)});a('focusin','focus'+b);a('focusout','blur'+b);$.addOutsideEvent=a;function a(g,e){e=e||g+b;var d=$(),h=g+'.'+e+'-special-event';$.event.special[e]={setup:function(){d=d.add(this);if(d.length===1){$(c).bind(h,f)}},teardown:function(){d=d.not(this);if(d.length===0){$(c).unbind(h)}},add:function(i){var j=i.handler;i.handler=function(l,k){l.target=k;j.apply(this,arguments)}}};function f(i){$(d).each(function(){var j=$(this);if(this!==i.target&&!j.has(i.target).length){j.triggerHandler(e,[i.target])}})}}})($,document,'outside'); // eslint-disable-line
   /* /plugin for click outside */
 
-  (() => {
-    const page = $('#page');
-    const navToggle = $('.mainnav-toggle');
-    const searchToggle = $('.searchbox-toggle');
-    const searchForm = $('.header-search');
-    const searchInput = searchForm.find('input.search-query');
-    const pageToggleClass = (e, classToToggle, classToRemove) => {
-      e.preventDefault();
-      page.toggleClass(classToToggle);
-      if (classToRemove) {
-        page.removeClass(classToRemove);
-      }
-    };
-    /* toggle mobile menu */
-    navToggle.on('click', (e) => {
-      pageToggleClass(e, 'mainnav-active');
-    });
-    /* toggle searchbox */
-    searchToggle.on('click', (e) => {
-      pageToggleClass(e, 'searchbox-active', 'mainnav-active');
-      searchInput.focus();
-    });
-    searchForm.on('clickoutside', () => {
-      page.removeClass('searchbox-active');
-    });
-    searchInput.on('input', function () {
-      if ($(this).val() !== '') {
-        searchForm.addClass('filled');
-      } else {
-        searchForm.removeClass('filled');
-      }
-    });
-
-    /* toggle mobile submenu */
-    const mainNav = $('.main-navigation').find('ul.navbar-nav');
-    const submenuTrigContent = $('<i class="submenu-trigger"></i>');
-    mainNav
-      .find('.menu_level_1')
-      .before(submenuTrigContent)
-      .parent('li')
-      .attr('data-submenu', 'true');
-    mainNav.on('click', 'i.submenu-trigger', function () {
-      $(this).parent('li').toggleClass('submenu-active');
-    });
-  })();
 
   /* /header actions */
 
