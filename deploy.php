@@ -14,7 +14,7 @@ require __DIR__ . '/deploy/tasks/database.php';
 require __DIR__ . '/deploy/tasks/rsync.php';
 require __DIR__ . '/deploy/tasks/deploy_log.php';
 require __DIR__ . '/deploy/tasks/sentry.php';
-+require __DIR__ . '/deploy/tasks/sentry_notify.php';
+require __DIR__ . '/deploy/tasks/sentry_notify.php';
 require __DIR__ . '/deploy/tasks/logs.php';
 require __DIR__ . '/deploy/tasks/overrides.php';
 require __DIR__ . '/deploy/tasks/assets.php';
