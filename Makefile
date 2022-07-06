@@ -55,3 +55,30 @@ clear-cache: ## Clear caches for specified environment (default: SYMFONY_ENV=dev
 .PHONY: images
 images: ## Generate most used image variations for all images for specified environment (default: SYMFONY_ENV=dev)
 	$(PHP_RUN) bin/console ngsite:content:generate-image-variations --variations=i30,i160,i320,i480,nglayouts_app_preview,ngcb_thumbnail --env=$(SYMFONY_ENV)
+
+.PHONY: migrations
+migrations: ## Run Doctrine migrations for specified environment (default: SYMFONY_ENV=dev)
+	$(PHP_RUN) bin/console doctrine:migration:migrate --env=$(SYMFONY_ENV)
+
+.PHONY: reindex
+reindex: ## Recreate or refresh search engine index for specified environment (default: SYMFONY_ENV=dev)
+	$(PHP_RUN) bin/console ezplatform:reindex --env=$(SYMFONY_ENV)
+
+.PHONY: build
+build: ## Build the project (install vendor, migrations, reindex, build assets, clear cache) for specified environment (default: SYMFONY_ENV=dev)
+	@$(MAKE) -s vendor
+	@$(MAKE) -s migrations
+	@$(MAKE) -s reindex
+	ifeq ($(SYMFONY_ENV), prod)
+		$(MAKE) -s assets-prod
+	else
+		$(MAKE) -s assets
+	endif
+	@$(MAKE) -s clear-cache
+
+.PHONY: refresh
+refresh: ## Fetch latest changes and build the project for specified environment (default: SYMFONY_ENV=dev)
+	/usr/bin/env git stash
+	/usr/bin/env git pull --rebase
+	/usr/bin/env git stash pop
+	@$(MAKE) -s build
