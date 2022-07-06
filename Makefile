@@ -30,11 +30,17 @@ vendor: ## Run composer install
 assets-node:
 	n auto
 
-.PHONY: assets-build
-assets-build: ## Build frontend assets for specified environment (default: SYMFONY_ENV=dev)
+.PHONY: assets
+assets: ## Build frontend assets for DEV environment
 	@$(MAKE) -s assets-node
 	yarn install
-	yarn build:$(SYMFONY_ENV)
+	yarn build:dev
+
+.PHONY: assets-prod
+assets-prod: ## Build frontend assets for PROD environment
+	@$(MAKE) -s assets-node
+	yarn install
+	yarn build:prod
 
 .PHONY: assets-watch
 assets-watch: ## Watch frontend assets (during development)
