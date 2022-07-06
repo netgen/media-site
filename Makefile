@@ -23,7 +23,7 @@ vendor: ## Run composer install
 
 .PHONY: assets-node
 assets-node:
-	sudo n auto
+	n auto
 
 .PHONY: assets-build
 assets-build: ## Build frontend assets for specified environment (default: SYMFONY_ENV=dev)
