@@ -17,9 +17,14 @@ help: ## List of all available commands
 php-version: ## See PHP version needed for this project
 	@echo $(PHP_VERSION)
 
+COMPOSER_INSTALL_PARAMETERS =
+ifeq ($(SYMFONY_ENV), prod)
+	COMPOSER_INSTALL_PARAMETERS = --no-dev -o
+endif
+
 .PHONY: vendor
 vendor: ## Run composer install
-	$(COMPOSER_RUN) install
+	$(COMPOSER_RUN) install $(COMPOSER_INSTALL_PARAMETERS)
 
 .PHONY: assets-node
 assets-node:
