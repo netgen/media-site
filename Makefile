@@ -1,10 +1,11 @@
 SYMFONY_ENV = dev
-PHP_RUN = php7.4
+PHP_VERSION = php7.4
+PHP_RUN = /usr/bin/env $(PHP_VERSION)
 COMPOSER_PATH = /usr/local/bin/composer2
 ifeq ("$(wildcard $(COMPOSER_PATH))","")
 	COMPOSER_PATH = /usr/local/bin/composer
 endif
-COMPOSER_RUN = $(PHP_RUN) $(COMPOSER_PATH)/composer.phar
+COMPOSER_RUN = $(PHP_RUN) $(COMPOSER_PATH)
 
 .PHONY: help
 help: ## List of all available commands
@@ -14,7 +15,7 @@ help: ## List of all available commands
 
 .PHONY: php-version
 php-version: ## See PHP version needed for this project
-	@echo $(PHP_RUN)
+	@echo $(PHP_VERSION)
 
 .PHONY: vendor
 vendor: ## Run composer install
