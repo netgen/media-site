@@ -158,7 +158,8 @@
         "allow-plugins": {
             "ezsystems/ezpublish-legacy-installer": true,
             "symfony/thanks": true,
-            "netgen/git-hooks": true
+            "netgen/git-hooks": true,
+            "phpstan/extension-installer": true
         }
     },
     "extra": {
