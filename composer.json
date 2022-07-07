@@ -112,7 +112,8 @@
             "symfony/runtime": true,
             "symfony/thanks": true,
             "ibexa/post-install": true,
-            "netgen/git-hooks": true
+            "netgen/git-hooks": true,
+            "phpstan/extension-installer": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
