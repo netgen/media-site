@@ -108,12 +108,12 @@
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
-            "symfony/flex": true,
-            "symfony/runtime": true,
-            "symfony/thanks": true,
             "ibexa/post-install": true,
             "netgen/git-hooks": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "symfony/thanks": false
         },
         "optimize-autoloader": true,
         "preferred-install": {
