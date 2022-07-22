@@ -81,7 +81,7 @@ final class AppKernel extends Kernel
             case 'behat':
                 $bundles[] = new EzSystems\BehatBundle\EzSystemsBehatBundle();
                 $bundles[] = new EzSystems\PlatformBehatBundle\EzPlatformBehatBundle();
-            // no break, test also needs dev bundles
+                // no break, test also needs dev bundles
             case 'dev':
                 $bundles[] = new eZ\Bundle\EzPublishDebugBundle\EzPublishDebugBundle();
                 $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
