@@ -44,6 +44,10 @@ security:
             pattern: /user/(forgot-password|reset-password)
             security: false
 
+        ibexa_register_from_invitation:
+            pattern: /user/from-invite/register|/from-invite/register
+            security: false
+
         # Uncomment the rules below to enable JSON Web Token (JWT) authentication for REST and/or GraphQL
         #ibexa_jwt_rest:
         #    request_matcher: Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher

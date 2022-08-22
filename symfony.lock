@@ -1,11 +1,11 @@
 {
     "ibexa/oss": {
-        "version": "4.1",
+        "version": "4.2",
         "recipe": {
             "repo": "github.com/ibexa/recipes",
-            "branch": "master-serverless",
-            "version": "4.1",
-            "ref": "b17a54c3e2b97f4a3683cda7e9521f76d40c31aa"
+            "branch": "master",
+            "version": "4.2",
+            "ref": "e5c8c210fa27ab7411a78d8b0458e82a96b71344"
         },
         "files": [
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -50,7 +50,7 @@
         "version": "5.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.3",
             "ref": "5aa8aa48234c8eb6dbdd7b3cd5d791485d2cec4b"
         },
@@ -62,7 +62,7 @@
         "version": "5.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.4",
             "ref": "3cd216a4d007b78d8554d44a5b1c0a446dab24fb"
         },
@@ -78,10 +78,10 @@
         ]
     },
     "symfony/monolog-bundle": {
-        "version": "3.7",
+        "version": "3.8",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "3.7",
             "ref": "213676c4ec929f046dfde5ea8e97625b81bc0578"
         },
@@ -93,7 +93,7 @@
         "version": "5.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.3",
             "ref": "85de1d8ae45b284c3c84b668171d2615049e698f"
         },
@@ -106,7 +106,7 @@
         "version": "5.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.4",
             "ref": "bb2178c57eee79e6be0b297aa96fc0c0def81387"
         },
@@ -119,7 +119,7 @@
         "version": "5.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.3",
             "ref": "24bbc3d84ef2f427f82104f766014e799eefcc3e"
         },
@@ -129,12 +129,12 @@
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.13",
+        "version": "1.15",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "1.10",
-            "ref": "2858aeed7e1d81a45365c049eb533cc8827e380b"
+            "ref": "2e458cc7e6f1df1dad890eb104b81e4f302c9bd4"
         },
         "files": [
             "assets/app.js",
