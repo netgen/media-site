@@ -24,6 +24,8 @@
 
     {% include '@NetgenSite/parts/jwplayer.html.twig' %}
 
+    {{ nglayouts_template_plugin('preview.javascripts') }}
+
     {% include '@NetgenSite/parts/google_tag_manager_code_script.html.twig' %}
 
     {% block structuredData %}{% endblock %}
