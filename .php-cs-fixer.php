@@ -22,6 +22,7 @@ return (new PhpCsFixer\Config())
         'php_unit_test_case_static_method_calls' => ['call_type' => 'self'],
         'php_unit_test_class_requires_covers' => false,
         'phpdoc_align' => false,
+        'phpdoc_order' => ['order' => ['param', 'throws', 'return']],
         'phpdoc_types_order' => ['null_adjustment' => 'always_last', 'sort_algorithm' => 'none'],
         'single_line_comment_style' => false,
         'trailing_comma_in_multiline' => ['elements' => ['arrays', 'arguments']],
