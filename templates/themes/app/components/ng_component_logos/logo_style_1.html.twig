@@ -1,0 +1,42 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import "@ibexadesign/parts/macros.html.twig" as macros %}
+{% set image = content.fieldValue('image') %}
+{% set image_mobile = content.fieldValue('image_mobile') %}
+
+{% block content %}
+    <article class="view-component view-component-logo logo-style-1">
+        <div class="container">
+            {% if not content.fields.eyebrow_title.empty or not content.fields.title.empty %}
+                <header class="article-header">
+                    {% if not content.fields.eyebrow_title.empty %}
+                        <h4 class="eyebrow-title">
+                            {{ ng_render_field(content.fields.eyebrow_title) }}
+                        </h4>
+                    {% endif %}
+
+                    {% if not content.fields.title.empty %}
+                        <h2 class="title">
+                            {{ ng_render_field(content.fields.title)}}
+                        </h2>
+                    {% endif %}
+                </header>
+            {% endif %}
+
+            {% set logos = content.filterFieldRelations('logos', ['ng_logo'], 12, 1) %}
+
+            <div class="logo-grid">
+            {% for logo in logos %}
+                <div class="logo-grid-item">
+                    {% if not logo.fields.logo_svg.empty %}
+                        <a href="{{ ibexa_path(logo) }}">
+                            <img src="{{ asset(logo.fields.logo_svg.value.id, 'ibexa_file') }}" alt="{{ logo.name }}" />
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </article>
+{% endblock %}

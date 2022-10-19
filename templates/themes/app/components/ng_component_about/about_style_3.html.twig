@@ -1,0 +1,54 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import "@ibexadesign/parts/macros.html.twig" as macros %}
+{% set image = content.fieldValue('image') %}
+{% set image_mobile = content.fieldValue('image_mobile') %}
+
+
+{% block content %}
+<article class="view-component view-component-about about-style-3">
+    <header class="article-header">
+        {% if image is not empty %}
+            <picture class="image">
+                {% if image_mobile is not empty %}
+                    <source media="(max-width: 991px)" srcset="{{ ng_image_alias( content.fields.image_mobile, 'i770' ).uri }}">
+                {% endif %}
+                <source media="(min-width: 992px)" srcset="{{ ng_image_alias( content.fields.image, 'original' ).uri }}">
+                {{ ng_render_field(content.fields.image,  {
+                    'parameters': {
+                        'lazy_loading': false,
+                        'alt_text': content.name,
+                    }
+                }) }}
+            </picture>
+        {% endif %}
+
+        {% if not content.fields.eyebrow_title.empty %}
+            <h4 class="eyebrow-title">
+                {{ ng_render_field(content.fields.eyebrow_title) }}
+            </h4>
+        {% endif %}
+
+        {% if not content.fields.title.empty %}
+            <h2 class="title">
+                {{ ng_render_field(content.fields.title)}}
+            </h2>
+        {% endif %}
+    </header>
+
+    <div class="article-info">
+        {% if not content.fields.description.empty %}
+            <div class="short">
+                {{ ng_render_field(content.fields.description) }}
+            </div>
+        {% endif %}
+
+        <a href="#" class="btn btn-link">Find out more</a>
+
+        {# {{ macros.content_link(content, content.fields.link_label_1.value.text, "btn btn-primary") }} #}
+
+        {# {{ macros.content_link(content, content.fields.link_label_2.value.text, "btn btn-secondary") }} #}
+    </div>
+</article>
+{% endblock %}

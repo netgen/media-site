@@ -1,0 +1,40 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import "@ibexadesign/parts/macros.html.twig" as macros %}
+
+{% block content %}
+    <article class="view-component view-component-features features-style-2">
+        <div class="container">
+            {% if content.fields.title is defined and not content.fields.title.empty %}
+                <header class="article-header">
+                    <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+                </header>
+            {% endif %}
+
+            <div class="features-grid">
+                {% for i in 1..4 %}
+                    <div class="features-grid-item">
+                        {% set item_highlight_title = 'item_' ~ i ~ '_highlight_title' %}
+                        {% set item_title = 'item_' ~ i ~ '_title' %}
+                        {% set item_description = 'item_' ~ i ~ '_description' %}
+
+                        {% if content.fields[item_highlight_title] is defined and not content.fields[item_highlight_title].empty %}
+                            <div class="item-highlight-title">
+                                {{ ng_render_field(content.fields[item_highlight_title]) }}
+                            </div>
+                        {% endif %}
+                        {% if content.fields[item_title] is defined and not content.fields[item_title].empty %}
+                            <h3 class="item-title">{{ ng_render_field(content.fields[item_title]) }}</h3>
+                        {% endif %}
+                        {% if content.fields[item_description] is defined and not content.fields[item_description].empty %}
+                            <div class="item-description">
+                                {{ ng_render_field(content.fields[item_description]) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </article>
+{% endblock %}
