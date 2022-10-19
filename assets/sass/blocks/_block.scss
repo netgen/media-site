@@ -27,6 +27,10 @@
     /* background colors */
     &.bg-color-primary {
         background-color: $primary;
+        .btn-primary {
+            background-color: $black;
+            color: $white;
+        }
     }
     &.bg-color-secondary {
         background-color: $secondary;
@@ -34,9 +38,24 @@
     &.bg-color-white {
         background-color: $white;
     }
-    &.bg-color-black {
+    &.bg-color-black,
+    & .bg-figure {
         background-color: $black;
         color: $white;
+
+        .btn-secondary {
+            background-color: $primary;
+            border-color: $primary;
+            color: $black;
+        }
+        .btn-outline {
+            border-color: $white;
+            color: $white;
+        }
+        .btn-link {
+            border-bottom-color: $primary;
+            color: $white;
+        }
     }
 
     @include media-breakpoint-down(sm) {
