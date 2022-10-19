@@ -1,20 +1,23 @@
 /* default button */
-.btn.btn-default {
-    display: block;
-    text-transform: uppercase;
-    font-size: .75rem;
-    letter-spacing: 1px;
-    text-align: left;
-    border-top: 1px solid hsla(0, 0, 0, .12);
-    padding: .75em 0 0;
-    line-height: 1.85;
-    &::after {
-        @extend %fontawesome;
-        content: '\f054';
-        margin-left: .5em;
-        color: $gray-87;
-    }
-    &:hover {
-        color: $gray-54;
+
+.btn {
+    /* &.btn-default {
+        display: block;
+        text-transform: uppercase;
+        border-top: 1px solid hsla(0, 0, 0, .12);
+        padding: .75em 0 0;
+        letter-spacing: 1px;
+        &::after {
+            @extend %fontawesome;
+            content: '\f054';
+            margin-left: .5em;
+            color: $gray-87;
+        }
+        &:hover {
+            color: $gray-54;
+        }
+    }  */
+    &.btn-outline {
+        border: 2px solid $black;
     }
 }
