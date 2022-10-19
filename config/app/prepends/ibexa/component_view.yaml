@@ -1,0 +1,73 @@
+system:
+    frontend_group:
+        ngcontent_view:
+            about_style_1:
+                ng_component_about:
+                    template: "@ezdesign/components/ng_component_about/about_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_about
+
+            about_style_2:
+                ng_component_about:
+                    template: "@ezdesign/components/ng_component_about/about_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_about
+
+            about_style_3:
+                ng_component_about:
+                    template: "@ezdesign/components/ng_component_about/about_style_3.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_about
+
+            hero_style_1:
+                ng_component_hero:
+                    template: "@ezdesign/components/ng_component_hero/hero_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_hero
+
+            hero_style_2:
+                ng_component_hero:
+                    template: "@ezdesign/components/ng_component_hero/hero_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_hero
+
+            logo_style_1:
+                ng_component_logos:
+                    template: "@ezdesign/components/ng_component_logos/logo_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_logos
+
+            logo_style_2:
+                ng_component_logos:
+                    template: "@ezdesign/components/ng_component_logos/logo_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_logos
+
+            features_style_1:
+                ng_component_features:
+                    template: "@ezdesign/components/ng_component_features/features_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            features_style_2:
+                ng_component_features:
+                    template: "@ezdesign/components/ng_component_features/features_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            features_style_3:
+                ng_component_features:
+                    template: "@ezdesign/components/ng_component_features/features_style_3.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
