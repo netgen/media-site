@@ -3,7 +3,7 @@
 
 {% import '@ibexadesign/parts/video.html.twig' as video %}
 
-{% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
+{% if not content.fields.video_file_desktop.empty or not content.fields.video_file_mobile.empty or not content.fields.video_identifier.empty %}
     {% if is_slider %}
         <div class="swiper-slide">
             {{ video.player_slide(content, true) }}
