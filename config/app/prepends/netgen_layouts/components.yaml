@@ -1,0 +1,44 @@
+block_types:
+    ibexa_component_hero:
+        name: 'Hero'
+        definition_identifier: ibexa_component
+        icon: '/public/images/icon-component-hero.svg'
+        defaults:
+            view_type: hero_style_1
+            parameters:
+                content_type_identifier: ng_component_hero
+
+    ibexa_component_about:
+        name: 'About'
+        definition_identifier: ibexa_component
+        icon: '/public/images/icon-component-about.svg'
+        defaults:
+            view_type: about_style_1
+            parameters:
+                content_type_identifier: ng_component_about
+
+    ibexa_component_features:
+        name: 'Features'
+        definition_identifier: ibexa_component
+        icon: '/public/images/icon-component-features.svg'
+        defaults:
+            view_type: features_style_1
+            parameters:
+                content_type_identifier: ng_component_features
+
+    ibexa_component_logos:
+        name: 'Logos'
+        definition_identifier: ibexa_component
+        icon: '/public/images/icon-component-logos.svg'
+        defaults:
+            view_type: logo_style_1
+            parameters:
+                content_type_identifier: ng_component_logos
+
+block_type_groups:
+    components:
+        block_types:
+            - ibexa_component_hero
+            - ibexa_component_about
+            - ibexa_component_features
+            - ibexa_component_logos
