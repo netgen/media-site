@@ -6,7 +6,7 @@
 
 {% set location_path = ibexa_path(location) %}
 
-{% if not content.fields.video_file.empty or not content.fields.video_file_hd.empty or not content.fields.video_identifier.empty %}
+{% if not content.fields.video_file_desktop.empty or not content.fields.video_file_mobile.empty or not content.fields.video_identifier.empty %}
     <article class="view-type view-type-{{ view_type }} ng-video vl5">
         <figure class="image">
             <i class="fas fa-play article-icon" aria-hidden="true"></i>
