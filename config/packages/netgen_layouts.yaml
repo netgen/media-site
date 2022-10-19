@@ -1,3 +1,8 @@
+netgen_layouts:
+    debug: "%kernel.debug%"
+    api_keys:
+        google_maps: AIzaSyB_M5ZpEqvGCuPsyolJaSWl2X7VupjHTwc
+
 # Switches Netgen Layouts and Netgen Content Browser to use filter search service adapter from Site API
 netgen_layouts_ibexa_site_api:
     search_service_adapter: filter
