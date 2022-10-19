@@ -1,12 +1,9 @@
 /* btn overrides */
 .btn {
-    font-weight: 900;
     font-size: 1.125rem;
-    border-width: 2px;
-    line-height: 1;
 }
 
-.btn-primary {
+.btn-secondary {
     background: $black;
     color: $white;
     border-color: $black;
@@ -21,7 +18,7 @@
     }
 }
 
-.btn-secondary {
+.btn-default {
     background: transparent;
     border-color: $black;
     color: $gray-87;
@@ -33,6 +30,17 @@
         background-color: $gray-54;
         border-color: $gray-54;
         color: $white;
+    }
+}
+
+.btn-link {
+    padding: 0;
+    color: $black;
+    border-bottom: 2px solid $black;
+    font-weight: 400;
+    &:hover {
+        color: $gray-54;
+        text-decoration: none;
     }
 }
 
