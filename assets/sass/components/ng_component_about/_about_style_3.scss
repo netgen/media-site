@@ -1,0 +1,54 @@
+.about-style-3 {
+    display: flex;
+
+    .article-header {
+        min-width: 50%;
+
+        & + .article-info {
+            padding-left: 8.5rem;
+            width: 50%;
+        }
+    }
+
+    .image {
+        overflow: hidden;
+        display: block;
+        position: relative;
+        width: 100%;
+        width: 13rem;
+
+        & + * {
+            margin-top: 2rem;
+        }
+    }
+
+    .eyebrow-title {
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.33;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 1.16666;
+        margin-bottom: 0;
+    }
+
+    .short {
+        font-size: 1.125rem;
+        line-height: 1.55;
+
+        & ~ .btn {
+            margin-top: 3.625rem;
+        }
+    }
+
+    .btn {
+        & + .btn {
+            margin-left: 2rem;
+        }
+    }
+}

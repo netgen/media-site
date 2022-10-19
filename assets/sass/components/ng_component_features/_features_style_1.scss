@@ -1,0 +1,44 @@
+.features-style-1 {
+    .article-header {
+        text-align: center;
+        .title {
+            font-size: 2.5rem;
+            & + .short {
+                margin-top: 1.5rem;
+            }
+        }
+        & + .features-grid {
+            margin-top: 4rem;
+        }
+    }
+
+    .features-grid {
+        display: flex;
+        margin: 0 -2rem;
+        .features-grid-item {
+            flex: 0 0 33.3333%;
+            padding: 0 2rem;
+            .item-icon {
+                padding: 2rem;
+                display: inline-block;
+                border-radius: 50%;
+                background-color: $primary;
+                .bg-color-primary & {
+                    background-color: $white;
+                }
+                & + .item-title {
+                    margin-top: 2rem;
+                }
+            }
+            .item-title {
+                font-size: 1.5rem;
+                & + .item-description {
+                    margin-top: 1rem;
+                }
+            }
+            .item-description {
+
+            }
+        }
+    }
+}

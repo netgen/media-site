@@ -1,0 +1,34 @@
+.features-style-2 {
+    .article-header {
+        text-align: center;
+        .title {
+            font-size: 4rem;
+        }
+        & + .features-grid {
+            margin-top: 4rem;
+        }
+    }
+
+    .features-grid {
+        display: flex;
+        margin: 0 -1rem;
+        .features-grid-item {
+            flex: 0 0 25%;
+            padding: 0 1rem;
+            .item-highlight-title {
+                font-size: 6rem;
+                font-weight: 600;
+                color: $tertiary;
+                .bg-color-black & {
+                    color: $primary;
+                }
+            }
+            .item-title {
+                font-size: 2rem;
+                & + .item-description {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}

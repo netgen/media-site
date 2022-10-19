@@ -1,0 +1,45 @@
+.logo-style-2 {
+    .article-header {
+        .title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1.16666;
+            margin: 0;
+    
+            & + .short {
+                margin-top: 2.5rem;
+            }
+    
+            & + .btn {
+                margin-top: 3.375rem;
+            }
+    
+            .bg-color-black & {
+                color: $white;
+            }
+        }
+        & + .logo-grid {
+            margin-top: 4rem;
+        }
+
+        & + .short {
+            margin-top: 2.5rem;
+        }
+    }
+    .btn {
+        margin-top: 4rem;
+        & + .btn {
+            margin-left: 2rem;
+        }
+    }
+
+    .logo-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        background-color: $white;
+        padding: 1.2rem;
+        .logo-grid-item {
+            padding: 0.75rem;
+        }
+    }
+}
