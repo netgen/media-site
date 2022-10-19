@@ -1,4 +1,6 @@
-<link rel="preload" as="style" type="text/css" crossorigin href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900&subset=latin,latin-ext" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 {% for href in encore_entry_css_files('app', 'app') %}
     <link rel="preload" as="style" type="text/css" href="{{ href }}" onload="this.onload=null;this.rel='stylesheet';"></link>
