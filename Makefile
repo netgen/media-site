@@ -6,6 +6,7 @@ ifeq ("$(wildcard $(COMPOSER_PATH))","")
 	COMPOSER_PATH = /usr/local/bin/composer
 endif
 COMPOSER_RUN = $(PHP_RUN) $(COMPOSER_PATH)
+CACHE_POOL = cache.redis
 
 .PHONY: help
 help: ## List of all available commands
@@ -51,6 +52,7 @@ assets-watch: ## Watch frontend assets (during development)
 .PHONY: clear-cache
 clear-cache: ## Clear caches for specified environment (default: SYMFONY_ENV=dev)
 	$(PHP_RUN) bin/console cache:clear --env=$(SYMFONY_ENV)
+	$(PHP_RUN) bin/console cache:pool:clear $(CACHE_POOL) --env=$(SYMFONY_ENV)
 
 .PHONY: images
 images: ## Generate most used image variations for all images for specified environment (default: SYMFONY_ENV=dev)
