@@ -1,3 +1,24 @@
+block_types:
+    list_zigzag:
+        name: 'List (Zig-Zag)'
+        icon: '/public/images/blocks/icon-list-zig-zag.svg'
+        definition_identifier: list
+        defaults:
+            view_type: list_zigzag
+
+    list_accordion:
+        name: 'List (Accordion)'
+        icon: '/public/images/blocks/icon-list-accordion.svg'
+        definition_identifier: list
+        defaults:
+            view_type: list_accordion
+
+block_type_groups:
+    listing:
+        block_types:
+            - list_zigzag
+            - list_accordion
+
 block_definitions:
     title:
         view_types:
@@ -27,6 +48,22 @@ block_definitions:
             list_numbered:
                 name: 'List (numbered)'
                 item_view_types: *list_item_view_types
+                valid_parameters: ['!number_of_columns']
+            list_zigzag:
+                name: 'List (Zig-Zag)'
+                item_view_types:
+                    standard:
+                        enabled: false
+                    zigzag:
+                        name: 'Zig-Zag'
+                valid_parameters: ['!number_of_columns']
+            list_accordion:
+                name: 'List (Accordion)'
+                item_view_types:
+                    standard:
+                        enabled: false
+                    accordion:
+                        name: 'Accordion'
                 valid_parameters: ['!number_of_columns']
             grid:
                 item_view_types:

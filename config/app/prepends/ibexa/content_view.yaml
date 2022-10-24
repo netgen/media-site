@@ -140,6 +140,27 @@ system:
                     params:
                         with_intro: true
                     match: ~
+            zigzag:
+                common:
+                    template: "@ibexadesign/content/zigzag/{content_type}.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_article
+                            - ng_banner
+                            - ng_blog_post
+                            - ng_news
+                match_all:
+                    template: "@ibexadesign/content/zigzag.html.twig"
+                    match: ~
+            accordion:
+                common:
+                    template: "@ibexadesign/content/accordion/{content_type}.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_banner
+                match_all:
+                    template: "@ibexadesign/content/accordion.html.twig"
+                    match: ~
             mini:
                 common:
                     template: "@ibexadesign/content/mini/{content_type}.html.twig"
