@@ -14,7 +14,7 @@
 
     .features-grid {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
         grid-gap: 2rem;
         .features-grid-item {
             padding: 1.5rem;
