@@ -1,13 +1,13 @@
 block_types:
     list_zigzag:
-        name: 'List (Zig-Zag)'
+        name: 'Zig-Zag (List)'
         icon: '/public/images/blocks/icon-list-zig-zag.svg'
         definition_identifier: list
         defaults:
             view_type: list_zigzag
 
     list_accordion:
-        name: 'List (Accordion)'
+        name: 'Accordion (List)'
         icon: '/public/images/blocks/icon-list-accordion.svg'
         definition_identifier: list
         defaults:
