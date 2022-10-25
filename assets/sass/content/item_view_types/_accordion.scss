@@ -1,4 +1,42 @@
 /* accordion item */
 .vl10 {
-
+    background-color: $secondary;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    .bg-color-black & {
+        background-color: lighten($black, 10%);
+    }
+    .bg-color-primary & {
+        background-color: lighten($primary, 10%);
+    }
+    .bg-color-secondary & {
+        background-color: $white;
+    }
+    h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        cursor: pointer;
+        position: relative;
+        padding-right: 3rem;
+        &:after {
+            @extend %fontawesome;
+            content: "\f106";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+        &.collapsed:after {
+            content: "\f107";
+        }
+    }
+    .short {
+        border-top: 1px solid;
+        padding-top: 1rem;
+        margin-top: 1.5rem;
+        border-color: inherit;
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
