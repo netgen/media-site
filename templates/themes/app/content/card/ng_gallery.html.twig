@@ -1,0 +1,36 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
+
+{% set location_path = ibexa_path(location) %}
+{% set children = location.filterChildren(['image'], 1).currentPageResults %}
+
+<article class="view-type view-type-{{ view_type }} ng-gallery vl8">
+    <i class="fas fa-camera article-icon" aria-hidden="true"></i>
+    {% if children.searchHits is not empty %}
+        {% set first_image = children[0].content %}
+
+        <figure class="image">
+            {{ ng_render_field(
+                first_image.fields.image, {
+                    parameters: {
+                        alias: 'i480',
+                        alt_text: first_image.fields.name.value,
+                        link_href: location_path,
+                    }
+                }
+            ) }}
+        </figure>
+    {% endif %}
+    <header class="article-header">
+        <h2 class="title"><a href="{{ location_path }}">{{ content_fields.title(content) }}</a></h2>
+        <div class="info">
+            {% include '@ibexadesign/parts/main_topic.html.twig' %}
+        </div>
+    </header>
+
+    {% if with_intro|default(false) %}
+        {{ content_fields.intro(content) }}
+    {% endif %}
+</article>

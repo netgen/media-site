@@ -1,0 +1,24 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ibexadesign/parts/video.html.twig' as video %}
+
+{% if not content.fields.video_file_desktop.empty or not content.fields.video_file_mobile.empty or not content.fields.video_identifier.empty %}
+    <article class="view-type view-type-{{ view_type }} ng-video vl8">
+        <i class="fas fa-play article-icon" aria-hidden="true"></i>
+        <figure class="image">
+            {{ video.poster(content, location, null, content_fields.title(content)) }}
+        </figure>
+
+        <header class="article-header">
+            <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+            <div class="info">
+                {% include '@ibexadesign/parts/main_topic.html.twig' %}
+            </div>
+        </header>
+        {% if with_intro|default(false) %}
+            {{ content_fields.intro(content) }}
+        {% endif %}
+    </article>
+{% endif %}

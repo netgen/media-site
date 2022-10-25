@@ -140,6 +140,43 @@ system:
                     params:
                         with_intro: true
                     match: ~
+        card:
+            common:
+                template: "@ibexadesign/content/card/{content_type}.html.twig"
+                params:
+                    with_intro: false
+                match:
+                    Identifier\ContentType:
+                        - file
+                        - image
+                        - ng_article
+                        - ng_audio
+                        - ng_banner
+                        - ng_blog_post
+                        - ng_category
+                        - ng_feedback_form
+                        - ng_frontpage
+                        - ng_gallery
+                        - ng_htmlbox
+                        - ng_landing_page
+                        - ng_news
+                        - ng_recipe
+                        - ng_video
+            match_all:
+                template: "@ibexadesign/content/card.html.twig"
+                params:
+                    with_intro: false
+                match: ~
+        card_with_intro:
+            common:
+                extends: card/common
+                params:
+                    with_intro: true
+            match_all:
+                template: "@ibexadesign/content/card.html.twig"
+                params:
+                    with_intro: true
+                match: ~
             zigzag:
                 common:
                     template: "@ibexadesign/content/zigzag/{content_type}.html.twig"

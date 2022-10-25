@@ -1,0 +1,69 @@
+/* card item */
+.vl8 {
+    margin: 0 0 2rem;
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    .image {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        margin: 0;
+        overflow: hidden;
+        img {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .article-content {
+        padding: 2rem;
+        color: $black;
+        background-color: $secondary;
+        .bg-color-secondary &, 
+        .bg-color-primary & {
+            background-color: $white;
+        }
+        .title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin: 0 0 .25rem;
+            a {
+                @extend %item-title-link;
+            }
+        }
+        .short {
+            color: $gray-54;
+            p {
+                margin: 0;
+            }
+        }
+        .info {
+            @extend %item-header-info;
+        }
+        .article-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3rem;
+            height: 3rem;
+            line-height: 3rem;
+            text-align: center;
+            background: $primary;
+            color: $black;
+            z-index: 2;
+            pointer-events: none;
+            + .article-header {
+                padding-top: 3.5rem;
+            }
+        }
+        @include media-breakpoint-down(lg) {
+            .title {
+                font-size: 1.25rem;
+            }
+        }
+    }
+}

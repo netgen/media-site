@@ -45,6 +45,10 @@ block_definitions:
                         name: 'List item'
                     listitem_with_intro:
                         name: 'List item (with intro)'
+                    card:
+                        name: 'Card'
+                    card_with_intro:
+                        name: 'Card (with intro)'
             list_numbered:
                 name: 'List (numbered)'
                 item_view_types: *list_item_view_types
@@ -71,6 +75,10 @@ block_definitions:
                         name: 'Standard (with intro)'
                     overlay:
                         name: 'Overlay'
+                    card:
+                        name: 'Card'
+                    card_with_intro:
+                        name: 'Card (with intro)'
             grid_featured:
                 name: 'Grid (featured)'
                 item_view_types:
