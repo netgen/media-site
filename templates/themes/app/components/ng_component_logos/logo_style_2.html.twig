@@ -29,9 +29,11 @@
                             {{ ng_render_field(content.fields.description)}}
                         </div>
                         {% endif %}
-                        <a href="#" class="btn btn-primary">Find out more</a>
 
-                        <a href="#" class="btn btn-outline">Find out more</a>
+                        {% if not content.fields.link_label.empty %}
+                            <a href="#" class="btn btn-primary">Find out more</a>
+                        {% endif %}
+                        {# {{ macros.content_link(content, content.fields.link_label.value.text, "btn btn-primary") }} #}
                     {% endif %}
                 </div>
                 <div class="col-md-6 offset-md-1">

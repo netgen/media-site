@@ -24,7 +24,9 @@
         <div class="short">
             {{ ng_render_field(content.fields.short_description) }}
         </div>
-        <a class="btn btn-outline" href="#">Find out more</a>
+        {% if not content.fields.link_label.empty %}
+            <a class="btn btn-outline" href="#">Find out more</a>
+        {% endif %}
     </div>
 
 </article>
