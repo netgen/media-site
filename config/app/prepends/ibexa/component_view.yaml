@@ -85,3 +85,9 @@ system:
                         Identifier\ContentType:
                             - ng_component_features
 
+            features_style_4:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_4.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features

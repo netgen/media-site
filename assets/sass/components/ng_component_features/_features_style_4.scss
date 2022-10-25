@@ -1,0 +1,54 @@
+.features-style-4 {
+    .article-header {
+        text-align: center;
+        .title {
+            font-size: 2.5rem;
+            & + .short {
+                margin-top: 1.5rem;
+            }
+        }
+        & + .features-grid {
+            margin-top: 4rem;
+        }
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 2rem;
+        .features-grid-item {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            background-color: $secondary;
+            .bg-color-black & {
+                background-color: lighten($black, 10%);
+            }
+            .bg-color-primary & {
+                background-color: lighten($primary, 10%);
+            }
+            .bg-color-secondary & {
+                background-color: $white;
+            }
+            .item-icon {
+                display: inline-block;
+                img {
+                    @include icon-color(tertiary);
+                }
+                .bg-color-black & {
+                    img {
+                        @include icon-color(primary);
+                    }
+                }
+                & + .item-title {
+                    margin-top: 2rem;
+                }
+            }
+            .item-title {
+                font-size: 1.5rem;
+                & + .item-description {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}
