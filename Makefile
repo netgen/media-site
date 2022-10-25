@@ -52,6 +52,10 @@ assets-watch: ## Watch frontend assets (during development)
 .PHONY: clear-cache
 clear-cache: ## Clear caches for specified environment (default: SYMFONY_ENV=dev)
 	$(PHP_RUN) bin/console cache:clear --env=$(SYMFONY_ENV)
+
+.PHONY: clear-all-cache
+clear-all-cache: ## Clear all caches for specified environment (including eg. Redis) (default: SYMFONY_ENV=dev)
+	@$(MAKE) -s clear-cache
 	$(PHP_RUN) bin/console cache:pool:clear $(CACHE_POOL) --env=$(SYMFONY_ENV)
 
 .PHONY: images
