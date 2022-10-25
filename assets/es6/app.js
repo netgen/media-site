@@ -5,13 +5,13 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import $ from 'jquery';
-import VideoHandlerComponent from './components/VideoHandler.component';
+import ResponsiveVideoComponent from './components/ResponsiveVideo.component';
 import './ngsite';
 import '../sass/style.scss';
 
 const components = [
   {
-    class: VideoHandlerComponent,
+    class: ResponsiveVideoComponent,
     selector: '.js-responsive-video',
   },
 ];
