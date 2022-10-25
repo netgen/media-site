@@ -1,18 +1,17 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
+{% import "@ibexadesign/parts/macros.html.twig" as macros %}
 
-<article class="view-type view-type-{{ view_type }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl8">
+<article class="view-type view-type-{{ view_type }} ng-accordion-item vl8">
 
     <h3 class="title collapsed" data-toggle="collapse" data-target="#collapse-{{ location.id }}" aria-expanded="true" aria-controls="collapse-{{ location.id }}">
-        {{ content_fields.title(content) }}
+        {{ ng_render_field(content.fields.title) }}
     </h3>
 
     <div id="collapse-{{ location.id }}" class="collapse" aria-labelledby="heading-{{ location.id }}" data-parent=".list-accordion">
         <div class="short">
-            {{ content_fields.intro(content) }}
+            {{ ng_render_field(content.fields.description) }}
         </div>
     </div>
-
 </article>

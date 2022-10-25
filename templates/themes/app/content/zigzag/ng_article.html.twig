@@ -3,9 +3,9 @@
 
 {% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
 
-<article class="view-type view-type-{{ view_type }} ng-article vl4">
+<article class="view-type view-type-{{ view_type }} ng-article vl9">
 
-    {{ content_fields.image(content, location, 'i320') }}
+    {{ content_fields.image(content, location, 'i480') }}
 
     <div class="article-content">
         <header class="article-header">
@@ -17,6 +17,7 @@
         </header>
         <div class="short">
             {{ content_fields.intro(content) }}
+            <a class="btn btn-outline" href="{{ ibexa_path(location) }}">Find out more</a>
         </div>
     </div>
 </article>

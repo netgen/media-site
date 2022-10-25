@@ -1,0 +1,22 @@
+.list-zigzag {
+    & .list-item {
+        &:nth-child(2n) {
+            .view-type-zigzag {
+                flex-direction: row-reverse;
+            }
+        }
+        &:last-child {
+            .view-type-zigzag {
+                margin-bottom: 0;
+            }
+        }
+        @include media-breakpoint-down(sm) {
+            &,
+            &:nth-child(2n) {
+                .view-type-zigzag {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

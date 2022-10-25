@@ -3,7 +3,7 @@
 
 {% import "@ibexadesign/parts/macros.html.twig" as macros %}
 
-<article class="view-type view-type-{{ view_type }} ng-banner vl4">
+<article class="view-type view-type-{{ view_type }} ng-banner vl9">
 
     {% if not content.fields.image.empty %}
         <figure class="image">
@@ -13,6 +13,10 @@
 
     <div class="article-content">
         <header class="article-header">
+            {% if not content.fields.eyebrow_title.empty %}
+                <span class="eyebrow-title">{{ content.fields.eyebrow_title.value.text }}</span>
+            {% endif %}
+            </span>
             <h2 class="title">
                 {{ macros.content_link(content, content.fields.title.value.text) }}
             </h2>
@@ -20,5 +24,7 @@
         <div class="short">
             {{ ng_render_field(content.fields.short_description) }}
         </div>
+        <a class="btn btn-outline" href="#">Find out more</a>
     </div>
+
 </article>
