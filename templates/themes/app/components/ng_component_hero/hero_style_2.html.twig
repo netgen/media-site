@@ -32,11 +32,11 @@
 
                     <div class="actions">
                         {% if not content.fields.link_label_1.empty %}
-                            <a href="#" class="btn btn-primary">See how we make a difference</a>
+                            <a href="#" class="btn btn-primary">{{ content.fields.link_label_1.value.text }}</a>
                         {% endif %}
                         {# {{ macros.content_link(content, content.fields.link_label_1.value.text, "btn btn-primary") }} #}
                         {% if not content.fields.link_label_2.empty %}
-                            <a href="#" class="btn btn-outline">Contact us</a>
+                            <a href="#" class="btn btn-outline">{{ content.fields.link_label_2.value.text }}</a>
                         {% endif %}
                         {# {{ macros.content_link(content, content.fields.link_label_2.value.text, "btn btn-outline") }} #}
                     </div>

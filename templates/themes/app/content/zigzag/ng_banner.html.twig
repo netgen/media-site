@@ -25,7 +25,7 @@
             {{ ng_render_field(content.fields.short_description) }}
         </div>
         {% if not content.fields.link_label.empty %}
-            <a class="btn btn-outline" href="#">Find out more</a>
+            <a class="btn btn-outline" href="#">{{ content.fields.link_label.value.text }}</a>
         {% endif %}
     </div>
 

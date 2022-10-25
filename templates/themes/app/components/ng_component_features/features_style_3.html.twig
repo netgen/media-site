@@ -8,9 +8,12 @@
         <div class="container">
             <header class="article-header">
                 <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-                <div class="info">
-                    <a href="#" class="btn btn-secondary">Contact us</a>
-                </div>
+
+                {% if not content.fields.link_label.empty %}
+                    <div class="info">
+                        <a href="#" class="btn btn-secondary">{{ content.fields.link_label.value.text }}</a>
+                    </div>
+                {% endif %}
             </header>
 
             <div class="features-grid">

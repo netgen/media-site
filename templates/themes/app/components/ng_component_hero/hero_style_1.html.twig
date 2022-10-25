@@ -4,8 +4,8 @@
 {% import "@ibexadesign/parts/macros.html.twig" as macros %}
 {% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
 
-{% set image = content.fieldValue('image') %}
-{% set image_mobile = content.fieldValue('image_mobile') %}
+{% set image = content.fields.image %}
+{% set image_mobile = content.fields.image_mobile %}
 {% set local_video = content.fields.video %}
 {% set local_video_mobile = content.fields.video_mobile %}
 
@@ -37,11 +37,11 @@
 
                         <div class="actions">
                             {% if not content.fields.link_label_1.empty %}
-                                <a href="#" class="btn btn-primary">See how we make a difference</a>
+                                <a href="#" class="btn btn-primary">{{ content.fields.link_label_1.value.text }}</a>
                             {% endif %}
                             {# {{ macros.content_link(content, content.fields.link_label_1.value.text, "btn btn-primary") }} #}
                             {% if not content.fields.link_label_2.empty %}
-                                <a href="#" class="btn btn-outline">Contact us</a>
+                                <a href="#" class="btn btn-outline">{{ content.fields.link_label_2.value.text }}</a>
                             {% endif %}
                             {# {{ macros.content_link(content, content.fields.link_label_2.value.text, "btn btn-outline") }} #}
                         </div>
@@ -52,7 +52,7 @@
         </div>
 
         <figure>
-            {% if local_video is defined and local_video is not empty %}
+            {% if local_video is defined and not local_video.empty %}
                 <video preload="auto" autoplay="" loop="" muted="" playsinline="" class="js-responsive-video"
                     data-desktop-vid="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': local_video.id, 'isInline': 1}) }}"
                     {% if local_video_mobile is defined and not local_video_mobile.empty %}
@@ -60,9 +60,9 @@
                 {% endif %}
                 ></video>
                 <span class="overlay"></span>
-            {% elseif image is not empty %}
+            {% elseif not image.empty %}
                 <picture>
-                    {% if image_mobile is not empty %}
+                    {% if not image_mobile.empty %}
                         <source media="(max-width: 991px)" srcset="{{ ng_image_alias( content.fields.image_mobile, 'i770' ).uri }}">
                     {% endif %}
                     <source media="(min-width: 992px)" srcset="{{ ng_image_alias( content.fields.image, 'original' ).uri }}">
@@ -73,6 +73,7 @@
                         }
                     }) }}
                 </picture>
+                <span class="overlay"></span>
             {% endif %}
         </figure>
 
