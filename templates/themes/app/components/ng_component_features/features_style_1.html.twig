@@ -5,40 +5,38 @@
 
 {% block content %}
     <article class="view-component view-component-features features-style-1">
-        <div class="container">
-            <header class="article-header">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                            <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-                            <div class="short">
-                                {{ ng_render_field(content.fields.description) }}
-                            </div>
-                    </div>
+        <header class="article-header">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                        <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+                        <div class="short">
+                            {{ ng_render_field(content.fields.description) }}
+                        </div>
                 </div>
-            </header>
-            <div class="features-grid">
-                {% for i in 1..3 %}
-                    <div class="features-grid-item">
-                        {% set item_icon = 'item_' ~ i ~ '_icon' %}
-                        {% set item_title = 'item_' ~ i ~ '_title' %}
-                        {% set item_description = 'item_' ~ i ~ '_description' %}
-
-                        {% if content.fields[item_icon] is defined and not content.fields[item_icon].empty %}
-                            <div class="item-icon">
-                                <img src="{{ asset(content.fields[item_icon].value.id, 'ibexa_file') }}" alt="{{ content.name }}" />
-                            </div>
-                        {% endif %}
-                        {% if content.fields[item_title] is defined and not content.fields[item_title].empty %}
-                            <h3 class="item-title">{{ ng_render_field(content.fields[item_title]) }}</h3>
-                        {% endif %}
-                        {% if content.fields[item_description] is defined and not content.fields[item_description].empty %}
-                            <div class="item-short">
-                                {{ ng_render_field(content.fields[item_description]) }}
-                            </div>
-                        {% endif %}
-                    </div>
-                {% endfor %}
             </div>
+        </header>
+        <div class="features-grid">
+            {% for i in 1..3 %}
+                <div class="features-grid-item">
+                    {% set item_icon = 'item_' ~ i ~ '_icon' %}
+                    {% set item_title = 'item_' ~ i ~ '_title' %}
+                    {% set item_description = 'item_' ~ i ~ '_description' %}
+
+                    {% if content.fields[item_icon] is defined and not content.fields[item_icon].empty %}
+                        <div class="item-icon">
+                            <img src="{{ asset(content.fields[item_icon].value.id, 'ezfile') }}" alt="{{ content.name }}" />
+                        </div>
+                    {% endif %}
+                    {% if content.fields[item_title] is defined and not content.fields[item_title].empty %}
+                        <h3 class="item-title">{{ ng_render_field(content.fields[item_title]) }}</h3>
+                    {% endif %}
+                    {% if content.fields[item_description] is defined and not content.fields[item_description].empty %}
+                        <div class="item-short">
+                            {{ ng_render_field(content.fields[item_description]) }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
         </div>
     </article>
 {% endblock %}
