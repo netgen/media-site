@@ -5,9 +5,9 @@ $gutter: .9375rem;
 $gap: 2 * $gutter;
 
 // colours
-$primary: hsl(49, 99, 59);
-$secondary: hsl(220, 33, 98);
-$tertiary: #2AA9C0;
+$primary: #FED82F;
+$secondary: #F8F9FC;
+$tertiary: #116273;
 $white: hsl(0, 0, 100);
 $black: hsl(0, 0, 0);
 $gray-87: hsl(0, 0, 13);
@@ -19,6 +19,16 @@ $gray-7: hsl(0, 0, 93);
 
 $body-bg: $white;
 $footer-bg: $black;
+
+//filter colours
+$filtered-colours: (
+    primary: brightness(0) saturate(100%) invert(87%) sepia(98%) saturate(2775%) hue-rotate(328deg) brightness(102%) contrast(99%),
+    secondary: brightness(0) saturate(100%) invert(100%) sepia(26%) saturate(567%) hue-rotate(178deg) brightness(100%) contrast(98%),
+    tertiary: brightness(0) saturate(100%) invert(11%) sepia(92%) saturate(4559%) hue-rotate(180deg) brightness(103%) contrast(87%),
+    white: brightness(0) saturate(100%) invert(92%) sepia(93%) saturate(32%) hue-rotate(251deg) brightness(107%) contrast(100%),
+    black: brightness(0) saturate(100%) invert(0%) sepia(9%) saturate(7500%) hue-rotate(154deg) brightness(91%) contrast(108%),
+);
+
 
 %clearfix {
     &::after {
@@ -60,4 +70,8 @@ $footer-bg: $black;
             transform: scaleY(1);
         }
     }
+}
+
+@mixin icon-color($color) {
+    filter: map-get($filtered-colours, $color);
 }
