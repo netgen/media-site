@@ -22,12 +22,12 @@ system:
                         Identifier\ContentType:
                             - ng_component_about
 
-        about_style_4:
-            ng_component_about:
-                template: "@ibexadesign/components/ng_component_about/about_style_4.html.twig"
-                match:
-                    Identifier\ContentType:
-                        - ng_component_about
+            about_style_4:
+                ng_component_about:
+                    template: "@ibexadesign/components/ng_component_about/about_style_4.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_about
 
             hero_style_1:
                 ng_component_hero:
@@ -39,6 +39,13 @@ system:
             hero_style_2:
                 ng_component_hero:
                     template: "@ibexadesign/components/ng_component_hero/hero_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_hero
+
+            hero_style_3:
+                ng_component_hero:
+                    template: "@ibexadesign/components/ng_component_hero/hero_style_3.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_component_hero
