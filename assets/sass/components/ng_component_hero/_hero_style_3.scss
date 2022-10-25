@@ -1,0 +1,70 @@
+.hero-style-3 {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    .image {
+        overflow: hidden;
+        display: block;
+        position: relative;
+        height: 0;
+        padding-bottom: 50%;
+        width: 50%;
+        border-radius: 1rem;
+
+        & + .article-header {
+            padding-right: 8.5rem;
+            width: 50%;
+        }
+
+        source, img {
+            object-fit: cover;
+            font-family: 'object-fit: cover;';
+            object-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .eyebrow-title {
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.33;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 1.16666;
+        margin: 0;
+
+        & + .short {
+            margin-top: 2.5rem;
+        }
+
+        .bg-color-black & {
+            color: $primary;
+        }
+    }
+
+    .short {
+        font-size: 1.125rem;
+        line-height: 1.55;
+
+        & ~ .btn {
+            margin-top: 3.375rem;
+        }
+    }
+
+    .actions {
+        margin-top: 4rem;
+    }
+
+    .btn {
+        & + .btn {
+            margin-left: 2rem;
+        }
+    }
+}
