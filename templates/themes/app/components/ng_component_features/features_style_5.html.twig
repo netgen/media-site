@@ -6,17 +6,17 @@
 {% set grid_class = "features-grid-col-" ~  block.parameter('number_of_columns').value|default(3) %}
 
 {% block content %}
-    <article class="view-component view-component-features features-style-3">
+    <article class="view-component view-component-features features-style-5">
         <header class="article-header">
-            <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-
-            {% if not content.fields.link_label.empty %}
-                <div class="info">
-                    <a href="#" class="btn btn-secondary">{{ content.fields.link_label.value.text }}</a>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                        <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+                        <div class="short">
+                            {{ ng_render_field(content.fields.description) }}
+                        </div>
                 </div>
-            {% endif %}
+            </div>
         </header>
-
         <div class="features-grid {{ grid_class }}">
             {% for i in 1..8 %}
                 {% set item_image = 'item_' ~ i ~ '_image' %}
@@ -30,19 +30,16 @@
                                 {{ ng_render_field(content.fields[item_image]) }}
                             </div>
                         {% endif %}
-                        <div class="item-content">
-                            {% if content.fields[item_title] is defined and not content.fields[item_title].empty %}
-                                <h3 class="item-title">{{ ng_render_field(content.fields[item_title]) }}</h3>
-                            {% endif %}
-                            {% if content.fields[item_description] is defined and not content.fields[item_description].empty %}
-                                <div class="item-description">
-                                    {{ ng_render_field(content.fields[item_description]) }}
-                                </div>
-                            {% endif %}
-                        </div>
+                        {% if content.fields[item_title] is defined and not content.fields[item_title].empty %}
+                            <h3 class="item-title">{{ ng_render_field(content.fields[item_title]) }}</h3>
+                        {% endif %}
+                        {% if content.fields[item_description] is defined and not content.fields[item_description].empty %}
+                            <div class="item-short">
+                                {{ ng_render_field(content.fields[item_description]) }}
+                            </div>
+                        {% endif %}
                     </div>
                 {% endif %}
-
             {% endfor %}
         </div>
     </article>

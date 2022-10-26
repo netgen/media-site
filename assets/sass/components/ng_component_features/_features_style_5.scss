@@ -1,8 +1,8 @@
-.features-style-1 {
+.features-style-5 {
     .article-header {
         text-align: center;
         .title {
-            font-size: 2.5rem;
+            font-size: 4.5rem;
             & + .short {
                 margin-top: 1.5rem;
             }
@@ -17,28 +17,25 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            .item-icon {
-                padding: 2rem;
-                display: inline-block;
+            text-align: center;
+            .item-image {
+                width: 11.25rem;
+                margin: 0 auto;
                 border-radius: 50%;
-                background-color: $primary;
-                width: 8rem;
-                height: 8rem;
-                .bg-color-primary & {
-                    background-color: $white;
-                }
+                overflow: hidden;
                 & + .item-title {
-                    margin-top: 2rem;
+                    margin-top: 1.5rem;
                 }
             }
             .item-title {
                 font-size: 1.5rem;
-                & + .item-description {
-                    margin-top: 1rem;
+                margin-bottom: 0;
+                & + .item-short {
+                    margin-top: 0.5rem;
                 }
             }
-            .item-description {
-
+            .item-short {
+                font-size: 1.125rem;
             }
         }
     }

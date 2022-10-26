@@ -1,0 +1,13 @@
+.features-grid {
+    display: grid;
+    grid-gap: 2rem;
+    &.features-grid-col-2 {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    &.features-grid-col-3 {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
+    &.features-grid-col-4 {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
+}

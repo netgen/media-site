@@ -10,11 +10,10 @@
     }
 
     .features-grid {
-        display: flex;
-        margin: 0 -1rem;
         .features-grid-item {
-            flex: 0 0 25%;
-            padding: 0 1rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             .item-highlight-title {
                 font-size: 6rem;
                 font-weight: 600;
