@@ -25,6 +25,7 @@ block_types:
             view_type: features_style_1
             parameters:
                 content_type_identifier: ng_component_features
+                number_of_columns: 3
 
     ibexa_component_logos:
         name: 'Logos'

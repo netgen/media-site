@@ -2,3 +2,5 @@ block.plugin.background_color.primary: 'Primary (Yellow)'
 block.plugin.background_color.secondary: 'Secondary (Light gray)'
 block.plugin.background_color.white: 'White'
 block.plugin.background_color.black: 'Black'
+
+block.ezcomponent.number_of_columns: 'Number of columns'
