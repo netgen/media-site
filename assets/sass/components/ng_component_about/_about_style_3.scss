@@ -2,11 +2,11 @@
     display: flex;
 
     .article-header {
-        min-width: 50%;
+        flex: 0 0 50%;
 
         & + .article-info {
             padding-left: 8.5rem;
-            width: 50%;
+            flex: 0 0 50%;
         }
     }
 
