@@ -21,9 +21,13 @@
         & + .logo-grid {
             margin-top: 4rem;
         }
+        & + .short {
+            margin-top: 1.5rem;
+        }
     }
 
     .logo-grid {
+        margin-top: 4rem;
         display: grid;
         grid-template-columns: auto auto auto auto;
         background-color: $white;

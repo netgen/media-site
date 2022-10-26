@@ -24,6 +24,12 @@
                 </header>
             {% endif %}
 
+            {% if not content.fields.description.empty %}
+            <div class="short">
+                {{ ng_render_field(content.fields.description)}}
+            </div>
+            {% endif %}
+
             {% set logos = content.filterFieldRelations('logos', ['ng_logo'], 12, 1) %}
 
             <div class="logo-grid">
