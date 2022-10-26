@@ -47,6 +47,7 @@ system:
                             - ng_recipe
                             - ng_topic
                             - ng_video
+                            - ng_job_position
                 match_all:
                     redirect:
                         target: '@=namedLocation("homepage")'
