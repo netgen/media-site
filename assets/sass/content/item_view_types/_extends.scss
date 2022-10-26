@@ -19,8 +19,12 @@
                 vertical-align: middle;
                 width: .25rem;
                 height: .25rem;
-                background: $primary;
+                background: $black;
                 margin: 0 .25rem .125rem 0;
+                border-radius: 50%;
+                .bg-color-black & {
+                    background: $primary;
+                }
             }
         }
     }

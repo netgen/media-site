@@ -21,18 +21,28 @@
     }
     .article-content {
         padding: 2rem;
-        color: $black;
         background-color: $secondary;
-        .bg-color-secondary &, 
+        .bg-color-black & {
+            background-color: lighten($black, 10%);
+        }
         .bg-color-primary & {
+            background-color: lighten($primary, 10%);
+        }
+        .bg-color-secondary & {
             background-color: $white;
         }
         .title {
             font-size: 1.5rem;
             font-weight: 900;
-            margin: 0 0 .25rem;
-            a {
-                @extend %item-title-link;
+            margin: 0;
+            & + .info {
+                margin-top: 1rem;
+            }
+        }
+        .info {
+            @extend %item-header-info;
+            & + .short {
+                margin-top: 1rem;
             }
         }
         .short {
@@ -41,23 +51,18 @@
                 margin: 0;
             }
         }
-        .info {
-            @extend %item-header-info;
-        }
-        .article-icon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 3rem;
-            height: 3rem;
-            line-height: 3rem;
-            text-align: center;
-            background: $primary;
-            color: $black;
-            z-index: 2;
-            pointer-events: none;
-            + .article-header {
-                padding-top: 3.5rem;
+        .actions {
+            margin-top: 1rem;
+            a {
+                &.btn.btn-link {
+                    border: none;
+                    border-bottom-width: 2px;
+                    border-bottom-style: solid;
+                    border-bottom-color: inherit;
+                    .bg-color-black & {
+                        border-bottom-color: $primary;
+                    }
+                }
             }
         }
         @include media-breakpoint-down(lg) {
