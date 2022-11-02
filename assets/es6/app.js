@@ -2,8 +2,7 @@
 // add this type of comment ("global" or "globals") to the top of your file,
 // exchanging variable_name with the global variable
 // /* global <variable_name> */
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import '@babel/polyfill';
 import $ from 'jquery';
 import ResponsiveVideoComponent from './components/ResponsiveVideo.component';
 import './ngsite';
@@ -16,8 +15,7 @@ const components = [
   },
 ];
 
-$(() => {
-
+const componentsInit = () => {
   components.forEach((component) => {
     if (document.querySelector(component.selector) !== null) {
       document.querySelectorAll(component.selector).forEach(
@@ -25,6 +23,9 @@ $(() => {
       );
     }
   });
+}
 
-  // Put your code inside ./components
+$(componentsInit); // initialize on DOM ready
+document.addEventListener('ngl:refresh', (e) => { // initialize on special event
+  componentsInit();
 });
