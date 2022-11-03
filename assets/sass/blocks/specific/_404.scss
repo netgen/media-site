@@ -1,0 +1,24 @@
+.site-error {
+    &-image {
+        margin: 3rem auto 5.5rem;
+    }
+
+    &-title {
+        font-size: 3rem;
+        color: $black;
+        font-weight: 600;
+    }
+
+    &-description {
+        font-size: 1.5rem;
+        color: $gray-54;
+        font-weight: 400;
+        margin: 1.75rem auto 3.5rem;
+    }
+}
+
+.site-error-buttons {
+    .btn-primary {
+        margin-right: 2.5rem;
+    }
+}
