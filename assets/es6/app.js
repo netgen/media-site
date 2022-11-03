@@ -28,4 +28,12 @@ const componentsInit = () => {
 $(componentsInit); // initialize on DOM ready
 document.addEventListener('ngl:refresh', (e) => { // initialize on special event
   componentsInit();
+
+  $.getScript('../../../../bundles/netgenlayoutsstandard/dev/js/app.js', function () { // getting script from vendors - temoporarely - will need better way
+    dispatchEvent(new Event('load')); // triggering load event manually to execute code
+
+    // console.log("Getting script from vendors");
+    // "vendor/netgen/layouts-standard/bundle/Resources/es6/app.js" path to vendor source script
+  });
+
 });
