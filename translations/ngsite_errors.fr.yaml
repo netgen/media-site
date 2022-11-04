@@ -3,7 +3,6 @@ ngsite.errors.403.message: "Vous n'avez pas les permissions nécessaires pour ac
 ngsite.errors.404.title: "Oops!"
 ngsite.errors.404.message: "Nous n'arrivons pas à trouver la page que vous recherchez"
 ngsite.errors.404.button.back: "Back to Homepage"
-ngsite.errors.404.button.more: "Read blogs"
 ngsite.errors.500.title: "Quelque chose ne fonctionne pas. Si le problème persiste, veuillez nous contacter."
 ngsite.errors.500.message: "Il y a un problème avec la page que vous recherchez. Veuillez réessayer plus tard."
 ngsite.errors.default.title: "Un problème est survenu."

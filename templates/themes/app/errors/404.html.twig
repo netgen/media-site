@@ -7,17 +7,14 @@
 {% block content %}
 	<div class="container">
 		<div class="site-error text-center">
-			<img src="{{ asset('public/images/404.svg') }}" class="site-error-image img-responsive" alt="404" />
-			<h1 class="site-error-title">{{ 'ngsite.errors.404.title'|trans }}</h1>
+			<h1 class="site-error-title">404</h1>
+			<h2 class="site-error-subtitle">{{ 'ngsite.errors.404.title'|trans }}</h2>
 
 			<h3 class="site-error-description">{{ 'ngsite.errors.404.message'|trans }}</h3>
 		</div>
 		<div class="site-error-buttons text-center">
 			<button class="btn btn-primary">
 				{{ 'ngsite.errors.404.button.back'|trans }}
-			</button>
-			<button class="btn btn-link">
-				{{ 'ngsite.errors.404.button.more'|trans }}
 			</button>
 		</div>
 	</div>

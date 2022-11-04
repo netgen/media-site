@@ -1,24 +1,24 @@
 .site-error {
-    &-image {
-        margin: 3rem auto 5.5rem;
+    &-title {
+        font-size: 8rem;
+        font-weight: 700;
+        padding: 11.5rem 0 8rem;
     }
 
-    &-title {
-        font-size: 3rem;
+    &-subtitle {
+        font-size: 4.5rem;
         color: $black;
-        font-weight: 600;
+        font-weight: 700;
     }
 
     &-description {
-        font-size: 1.5rem;
-        color: $gray-54;
+        font-size: 1.25rem;
+        color: $black;
         font-weight: 400;
-        margin: 1.75rem auto 3.5rem;
+        margin: 2.5rem 0 4rem;
     }
 }
 
 .site-error-buttons {
-    .btn-primary {
-        margin-right: 2.5rem;
-    }
+    margin-bottom: 7.5rem;
 }
