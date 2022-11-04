@@ -24,6 +24,7 @@
         position: relative;
         display: flex;
         align-items: center;
+        white-space: nowrap;
 
         @include media-breakpoint-down(sm) {
             display: none;
