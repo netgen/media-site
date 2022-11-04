@@ -6,6 +6,7 @@
 
         @include media-breakpoint-down(md) {
             padding: 6rem 0 4rem;
+            font-size: 4rem;
         }
     }
 
@@ -13,6 +14,10 @@
         font-size: 4.5rem;
         color: $black;
         font-weight: 700;
+
+        @include media-breakpoint-down(md) {
+            font-size: 2.5rem;
+        }
     }
 
     &-description {
