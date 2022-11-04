@@ -5,9 +5,17 @@
 {% set site_title = 'ngsite.errors.403.title'|trans %}
 
 {% block content %}
-    <div class="site-error">
-        <h1>{{ 'ngsite.errors.403.title'|trans }}</h1>
+    <div class="container">
+        <div class="site-error text-center">
+            <h1 class="site-error-title">{{ 'ngsite.errors.403.title'|trans }}</h1>
+            <h2 class="site-error-subtitle">{{ 'ngsite.errors.default.subtitle'|trans }}</h2>
 
-        <div>{{ 'ngsite.errors.403.message'|trans }}</div>
+            <h3 class="site-error-description">{{ 'ngsite.errors.403.message'|trans }}</h3>
+        </div>
+        <div class="site-error-buttons text-center">
+            <button class="btn btn-primary">
+                {{ 'ngsite.errors.button.back'|trans }}
+            </button>
+        </div>
     </div>
 {% endblock %}
