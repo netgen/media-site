@@ -3,6 +3,10 @@
         font-size: 8rem;
         font-weight: 700;
         padding: 11.5rem 0 8rem;
+
+        @include media-breakpoint-down(md) {
+            padding: 6rem 0 4rem;
+        }
     }
 
     &-subtitle {

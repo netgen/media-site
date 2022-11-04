@@ -1,6 +1,7 @@
 ngsite.errors.403.title: "Dies ist ein eingeschränkter Bereich"
 ngsite.errors.403.message: "Sie haben keine Berechtigungen auf diese Seite zuzugreifen."
-ngsite.errors.404.title: "Hoppla!"
+ngsite.errors.404.title: "404"
+ngsite.errors.404.subtitle: "Hoppla!"
 ngsite.errors.404.message: "Wir können die Seite, die Sie suchen, nicht finden"
 ngsite.errors.404.button.back: "Back to Homepage"
 ngsite.errors.500.title: "Etwas ist schief gelaufen"
