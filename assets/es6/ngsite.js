@@ -1,4 +1,4 @@
-/* global jwplayer, page, dataLayer */
+/* page, dataLayer */
 import $ from 'jquery';
 import 'magnific-popup';
 import Swiper from 'swiper/dist/js/swiper';
@@ -51,62 +51,9 @@ global.Swiper = Swiper;
 })();
 /* /CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
 
-/* JWPLAYER INIT  -----------------------------------------------*/
-
-function jwplayerInit(videoObjectClass, videoObj) {
-  const videoObject = videoObj === false ? $(videoObjectClass) : videoObj;
-  if (!videoObject.length) return;
-
-  let sources = false;
-  const videoId = videoObject.data('video_player_id');
-  const aspectRatio = '16:9';
-  const width = '100%';
-
-  if (videoObject.data('videotype') === 'local') {
-    sources = [
-      {
-        file: videoObject.data('file'),
-        type: videoObject.data('mimetype'),
-      },
-    ];
-  } else {
-    sources = [
-      {
-        file: videoObject.data('file'),
-      },
-    ];
-  }
-
-  jwplayer(videoId).setup({
-    primary: 'flash',
-    width,
-    aspectratio: aspectRatio,
-    autostart: videoObject.data('autostart'),
-    controlbar: [{ idlehide: 'true' }],
-    playlist: [
-      {
-        sources,
-        image: videoObject.data('image'),
-      },
-    ],
-  });
-}
-/* /JWPLAYER INIT  -----------------------------------------------*/
-
 $(document).ready(() => {
   const $loginform = $('form[name="loginform"]');
   $loginform.attr('action', $loginform.attr('action') + window.location.hash);
-
-  /* JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
-  $('div.video-container').each(function () {
-    const videoObjectClass = $(this).attr('id');
-    if ($(this).prev().hasClass('video-config') && $(this).prev().hasClass(videoObjectClass)) {
-      jwplayerInit(`.${videoObjectClass}`, false);
-    } else {
-      $(this).remove();
-    }
-  });
-  /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
 
   /* idangero.us swiper */
   const relatedSwiper = [];
