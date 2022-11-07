@@ -70,3 +70,15 @@
         }
     }
 }
+
+.form-group {
+    input::file-selector-button {
+        font-size: 1rem;
+        padding: 1px 12px;
+        border: 1px solid $black;
+        border-radius: 3px;
+        margin-right: 8px;
+        background-color: $primary;
+        color: $black;
+    }
+}
