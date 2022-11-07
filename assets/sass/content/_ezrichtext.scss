@@ -141,3 +141,8 @@
         }
     }
 }
+.ezrichtext-field {
+    p {
+        text-align: left!important; // deny justified copied texts
+    }
+}
