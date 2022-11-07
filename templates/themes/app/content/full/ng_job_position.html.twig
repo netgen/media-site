@@ -12,7 +12,7 @@
 {% endif %}
 
 {% block content %}
-    <article class="view-type view-type-{{ view_type }} ng-article vf1">
+    <article class="view-type view-type-{{ view_type }} ng-job-position">
         {% block article_header %}
             <header class="full-page-header">
                 <div class="container">
@@ -21,20 +21,20 @@
 
                     <div class="full-page-info">
                         {% if not content.fields.job_location.empty %}
-                            <br>{{ ng_render_field(content.fields.job_location) }}
+                            <span>{{ ng_render_field(content.fields.job_location) }}</span>
                         {% endif %}
                         {% if not content.fields.engagement_type.empty %}
-                            <br>{{ ng_render_field(content.fields.engagement_type) }}
+                            <span>{{ ng_render_field(content.fields.engagement_type) }}</span>
                         {% endif %}
                         {% if not content.fields.application_deadline.empty %}
-                            <br>Application deadline: {{ ng_render_field(content.fields.application_deadline) }}
+                            <span>Application deadline: {{ ng_render_field(content.fields.application_deadline) }}</span>
                         {% endif %}
                     </div>
                 </div>
             </header>
         {% endblock %}
 
-        <div class="container">
+        <div class="container"><div class="row justify-content-center"><div class="col-lg-9">
             {% block image %}
                 {% if not content.fields.image.empty %}
                     <div class="full-page-image">
@@ -71,7 +71,7 @@
                 </div>
             {% endblock %}
 
-        </div>
+        </div></div></div>
     </article>
 {% endblock %}
 

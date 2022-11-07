@@ -1,0 +1,63 @@
+.ng-job-position {
+    .full-page-header {
+        padding: 4rem 0 8rem;
+    }
+    .full-page-title {
+        font-size: 4.5rem;
+        margin: 0 0 3rem;
+    }
+    .full-page-intro {
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: bold;
+        font-style: normal;
+        opacity: 1;
+    }
+    .full-page-info {
+        background: #FEE162;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        display: flex;
+        font-size: 1rem;
+        color: #212121;
+        font-weight: 700;
+        margin: 0;
+        text-transform: uppercase;
+        opacity: 1;
+        .ezdatetime-field {
+            display: inline;
+        }
+        > span,
+        > time {
+            + span,
+            + time {
+                &::before {
+                    content: '•';
+                    margin: 0 .25em;
+                }
+            }
+        }
+    }
+    .full-page-image {
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    .full-page-body {
+        padding: 4rem 0;
+        p, ul {
+            margin-bottom: 3rem;
+        } 
+    }
+    @include media-breakpoint-down(md) {
+        .full-page-info {
+            flex-direction: column;
+            > span,
+            > time {
+                &::before {
+                    content: '•';
+                    margin: 0 .25em;
+                }
+            }
+        }
+    }
+}
