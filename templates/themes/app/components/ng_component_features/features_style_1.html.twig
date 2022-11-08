@@ -8,13 +8,9 @@
 {% block content %}
     <article class="view-component view-component-features features-style-1">
         <header class="article-header">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-                    <div class="short">
-                        {{ ng_render_field(content.fields.description) }}
-                    </div>
-                </div>
+            <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+            <div class="short">
+                {{ ng_render_field(content.fields.description) }}
             </div>
         </header>
         <div class="features-grid {{ grid_class }}">
