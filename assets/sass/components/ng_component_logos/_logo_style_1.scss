@@ -5,15 +5,15 @@
             font-size: 3rem;
             line-height: 1.16666;
             margin: 0;
-    
+
             & + .short {
                 margin-top: 2.5rem;
             }
-    
+
             & + .btn {
                 margin-top: 3.375rem;
             }
-    
+
             .bg-color-black & {
                 color: $primary;
             }
