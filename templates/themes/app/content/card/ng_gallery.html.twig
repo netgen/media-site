@@ -1,7 +1,7 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
+{% import '@ibexadesign/parts/content_field_macros.html.twig' as content_fields %}
 
 {% set location_path = ibexa_path(location) %}
 {% set children = location.filterChildren(['image'], 1).currentPageResults %}
