@@ -4,7 +4,7 @@
 {% import "@ibexadesign/parts/macros.html.twig" as macros %}
 
 <article class="view-type view-type-{{ view_type }} ng-banner vl6">
-	<h2 class="title">
+    <h2 class="title">
         {{ macros.content_link(content, content.fields.title.value.text) }}
     </h2>
     {% if with_intro|default(false) %}

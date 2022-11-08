@@ -5,8 +5,8 @@
 
 <article class="view-type view-type-{{ view_type }} ng-feedback-form vl1">
     <header class="article-header">
-	    <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
-	</header>
+        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+    </header>
 
     {% if with_intro|default(false) %}
         {{ content_fields.intro(content) }}
