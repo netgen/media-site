@@ -9,23 +9,23 @@
 <link rel="index" href="{{ root_location_path }}" />
 <link rel="search" href="{{ path('ngsite_content_search') }}" title="{{ 'ngsite.layout.search_site'|trans({'%site_name%': site_name}) }}" />
 
-{% if  site_info.fields.favicon_32x32 is defined and not site_info.fields.favicon_32x32.empty %}
+{% if not site_info.fields.favicon_32x32.empty %}
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site_info.fields.favicon_32x32.value.uri }}">
 {% endif %}
 
-{% if  site_info.fields.favicon_128x128 is defined and not site_info.fields.favicon_128x128.empty %}
+{% if not site_info.fields.favicon_128x128.empty %}
     <link rel="icon" type="image/png" sizes="128x128" href="{{ site_info.fields.favicon_128x128.value.uri }}">
 {% endif %}
 
-{% if  site_info.fields.favicon_180x180 is defined and not site_info.fields.favicon_180x180.empty %}
+{% if not site_info.fields.favicon_180x180.empty %}
     <link rel="icon" type="image/png" sizes="180x180" href="{{ site_info.fields.favicon_180x180.value.uri }}">
 {% endif %}
 
-{% if  site_info.fields.favicon_192x192 is defined and not site_info.fields.favicon_192x192.empty %}
+{% if not site_info.fields.favicon_192x192.empty %}
     <link rel="icon" type="image/png" sizes="192x192" href="{{ site_info.fields.favicon_192x192.value.uri }}">
 {% endif %}
 
-{% if  site_info.fields.favicon_192x192 is defined and not site_info.fields.favicon_192x192.empty %}
+{% if not site_info.fields.favicon_192x192.empty %}
     <link rel="icon apple-touch-icon-precomposed" type="image/png" sizes="192x192" href="{{ site_info.fields.favicon_192x192.value.uri }}">
 {% endif %}
 
