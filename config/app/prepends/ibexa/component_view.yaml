@@ -1,6 +1,6 @@
 system:
     frontend_group:
-        ngcontent_view:
+        ng_content_view:
             about_style_1:
                 ng_component_about:
                     template: "@ibexadesign/components/ng_component_about/about_style_1.html.twig"
