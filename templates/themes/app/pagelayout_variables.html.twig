@@ -14,7 +14,7 @@
 
 {% if path_array is not defined %}
     {% if content is defined and location|default(null) is not empty and not location.innerLocation.isDraft %}
-        {% set path_array = ngsite_location_path(location.id) %}
+        {% set path_array = ngsite_location_path(location.id, {show_current_location: true}) %}
         {% if path_array is not empty %}
             {% set main_category_location_id = path_array[1].location.id ?? path_array[0].location.id %}
         {% endif %}
