@@ -2,10 +2,10 @@
     <div class="breadcrumb-wrapper" aria-label="breadcrumb">
         <a href="{{ ibexa_path(ibexa.rootLocation) }}" class="breadcrumb-item">
             <i class="fas fa-home"></i>
-            {{ 'ngsite.boldagency.home'|trans() }}
+            {{ ibexa.rootLocation.content.name }}
         </a>
         {% for path_item in path_array|slice(1, path_array|length - 1) %}
-            {% if path_item.url == false or path_item.location.contentInfo.contentTypeIdentifier == 'ng_container' %}
+            {% if path_item.url == false %}
                 <span class="breadcrumb-item breadcrumb-item--no-link">{{ path_item.text }}</span>
             {% else %}
                 <a class="breadcrumb-item breadcrumb-item--link" href="{{ path_item.url }}">{{ path_item.text }}</a>
