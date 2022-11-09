@@ -139,7 +139,13 @@
     }
 
     .full-page-body {
-        padding: 0;
+        position: relative;
+        padding: 0 0 2rem;
         margin: 0 0 2rem;
+
+        @include media-breakpoint-up(md) {
+            max-width: 754px;
+            margin: 0 auto;
+        }
     }
 }
