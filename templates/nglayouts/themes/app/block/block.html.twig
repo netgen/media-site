@@ -42,14 +42,14 @@
 
 {% set block_content = (block('content') is defined ? block('content') : '')|trim %}
 
-{% set view_type_name = block.viewType %}
-
-{% if block.definition.hasViewType(view_type_name, block) %}
-    {% set view_type_name = block.definition.viewType(view_type_name, block).name %}
-{% endif %}
-
 {% if block_content is not empty or show_empty_wrapper %}
-    <ngl-block blockId="{{ block.id }}" viewTypeName="{{ view_type_name }}">
+    {% set view_type_name = block.viewType %}
+
+    {% if block.definition.hasViewType(view_type_name, block) %}
+        {% set view_type_name = block.definition.viewType(view_type_name, block).name %}
+    {% endif %}
+
+    <ngl-block blockId="{{ block.id }}" blockLocale="{{ block.locale }}" viewTypeName="{{ view_type_name }}">
         <div
             class="{{ css_classes|join(' ') }}"
             {% if css_id is not empty %}id="{{ css_id }}"{% endif %}
