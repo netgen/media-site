@@ -33,6 +33,7 @@ parameters:
     ngsite.default.template.errors.500: "@@ibexadesign/errors/500.html.twig"
     ngsite.default.template.errors.default: "@@ibexadesign/errors/default.html.twig"
 
+    ngsite.default.template.pagerfanta.ngsite: "@@ibexadesign/pagerfanta/ngsite.html.twig"
     ngsite.default.template.search: "@@ibexadesign/search/search.html.twig"
 
     ngsite.default.template.menu: '@@ibexadesign/menu.html.twig'

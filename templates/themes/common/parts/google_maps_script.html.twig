@@ -1,0 +1,3 @@
+{% set google_maps_api_key = ibexa.configResolver.parameter('api_keys.google_maps')|default('') %}
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key={{ google_maps_api_key }}"></script>

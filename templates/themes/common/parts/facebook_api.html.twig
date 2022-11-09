@@ -1,0 +1,33 @@
+{% if ibexa.configResolver.hasParameter('site_settings.facebook_api', 'ngsite')
+    and ibexa.configResolver.hasParameter('facebook_app_id', 'netgen_open_graph') %}
+    {% set facebook_api = ibexa.configResolver.getParameter('site_settings.facebook_api', 'ngsite') %}
+
+    {% if facebook_api %}
+        {% set facebook_app_id = ibexa.configResolver.getParameter('facebook_app_id', 'netgen_open_graph') %}
+        {% set facebook_locale = 'en_US' %}
+        {% if ibexa.configResolver.hasParameter('site_settings.facebook_locale', 'ngsite') %}
+            {% set facebook_locale = ibexa.configResolver.parameter('site_settings.facebook_locale', 'ngsite') %}
+        {% endif %}
+
+        {% if facebook_app_id is not empty and facebook_locale is not empty %}
+            <script>
+              window.fbAsyncInit = function() {
+                FB.init({
+                  appId            : '{{ facebook_app_id|raw|escape('js') }}',
+                  autoLogAppEvents : true,
+                  xfbml            : true,
+                  version          : 'v2.12'
+                });
+              };
+
+              (function(d, s, id){
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) {return;}
+                 js = d.createElement(s); js.id = id;
+                 js.src = "https://connect.facebook.net/{{ facebook_locale|raw|escape('js') }}/sdk.js";
+                 fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));
+            </script>
+        {% endif %}
+    {% endif %}
+{% endif %}

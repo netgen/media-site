@@ -56,7 +56,7 @@
     {% set longitude = field.value.longitude|default(false) %}
 
     {% include
-        '@NetgenSite/parts/google_maps.html.twig' with {
+        '@ibexadesign/parts/google_maps.html.twig' with {
             'container_id': field.id,
             'latitude': latitude,
             'longitude': longitude,
