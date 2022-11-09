@@ -46,6 +46,14 @@
                 {% endif %}
             {% endblock %}
 
+            <div class="sticky-sidebar-wrapper">
+                <div id="sticky-sidebar" class="sticky-sidebar">
+                    <div class="sticky-sidebar-inner">
+                        {% include '@ibexadesign/parts/social_share.html.twig' %}
+                    </div>
+                </div>
+            </div>
+
             {% block body %}
                 <div class="full-page-body">
                     {% if not content.fields.full_intro.empty %}
