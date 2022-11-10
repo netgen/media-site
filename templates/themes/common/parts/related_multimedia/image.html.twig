@@ -12,25 +12,11 @@
         <div class="swiper-slide">
     {% endif %}
             <figure class="image-wrapper">
-                {% if is_slider %}
-                    <img class="swiper-lazy" data-src="{{ image_uri }}" {% if alt_text %} alt="{{ alt_text }}" {% endif %} />
-                {% else %}
-                    <img
-                        {% if lazy_loading %}
-                            {% set lazy_image_alias = ng_image_alias(image, ibexa.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngsite')) %}
-                            src="{% if lazy_image_alias %}{{ lazy_image_alias.uri }}{% else %}//:0{% endif %}"
-                            data-src="{{ image_uri }}"
-                            {% if image_alias %}
-                                data-srcset="{{ ng_image_alias(image, 'i480').uri }} 600w,
-                                            {{ ng_image_alias(image, 'i770').uri }} 991w,
-                                            {{ image_uri }} 1200w"
-                            {% endif %}
-                        {% else %}
-                            src="{{ image_uri }}"
-                        {% endif %}
-                        {% if alt_text %} alt="{{ alt_text }}"{% endif %}
-                    />
-                {% endif %}
+                <img
+                    src="{{ image_uri }}"
+                    {% if is_slider or lazy_loading %}loading="lazy"{% endif %}
+                    {% if alt_text %} alt="{{ alt_text }}"{% endif %}
+                />
 
                 {% if content.fields.caption is defined and not content.fields.caption.empty %}
                     <figcaption>

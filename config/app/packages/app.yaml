@@ -12,6 +12,5 @@ parameters:
         - ng_audio
         - file
 
-    ngsite.default.lazy_loading.enabled: false
-    ngsite.default.lazy_loading.initial_image_alias: 'i30'
+    ngsite.default.lazy_loading.enabled: true
     ngsite.default.render_content_directly: true

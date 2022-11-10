@@ -24,13 +24,8 @@
         {% endif %}
 
         <img
-            {% if lazy_loading %}
-                {% set lazy_image_alias = ibexa_image_alias(field, versionInfo, ibexa.configResolver.getParameter('lazy_loading.initial_image_alias', 'ngsite')) %}
-                src="{% if lazy_image_alias %}{{ asset(lazy_image_alias.uri) }}{% else %}//:0{% endif %}"
-                data-src="{% if image_alias %}{{ asset(image_alias.uri) }}{% else %}//:0{% endif %}"
-            {% else %}
-                src="{% if image_alias %}{{ asset(image_alias.uri) }}{% else %}//:0{% endif %}"
-            {% endif %}
+            src="{% if image_alias %}{{ asset(image_alias.uri) }}{% else %}//:0{% endif %}"
+            {% if lazy_loading %}loading="lazy"{% endif %}
             {% if parameters.image_class|default('') is not empty %} class="{{ parameters.image_class }}" {% endif %}
             {% if use_image_size and image_alias.width|default('') is not empty %} width="{{ image_alias.width }}" {% endif %}
             {% if use_image_size and image_alias.height|default('') is not empty %} height="{{ image_alias.height }}" {% endif %}
