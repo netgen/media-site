@@ -11,14 +11,14 @@
                 {% set video_types = content.fields.video_type.value.identifiers %}
 
                 {% if 'youtube' in video_types %}
-                    <img data-src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                    <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
                 {% elseif 'vimeo' in video_types %}
                     <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
                 {% elseif 'dailymotion' in video_types %}
                     <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
                 {% endif %}
             {% else %}
-                    <img data-src="{{ asset('images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                    <img src="{{ asset('images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
             {% endif %}
         </a>
     </figure>
