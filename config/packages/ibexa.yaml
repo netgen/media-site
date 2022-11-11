@@ -52,7 +52,28 @@ ibexa:
     repositories:
         default:
             fields_groups:
-                list: [content, meta, extras]
+                list:
+                    - content
+                    - meta
+                    - extras
+                    - link1
+                    - link2
+                    - featured_item_1
+                    - featured_item_2
+                    - featured_item_3
+                    - featured_item_4
+                    - featured_item_5
+                    - featured_item_6
+                    - featured_item_7
+                    - featured_item_8
+                    - item_1
+                    - item_2
+                    - item_3
+                    - item_4
+                    - item_5
+                    - item_6
+                    - item_7
+                    - item_8
             storage: ~
             search:
                 engine: '%search_engine%'
