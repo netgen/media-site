@@ -36,6 +36,14 @@ block_types:
             parameters:
                 content_type_identifier: ng_component_logos
 
+    ibexa_component_quote:
+        name: 'Quote'
+        definition_identifier: ibexa_component
+        defaults:
+            view_type: quote_style_1
+            parameters:
+                content_type_identifier: ng_component_quote
+
 block_type_groups:
     components:
         block_types:
@@ -43,3 +51,4 @@ block_type_groups:
             - ibexa_component_about
             - ibexa_component_features
             - ibexa_component_logos
+            - ibexa_component_quote

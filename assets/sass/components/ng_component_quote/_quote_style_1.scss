@@ -1,0 +1,58 @@
+.quote-style-1 {
+    .article-header {
+        text-align: center;
+        .title {
+            font-size: 2.5rem;
+            & + .short {
+                margin-top: 1.5rem;
+            }
+        }
+        & + .quote-swiper {
+            margin-top: 4rem;
+        }
+    }
+    .quote-item {
+        position: relative;
+        text-align: center;
+        padding-top: 5rem;
+        .quote-icon {
+            position: absolute;
+            width: 10rem;
+            height: 10rem;
+            object-fit: contain;
+            object-position: center;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            @include icon-color(primary);
+            .bg-color-primary & {
+                @include icon-color(white);
+            }
+        }
+        text-align: center;
+        .item-title {
+            font-size: 4.5rem;
+            position: relative;
+        }
+        .item-short {
+            margin-top: 1.5rem;
+        }
+        .quote-person {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            text-align: left;
+            .quote-person-image {
+                flex: 0 0 4rem;
+                img {
+                    border-radius: 50%;
+                }
+            }
+            .quote-person-info {
+                margin-left: 1.5rem;
+                flex: 0 0 auto;
+                // neki drek
+            }
+        }
+    }
+}

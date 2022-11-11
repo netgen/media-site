@@ -69,3 +69,25 @@
         }
     }
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+    background-image: url("../../assets/swiper_arrow.svg");
+    background-repeat: no-repeat;
+    background-size: 1rem 2rem;
+    background-position: center;
+    background-color: $primary;
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    left: 0;
+    .bg-color-primary &,
+    .bg-color-black & {
+        background-color: $white;
+    }
+}
+.swiper-button-next {
+    transform: rotate(180deg);
+    left: auto;
+    right: 0;
+}

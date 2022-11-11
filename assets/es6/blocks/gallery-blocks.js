@@ -127,4 +127,39 @@ window.addEventListener('load', () => {
     galleryTop.controller.control = galleryThumbs;
     galleryThumbs.controller.control = galleryTop;
   });
+
+  // Quote component swiper
+  [...document.getElementsByClassName('quote-swiper')].forEach((swiper, i) => {
+    const swiperId = `defaultSwiper-${i + 1}`;
+    const data = swiper.dataset;
+    swiper.setAttribute('id', swiperId);
+    return new Swiper(swiper, {
+      navigation: {
+        nextEl: `#${swiperId} .swiper-button-next`,
+        prevEl: `#${swiperId} .swiper-button-prev`,
+      },
+      pagination: {
+        el: `#${swiperId} .swiper-pagination`,
+        clickable: true,
+      },
+      preloadImages: false,
+      loop: data.loop,
+      effect: data.effect,
+      watchSlidesVisibility: true,
+      autoplay: data.autoplay ? { delay: data.autoplay * 1000 } : false,
+      lazy: {
+        loadPrevNext: true,
+        loadPrevNextAmount: 1,
+        loadOnTransitionStart: true,
+      },
+      keyboard: {
+        enabled: true,
+      },
+      on: {
+        lazyImageReady() {
+          this.updateAutoHeight();
+        },
+      },
+    });
+  });
 });
