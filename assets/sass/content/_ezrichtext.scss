@@ -53,6 +53,9 @@
 
 /* ezrichtext elements */
 .ezrichtext-field {
+    & > *[style*="text-align:justify;"] {
+        text-align: inherit !important;
+    }
     p {
         margin: 0 0 2em;
         a:not(.btn) {
@@ -139,10 +142,5 @@
                 margin-top: 2em;
             }
         }
-    }
-}
-.ezrichtext-field {
-    p {
-        text-align: left!important; // deny justified copied texts
     }
 }
