@@ -6,6 +6,7 @@ import $ from 'jquery';
 import ResponsiveVideoComponent from './components/ResponsiveVideo.component';
 import './ngsite';
 import './blocks/blocks';
+import 'mediaelement';
 import '../sass/style.scss';
 
 const components = [
@@ -36,4 +37,36 @@ document.addEventListener('ngl:refresh', (e) => { // initialize on special event
     // "vendor/netgen/layouts-standard/bundle/Resources/es6/app.js" path to vendor source script
   });
 
+});
+
+$(document).ready(() => {
+
+  var localPlayer = new MediaElementPlayer('video-local-1', {
+    pluginPath: 'https://cdnjs.com/libraries/mediaelement/',
+    // When using `MediaElementPlayer`, an `instance` argument
+    // is available in the `success` callback
+    shimScriptAccess: 'always',
+    stretching: 'responsive',
+    success: function(mediaElement, originalNode, instance) {
+      // do things
+
+      // Notice: podcastLabel is not used in GTM
+      // var podcastLabel = $(".ramiropodcast").data("podcast-label");
+
+      // mediaElement.addEventListener('play',
+      //   function(e){
+      //     dataLayer.push({
+      //         "event": "audio-play",
+      //         "eventLabel": podcastLabel
+      //     });
+      // }, false);
+      // mediaElement.addEventListener('ended',
+      //   function(e){
+      //     dataLayer.push({
+      //         "event": "audio-ended",
+      //         "eventLabel": podcastLabel
+      //     });
+      // }, false);
+    }
+  });
 });
