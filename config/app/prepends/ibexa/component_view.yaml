@@ -116,3 +116,10 @@ system:
                     match:
                         Identifier\ContentType:
                             - ng_component_features
+
+            features_style_6:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_6.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
