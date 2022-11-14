@@ -125,7 +125,7 @@ system:
                             - ng_component_features
 
             quote_style_1:
-                ng_component_features:
+                ng_component_quote:
                     template: "@ibexadesign/components/ng_component_quote/quote_style_1.html.twig"
                     match:
                         Identifier\ContentType:
