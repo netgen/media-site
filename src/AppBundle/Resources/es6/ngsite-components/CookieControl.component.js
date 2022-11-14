@@ -4,30 +4,36 @@ import CookieControl from '@netgen/javascript-cookie-control';
 export default class CookieControlClass {
     constructor(element, options) {
         this.options = options;
+
+        this.optionalSaveBtn = element.querySelector(options.optionalSaveBtn);
+        this.optionalList = element.querySelector(options.optionalList);
+        this.optionalListToggle = element.querySelector(options.optionalListToggle);
+
         this.onInit();
     }
 
     onInit() {
+      const self = this;
         const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
         cookieControl.init();
 
         /* cookie control optional list toggle */
-        $('.optional-list-toggle').on('click', function (e) {
+        $(self.optionalListToggle).on('click', function (e) {
           e.preventDefault();
 
-          $(this).toggleClass('rotate-arrow');
-          const list = $('.ng-cc-optional-list');
+          $(this).toggleClass(self.options.rotateArrowClass);
+          const list = $(self.optionalList);
 
-          if (list.hasClass('shown')) {
-            list.removeClass('shown').slideUp();
+          if (list.hasClass(self.options.shownClass)) {
+            list.removeClass(self.options.shownClass).slideUp();
           } else {
-            list.addClass('shown').slideDown();
+            list.addClass(self.options.shownClass).slideDown();
           }
         });
         /* /cookie control optional list toggle */
 
         /* cookie consent changed */
-        $('#ng-cc-accept, #ng-cc-optional-save').on('click', (e) => {
+        $(self.optionalSaveBtn).on('click', (e) => {
           e.preventDefault();
           dataLayer.push({
             event: 'ngcc-changed',

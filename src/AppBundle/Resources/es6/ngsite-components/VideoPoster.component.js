@@ -36,10 +36,10 @@ export default class VideoPoster {
         }
     }
 
-    fetchPoster() {
+    async fetchPoster() {
         const self = this;
 
-        return fetch(self.url,{
+        return await fetch(self.url, {
                 method: 'GET'
             })
             .then(res => res.json())

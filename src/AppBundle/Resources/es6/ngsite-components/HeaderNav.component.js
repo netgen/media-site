@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 export default class HeaderNav {
     constructor(element, options) {
+        this.el = element;
         this.options = options;
 
         this.pageWrapper = document.querySelector(options.pageWrapper);
@@ -42,11 +43,11 @@ export default class HeaderNav {
 
         this.headerSearch.addEventListener('input', (e) => {
             if(this.searchInput.value !== '') {
-                this.headerSearch.addClass('filled');
+                this.headerSearch.addClass(this.options.filledClass);
                 return;
             } 
 
-            this.headerSearch.classList.remove('filled');    
+            this.headerSearch.classList.remove(this.options.filledClass);    
         })
 
         this.addSubmenuTriggers();
@@ -92,7 +93,7 @@ export default class HeaderNav {
     setActiveStateOnMenuItems() {
         if (page.dataset.path) {
             const activeItemsList = JSON.parse(page.dataset.path);
-            const navigationList = document.querySelectorAll('ul.nav.navbar-nav');
+            const navigationList = document.querySelectorAll(this.options.navigationList);
         
             navigationList.forEach((navigation) => {
                 activeItemsList.forEach((activeItemId) => {

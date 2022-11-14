@@ -10,13 +10,13 @@ export default class AjaxCollection {
 
     onInit() {
         this.el.addEventListener('ajax-paging-added', () => {
-            const posters = this.el.querySelectorAll('img.video-poster');
+            const posters = this.el.querySelectorAll(this.options.posters);
 
             posters.forEach(poster => {
                 new VideoPoster(poster, {
-                    vimeoClass: 'vimeo-poster',
-                    dailymotionClass: 'dailymotion-poster',
-                    posterLinkElement: '.js-video-poster'
+                    vimeoClass: this.options.vimeoClass,
+                    dailymotionClass: this.options.dailymotionClass,
+                    posterLinkElement: this.options.posterLinkElement
                 })
             })
 

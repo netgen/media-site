@@ -1,11 +1,13 @@
 export default class SwiperClass {
     constructor(element, options) {
         this.el = element;
-        this.data = element.dataset;
-        this.swiperId = `relatedMultimediaSwiper-1`; // @todo: figure out how to have a uniqe id (index??) / Is it even needed?
         this.options = options;
-
+        
+        this.data = element.dataset;
         this.swiper = false;
+        this.swiperPrevBtn = element.querySelector(options.swiperPrevBtn)
+        this.swiperNextBtn = element.querySelector(options.swiperNextBtn)
+        this.swiperPagination = element.querySelector(options.swiperPagination)
 
         this.onInit()
     }
@@ -15,11 +17,11 @@ export default class SwiperClass {
 
         self.swiper = new Swiper(self.el, {
             navigation: {
-              nextEl: self.el.querySelector('.swiper-button-next'),
-              prevEl: self.el.querySelector('.swiper-button-prev'),
+              nextEl: this.swiperNextBtn,
+              prevEl: this.swiperPrevBtn,
             },
             pagination: {
-              el: self.el.querySelector('.swiper-pagination'),
+              el: this.swiperPagination,
               type: 'fraction',
             },
             preloadImages: false,

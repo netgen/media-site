@@ -7,48 +7,117 @@ import 'bootstrap';
 global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
 global.Swiper = Swiper;
 
-/* CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
-(() => {
-  function isElementInViewport(element) {
-    // special bonus for those using jQuery
-    const el = typeof $ === 'function' && element instanceof $ ? element[0] : element;
+import HeaderNav from './ngsite-components/HeaderNav.component';
+import LazyLoading from './ngsite-components/LazyLoading.component';
+import CookieControlClass from './ngsite-components/CookieControl.component';
+import VideoPoster from './ngsite-components/VideoPoster.component';
+import AjaxCollection from './ngsite-components/AjaxCollection.component';
+import SwiperClass from './ngsite-components/Swiper.component';
 
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+const components = [
+  {
+    class: HeaderNav,
+    selector: 'html',
+    options: {
+      pageWrapper: '#page',
+      navToggle: '.mainnav-toggle',
+      searchToggle: '.searchbox-toggle',
+      headerSearch: '.header-search',
+      searchInput: 'input.search-query',
+      mainNav: '.main-navigation ul.navbar-nav',
+      menuLevel1: '.menu_level_1',
+      navActiveClass: 'mainnav-active',
+      searchboxActiveClass: 'searchbox-active',
+      submenuTriggerElement: 'i',
+      submenuTriggerClass: 'submenu-trigger',
+      submenuDataParam: 'data-submenu',
+      submenuActiveClass: 'submenu-active',
+      navigationList: 'ul.nav.navbar-nav',
+      filledClass: 'filled'
+    }
+  },
+  {
+    class: LazyLoading,
+    selector: 'html',
+    options: {}
+  },
+  {
+    class: CookieControlClass,
+    selector: '#ng-cc',
+    options: {
+      optionalSaveBtn: '#ng-cc-accept, #ng-cc-optional-save',
+      optionalList: '.ng-cc-optional-list',
+      optionalListToggle: ".optional-list-toggle",
+      rotateArrowClass: "rotate-arrow",
+      shownClass: 'shown',
+    }
+  },
+  {
+    class: VideoPoster,
+    selector: '.video-poster',
+    options: {
+      vimeoClass: 'vimeo-poster',
+      dailymotionClass: 'dailymotion-poster',
+      posterLinkElement: '.js-video-poster'
+    }
+  },
+  {
+    class: AjaxCollection,
+    selector: '.ajax-collection',
+    options: {
+      posters: 'img.video-poster',
+      vimeoClass: 'vimeo-poster',
+      dailymotionClass: 'dailymotion-poster',
+      posterLinkElement: '.js-video-poster'
+    }
+  },
+  {
+    class: SwiperClass,
+    selector: '.related-multimedia.swiper-container',
+    options: {
+      swiperPrevBtn: '.swiper-button-prev',
+      swiperNextBtn: '.swiper-button-next',
+      swiperPagination: '.swiper-pagination',
+    }
   }
 
-  window.isElementInViewport = isElementInViewport;
+]
 
-  let to;
-  $(window).on('scroll', () => {
-    if (to) clearTimeout(to);
-    to = setTimeout(() => {
-      $(window).trigger('scroll:end');
-    }, 200);
+window.addEventListener('DOMContentLoaded', (e) => {
+  /* INITIALIZE ALL COMPONENTS -----------------------------------------------*/
+  components.forEach((component) => {
+    if (document.querySelector(component.selector) !== null) {
+      document.querySelectorAll(component.selector).forEach(
+        element => {
+          new component.class(element, component.options)
+          console.log(element)
+        }
+      );
+    }
   });
+  /* INITIALIZE ALL COMPONENTS -----------------------------------------------*/
 
-  $.fn.in_viewport = function (cb) {
-    return $(this).each(function () {
-      const $this = $(this);
+  const $loginform = $('form[name="loginform"]');
+  $loginform.attr('action', $loginform.attr('action') + window.location.hash);
 
-      if ($this.hasClass('in_viewport')) return;
-      $(window)
-        .on('scroll:end', () => {
-          if (isElementInViewport($this)) {
-            $this.trigger('in_viewport');
-            if (cb) cb.call($this);
-          }
-        })
-        .addClass('in_viewport');
-    });
-  };
-})();
-/* /CHECK WHEN ELEMENT IS IN VIEWPORT  -----------------------------------------------*/
+  /* JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
+  $('div.video-container').each(function () {
+    const videoObjectClass = $(this).attr('id');
+    if ($(this).prev().hasClass('video-config') && $(this).prev().hasClass(videoObjectClass)) {
+      jwplayerInit(`.${videoObjectClass}`, false);
+    } else {
+      $(this).remove();
+    }
+  });
+  /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
+
+
+  /* header actions */
+  /* plugin for click outside */
+  // prettier-ignore
+  (function($,c,b){$.map('click dblclick mousemove mousedown mouseup mouseover mouseout change select submit keydown keypress keyup'.split(' '),function(d){a(d)});a('focusin','focus'+b);a('focusout','blur'+b);$.addOutsideEvent=a;function a(g,e){e=e||g+b;var d=$(),h=g+'.'+e+'-special-event';$.event.special[e]={setup:function(){d=d.add(this);if(d.length===1){$(c).bind(h,f)}},teardown:function(){d=d.not(this);if(d.length===0){$(c).unbind(h)}},add:function(i){var j=i.handler;i.handler=function(l,k){l.target=k;j.apply(this,arguments)}}};function f(i){$(d).each(function(){var j=$(this);if(this!==i.target&&!j.has(i.target).length){j.triggerHandler(e,[i.target])}})}}})($,document,'outside'); // eslint-disable-line
+  /* /plugin for click outside */
+});
 
 /* JWPLAYER INIT  -----------------------------------------------*/
 
@@ -91,27 +160,3 @@ function jwplayerInit(videoObjectClass, videoObj) {
   });
 }
 /* /JWPLAYER INIT  -----------------------------------------------*/
-
-$(document).ready(() => {
-  const $loginform = $('form[name="loginform"]');
-  $loginform.attr('action', $loginform.attr('action') + window.location.hash);
-
-  /* JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
-  $('div.video-container').each(function () {
-    const videoObjectClass = $(this).attr('id');
-    if ($(this).prev().hasClass('video-config') && $(this).prev().hasClass(videoObjectClass)) {
-      jwplayerInit(`.${videoObjectClass}`, false);
-    } else {
-      $(this).remove();
-    }
-  });
-  /* /JWPLAYER GLOBAL INITIALIZATION -----------------------------------------------*/
-
-
-  /* header actions */
-  /* plugin for click outside */
-  // prettier-ignore
-  (function($,c,b){$.map('click dblclick mousemove mousedown mouseup mouseover mouseout change select submit keydown keypress keyup'.split(' '),function(d){a(d)});a('focusin','focus'+b);a('focusout','blur'+b);$.addOutsideEvent=a;function a(g,e){e=e||g+b;var d=$(),h=g+'.'+e+'-special-event';$.event.special[e]={setup:function(){d=d.add(this);if(d.length===1){$(c).bind(h,f)}},teardown:function(){d=d.not(this);if(d.length===0){$(c).unbind(h)}},add:function(i){var j=i.handler;i.handler=function(l,k){l.target=k;j.apply(this,arguments)}}};function f(i){$(d).each(function(){var j=$(this);if(this!==i.target&&!j.has(i.target).length){j.triggerHandler(e,[i.target])}})}}})($,document,'outside'); // eslint-disable-line
-  /* /plugin for click outside */
-
-});
