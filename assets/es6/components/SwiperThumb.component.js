@@ -21,7 +21,7 @@ export default class SwiperThumb {
 
         const { loop, autoplay, effect, slidesPerView, slidesPerGroup } = self.data;
 
-        const galleryTop = new new Swiper(this.topSwiper, {
+        const galleryTop = new Swiper(this.topSwiper, {
             navigation: {
               nextEl: this.swiperPrevBtn,
               prevEl: this.swiperNextBtn,

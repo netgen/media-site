@@ -18,8 +18,18 @@ import AjaxCollection from './components/AjaxCollection.component';
 import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import GoogleMap from './components/GoogleMap.component';
+import GalleryBlock from './components/GalleryBlock.component';
 
 const components = [
+  {
+    class: GalleryBlock,
+    selector: '.ngl-vt-grid_gallery',
+    options: {
+      layoutAsFlexElements: '.nglayouts-as-flex',
+      lightboxEnabledElements: '.js-lightbox-enabled',
+      popupToggle: '.js-mfp-item',
+    } 
+  },
   {
     class: GoogleMap,
     selector: '.nglayouts-map-embed',
@@ -195,7 +205,7 @@ const componentsInit = () => {
       document.querySelectorAll(component.selector).forEach(
         element => {
           new component.class(element, component.options)
-          console.log(element)
+          // console.log(element)
         }
       );
     }

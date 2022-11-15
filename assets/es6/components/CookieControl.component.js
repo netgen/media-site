@@ -13,7 +13,7 @@ export default class CookieControlClass {
     }
 
     onInit() {
-      const self = this;
+        const self = this;
         const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
         cookieControl.init();
 
@@ -35,6 +35,12 @@ export default class CookieControlClass {
         /* cookie consent changed */
         $(self.optionalSaveBtn).on('click', (e) => {
           e.preventDefault();
+          
+          if(!dataLayer) {
+            console.warn('Data layer is not defined!');
+            return;
+          }
+          
           dataLayer.push({
             event: 'ngcc-changed',
           });
