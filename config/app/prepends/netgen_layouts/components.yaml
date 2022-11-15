@@ -32,7 +32,7 @@ block_types:
         definition_identifier: ibexa_component
         icon: '/images/components/icon-component-logos.svg'
         defaults:
-            view_type: logo_style_1
+            view_type: logos_style_1
             parameters:
                 content_type_identifier: ng_component_logos
 

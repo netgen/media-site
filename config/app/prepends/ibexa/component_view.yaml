@@ -64,18 +64,18 @@ system:
                         Identifier\ContentType:
                             - ng_component_hero
 
-            logo_style_1:
+            logos_style_1:
                 ng_component_logos:
-                    template: "@ibexadesign/components/ng_component_logos/logo_style_1.html.twig"
+                    template: "@ibexadesign/components/ng_component_logos/logos_style_1.html.twig"
                     params:
                         valid_parameters: ['!number_of_columns']
                     match:
                         Identifier\ContentType:
                             - ng_component_logos
 
-            logo_style_2:
+            logos_style_2:
                 ng_component_logos:
-                    template: "@ibexadesign/components/ng_component_logos/logo_style_2.html.twig"
+                    template: "@ibexadesign/components/ng_component_logos/logos_style_2.html.twig"
                     params:
                         valid_parameters: ['!number_of_columns']
                     match:
