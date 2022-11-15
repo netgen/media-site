@@ -43,7 +43,7 @@ final class FeaturesComponentGridPlugin extends Plugin
                 'required' => true,
                 'default_value' => 3,
                 'options' => array_flip($this->columns),
-                'label' => 'block.plugin.featured_grid.number_of_columns',
+                'label' => 'block.plugin.features_component_grid.number_of_columns',
                 'groups' => [self::GROUP_DESIGN],
             ],
         );
