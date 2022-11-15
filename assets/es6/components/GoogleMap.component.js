@@ -1,7 +1,9 @@
 /* global google */
 
-class GoogleMap {
+export default class GoogleMap {
   constructor(el) {
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') return
+
     this.el = el;
     this.latitude = parseFloat(this.el.dataset.latitude);
     this.longitude = parseFloat(this.el.dataset.longitude);
@@ -30,7 +32,7 @@ class GoogleMap {
   }
 }
 
-window.addEventListener('load', () => {
-  if (typeof google === 'undefined' || typeof google.maps === 'undefined') return;
-  [...document.getElementsByClassName('nglayouts-map-embed')].forEach((el) => new GoogleMap(el));
-});
+// window.addEventListener('load', () => {
+//   if (typeof google === 'undefined' || typeof google.maps === 'undefined') return;
+//   [...document.getElementsByClassName('nglayouts-map-embed')].forEach((el) => new GoogleMap(el));
+// });
