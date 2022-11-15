@@ -3,4 +3,4 @@ block.plugin.background_color.secondary: 'Secondary (Light gray)'
 block.plugin.background_color.white: 'White'
 block.plugin.background_color.black: 'Black'
 
-block.plugin.featured_grid.number_of_columns: 'Number of columns'
+block.plugin.features_component_grid.number_of_columns: 'Number of columns'
