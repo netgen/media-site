@@ -9,7 +9,9 @@ use Netgen\Layouts\Ibexa\Block\BlockDefinition\Handler\ComponentHandler;
 use Netgen\Layouts\Parameters\ParameterBuilderInterface;
 use Netgen\Layouts\Parameters\ParameterType;
 
-final class FeaturedComponentGridPlugin extends Plugin
+use function array_flip;
+
+final class FeaturesComponentGridPlugin extends Plugin
 {
     /**
      * The list of columns available. Key should be number of columns, while values
