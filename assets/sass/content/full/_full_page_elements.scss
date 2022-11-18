@@ -72,7 +72,7 @@
     }
 }
 .full-page-image {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         img {
             width: 100%;
         }
@@ -143,7 +143,7 @@
         padding: 0 0 2rem;
         margin: 0 0 2rem;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             max-width: 754px;
             margin: 0 auto;
         }

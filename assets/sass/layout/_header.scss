@@ -10,7 +10,7 @@ $header-bg: $white;
         display: flex;
         align-items: center;
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         > .container {
             height: $header-height-sm;
             position: relative;
@@ -132,7 +132,7 @@ $header-bg: $white;
             }
         }
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         height: $header-height-sm;
         position: absolute;
         right: $gutter + $header-height-sm;
@@ -140,10 +140,10 @@ $header-bg: $white;
             line-height: $header-height-sm;
         }
     }
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(md) {
         right: $header-height-sm;
         .searchbox-toggle {
-            width: 3rem;
+            width: 4rem;
         }
     }
 }

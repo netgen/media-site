@@ -10,7 +10,7 @@
                 margin-bottom: 0;
             }
         }
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             &,
             &:nth-child(2n) {
                 .view-type-zigzag {

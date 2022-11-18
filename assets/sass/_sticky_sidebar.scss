@@ -4,11 +4,11 @@
     left: -180px;
     margin-top: 100px;
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         left: -90px;
     }
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         position: static;
         margin-top: 0;
     }
@@ -19,7 +19,7 @@
     top: 100px;
     margin-bottom: 100px;
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         position: static;
         text-align: center;
         margin-bottom: 20px;

@@ -19,14 +19,14 @@
             max-height: 6.25em;
         }
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         .vl2 {
             .title {
                 font-size: 1.75rem;
             }
         }
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         .primary-item {
             flex: 0 0 100%;
             max-width: 100%;
@@ -46,14 +46,14 @@
             }
         }
     }
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         .vl2 {
             .title {
                 font-size: 1.375rem;
             }
         }
     }
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
         .vl2 {
             .title {
                 font-size: 1.5rem;
@@ -67,7 +67,7 @@
             }
         }
     }
-    @include media-breakpoint-down(xxs) {
+    @include media-breakpoint-down(xs) {
         .secondary-item {
             flex: 0 0 100%;
             max-width: 100%;

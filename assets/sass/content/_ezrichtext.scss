@@ -35,7 +35,7 @@
     clear: both;
 }
 
-@include media-breakpoint-down(xs) {
+@include media-breakpoint-down(sm) {
     .object-left,
     .object-right {
         width: 100%;

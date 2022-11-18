@@ -4,10 +4,10 @@
     img {
         width: 100%;
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         width: 12rem;
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         width: 10rem;
     }
 }

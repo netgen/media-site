@@ -2,6 +2,7 @@
     flex: 1;
     .navbar-nav {
         display: flex;
+        flex-direction: row;
         justify-content: center;
         list-style-type: none;
         margin: 0;
@@ -33,7 +34,7 @@
         }
     }
     /* large screen sizes */
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
         .navbar-nav {
             > li:hover,
             .active {
@@ -85,7 +86,7 @@
         display: none;
     }
     /* small screen sizes */
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         display: none;
         position: absolute;
         left: $gutter;
@@ -202,7 +203,7 @@
             }
         }
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         display: block;
     }
     @include media-breakpoint-down(xs) {

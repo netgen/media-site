@@ -56,7 +56,7 @@
             display: none;
         }
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         font-size: .75rem;
     }
 }

@@ -15,7 +15,7 @@
     }
     .article-content {
         flex: 0 0 50%;
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             flex: 0 0 100%;
         }
         .article-header {

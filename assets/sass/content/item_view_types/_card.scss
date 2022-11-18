@@ -65,7 +65,7 @@
                 }
             }
         }
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             .title {
                 font-size: 1.25rem;
             }

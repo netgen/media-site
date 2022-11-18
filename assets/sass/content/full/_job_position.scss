@@ -48,7 +48,7 @@
             margin-bottom: 3rem;
         }
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         .full-page-info {
             flex-direction: column;
             > span,

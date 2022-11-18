@@ -4,7 +4,7 @@
     align-items: center;
     padding: 2rem 0;
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         padding: 1.5rem 0;
     }
 
@@ -26,7 +26,7 @@
         align-items: center;
         white-space: nowrap;
 
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             display: none;
         }
 
@@ -41,7 +41,7 @@
                 padding: 0;
                 line-height: 1.5rem;
 
-                @include media-breakpoint-down(sm) {
+                @include media-breakpoint-down(md) {
                     content: none;
                 }
             }
@@ -61,23 +61,23 @@
         }
     }
     a:last-of-type {
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             display: flex;
         }
 
         .icon-home-page {
-            @include media-breakpoint-down(sm) {
+            @include media-breakpoint-down(md) {
                 display: none;
             }
         }
 
         &.breadcrumb-item {
-            @include media-breakpoint-down(sm) {
+            @include media-breakpoint-down(md) {
                 padding-left: 2rem;
             }
             &:before {
                 @extend %fontawesome;
-                @include media-breakpoint-down(sm) {
+                @include media-breakpoint-down(md) {
                     display: block;
                     color: inherit;
                     content: "\f053";

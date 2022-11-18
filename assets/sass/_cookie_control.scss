@@ -255,7 +255,7 @@
         }
     }
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         font-size: 1.145rem;
         .ng-cc-modal {
             .ng-cc-content {
@@ -295,7 +295,7 @@
         }
     }
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         font-size: 1rem;
         .ng-cc-optional-list {
             > ul > li {
@@ -304,7 +304,7 @@
         }
     }
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(md) {
         .ng-cc-modal {
             bottom: 15px;
             left: 15px;
@@ -353,7 +353,7 @@
         }
     }
 
-    @include media-breakpoint-down (xxs) {
+    @include media-breakpoint-down (xs) {
         .ng-cc-modal .ng-cc-content .ng-cc-actions {
             .optional-list-toggle {
                 &:before {

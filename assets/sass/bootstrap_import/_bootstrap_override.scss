@@ -53,17 +53,17 @@
     &-narrow {
         max-width: 768px;
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         &-narrow {
             max-width: 600px;
         }
     }
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         &-narrow {
             max-width: 460px;
         }
     }
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
         &-wide {
             padding-left: $gutter;
             padding-right: $gutter;

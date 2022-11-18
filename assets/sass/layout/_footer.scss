@@ -18,6 +18,7 @@
         .navbar-nav {
             list-style-type: none;
             display: flex;
+            flex-direction: row;
             justify-content: center;
             margin: 0 0 1.5rem;
             padding: 0;
@@ -64,7 +65,7 @@
             }
         }
     }
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         .footer-menu {
             .navbar-nav {
                 display: block;
