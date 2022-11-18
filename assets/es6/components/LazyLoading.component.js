@@ -24,7 +24,7 @@ export default class LazyLoading {
         }
     }
 
-    lazyImageLoad(image) {
+    static lazyImageLoad(image) {
         if (image.hasAttribute('data-src')) image.setAttribute('src', image.getAttribute('data-src'));
         if (image.hasAttribute('data-srcset')) {
             image.setAttribute('srcset', image.getAttribute('data-srcset'));

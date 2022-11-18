@@ -64,6 +64,7 @@ export default class HeaderNav {
     };
 
     addSubmenuTriggers() {
+        if(!this.mainNav) return;
         this.level_1_menus = this.mainNav.querySelectorAll(this.options.menuLevel1);
 
         if(this.level_1_menus) {

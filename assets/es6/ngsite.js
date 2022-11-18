@@ -20,7 +20,7 @@ import SwiperThumb from './components/SwiperThumb.component';
 import GoogleMap from './components/GoogleMap.component';
 import GalleryBlock from './components/GalleryBlock.component';
 
-const components = [
+export const ngComponents = [
   {
     class: GalleryBlock,
     selector: '.ngl-vt-grid_gallery',
@@ -197,26 +197,3 @@ const components = [
     }
   }
 ]
-
-/* INITIALIZE ALL COMPONENTS -----------------------------------------------*/
-const componentsInit = () => {
-  components.forEach((component) => {
-    if (document.querySelector(component.selector) !== null) {
-      document.querySelectorAll(component.selector).forEach(
-        element => {
-          new component.class(element, component.options)
-          // console.log(element)
-        }
-      );
-    }
-  });
-}
-/* INITIALIZE ALL COMPONENTS -----------------------------------------------*/
-
-document.addEventListener('DOMContentLoaded', (e) => {  // initialize on DOM ready
-  componentsInit();
-});
-
-document.addEventListener('ngl:refresh', (e) => { // initialize on special event
-  componentsInit();
-});
