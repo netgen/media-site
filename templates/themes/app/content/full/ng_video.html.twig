@@ -11,27 +11,29 @@
 
 {% block content %}
     <div class="view-type view-type-{{ view_type }} ng-video vf3">
-        <div class="full-video-player">
-            {{ video.player(content, true) }}
-        </div>
+        <div class="container">
+            <div class="full-video-player" style="height: 1000px;">
+                {{ video.player(content) }}
+            </div>
 
-        <header class="full-video-header">
-            <h1 class="title">{{ ng_render_field(content.fields.title) }}</h1>
-            {% if content.contentInfo.publishedDate %}
-                <time>{{ content.contentInfo.publishedDate|format_date(pattern='d MMM Y') }}</time>
+            <header class="full-video-header">
+                <h1 class="title">{{ ng_render_field(content.fields.title) }}</h1>
+                {% if content.contentInfo.publishedDate %}
+                    <time>{{ content.contentInfo.publishedDate|format_date(pattern='d MMM Y') }}</time>
+                {% endif %}
+            </header>
+
+            {% if not content.fields.teaser_intro.empty %}
+                <div class="short">
+                    {{ ng_render_field(content.fields.teaser_intro) }}
+                </div>
             {% endif %}
-        </header>
 
-        {% if not content.fields.teaser_intro.empty %}
-            <div class="short">
-                {{ ng_render_field(content.fields.teaser_intro) }}
-            </div>
-        {% endif %}
-
-        {% if not content.fields.description.empty %}
-            <div class="body">
-                {{ ng_render_field(content.fields.description) }}
-            </div>
-        {% endif %}
+            {% if not content.fields.description.empty %}
+                <div class="body">
+                    {{ ng_render_field(content.fields.description) }}
+                </div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

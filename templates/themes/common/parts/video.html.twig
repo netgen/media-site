@@ -48,8 +48,7 @@
     {% endif %}
 {% endmacro %}
 
-{% macro player(content, use_external_embed) %}
-    {% set use_external_embed = use_external_embed|default(false) %}
+{% macro player(content) %}
 
     {% set video_types = content.fields.video_type.value.identifiers %}
     {% set autoplay = content.fields.autoplay.value.bool %}
@@ -66,56 +65,62 @@
     {% if 'upload' in video_types %}
         {% if not content.fields.video_file_desktop.empty or not content.fields.video_file_mobile.empty %}
             {% set field_name = content.fields.video_file_desktop.empty ? 'video_file_mobile' : 'video_file_desktop' %}
-
-            <video id="video-local-1"
-                type="video/mp4"
-                width="1024" height="480"
-                src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
-            ></video>
-
-            {# reuse this code for new mediaelementjs video #}
-            {# <div class="video-config video-local-{{ content.id }}"
-                 data-video_player_id="video-local-{{ content.id }}"
-                 data-width="770"
-                 data-height="433"
-                 data-autostart="{% if autoplay %}true{% else %}false{% endif %}"
-                 data-image="{{ image_path }}"
-                 data-file="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
-                 data-videotype="local"
-                 data-mimetype="{{ content.fields[field_name].value.mimeType }}">
-            </div>#}
+            {% set autoresize = content.fields.autoresize.value.identifiers.0 %}
+            <video
+                id="video-{{ content.id }}"
+                class="video-js"
+                data-setup='{
+                    "controls": true,
+                    "preload": "auto",
+                    "width": "1024",
+                    {{ autoresize == "fit" ? '"fluid": true,' : autoresize == "fill" ? '"fill": true,' : false }}
+                    "autoplay": {% if autoplay %}true{% else %}false{% endif %},
+                    "poster": "{{ image_path }}"
+                }'>
+                <source
+                    src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
+                    type="{{ content.fields[field_name].value.mimeType }}"
+                />
+            </video>
+            
+            <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+            <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+            <style>
+                .video-js .vjs-big-play-button {
+                    left: 50%; top: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    border: none;
+                    border-radius: 0;
+                    background-color: #FED82F;
+                    font-size: 5rem;
+                    height: 2em;
+                    width: 2em;
+                    line-height: 2em;
+                    border-radius: 50%;
+                    filter: brightness(75%);
+                }
+                .video-js:hover .vjs-big-play-button {
+                    background-color: #FED82F;
+                    filter: brightness(100%);
+                }
+                .video-js .vjs-poster {
+                    background-size: cover;
+                }
+            </style>
 
         {% endif %}
     {% elseif not content.fields.video_identifier.empty %}
         {% set video_identifier = content.fields.video_identifier.value.text %}
 
         {% if 'youtube' in video_types %}
-            {% if use_external_embed %}
-                <div class="video-youtube embed-responsive embed-responsive-16by9">
-                    <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
-                </div>
-            {% else %}
-                <div class="video-youtube">
-                    <div class="video-config video-external-{{ content.id }}"
-                         data-video_player_id="video-external-{{ content.id }}"
-                         data-width="770"
-                         data-height="433"
-                         data-autostart="{% if autoplay %}true{% else %}false{% endif %}"
-                         data-image="{{ image_path }}"
-                         data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
-                         data-videotype="youtube">
-                    </div>
-
-                    <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
-                </div>
-            {% endif %}
+            <div class="video-youtube embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            </div>
         {% elseif 'vimeo' in video_types %}
-            {# JW Player does not support Vimeo so only embed is available #}
             <div class="video-vimeo embed-responsive embed-responsive-16by9">
                 <iframe frameborder="0" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'dailymotion' in video_types %}
-            {# JW Player does not support Daily Motion so only embed is available #}
             <div class="video-dailymotion embed-responsive embed-responsive-16by9">
                 <iframe frameborder="0" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
@@ -123,8 +128,7 @@
     {% endif %}
 {% endmacro %}
 
-{% macro player_slide(content, use_external_embed) %}
-    {% set use_external_embed = use_external_embed|default(false) %}
+{% macro player_slide(content) %}
 
     {% set video_types = content.fields.video_type.value.identifiers %}
 
@@ -140,52 +144,62 @@
     {% if 'upload' in video_types %}
         {% if not content.fields.video_file_desktop.empty or not content.fields.video_file_mobile.empty %}
             {% set field_name = content.fields.video_file_desktop.empty ? 'video_file_mobile' : 'video_file_desktop' %}
+            {% set autoresize = content.fields.autoresize.value.identifiers.0 %}
 
-            <video id="video-local-1"
-                type="video/mp4"
-                width="1024" height="480"
-                src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
-            ></video>
-
-            {# <div class="video-config video-local-{{ content.id }}" style="display: none;"
-                 data-video_player_id="video-local-{{ content.id }}"
-                 data-autostart="false"
-                 data-image="{{ image_path }}"
-                 data-file="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
-                 data-videotype="local"
-                 data-mimetype="{{ content.fields[field_name].value.mimeType }}">
-            </div> #}
-
-            <div class="video-container" id="video-local-{{ content.id }}">Loading the player ...</div>
+            <video
+                id="video-{{ content.id }}"
+                class="video-js"
+                data-setup='{
+                    "controls": true,
+                    "preload": "auto",
+                    "width": "1024",
+                    {{ autoresize == "fit" ? '"fluid": true,' : autoresize == "fill" ? '"fill": true,' : false }}
+                    "autoplay": {% if autoplay %}true{% else %}false{% endif %},
+                    "poster": "{{ image_path }}"
+                }'>
+                <source
+                    src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
+                    type="{{ content.fields[field_name].value.mimeType }}"
+                />
+            </video>
+            
+            <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+            <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+            <style>
+                .video-js .vjs-big-play-button {
+                    left: 50%; top: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    border: none;
+                    border-radius: 0;
+                    background-color: #FED82F;
+                    font-size: 5rem;
+                    height: 2em;
+                    width: 2em;
+                    line-height: 2em;
+                    border-radius: 50%;
+                    filter: brightness(75%);
+                }
+                .video-js:hover .vjs-big-play-button {
+                    background-color: #FED82F;
+                    filter: brightness(100%);
+                }
+                .video-js .vjs-poster {
+                    background-size: cover;
+                }
+            </style>
         {% endif %}
     {% elseif not content.fields.video_identifier.empty %}
         {% set video_identifier = content.fields.video_identifier.value.text %}
 
         {% if 'youtube' in video_types %}
-            {% if use_external_embed %}
-                <div class="video-youtube embed-responsive embed-responsive-16by9">
-                    <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
-                </div>
-            {% else %}
-                <div class="video-youtube">
-                    <div class="video-config video-external-{{ content.id }}" style="display: none;"
-                         data-video_player_id="video-external-{{ content.id }}"
-                         data-autostart="false"
-                         data-image="{{ image_path }}"
-                         data-file="https://www.youtube.com/watch?v={{ video_identifier }}"
-                         data-videotype="youtube">
-                    </div>
-
-                    <div class="video-container" id="video-external-{{ content.id }}">Loading the player ...</div>
-                </div>
-            {% endif %}
+            <div class="video-youtube embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+            </div>
         {% elseif 'vimeo' in video_types %}
-            {# JW Player does not support Vimeo so only embed is available #}
             <div class="video-vimeo embed-responsive embed-responsive-16by9">
                 <iframe frameborder="0" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'dailymotion' in video_types %}
-            {# JW Player does not support Daily Motion so only embed is available #}
             <div class="video-dailymotion embed-responsive embed-responsive-16by9">
                 <iframe frameborder="0" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
             </div>
