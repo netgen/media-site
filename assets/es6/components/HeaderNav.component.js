@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 export default class HeaderNav {
     constructor(element, options) {
         this.el = element;

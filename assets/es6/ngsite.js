@@ -17,9 +17,15 @@ import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import GoogleMap from './components/GoogleMap.component';
 import GalleryBlock from './components/GalleryBlock.component';
+import Temporary from './components/Temporary.component';
 
 
 export const ngComponents = [
+  {
+    class: Temporary,
+    selector: 'html',
+    options: {} 
+  },
   {
     class: GalleryBlock,
     selector: '.ngl-vt-grid_gallery',

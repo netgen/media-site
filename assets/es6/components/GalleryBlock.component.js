@@ -16,8 +16,7 @@ export default class GalleryBlock {
         });
         
         this.lightboxEnabledElements.forEach(el => {
-            console.log(el)
-            $(el).magnificPopup({
+            el.magnificPopup({
                 delegate: this.options.popupToggle, // child items selector, by clicking on it popup will open
                 type: 'image',
                 zoom: {
