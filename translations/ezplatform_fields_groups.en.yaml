@@ -1,21 +1,21 @@
-content: Content
-meta: Meta
-extras: Extras
-link1: Link-1
-link2: Link-2
-featured_item_1: Featured item 1
-featured_item_2: Featured item 2
-featured_item_3: Featured item 3
-featured_item_4: Featured item 4
-featured_item_5: Featured item 5
-featured_item_6: Featured item 6
-featured_item_7: Featured item 7
-featured_item_8: Featured item 8
-item_1: Item-1
-item_2: Item-2
-item_3: Item-3
-item_4: Item-4
-item_5: Item-5
-item_6: Item-6
-item_7: Item-7
-item_8: Item-8
+content: 'Content'
+meta: 'Meta'
+extras: 'Extras'
+link1: 'Link 1'
+link2: 'Link 2'
+featured_item_1: 'Featured item 1'
+featured_item_2: 'Featured item 2'
+featured_item_3: 'Featured item 3'
+featured_item_4: 'Featured item 4'
+featured_item_5: 'Featured item 5'
+featured_item_6: 'Featured item 6'
+featured_item_7: 'Featured item 7'
+featured_item_8: 'Featured item 8'
+item_1: 'Item 1'
+item_2: 'Item 2'
+item_3: 'Item 3'
+item_4: 'Item 4'
+item_5: 'Item 5'
+item_6: 'Item 6'
+item_7: 'Item 7'
+item_8: 'Item 8'
