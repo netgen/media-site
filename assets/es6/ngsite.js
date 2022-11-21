@@ -3,7 +3,6 @@ import $ from 'jquery';
 import 'magnific-popup';
 import Swiper from 'swiper/dist/js/swiper';
 import 'bootstrap';
-import 'mediaelement';
 
 global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
 global.Swiper = Swiper;
@@ -11,7 +10,6 @@ global.Swiper = Swiper;
 // components
 import ResponsiveVideoComponent from './components/ResponsiveVideo.component';
 import HeaderNav from './components/HeaderNav.component';
-import LazyLoading from './components/LazyLoading.component';
 import CookieControlClass from './components/CookieControl.component';
 import VideoPoster from './components/VideoPoster.component';
 import AjaxCollection from './components/AjaxCollection.component';
@@ -19,6 +17,7 @@ import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import GoogleMap from './components/GoogleMap.component';
 import GalleryBlock from './components/GalleryBlock.component';
+
 
 export const ngComponents = [
   {
@@ -58,11 +57,6 @@ export const ngComponents = [
       navigationList: 'ul.nav.navbar-nav',
       filledClass: 'filled'
     }
-  },
-  {
-    class: LazyLoading,
-    selector: 'html',
-    options: {}
   },
   {
     class: CookieControlClass,

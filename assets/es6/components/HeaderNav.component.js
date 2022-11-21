@@ -22,28 +22,28 @@ export default class HeaderNav {
 
         this.setActiveStateOnMenuItems();
 
-        this.navToggle.addEventListener('click', (e) => {
+        this.navToggle && this.navToggle.addEventListener('click', (e) => {
             this.pageToggleClass(e, this.options.navActiveClass);
         })
 
-        this.searchToggle.addEventListener('click', (e) => {
+        this.searchToggle && this.searchToggle.addEventListener('click', (e) => {
             this.pageToggleClass(e, this.options.searchboxActiveClass, this.options.navActiveClass);
             this.searchInput.focus();
         });
 
-        this.headerSearch.addEventListener('blur', (e) => {
+        this.headerSearch && this.headerSearch.addEventListener('blur', (e) => {
             this.pageWrapper.classList.remove(this.options.searchboxActiveClass);
         })
 
-        this.headerSearch.addEventListener('click', (e) => {
+        this.headerSearch && this.headerSearch.addEventListener('click', (e) => {
             if(this.headerSearch.contains(e.target)) return;
 
             this.pageWrapper.classList.remove(this.options.searchboxActiveClass);
         })
 
-        this.headerSearch.addEventListener('input', (e) => {
+        this.headerSearch && this.headerSearch.addEventListener('input', (e) => {
             if(this.searchInput.value !== '') {
-                this.headerSearch.addClass(this.options.filledClass);
+                this.headerSearch.classList.add(this.options.filledClass);
                 return;
             } 
 

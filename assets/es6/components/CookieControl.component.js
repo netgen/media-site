@@ -3,6 +3,7 @@ import CookieControl from '@netgen/javascript-cookie-control';
 
 export default class CookieControlClass {
     constructor(element, options) {
+        this.el = element
         this.options = options;
 
         this.optionalSaveBtn = element.querySelector(options.optionalSaveBtn);
@@ -18,22 +19,24 @@ export default class CookieControlClass {
         cookieControl.init();
 
         /* cookie control optional list toggle */
-        $(self.optionalListToggle).on('click', function (e) {
+        this.optionalListToggle.addEventListener('click', (e) => {
           e.preventDefault();
 
-          $(this).toggleClass(self.options.rotateArrowClass);
-          const list = $(self.optionalList);
-
-          if (list.hasClass(self.options.shownClass)) {
-            list.removeClass(self.options.shownClass).slideUp();
+          this.optionalListToggle.classList.toggle(this.options.rotateArrowClass);
+          const isVisible = [...this.optionalList].classList.includes(this.options.shownClass)
+          
+          if(isVisible) {
+            this.optionalListToggle.slideUp()
           } else {
-            list.addClass(self.options.shownClass).slideDown();
+            this.optionalListToggle.slideDown()
           }
-        });
+
+          this.optionalListToggle.classList.toggle(this.options.shownClass);
+        })
         /* /cookie control optional list toggle */
 
         /* cookie consent changed */
-        $(self.optionalSaveBtn).on('click', (e) => {
+        this.optionalSaveBtn.addEventListener('click', (e) => {
           e.preventDefault();
           
           if(!dataLayer) {
@@ -44,6 +47,7 @@ export default class CookieControlClass {
           dataLayer.push({
             event: 'ngcc-changed',
           });
-        });
+        })
+        /* /cookie consent changed */
     }
 }
