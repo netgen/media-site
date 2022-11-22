@@ -1,32 +1,71 @@
+parameters:
+    ngsite.fh_group.site_domain: localhost
+    ngsite.bold_group.site_domain: localhost
+
+    ngsite.fh_group.locations.site_info.id: 65
+    ngsite.bold_group.locations.site_info.id: 442
+
+    ngsite.fh_group.locations.tree_root.id: 385
+    ngsite.bold_group.locations.tree_root.id: 386
+
+    ngsite.admin_siteaccess_name: adminui
+
 ibexa:
     siteaccess:
-        default_siteaccess: eng
+        default_siteaccess: fh_eng
         list:
-            - eng
+            - fh_eng
+            - bold_eng
+            - bold_ger
             - '%ngsite.admin_siteaccess_name%'
         groups:
-            frontend_group:
-                - eng
             admin_group:
                 - '%ngsite.admin_siteaccess_name%'
+            frontend_group:
+                - fh_eng
+                - bold_eng
+                - bold_ger
+            fh_group:
+                - fh_eng
+            bold_group:
+                - bold_eng
+                - bold_ger
     system:
-        frontend_group:
-            translation_siteaccesses:
-                - eng
-            content:
-                tree_root:
-                    location_id: '%ngsite.default.locations.tree_root.id%'
-        eng:
-            design: app
-            languages:
-                - eng-GB
-            session:
-                name: eZSESSID
         admin_group:
             languages:
                 - eng-GB
+                - ger-DE
             session:
                 name: eZSESSID
+        fh_group:
+            design: app
+            translation_siteaccesses:
+                - fh_eng
+            content:
+                tree_root:
+                    location_id: '%ngsite.fh_group.locations.tree_root.id%'
+            session:
+                name: eZSESSID
+        bold_group:
+            design: app
+            translation_siteaccesses:
+                - bold_eng
+                - bold_ger
+            content:
+                tree_root:
+                    location_id: '%ngsite.bold_group.locations.tree_root.id%'
+            session:
+                name: eZSESSID
+        fh_eng:
+            languages:
+                - eng-GB
+        bold_eng:
+            languages:
+                - eng-GB
+        bold_ger:
+            languages:
+                - ger-DE
+
 netgen_layouts:
     design_list:
         app:
@@ -34,6 +73,7 @@ netgen_layouts:
     system:
         frontend_group:
             design: app
+
 ibexa_design_engine:
     design_list:
         app:

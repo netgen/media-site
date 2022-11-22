@@ -1,6 +1,4 @@
 parameters:
-    ngsite.admin_siteaccess_name: adminui
-
     ngsite.default.search.content_types:
         - ng_blog_post
         - ng_article
