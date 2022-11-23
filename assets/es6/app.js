@@ -24,11 +24,11 @@ const componentsInit = () => {
     });
   }
   /* INITIALIZE ALL COMPONENTS -----------------------------------------------*/
-  
+
   document.addEventListener('DOMContentLoaded', (e) => {  // initialize on DOM ready
     componentsInit();
   });
-  
-  document.addEventListener('ngl:refresh', (e) => { // initialize on special event
+
+  document.addEventListener('ngl:preview:block:refresh', (e) => { // initialize on special event
     componentsInit();
   });
