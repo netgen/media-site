@@ -39,6 +39,7 @@ block_types:
     ibexa_component_quote:
         name: 'Quote'
         definition_identifier: ibexa_component
+        icon: '/images/components/icon-component-quote.svg'
         defaults:
             view_type: quote_style_1
             parameters:
