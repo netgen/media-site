@@ -2,7 +2,7 @@ export default class SwiperThumb {
     constructor(element, options) {
         this.el = element;
         this.options = options;
-        
+
         this.data = element.dataset;
         this.swiper = false;
         this.swiperPrevBtn = element.querySelector(options.swiperPrevBtn)
@@ -12,7 +12,7 @@ export default class SwiperThumb {
         this.topSwiperConfig = options.topSwiperConfig;
         this.thumbnailsSwiper = element.querySelectorAll(options.thumbnailsSwiper)[0]
         this.thumbnailsSwiperConfig = options.thumbnailsSwiperConfig;
-        
+
         this.onInit()
     }
 

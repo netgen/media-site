@@ -1,6 +1,6 @@
 export default class GalleryBlock {
     constructor(element, options) {
-        this.el = element; 
+        this.el = element;
         this.options = options;
 
         this.layoutAsFlexElements = element.querySelectorAll(options.layoutAsFlexElements)
@@ -14,7 +14,7 @@ export default class GalleryBlock {
             const hasChildren = el.querySelectorAll('*');
             if(!hasChildren) el.remove();
         });
-        
+
         this.lightboxEnabledElements.forEach(el => {
             el.magnificPopup({
                 delegate: this.options.popupToggle, // child items selector, by clicking on it popup will open

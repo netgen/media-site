@@ -24,7 +24,7 @@ export default class CookieControlClass {
 
           this.optionalListToggle.classList.toggle(this.options.rotateArrowClass);
           const isVisible = [...this.optionalList].classList.includes(this.options.shownClass)
-          
+
           if(isVisible) {
             this.optionalListToggle.slideUp()
           } else {
@@ -38,12 +38,12 @@ export default class CookieControlClass {
         /* cookie consent changed */
         this.optionalSaveBtn.addEventListener('click', (e) => {
           e.preventDefault();
-          
+
           if(!dataLayer) {
             console.warn('Data layer is not defined!');
             return;
           }
-          
+
           dataLayer.push({
             event: 'ngcc-changed',
           });

@@ -11,7 +11,7 @@ export default class HeaderNav {
         this.mainNav = document.querySelector(options.mainNav);
         this.level_1_menus = false;
         this.submenuTriggerElements = [];
-        
+
         this.onInit();
     }
 
@@ -43,9 +43,9 @@ export default class HeaderNav {
             if(this.searchInput.value !== '') {
                 this.headerSearch.classList.add(this.options.filledClass);
                 return;
-            } 
+            }
 
-            this.headerSearch.classList.remove(this.options.filledClass);    
+            this.headerSearch.classList.remove(this.options.filledClass);
         })
 
         this.addSubmenuTriggers();
@@ -55,7 +55,7 @@ export default class HeaderNav {
         e.preventDefault();
 
         this.pageWrapper.classList.toggle(classToToggle);
-        
+
         if (classToRemove) {
           this.pageWrapper.classList.remove(classToRemove);
         }
@@ -69,14 +69,14 @@ export default class HeaderNav {
             this.level_1_menus.forEach(menu => {
                 const submenuTriggerContent = document.createElement(this.options.submenuTriggerElement)
                 submenuTriggerContent.classList.add(this.options.submenuTriggerClass)
-                
+
                 menu.parentElement.insertBefore(submenuTriggerContent, menu)
                 menu.parentElement.setAttribute(this.options.submenuDataParam, 'true')
-                
+
                 this.submenuTriggerElements.push(submenuTriggerContent)
             })
-            
-            
+
+
             this.submenuTriggerElements.forEach(item => {
                 item.addEventListener('click', (e) => {
                     this.toggleMobileSubmenu(item);
@@ -93,11 +93,11 @@ export default class HeaderNav {
         if (page.dataset.path) {
             const activeItemsList = JSON.parse(page.dataset.path);
             const navigationList = document.querySelectorAll(this.options.navigationList);
-        
+
             navigationList.forEach((navigation) => {
                 activeItemsList.forEach((activeItemId) => {
                     const item = navigation.querySelector(`[data-location-id="${activeItemId}"]`);
-                    
+
                     if (item) {
                         item.classList.add('active', this.options.submenuActiveClass);
                     }

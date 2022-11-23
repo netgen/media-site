@@ -54,7 +54,7 @@ export default class VideoPoster {
     setPosterLinks() {
         const link = this.el.closest(this.options.posterLinkElement);
         if(!link) return;
-        
+
         link.setAttribute('href', this.el.src)
     }
 }

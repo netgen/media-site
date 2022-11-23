@@ -5,21 +5,21 @@ export const findAncestor = (el, sel) => {
 
 /* get next sibling, optionaly filtered by selector */
 export const getNextSibling = (elem, selector) => {
-	var sibling = elem.nextElementSibling;
-	if (!selector) return sibling;
-	while (sibling) {
-		if (sibling.matches(selector)) return sibling;
-		sibling = sibling.nextElementSibling;
-	}
+  var sibling = elem.nextElementSibling;
+  if (!selector) return sibling;
+  while (sibling) {
+    if (sibling.matches(selector)) return sibling;
+    sibling = sibling.nextElementSibling;
+  }
 };
 
 /* get next sibling, optionaly filtered by selector */
 export const getPreviousSibling = (elem, selector) => {
-	var sibling = elem.previousElementSibling;
-	if (!selector) return sibling;
-	while (sibling) {
-		if (sibling.matches(selector)) return sibling;
-		sibling = sibling.previousElementSibling;
+  var sibling = elem.previousElementSibling;
+  if (!selector) return sibling;
+  while (sibling) {
+    if (sibling.matches(selector)) return sibling;
+    sibling = sibling.previousElementSibling;
     }
 };
 
@@ -43,22 +43,22 @@ export const throttle = (fn, wait) => {
 
 export function debounce(func, wait, immediate) {
     var timeout;
-  
+
     return function executedFunction() {
       var context = this;
       var args = arguments;
-        
+
       var later = function() {
         timeout = null;
         if (!immediate) func.apply(context, args);
       };
-  
+
       var callNow = immediate && !timeout;
-    
+
       clearTimeout(timeout);
-  
+
       timeout = setTimeout(later, wait);
-    
+
       if (callNow) func.apply(context, args);
     };
 };

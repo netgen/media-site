@@ -24,7 +24,7 @@ export const ngComponents = [
   {
     class: Temporary,
     selector: 'html',
-    options: {} 
+    options: {}
   },
   {
     class: GalleryBlock,
@@ -33,7 +33,7 @@ export const ngComponents = [
       layoutAsFlexElements: '.nglayouts-as-flex',
       lightboxEnabledElements: '.js-lightbox-enabled',
       popupToggle: '.js-mfp-item',
-    } 
+    }
   },
   {
     class: GoogleMap,

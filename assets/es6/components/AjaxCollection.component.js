@@ -1,4 +1,4 @@
-import VideoPoster from "./VideoPoster.component"; 
+import VideoPoster from "./VideoPoster.component";
 
 export default class AjaxCollection {
     constructor(element, options) {

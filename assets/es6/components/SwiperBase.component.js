@@ -2,7 +2,7 @@ export default class SwiperBase {
     constructor(element, options) {
         this.el = element;
         this.options = options;
-        
+
         this.data = element.dataset;
         this.swiper = false;
         this.swiperConfig = options.swiperConfig;
@@ -15,7 +15,7 @@ export default class SwiperBase {
 
     onInit() {
         const self = this;
-        
+
         const { loop, autoplay, effect, slidesPerView, slidesPerGroup } = self.data;
 
         self.swiper = new Swiper(self.el, {
