@@ -1,0 +1,10 @@
+app_collect_info:
+    path: /collect/{formLocationId}
+    defaults:
+        _controller: 'App\Controller\InfoCollectorController:externalHandle'
+
+app_collect_info_modal:
+    path: /collect/modal/{formLocationId}/{refererLocationId}
+    defaults:
+        _controller: 'App\Controller\InfoCollectorController:serveModal'
+        refererLocationId: ~
