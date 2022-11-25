@@ -29,9 +29,9 @@
         "doctrine/doctrine-bundle": "^2.4.2",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.13",
-        "ibexa/oss": "~4.2.0",
+        "ibexa/oss": "~4.3.0",
         "phpdocumentor/reflection-docblock": "^5.3",
-        "phpstan/phpdoc-parser": "^1.7",
+        "phpstan/phpdoc-parser": "^1.13",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.4.*",
         "symfony/console": "5.4.*",
@@ -139,8 +139,7 @@
     "replace": {
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php73": "*"
+        "symfony/polyfill-php72": "*"
     },
     "scripts": {
         "auto-scripts": {
@@ -164,8 +163,7 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*",
-        "symfony/expression-language": "5.4.7"
+        "symfony/symfony": "*"
     },
     "extra": {
         "symfony": {
