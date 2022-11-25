@@ -1,5 +1,50 @@
 {% extends '@IbexaCore/content_fields.html.twig' %}
 
+{% block ngenhancedlink_field %}
+{% apply spaceless %}
+    {% if not ibexa_field_is_empty( content, field ) %}
+        <div {{ block( 'field_attributes' ) }}>
+            {% if field.value.isTypeInternal%}
+                {% if field.value.isTargetEmbed %}
+                    {{ render(
+                        controller(
+                            "ibexa_content::viewAction",
+                            {
+                                'contentId': field.value.reference,
+                                'viewType': 'embed',
+                                'layout': false
+                            }
+                        )
+                    ) }}
+                {% else %}
+                    {{ render(
+                        controller(
+                            "ibexa_content::viewAction",
+                            {
+                                'contentId': field.value.reference,
+                                'viewType': 'text_linked',
+                                'layout': false
+                            }
+                        )
+                    ) }}
+                {% endif %}
+            {% endif %}
+            {% if field.value.isTypeExternal %}
+                {% if field.value.isTargetLinkInNewTab %}
+                    <a href="{{ field.value.reference }}" {{ block( 'field_attributes' ) }} target="_blank">
+                        {{ field.value.label ? field.value.label : field.value.reference }}
+                    </a>
+                {% else %}
+                    <a href="{{ field.value.reference }}" {{ block( 'field_attributes' ) }} >
+                        {{ field.value.label ? field.value.label : field.value.reference }}
+                    </a>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endapply %}
+{% endblock %}
+
 {% block ezimage_field %}
 {% apply spaceless %}
     {% if not ibexa_field_is_empty(content, field) %}
