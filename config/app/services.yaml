@@ -31,7 +31,7 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Layouts\Block\Plugin\FeaturesComponentGridPlugin:
+    Netgen\Bundle\SiteBundle\Layouts\Block\Plugin\FeaturesComponentGridPlugin:
         arguments:
             - "%app.layouts.block.plugin.features_component_grid.columns%"
         tags:
