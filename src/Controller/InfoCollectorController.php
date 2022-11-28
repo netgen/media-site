@@ -5,13 +5,6 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\InformationCollection\Handler\Handler;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Subtree;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause\Location\Priority;
-use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 use Netgen\Bundle\IbexaSiteApiBundle\Controller\Controller;
 use Netgen\Bundle\IbexaSiteApiBundle\View\ContentView;
 use Netgen\IbexaSiteApi\API\Values\Location;
@@ -59,41 +52,48 @@ final class InfoCollectorController extends Controller
     }
 
     /**
+     * @todo remove in favor of generic implementation
+     * @todo render modal view, generic for modal view?
+     *
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
      * @throws \Netgen\IbexaSiteApi\API\Exceptions\TranslationNotMatchedException
      */
-    public function serveModal(Request $request, int $formLocationId, ?int $refererLocationId = null): Response
+    public function viewModal(Request $request, int $formContentId, ?int $refererLocationId = null): Response
     {
-        $location = $this->getSite()->getLoadService()->loadLocation($formLocationId);
+        $content = $this->getSite()->getLoadService()->loadContent($formContentId);
 
-        $response = new Response();
-        $response->setPrivate();
-        $response->setSharedMaxAge(0);
-
-        return $this->render(
+        // todo render modal view
+        $response = $this->render(
             '@ibexadesign/info_collection/modal.html.twig',
             [
-                'content' => $location->content,
-                'location' => $location,
+                'content' => $formContentId,
                 'view_type' => 'embed',
                 'referer' => $this->getReferer($refererLocationId),
             ]
         );
+
+        $response->setSharedMaxAge(0);
+        $response->setPrivate();
+
+        return $response;
     }
 
     /**
+     * @todo post, render payload view, use content ID
+     *
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
      * @throws \Netgen\IbexaSiteApi\API\Exceptions\TranslationNotMatchedException
      */
-    public function externalHandle(int $formLocationId): Response
+    public function handleAjaxSubmit(int $formContentId): Response
     {
         $location = $this->getSite()->getLoadService()->loadLocation($formLocationId);
 
+        // todo remove: no caching needed if post
         $response = new Response();
-        $response->setPrivate();
         $response->setSharedMaxAge(0);
+        $response->setPrivate();
 
         return $this->render(
             '@ibexadesign/info_collection/embedded_view.html.twig',
@@ -105,7 +105,10 @@ final class InfoCollectorController extends Controller
         );
     }
 
-    public function internalHandle(ContentView $view): ContentView
+    /**
+     * @todo Describe
+     */
+    public function proxyFormHandler(ContentView $view): ContentView
     {
         $request = $this->requestStack->getCurrentRequest();
 
@@ -152,7 +155,6 @@ final class InfoCollectorController extends Controller
                 ],
                 UrlGeneratorInterface::ABSOLUTE_URL
             );
-
         }
 
         $request = $this->requestStack->getCurrentRequest();
