@@ -2,13 +2,13 @@
 {% apply spaceless %}
     {% set url = _self.related_content_link(content)|trim %}
     {% set open_in_new_tab = false %}
-    {% if content.fields.open_in_new_tab.value.bool %}
+    {% if content.hasField('link') and content.fields.link.value.isTargetLinkInNewTab %}
         {% set open_in_new_tab = true %}
     {% endif %}
-    {% set link_class = link_class|default %}
 
-    {% if not content.fields.internal_link_suffix.empty %}
-        {% set url = url ~ content.fields.internal_link_suffix.value.text %}
+    {% set link_class = link_class|default %}
+    {% if content.fields.link.value.suffix is not null %}
+        {% set url = url ~ content.fields.link.value.suffix %}
     {% endif %}
 
     {% if url %}
@@ -29,9 +29,12 @@
 {% macro image_link(content, field, alias, lazy_loading) %}
 {% apply spaceless %}
     {% set url = _self.related_content_link(content)|trim %}
-    {% set open_in_new_window = false %}
-    {% if content.fields.open_in_new_tab.value.bool %}
-        {% set open_in_new_window = true %}
+    {% set open_in_new_tab = false %}
+    {% if content.hasField('link') and content.fields.link.value.isTargetLinkInNewTab %}
+        {% set open_in_new_tab = true %}
+    {% endif %}
+    {% if content.fields.link.value.suffix is not null %}
+        {% set url = url ~ content.fields.link.value.suffix %}
     {% endif %}
     {% set lazy_loading = lazy_loading ?? ibexa.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
 
@@ -43,7 +46,7 @@
             'parameters': {
                 'alias': alias,
                 'link_href': url,
-                'link_target': open_in_new_window ? '_blank' : '',
+                'link_target': open_in_new_tab ? '_blank' : '',
                 'lazy_loading': lazy_loading,
             }
         }
@@ -58,13 +61,11 @@
 {% macro related_content_link(content) %}
 {% apply spaceless %}
     {% set url = null %}
-    {% if content.hasField('external_link') and not content.fields.external_link.empty %}
-        {% set url = content.fields.external_link.value.link %}
-    {% elseif content.hasField('internal_link') and not content.fields.internal_link.empty %}
-        {% set related_content = content.fieldRelation('internal_link') %}
-
-        {% if related_content is not null and related_content.id != content.id %} {# dead loop #}
-            {% set url = ibexa_path(related_content) %}
+    {% if content.hasField('link') %}
+        {% if content.fields.link.value.isTypeInternal %}
+            {% set url = path("ibexa.url.alias", { contentId: content.fields.link.value.reference }) %} 
+        {% elseif content.fields.link.value.isTypeExternal %}
+            {% set url = content.fields.link.value.reference %}
         {% endif %}
     {% endif %}
 
