@@ -13,30 +13,29 @@
                 {{ ng_render_field(content.fields.description) }}
             </div>
         </header>
-        <div class="features-grid {{ grid_class }}">
-            {% for i in 1..8 %}
-                {% set item_icon = 'item_' ~ i ~ '_icon' %}
-                {% set item_title = 'item_' ~ i ~ '_title' %}
-                {% set item_description = 'item_' ~ i ~ '_description' %}
-
-                {% if not content.fields[item_title].empty or not content.fields[item_description].empty %}
-                    <div class="features-grid-item">
-                        {% if content.fields[item_icon] is defined and not content.fields[item_icon].empty %}
-                            <div class="item-icon">
-                                <img src="{{ asset(content.fields[item_icon].value.id, 'ibexa_file') }}" alt="{{ content.name }}" />
-                            </div>
-                        {% endif %}
-                        {% if content.fields[item_title] is defined and not content.fields[item_title].empty %}
-                            <h3 class="item-title">{{ ng_render_field(content.fields[item_title]) }}</h3>
-                        {% endif %}
-                        {% if content.fields[item_description] is defined and not content.fields[item_description].empty %}
-                            <div class="item-short">
-                                {{ ng_render_field(content.fields[item_description]) }}
-                            </div>
-                        {% endif %}
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
+        {% set items = ng_component_items(content, "item") %}
+        {% if items|length %}
+            <div class="features-grid {{ grid_class }}">
+                {% for item in items %}
+                    {% if not item.title.empty or not item.description.empty %}
+                        <div class="features-grid-item">
+                            {% if item.icon is defined and not item.icon.empty %}
+                                <div class="item-icon">
+                                    <img src="{{ asset(item.icon.value.id, 'ibexa_file') }}" alt="{{ content.name }}" />
+                                </div>
+                            {% endif %}
+                            {% if item.title is defined and not item.title.empty %}
+                                <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
+                            {% endif %}
+                            {% if item.description is defined and not item.description.empty %}
+                                <div class="item-short">
+                                    {{ ng_render_field(item.description) }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}  
     </article>
 {% endblock %}

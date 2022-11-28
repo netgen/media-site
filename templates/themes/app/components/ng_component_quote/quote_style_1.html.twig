@@ -22,70 +22,65 @@
                 </div>
             </header>
         {% endif %}
-        <div class="quote-swiper swiper-container"
-            data-effect="slide"
-            data-loop="true"
-            data-autoplay="5000"
-        >
-            <div class="swiper-wrapper">
-                {% for i in 1..8 %}
-                    {% set item_icon = 'item_' ~ i ~ '_icon' %}
-                    {% set item_title = 'item_' ~ i ~ '_title' %}
-                    {% set item_description = 'item_' ~ i ~ '_description' %}
 
-                    {% set item_person_image = 'item_' ~ i ~ '_person_image' %}
-                    {% set item_person_name = 'item_' ~ i ~ '_person_name' %}
-                    {% set item_person_description = 'item_' ~ i ~ '_person_description' %}
+        {% set items = ng_component_items(content, "item") %}
+        {% if items|length %}
+            <div class="quote-swiper swiper-container"
+                data-effect="slide"
+                data-loop="true"
+                data-autoplay="5000"
+            >
+                <div class="swiper-wrapper">
+                    {% for item in items %}
+                        {% if not item.title.empty or not item.description.empty %}
+                            <div class="swiper-slide">
+                                <div class="container">
+                                    {% if not item.title.empty or not item.description.empty %}
+                                        <div class="quote-item">
+                                            <img class="quote-icon" src="{{ asset('/images/quote.svg') }}" alt="quote" title="quote" />
+                                            {% if item.title is defined and not item.title.empty %}
+                                                <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
+                                            {% endif %}
+                                            {% if item.description is defined and not item.description.empty %}
+                                                <div class="item-short">
+                                                    {{ ng_render_field(item.description) }}
+                                                </div>
+                                            {% endif %}
 
-                    {% if not content.fields[item_title].empty or not content.fields[item_description].empty %}
-                        <div class="swiper-slide">
-                            <div class="container">
-                                {% if not content.fields[item_title].empty or not content.fields[item_description].empty %}
-                                    <div class="quote-item">
-                                        <img class="quote-icon" src="{{ asset('/images/quote.svg') }}" alt="quote" title="quote" />
-                                        {% if content.fields[item_title] is defined and not content.fields[item_title].empty %}
-                                            <h3 class="item-title">{{ ng_render_field(content.fields[item_title]) }}</h3>
-                                        {% endif %}
-                                        {% if content.fields[item_description] is defined and not content.fields[item_description].empty %}
-                                            <div class="item-short">
-                                                {{ ng_render_field(content.fields[item_description]) }}
-                                            </div>
-                                        {% endif %}
-
-                                        <div class="quote-person">
-                                            {% if not content.fields[item_person_image].empty %}
-                                                <div class="quote-person-image">
-                                                    {{ ng_render_field(
-                                                        content.fields[item_person_image], {
-                                                            parameters: {
-                                                                alias: 'i160'
+                                            <div class="quote-person">
+                                                {% if not item.person_image.empty %}
+                                                    <div class="quote-person-image">
+                                                        {{ ng_render_field(
+                                                            item.person_image, {
+                                                                parameters: {
+                                                                    alias: 'i160'
+                                                                }
                                                             }
-                                                        }
-                                                    ) }}
-                                                </div>
-                                            {% endif %}
-                                            {% if not content.fields[item_person_image].empty or not content.fields[item_person_description].empty %}
-                                                <div class="quote-person-info">
-                                                    {% if not content.fields[item_person_image].empty %}
-                                                        <h4>{{ content.fields[item_person_name].value.text }}</h4>
-                                                    {% endif %}
-                                                    {% if not content.fields[item_person_description].empty %}
-                                                        {{ ng_render_field(content.fields[item_person_description]) }}
-                                                    {% endif %}
-                                                </div>
-                                            {% endif %}
+                                                        ) }}
+                                                    </div>
+                                                {% endif %}
+                                                {% if not item.person_name.empty or not item.person_description.empty %}
+                                                    <div class="quote-person-info">
+                                                        {% if not item.person_name.empty %}
+                                                            <h4>{{ item.person_name.value.text }}</h4>
+                                                        {% endif %}
+                                                        {% if not item.person_description.empty %}
+                                                            {{ ng_render_field(item.person_description) }}
+                                                        {% endif %}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
                                         </div>
-                                    </div>
-                                {% endif %}
+                                    {% endif %}
+                                </div>
                             </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-
+        {% endif %}
 
     </article>
 {% endblock %}

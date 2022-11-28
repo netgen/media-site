@@ -15,55 +15,43 @@
             {% endif %}
         </header>
 
-        <div class="list-zigzag">
-
-            {% for i in 1..8 %}
-                <div class="list-item">
-
-                {% set item_image = 'item_' ~ i ~ '_image' %}
-                {% set item_eyebrow_title = 'item_' ~ i ~ '_highlight_title' %}
-                {% set item_title = 'item_' ~ i ~ '_title' %}
-                {% set item_description = 'item_' ~ i ~ '_description' %}
-                {% set item_link_label = 'item_' ~ i ~ '_link_label' %}
-
-                {% if not content.fields[item_title].empty or not content.fields[item_description].empty %}
-
-                    <article class="view-type view-type-zigzag {## !!!! ##}ng-banner vl9{## /!!!! ##}">
-
-                        {% if content.fields[item_image] is defined and not content.fields[item_image].empty %}
-                            <figure class="image">
-                                {{ ng_render_field(content.fields[item_image]) }}
-                            </figure>
+        {% set items = ng_component_items(content, "item") %}
+        {% if items|length %}
+            <div class="list-zigzag">
+                {% for item in items %}
+                    <div class="list-item">
+                        {% if not item.title.empty or not item.description.empty %}
+                            <article class="view-type view-type-zigzag {## !!!! ##}ng-banner vl9{## /!!!! ##}">
+                                {% if item.image is defined and not item.image.empty %}
+                                    <figure class="image">
+                                        {{ ng_render_field(item.image) }}
+                                    </figure>
+                                {% endif %}
+                                <div class="article-content">
+                                    <header class="article-header">
+                                        {% if item.eyebrow_title is defined and not item.eyebrow_title.empty %}
+                                            <span class="eyebrow-title">{{ ng_render_field(item.eyebrow_title) }}</span>
+                                        {% endif %}
+                                        {% if item.title is defined and not item.title.empty %}
+                                            <h2 class="title">{{ ng_render_field(item.title) }}</h2>
+                                        {% endif %}
+                                    </header>
+                                    {% if item.description is defined and not item.description.empty %}
+                                        <div class="short">
+                                            {{ ng_render_field(item.description) }}
+                                        </div>
+                                    {% endif %}
+                                    {% if item.item_link_label is defined and not item.item_link_label.empty %}
+                                        <div class="short">
+                                            <a href="#" class="btn btn-outline">{{ item.item_link_label.value.text }}</a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </article>
                         {% endif %}
-
-                        <div class="article-content">
-                            <header class="article-header">
-                                {% if content.fields[item_eyebrow_title] is defined and not content.fields[item_eyebrow_title].empty %}
-                                    <span class="eyebrow-title">{{ ng_render_field(content.fields[item_eyebrow_title]) }}</span>
-                                {% endif %}
-                                {% if content.fields[item_title] is defined and not content.fields[item_title].empty %}
-                                    <h2 class="title">{{ ng_render_field(content.fields[item_title]) }}</h2>
-                                {% endif %}
-                            </header>
-                            {% if content.fields[item_description] is defined and not content.fields[item_description].empty %}
-                                <div class="short">
-                                    {{ ng_render_field(content.fields[item_description]) }}
-                                </div>
-                            {% endif %}
-                            {% if content.fields[item_link_label] is defined and not content.fields[item_link_label].empty %}
-                                <div class="short">
-                                    <a href="#" class="btn btn-outline">{{ content.fields[item_link_label].value.text }}</a>
-                                </div>
-                            {% endif %}
-                        </div>
-
-                    </article>
-                {% endif %}
-
-                </div>
-            {% endfor %}
-
+                    </div>
+                {% endfor %}
             </div>
-
+        {% endif %}
     </article>
 {% endblock %}
