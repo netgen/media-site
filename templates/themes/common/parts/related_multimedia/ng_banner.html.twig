@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="{% if is_slider %}swiper-slide{% endif %} vl2">
-        {% set image_uri = ng_image_alias(content.fields.image, 'i1200').uri|default('') %}
+        {% set image_uri = ng_image_alias(content.fields.image, 'i1320').uri|default('') %}
 
         <img {% if is_slider %}loading="lazy"{% endif %} src="{{ image_uri }}" />
 
