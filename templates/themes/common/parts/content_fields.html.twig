@@ -4,7 +4,7 @@
 {% apply spaceless %}
     {% if not ibexa_field_is_empty( content, field ) %}
         <div {{ block( 'field_attributes' ) }}>
-            {% if field.value.isTypeInternal%}
+            {% if field.value.isTypeInternal %}
                 {% if field.value.isTargetEmbed %}
                     {{ render(
                         controller(
