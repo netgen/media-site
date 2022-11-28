@@ -34,18 +34,27 @@
                                 {{ ng_render_field(content.fields.description) }}
                             </div>
                         {% endif %}
-
                         <div class="actions">
-                            {% if not content.fields.link_label_1.empty %}
-                                <a href="#" class="btn btn-primary">{{ content.fields.link_label_1.value.text }}</a>
+                            {% if not content.fields.link_1.empty %}
+                                {{ ng_render_field(
+                                    content.fields.link_1, {
+                                        parameters: {
+                                            css_class: 'btn btn-primary'
+                                        }
+                                    }
+                                ) }}
                             {% endif %}
-                            {# {{ macros.content_link(content, content.fields.link_label_1.value.text, "btn btn-primary") }} #}
-                            {% if not content.fields.link_label_2.empty %}
-                                <a href="#" class="btn btn-outline">{{ content.fields.link_label_2.value.text }}</a>
-                            {% endif %}
-                            {# {{ macros.content_link(content, content.fields.link_label_2.value.text, "btn btn-outline") }} #}
-                        </div>
 
+                            {% if not content.fields.link_2.empty %}
+                                {{ ng_render_field(
+                                    content.fields.link_2, {
+                                        parameters: {
+                                            css_class: 'btn btn-outline'
+                                        }
+                                    }
+                                ) }}
+                            {% endif %}
+                        </div>
                     </header>
                 </div>
             </div>
