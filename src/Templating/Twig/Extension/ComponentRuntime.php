@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Templating\Twig\Extension;
 
-use Netgen\Bundle\EnhancedSelectionBundle\Core\FieldType\EnhancedSelection\Value;
 use Netgen\IbexaSiteApi\API\Values\Content;
 use Twig\Extension\RuntimeExtensionInterface;
 
@@ -35,13 +34,13 @@ final class ComponentRuntime implements RuntimeExtensionInterface
         usort(
             $items,
             static function ($group1, $group2) {
-                /** @var Value $value1 */
-                $value1 = $group1[self::CONTENT_ITEMS_GROUP_POSITION]->value;
+                $identifiers1 = $group1[self::CONTENT_ITEMS_GROUP_POSITION]->value->identifiers ?? [];
+                $identifier1 = $identifiers1 ? (int) reset($identifiers1) : 0;
 
-                /** @var Value $value2 */
-                $value2 = $group2[self::CONTENT_ITEMS_GROUP_POSITION]->value;
+                $identifiers2 = $group2[self::CONTENT_ITEMS_GROUP_POSITION]->value->identifiers ?? [];
+                $identifier2 = $identifiers2 ? (int) reset($identifiers2) : 0;
 
-                return (int) reset($value1->identifiers) <=> (int) reset($value2->identifiers);
+                return $identifier1 <=> $identifier2;
             },
         );
 
