@@ -13,7 +13,8 @@ export default class ModalFormSubmitComponent {
 
       const formData = new FormData(this);
       const formUrl = $(this).attr('action');
-      const formIdentifier = $(this).data('identifier');
+      // todo finish
+      const formIdentifier = $(this).data('gtm-event-prefix');
       const $loaderGif = $('<div class="loading-animation"><span></span></div>');
 
       $([document.documentElement, document.body]).animate( { scrollTop: $(element).offset().top - 100, }, 500 );

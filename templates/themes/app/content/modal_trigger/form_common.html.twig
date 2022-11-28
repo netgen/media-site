@@ -1,0 +1,8 @@
+{% set url = path(
+    'app_info_collection_view_modal',
+    {
+        formContentId: field.value.reference,
+        refererLocationId: refererLocationId
+    }
+) %}
+<a href="#" class="button btn btn-default btn-large btn-arrow-right js-form-modal-trigger" data-url="{{ url ~ suffix }}">{{ label }}</a>

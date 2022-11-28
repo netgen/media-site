@@ -1,0 +1,65 @@
+{# content \Netgen\EzPlatformSiteApi\API\Values\Content #}
+{# location \Netgen\EzPlatformSiteApi\API\Values\Location #}
+{# form \Symfony\Component\Form\FormView #}
+
+{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
+
+{% form_theme form '@ibexadesign/forms/theme.html.twig' %}
+
+{% if not is_collected %}
+    {{ block('form_body') }}
+{% else %}
+    {{ block('form_success') }}
+{% endif %}
+
+{% block form_body %}
+    {% if not content.fields.body.empty %}
+        {{ ng_render_field(content.fields.body) }}
+    {% endif %}
+
+    {# todo field value for data-identifier #}
+    {% if not form.fields.gtm_event_prefix.empty %}
+        {# todo raspisati, ako je praza ne postavlja se data atribut, prilagoditi JS da uzme u obzir da je opcionalan #}
+    {% endif %}
+    {{ form_start(form, { action: action|default(''), attr: { 'data-gtm-event-prefix': 'form-' ~ form.fields.gtm_event_prefix } }) }}
+    {{ form_errors(form) }}
+
+    <fieldset>
+        {{ form_widget(form.sender_name) }}
+
+        {# HONEYPOT #}
+        {% include '@ibexadesign/parts/form/info_collection_honeypot_field.html.twig' with { 'form': form } only %}
+        {# REFERER #}
+        <input type="hidden" id="{{ form.referer.children.value.vars.id }}" name="{{ form.referer.children.value.vars.full_name }}" value="{{ referer }}"/>
+        {% do form.referer.setRendered %}
+
+        {{ form_widget(form.email) }}
+        {{ form_widget(form.subject) }}
+        {{ form_widget(form.message) }}
+
+        <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
+    </fieldset>
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block form_success %}
+    <div class="full-form-response">
+        {% if not content.fields.success_text.empty %}
+            {{ ng_render_field(content.fields.success_text) }}
+        {% else %}
+            <p>{{ 'ngsite.collected_info.success_text'|trans }}</p>
+        {% endif %}
+
+        {#
+        <p>{{ 'ngsite.collected_info.information_collected'|trans }}:</p>
+
+        {% for collected_field, collected_field_value in collected_fields %}
+            <p><strong>{{ content.fields[collected_field].name }}:</strong> {{ collected_field_value }}</p>
+        {% endfor %}
+        #}
+
+        <a href="{{ ibexa_path(location.parent) }}">{{ 'ngsite.collected_info.return_to_site'|trans }}</a>
+    </div>
+{% endblock %}
