@@ -5,11 +5,11 @@
 
 <article class="view-type view-type-{{ view_type }} ng-accordion-item vl10">
 
-    <h3 class="title collapsed" data-toggle="collapse" data-target="#collapse-{{ location.id }}" aria-expanded="true" aria-controls="collapse-{{ location.id }}">
+    <h3 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-{{ location.id }}" aria-expanded="false" aria-controls="collapse-{{ location.id }}">
         {{ ng_render_field(content.fields.title) }}
     </h3>
 
-    <div id="collapse-{{ location.id }}" class="collapse" aria-labelledby="heading-{{ location.id }}" data-parent=".list-accordion">
+    <div id="collapse-{{ location.id }}" class="collapse" aria-labelledby="heading-{{ location.id }}" data-bs-parent=".list-accordion">
         <div class="short">
             {{ ng_render_field(content.fields.description) }}
         </div>
