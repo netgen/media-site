@@ -61,7 +61,7 @@ system:
                             - ng_article
                 ng_feedback_form:
                     template: "@ibexadesign/content/payload/ng_feedback_form.html.twig"
-                    controller: 'App\Controller\InfoCollectorController:proxyFormHandler'
+                    controller: 'App\Controller\InfoCollectionController:proxyFormHandler'
                     match:
                         Identifier\ContentType: ng_feedback_form
             line:
