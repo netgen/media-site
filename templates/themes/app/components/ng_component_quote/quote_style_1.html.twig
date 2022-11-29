@@ -25,61 +25,65 @@
 
         {% set items = ng_component_items(content, "item") %}
         {% if items|length %}
-            <div class="quote-swiper swiper-container"
-                data-effect="slide"
-                data-loop="true"
-                data-autoplay="5000"
-            >
-                <div class="swiper-wrapper">
-                    {% for item in items %}
-                        {% if not item.title.empty or not item.description.empty %}
-                            <div class="swiper-slide">
-                                <div class="container">
-                                    {% if not item.title.empty or not item.description.empty %}
-                                        <div class="quote-item">
-                                            <img class="quote-icon" src="{{ asset('/images/quote.svg') }}" alt="quote" title="quote" />
-                                            {% if item.title is defined and not item.title.empty %}
-                                                <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
-                                            {% endif %}
-                                            {% if item.description is defined and not item.description.empty %}
-                                                <div class="item-short">
-                                                    {{ ng_render_field(item.description) }}
-                                                </div>
-                                            {% endif %}
-
-                                            <div class="quote-person">
-                                                {% if not item.person_image.empty %}
-                                                    <div class="quote-person-image">
-                                                        {{ ng_render_field(
-                                                            item.person_image, {
-                                                                parameters: {
-                                                                    alias: 'i160'
-                                                                }
-                                                            }
-                                                        ) }}
-                                                    </div>
-                                                {% endif %}
-                                                {% if not item.person_name.empty or not item.person_description.empty %}
-                                                    <div class="quote-person-info">
-                                                        {% if not item.person_name.empty %}
-                                                            <h4>{{ item.person_name.value.text }}</h4>
-                                                        {% endif %}
-                                                        {% if not item.person_description.empty %}
-                                                            {{ ng_render_field(item.person_description) }}
-                                                        {% endif %}
-                                                    </div>
-                                                {% endif %}
-                                            </div>
+            {% if items|length > 1 %}
+                <div class="quote-swiper swiper-container"
+                    data-effect="slide"
+                    data-loop="true"
+                    data-autoplay="5000"
+                >
+                    <div class="swiper-wrapper">
+            {% endif %}
+            {% for item in items %}
+                {% if not item.title.empty or not item.description.empty %}
+                    <div class="swiper-slide">
+                        <div class="container">
+                            {% if not item.title.empty or not item.description.empty %}
+                                <div class="quote-item">
+                                    <img class="quote-icon" src="{{ asset('/images/quote.svg') }}" alt="quote" title="quote" />
+                                    {% if item.title is defined and not item.title.empty %}
+                                        <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
+                                    {% endif %}
+                                    {% if item.description is defined and not item.description.empty %}
+                                        <div class="item-short">
+                                            {{ ng_render_field(item.description) }}
                                         </div>
                                     {% endif %}
+
+                                    <div class="quote-person">
+                                        {% if not item.person_image.empty %}
+                                            <div class="quote-person-image">
+                                                {{ ng_render_field(
+                                                    item.person_image, {
+                                                        parameters: {
+                                                            alias: 'i160'
+                                                        }
+                                                    }
+                                                ) }}
+                                            </div>
+                                        {% endif %}
+                                        {% if not item.person_name.empty or not item.person_description.empty %}
+                                            <div class="quote-person-info">
+                                                {% if not item.person_name.empty %}
+                                                    <h4>{{ item.person_name.value.text }}</h4>
+                                                {% endif %}
+                                                {% if not item.person_description.empty %}
+                                                    {{ ng_render_field(item.person_description) }}
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
                                 </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if items|length > 1 %}
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
+            {% endif %}
         {% endif %}
 
     </article>
