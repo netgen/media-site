@@ -2,8 +2,6 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 {# form \Symfony\Component\Form\FormView #}
 
-{% import '@ibexadesign/parts/content_fields.html.twig' as content_fields %}
-
 {% form_theme form '@ibexadesign/forms/theme.html.twig' %}
 
 {% if not is_collected %}
@@ -11,30 +9,49 @@
         {{ ng_render_field(content.fields.body) }}
     {% endif %}
 
-    {# todo field value for data-identifier #}
-    {% if content.fields.gtm_event_prefix is defined and not content.fields.gtm_event_prefix.empty %}
-        {# todo raspisati, ako je praza ne postavlja se data atribut, prilagoditi JS da uzme u obzir da je opcionalan #}
+    {% set form_parameters = { action: action|default('') } %}
+
+    {% if content.hasField('gtm_event_prefix') and not content.fields.gtm_event_prefix.empty %}
+        {% set form_parameters = form_parameters|merge({
+            attr: {
+                'data-gtm-event-prefix': content.fields.gtm_event_prefix.empty.value.text
+            }
+        }) %}
     {% endif %}
-    {# attr: { 'data-gtm-event-prefix': 'form-' ~ form.fields.gtm_event_prefix } #}
-    {{ form_start(form, { action: action|default('') }) }}
-    {{ form_errors(form) }}
 
-    <fieldset>
-        {{ form_widget(form.sender_name) }}
+    {{ form_start(form, form_parameters) }}
+        {{ form_errors(form) }}
 
-{#         HONEYPOT
-        {% include '@ibexadesign/parts/form/info_collection_honeypot_field.html.twig' with { 'form': form } only %}#}
-        {#REFERER#}
-        <input type="hidden" id="{{ form.referer.children.value.vars.id }}" name="{{ form.referer.children.value.vars.full_name }}" value="{{ referer }}"/>
-        {% do form.referer.setRendered %}
+        <fieldset>
+            {{ form_widget(form.sender_name) }}
 
-        {{ form_widget(form.email) }}
-        {{ form_widget(form.subject) }}
-        {{ form_widget(form.message) }}
+            {% if form is defined and form.sender_middle_name is defined %}
+                <div class="form-group" id="{{ form.sender_middle_name.vars.id }}">
+                    <label class="sr-only" for="{{ form.sender_middle_name.vars.id }}">
+                        {{ 'ngsite.collected_info.contact_form.middle_name'|trans }}
+                    </label>
+                    <input type="text"
+                           class="form-control sender-middle-name"
+                           id="{{ form.sender_middle_name.vars.id }}"
+                           name="{{ form.sender_middle_name.vars.full_name }}"
+                           placeholder="{{ 'ngsite.collected_info.contact_form.middle_name'|trans }}"
+                           tabindex="-1"
+                           autocomplete="off">
+                </div>
+                {% do form.sender_middle_name.setRendered %}
+            {% endif %}
 
-        <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
-    </fieldset>
+            <input type="hidden" id="{{ form.referer.children.value.vars.id }}" name="{{ form.referer.children.value.vars.full_name }}" value="{{ referer }}"/>
+            {% do form.referer.setRendered %}
 
+            {{ form_widget(form.email) }}
+            {{ form_widget(form.subject) }}
+            {{ form_widget(form.message) }}
+
+            <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
+        </fieldset>
+
+        {# Needed for setting hidden fields from the base type #}
         {{ form_rest(form) }}
     {{ form_end(form, { 'render_rest': false }) }}
 {% else %}
@@ -54,3 +71,4 @@
         <a href="{{ ibexa_path(location.parent) }}">{{ 'ngsite.collected_info.return_to_site'|trans }}</a>
     </div>
 {% endif %}
+
