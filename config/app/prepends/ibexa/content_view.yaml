@@ -84,29 +84,23 @@ system:
                 match_all:
                     template: "@ibexadesign/content/line.html.twig"
                     match: ~
+            modal:
+                forms:
+                    template: "@ibexadesign/content/modal/{content_type}.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_feedback_form
+                match_all:
+                    template: "@ibexadesign/content/modal.html.twig"
+                    match: ~
             modal_trigger:
                 forms:
                     template: "@ibexadesign/content/modal_trigger/form_common.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_feedback_form
-                common:
-                    template: "@ibexadesign/content/modal_trigger/{content_type}.html.twig"
-                    match:
-                        Identifier\ContentType:
-                            - ng_article
                 match_all:
                     template: "@ibexadesign/content/modal_trigger.html.twig"
-                    match: ~
-            modal:
-                common:
-                    template: "@ibexadesign/content/modal/{content_type}.html.twig"
-                    match:
-                        Identifier\ContentType:
-                            - ng_article
-                            - ng_feedback_form
-                match_all:
-                    template: "@ibexadesign/content/modal.html.twig"
                     match: ~
             listitem:
                 common:

@@ -1,10 +1,11 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
 {% set url = path(
-    'app_info_collection_view_modal',
+    'ngsite_info_collection_view_modal',
     {
         formContentId: content.id,
-        refererLocationId: refererLocationId
+        refererLocationId: refererLocationId,
     }
 ) %}
-
-{% dump(content) %}
-<a href="#" class="button btn btn-default btn-large btn-arrow-right js-form-modal-trigger" data-url="{{ url ~ suffix }}">{{ label }}</a>
+<a href="#" class="button btn btn-default btn-large btn-arrow-right js-form-modal-trigger" data-url="{{ url }}">{{ label|default(content.name) }}</a>
