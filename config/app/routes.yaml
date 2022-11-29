@@ -1,3 +1,8 @@
+ngsite_view_modal:
+    path: /view-modal/{contentId}
+    defaults:
+        _controller: 'App\Controller\ModalViewController::viewModal'
+
 app_info_collection_view_modal:
     path: /info-collection/view-modal/{formContentId}/{refererLocationId}
     defaults:
