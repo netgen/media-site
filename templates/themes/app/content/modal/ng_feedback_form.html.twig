@@ -8,20 +8,16 @@
                 </a>
             </div>
             <div class="modal-body" id="form-modal-body">
-
-                1
-                {# todo action ajax submit, -suffix, -label #}
                 {{ ng_view_content(
                     content,
                     'payload',
                     {
                         params: {
-                        referer: referer|default(null),
-                        action: path('app_info_collection_handle_ajax_submit', { formContentId: content.id }),
-                    }
+                            action: path('ngsite_info_collection_ajax_submit', { formContentId: content.id }),
+                            referer: referer|default(null),
+                        },
                     }
                 ) }}
-                2
             </div>
         </div>
     </div>
