@@ -84,6 +84,12 @@ system:
                 match_all:
                     template: "@ibexadesign/content/line.html.twig"
                     match: ~
+            link_embed:
+                form_common:
+                    template: "@ibexadesign/content/link_embed/form_common.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_feedback_form
             modal:
                 forms:
                     template: "@ibexadesign/content/modal/{content_type}.html.twig"
