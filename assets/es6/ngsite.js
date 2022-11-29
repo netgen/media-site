@@ -18,8 +18,8 @@ import SwiperThumb from './components/SwiperThumb.component';
 import GoogleMap from './components/GoogleMap.component';
 import GalleryBlock from './components/GalleryBlock.component';
 import Temporary from './components/Temporary.component';
-import FormModalComponent from "./components/FormModal.component";
-import FormLinkEmbed from "./components/FormLinkEmbed.component";
+import FormModal from "./components/FormModal.component";
+import FormEmbed from "./components/FormEmbed.component";
 
 
 export const ngComponents = [
@@ -199,11 +199,11 @@ export const ngComponents = [
     }
   },
   {
-    class: FormModalComponent,
+    class: FormModal,
     selector: '.js-form-modal-trigger',
   },
   {
-    class: FormLinkEmbed,
-    selector: '.js-form-link-embed',
+    class: FormEmbed,
+    selector: '.js-form-embed',
   },
 ]
