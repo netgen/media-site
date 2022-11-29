@@ -100,7 +100,7 @@ system:
                     template: "@ibexadesign/content/modal.html.twig"
                     match: ~
             modal_trigger:
-                forms:
+                form_common:
                     template: "@ibexadesign/content/modal_trigger/form_common.html.twig"
                     match:
                         Identifier\ContentType:
