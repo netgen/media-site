@@ -43,11 +43,11 @@ system:
                             - ng_frontpage
                             - ng_gallery
                             - ng_htmlbox
+                            - ng_job_position
                             - ng_news
                             - ng_recipe
                             - ng_topic
                             - ng_video
-                            - ng_job_position
                 match_all:
                     redirect:
                         target: '@=namedLocation("homepage")'
@@ -85,16 +85,16 @@ system:
                     template: "@ibexadesign/content/line.html.twig"
                     match: ~
             modal_trigger:
-                common:
-                    template: "@ibexadesign/content/modal_trigger/{content_type}.html.twig"
-                    match:
-                        Identifier\ContentType:
-                            - ng_article
                 forms:
                     template: "@ibexadesign/content/modal_trigger/form_common.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_feedback_form
+                common:
+                    template: "@ibexadesign/content/modal_trigger/{content_type}.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_article
                 match_all:
                     template: "@ibexadesign/content/modal_trigger.html.twig"
                     match: ~
