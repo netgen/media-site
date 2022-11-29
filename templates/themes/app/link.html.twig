@@ -11,23 +11,25 @@
 
 {# generics #}
 {% if not site_info.fields.favicon_32x32.empty %}
-<link rel="icon" href="{{ site_info.fields.favicon_32x32.value.uri }}" sizes="32x32">
+    <link rel="icon" href="{{ site_info.fields.favicon_32x32.value.uri }}" sizes="32x32">
 {% endif %}
+
 {% if not site_info.fields.favicon_128x128.empty %}
-<link rel="icon" href="{{ site_info.fields.favicon_128x128.value.uri }}" sizes="128x128">
+    <link rel="icon" href="{{ site_info.fields.favicon_128x128.value.uri }}" sizes="128x128">
 {% endif %}
+
 {% if not site_info.fields.favicon_192x192.empty %}
-<link rel="icon" href="{{ site_info.fields.favicon_192x192.value.uri }}" sizes="192x192">
+    <link rel="icon" href="{{ site_info.fields.favicon_192x192.value.uri }}" sizes="192x192">
 {% endif %}
 
 {# Android #}
 {% if not site_info.fields.favicon_192x192.empty %}
-<link rel="shortcut icon" href="{{ site_info.fields.favicon_192x192.value.uri }}" sizes="192x192">
+    <link rel="shortcut icon" href="{{ site_info.fields.favicon_192x192.value.uri }}" sizes="192x192">
 {% endif %}
 
 {# iOS #}
 {% if not site_info.fields.favicon_180x180.empty %}
-<link rel="apple-touch-icon" href="{{ site_info.fields.favicon_180x180.value.uri }}" sizes="180x180">
+    <link rel="apple-touch-icon" href="{{ site_info.fields.favicon_180x180.value.uri }}" sizes="180x180">
 {% endif %}
 
 <meta name="theme-color" content="#ffffff">
