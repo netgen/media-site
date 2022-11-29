@@ -75,10 +75,10 @@
         "netgen/media-site-data": "^3.0",
         "netgen/site-bundle": "^3.0",
         "netgen/site-installer-bundle": "^3.0",
-        "netgen/ibexa-site-api": "^5.0",
+        "netgen/ibexa-site-api": "^5.1",
         "netgen/ibexa-search-extra": "^3.0",
         "netgen/information-collection-bundle": "^3.0",
-        "netgen/ibexa-fieldtype-enhanced-link": "1.0.x-dev",
+        "netgen/ibexa-fieldtype-enhanced-link": "^1.0",
 
         "netgen/layouts-standard": "~1.4.0@dev",
         "netgen/layouts-ibexa": "~1.4.0@dev",
