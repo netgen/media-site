@@ -7,7 +7,6 @@ namespace App\Templating\Twig\Extension;
 use Netgen\IbexaSiteApi\API\Values\Content;
 use Twig\Extension\RuntimeExtensionInterface;
 
-use function array_values;
 use function preg_match;
 use function reset;
 use function usort;
@@ -29,7 +28,21 @@ final class ComponentRuntime implements RuntimeExtensionInterface
             }
         }
 
-        $items = array_values($items);
+        foreach ($items as $index => $itemGroup) {
+            $empty = true;
+
+            foreach ($itemGroup as $identifier => $field) {
+                if ($identifier !== self::CONTENT_ITEMS_GROUP_POSITION && !$field->isEmpty()) {
+                    $empty = false;
+
+                    break;
+                }
+            }
+
+            if ($empty) {
+                unset($items[$index]);
+            }
+        }
 
         usort(
             $items,
