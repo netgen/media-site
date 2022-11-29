@@ -3,41 +3,55 @@
 {% block ngenhancedlink_field %}
 {% apply spaceless %}
     {% if not ibexa_field_is_empty( content, field ) %}
+        {% set css_class = parameters.css_class|default('') %}
         <div {{ block( 'field_attributes' ) }}>
             {% if field.value.isTypeInternal %}
-                {% if field.value.isTargetEmbed %}
+                {% set label = field.value.label ? field.value.label : ngsite_content_name(field.value.reference) %}
+                {% set suffix = field.value.suffix|default('') %}
+                {% if field.value.isTargetModal %}
                     {{ render(
                         controller(
-                            "ibexa_content::viewAction",
+                            "ng_content::viewAction",
                             {
                                 'contentId': field.value.reference,
-                                'viewType': 'embed',
-                                'layout': false
+                                'viewType': 'modal_trigger',
+                                'layout': false,
+                                'params': {
+                                    'label': label,
+                                    'suffix': suffix,
+                                    'refererLocationId': contentInfo.mainLocationId
+                                }
+                            }
+                        )
+                    ) }}
+                {% elseif field.value.isTargetEmbed %}
+                    {{ render(
+                        controller(
+                            "ng_content::viewAction",
+                            {
+                                'contentId': field.value.reference,
+                                'viewType': 'payload',
+                                'layout': false,
+                                'params': {
+                                    'label': label,
+                                    'suffix': suffix,
+                                    'refererLocationId': contentInfo.mainLocationId
+                                }
                             }
                         )
                     ) }}
                 {% else %}
-                    {{ render(
-                        controller(
-                            "ibexa_content::viewAction",
-                            {
-                                'contentId': field.value.reference,
-                                'viewType': 'text_linked',
-                                'layout': false
-                            }
-                        )
-                    ) }}
+                    <a href="{{ path("ibexa.url.alias", { "contentId": field.value.reference }) ~ suffix }}"{% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if field.value.isTargetLinkInNewTab %} target="_blank"{% endif %}>{{ label }}</a>
                 {% endif %}
-            {% endif %}
-            {% if field.value.isTypeExternal %}
-                {% if field.value.isTargetLinkInNewTab %}
-                    <a href="{{ field.value.reference }}" {{ block( 'field_attributes' ) }} target="_blank">
-                        {{ field.value.label ? field.value.label : field.value.reference }}
-                    </a>
+            {% elseif field.value.isTypeExternal %}
+                {% set label = field.value.label ? field.value.label : field.value.reference %}
+
+                {% if field.value.isTargetModal %}
+                    <div>{{ label }}</div>
+                {% elseif field.value.isTargetEmbed %}
+                    <div>{{ label }}</div>
                 {% else %}
-                    <a href="{{ field.value.reference }}" {{ block( 'field_attributes' ) }} >
-                        {{ field.value.label ? field.value.label : field.value.reference }}
-                    </a>
+                    <a href="{{ field.value.reference }}" {% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if field.value.isTargetLinkInNewTab %} target="_blank"{% endif %}>{{ label }}</a>
                 {% endif %}
             {% endif %}
         </div>
