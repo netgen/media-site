@@ -30,6 +30,7 @@ parameters:
 
     ngsite.default.template.errors.403: "@@ibexadesign/errors/403.html.twig"
     ngsite.default.template.errors.404: "@@ibexadesign/errors/404.html.twig"
+    ngsite.default.template.errors.410: "@@ibexadesign/errors/410.html.twig"
     ngsite.default.template.errors.500: "@@ibexadesign/errors/500.html.twig"
     ngsite.default.template.errors.default: "@@ibexadesign/errors/default.html.twig"
 

@@ -1,33 +1,24 @@
 .site-error {
     &-title {
-        font-size: 8rem;
-        font-weight: 700;
-        padding: 11.5rem 0 8rem;
-
+        @include text-8;
+        margin: 8rem 0 4rem;
         @include media-breakpoint-down(lg) {
-            padding: 6rem 0 4rem;
-            font-size: 4rem;
+            margin: 4rem 0 2rem;
+        }
+        &.site-error-generic-title {
+            @include text-4;
         }
     }
 
-    &-subtitle {
-        font-size: 4.5rem;
-        color: $black;
-        font-weight: 700;
-
-        @include media-breakpoint-down(lg) {
-            font-size: 2.5rem;
-        }
-    }
-
-    &-description {
-        font-size: 1.25rem;
-        color: $black;
-        font-weight: 400;
-        margin: 2.5rem 0 4rem;
+    &-message {
+        @include text-1_25;
+        margin: 0 0 4rem;
     }
 }
 
 .site-error-buttons {
-    margin-bottom: 7.5rem;
+    margin-bottom: 8rem;
+    @include media-breakpoint-down(lg) {
+        margin-bottom: 4rem;
+    }
 }
