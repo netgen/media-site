@@ -59,8 +59,6 @@ final class InfoCollectionController extends Controller
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
      * @throws \Netgen\IbexaSiteApi\API\Exceptions\TranslationNotMatchedException
-     *
-     * @todo remove in favor of generic implementation
      */
     public function viewModal(int $formContentId, ?int $refererLocationId = null): Response
     {
