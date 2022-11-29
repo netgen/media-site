@@ -5,6 +5,6 @@ app_info_collection_view_modal:
         refererLocationId: ~
 
 app_info_collection_handle_ajax_submit:
-    path: /info-collection/ajax-submit/{formLocationId}
+    path: /info-collection/ajax-submit/{formContentId}
     defaults:
         _controller: 'App\Controller\InfoCollectorController:handleAjaxSubmit'

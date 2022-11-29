@@ -9,6 +9,7 @@ parameters:
         2: '2 columns'
         3: '3 columns'
         4: '4 columns'
+    netgen_information_collection.default.form.use_csrf: false
 
 services:
     # default configuration for services in *this* file
@@ -51,6 +52,7 @@ services:
         arguments:
             $handler: '@netgen_information_collection.handler'
             $captchaService: '@netgen_information_collection.captcha.service'
+            $contentRenderer: '@netgen.ibexa_site_api.twig.content_renderer'
 
     netgen_information_collection.mailer:
         class: Netgen\InformationCollection\Core\Mailer\SymfonyMailerBasedMailer
@@ -84,3 +86,4 @@ services:
         arguments:
             - '%app.mailer_lite.api_key%'
         public: false
+

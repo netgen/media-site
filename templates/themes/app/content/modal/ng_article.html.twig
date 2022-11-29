@@ -8,19 +8,7 @@
                 </a>
             </div>
             <div class="modal-body" id="form-modal-body">
-                {# todo action ajax submit, -suffix, -label #}3
-                {{ ng_view_content(
-                    content,
-                    'payload',
-                    {
-                        params: {
-                            referer: referer|default(null),
-                            action: 'action',
-                            suffix: 'suffix',
-                            label: 'label'
-                        }
-                    }
-                ) }}4
+                {{ ng_view_content(content, 'payload', {params: {referer: referer|default(null)}}) }}
             </div>
         </div>
     </div>
