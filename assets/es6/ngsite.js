@@ -18,6 +18,8 @@ import SwiperThumb from './components/SwiperThumb.component';
 import GoogleMap from './components/GoogleMap.component';
 import GalleryBlock from './components/GalleryBlock.component';
 import Temporary from './components/Temporary.component';
+import FormModalComponent from "./components/FormModal.component";
+import FormLinkEmbed from "./components/FormLinkEmbed.component";
 
 
 export const ngComponents = [
@@ -195,5 +197,13 @@ export const ngComponents = [
         slideToClickedSlide: true,
       }
     }
-  }
+  },
+  {
+    class: FormModalComponent,
+    selector: '.js-form-modal-trigger',
+  },
+  {
+    class: FormLinkEmbed,
+    selector: '.js-form-link-embed',
+  },
 ]

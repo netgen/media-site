@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\InformationCollection\Handler\Handler;
 use Netgen\Bundle\IbexaSiteApiBundle\Controller\Controller;
+use Netgen\Bundle\IbexaSiteApiBundle\View\ContentRenderer;
 use Netgen\Bundle\IbexaSiteApiBundle\View\ContentView;
 use Netgen\IbexaSiteApi\API\Values\Location;
 use Netgen\InformationCollection\API\Events;
@@ -32,6 +33,7 @@ final class InfoCollectorController extends Controller
     private RouterInterface $router;
     private TranslatorInterface $translator;
     private LoggerInterface $logger;
+    private ContentRenderer $contentRenderer;
 
     public function __construct(
         RequestStack $requestStack,
@@ -40,7 +42,8 @@ final class InfoCollectorController extends Controller
         EventDispatcherInterface $eventDispatcher,
         RouterInterface $router,
         TranslatorInterface $translator,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        ContentRenderer $contentRenderer
     ) {
         $this->requestStack = $requestStack;
         $this->captchaService = $captchaService;
@@ -49,6 +52,7 @@ final class InfoCollectorController extends Controller
         $this->router = $router;
         $this->translator = $translator;
         $this->logger = $logger;
+        $this->contentRenderer = $contentRenderer;
     }
 
     /**
@@ -63,15 +67,11 @@ final class InfoCollectorController extends Controller
     {
         $content = $this->getSite()->getLoadService()->loadContent($formContentId);
 
-        // todo render modal view
-        $response = $this->render(
-            '@ibexadesign/info_collection/modal.html.twig',
-            [
-                'content' => $formContentId,
-                'view_type' => 'embed',
-                'referer' => $this->getReferer($refererLocationId),
-            ]
-        );
+        $response = new Response();
+
+        $response->setContent($this->contentRenderer->renderContent($content, 'modal',[
+            'referer' => $this->getReferer($refererLocationId),
+        ]));
 
         $response->setSharedMaxAge(0);
         $response->setPrivate();
@@ -88,21 +88,16 @@ final class InfoCollectorController extends Controller
      */
     public function handleAjaxSubmit(int $formContentId): Response
     {
-        $location = $this->getSite()->getLoadService()->loadLocation($formLocationId);
+        $content = $this->getSite()->getLoadService()->loadContent($formContentId);
 
         // todo remove: no caching needed if post
         $response = new Response();
         $response->setSharedMaxAge(0);
         $response->setPrivate();
 
-        return $this->render(
-            '@ibexadesign/info_collection/embedded_view.html.twig',
-            [
-                'content' => $location->content,
-                'location' => $location,
-                'view_type' => 'embedded_form',
-            ]
-        );
+        $response->setContent($this->contentRenderer->renderContent($content, 'payload'));
+
+        return $response;
     }
 
     /**
