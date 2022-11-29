@@ -54,6 +54,11 @@ services:
             $captchaService: '@netgen_information_collection.captcha.service'
             $contentRenderer: '@netgen.ibexa_site_api.twig.content_renderer'
 
+    App\Controller\ModalViewController:
+        class: App\Controller\ModalViewController
+        arguments:
+            - '@netgen.ibexa_site_api.twig.content_renderer'
+
     netgen_information_collection.mailer:
         class: Netgen\InformationCollection\Core\Mailer\SymfonyMailerBasedMailer
         arguments:
