@@ -1,8 +1,14 @@
 netgen_information_collection:
     system:
         default:
+            captcha:
+                enabled: false
+                secret: 'dummy'
+                site_key: 'dummy'
             action_config:
                 email:
+                    attachments:
+                        enabled: true
                     templates:
                         default: "@ibexadesign/info_collection/email.html.twig"
                     default_variables:
@@ -11,4 +17,5 @@ netgen_information_collection:
             actions:
                 default:
                     - database
-                    - email
+                    - App\InformationCollection\Action\EmailAction
+                    #- App\InformationCollection\Action\NewsletterAction
