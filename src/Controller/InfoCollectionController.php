@@ -97,7 +97,9 @@ final class InfoCollectionController extends Controller
     }
 
     /**
-     * @todo Describe
+     * Note that this is the main action for handling forms, but it doesn't have its
+     * own route. Instead, it's used through ng_view_content Twig function, relying
+     * on the master request for its data.
      */
     public function proxyFormHandler(ContentView $view): ContentView
     {
