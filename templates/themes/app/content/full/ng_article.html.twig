@@ -59,10 +59,6 @@
                         {{ ng_render_field(content.fields.body) }}
                     {% endif %}
 
-                    {% if not content.fields.link.empty %}
-                        {{ ng_render_field(content.fields.link) }}
-                    {% endif %}
-
                     {% include '@ibexadesign/parts/tags.html.twig' %}
                 </div>
             {% endblock %}
