@@ -91,8 +91,8 @@ system:
                         Identifier\ContentType:
                             - ng_feedback_form
             modal:
-                forms:
-                    template: "@ibexadesign/content/modal/{content_type}.html.twig"
+                form_common:
+                    template: "@ibexadesign/content/modal/form_common.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_feedback_form
