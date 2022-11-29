@@ -17,7 +17,7 @@ final class InformationCollectionMapper
     /**
      * Maps a ValueObject from Ibexa content repository to a data usable as underlying form data (e.g. create/update struct).
      */
-    public function mapToFormData(Content $content, Location $location, ContentType $contentType, ?string $languageCode = null): InformationCollectionStruct
+    public function mapToFormData(Content $content, Location $location, ContentType $contentType): InformationCollectionStruct
     {
         $fields = $content->getFieldsByLanguage();
 
