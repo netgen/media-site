@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     # todo key is optional
-    app.mailer_lite.api_key: '40bbb26ce7c29cb0117a61b55de01aa7'
+    app.mailer_lite.api_key: 'dummy'
     app.layouts.block.plugin.features_component_grid.columns:
         2: '2 columns'
         3: '3 columns'
