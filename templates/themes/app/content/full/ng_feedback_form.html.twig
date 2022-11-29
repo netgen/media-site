@@ -34,8 +34,7 @@
                     'payload',
                     {
                         params: {
-                            action: path('ngsite_info_collection_ajax_submit', { formContentId: formContentId }) ~ suffix,
-                            label: label,
+                            action: path('ngsite_info_collection_ajax_submit', { formContentId: content.id }),
                             refererLocationId: refererLocationId|default(null),
                             class: 'js-form-embed',
                         }
