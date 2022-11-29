@@ -41,7 +41,6 @@ services:
             - "@form.factory"
             - "@ibexa.api.service.content_type"
             - "@event_dispatcher"
-            - "@ibexa.config.resolver"
 
     App\Controller\InfoCollectionController:
         class: App\Controller\InfoCollectionController

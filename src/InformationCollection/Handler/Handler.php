@@ -25,18 +25,14 @@ final class Handler
 
     private EventDispatcherInterface $eventDispatcher;
 
-    private $languages;
-
     public function __construct(
         FormFactoryInterface $formFactory,
         ContentTypeService $contentTypeService,
-        EventDispatcherInterface $eventDispatcher,
-        ConfigResolverInterface $configResolver
+        EventDispatcherInterface $eventDispatcher
     ) {
         $this->formFactory = $formFactory;
         $this->contentTypeService = $contentTypeService;
         $this->eventDispatcher = $eventDispatcher;
-        $this->languages = $configResolver->getParameter('languages');
     }
 
     public function getForm(Content $content, Location $location): FormInterface
@@ -45,16 +41,7 @@ final class Handler
 
         $informationCollectionMapper = new InformationCollectionMapper();
 
-        $languageCode = null;
-        $availableLanguages = $content->versionInfo->languageCodes;
-        foreach ($this->languages as $language) {
-            if (in_array($language, $availableLanguages)) {
-                $languageCode = $language;
-                break;
-            }
-        }
-
-        $data = $informationCollectionMapper->mapToFormData($content, $location, $contentType, $languageCode);
+        $data = $informationCollectionMapper->mapToFormData($content, $location, $contentType);
 
         return $this->formFactory->create(InformationCollectionType::class, $data, [
             'languageCode' => $content->contentInfo->mainLanguageCode,
