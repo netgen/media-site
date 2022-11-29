@@ -48,10 +48,10 @@ final class ComponentRuntime implements RuntimeExtensionInterface
             $items,
             static function ($group1, $group2) {
                 $identifiers1 = $group1[self::CONTENT_ITEMS_GROUP_POSITION]->value->identifiers ?? [];
-                $identifier1 = $identifiers1 ? (int) reset($identifiers1) : 0;
+                $identifier1 = $identifiers1 ? (int) reset($identifiers1) : 999;
 
                 $identifiers2 = $group2[self::CONTENT_ITEMS_GROUP_POSITION]->value->identifiers ?? [];
-                $identifier2 = $identifiers2 ? (int) reset($identifiers2) : 0;
+                $identifier2 = $identifiers2 ? (int) reset($identifiers2) : 999;
 
                 return $identifier1 <=> $identifier2;
             },
