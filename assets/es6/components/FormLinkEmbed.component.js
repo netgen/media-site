@@ -13,8 +13,7 @@ export default class ModalFormSubmitComponent {
 
       const formData = new FormData(this);
       const formUrl = $(this).attr('action');
-      // todo finish
-      const formIdentifier = $(this).data('gtm-event-prefix');
+      const gtmEventPrefix = $(this).data('gtm-event-prefix');
       const $loaderGif = $('<div class="loading-animation"><span></span></div>');
 
       $([document.documentElement, document.body]).animate( { scrollTop: $(element).offset().top - 100, }, 500 );
@@ -32,13 +31,17 @@ export default class ModalFormSubmitComponent {
         success(response) {
           $(element).html(response);
 
-          /* send gtm event */
-          window.dataLayer.push({ event: `${formIdentifier}-submitted` });
-          // console.log(`${formIdentifier}-submitted`);
+          if (typeof gtmEventPrefix !== 'undefined') {
+            window.dataLayer.push({ event: `${gtmEventPrefix}-submitted` });
+            // console.log(`GTM event pushed: ${gtmEventPrefix}-submitted`);
+          }
         },
         error(XMLHttpRequest, textStatus, errorThrown) {
-          window.dataLayer.push({ event: `${formIdentifier}-failed` });
-          // console.log(`${formIdentifier}-failed`);
+          if (typeof gtmEventPrefix !== 'undefined') {
+            window.dataLayer.push({ event: `${gtmEventPrefix}-failed` });
+            // console.log(`GTM event pushed: ${gtmEventPrefix}-failed`);
+          }
+
           // eslint-disable-next-line no-alert
           alert(`Error: ${errorThrown}`);
         },

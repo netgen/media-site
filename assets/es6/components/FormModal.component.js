@@ -23,17 +23,26 @@ export default class FormModalComponent {
           $('body').append(response);
           const modal = $('#form-modal');
           modal.modal('show');
-          const formIdentifier = $('#form-modal-body form').data('identifier');
-          window.dataLayer.push({ event: `${formIdentifier}-opened` });
-          setCookie(`${formIdentifier}-submitted`, 'false');
-          // console.log(`${formIdentifier}-opened`);
+
+          const gtmEventPrefix = $('#form-modal-body form').data('gtm-event-prefix');
+
+          if (typeof gtmEventPrefix !== 'undefined') {
+            window.dataLayer.push({ event: `${gtmEventPrefix}-opened` });
+            setCookie(`${gtmEventPrefix}-submitted`, 'false');
+            // console.log(`GTM event pushed: ${gtmEventPrefix}-opened`);
+          }
+
           modal.on('hidden.bs.modal', () => {
             modal.modal('dispose');
             modal.remove();
-            const submitted = getCookie(`${formIdentifier}-submitted`);
-            if (submitted === 'false') {
-              window.dataLayer.push({ event: `${formIdentifier}-canceled` });
-              // console.log(`${formIdentifier}-canceled`);
+
+            if (typeof gtmEventPrefix !== 'undefined') {
+              const submitted = getCookie(`${gtmEventPrefix}-submitted`);
+
+              if (submitted === 'false') {
+                window.dataLayer.push({ event: `${gtmEventPrefix}-canceled` });
+                // console.log(`GTM event pushed: ${formIdentifier}-canceled`);
+              }
             }
           });
           self.handleFormSubmit();
@@ -53,7 +62,7 @@ export default class FormModalComponent {
 
       const $formContainer = $('#form-modal-body');
       const formData = new FormData(this);
-      const formIdentifier = $('#form-modal-body form').data('identifier');
+      const gtmEventPrefix = $('#form-modal-body form').data('gtm-event-prefix');
       const formUrl = $(this).attr('action');
       const $loaderGif = $('<div class="loading-animation"><span></span></div>');
 
@@ -69,13 +78,19 @@ export default class FormModalComponent {
         cache: false,
         success(response) {
           $formContainer.html(response);
-          window.dataLayer.push({ event: `${formIdentifier}-submitted` });
-          setCookie(`${formIdentifier}-submitted`, 'true');
-          // console.log(`${formIdentifier}-submitted`);
+
+          if (typeof gtmEventPrefix !== 'undefined') {
+            window.dataLayer.push({ event: `${gtmEventPrefix}-submitted` });
+            setCookie(`${gtmEventPrefix}-submitted`, 'true');
+            // console.log(`GTM event pushed: ${formIdentifier}-submitted`);
+          }
         },
         error(XMLHttpRequest, textStatus, errorThrown) {
-          window.dataLayer.push({ event: `${formIdentifier}-failed` });
-          // console.log(`${formIdentifier}-failed`);
+          if (typeof gtmEventPrefix !== 'undefined') {
+            window.dataLayer.push({ event: `${gtmEventPrefix}-failed` });
+            // console.log(`GTM event pushed: ${gtmEventPrefix}-failed`);
+          }
+
           // eslint-disable-next-line no-alert
           alert(`Error: ${errorThrown}`);
         },
