@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    # todo key is optional
     app.mailer_lite.api_key: '40bbb26ce7c29cb0117a61b55de01aa7'
     app.layouts.block.plugin.features_component_grid.columns:
         2: '2 columns'
@@ -17,8 +18,9 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
-            $newsletterSenderEmail: 'petra.m@netgen.io'
-            $newsletterRecipientEmail: 'petra.m@netgen.io'
+            # todo this should be optional
+            $newsletterSenderEmail: 'support+noreply@netgen.io'
+            $newsletterRecipientEmail: 'support+noreply@netgen.io'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -47,8 +49,8 @@ services:
             - "@event_dispatcher"
             - "@ibexa.config.resolver"
 
-    App\Controller\InfoCollectorController:
-        class: App\Controller\InfoCollectorController
+    App\Controller\InfoCollectionController:
+        class: App\Controller\InfoCollectionController
         arguments:
             $handler: '@netgen_information_collection.handler'
             $captchaService: '@netgen_information_collection.captcha.service'

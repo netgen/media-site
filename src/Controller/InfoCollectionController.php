@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\InformationCollection\Handler\Handler;
+use App\Services\RefererResolver;
 use Netgen\Bundle\IbexaSiteApiBundle\Controller\Controller;
 use Netgen\Bundle\IbexaSiteApiBundle\View\ContentRenderer;
 use Netgen\Bundle\IbexaSiteApiBundle\View\ContentView;
@@ -20,58 +21,58 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-final class InfoCollectorController extends Controller
+final class InfoCollectionController extends Controller
 {
     private RequestStack $requestStack;
     private CaptchaService $captchaService;
     private Handler $handler;
     private EventDispatcherInterface $eventDispatcher;
-    private RouterInterface $router;
     private TranslatorInterface $translator;
-    private LoggerInterface $logger;
     private ContentRenderer $contentRenderer;
+    private RefererResolver $refererResolver;
+    private LoggerInterface $logger;
 
     public function __construct(
         RequestStack $requestStack,
         CaptchaService $captchaService,
         Handler $handler,
         EventDispatcherInterface $eventDispatcher,
-        RouterInterface $router,
         TranslatorInterface $translator,
-        LoggerInterface $logger,
-        ContentRenderer $contentRenderer
+        ContentRenderer $contentRenderer,
+        RefererResolver $refererResolver,
+        LoggerInterface $logger
     ) {
         $this->requestStack = $requestStack;
         $this->captchaService = $captchaService;
         $this->handler = $handler;
         $this->eventDispatcher = $eventDispatcher;
-        $this->router = $router;
         $this->translator = $translator;
-        $this->logger = $logger;
         $this->contentRenderer = $contentRenderer;
+        $this->refererResolver = $refererResolver;
+        $this->logger = $logger;
     }
 
     /**
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
+     * @throws \Netgen\IbexaSiteApi\API\Exceptions\TranslationNotMatchedException
+     *
      * @todo remove in favor of generic implementation
-     * @todo render modal view, generic for modal view?
-     *
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
-     * @throws \Netgen\IbexaSiteApi\API\Exceptions\TranslationNotMatchedException
      */
-    public function viewModal(Request $request, int $formContentId, ?int $refererLocationId = null): Response
+    public function viewModal(int $formContentId, ?int $refererLocationId = null): Response
     {
-        $content = $this->getSite()->getLoadService()->loadContent($formContentId);
-
-        $response = new Response();
-
-        $response->setContent($this->contentRenderer->renderContent($content, 'modal',[
-            'referer' => $this->getReferer($refererLocationId),
-        ]));
+        $response = new Response(
+            $this->contentRenderer->renderContent(
+                $this->getSite()->getLoadService()->loadContent($formContentId),
+                'modal',
+                [
+                    'referer' => $this->refererResolver->getReferer($refererLocationId),
+                ]
+            )
+        );
 
         $response->setSharedMaxAge(0);
         $response->setPrivate();
@@ -80,24 +81,21 @@ final class InfoCollectorController extends Controller
     }
 
     /**
-     * @todo post, render payload view, use content ID
-     *
+     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
      * @throws \Netgen\IbexaSiteApi\API\Exceptions\TranslationNotMatchedException
+     *
+     * @todo post
      */
-    public function handleAjaxSubmit(int $formContentId): Response
+    public function ajaxSubmit(int $formContentId): Response
     {
-        $content = $this->getSite()->getLoadService()->loadContent($formContentId);
-
-        // todo remove: no caching needed if post
-        $response = new Response();
-        $response->setSharedMaxAge(0);
-        $response->setPrivate();
-
-        $response->setContent($this->contentRenderer->renderContent($content, 'payload'));
-
-        return $response;
+        return new Response(
+            $this->contentRenderer->renderContent(
+                $this->getSite()->getLoadService()->loadContent($formContentId),
+                'payload'
+            )
+        );
     }
 
     /**
@@ -130,7 +128,7 @@ final class InfoCollectorController extends Controller
                     'content' => $location->content,
                     'location' => $location,
                     'view' => $view,
-                    'referer' => $this->getReferer($refererLocationId),
+                    'referer' => $this->refererResolver->getReferer($refererLocationId),
                 ],
             ),
         );
@@ -138,31 +136,6 @@ final class InfoCollectorController extends Controller
         $view->setCacheEnabled(false);
 
         return $view;
-    }
-
-    private function getReferer(?int $refererLocationId = null): string
-    {
-        if ($refererLocationId !== null) {
-            return $this->router->generate(
-                'ibexa.url.alias',
-                [
-                    'locationId' => $refererLocationId,
-                ],
-                UrlGeneratorInterface::ABSOLUTE_URL
-            );
-        }
-
-        $request = $this->requestStack->getCurrentRequest();
-
-        if ($request === null) {
-            throw new RuntimeException('Missing Request');
-        }
-
-        if ($request->headers->has('referer')) {
-            return $request->headers->get('referer');
-        }
-
-        return $request->getPathInfo();
     }
 
     private function collectInformation(Location $location, Request $request): array

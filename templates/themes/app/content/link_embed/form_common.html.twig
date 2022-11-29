@@ -1,21 +1,14 @@
-{% set url = path(
-    'app_info_collection_handle_ajax_submit',
-    {
-        formContentId: field.value.reference,
-        refererLocationId: refererLocationId
-    }
-) %}
-<div class="js-form-link-embed" data-url="{{ url }}">
+<div class="js-form-link-embed">
     {{ ng_view_content(
         content,
         'payload',
         {
             params: {
-            action: path('app_info_collection_handle_ajax_submit', { formContentId: formContentId }) ~ suffix,
-            label: label,
-            refererLocationId: refererLocationId|default(null),
-            class: 'js-form-embed',
-        }
+                action: path('ngsite_info_collection_ajax_submit', { formContentId: formContentId }),
+                label: label,
+                refererLocationId: refererLocationId|default(null),
+                class: 'js-form-embed',
+            },
         }
     ) }}
 </div>
