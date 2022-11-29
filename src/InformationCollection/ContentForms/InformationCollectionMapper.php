@@ -9,6 +9,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\FieldDefinition;
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
 use Netgen\InformationCollection\API\Value\InformationCollectionStruct;
 
 final class InformationCollectionMapper
@@ -18,8 +19,7 @@ final class InformationCollectionMapper
      */
     public function mapToFormData(Content $content, Location $location, ContentType $contentType, ?string $languageCode = null): InformationCollectionStruct
     {
-        $languageCode = $languageCode ?? $content->contentInfo->mainLanguageCode;
-        $fields = $content->getFieldsByLanguage($languageCode);
+        $fields = $content->getFieldsByLanguage();
 
         $informationCollectionFields = [];
 
