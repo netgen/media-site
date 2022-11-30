@@ -54,11 +54,14 @@ system:
                         permanent: "@=!parameter('kernel.debug')"
                     match: ~
             payload:
-                ng_feedback_form:
-                    template: "@ibexadesign/content/payload/ng_feedback_form.html.twig"
+                form_common:
+                    template: "@ibexadesign/content/payload/{content_type}.html.twig"
                     controller: 'App\Controller\InfoCollectionController:proxyFormHandler'
                     match:
-                        Identifier\ContentType: ng_feedback_form
+                        Identifier\ContentType:
+                            - ng_contact_form
+                            - ng_feedback_form
+                            - ng_job_application_form
                 common:
                     template: "@ibexadesign/content/payload/{content_type}.html.twig"
                     match:
@@ -89,13 +92,17 @@ system:
                     template: "@ibexadesign/content/link_embed/form_common.html.twig"
                     match:
                         Identifier\ContentType:
+                            - ng_contact_form
                             - ng_feedback_form
+                            - ng_job_application_form
             modal:
                 form_common:
                     template: "@ibexadesign/content/modal/form_common.html.twig"
                     match:
                         Identifier\ContentType:
+                            - ng_contact_form
                             - ng_feedback_form
+                            - ng_job_application_form
                 match_all:
                     template: "@ibexadesign/content/modal.html.twig"
                     match: ~
@@ -104,7 +111,9 @@ system:
                     template: "@ibexadesign/content/modal_trigger/form_common.html.twig"
                     match:
                         Identifier\ContentType:
+                            - ng_contact_form
                             - ng_feedback_form
+                            - ng_job_application_form
                 match_all:
                     template: "@ibexadesign/content/modal_trigger.html.twig"
                     match: ~

@@ -5,10 +5,6 @@
 {% form_theme form '@ibexadesign/forms/theme.html.twig' %}
 
 {% if not is_collected %}
-    {% if not content.fields.body.empty %}
-        {{ ng_render_field(content.fields.body) }}
-    {% endif %}
-
     {% set attributes = {} %}
 
     {% if content.hasField('gtm_event_prefix') and not content.fields.gtm_event_prefix.empty %}
@@ -25,7 +21,8 @@
         {{ form_errors(form) }}
 
         <fieldset>
-            {{ form_widget(form.sender_name) }}
+            {{ form_widget(form.sender_first_name) }}
+            {{ form_widget(form.sender_last_name) }}
 
             {% if form is defined and form.sender_middle_name is defined %}
                 <div class="form-group" id="{{ form.sender_middle_name.vars.id }}">
@@ -47,8 +44,6 @@
             {% do form.referer.setRendered %}
 
             {{ form_widget(form.sender_email) }}
-            {{ form_widget(form.sender_subject) }}
-            {{ form_widget(form.sender_message) }}
 
             <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
         </fieldset>

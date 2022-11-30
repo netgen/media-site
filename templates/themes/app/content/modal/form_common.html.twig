@@ -1,8 +1,11 @@
+{% set site_info = ngsite.siteInfoContent %}
+{% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
+
 <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <img class="modal-image" src="{{ asset('images/logo-for-modal.svg') }}">
+                {% include '@ibexadesign/parts/site_logo.html.twig' %}
                 <a href="#" class="close " data-dismiss="modal" aria-label="Close">
                     <span class="icon-cancel"></span>
                 </a>
