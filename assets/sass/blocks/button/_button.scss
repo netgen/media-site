@@ -1,26 +1,11 @@
 /* default button */
 
 .btn {
-    /* &.btn-default {
-        display: block;
-        text-transform: uppercase;
-        border-top: 1px solid hsla(0, 0, 0, .12);
-        padding: .75em 0 0;
-        letter-spacing: 1px;
-        &::after {
-            @extend %fontawesome;
-            content: '\f054';
-            margin-left: .5em;
-            color: $gray-87;
-        }
-        &:hover {
-            color: $gray-54;
-        }
-    }  */
     &.btn-outline {
         border: 2px solid $black;
     }
     &.btn-link {
         font-weight: 700;
+        text-decoration: none;
     }
 }
