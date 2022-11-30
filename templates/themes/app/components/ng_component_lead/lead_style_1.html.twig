@@ -1,0 +1,44 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import "@ibexadesign/parts/macros.html.twig" as macros %}
+
+{% block content %}
+<article class="view-component view-component-lead lead-style-1">
+    <header class="article-header">
+
+        {% if not content.fields.eyebrow_title.empty %}
+            <h4 class="eyebrow-title">
+                {{ ng_render_field(content.fields.eyebrow_title) }}
+            </h4>
+        {% endif %}
+
+        {% if not content.fields.title.empty %}
+            <h2 class="title">
+                {{ ng_render_field(content.fields.title)}}
+            </h2>
+        {% endif %}
+    </header>
+
+    <div class="article-info">
+        {% if not content.fields.description.empty %}
+            <div class="short">
+                {{ ng_render_field(content.fields.description) }}
+            </div>
+        {% endif %}
+
+        <div class="actions">
+            {% if not content.fields.link_1.empty %}
+                {{ ng_render_field(
+                    content.fields.link_1, {
+                        parameters: {
+                            css_class: 'btn btn-link'
+                        }
+                    }
+                ) }}
+            {% endif %}
+
+        </div>
+    </div>
+</article>
+{% endblock %}

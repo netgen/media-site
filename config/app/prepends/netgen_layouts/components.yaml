@@ -45,6 +45,15 @@ block_types:
             parameters:
                 content_type_identifier: ng_component_quote
 
+    ibexa_component_lead:
+        name: 'Lead'
+        definition_identifier: ibexa_component
+        icon: '/images/components/icon-component-lead.svg'
+        defaults:
+            view_type: lead_style_1
+            parameters:
+                content_type_identifier: ng_component_lead
+
 block_type_groups:
     components:
         block_types:
@@ -53,3 +62,4 @@ block_type_groups:
             - ibexa_component_features
             - ibexa_component_logos
             - ibexa_component_quote
+            - ibexa_component_lead

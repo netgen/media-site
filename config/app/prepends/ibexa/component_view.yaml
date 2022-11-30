@@ -119,3 +119,17 @@ system:
                     match:
                         Identifier\ContentType:
                             - ng_component_quote
+
+            lead_style_1:
+                ng_component_lead:
+                    template: "@ibexadesign/components/ng_component_lead/lead_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_lead
+
+            lead_style_2:
+                ng_component_lead:
+                    template: "@ibexadesign/components/ng_component_lead/lead_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_lead

@@ -1,0 +1,8 @@
+parameters:
+    netgen_layouts.default.ibexa_component.parent_locations:
+        ng_component_hero: 407
+        ng_component_quote: 445
+        ng_component_about: 413
+        ng_component_features: 422
+        ng_component_logos: 420
+        ng_component_lead: 470
