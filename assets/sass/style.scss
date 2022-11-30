@@ -4,11 +4,11 @@
 @import '@fortawesome/fontawesome-free/css/all';
 @import 'swiper/dist/css/swiper';
 @import 'magnific-popup/src/css/main';
-@import 'mediaelement/build/mediaelementplayer';
 @import 'variables';
 
 @import 'bootstrap_import/bootstrap_import';
 
+@import 'mixins/mixins';
 @import 'typography';
 @import 'layout/layout';
 @import 'blocks/blocks';
