@@ -1,0 +1,90 @@
+@mixin text-base {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+@mixin text-0_75 {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+}
+
+@mixin text-0_875 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+@mixin text-1_125 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+}
+
+@mixin text-1_25 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+}
+
+@mixin text-1_5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+@mixin text-2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+}
+
+@mixin text-2_5 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 3rem;
+}
+
+@mixin text-3 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3.5rem;
+}
+
+@mixin text-4 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 4.5rem;
+    letter-spacing: -0.02em;
+    @include media-breakpoint-down(lg) {
+        font-size: 3rem;
+        line-height: 3.5rem;
+    }
+    @include media-breakpoint-down(sm) {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        letter-spacing: 0;
+    }
+}
+
+@mixin text-4_5 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 5rem;
+    letter-spacing: -0.03em;
+}
+
+@mixin text-6 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 6.5rem;
+    letter-spacing: -0.03em;
+}
+
+@mixin text-8 {
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 8rem;
+    letter-spacing: -0.03em;
+}
