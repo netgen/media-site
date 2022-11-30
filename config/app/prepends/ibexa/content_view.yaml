@@ -54,16 +54,16 @@ system:
                         permanent: "@=!parameter('kernel.debug')"
                     match: ~
             payload:
-                common:
-                    template: "@ibexadesign/content/payload/{content_type}.html.twig"
-                    match:
-                        Identifier\ContentType:
-                            - ng_article
                 ng_feedback_form:
                     template: "@ibexadesign/content/payload/ng_feedback_form.html.twig"
                     controller: 'App\Controller\InfoCollectionController:proxyFormHandler'
                     match:
                         Identifier\ContentType: ng_feedback_form
+                common:
+                    template: "@ibexadesign/content/payload/{content_type}.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_article
             line:
                 common:
                     template: "@ibexadesign/content/line/{content_type}.html.twig"

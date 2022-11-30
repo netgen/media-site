@@ -3,8 +3,8 @@ netgen_information_collection:
         default:
             captcha:
                 enabled: false
-                secret: 'dummy'
-                site_key: 'dummy'
+                secret: 'CHANGE_ME'
+                site_key: 'CHANGE_ME'
             action_config:
                 email:
                     attachments:
