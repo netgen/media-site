@@ -10,7 +10,7 @@
 {% set local_video_mobile = content.fields.video_mobile %}
 
 {% block content %}
-    <article class="view-component view-component-hero hero-style-1{% if image is not empty or local_video is not empty %} bg-figure{% endif %}">
+    <article class="view-component view-component-hero hero-style-1{% if image is not empty or local_video is not empty %} bg-with-media{% endif %}">
 
         <div class="container">
             <div class="row">
@@ -49,7 +49,7 @@
                                 {{ ng_render_field(
                                     content.fields.link_2, {
                                         parameters: {
-                                            css_class: 'btn btn-outline'
+                                            css_class: 'btn btn-default'
                                         }
                                     }
                                 ) }}

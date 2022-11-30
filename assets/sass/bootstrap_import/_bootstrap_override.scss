@@ -1,18 +1,47 @@
 /* btn overrides */
 .btn {
     font-size: 1.125rem;
+    border-width: 2px;
+    border-style: solid;
+    text-decoration: none;
 }
 
-.btn-secondary {
-    background: $black;
-    color: $white;
-    border-color: $black;
+.btn-primary {
+    background: $primary;
+    border-color: $primary;
+    color: $black;
     &:active,
     &.active,
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active,
     &:hover {
-        background-color: $primary;
+        background: $primary;
+        border-color: $primary;
+        color: $black;
+    }
+    .bg-color-primary & {
+        background: $black;
+        border-color: $black;
+        color: $white;
+    }
+}
+
+.btn-secondary {
+    background: $black;
+    border-color: $black;
+    color: $white;
+    &:active,
+    &.active,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    &:hover {
+        background: $primary;
+        border-color: $primary;
+        color: $black;
+    }
+    .bg-color-black &,
+    .bg-with-media & {
+        background: $primary;
         border-color: $primary;
         color: $black;
     }
@@ -21,37 +50,46 @@
 .btn-default {
     background: transparent;
     border-color: $black;
-    color: $gray-87;
+    color: $black;
     &:active,
     &.active,
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active,
     &:hover {
-        background-color: $gray-54;
+        background: $gray-54;
         border-color: $gray-54;
+        color: $white;
+    }
+    .bg-color-black &,
+    .bg-with-media & {
+        border-color: $white;
         color: $white;
     }
 }
 
 .btn-link {
-    padding: 0;
-    color: $black;
     border-bottom: 2px solid $black;
-    font-weight: 400;
+    color: $black;
+    padding: 0;
+    font-weight: 700;
     &:hover {
         color: $gray-54;
         text-decoration: none;
+    }
+    .bg-color-black & {
+        border-color: $white;
+        color: $white;
     }
 }
 
 .container {
     &-wide {
-        max-width: 1500px;
+        max-width: 1650px;
         padding-left: 2 * $gutter;
         padding-right: 2 * $gutter;
     }
     &-narrow {
-        max-width: 768px;
+        max-width: 845px;
     }
     @include media-breakpoint-down(lg) {
         &-narrow {
