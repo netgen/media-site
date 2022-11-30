@@ -64,7 +64,6 @@
 
     {% if 'upload' in video_types %}
         {% if not content.fields.video_file.empty %}
-            {% set field_name = content.fields.video_file.empty %}
             {% set autoresize = content.fields.autoresize.value.identifiers.0 %}
             <video
                 id="video-{{ content.id }}"
@@ -78,8 +77,8 @@
                     "poster": "{{ image_path }}"
                 }'>
                 <source
-                    src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
-                    type="{{ content.fields[field_name].value.mimeType }}"
+                    src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields.video_file.id}) }}"
+                    type="{{ content.fields.video_file.value.mimeType }}"
                 />
             </video>
 
@@ -113,16 +112,16 @@
         {% set video_identifier = content.fields.video_identifier.value.text %}
 
         {% if 'youtube' in video_types %}
-            <div class="video-youtube embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            <div class="video-youtube ratio ratio-16x9">
+                <iframe frameborder="0" src="https://www.youtube.com/embed/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'vimeo' in video_types %}
-            <div class="video-vimeo embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            <div class="video-vimeo ratio ratio-16x9">
+                <iframe frameborder="0" src="https://player.vimeo.com/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'dailymotion' in video_types %}
-            <div class="video-dailymotion embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+            <div class="video-dailymotion ratio ratio-16x9">
+                <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% endif %}
     {% endif %}
@@ -143,7 +142,6 @@
 
     {% if 'upload' in video_types %}
         {% if not content.fields.video_file.empty %}
-            {% set field_name = content.fields.video_file.empty %}
             {% set autoresize = content.fields.autoresize.value.identifiers.0 %}
 
             <video
@@ -158,8 +156,8 @@
                     "poster": "{{ image_path }}"
                 }'>
                 <source
-                    src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields[field_name].id}) }}"
-                    type="{{ content.fields[field_name].value.mimeType }}"
+                    src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields.video_file.id}) }}"
+                    type="{{ content.fields.video_file.value.mimeType }}"
                 />
             </video>
 
@@ -192,16 +190,16 @@
         {% set video_identifier = content.fields.video_identifier.value.text %}
 
         {% if 'youtube' in video_types %}
-            <div class="video-youtube embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+            <div class="video-youtube ratio ratio-16x9">
+                <iframe frameborder="0" src="https://www.youtube.com/embed/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'vimeo' in video_types %}
-            <div class="video-vimeo embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="https://player.vimeo.com/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+            <div class="video-vimeo ratio ratio-16x9">
+                <iframe frameborder="0" src="https://player.vimeo.com/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'dailymotion' in video_types %}
-            <div class="video-dailymotion embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" class="embed-responsive-item" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+            <div class="video-dailymotion ratio ratio-16x9">
+                <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
             </div>
         {% endif %}
     {% endif %}
