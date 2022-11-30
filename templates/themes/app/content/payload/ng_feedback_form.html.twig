@@ -14,7 +14,7 @@
     {% if content.hasField('gtm_event_prefix') and not content.fields.gtm_event_prefix.empty %}
         {% set form_parameters = form_parameters|merge({
             attr: {
-                'data-gtm-event-prefix': content.fields.gtm_event_prefix.empty.value.text
+                'data-gtm-event-prefix': content.fields.gtm_event_prefix.value.text
             }
         }) %}
     {% endif %}
