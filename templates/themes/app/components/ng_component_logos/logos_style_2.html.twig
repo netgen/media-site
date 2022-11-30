@@ -25,15 +25,32 @@
                             {% endif %}
                         </header>
                         {% if not content.fields.description.empty %}
-                        <div class="short">
-                            {{ ng_render_field(content.fields.description)}}
-                        </div>
+                            <div class="short">
+                                {{ ng_render_field(content.fields.description)}}
+                            </div>
                         {% endif %}
 
-                        {% if not content.fields.link_label.empty %}
-                            <a href="#" class="btn btn-primary">{{ content.fields.link_label.value.text }}</a>
-                        {% endif %}
-                        {# {{ macros.content_link(content, content.fields.link_label.value.text, "btn btn-primary") }} #}
+                        <div class="actions">
+                            {% if not content.fields.link_1.empty %}
+                                {{ ng_render_field(
+                                    content.fields.link_1, {
+                                        parameters: {
+                                            css_class: 'btn btn-primary'
+                                        }
+                                    }
+                                ) }}
+                            {% endif %}
+
+                            {% if not content.fields.link_2.empty %}
+                                {{ ng_render_field(
+                                    content.fields.link_2, {
+                                        parameters: {
+                                            css_class: 'btn btn-outline'
+                                        }
+                                    }
+                                ) }}
+                            {% endif %}
+                        </div>
                     {% endif %}
                 </div>
                 <div class="col-md-6 offset-md-1">

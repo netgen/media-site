@@ -14,11 +14,12 @@
                     {% if image_mobile is not empty %}
                         <source media="(max-width: 991px)" srcset="{{ ng_image_alias( content.fields.image_mobile, 'i770' ).uri }}">
                     {% endif %}
-                    <source media="(min-width: 992px)" srcset="{{ ng_image_alias( content.fields.image, 'original' ).uri }}">
+                    <source media="(min-width: 992px)" srcset="{{ ng_image_alias( content.fields.image, 'i1920' ).uri }}">
                     {{ ng_render_field(content.fields.image,  {
                         'parameters': {
                             'lazy_loading': false,
                             'alt_text': content.name,
+                            'alias': 'i1920'
                         }
                     }) }}
                 </picture>

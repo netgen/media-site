@@ -10,14 +10,37 @@
         <header class="article-header">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                        <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+                    <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+                    {% if not content.fields.description.empty %}
                         <div class="short">
                             {{ ng_render_field(content.fields.description) }}
                         </div>
+                    {% endif %}
+                    <div class="actions">
+                        {% if not content.fields.link_1.empty %}
+                            {{ ng_render_field(
+                                content.fields.link_1, {
+                                    parameters: {
+                                        css_class: 'btn btn-primary'
+                                    }
+                                }
+                            ) }}
+                        {% endif %}
+
+                        {% if not content.fields.link_2.empty %}
+                            {{ ng_render_field(
+                                content.fields.link_2, {
+                                    parameters: {
+                                        css_class: 'btn btn-outline'
+                                    }
+                                }
+                            ) }}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </header>
-        {% set items = ng_component_items(content, "item") %}
+        {% set items = ngsite_group_fields(content, "item") %}
         {% if items|length %}
             <div class="features-grid {{ grid_class }}">
                 {% for item in items %}
@@ -34,6 +57,11 @@
                             {% if item.description is defined and not item.description.empty %}
                                 <div class="item-short">
                                     {{ ng_render_field(item.description) }}
+                                </div>
+                            {% endif %}
+                            {% if item.link is defined and not item.link.empty %}
+                                <div class="item-actions">
+                                    {{ ng_render_field(item.link) }}
                                 </div>
                             {% endif %}
                         </div>

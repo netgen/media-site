@@ -44,13 +44,27 @@
             </div>
         {% endif %}
 
-        {% if not content.fields.link_label_1.empty %}
-            <a href="#" class="btn btn-link">{{ content.fields.link_label_1.value.text }}</a>
-        {% endif %}
+        <div class="actions">
+            {% if not content.fields.link_1.empty %}
+                {{ ng_render_field(
+                    content.fields.link_1, {
+                        parameters: {
+                            css_class: 'btn btn-link'
+                        }
+                    }
+                ) }}
+            {% endif %}
 
-        {# {{ macros.content_link(content, content.fields.link_label_1.value.text, "btn btn-primary") }} #}
-
-        {# {{ macros.content_link(content, content.fields.link_label_2.value.text, "btn btn-secondary") }} #}
+            {% if not content.fields.link_2.empty %}
+                {{ ng_render_field(
+                    content.fields.link_2, {
+                        parameters: {
+                            css_class: 'btn btn-outline'
+                        }
+                    }
+                ) }}
+            {% endif %}
+        </div>
     </div>
 </article>
 {% endblock %}

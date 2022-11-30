@@ -9,31 +9,60 @@
     <article class="view-component view-component-features features-style-1">
         <header class="article-header">
             <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-            <div class="short">
-                {{ ng_render_field(content.fields.description) }}
+            {% if not content.fields.description.empty %}
+                <div class="short">
+                    {{ ng_render_field(content.fields.description) }}
+                </div>
+            {% endif %}
+            <div class="actions">
+                {% if not content.fields.link_1.empty %}
+                    {{ ng_render_field(
+                        content.fields.link_1, {
+                            parameters: {
+                                css_class: 'btn btn-primary'
+                            }
+                        }
+                    ) }}
+                {% endif %}
+
+                {% if not content.fields.link_2.empty %}
+                    {{ ng_render_field(
+                        content.fields.link_2, {
+                            parameters: {
+                                css_class: 'btn btn-outline'
+                            }
+                        }
+                    ) }}
+                {% endif %}
             </div>
         </header>
-        {% set items = ng_component_items(content, "item") %}
+        {% set items = ngsite_group_fields(content, "item") %}
+
+        {% dump(items) %}
+
         {% if items|length %}
             <div class="features-grid {{ grid_class }}">
                 {% for item in items %}
-                    {% if not item.title.empty or not item.description.empty %}
-                        <div class="features-grid-item">
-                            {% if item.icon is defined and not item.icon.empty %}
-                                <div class="item-icon">
-                                    <img src="{{ asset(item.icon.value.id, 'ibexa_file') }}" alt="{{ content.name }}" />
-                                </div>
-                            {% endif %}
-                            {% if item.title is defined and not item.title.empty %}
-                                <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
-                            {% endif %}
-                            {% if item.description is defined and not item.description.empty %}
-                                <div class="item-short">
-                                    {{ ng_render_field(item.description) }}
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% endif %}
+                    <div class="features-grid-item">
+                        {% if item.icon is defined and not item.icon.empty %}
+                            <div class="item-icon">
+                                <img src="{{ asset(item.icon.value.id, 'ibexa_file') }}" alt="{{ content.name }}" />
+                            </div>
+                        {% endif %}
+                        {% if item.title is defined and not item.title.empty %}
+                            <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
+                        {% endif %}
+                        {% if item.description is defined and not item.description.empty %}
+                            <div class="item-short">
+                                {{ ng_render_field(item.description) }}
+                            </div>
+                        {% endif %}
+                        {% if item.link is defined and not item.link.empty %}
+                            <div class="item-actions">
+                                {{ ng_render_field(item.link) }}
+                            </div>
+                        {% endif %}
+                    </div>
                 {% endfor %}
             </div>
         {% endif %}  

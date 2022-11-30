@@ -53,12 +53,27 @@
                 {% endif %}
             </div>
             <div class="col-md-6">
-                {% if not content.fields.link_label_1.empty %}
-                    <a href="#" class="btn btn-link">{{ content.fields.link_label_1.value.text }}</a>
-                {% endif %}
-                {% if not content.fields.link_label_2.empty %}
-                    <a href="#" class="btn btn-outline">{{ content.fields.link_label_2.value.text }}</a>
-                {% endif %}
+                <div class="actions">
+                    {% if not content.fields.link_1.empty %}
+                        {{ ng_render_field(
+                            content.fields.link_1, {
+                                parameters: {
+                                    css_class: 'btn btn-link'
+                                }
+                            }
+                        ) }}
+                    {% endif %}
+
+                    {% if not content.fields.link_2.empty %}
+                        {{ ng_render_field(
+                            content.fields.link_2, {
+                                parameters: {
+                                    css_class: 'btn btn-outline'
+                                }
+                            }
+                        ) }}
+                    {% endif %}
+                </div>
             </div>
         </div>
 
