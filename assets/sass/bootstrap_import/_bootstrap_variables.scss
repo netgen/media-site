@@ -1136,7 +1136,7 @@ $btn-border-radius:             0 !default;
 //$dropdown-color:                    $body-color !default;
 //$dropdown-bg:                       $white !default;
 //$dropdown-border-color:             var(--#{$prefix}border-color-translucent) !default;
-//$dropdown-border-radius:            $border-radius !default;
+$dropdown-border-radius:              0 !default;
 //$dropdown-border-width:             $border-width !default;
 //$dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width) !default;
 //$dropdown-divider-bg:               $dropdown-border-color !default;
