@@ -8,7 +8,7 @@ export default class ModalFormSubmitComponent {
 
   // eslint-disable-next-line class-methods-use-this
   onInit(element) {
-    $(element).on('submit', 'form', function (e) {
+    $(element).on("submit", function (e) {
       e.preventDefault();
 
       const formData = new FormData(this);

@@ -9,15 +9,17 @@
         {{ ng_render_field(content.fields.body) }}
     {% endif %}
 
-    {% set form_parameters = { action: action|default('') } %}
+    {% set attributes = {} %}
 
     {% if content.hasField('gtm_event_prefix') and not content.fields.gtm_event_prefix.empty %}
-        {% set form_parameters = form_parameters|merge({
-            attr: {
-                'data-gtm-event-prefix': content.fields.gtm_event_prefix.value.text
-            }
-        }) %}
+        {% set attributes = attributes|merge({ 'data-gtm-event-prefix': content.fields.gtm_event_prefix.value.text }) %}
     {% endif %}
+
+    {% if class is defined and class is not empty %}
+        {% set attributes = attributes|merge({ class: class }) %}
+    {% endif %}
+
+    {% set form_parameters = { action: action|default(''), attr: attributes } %}
 
     {{ form_start(form, form_parameters) }}
         {{ form_errors(form) }}
@@ -62,13 +64,10 @@
             <p>{{ 'ngsite.collected_info.success_text'|trans }}</p>
         {% endif %}
 
-        <p>{{ 'ngsite.collected_info.information_collected'|trans }}:</p>
+{#        <p>{{ 'ngsite.collected_info.information_collected'|trans }}:</p>#}
 
-        {#        {% for collected_field, collected_field_value in collected_fields %}
-            <p><strong>{{ content.fields[collected_field].name }}:</strong> {{ collected_field_value }}</p>
-        {% endfor %}#}
-
-        <a href="{{ ibexa_path(location.parent) }}">{{ 'ngsite.collected_info.return_to_site'|trans }}</a>
+{#        {% for collected_field, collected_field_value in collected_fields %}#}
+{#            <p><strong>{{ content.fields[collected_field].name }}:</strong> {{ collected_field_value }}</p>#}
+{#        {% endfor %}#}
     </div>
 {% endif %}
-
