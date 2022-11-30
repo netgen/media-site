@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use eZ\Publish\API\Repository\Values\Content\Content;
+use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
 use Ibexa\Core\FieldType\Checkbox\Value as CheckboxValue;
 use MailerLiteApi\MailerLite;

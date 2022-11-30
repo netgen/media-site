@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\InformationCollection\Handler;
 
 use App\InformationCollection\ContentForms\InformationCollectionMapper;
-use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Ibexa\Contracts\Core\Repository\Values\Content\Location;
