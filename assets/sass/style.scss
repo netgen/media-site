@@ -1,18 +1,90 @@
 @charset 'UTF-8';
-//IMPORTANT: only add imports to this file
+// IMPORTANT: only add imports to this file
 
+// External libraries
 @import '@fortawesome/fontawesome-free/css/all';
 @import 'swiper/dist/css/swiper';
 @import 'magnific-popup/src/css/main';
+
+// Main variables
 @import 'variables';
 
-@import 'bootstrap_import/bootstrap_import';
+// Bootstrap setup
+@import 'bootstrap/scss/functions';
+@import 'bootstrap_import/bootstrap_variables';
+@import 'bootstrap_import/bootstrap';
+@import 'bootstrap_import/bootstrap_override';
 
-@import 'mixins/mixins';
+// Mixins
+@import 'mixins/text';
 @import 'typography';
-@import 'layout/layout';
-@import 'blocks/blocks';
-@import 'content/content';
-@import 'components/components';
+
+// General Layout
+@import 'layout/site_logo';
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/breadcrumbs';
+@import 'layout/footer';
+
+// Components
+@import 'components/ng_component_hero/hero_style_1';
+@import 'components/ng_component_hero/hero_style_2';
+@import 'components/ng_component_hero/hero_style_3';
+@import 'components/ng_component_about/about_style_1';
+@import 'components/ng_component_about/about_style_2';
+@import 'components/ng_component_about/about_style_3';
+@import 'components/ng_component_about/about_style_4';
+@import 'components/ng_component_features/features_grid';
+@import 'components/ng_component_features/features_style_1';
+@import 'components/ng_component_features/features_style_2';
+@import 'components/ng_component_features/features_style_3';
+@import 'components/ng_component_features/features_style_4';
+@import 'components/ng_component_features/features_style_5';
+@import 'components/ng_component_features/features_style_6';
+@import 'components/ng_component_logos/logos_style_1';
+@import 'components/ng_component_logos/logos_style_2';
+@import 'components/ng_component_lead/lead_style_1';
+@import 'components/ng_component_lead/lead_style_2';
+@import 'components/ng_component_quote/quote_style_1';
+
+// Blocks
+@import 'blocks/block';
+@import 'blocks/list/grid_featured';
+@import 'blocks/list/list_numbered';
+@import 'blocks/list/list_zigzag';
+@import 'blocks/list/list_accordion';
+@import 'blocks/title/title';
+@import 'blocks/title/section_title';
+@import 'blocks/gallery/gallery';
+@import 'blocks/gallery/sushi';
+@import 'blocks/specific/right_box';
+@import 'blocks/specific/ajax_loading';
+@import 'blocks/specific/pagination';
+@import 'blocks/specific/error_pages';
+@import 'blocks/specific/social_share';
+
+// Item View Types
+@import 'content/item_view_types/extends';
+@import 'content/item_view_types/standard';
+@import 'content/item_view_types/overlay';
+@import 'content/item_view_types/listitem';
+@import 'content/item_view_types/mini';
+@import 'content/item_view_types/line';
+@import 'content/item_view_types/search';
+@import 'content/item_view_types/card';
+@import 'content/item_view_types/zigzag';
+@import 'content/item_view_types/accordion';
+
+// Full views
+@import 'content/full/full_page_elements';
+@import 'content/full/recipe';
+@import 'content/full/video';
+@import 'content/full/gallery';
+@import 'content/full/feedback_form';
+@import 'content/full/search';
+@import 'content/full/job_position';
+@import 'content/ezrichtext';
+@import 'content/sticky_sidebar';
+
+// Cookie ribbon
 @import 'cookie_control';
-@import 'sticky_sidebar';
