@@ -73,7 +73,6 @@
         "bootstrap": "^5.2.1",
         "jquery": "^3.4.0",
         "magnific-popup": "^1.1.0",
-        "mediaelement": "^5.1.0",
         "popper.js": "^1.15.0",
         "swiper": "^4.5.0"
     },
