@@ -1,3 +1,12 @@
 parameters:
+    ngsite.fh_group.site_domain: localhost
+    ngsite.bold_group.site_domain: localhost
+
+    ngsite.fh_group.locations.site_info.id: 65
+    ngsite.bold_group.locations.site_info.id: 442
+
+    ngsite.fh_group.locations.tree_root.id: 385
+    ngsite.bold_group.locations.tree_root.id: 386
+
     collected_info_sender: info@netgen.io
     collected_info_recipient: test@netgen.io

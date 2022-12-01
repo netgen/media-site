@@ -1,13 +1,4 @@
 parameters:
-    ngsite.fh_group.site_domain: localhost
-    ngsite.bold_group.site_domain: localhost
-
-    ngsite.fh_group.locations.site_info.id: 65
-    ngsite.bold_group.locations.site_info.id: 442
-
-    ngsite.fh_group.locations.tree_root.id: 385
-    ngsite.bold_group.locations.tree_root.id: 386
-
     ngsite.admin_siteaccess_name: adminui
 
 ibexa:
