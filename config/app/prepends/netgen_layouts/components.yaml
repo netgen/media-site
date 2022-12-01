@@ -1,3 +1,14 @@
+system:
+    default:
+        ibexa_component:
+            parent_locations:
+                ng_component_hero: '%ngsite.default.locations.ng_component_hero.id%'
+                ng_component_quote: '%ngsite.default.locations.ng_component_quote.id%'
+                ng_component_about: '%ngsite.default.locations.ng_component_about.id%'
+                ng_component_features: '%ngsite.default.locations.ng_component_features.id%'
+                ng_component_logos: '%ngsite.default.locations.ng_component_logos.id%'
+                ng_component_lead: '%ngsite.default.locations.ng_component_lead.id%'
+
 block_types:
     ibexa_component_hero:
         name: 'Hero'

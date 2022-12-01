@@ -8,5 +8,12 @@ parameters:
     ngsite.fh_group.locations.tree_root.id: 385
     ngsite.bold_group.locations.tree_root.id: 386
 
+    ngsite.default.locations.ng_component_hero.id: 407
+    ngsite.default.locations.ng_component_quote.id: 445
+    ngsite.default.locations.ng_component_about.id: 413
+    ngsite.default.locations.ng_component_features.id: 422
+    ngsite.default.locations.ng_component_logos.id: 420
+    ngsite.default.locations.ng_component_lead.id: 470
+
     collected_info_sender: info@netgen.io
     collected_info_recipient: test@netgen.io
