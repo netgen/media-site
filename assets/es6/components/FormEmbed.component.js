@@ -32,13 +32,13 @@ export default class ModalFormSubmitComponent {
           $(element).html(response);
 
           if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer.push({ event: `${gtmEventPrefix}-submitted` });
+            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-submitted` });
             // console.log(`GTM event pushed: ${gtmEventPrefix}-submitted`);
           }
         },
         error(XMLHttpRequest, textStatus, errorThrown) {
           if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer.push({ event: `${gtmEventPrefix}-failed` });
+            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-failed` });
             // console.log(`GTM event pushed: ${gtmEventPrefix}-failed`);
           }
 

@@ -27,7 +27,7 @@ export default class FormModalComponent {
           const gtmEventPrefix = $('#form-modal-body form').data('gtm-event-prefix');
 
           if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer.push({ event: `${gtmEventPrefix}-opened` });
+            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-opened` });
             setCookie(`${gtmEventPrefix}-submitted`, 'false');
             // console.log(`GTM event pushed: ${gtmEventPrefix}-opened`);
           }
@@ -40,7 +40,7 @@ export default class FormModalComponent {
               const submitted = getCookie(`${gtmEventPrefix}-submitted`);
 
               if (submitted === 'false') {
-                window.dataLayer.push({ event: `${gtmEventPrefix}-canceled` });
+                window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-canceled` });
                 // console.log(`GTM event pushed: ${formIdentifier}-canceled`);
               }
             }
@@ -80,14 +80,14 @@ export default class FormModalComponent {
           $formContainer.html(response);
 
           if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer.push({ event: `${gtmEventPrefix}-submitted` });
+            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-submitted` });
             setCookie(`${gtmEventPrefix}-submitted`, 'true');
             // console.log(`GTM event pushed: ${formIdentifier}-submitted`);
           }
         },
         error(XMLHttpRequest, textStatus, errorThrown) {
           if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer.push({ event: `${gtmEventPrefix}-failed` });
+            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-failed` });
             // console.log(`GTM event pushed: ${gtmEventPrefix}-failed`);
           }
 
