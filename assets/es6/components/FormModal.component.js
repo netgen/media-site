@@ -1,100 +1,126 @@
-import $ from 'jquery';
-import { getCookie, setCookie } from '@netgen/javascript-cookie-control/js/helpers';
+import { Modal } from 'bootstrap';
 
 export default class FormModalComponent {
-  constructor(element, options) {
+  constructor(trigger, options) {
     this.options = options;
-    this.onInit(element);
+    this.trigger = trigger;
+    this.submitted = null;
+    this.init();
   }
 
-  onInit(element) {
-    const self = this;
-
-    $(element).on('click', function (e) {
+  init() {
+    this.trigger.addEventListener('click', (e) => {
       e.preventDefault();
 
-      const url = $(this).data('url');
-
-      $.ajax({
-        url,
-        type: 'GET',
-        cache: false,
-        success(response) {
-          $('body').append(response);
-          const modal = $('#form-modal');
-          modal.modal('show');
-
-          const gtmEventPrefix = $('#form-modal-body form').data('gtm-event-prefix');
-
-          if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-opened` });
-            setCookie(`${gtmEventPrefix}-submitted`, 'false');
-            // console.log(`GTM event pushed: ${gtmEventPrefix}-opened`);
-          }
-
-          modal.on('hidden.bs.modal', () => {
-            modal.modal('dispose');
-            modal.remove();
-
-            if (typeof gtmEventPrefix !== 'undefined') {
-              const submitted = getCookie(`${gtmEventPrefix}-submitted`);
-
-              if (submitted === 'false') {
-                window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-canceled` });
-                // console.log(`GTM event pushed: ${formIdentifier}-canceled`);
-              }
-            }
-          });
-          self.handleFormSubmit();
-        },
-        error(XMLHttpRequest, textStatus, errorThrown) {
-          // eslint-disable-next-line no-alert
-          alert(`Error: ${errorThrown}`);
-        },
-      });
+      fetch(this.trigger.getAttribute('data-url'))
+        .then((response) => response.text())
+        .then((text) => this.openModal(text));
     });
+  }
+
+  openModal(text) {
+    const template = document.createElement('template');
+    template.innerHTML = text.trim();
+    const modalElement = template.content.firstElementChild;
+    const modal = new Modal(modalElement);
+    const form = modalElement.querySelector('form');
+    const gtmEventPrefix = form.getAttribute('data-gtm-event-prefix');
+
+    form.addEventListener('submit', (event) => this.submit(event));
+    modalElement.addEventListener('hidden.bs.modal', () => this.closeModal(modal, modalElement, gtmEventPrefix));
+    document.body.appendChild(template.content);
+
+    modal.show();
+    this.gtmOpened(gtmEventPrefix);
+  }
+
+  closeModal(modal, modalElement, gtmEventPrefix) {
+    modal.dispose();
+    modalElement.remove();
+    this.gtmClosed(gtmEventPrefix);
+  }
+
+  submit(e) {
+    const form = e.target;
+    e.preventDefault();
+
+    const gtmEventPrefix = form.getAttribute('data-gtm-event-prefix');
+    const formContainer = form.parentElement;
+
+    formContainer.innerHTML = '<div class="loading-animation"><span></span></div>';
+
+    fetch(form.getAttribute('action'), { method: 'POST', body: new FormData(form) })
+      .then((response) => response.text())
+      .then((text) => {
+        formContainer.innerHTML = text.trim();
+        this.gtmSubmitted(gtmEventPrefix);
+      }).catch((error) => {
+        this.gtmFailed(gtmEventPrefix);
+        // eslint-disable-next-line no-console
+        console.log('Error: ', error)
+      });
+  }
+
+  gtmOpened(prefix) {
+    if (!this.gtmCheck(prefix)) {
+      return;
+    }
+
+    window.dataLayer.push({ event: `${prefix}-opened` });
+    this.submitted = false;
+    // eslint-disable-next-line no-console
+    console.log(`GTM event pushed: ${prefix}-opened`);
+  }
+
+  gtmClosed(prefix) {
+    if (!this.gtmCheck(prefix)) {
+      return;
+    }
+
+    if (this.submitted === false) {
+      window.dataLayer.push({ event: `${prefix}-canceled` });
+      // eslint-disable-next-line no-console
+      console.log(`GTM event pushed: ${prefix}-canceled`);
+    }
+  }
+
+  gtmSubmitted(prefix) {
+    if (!this.gtmCheck(prefix)) {
+      return;
+    }
+
+    window.dataLayer.push({ event: `${prefix}-submitted` });
+    this.submitted = true;
+    // eslint-disable-next-line no-console
+    console.log(`GTM event pushed: ${prefix}-submitted`);
+  }
+
+  gtmFailed(prefix) {
+    if (!this.gtmCheck(prefix)) {
+      return;
+    }
+
+    window.dataLayer.push({ event: `${prefix}-failed` });
+    // eslint-disable-next-line no-console
+    console.log(`GTM event pushed: ${prefix}-failed`);
   }
 
   // eslint-disable-next-line class-methods-use-this
-  handleFormSubmit() {
-    $('#form-modal-body').on('submit', 'form', function (e) {
-      e.preventDefault();
+  gtmCheck(prefix) {
+    if (typeof prefix === 'undefined') {
+      // eslint-disable-next-line no-console
+      console.warn(`GTM prefix is not defined`);
 
-      const $formContainer = $('#form-modal-body');
-      const formData = new FormData(this);
-      const gtmEventPrefix = $('#form-modal-body form').data('gtm-event-prefix');
-      const formUrl = $(this).attr('action');
-      const $loaderGif = $('<div class="loading-animation"><span></span></div>');
+      return false;
+    }
 
-      $formContainer.html($loaderGif);
+    if (!('dataLayer' in window)) {
+      // eslint-disable-next-line no-console
+      console.warn(`GTM data layer is not available`);
 
-      $.ajax({
-        url: formUrl,
-        type: 'POST',
-        enctype: 'multipart/form-data',
-        data: formData,
-        processData: false,
-        contentType: false,
-        cache: false,
-        success(response) {
-          $formContainer.html(response);
+      return false;
+    }
 
-          if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-submitted` });
-            setCookie(`${gtmEventPrefix}-submitted`, 'true');
-            // console.log(`GTM event pushed: ${formIdentifier}-submitted`);
-          }
-        },
-        error(XMLHttpRequest, textStatus, errorThrown) {
-          if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-failed` });
-            // console.log(`GTM event pushed: ${gtmEventPrefix}-failed`);
-          }
-
-          // eslint-disable-next-line no-alert
-          alert(`Error: ${errorThrown}`);
-        },
-      });
-    });
+    return true;
   }
 }
