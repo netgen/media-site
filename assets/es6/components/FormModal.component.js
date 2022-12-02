@@ -59,7 +59,7 @@ export default class FormModalComponent {
       }).catch((error) => {
         this.gtmPush(gtmEventPrefix, 'failed');
         // eslint-disable-next-line no-console
-        console.error('Error: ', error)
+        console.error('Modal form error: ', error)
       });
   }
 
