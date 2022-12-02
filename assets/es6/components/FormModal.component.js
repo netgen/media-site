@@ -69,14 +69,14 @@ export default class FormModalComponent {
       return;
     }
 
-    const eventName = `${prefix}-${suffix}`;
-
     if (typeof prefix === 'undefined') {
       // eslint-disable-next-line no-console
       console.warn(`GTM push failed: prefix is not defined (${suffix})`);
 
       return;
     }
+
+    const eventName = `${prefix}-${suffix}`;
 
     if (!('dataLayer' in window)) {
       // eslint-disable-next-line no-console
