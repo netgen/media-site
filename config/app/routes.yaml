@@ -11,6 +11,7 @@ ngsite_info_collection_view_modal:
 
 ngsite_info_collection_ajax_submit:
     path: /info-collection/ajax-submit/{formContentId}
+    methods: POST
     defaults:
         _controller: 'App\Controller\InfoCollectionController:ajaxSubmit'
 
