@@ -83,8 +83,6 @@ final class InfoCollectionController extends Controller
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
      * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
      * @throws \Netgen\IbexaSiteApi\API\Exceptions\TranslationNotMatchedException
-     *
-     * @todo post
      */
     public function ajaxSubmit(int $formContentId): Response
     {
@@ -98,8 +96,8 @@ final class InfoCollectionController extends Controller
 
     /**
      * Note that this is the main action for handling forms, but it doesn't have its
-     * own route. Instead, it's "proxied" through ng_view_content Twig function, relying
-     * on the main request for its data.
+     * own route. Instead, it's "proxied" through the content view, relying on the main
+     * request for its data.
      */
     public function proxyFormHandler(ContentView $view): ContentView
     {
