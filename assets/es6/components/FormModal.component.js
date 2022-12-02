@@ -4,7 +4,7 @@ export default class FormModalComponent {
   constructor(trigger, options) {
     this.options = options;
     this.trigger = trigger;
-    this.submitted = null;
+    this.submitted = false;
     this.init();
   }
 
@@ -31,13 +31,14 @@ export default class FormModalComponent {
     document.body.appendChild(template.content);
 
     modal.show();
-    this.gtmOpened(gtmEventPrefix);
+    this.submitted = false;
+    this.gtmPush(gtmEventPrefix, 'opened');
   }
 
   closeModal(modal, modalElement, gtmEventPrefix) {
     modal.dispose();
     modalElement.remove();
-    this.gtmClosed(gtmEventPrefix);
+    this.gtmPush(gtmEventPrefix, 'cancelled', !this.submitted);
   }
 
   submit(e) {
@@ -53,74 +54,37 @@ export default class FormModalComponent {
       .then((response) => response.text())
       .then((text) => {
         formContainer.innerHTML = text.trim();
-        this.gtmSubmitted(gtmEventPrefix);
+        this.submitted = true;
+        this.gtmPush(gtmEventPrefix, 'submitted');
       }).catch((error) => {
-        this.gtmFailed(gtmEventPrefix);
+        this.gtmPush(gtmEventPrefix, 'failed');
         // eslint-disable-next-line no-console
         console.error('Error: ', error)
       });
   }
 
-  gtmOpened(prefix) {
-    if (!this.gtmCheck(prefix)) {
-      return;
-    }
-
-    window.dataLayer.push({ event: `${prefix}-opened` });
-    this.submitted = false;
-    // eslint-disable-next-line no-console
-    console.info(`GTM event pushed: ${prefix}-opened`);
-  }
-
-  gtmClosed(prefix) {
-    if (!this.gtmCheck(prefix)) {
-      return;
-    }
-
-    if (this.submitted === false) {
-      window.dataLayer.push({ event: `${prefix}-canceled` });
-      // eslint-disable-next-line no-console
-      console.info(`GTM event pushed: ${prefix}-canceled`);
-    }
-  }
-
-  gtmSubmitted(prefix) {
-    if (!this.gtmCheck(prefix)) {
-      return;
-    }
-
-    window.dataLayer.push({ event: `${prefix}-submitted` });
-    this.submitted = true;
-    // eslint-disable-next-line no-console
-    console.info(`GTM event pushed: ${prefix}-submitted`);
-  }
-
-  gtmFailed(prefix) {
-    if (!this.gtmCheck(prefix)) {
-      return;
-    }
-
-    window.dataLayer.push({ event: `${prefix}-failed` });
-    // eslint-disable-next-line no-console
-    console.info(`GTM event pushed: ${prefix}-failed`);
-  }
-
   // eslint-disable-next-line class-methods-use-this
-  gtmCheck(prefix) {
+  gtmPush(prefix, suffix, condition = true) {
+    if (!condition) {
+      return;
+    }
+
     if (typeof prefix === 'undefined') {
       // eslint-disable-next-line no-console
       console.warn(`GTM prefix is not defined`);
 
-      return false;
+      return;
     }
 
     if (!('dataLayer' in window)) {
       // eslint-disable-next-line no-console
       console.warn(`GTM data layer is not available`);
 
-      return false;
+      return;
     }
 
-    return true;
+    window.dataLayer.push({ event: `${prefix}-${suffix}` });
+    // eslint-disable-next-line no-console
+    console.info(`GTM event pushed: ${prefix}-${suffix}`);
   }
 }
