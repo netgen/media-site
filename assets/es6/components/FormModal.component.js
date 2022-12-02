@@ -14,7 +14,11 @@ export default class FormModalComponent {
 
       fetch(this.trigger.getAttribute('data-url'))
         .then((response) => response.text())
-        .then((text) => this.openModal(text));
+        .then((text) => this.openModal(text))
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.error('Modal form open failed: ', error);
+        });
     });
   }
 
@@ -59,7 +63,7 @@ export default class FormModalComponent {
       }).catch((error) => {
         this.gtmPush(gtmEventPrefix, 'failed');
         // eslint-disable-next-line no-console
-        console.error('Modal form error: ', error)
+        console.error('Modal form submit failed: ', error);
       });
   }
 
