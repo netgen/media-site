@@ -69,22 +69,24 @@ export default class FormModalComponent {
       return;
     }
 
+    const eventName = `${prefix}-${suffix}`;
+
     if (typeof prefix === 'undefined') {
       // eslint-disable-next-line no-console
-      console.warn(`GTM prefix is not defined`);
+      console.warn(`GTM push failed: prefix is not defined (${eventName})`);
 
       return;
     }
 
     if (!('dataLayer' in window)) {
       // eslint-disable-next-line no-console
-      console.warn(`GTM data layer is not available`);
+      console.warn(`GTM push failed: data layer is not available (${eventName})`);
 
       return;
     }
 
-    window.dataLayer.push({ event: `${prefix}-${suffix}` });
+    window.dataLayer.push({ event: eventName });
     // eslint-disable-next-line no-console
-    console.info(`GTM event pushed: ${prefix}-${suffix}`);
+    console.info(`GTM event pushed: ${eventName}`);
   }
 }
