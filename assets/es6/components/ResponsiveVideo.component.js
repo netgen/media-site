@@ -1,5 +1,3 @@
-// import $ from 'jquery';
-
 export default class VideoHandler {
     constructor(element) {
         this.element = element;
