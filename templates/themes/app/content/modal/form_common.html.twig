@@ -1,7 +1,7 @@
 {% set site_info = ngsite.siteInfoContent %}
 {% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
 
-<div class="modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,7 +10,7 @@
                     <span class="icon-cancel"></span>
                 </a>
             </div>
-            <div class="modal-body" id="form-modal-body">
+            <div class="modal-body">
                 {{ ng_view_content(
                     content,
                     'payload',

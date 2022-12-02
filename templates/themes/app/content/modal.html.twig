@@ -1,16 +1,15 @@
-{% set site_info = ngsite.siteInfoContent %}
-{% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
-
-<div class="modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
+                {% set site_info = ngsite.siteInfoContent %}
+                {% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
                 {% include '@ibexadesign/parts/site_logo.html.twig' %}
                 <a href="#" class="close " data-dismiss="modal" aria-label="Close">
                     <span class="icon-cancel"></span>
                 </a>
             </div>
-            <div class="modal-body" id="form-modal-body">
+            <div class="modal-body">
                 {{ ng_view_content(content, 'payload') }}
             </div>
         </div>
