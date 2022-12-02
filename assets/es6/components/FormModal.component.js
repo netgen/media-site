@@ -73,7 +73,7 @@ export default class FormModalComponent {
 
     if (typeof prefix === 'undefined') {
       // eslint-disable-next-line no-console
-      console.warn(`GTM push failed: prefix is not defined (${eventName})`);
+      console.warn(`GTM push failed: prefix is not defined (${suffix})`);
 
       return;
     }
