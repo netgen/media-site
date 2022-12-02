@@ -1,51 +1,52 @@
-import $ from 'jquery';
-
 export default class ModalFormSubmitComponent {
-  constructor(element, options) {
+  constructor(form, options) {
+    this.form = form;
     this.options = options;
-    this.onInit(element);
+    this.init();
+  }
+
+  init() {
+    this.form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const gtmEventPrefix = this.form.getAttribute('data-gtm-event-prefix');
+      const formContainer = this.form.parentElement;
+
+      formContainer.innerHTML = '<div class="loading-animation"><span></span></div>';
+
+      fetch(this.form.getAttribute('action'), { method: 'POST', body: new FormData(this.form) })
+        .then((response) => response.text())
+        .then((text) => {
+          formContainer.innerHTML = text.trim();
+          this.gtmPush(gtmEventPrefix, 'submitted');
+        }).catch((error) => {
+          this.gtmPush(gtmEventPrefix, 'failed');
+          // eslint-disable-next-line no-console
+          console.error('Embedded form submit failed: ', error);
+        });
+    });
   }
 
   // eslint-disable-next-line class-methods-use-this
-  onInit(element) {
-    $(element).on("submit", function (e) {
-      e.preventDefault();
+  gtmPush(prefix, suffix) {
+    if (typeof prefix === 'undefined') {
+      // eslint-disable-next-line no-console
+      console.warn(`GTM push failed: prefix is not defined (${suffix})`);
 
-      const formData = new FormData(this);
-      const formUrl = $(this).attr('action');
-      const gtmEventPrefix = $(this).data('gtm-event-prefix');
-      const $loaderGif = $('<div class="loading-animation"><span></span></div>');
+      return;
+    }
 
-      $([document.documentElement, document.body]).animate( { scrollTop: $(element).offset().top - 100, }, 500 );
+    const eventName = `${prefix}-${suffix}`;
 
-      $(element).html($loaderGif);
+    if (!('dataLayer' in window)) {
+      // eslint-disable-next-line no-console
+      console.warn(`GTM push failed: data layer is not available (${eventName})`);
 
-      $.ajax({
-        url: formUrl,
-        type: 'POST',
-        enctype: 'multipart/form-data',
-        data: formData,
-        processData: false,
-        contentType: false,
-        cache: false,
-        success(response) {
-          $(element).html(response);
+      return;
+    }
 
-          if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-submitted` });
-            // console.log(`GTM event pushed: ${gtmEventPrefix}-submitted`);
-          }
-        },
-        error(XMLHttpRequest, textStatus, errorThrown) {
-          if (typeof gtmEventPrefix !== 'undefined') {
-            window.dataLayer && window.dataLayer.push({ event: `${gtmEventPrefix}-failed` });
-            // console.log(`GTM event pushed: ${gtmEventPrefix}-failed`);
-          }
-
-          // eslint-disable-next-line no-alert
-          alert(`Error: ${errorThrown}`);
-        },
-      });
-    });
+    window.dataLayer.push({ event: eventName });
+    // eslint-disable-next-line no-console
+    console.info(`GTM event pushed: ${eventName}`);
   }
 }
