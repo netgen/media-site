@@ -17,15 +17,15 @@ import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import GoogleMap from './components/GoogleMap.component';
 import GalleryBlock from './components/GalleryBlock.component';
-import Temporary from './components/Temporary.component';
+import LoginFormFragment from './components/LoginFormFragment.component';
 import FormModal from "./components/FormModal.component";
 import FormEmbed from "./components/FormEmbed.component";
 
 
 export const ngComponents = [
   {
-    class: Temporary,
-    selector: 'html',
+    class: LoginFormFragment,
+    selector: 'form[name="loginform"]',
     options: {}
   },
   {
