@@ -41,8 +41,8 @@ export default class FormModalComponent {
   }
 
   submit(e) {
-    const form = e.target;
     e.preventDefault();
+    const form = e.target;
 
     const gtmEventPrefix = form.getAttribute('data-gtm-event-prefix');
     const formContainer = form.parentElement;
@@ -57,7 +57,7 @@ export default class FormModalComponent {
       }).catch((error) => {
         this.gtmFailed(gtmEventPrefix);
         // eslint-disable-next-line no-console
-        console.log('Error: ', error)
+        console.error('Error: ', error)
       });
   }
 
@@ -69,7 +69,7 @@ export default class FormModalComponent {
     window.dataLayer.push({ event: `${prefix}-opened` });
     this.submitted = false;
     // eslint-disable-next-line no-console
-    console.log(`GTM event pushed: ${prefix}-opened`);
+    console.info(`GTM event pushed: ${prefix}-opened`);
   }
 
   gtmClosed(prefix) {
@@ -80,7 +80,7 @@ export default class FormModalComponent {
     if (this.submitted === false) {
       window.dataLayer.push({ event: `${prefix}-canceled` });
       // eslint-disable-next-line no-console
-      console.log(`GTM event pushed: ${prefix}-canceled`);
+      console.info(`GTM event pushed: ${prefix}-canceled`);
     }
   }
 
@@ -92,7 +92,7 @@ export default class FormModalComponent {
     window.dataLayer.push({ event: `${prefix}-submitted` });
     this.submitted = true;
     // eslint-disable-next-line no-console
-    console.log(`GTM event pushed: ${prefix}-submitted`);
+    console.info(`GTM event pushed: ${prefix}-submitted`);
   }
 
   gtmFailed(prefix) {
@@ -102,7 +102,7 @@ export default class FormModalComponent {
 
     window.dataLayer.push({ event: `${prefix}-failed` });
     // eslint-disable-next-line no-console
-    console.log(`GTM event pushed: ${prefix}-failed`);
+    console.info(`GTM event pushed: ${prefix}-failed`);
   }
 
   // eslint-disable-next-line class-methods-use-this
