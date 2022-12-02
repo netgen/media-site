@@ -13,6 +13,23 @@ const components = [
     ...ngComponents
 ]
 
+// todo: cleanup
+window.handleSelectedFile = (event) => {
+  const input = event.target;
+
+  if (!input.files) {
+    return;
+  }
+
+  const selectedFileElement = input.parentElement.querySelector('.js-selected-file');
+
+  selectedFileElement.innerHTML = "";
+
+  for (let i = 0; i < input.files.length; i++) {
+    selectedFileElement.innerHTML += `${input.files[i].name}<br/>`;
+  }
+}
+
 /* INITIALIZE ALL COMPONENTS -----------------------------------------------*/
 const componentsInit = () => {
     components.forEach((component) => {
