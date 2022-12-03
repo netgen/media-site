@@ -63,6 +63,9 @@ system:
                     match:
                         Identifier\ContentType:
                             - ng_article
+                match_all:
+                    template: "@ibexadesign/content/payload.html.twig"
+                    match: ~
             line:
                 common:
                     template: "@ibexadesign/content/line/{content_type}.html.twig"
@@ -91,6 +94,9 @@ system:
                             - ng_contact_form
                             - ng_feedback_form
                             - ng_job_application_form
+                match_all:
+                    template: "@ibexadesign/content/link_embed.html.twig"
+                    match: ~
             modal:
                 form_common:
                     template: "@ibexadesign/content/modal/form_common.html.twig"
