@@ -1,11 +1,9 @@
 /* page, dataLayer */
 import $ from 'jquery';
 import 'magnific-popup';
-import Swiper from 'swiper/dist/js/swiper';
 import 'bootstrap';
 
 global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
-global.Swiper = Swiper;
 
 // components
 import ResponsiveVideoComponent from './components/ResponsiveVideo.component';

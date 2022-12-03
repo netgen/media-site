@@ -1,3 +1,5 @@
+import Swiper from 'swiper/dist/js/swiper';
+
 export default class SwiperBase {
     constructor(element, options) {
         this.el = element;
