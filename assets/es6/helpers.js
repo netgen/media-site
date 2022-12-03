@@ -1,7 +1,3 @@
-export const findAncestor = (el, sel) => {
-    while ((el = el.parentElement) && !((el.matches || el.matchesSelector).call(el,sel)));
-    return el;
-};
 
 /* get next sibling, optionaly filtered by selector */
 export const getNextSibling = (elem, selector) => {
