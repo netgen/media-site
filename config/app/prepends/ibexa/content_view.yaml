@@ -23,11 +23,6 @@ system:
                                 sort: "@=location"
                     match:
                         Identifier\ContentType: ng_category
-                ng_feedback_form:
-                    template: "@ibexadesign/content/full/ng_feedback_form.html.twig"
-                    controller: netgen_information_collection.controller.collect_information
-                    match:
-                        Identifier\ContentType: ng_feedback_form
                 ng_landing_page:
                     template: "@ibexadesign/content/full/ng_landing_page.html.twig"
                     controller: ngsite.controller.check_redirect
@@ -40,6 +35,7 @@ system:
                             - ng_article
                             - ng_audio
                             - ng_blog_post
+                            - ng_feedback_form
                             - ng_frontpage
                             - ng_gallery
                             - ng_htmlbox
