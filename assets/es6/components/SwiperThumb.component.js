@@ -26,8 +26,8 @@ export default class SwiperThumb {
               nextEl: this.swiperPrevBtn,
               prevEl: this.swiperNextBtn,
             },
-            loop: loop,
-            effect: effect,
+            loop,
+            effect,
             autoplay: autoplay ? { delay: autoplay * 1000 } : false,
             loopedSlides: loop ? length : null,
             on: {
@@ -39,7 +39,7 @@ export default class SwiperThumb {
         })
 
         const galleryThumbs = new Swiper(this.thumbnailsSwiper, {
-            loop: loop,
+            loop,
             ...this.thumbnailsSwiperConfig
         });
 
