@@ -10,31 +10,20 @@ import 'magnific-popup';
 import 'bootstrap';
 import './globals'
 
-import {ngComponents} from './ngsite'
+import componentConfiguration from './component.configuration'
 
 window.$ = $;
 window.jQuery = $;
 
-const components = [
-    ...ngComponents
-]
-
-/* INITIALIZE ALL COMPONENTS -----------------------------------------------*/
 const componentsInit = () => {
-    components.forEach((component) => {
-      if (document.querySelector(component.selector) !== null) {
-        document.querySelectorAll(component.selector).forEach(
-          element => new component.class(element, component.options)
-        );
-      }
-    });
-  }
-  /* INITIALIZE ALL COMPONENTS -----------------------------------------------*/
-
-  document.addEventListener('DOMContentLoaded', (e) => {  // initialize on DOM ready
-    componentsInit();
+  componentConfiguration.forEach((configuration) => {
+    if (document.querySelector(configuration.selector) !== null) {
+      document.querySelectorAll(configuration.selector).forEach(
+        element => new configuration.Component(element, configuration.options)
+      );
+    }
   });
+}
 
-  document.addEventListener('ngl:preview:block:refresh', (e) => { // initialize on special event
-    componentsInit();
-  });
+document.addEventListener('DOMContentLoaded', () => { componentsInit() });
+document.addEventListener('ngl:preview:block:refresh', () => { componentsInit() });

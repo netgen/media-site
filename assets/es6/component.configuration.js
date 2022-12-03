@@ -1,24 +1,48 @@
-import ResponsiveVideoComponent from './components/ResponsiveVideo.component';
-import HeaderNav from './components/HeaderNav.component';
-import CookieControlClass from './components/CookieControl.component';
-import VideoPoster from './components/VideoPoster.component';
 import AjaxCollection from './components/AjaxCollection.component';
+import CookieControlClass from './components/CookieControl.component';
+import FormEmbed from "./components/FormEmbed.component";
+import FormModal from "./components/FormModal.component";
+import GalleryBlock from './components/GalleryBlock.component';
+import GoogleMap from './components/GoogleMap.component';
+import HeaderNav from './components/HeaderNav.component';
+import LoginFormFragment from './components/LoginFormFragment.component';
+import ResponsiveVideoComponent from './components/ResponsiveVideo.component';
 import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
-import GoogleMap from './components/GoogleMap.component';
-import GalleryBlock from './components/GalleryBlock.component';
-import LoginFormFragment from './components/LoginFormFragment.component';
-import FormModal from "./components/FormModal.component";
-import FormEmbed from "./components/FormEmbed.component";
+import VideoPoster from './components/VideoPoster.component';
 
-export const ngComponents = [
+export default [
   {
-    class: LoginFormFragment,
-    selector: 'form[name="loginform"]',
-    options: {}
+    Component: AjaxCollection,
+    selector: '.ajax-collection',
+    options: {
+      posters: 'img.video-poster',
+      vimeoClass: 'vimeo-poster',
+      dailymotionClass: 'dailymotion-poster',
+      posterLinkElement: '.js-video-poster'
+    }
   },
   {
-    class: GalleryBlock,
+    Component: CookieControlClass,
+    selector: '#ng-cc',
+    options: {
+      optionalSaveBtn: '#ng-cc-accept, #ng-cc-optional-save',
+      optionalList: '.ng-cc-optional-list',
+      optionalListToggle: ".optional-list-toggle",
+      rotateArrowClass: "rotate-arrow",
+      shownClass: 'shown',
+    }
+  },
+  {
+    Component: FormModal,
+    selector: '.js-form-modal-trigger',
+  },
+  {
+    Component: FormEmbed,
+    selector: '.js-form-embed',
+  },
+  {
+    Component: GalleryBlock,
     selector: '.ngl-vt-grid_gallery',
     options: {
       layoutAsFlexElements: '.nglayouts-as-flex',
@@ -27,15 +51,11 @@ export const ngComponents = [
     }
   },
   {
-    class: GoogleMap,
+    Component: GoogleMap,
     selector: '.nglayouts-map-embed',
   },
   {
-    class: ResponsiveVideoComponent,
-    selector: '.js-responsive-video',
-  },
-  {
-    class: HeaderNav,
+    Component: HeaderNav,
     selector: 'html',
     options: {
       pageWrapper: '#page',
@@ -56,37 +76,16 @@ export const ngComponents = [
     }
   },
   {
-    class: CookieControlClass,
-    selector: '#ng-cc',
-    options: {
-      optionalSaveBtn: '#ng-cc-accept, #ng-cc-optional-save',
-      optionalList: '.ng-cc-optional-list',
-      optionalListToggle: ".optional-list-toggle",
-      rotateArrowClass: "rotate-arrow",
-      shownClass: 'shown',
-    }
+    Component: LoginFormFragment,
+    selector: 'form[name="loginform"]',
+    options: {}
   },
   {
-    class: VideoPoster,
-    selector: '.video-poster',
-    options: {
-      vimeoClass: 'vimeo-poster',
-      dailymotionClass: 'dailymotion-poster',
-      posterLinkElement: '.js-video-poster'
-    }
+    Component: ResponsiveVideoComponent,
+    selector: '.js-responsive-video',
   },
   {
-    class: AjaxCollection,
-    selector: '.ajax-collection',
-    options: {
-      posters: 'img.video-poster',
-      vimeoClass: 'vimeo-poster',
-      dailymotionClass: 'dailymotion-poster',
-      posterLinkElement: '.js-video-poster'
-    }
-  },
-  {
-    class: SwiperBase,
+    Component: SwiperBase,
     selector: '.related-multimedia.swiper-container',
     options: {
       swiperPrevBtn: '.swiper-button-prev',
@@ -95,7 +94,7 @@ export const ngComponents = [
     }
   },
   {
-    class: SwiperBase,
+    Component: SwiperBase,
     selector: '.sushi-swiper',
     options: {
       swiperPrevBtn: '.swiper-button-prev',
@@ -117,7 +116,7 @@ export const ngComponents = [
     }
   },
   {
-    class: SwiperBase,
+    Component: SwiperBase,
     selector: '.default-swiper',
     options: {
       swiperPrevBtn: '.swiper-button-prev',
@@ -139,7 +138,7 @@ export const ngComponents = [
     }
   },
   {
-    class: SwiperBase,
+    Component: SwiperBase,
     selector: '.quote-swiper',
     options: {
       swiperPrevBtn: '.swiper-button-prev',
@@ -160,7 +159,7 @@ export const ngComponents = [
     }
   },
   {
-    class: SwiperThumb,
+    Component: SwiperThumb,
     selector: '.thumb-swiper',
     options: {
       swiperPrevBtn: '.swiper-button-prev',
@@ -188,11 +187,12 @@ export const ngComponents = [
     }
   },
   {
-    class: FormModal,
-    selector: '.js-form-modal-trigger',
-  },
-  {
-    class: FormEmbed,
-    selector: '.js-form-embed',
+    Component: VideoPoster,
+    selector: '.video-poster',
+    options: {
+      vimeoClass: 'vimeo-poster',
+      dailymotionClass: 'dailymotion-poster',
+      posterLinkElement: '.js-video-poster'
+    }
   },
 ]
