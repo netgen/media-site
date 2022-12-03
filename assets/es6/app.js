@@ -2,12 +2,18 @@
 // add this type of comment ("global" or "globals") to the top of your file,
 // exchanging variable_name with the global variable
 // /* global <variable_name> */
-import $ from 'jquery';
 
-// import './ngsite';
 import '../sass/style.scss';
+
+import $ from 'jquery';
+import 'magnific-popup';
+import 'bootstrap';
 import './globals'
+
 import {ngComponents} from './ngsite'
+
+window.$ = $;
+window.jQuery = $;
 
 const components = [
     ...ngComponents

@@ -1,11 +1,3 @@
-/* page, dataLayer */
-import $ from 'jquery';
-import 'magnific-popup';
-import 'bootstrap';
-
-global.$ = global.jQuery = $; // eslint-disable-line no-multi-assign
-
-// components
 import ResponsiveVideoComponent from './components/ResponsiveVideo.component';
 import HeaderNav from './components/HeaderNav.component';
 import CookieControlClass from './components/CookieControl.component';
@@ -18,7 +10,6 @@ import GalleryBlock from './components/GalleryBlock.component';
 import LoginFormFragment from './components/LoginFormFragment.component';
 import FormModal from "./components/FormModal.component";
 import FormEmbed from "./components/FormEmbed.component";
-
 
 export const ngComponents = [
   {
