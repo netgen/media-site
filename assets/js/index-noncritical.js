@@ -3,13 +3,4 @@
 // exchanging variable_name with the global variable
 // /* global <variable_name> */
 
-import '../sass/style.scss';
-import './globals'
-import './components'
-
-import $ from 'jquery';
-import 'magnific-popup';
-import 'bootstrap';
-
-window.$ = $;
-window.jQuery = $;
+import '../sass/style-noncritical.scss';

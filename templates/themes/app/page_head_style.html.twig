@@ -2,10 +2,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-{% for href in encore_entry_css_files('app', 'app') %}
+{% for href in encore_entry_css_files('index', 'app') %}
     <link rel="preload" as="style" type="text/css" href="{{ href }}" onload="this.onload=null;this.rel='stylesheet';"></link>
 {% endfor %}
-{% for href in encore_entry_css_files('app-noncore', 'app') %}
+
+{% for href in encore_entry_css_files('index-noncritical', 'app') %}
     <link rel="prefetch" as="style" type="text/css" href="{{ href }}" onload="this.onload=null;this.rel='stylesheet';"></link>
 {% endfor %}
 

@@ -19,9 +19,9 @@ Encore
   // the public path used by the web server to access the previous directory
   .setPublicPath(`/assets/app/${siteConfig.buildLocation}`)
 
-  // will create public/assets/app/build/app.js and public/assets/app/build/app.css
-  .addEntry('app', `./${siteConfig.assetsLocation}/js/app.js`)
-  .addEntry('app-noncore', `./${siteConfig.assetsLocation}/js/app-noncore.js`)
+  // will create public/assets/app/build/index.js and public/assets/app/build/index.css
+  .addEntry('index', `./${siteConfig.assetsLocation}/js/index.js`)
+  .addEntry('index-noncritical', `./${siteConfig.assetsLocation}/js/index-noncritical.js`)
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
