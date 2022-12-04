@@ -4,12 +4,12 @@
 // /* global <variable_name> */
 
 import '../sass/style.scss';
+import './globals'
+import './components'
 
 import $ from 'jquery';
 import 'magnific-popup';
 import 'bootstrap';
-import './globals'
-import './components'
 
 window.$ = $;
 window.jQuery = $;

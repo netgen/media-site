@@ -43,7 +43,7 @@
             {{ form_widget(form.sender_email) }}
 
             <div style="border:2px solid red; padding:5px; margin:5px" class="form-group" id="{{ form.sender_file_cv.vars.id }}">
-                <input type="file" required="required" onchange="window.updateSelectedFileNames(event)"
+                <input type="file" required="required" onchange="window.ngsite.updateSelectedFileNames(event)"
                        id="{{ form.sender_file_cv.children.value.children.file.vars.id }}"
                        name="{{ form.sender_file_cv.children.value.children.file.vars.full_name }}">
                 <label class="custom-file-label" for="{{ form.sender_file_cv.children.value.children.file.vars.id }}">
@@ -54,7 +54,7 @@
             {% do form.sender_file_cv.setRendered %}
 
             <div style="border:2px solid red; padding:5px; margin:5px" class="form-group" id="{{ form.sender_motivation_letter.vars.id }}">
-                <input type="file" onchange="window.updateSelectedFileNames(event)"
+                <input type="file" onchange="window.ngsite.updateSelectedFileNames(event)"
                        id="{{ form.sender_motivation_letter.children.value.children.file.vars.id }}"
                        name="{{ form.sender_motivation_letter.children.value.children.file.vars.full_name }}">
                 <label class="custom-file-label" for="{{ form.sender_motivation_letter.children.value.children.file.vars.id }}">

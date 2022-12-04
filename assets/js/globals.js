@@ -3,26 +3,8 @@
  * If it's anything else - it does not belong here.
  */
 
-/**
- * Put input[type=file] selected file names into a separate container.
- * Used from element's "onchange" attribute.
- */
-window.updateSelectedFileNames = (event) => {
-  const input = event.target;
+import updateSelectedFileNames from './globals/update-selected-file-names';
 
-  if (!(input instanceof HTMLInputElement) || input.getAttribute('type') !== 'file') {
-    console.error('Given target is not a file input:', input);
+window.ngsite = [];
 
-    return;
-  }
-
-  const container = input.parentElement.querySelector('.js-selected-file-names');
-
-  if (container === null) {
-    console.error('Could not find selected file names container from the given target:', input);
-
-    return;
-  }
-
-  container.innerHTML = [...input.files].map((file) => file.name).join('<br/>');
-}
+window.ngsite.updateSelectedFileNames = updateSelectedFileNames;
