@@ -1,12 +1,16 @@
 export default {
-  push(prefix, suffix) {
-    if (!prefix) {
-      console.warn(`GTM push failed: prefix is not defined (${suffix})`);
+  push(name, suffix = null) {
+    if (!name) {
+      console.warn(`GTM push failed: name is not defined`);
 
       return;
     }
 
-    const eventName = `${prefix}-${suffix}`;
+    let eventName = name;
+
+    if (suffix) {
+      eventName += `-${suffix}`;
+    }
 
     if (!('dataLayer' in window)) {
       console.warn(`GTM push failed: data layer is not available (${eventName})`);
