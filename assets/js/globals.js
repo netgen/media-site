@@ -3,7 +3,7 @@
  * If it's anything else - it does not belong here.
  */
 
-import updateSelectedFileNames from './globals/update-selected-file-names';
+import updateSelectedFileNames from './utils/update-selected-file-names';
 
 window.ngsite = [];
 
