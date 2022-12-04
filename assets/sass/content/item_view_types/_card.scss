@@ -53,17 +53,6 @@
         }
         .actions {
             margin-top: 1rem;
-            a {
-                &.btn.btn-link {
-                    border: none;
-                    border-bottom-width: 2px;
-                    border-bottom-style: solid;
-                    border-bottom-color: inherit;
-                    .bg-color-black & {
-                        border-bottom-color: $primary;
-                    }
-                }
-            }
         }
         @include media-breakpoint-down(xl) {
             .title {
