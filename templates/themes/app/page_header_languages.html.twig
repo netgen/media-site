@@ -2,7 +2,7 @@
     {% set prioritized_languages = ibexa.configResolver.getParameter('languages') %}
 
     <div class="language-selector dropdown">
-        <a href="#lang-selector" data-toggle="dropdown" class="current-lang">
+        <a href="#lang-selector" data-bs-toggle="dropdown" class="current-lang">
             {{ ngsite_language_name(prioritized_languages.0) }}&nbsp;<i class="fas fa-angle-down"></i>
         </a>
 
