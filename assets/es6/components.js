@@ -11,7 +11,7 @@ import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
 
-export default [
+const componentConfiguration = [
   {
     Component: AjaxCollection,
     selector: '.ajax-collection',
@@ -78,7 +78,6 @@ export default [
   {
     Component: LoginFormFragment,
     selector: 'form[name="loginform"]',
-    options: {}
   },
   {
     Component: ResponsiveVideoComponent,
@@ -195,4 +194,17 @@ export default [
       posterLinkElement: '.js-video-poster'
     }
   },
-]
+];
+
+const componentsInit = () => {
+  componentConfiguration.forEach((configuration) => {
+    if (document.querySelector(configuration.selector) !== null) {
+      document.querySelectorAll(configuration.selector).forEach(
+        element => new configuration.Component(element, configuration.options)
+      );
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', componentsInit);
+document.addEventListener('ngl:preview:block:refresh', componentsInit);

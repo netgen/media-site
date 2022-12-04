@@ -9,21 +9,7 @@ import $ from 'jquery';
 import 'magnific-popup';
 import 'bootstrap';
 import './globals'
-
-import componentConfiguration from './component.configuration'
+import './components'
 
 window.$ = $;
 window.jQuery = $;
-
-const componentsInit = () => {
-  componentConfiguration.forEach((configuration) => {
-    if (document.querySelector(configuration.selector) !== null) {
-      document.querySelectorAll(configuration.selector).forEach(
-        element => new configuration.Component(element, configuration.options)
-      );
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => { componentsInit() });
-document.addEventListener('ngl:preview:block:refresh', () => { componentsInit() });
