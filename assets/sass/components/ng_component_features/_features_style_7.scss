@@ -1,0 +1,24 @@
+.features-style-7 {
+    .article-header {
+        .title {
+            font-size: 2.5rem;
+            & + .short,
+            & + .actions {
+                margin-top: 1.5rem;
+            }
+        }
+        .short {
+            & + .actions {
+                margin-top: 1.5rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+        }
+        & + .list-zigzag {
+            margin-top: 4rem;
+        }
+    }
+}
+

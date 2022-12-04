@@ -1,22 +1,25 @@
 .features-style-6 {
     .article-header {
-        display: flex;
-        align-items: center;
         width: calc(100% / 3 * 2);
         .title {
             font-size: 2.5rem;
+            & + .short,
+            & + .actions {
+                margin-top: 1.5rem;
+            }
         }
-        .info {
-            flex: 0 0 auto;
+        .short {
+            & + .actions {
+                margin-top: 1.5rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
         }
         & + .features-grid {
             margin-top: 4rem;
         }
-        // .bg-color-black & {
-        //     .title {
-        //         color: $primary;
-        //     }
-        // }
     }
 
     .features-grid {
@@ -43,7 +46,7 @@
                     margin-top: 1rem;
                 }
             }
-            * > .item-actions {
+            * + .item-actions {
                 margin-top: 1rem;
             }
         }

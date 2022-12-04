@@ -9,27 +9,18 @@
             & + .short {
                 margin-top: 2.5rem;
             }
-
-            & + .btn {
-                margin-top: 3.375rem;
-            }
-
-            .bg-color-black & {
-                color: $white;
+            & + .actions {
+                margin-top: 4rem;
             }
         }
-        & + .logo-grid {
-            margin-top: 4rem;
+        .short {
+            & + .actions {
+                margin-top: 4rem;
+            }
         }
-
-        & + .short {
-            margin-top: 2.5rem;
-        }
-    }
-    .btn {
-        margin-top: 4rem;
-        & + .btn {
-            margin-left: 2rem;
+        .actions {
+            display: flex;
+            gap: 2rem;
         }
     }
 

@@ -3,15 +3,25 @@
         text-align: center;
         .title {
             font-size: 2.5rem;
-            & + .short {
+            & + .short,
+            & + .actions {
                 margin-top: 1.5rem;
             }
+        }
+        .short {
+            & + .actions {
+                margin-top: 1.5rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
         }
         & + .features-grid {
             margin-top: 4rem;
         }
     }
-
     .features-grid {
         .features-grid-item {
             padding: 1.5rem;
@@ -42,9 +52,12 @@
             }
             .item-title {
                 font-size: 1.5rem;
-                & + .item-description {
+                & + .item-short {
                     margin-top: 1rem;
                 }
+            }
+            .item-actions {
+                margin-top: 1rem;
             }
         }
     }

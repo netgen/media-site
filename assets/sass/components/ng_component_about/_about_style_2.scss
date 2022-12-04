@@ -56,15 +56,13 @@
     .short {
         font-size: 1.125rem;
         line-height: 1.55;
-
-        & ~ .btn {
-            margin-top: 3.375rem;
+        & + .actions {
+            margin-top: 2rem;
         }
     }
 
-    .btn {
-        & + .btn {
-            margin-left: 2rem;
-        }
+    .actions {
+        display: flex;
+        gap: 2rem;
     }
 }

@@ -3,10 +3,22 @@
         text-align: center;
         .title {
             font-size: 4.5rem;
-            & + .short {
+            & + .short,
+            & + .actions {
                 margin-top: 1.5rem;
             }
         }
+        .short {
+            & + .actions {
+                margin-top: 1.5rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
         & + .features-grid {
             margin-top: 4rem;
         }

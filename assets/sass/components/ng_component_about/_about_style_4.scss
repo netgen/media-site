@@ -1,5 +1,4 @@
 .about-style-4 {
-
     .image {
         overflow: hidden;
         display: block;
@@ -41,11 +40,6 @@
         & + .short {
             margin-top: 2.5rem;
         }
-
-        & + .btn {
-            margin-top: 3.375rem;
-        }
-
         .bg-color-black & {
             color: $primary;
         }
@@ -54,15 +48,11 @@
     .short {
         font-size: 1.125rem;
         line-height: 1.55;
-
-        & ~ .btn {
-            margin-top: 3.375rem;
-        }
     }
 
-    .btn {
-        & + .btn {
-            margin-left: 2rem;
-        }
+    .actions {
+        margin-top: 3rem;
+        display: flex;
+        gap: 2rem;
     }
 }

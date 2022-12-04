@@ -24,7 +24,6 @@
                         }
                     ) }}
                 {% endif %}
-
                 {% if not content.fields.link_2.empty %}
                     {{ ng_render_field(
                         content.fields.link_2, {
@@ -59,7 +58,13 @@
                                 {% endif %}
                                 {% if item.link is defined and not item.link.empty %}
                                     <div class="item-actions">
-                                        {{ ng_render_field(item.link) }}
+                                        {{ ng_render_field(
+                                            item.link, {
+                                                parameters: {
+                                                    css_class: 'btn btn-link'
+                                                }
+                                            }
+                                        ) }}
                                     </div>
                                 {% endif %}
                             </div>

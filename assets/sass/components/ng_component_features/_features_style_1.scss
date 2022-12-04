@@ -2,9 +2,19 @@
     .article-header {
         .title {
             font-size: 2.5rem;
-            & + .short {
+            & + .short,
+            & + .actions {
                 margin-top: 1.5rem;
             }
+        }
+        .short {
+            & + .actions {
+                margin-top: 1.5rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
         }
         & + .features-grid {
             margin-top: 4rem;
@@ -32,12 +42,12 @@
             }
             .item-title {
                 font-size: 1.5rem;
-                & + .item-description {
+                & + .item-short {
                     margin-top: 1rem;
                 }
             }
-            .item-description {
-
+            * + .item-actions {
+                margin-top: 1rem;
             }
         }
     }

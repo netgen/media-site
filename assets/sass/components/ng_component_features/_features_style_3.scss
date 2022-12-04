@@ -1,22 +1,25 @@
 .features-style-3 {
     .article-header {
         display: flex;
-        align-items: center;
+        justify-content: space-between;
         .title {
             font-size: 3rem;
-            flex: 0 0 75%;
         }
-        .info {
-            flex: 0 0 auto;
-            margin-left: auto;
+        .article-content {
+            width: 60%;
         }
-        & + .features-grid {
-            margin-top: 4rem;
+        .actions {
+            display: flex;
+            gap: 2rem;
+            align-items: end;
         }
         .bg-color-black & {
             .title {
                 color: $primary;
             }
+        }
+        & + .features-grid {
+            margin-top: 4rem;
         }
     }
 

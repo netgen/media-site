@@ -1,19 +1,15 @@
 .logos-style-1 {
     .article-header {
+        display: flex;
+        justify-content: space-between;
         .title {
             font-weight: 700;
             font-size: 3rem;
             line-height: 1.16666;
             margin: 0;
-
             & + .short {
                 margin-top: 2.5rem;
             }
-
-            & + .btn {
-                margin-top: 3.375rem;
-            }
-
             .bg-color-black & {
                 color: $primary;
             }
@@ -21,11 +17,16 @@
         & + .logo-grid {
             margin-top: 4rem;
         }
-        & + .short {
-            margin-top: 1.5rem;
+        .article-content {
+            width: 60%;
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+            align-items: end;
         }
     }
-
+    
     .logo-grid {
         margin-top: 4rem;
         display: grid;

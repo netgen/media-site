@@ -28,10 +28,7 @@
     .short {
         font-size: 1.125rem;
         line-height: 1.55;
-
-        & + .btn {
-            margin-left: 18rem;
-        }
+        width: 60%;
     }
 
     .image {
@@ -59,6 +56,12 @@
     .article-info {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+    }
+
+    .actions {
+        display: flex;
+        gap: 2rem;
     }
 
     .btn {
