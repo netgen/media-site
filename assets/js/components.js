@@ -1,3 +1,6 @@
+// This file contains only import, configuration and initialization of components
+
+// Import
 import AjaxCollection from './components/AjaxCollection.component';
 import CookieControlClass from './components/CookieControl.component';
 import FormEmbed from "./components/FormEmbed.component";
@@ -11,6 +14,7 @@ import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
 
+// Configuration
 const componentConfiguration = [
   {
     Component: AjaxCollection,
@@ -19,8 +23,8 @@ const componentConfiguration = [
       posters: 'img.video-poster',
       vimeoClass: 'vimeo-poster',
       dailymotionClass: 'dailymotion-poster',
-      posterLinkElement: '.js-video-poster'
-    }
+      posterLinkElement: '.js-video-poster',
+    },
   },
   {
     Component: CookieControlClass,
@@ -31,7 +35,7 @@ const componentConfiguration = [
       optionalListToggle: ".optional-list-toggle",
       rotateArrowClass: "rotate-arrow",
       shownClass: 'shown',
-    }
+    },
   },
   {
     Component: FormModal,
@@ -48,7 +52,7 @@ const componentConfiguration = [
       layoutAsFlexElements: '.nglayouts-as-flex',
       lightboxEnabledElements: '.js-lightbox-enabled',
       popupToggle: '.js-mfp-item',
-    }
+    },
   },
   {
     Component: GoogleMap,
@@ -72,8 +76,8 @@ const componentConfiguration = [
       submenuDataParam: 'data-submenu',
       submenuActiveClass: 'submenu-active',
       navigationList: 'ul.nav.navbar-nav',
-      filledClass: 'filled'
-    }
+      filledClass: 'filled',
+    },
   },
   {
     Component: LoginFormFragment,
@@ -90,7 +94,7 @@ const componentConfiguration = [
       swiperPrevBtn: '.swiper-button-prev',
       swiperNextBtn: '.swiper-button-next',
       swiperPagination: '.swiper-pagination',
-    }
+    },
   },
   {
     Component: SwiperBase,
@@ -110,9 +114,9 @@ const componentConfiguration = [
           480: {
             slidesPerView: 1,
           },
-        }
-      }
-    }
+        },
+      },
+    },
   },
   {
     Component: SwiperBase,
@@ -133,8 +137,8 @@ const componentConfiguration = [
           enabled: true,
         },
         autoHeight: true,
-      }
-    }
+      },
+    },
   },
   {
     Component: SwiperBase,
@@ -154,8 +158,8 @@ const componentConfiguration = [
         keyboard: {
           enabled: true,
         },
-      }
-    }
+      },
+    },
   },
   {
     Component: SwiperThumb,
@@ -182,8 +186,8 @@ const componentConfiguration = [
         slidesPerView: 'auto',
         touchRatio: 0.2,
         slideToClickedSlide: true,
-      }
-    }
+      },
+    },
   },
   {
     Component: VideoPoster,
@@ -192,10 +196,11 @@ const componentConfiguration = [
       vimeoClass: 'vimeo-poster',
       dailymotionClass: 'dailymotion-poster',
       posterLinkElement: '.js-video-poster'
-    }
+    },
   },
 ];
 
+// Initialization
 const componentsInit = () => {
   componentConfiguration.forEach((configuration) => {
     if (document.querySelector(configuration.selector) !== null) {

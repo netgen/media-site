@@ -1,5 +1,5 @@
 /**
- * Put input[type=file] selected file names into a separate container.
+ * Put input[type=file] element selected file names into a separate container.
  * Used from element's "onchange" attribute.
  */
 export default (event) => {
