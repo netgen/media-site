@@ -24,5 +24,5 @@ window.updateSelectedFileNames = (event) => {
     return;
   }
 
-  container.innerHTML = [...input.files].map((elem) => elem.name).join('<br/>');
+  container.innerHTML = [...input.files].map((file) => file.name).join('<br/>');
 }
