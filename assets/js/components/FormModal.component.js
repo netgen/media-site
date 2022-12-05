@@ -1,5 +1,5 @@
 import { Modal } from 'bootstrap';
-import GTM from '../utils/gtm';
+import GTM from '../utilities/gtm';
 
 export default class FormModalComponent {
   constructor(trigger, options) {
@@ -65,7 +65,8 @@ export default class FormModalComponent {
         formContainer.innerHTML = text.trim();
         this.submitted = true;
         GTM.push(gtmEventPrefix, 'submitted');
-      }).catch((error) => {
+      })
+      .catch((error) => {
         GTM.push(gtmEventPrefix, 'failed');
         console.error('Modal form submit failed: ', error);
       });

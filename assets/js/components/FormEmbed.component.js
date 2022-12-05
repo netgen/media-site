@@ -1,4 +1,4 @@
-import GTM from '../utils/gtm';
+import GTM from '../utilities/gtm';
 
 export default class ModalFormSubmitComponent {
   constructor(form, options) {
