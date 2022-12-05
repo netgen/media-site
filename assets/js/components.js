@@ -203,11 +203,9 @@ const componentConfiguration = [
 // Initialization
 const componentsInit = () => {
   componentConfiguration.forEach((configuration) => {
-    if (document.querySelector(configuration.selector) !== null) {
-      document.querySelectorAll(configuration.selector).forEach(
-        element => new configuration.Component(element, configuration.options)
-      );
-    }
+    document.querySelectorAll(configuration.selector).forEach(
+      element => new configuration.Component(element, configuration.options)
+    );
   });
 }
 
