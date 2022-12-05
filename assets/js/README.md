@@ -63,9 +63,9 @@ This file contains import and assignment of the global functions to the
 ## Components
 
 **Component** is a smaller piece of functionality, implemented in a single
-JavaScript class. Typically, component is using external libraries to apply some
-functionality on the DOM tree, for example a swiper or a gallery. They can also
-contain small applications whose implementation fits well in one file.
+JavaScript class. Typically, a component is using external libraries to apply
+some functionality on the DOM tree, for example a swiper or a gallery. They can
+also contain small applications whose implementation fits well in one file.
 
 Components are applied on the page through the component configuration,
 consisting of a component class, CSS selector and options object. This makes a
