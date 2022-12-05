@@ -50,6 +50,7 @@ final class Kernel extends BaseKernel
         $container->import($configDir . '/app/{packages}/*.yaml');
         $container->import($configDir . '/app/{services}/*.yaml');
         $container->import($configDir . '/app/services.yaml');
+        $container->import($configDir . '/app/app.yaml');
 
         $serverEnvironment = $_SERVER['SERVER_ENVIRONMENT'];
         if (preg_match('/^\w+$/', $serverEnvironment) !== 1) {
