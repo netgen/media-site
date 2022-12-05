@@ -59,11 +59,7 @@
                         <ul class="listitem-list">
                             {% for pager_item in pager %}
                                 <li>
-                                    {% include '@ibexadesign/parts/ng_view_content.html.twig' with {
-                                        content: pager_item.content,
-                                        location: pager_item,
-                                        view_type: children_view_type
-                                    } only %}
+                                    {{ ng_view_content(pager_item, children_view_type) }}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -71,11 +67,7 @@
                         <div class="row">
                             {% for pager_item in pager %}
                                 <div class="{{ column_css_class[columns] }}">
-                                    {% include '@ibexadesign/parts/ng_view_content.html.twig' with {
-                                        content: pager_item.content,
-                                        location: pager_item,
-                                        view_type: children_view_type
-                                    } only %}
+                                    {{ ng_view_content(pager_item, children_view_type) }}
                                 </div>
                             {% endfor %}
                         </div>

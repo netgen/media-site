@@ -11,4 +11,3 @@ parameters:
         - file
 
     ngsite.default.lazy_loading.enabled: true
-    ngsite.default.render_content_directly: true
