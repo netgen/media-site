@@ -17,5 +17,5 @@ netgen_information_collection:
             actions:
                 default:
                     - database
-                    - App\InformationCollection\Action\EmailAction
-                    #- App\InformationCollection\Action\NewsletterAction
+                    - email
+                    # - ngsite.info_collection.action.newsletter

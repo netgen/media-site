@@ -52,7 +52,7 @@ system:
             payload:
                 form_common:
                     template: "@ibexadesign/content/payload/{content_type}.html.twig"
-                    controller: 'App\Controller\InfoCollectionController:proxyFormHandler'
+                    controller: ngsite.controller.info_collection.proxy_form_handler
                     match:
                         Identifier\ContentType:
                             - ng_contact_form
