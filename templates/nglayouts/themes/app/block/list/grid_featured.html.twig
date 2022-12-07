@@ -1,7 +1,7 @@
 {% extends '@nglayouts/block/block.html.twig' %}
 
 {% block content %}
-    {% if collections.default is defined %}
+    {% if collections.default is defined and collections.default is not empty %}
         <div class="grid-featured">
             {% for result in collections.default %}
                 <div class="item {% if loop.index0 == 0 %}primary-item{% else %}secondary-item{% endif %}">
