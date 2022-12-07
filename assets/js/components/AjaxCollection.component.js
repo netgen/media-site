@@ -36,5 +36,5 @@ export default class AjaxCollection {
             image.removeAttribute('data-src');
             image.removeAttribute('data-srcset');
         };
-    };
+    }
 }

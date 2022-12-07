@@ -22,14 +22,11 @@ export default class CookieControlClass {
           e.preventDefault();
 
           this.optionalListToggle.classList.toggle(this.options.rotateArrowClass);
-          const isVisible = [...this.optionalList].classList.includes(this.options.shownClass)
-
-          if(isVisible) {
-            this.optionalListToggle.slideUp()
-          } else {
-            this.optionalListToggle.slideDown()
-          }
-
+          this.optionalList.classList.toggle(this.options.shownClass);
+          const isVisible = [...this.optionalList.classList].includes(this.options.shownClass)
+          
+          this.optionalList.style.maxHeight = isVisible ? `100vh` : '0px';
+          
           this.optionalListToggle.classList.toggle(this.options.shownClass);
         })
         /* /cookie control optional list toggle */

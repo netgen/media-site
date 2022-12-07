@@ -135,8 +135,13 @@
     }
 
     .ng-cc-optional-list {
-        display: none;
+        // display: none;
         margin: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 400ms ease;
+
+        &
 
         & > ul {
             list-style-type: none;
