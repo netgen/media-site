@@ -2,7 +2,7 @@
 
 export default class GoogleMap {
   constructor(el) {
-    if (typeof google === 'undefined' || typeof google.maps === 'undefined') return
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') return;
 
     this.el = el;
     this.latitude = parseFloat(this.el.dataset.latitude);
