@@ -109,6 +109,8 @@ system:
             features_style_7:
                 ng_component_features:
                     template: "@ibexadesign/components/ng_component_features/features_style_7.html.twig"
+                    params:
+                        valid_parameters: ['!number_of_columns']
                     match:
                         Identifier\ContentType:
                             - ng_component_features
