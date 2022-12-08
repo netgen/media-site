@@ -3,7 +3,7 @@
 ##{$ngCcId} {
     opacity: 0;
     transition: opacity 400ms;
-    z-index: 1000;
+    z-index: 1000000;
 
     .ng-cc-modal {
         position: fixed;
@@ -11,7 +11,7 @@
         bottom: 30px;
         left: 30px;
         right: 30px;
-        z-index: 1000;
+        z-index: 1000000;
         width: auto;
         height: auto;
         transform: translate3d(0, 100%, 0);
@@ -183,7 +183,7 @@
                         border-radius: 50%;
                         background: #888;
                         transition: all .3s;
-                        z-index: 2;
+                        z-index: 2000000;
                     }
 
                     span {
