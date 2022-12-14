@@ -1,17 +1,21 @@
-{% extends 'bootstrap_4_layout.html.twig' %}
+{% extends 'bootstrap_5_layout.html.twig' %}
 
 {%- block form_row -%}
-    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
-        {%- if 'checkbox' in block_prefixes or 'radio' in block_prefixes -%}
-            {{- form_widget(form) -}}
-            {{- form_label(form) -}}
-            {{- form_errors(form) -}}
-        {%- else -%}
-            {{- form_label(form) -}}
-            {{- form_widget(form) -}}
-            {{- form_errors(form) -}}
-        {%- endif -%}
-    </div>
+    {% if compound %}
+        {{- form_widget(form) -}}
+    {% else %}
+        <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+            {%- if 'checkbox' in block_prefixes or 'radio' in block_prefixes -%}
+                {{- form_widget(form) -}}
+                {{- form_label(form) -}}
+                {{- form_errors(form) -}}
+            {%- else -%}
+                {{- form_label(form) -}}
+                {{- form_widget(form) -}}
+                {{- form_errors(form) -}}
+            {%- endif -%}
+        </div>
+    {% endif %}
 {%- endblock form_row -%}
 
 {%- block form_errors -%}
@@ -40,3 +44,128 @@
         {% endif %}
     {% endfor %}
 {%- endblock -%}
+
+{%- block widget_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"
+    {%- if disabled %} disabled="disabled"{% endif -%}
+    {%- if required %} required="required"{% endif -%}
+    {{ block('attributes') }}
+{%- endblock widget_attributes -%}
+
+{% block attributes -%}
+    {%- for attrname, attrvalue in attr -%}
+        {{- " " -}}
+        {%- if attrname in ['placeholder', 'title'] -%}
+            {{- attrname }}="{{ translation_domain is same as(false) or attrvalue is null ? attrvalue : attrvalue|trans(attr_translation_parameters, translation_domain) }}"
+        {%- elseif attrvalue is same as(true) -%}
+            {{- attrname }}="{{ attrname }}"
+        {%- elseif attrvalue is not same as(false) -%}
+            {{- attrname }}="{{ attrvalue }}"
+        {%- endif -%}
+    {%- endfor -%}
+{%- endblock attributes -%}
+
+{%- block textarea_row -%}
+    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        {{- form_label(form) -}}
+        {{ block('textarea_widget') }}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock textarea_row -%}
+
+{%- block textarea_widget -%}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+{%- endblock textarea_widget -%}
+
+{%- block email_row -%}
+    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        {{- form_label(form) -}}
+        {{ block('email_widget') }}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock email_row -%}
+
+{%- block email_widget -%}
+    {%- set type = type|default('email') -%}
+    {{ block('form_widget_simple') }}
+{%- endblock email_widget -%}
+
+{%- block text_row -%}
+    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        {% if hidden is not defined %}
+            {{- form_label(form) -}}
+        {% endif %}
+        {{ block('form_widget_simple') }}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock text_row -%}
+
+{%- block form_widget_simple -%}
+    {% if hidden is defined %}
+        {% if hidden%}
+            {%- set type = 'hidden' -%}
+        {% endif %}
+    {% endif %}
+    {%- set type = type|default('text') -%}
+    {%- if type == 'range' or type == 'color' -%}
+        {# Attribute "required" is not supported #}
+        {%- set required = false -%}
+    {%- endif -%}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{%- endblock form_widget_simple -%}
+
+{%- block hidden_row -%}
+    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        {#{{- form_label(form) -}}#}
+        {{ block('hidden_widget') }}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock hidden_row -%}
+
+{%- block hidden_widget -%}
+    {%- set type = type|default('hidden') -%}
+    {{ block('form_widget_simple') }}
+{%- endblock hidden_widget -%}
+
+{%- block file_row -%}
+    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        {{- form_label(form) -}}
+        {{ block('file_widget') }}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock file_row -%}
+
+{% block file_widget -%}
+    {%- set type = type|default('file') -%}
+    {{ block('form_widget_simple') }}
+    {%- set label_translated_text = label_translated|default('') -%}
+    <label class="custom-file-label" for={{ id }}>
+        * {{ label_translated_text }}
+    </label>
+    {%- set js_div_class = js_class|default('js-selected-file-names') -%}
+    <div class={{ js_div_class }}></div>
+{% endblock %}
+
+{%- block form_widget_compound -%}
+    {# <div {{ block('widget_container_attributes') }}>#}
+        {%- if form is rootform -%}
+            {{ form_errors(form) }}
+        {%- endif -%}
+        {{- block('form_rows') -}}
+        {{- form_rest(form) -}}
+    {#</div>#}
+{%- endblock form_widget_compound -%}
+
+{%- block checkbox_widget -%}
+    {%- set label_checkbox = label|default('') -%}
+    <input type="checkbox" class="form-check-input" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+    <label class="form-check-label" for={{ id }}>{{ label_checkbox }}</label>
+{%- endblock checkbox_widget %}
+
+{%- block checkbox_row -%}
+    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        {{- form_widget(form) -}}
+        {{- form_label(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock checkbox_row -%}
