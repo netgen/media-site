@@ -40,7 +40,7 @@
                 {% for item in items %}
                     <div class="list-item">
                         {% if not item.title.empty or not item.description.empty %}
-                            <article class="view-type view-type-zigzag vl9">
+                            <div class="view-type view-type-zigzag vl9">
                                 {% if item.image is defined and not item.image.empty %}
                                     <figure class="image">
                                         {{ ng_render_field(item.image) }}
@@ -72,7 +72,7 @@
                                         </div>
                                     {% endif %}
                                 </div>
-                            </article>
+                            </div>
                         {% endif %}
                     </div>
                 {% endfor %}
