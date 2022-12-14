@@ -159,8 +159,7 @@
 
 .mainnav-toggle {
     display: none;
-    position: absolute;
-    right: $gutter;
+    position: relative;
     width: $header-height-sm;
     height: $header-height-sm;
     .hamburger {
@@ -205,8 +204,5 @@
     }
     @include media-breakpoint-down(lg) {
         display: block;
-    }
-    @include media-breakpoint-down(xs) {
-        right: 0;
     }
 }
