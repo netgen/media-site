@@ -50,6 +50,9 @@
             {{ form_widget(form.sender_subject) }}
             {{ form_widget(form.sender_message) }}
 
+            {# NEWSLETTER #}
+            {{ form_widget(form.newsletter_opt_in_newsletter_1_choice) }}
+
             <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
         </fieldset>
 
