@@ -18,4 +18,4 @@ netgen_information_collection:
                 default:
                     - database
                     - email
-                    # - ngsite.info_collection.action.newsletter
+                    - Netgen\Bundle\SiteBundle\InfoCollection\Action\NewsletterAction
