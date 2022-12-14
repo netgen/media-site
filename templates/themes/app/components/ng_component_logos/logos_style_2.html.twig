@@ -57,9 +57,7 @@
                     {% for logo in logos %}
                         <div class="logo-grid-item">
                             {% if not logo.fields.logo_svg.empty %}
-                                <a href="{{ ibexa_path(logo) }}">
-                                    <img src="{{ asset(logo.fields.logo_svg.value.id, 'ibexa_file') }}" alt="{{ logo.name }}" />
-                                </a>
+                                <img src="{{ asset(logo.fields.logo_svg.value.id, 'ibexa_file') }}" alt="{{ logo.name }}" />
                             {% endif %}
                         </div>
                     {% endfor %}
