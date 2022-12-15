@@ -24,7 +24,7 @@
             {{ form_row(form.sender_first_name) }}
             {{ form_row(form.sender_last_name) }}
 
-            {% if form is defined and form.sender_middle_name is defined %}
+            {% if form.sender_middle_name is defined %}
                 {{ form_row(form.sender_middle_name, {
                     'honeypot': true,
                     'attr' : {
@@ -36,42 +36,19 @@
             {% endif %}
 
             {{ form_row(form.sender_email) }}
-
-            {{ form_row(form.sender_file_cv.children.value.children.file, {
-                'js_class': 'js-selected-file-names',
-                'label_translated': 'app.collected_info.job_application_form.sender_file_cv'|trans,
-                'attr': {
-                    'onchange': 'window.ngsite.updateSelectedFileNames(event)',
-                    'name': form.sender_file_cv.children.value.children.file.vars.full_name,
-                    'id': form.sender_file_cv.children.value.children.file.vars.id,
-                }
-            }) }}
-
-            {{ form_row(form.sender_motivation_letter.children.value.children.file, {
-                'js_class': 'js-selected-file-names',
-                'label_translated': 'app.collected_info.job_application_form.sender_motivation_letter'|trans,
-                'attr': {
-                    'onchange': 'window.ngsite.updateSelectedFileNames(event)',
-                    'name': form.sender_motivation_letter.children.value.children.file.vars.full_name,
-                    'id': form.sender_motivation_letter.children.value.children.file.vars.id,
-                }
-            }) }}
+            {{ form_row(form.sender_file_cv.children.value.children.file) }}
+            {{ form_row(form.sender_motivation_letter.children.value.children.file) }}
 
             {{ form_row(form.referer.value, {
                 'hidden' : true,
                 'attr' : {
-                    'id': form.referer.children.value.vars.id,
-                    'name': form.referer.children.value.vars.full_name,
                     'value': referer,
                 }
             }) }}
 
             <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
         </fieldset>
-
-        {{ form_row(form.gdpr) }}
-        {{ form_row(form.content_type_id) }}
-        {{ form_row(form.content_id) }}
+    {{ form_rest(form) }}
     {{ form_end(form, { 'render_rest': false }) }}
 {% else %}
     <div class="full-form-response">
