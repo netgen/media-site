@@ -1,19 +1,13 @@
 .about-style-1 {
     .eyebrow-title {
-        font-weight: 700;
-        font-size: 1.5rem;
-        line-height: 1.33;
+        @include text-1_5;
         text-transform: uppercase;
         margin-bottom: 1rem;
     }
 
     .title {
-        font-weight: 700;
-        font-size: 4.5rem;
-        line-height: 1.22;
-        letter-spacing: -0.01em;
+        @include text-4;
         margin: 0;
-
         .bg-color-black & {
             color: $primary;
         }
@@ -26,8 +20,7 @@
     }
 
     .short {
-        font-size: 1.125rem;
-        line-height: 1.55;
+        @include text-1_125;
         width: 60%;
     }
 
@@ -41,7 +34,6 @@
 
         source, img {
             object-fit: cover;
-            font-family: 'object-fit: cover;';
             object-position: center;
             position: absolute;
             width: 100%;
@@ -62,13 +54,5 @@
     .actions {
         display: flex;
         gap: 2rem;
-    }
-
-    .btn {
-        white-space: nowrap;
-
-        & + .btn {
-            margin-left: 2rem;
-        }
     }
 }

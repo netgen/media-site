@@ -10,6 +10,22 @@
         }
     }
 
+    .eyebrow-title {
+        @include text-1_5;
+        margin-bottom: 1rem;
+    }
+
+    .title {
+        @include text-3;
+    }
+
+    .short {
+        @include text-1_125;
+        & + .actions {
+            margin-top: 3rem;
+        }
+    }
+
     .image {
         overflow: hidden;
         display: block;
@@ -19,29 +35,6 @@
 
         & + * {
             margin-top: 2rem;
-        }
-    }
-
-    .eyebrow-title {
-        font-weight: 700;
-        font-size: 1rem;
-        line-height: 1.33;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-    }
-
-    .title {
-        font-weight: 700;
-        font-size: 3rem;
-        line-height: 1.16666;
-        margin-bottom: 0;
-    }
-
-    .short {
-        font-size: 1.125rem;
-        line-height: 1.55;
-        & + .actions {
-            margin-top: 3rem;
         }
     }
 

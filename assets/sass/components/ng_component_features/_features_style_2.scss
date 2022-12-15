@@ -3,10 +3,13 @@
         display: flex;
         justify-content: space-between;
         .title {
-            font-size: 4rem;
+            @include text-4;
         }
         .article-content {
             width: 60%;
+        }
+        .short {
+            @include text-1_125;
         }
         .actions {
             display: flex;
@@ -24,18 +27,23 @@
             display: flex;
             flex-direction: column;
             .item-highlight-title {
-                font-size: 6rem;
-                font-weight: 600;
+                @include text-6;
                 color: $tertiary;
                 .bg-color-black & {
                     color: $primary;
                 }
+                & + .item-title {
+                    margin-top: 2rem;
+                }
             }
             .item-title {
-                font-size: 2rem;
-                & + .item-description {
+                @include text-2;
+                & + .item-short {
                     margin-top: 1rem;
                 }
+            }
+            * + .item-actions {
+                margin-top: 1rem;
             }
         }
     }

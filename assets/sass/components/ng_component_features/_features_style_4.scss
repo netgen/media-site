@@ -2,7 +2,7 @@
     .article-header {
         text-align: center;
         .title {
-            font-size: 2.5rem;
+            @include text-2_5;
             & + .short,
             & + .actions {
                 margin-top: 1.5rem;
@@ -51,7 +51,7 @@
                 }
             }
             .item-title {
-                font-size: 1.5rem;
+                @include text-1_5;
                 & + .item-short {
                     margin-top: 1rem;
                 }

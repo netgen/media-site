@@ -1,13 +1,15 @@
 .features-style-1 {
     .article-header {
+        text-align: center;
         .title {
-            font-size: 2.5rem;
+            @include text-2_5;
             & + .short,
             & + .actions {
                 margin-top: 1.5rem;
             }
         }
         .short {
+            @include text-1_125;
             & + .actions {
                 margin-top: 1.5rem;
             }
@@ -15,6 +17,7 @@
         .actions {
             display: flex;
             gap: 2rem;
+            justify-content: center;
         }
         & + .features-grid {
             margin-top: 4rem;
@@ -41,7 +44,7 @@
                 }
             }
             .item-title {
-                font-size: 1.5rem;
+                @include text-1_5;
                 & + .item-short {
                     margin-top: 1rem;
                 }

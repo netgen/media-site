@@ -2,7 +2,7 @@
     .article-header {
         width: calc(100% / 3 * 2);
         .title {
-            font-size: 2.5rem;
+            @include text-2_5;
             & + .short,
             & + .actions {
                 margin-top: 1.5rem;
@@ -41,7 +41,7 @@
                 flex: 1 1 auto;
             }
             .item-title {
-                font-size: 1.5rem;
+                @include text-1_5;
                 & + .item-description {
                     margin-top: 1rem;
                 }

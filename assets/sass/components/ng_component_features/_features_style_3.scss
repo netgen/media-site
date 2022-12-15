@@ -3,7 +3,7 @@
         display: flex;
         justify-content: space-between;
         .title {
-            font-size: 3rem;
+            @include text-3;
         }
         .article-content {
             width: 60%;
@@ -35,12 +35,9 @@
                 padding-bottom: 56.25%;
                 position: relative;
                 height: 0;
-                & + .item-content {
-                    padding-top: 3rem;
-                }
             }
             .item-content {
-                padding: 0 2rem 2rem;
+                padding: 2rem;
                 background-color: $secondary;
                 flex: 1 1 auto;
                 border-bottom-left-radius: 1rem;
@@ -48,10 +45,13 @@
                 color: $black;
             }
             .item-title {
-                font-size: 1.5rem;
-                & + .item-description {
+                @include text-1_5;
+                & + .item-short {
                     margin-top: 1rem;
                 }
+            }
+            * + .item-actions {
+                margin-top: 1rem;
             }
         }
     }

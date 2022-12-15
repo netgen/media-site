@@ -2,7 +2,7 @@
     .article-header {
         text-align: center;
         .title {
-            font-size: 4.5rem;
+            @include text-4_5;
             & + .short,
             & + .actions {
                 margin-top: 1.5rem;
@@ -40,14 +40,14 @@
                 }
             }
             .item-title {
-                font-size: 1.5rem;
+                @include text-1_5;
                 margin-bottom: 0;
                 & + .item-short {
                     margin-top: 0.5rem;
                 }
             }
             .item-short {
-                font-size: 1.125rem;
+                @include text-1_125;
             }
         }
     }
