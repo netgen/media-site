@@ -136,14 +136,16 @@
 {%- endblock file_row -%}
 
 {% block file_widget -%}
+    {% set attr = attr|merge({'onchange': (attr.onchange|default('window.ngsite.updateSelectedFileNames(event)'))}) %}
     {%- set type = type|default('file') -%}
     {{ block('form_widget_simple') }}
     {%- set label_translated_text = label_translated|default('') -%}
     <label class="custom-file-label" for={{ id }}>
-        * {{ label_translated_text }}
+        {{ label_translated_text }}
     </label>
     {%- set js_div_class = js_class|default('js-selected-file-names') -%}
     <div class={{ js_div_class }}></div>
+    {% do form.parent.children.remove.setRendered() %}
 {% endblock %}
 
 {%- block form_widget_compound -%}
