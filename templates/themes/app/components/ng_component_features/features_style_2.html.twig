@@ -53,13 +53,19 @@
                                 <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
                             {% endif %}
                             {% if item.description is defined and not item.description.empty %}
-                                <div class="item-description">
+                                <div class="item-short">
                                     {{ ng_render_field(item.description) }}
                                 </div>
                             {% endif %}
                             {% if item.link is defined and not item.link.empty %}
                                 <div class="item-actions">
-                                    {{ ng_render_field(item.link) }}
+                                    {{ ng_render_field(
+                                        item.link, {
+                                            parameters: {
+                                                css_class: 'btn btn-link'
+                                            }
+                                        }
+                                    ) }}
                                 </div>
                             {% endif %}
                         </div>
