@@ -91,13 +91,16 @@
 {%- endblock email_widget -%}
 
 {%- block text_row -%}
-    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
-        {% if hidden is not defined %}
-            {{- form_label(form) -}}
-        {% endif %}
+    {% if hidden is defined and hidden %}
         {{ block('form_widget_simple') }}
         {{- form_errors(form) -}}
-    </div>
+    {% else %}
+        <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+            {{- form_label(form) -}}
+            {{ block('form_widget_simple') }}
+            {{- form_errors(form) -}}
+        </div>
+    {% endif %}
 {%- endblock text_row -%}
 
 {%- block form_widget_simple -%}
@@ -115,11 +118,9 @@
 {%- endblock form_widget_simple -%}
 
 {%- block hidden_row -%}
-    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
         {#{{- form_label(form) -}}#}
         {{ block('hidden_widget') }}
         {{- form_errors(form) -}}
-    </div>
 {%- endblock hidden_row -%}
 
 {%- block hidden_widget -%}
