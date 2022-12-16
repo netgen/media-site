@@ -46,9 +46,11 @@
                 }
             }) }}
 
+            {{ form_row(form.gdpr) }}
+
             <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
         </fieldset>
-    {{ form_rest(form) }}
+        {{ form_rest(form) }}
     {{ form_end(form, { 'render_rest': false }) }}
 {% else %}
     <div class="full-form-response">
