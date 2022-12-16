@@ -24,7 +24,7 @@
                     {
                         params: {
                             action: path('ngsite_info_collection_ajax_submit', { formContentId: content.id }),
-                            refererLocationId: refererLocationId|default(null),
+                            refererLocationId: location.id,
                             class: 'js-form-embed',
                         }
                     }
