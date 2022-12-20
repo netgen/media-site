@@ -34,7 +34,7 @@
         }
     }
     /* large screen sizes */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lg) {
         .navbar-nav {
             > li:hover,
             .active {
