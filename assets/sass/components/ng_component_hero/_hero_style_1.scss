@@ -1,80 +1,80 @@
 .hero-style-1 {
-/* layout ******************************/
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
     height: calc(100vh - #{$header-height});
     position: relative;
-    header {
+    @include media-breakpoint-down(sm) {
+        height: calc(100vh - #{$header-height-sm});
+    }
+    .article-header {
         position: relative;
         z-index: 1;
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        @include media-breakpoint-down(sm) {
+            text-align: center;
+        }
+        .title {
+            @include text-4;
+        }
+        .eyebrow-title {
+            @include text-2;
+            text-transform: uppercase;
+        }
+        .short {
+            @include text-1_125;
+        }
         .actions {
             display: flex;
             gap: 2rem;
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
         }
     }
     figure {
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         z-index: 0;
         picture {
             img {
-                width: 100%; height: 100%;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
             }
         }
         video {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             position: absolute;
             top: 0;
-            bottom: 0;
             left: 0;
+            bottom: 0;
             right: 0;
             object-fit: cover;
         }
         .overlay {
             width: 100%;
             min-height: calc(100vh - #{$header-height});
-            position: absolute; top: 0; left: 0; bottom: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
             mix-blend-mode: multiply;
             background: linear-gradient(90deg, rgba(33, 33, 33, 0.9) 7.81%, rgba(33, 33, 33, 0.4) 100%);
             opacity: 0.8;
-        }
-    }
-/* /layout */
-
-/* atributes ******************************/
-    .title {
-        font-size: 4rem;
-    }
-    .eyebrow-title {
-        font-size: 2rem;
-        text-transform: uppercase;
-    }
-    .short {
-        font-size: 1.125rem;
-    }
-/* /atributes */
-
-/* mobile ******************************/
-    @include media-breakpoint-down(sm) {
-        height: calc(100vh - #{$header-height-sm});
-        header {
-            text-align: center;
-            .actions {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-        }
-        figure {
-            .overlay {
+            @include media-breakpoint-down(sm) {
                 min-height: calc(100vh - #{$header-height-sm} - 4rem);
             }
         }
-        .title {
-            font-size: 2.5rem;
-        }
     }
-/* /mobile */
 }

@@ -7,54 +7,51 @@
 
 {% block content %}
     <article class="view-component view-component-hero hero-style-2">
-
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <header class="article-header">
+                        {% if not content.fields.eyebrow_title.empty %}
+                            <h4 class="eyebrow-title">
+                                {{ ng_render_field(content.fields.eyebrow_title) }}
+                            </h4>
+                        {% endif %}
 
-            <div class="row justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7 text-center">
-                <header>
-                    {% if not content.fields.eyebrow_title.empty %}
-                        <h4 class="eyebrow-title">
-                            {{ ng_render_field(content.fields.eyebrow_title) }}
-                        </h4>
-                    {% endif %}
+                        {% if not content.fields.title.empty %}
+                            <h1 class="title">
+                                {{ ng_render_field(content.fields.title )}}
+                            </h1>
+                        {% endif %}
 
-                    {% if not content.fields.title.empty %}
-                        <h1 class="title">
-                            {{ng_render_field(content.fields.title)}}
-                        </h1>
-                    {% endif %}
+                        {% if not content.fields.description.empty %}
+                            <div class="short">
+                                {{ ng_render_field(content.fields.description) }}
+                            </div>
+                        {% endif %}
 
-                    {% if not content.fields.description.empty %}
-                        <div class="short">
-                            {{ ng_render_field(content.fields.description) }}
+                        <div class="actions">
+                            {% if not content.fields.link_1.empty %}
+                                {{ ng_render_field(
+                                    content.fields.link_1, {
+                                        parameters: {
+                                            css_class: 'btn btn-primary'
+                                        }
+                                    }
+                                ) }}
+                            {% endif %}
+                            {% if not content.fields.link_2.empty %}
+                                {{ ng_render_field(
+                                    content.fields.link_2, {
+                                        parameters: {
+                                            css_class: 'btn btn-default'
+                                        }
+                                    }
+                                ) }}
+                            {% endif %}
                         </div>
-                    {% endif %}
-
-                    <div class="actions">
-
-                        {% if not content.fields.link_1.empty %}
-                            {{ ng_render_field(
-                                content.fields.link_1, {
-                                    parameters: {
-                                        css_class: 'btn btn-primary'
-                                    }
-                                }
-                            ) }}
-                        {% endif %}
-
-                        {% if not content.fields.link_2.empty %}
-                            {{ ng_render_field(
-                                content.fields.link_2, {
-                                    parameters: {
-                                        css_class: 'btn btn-default'
-                                    }
-                                }
-                            ) }}
-                        {% endif %}
-
-                    </div>
-                </header>
-            </div></div>
+                    </header>
+                </div>
+            </div>
 
             {% if image is not empty %}
                 <figure>
@@ -73,8 +70,6 @@
                     </picture>
                 </figure>
             {% endif %}
-
         </div>
-
     </article>
 {% endblock %}

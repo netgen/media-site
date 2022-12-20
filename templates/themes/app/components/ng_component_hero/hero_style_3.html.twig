@@ -5,10 +5,9 @@
 {% set image = content.fieldValue('image') %}
 {% set image_mobile = content.fieldValue('image_mobile') %}
 
-
 {% block content %}
-<div class="container">
-    <article class="view-component view-component-about hero-style-3">
+    <article class="view-component view-component-hero hero-style-3">
+        <div class="container">
             {% if image is not empty %}
                 <picture class="image">
                     {% if image_mobile is not empty %}
@@ -45,7 +44,6 @@
                 {% endif %}
 
                 <div class="actions">
-
                     {% if not content.fields.link_1.empty %}
                         {{ ng_render_field(
                             content.fields.link_1, {
@@ -55,7 +53,6 @@
                             }
                         ) }}
                     {% endif %}
-
                     {% if not content.fields.link_2.empty %}
                         {{ ng_render_field(
                             content.fields.link_2, {
@@ -65,10 +62,8 @@
                             }
                         ) }}
                     {% endif %}
-
                 </div>
-
             </header>
+        </div>
     </article>
-</div>
 {% endblock %}

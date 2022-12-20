@@ -1,11 +1,12 @@
 .logos-style-2 {
     .article-header {
+        .eyebrow-title {
+            @include text-base;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
         .title {
-            font-weight: 700;
-            font-size: 2.5rem;
-            line-height: 1.16666;
-            margin: 0;
-
+            @include text-2_5;
             & + .short {
                 margin-top: 2.5rem;
             }
@@ -23,7 +24,6 @@
             gap: 2rem;
         }
     }
-
     .logo-grid {
         display: grid;
         grid-template-columns: auto auto;

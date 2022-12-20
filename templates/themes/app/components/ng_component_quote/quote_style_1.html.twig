@@ -8,16 +8,11 @@
 
 {% block content %}
     <article class="view-component view-component-quote quote-style-1">
-        {% if not content.fields.title.empty or not content.fields.description.empty %}
+        {% if not content.fields.title.empty %}
             <header class="article-header">
                 <div class="container">
                     {% if not content.fields.title.empty %}
                         <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-                    {% endif %}
-                    {% if not content.fields.description.empty %}
-                        <div class="short">
-                            {{ ng_render_field(content.fields.description) }}
-                        </div>
                     {% endif %}
                 </div>
             </header>
@@ -36,7 +31,7 @@
             {% for item in items %}
                 {% if not item.title.empty or not item.description.empty %}
                     <div class="swiper-slide">
-                        <div class="container">
+                        <div class="container container-narrow">
                             {% if not item.title.empty or not item.description.empty %}
                                 <div class="quote-item">
                                     <img class="quote-icon" src="{{ asset('/images/quote.svg') }}" alt="quote" title="quote" />
@@ -64,7 +59,7 @@
                                         {% if not item.person_name.empty or not item.person_description.empty %}
                                             <div class="quote-person-info">
                                                 {% if not item.person_name.empty %}
-                                                    <h4>{{ item.person_name.value.text }}</h4>
+                                                    <h4 class="quote-person-info-name">{{ item.person_name.value.text }}</h4>
                                                 {% endif %}
                                                 {% if not item.person_description.empty %}
                                                     {{ ng_render_field(item.person_description) }}

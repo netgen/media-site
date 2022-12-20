@@ -2,10 +2,7 @@
     .article-header {
         text-align: center;
         .title {
-            font-size: 2.5rem;
-            & + .short {
-                margin-top: 1.5rem;
-            }
+            @include text-1_125;
         }
         & + .quote-swiper {
             margin-top: 4rem;
@@ -31,7 +28,7 @@
         }
         text-align: center;
         .item-title {
-            font-size: 4.5rem;
+            @include text-4_5;
             position: relative;
         }
         .item-short {
@@ -41,6 +38,7 @@
             margin-top: 3rem;
             display: flex;
             justify-content: center;
+            align-items: center;
             text-align: left;
             .quote-person-image {
                 flex: 0 0 4rem;
@@ -51,7 +49,9 @@
             .quote-person-info {
                 margin-left: 1.5rem;
                 flex: 0 0 auto;
-                // neki drek
+                .quote-person-info-name {
+                    @include text-1_5;
+                }
             }
         }
     }

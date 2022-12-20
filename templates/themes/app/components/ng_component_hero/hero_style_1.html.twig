@@ -11,24 +11,20 @@
 
 {% block content %}
     <article class="view-component view-component-hero hero-style-1{% if image is not empty or local_video is not empty %} bg-with-media{% endif %}">
-
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <header>
-
+                    <header class="article-header">
                         {% if not content.fields.eyebrow_title.empty %}
                             <h4 class="eyebrow-title">
                                 {{ ng_render_field(content.fields.eyebrow_title) }}
                             </h4>
                         {% endif %}
-
                         {% if not content.fields.title.empty %}
                             <h1 class="title">
                                 {{ng_render_field(content.fields.title)}}
                             </h1>
                         {% endif %}
-
                         {% if not content.fields.description.empty %}
                             <div class="short">
                                 {{ ng_render_field(content.fields.description) }}
@@ -59,7 +55,6 @@
                 </div>
             </div>
         </div>
-
         <figure>
             {% if local_video is defined and not local_video.empty %}
                 <video preload="auto" autoplay="" loop="" muted="" playsinline="" class="js-responsive-video"
@@ -86,6 +81,5 @@
                 <span class="overlay"></span>
             {% endif %}
         </figure>
-
     </article>
 {% endblock %}

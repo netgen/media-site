@@ -1,7 +1,9 @@
 .hero-style-3 {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
+    & > .container {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
     .image {
         overflow: hidden;
         display: block;
@@ -10,36 +12,25 @@
         padding-bottom: 50%;
         width: 50%;
         border-radius: 1rem;
-
         & + .article-header {
             padding-right: 8.5rem;
             width: 50%;
         }
-
         source, img {
             object-fit: cover;
-            font-family: 'object-fit: cover;';
             object-position: center;
             position: absolute;
             width: 100%;
             height: 100%;
         }
     }
-
     .eyebrow-title {
-        font-weight: 700;
-        font-size: 1rem;
-        line-height: 1.33;
+        @include text-base;
         text-transform: uppercase;
         margin-bottom: 1rem;
     }
-
     .title {
-        font-weight: 700;
-        font-size: 3rem;
-        line-height: 1.16666;
-        margin: 0;
-
+        @include text-4;
         & + .short {
             margin-top: 2.5rem;
         }
@@ -48,25 +39,12 @@
             color: $primary;
         }
     }
-
     .short {
-        font-size: 1.125rem;
-        line-height: 1.55;
-
-        & ~ .btn {
-            margin-top: 3.375rem;
-        }
+        @include text-1_125;
     }
-
     .actions {
         margin-top: 4rem;
         display: flex;
         gap: 2rem;
-    }
-
-    .btn {
-        & + .btn {
-            margin-left: 2rem;
-        }
     }
 }
