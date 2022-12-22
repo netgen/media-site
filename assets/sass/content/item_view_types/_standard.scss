@@ -17,7 +17,7 @@
         }
     }
     .title {
-        font-size: 1.5rem;
+        @include text-1_5;
         font-weight: 900;
         margin: 0 0 .25rem;
         a {
@@ -47,11 +47,6 @@
         pointer-events: none;
         + .article-header {
             padding-top: 3.5rem;
-        }
-    }
-    @include media-breakpoint-down(xl) {
-        .title {
-            font-size: 1.25rem;
         }
     }
 }

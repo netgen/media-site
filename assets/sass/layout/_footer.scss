@@ -23,10 +23,7 @@
             margin: 0 0 1.5rem;
             padding: 0;
             a {
-                font-size: .875rem;
-                text-transform: uppercase;
-                font-weight: 900;
-                letter-spacing: 1px;
+                @include text-link;
                 padding: .5em 1.1428571429em;
             }
         }
@@ -41,7 +38,6 @@
             display: flex;
             justify-content: center;
             a {
-                font-size: 1.125rem;
                 padding: .5em;
                 margin: 0 .5em;
             }
@@ -53,7 +49,7 @@
 
     /* footer info */
     .footer-info {
-        font-size: .875rem;
+        @include text-0_875;
         color: $gray-54;
         p {
             margin: 0 0 .5714285714em;

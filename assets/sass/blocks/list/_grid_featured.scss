@@ -14,7 +14,7 @@
             padding-bottom: 100%;
         }
         .title {
-            font-size: 2.0625rem;
+            @include text-2;
             -webkit-line-clamp: 5;
             max-height: 6.25em;
         }
@@ -22,7 +22,7 @@
     @include media-breakpoint-down(xxl) {
         .vl2 {
             .title {
-                font-size: 1.75rem;
+                @include text-1_5;
             }
         }
     }
@@ -42,27 +42,27 @@
         }
         .vl2 {
             .title {
-                font-size: 1.75rem;
+                @include text-1_5;
             }
         }
     }
     @include media-breakpoint-down(lg) {
         .vl2 {
             .title {
-                font-size: 1.375rem;
+                @include text-1_25;
             }
         }
     }
     @include media-breakpoint-down(md) {
         .vl2 {
             .title {
-                font-size: 1.5rem;
+                @include text-1_5;
             }
         }
         .secondary-item {
             .vl2 {
                 .title {
-                    font-size: 1.25rem;
+                    @include text-1_25;
                 }
             }
         }
@@ -76,7 +76,7 @@
         .secondary-item {
             .vl2 {
                 .title {
-                    font-size: 1.5rem;
+                    @include text-1_5;
                     -webkit-line-clamp: 4;
                     max-height: 5em;
                 }

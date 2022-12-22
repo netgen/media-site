@@ -141,3 +141,23 @@
         letter-spacing: 0;
     }
 }
+
+@mixin text-button {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    @include media-breakpoint-down(sm) {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+@mixin text-link {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    @include media-breakpoint-down(sm) {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}

@@ -1,11 +1,11 @@
 .related-multimedia.swiper-container {
     .swiper-navigation {
+        @include text-base;
         position: absolute;
         right: 0;
         bottom: 0;
         background: $black;
         color: $white;
-        font-size: 1rem;
         font-weight: 900;
         display: flex;
         z-index: 10;
@@ -43,7 +43,7 @@
     .swiper-pagination {
         position: static;
         width: auto;
-        font-size: 1.125em;
+        @include text-1_125;
         padding: 0 2.4em;
     }
     .image-wrapper {
@@ -56,12 +56,12 @@
 .image-wrapper {
     position: relative;
     figcaption {
+        @include text-0_75;
         position: absolute;
         color: $white;
         left: 0;
         bottom: 0;
         z-index: 2;
-        font-size: .75rem;
         padding: .6666666667em 2em;
         background: hsla(0, 0, 0, .6);
         p {

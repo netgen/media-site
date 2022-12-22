@@ -36,7 +36,7 @@ $header-bg: $white;
     margin: 0 0 0 1em;
     a {
         @extend %hover-underline;
-        font-size: .75rem;
+        @include text-0_75;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;
@@ -48,9 +48,6 @@ $header-bg: $white;
         align-items: center;
         padding: 0 1em;
         transition: color .2s;
-        i {
-            font-size: 1.25em;
-        }
         @include media-breakpoint-down(lg) {
             height: $header-height-sm;
         }
@@ -89,9 +86,9 @@ $header-bg: $white;
     position: relative;
     .searchbox-toggle {
         @extend %hover-underline;
+        @include text-base;
         color: $black;
         display: block;
-        font-size: 1rem;
         line-height: $header-height;
         width: $btn-width;
         text-align: center;

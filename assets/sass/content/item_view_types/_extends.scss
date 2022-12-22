@@ -2,7 +2,7 @@
     @extend %clearfix;
     margin: 0;
     text-transform: uppercase;
-    font-size: .8125rem;
+    @include text-0_875;
     letter-spacing: 1px;
     > span,
     > time,
@@ -57,7 +57,7 @@
         }
     }
     @include media-breakpoint-down(xl) {
-        font-size: .75rem;
+        @include text-0_75;
     }
 }
 

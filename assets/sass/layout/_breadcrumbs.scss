@@ -9,17 +9,15 @@
     }
 
     .fas {
-        font-size: 1.25rem;
         margin-right: 0.5rem;
         color: #000;
         margin-bottom: 2px;
     }
 
     .breadcrumb-item {
+        @include text-base;
         margin-right: 1rem;
         background-color: transparent;
-        font-size: 1rem;
-        line-height: 1.5rem;
         color: #000;
         position: relative;
         display: flex;
@@ -33,13 +31,12 @@
         & + .breadcrumb-item {
             padding-left: 0;
             &:before {
+                @include text-1_25;
                 content: "/";
                 color: inherit;
                 margin-right: 1rem;
                 color: #000;
-                font-size: 1.25rem;
                 padding: 0;
-                line-height: 1.5rem;
 
                 @include media-breakpoint-down(md) {
                     content: none;
@@ -83,7 +80,7 @@
                     content: "\f053";
                     margin-right: 0.5rem;
                     color: #000;
-                    font-size: 1.5rem;
+                    @include text-1_5;
                     position: absolute;
                     left: 0;
                     transform: none;

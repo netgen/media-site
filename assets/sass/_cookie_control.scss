@@ -110,7 +110,6 @@
             right: 0;
             width: 1em;
             height: 1em;
-            font-size: .9375rem;
 
             &::before, &::after {
                 content: "";
@@ -140,8 +139,6 @@
         overflow: hidden;
         max-height: 0;
         transition: max-height 400ms ease;
-
-        &
 
         & > ul {
             list-style-type: none;
@@ -187,8 +184,7 @@
                     }
 
                     span {
-                        font-size: 0.875rem;
-                        font-style: normal;
+                        @include text-0_875;
                         text-transform: capitalize;
                         color: #000;
                         display: flex;
@@ -261,7 +257,7 @@
     }
 
     @include media-breakpoint-down(xl) {
-        font-size: 1.145rem;
+        @include text-1_125;
         .ng-cc-modal {
             .ng-cc-content {
                 flex-direction: column;
@@ -301,7 +297,7 @@
     }
 
     @include media-breakpoint-down(md) {
-        font-size: 1rem;
+        @include text-base;
         .ng-cc-optional-list {
             > ul > li {
                 p { margin-bottom: 0; }

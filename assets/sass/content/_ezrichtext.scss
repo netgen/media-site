@@ -127,7 +127,7 @@
         margin-bottom: 2rem;
         text-align: center;
         .blockquote-body {
-            font-size: 1.5625rem;
+            @include text-1_5;
             font-style: italic;
             &::before {
                 @extend %fontawesome;

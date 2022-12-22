@@ -18,13 +18,13 @@
     text-align: center;
     min-height: 15rem;
     p {
-        font-size: 2rem;
+        @include text-2;
         font-style: italic;
     }
 }
 
 .alert {
-    font-size: 1rem;
+    @include text-base;
     padding: 1em;
     margin: 0 0 1.5em;
     &.alert-danger {

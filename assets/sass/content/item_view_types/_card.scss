@@ -32,9 +32,7 @@
             background-color: $white;
         }
         .title {
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin: 0;
+            @include text-1_5;
             & + .info {
                 margin-top: 1rem;
             }
@@ -56,7 +54,7 @@
         }
         @include media-breakpoint-down(xl) {
             .title {
-                font-size: 1.25rem;
+                @include text-1_25;
             }
         }
     }

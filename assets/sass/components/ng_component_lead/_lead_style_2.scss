@@ -1,19 +1,12 @@
 .lead-style-2 {
     .eyebrow-title {
-        font-weight: 700;
-        font-size: 1.5rem;
-        line-height: 1.33;
+        @include text-1_5;
         text-transform: uppercase;
         margin-bottom: 1rem;
     }
 
     .title {
-        font-weight: 700;
-        font-size: 4.5rem;
-        line-height: 1.22;
-        letter-spacing: -0.01em;
-        margin: 0;
-
+        @include text-4_5;
         .bg-color-black & {
             color: $primary;
         }
@@ -26,10 +19,8 @@
     }
 
     .short {
-        font-size: 1.125rem;
-        line-height: 1.55;
-
-        & + .btn {
+        @include text-1_125;
+        & + .actions {
             margin-left: 18rem;
         }
     }

@@ -51,9 +51,8 @@
         color: $white;
     }
     .title {
-        font-size: 1.3125rem;
+        @include text-1_25;
         margin: 0 0 .25rem;
-        line-height: 1.25;
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
@@ -73,12 +72,12 @@
         }
     }
     .article-icon {
+        @include text-base;
         position: absolute;
         left: 0;
         top: 0;
         width: 3em;
         height: 3em;
-        font-size: 1rem;
         line-height: 3;
         text-align: center;
         background: $primary;
@@ -106,7 +105,7 @@
             right: 1.5rem;
         }
         .title {
-            font-size: 1.25rem;
+            @include text-1_25;
         }
     }
     @include media-breakpoint-down(md) {
@@ -118,9 +117,6 @@
         .title {
             -webkit-line-clamp: 3;
             max-height: 3.75em;
-        }
-        .article-icon {
-            font-size: .75rem;
         }
     }
 }
