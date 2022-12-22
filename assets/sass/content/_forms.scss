@@ -1,0 +1,10 @@
+.embed-form {
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        .form-label {
+            @include text-0_875;
+        }
+    }
+}

@@ -824,7 +824,7 @@ $btn-border-radius:             0 !default;
 //$input-padding-x-lg:                    $input-btn-padding-x-lg !default;
 //$input-font-size-lg:                    $input-btn-font-size-lg !default;
 //
-//$input-bg:                              $body-bg !default;
+$input-bg:                                $secondary;
 //$input-disabled-color:                  null !default;
 //$input-disabled-bg:                     $gray-200 !default;
 //$input-disabled-border-color:           null !default;
@@ -834,7 +834,7 @@ $btn-border-radius:             0 !default;
 //$input-border-width:                    $input-btn-border-width !default;
 //$input-box-shadow:                      $box-shadow-inset !default;
 //
-//$input-border-radius:                   $border-radius !default;
+$input-border-radius:                     none;
 //$input-border-radius-sm:                $border-radius-sm !default;
 //$input-border-radius-lg:                $border-radius-lg !default;
 //
@@ -1400,7 +1400,7 @@ $dropdown-border-radius:              0 !default;
 //$modal-content-bg:                  $white !default;
 //$modal-content-border-color:        var(--#{$prefix}border-color-translucent) !default;
 //$modal-content-border-width:        $border-width !default;
-//$modal-content-border-radius:       $border-radius-lg !default;
+$modal-content-border-radius:         none;
 //$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
 //$modal-content-box-shadow-xs:       $box-shadow-sm !default;
 //$modal-content-box-shadow-sm-up:    $box-shadow !default;

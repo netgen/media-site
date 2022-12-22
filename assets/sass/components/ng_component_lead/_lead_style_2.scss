@@ -4,32 +4,17 @@
         text-transform: uppercase;
         margin-bottom: 1rem;
     }
-
     .title {
-        @include text-4_5;
-        .bg-color-black & {
-            color: $primary;
-        }
+        @include text-2_5;
     }
-
     .article-header {
-        & + * {
-            margin-top: 4rem;
+        & + .article-info {
+            margin-top: 2.5rem;
         }
     }
-
     .short {
         @include text-1_125;
-        & + .actions {
-            margin-left: 18rem;
-        }
     }
-
-    .article-info {
-        display: flex;
-        align-items: center;
-    }
-
     .actions {
         display: flex;
         gap: 2rem;

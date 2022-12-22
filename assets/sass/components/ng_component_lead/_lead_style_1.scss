@@ -1,35 +1,28 @@
 .lead-style-1 {
+    text-align: center;
     .eyebrow-title {
         @include text-1_5;
         text-transform: uppercase;
         margin-bottom: 1rem;
     }
-
     .title {
         @include text-4_5;
-        .bg-color-black & {
-            color: $primary;
-        }
     }
-
     .article-header {
         & + * {
             margin-top: 4rem;
         }
     }
-
     .short {
         @include text-1_125;
         & + .actions {
             margin-left: 18rem;
         }
     }
-
     .article-info {
         display: flex;
-        align-items: center;
+        justify-content: center;
     }
-
     .actions {
         display: flex;
         gap: 2rem;

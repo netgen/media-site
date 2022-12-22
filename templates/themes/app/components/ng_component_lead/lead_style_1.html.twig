@@ -27,18 +27,21 @@
             </div>
         {% endif %}
 
-        <div class="actions">
-            {% if not content.fields.link_1.empty %}
+        {% if not content.fields.link_1.empty %}
+            {% if content.fields.link_1.value.isTargetEmbed %}
+                <div class="embedded-form">
+            {% else %}
+                <div class="actions">
+            {% endif %}
                 {{ ng_render_field(
                     content.fields.link_1, {
                         parameters: {
-                            css_class: 'btn btn-link'
+                            css_class: 'btn btn-primary'
                         }
                     }
                 ) }}
-            {% endif %}
-
-        </div>
+            </div>
+        {% endif %}
     </div>
 </article>
 {% endblock %}

@@ -27,16 +27,7 @@
         <fieldset>
             {{ form_row(form.sender_name) }}
 
-            {% if form.sender_middle_name is defined %}
-                {{ form_row(form.sender_middle_name, {
-                    'honeypot': true,
-                    'attr' : {
-                        'class': 'sender-middle-name',
-                        'placeholder': 'ngsite.collected_info.contact_form.middle_name',
-                        'tabindex': '-1',
-                    }
-                }) }}
-            {% endif %}
+            {{ form_row(form.sender_middle_name, {'required': false}) }}
 
             {{ form_row(form.referer.value, {
                 'hidden' : true,
@@ -51,7 +42,9 @@
 
             {{ form_row(form.newsletter_opt_in_newsletter_1_choice) }}
 
-            <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
+            <div class="form-submit">
+                <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
+            </div>
         </fieldset>
 
         {# Needed for setting hidden fields from the base type #}

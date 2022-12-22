@@ -23,18 +23,7 @@
         <fieldset>
             {{ form_row(form.sender_first_name) }}
             {{ form_row(form.sender_last_name) }}
-
-            {% if form.sender_middle_name is defined %}
-                {{ form_row(form.sender_middle_name, {
-                    'honeypot': true,
-                    'attr' : {
-                        'class': 'sender-middle-name',
-                        'placeholder': 'ngsite.collected_info.contact_form.middle_name',
-                        'tabindex': '-1',
-                    }
-                }) }}
-            {% endif %}
-
+            {{ form_row(form.sender_middle_name, {'required': false}) }}
             {{ form_row(form.sender_email) }}
             {{ form_row(form.sender_file_cv.children.value.children.file) }}
             {{ form_row(form.sender_motivation_letter.children.value.children.file) }}
@@ -47,8 +36,9 @@
             }) }}
 
             {{ form_row(form.gdpr) }}
-
-            <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
+            <div class="form-submit">
+                <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
+            </div>
         </fieldset>
         {{ form_rest(form) }}
     {{ form_end(form, { 'render_rest': false }) }}

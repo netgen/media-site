@@ -6,9 +6,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 {% include '@ibexadesign/parts/site_logo.html.twig' %}
-                <a href="#" class="close " data-dismiss="modal" aria-label="Close">
-                    <span class="icon-cancel"></span>
-                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 {{ ng_view_content(
@@ -18,6 +16,7 @@
                         params: {
                             action: path('ngsite_info_collection_ajax_submit', { formContentId: content.id }),
                             referer: referer|default(null),
+                            class: 'embed-form',
                         },
                     }
                 ) }}

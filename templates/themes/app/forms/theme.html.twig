@@ -4,7 +4,7 @@
     {% if compound %}
         {{- form_widget(form) -}}
     {% else %}
-        <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        <div class="form-group{% if errors|length > 0 %} error-input{% endif %}">
             {%- if 'checkbox' in block_prefixes or 'radio' in block_prefixes -%}
                 {{- form_widget(form) -}}
                 {{- form_label(form) -}}
@@ -66,7 +66,7 @@
 {%- endblock attributes -%}
 
 {%- block textarea_row -%}
-    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+    <div class="form-group{% if errors|length > 0 %} error-input{% endif %}">
         {{- form_label(form) -}}
         {{ block('textarea_widget') }}
         {{- form_errors(form) -}}
@@ -74,11 +74,11 @@
 {%- endblock textarea_row -%}
 
 {%- block textarea_widget -%}
-    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+    <textarea class="form-control" {{ block('widget_attributes') }}>{{ value }}</textarea>
 {%- endblock textarea_widget -%}
 
 {%- block email_row -%}
-    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+    <div class="form-group{% if errors|length > 0 %} error-input{% endif %}">
         {{- form_label(form) -}}
         {{ block('email_widget') }}
         {{- form_errors(form) -}}
@@ -95,7 +95,7 @@
         {{ block('form_widget_simple') }}
         {{- form_errors(form) -}}
     {% else %}
-        <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+        <div class="form-group{% if errors|length > 0 %} error-input{% endif %}">
             {{- form_label(form) -}}
             {{ block('form_widget_simple') }}
             {{- form_errors(form) -}}
@@ -114,7 +114,7 @@
         {# Attribute "required" is not supported #}
         {%- set required = false -%}
     {%- endif -%}
-    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
 {%- endblock form_widget_simple -%}
 
 {%- block hidden_row -%}
@@ -129,7 +129,7 @@
 {%- endblock hidden_widget -%}
 
 {%- block file_row -%}
-    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+    <div class="form-group{% if errors|length > 0 %} error-input{% endif %}">
         {{- form_label(form) -}}
         {{ block('file_widget') }}
         {{- form_errors(form) -}}
@@ -166,7 +166,7 @@
 {%- endblock checkbox_widget %}
 
 {%- block checkbox_row -%}
-    <div class="form-group {% if errors|length > 0 %}error-input{% endif %}">
+    <div class="form-group{% if errors|length > 0 %} error-input{% endif %}">
         {{- form_widget(form) -}}
         {{- form_label(form) -}}
         {{- form_errors(form) -}}
