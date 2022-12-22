@@ -1400,7 +1400,7 @@ $dropdown-border-radius:              0 !default;
 //$modal-content-bg:                  $white !default;
 //$modal-content-border-color:        var(--#{$prefix}border-color-translucent) !default;
 //$modal-content-border-width:        $border-width !default;
-$modal-content-border-radius:         none;
+$modal-content-border-radius:         1rem;
 //$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
 //$modal-content-box-shadow-xs:       $box-shadow-sm !default;
 //$modal-content-box-shadow-sm-up:    $box-shadow !default;
