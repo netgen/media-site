@@ -73,3 +73,78 @@
 
 {% endapply %}
 {% endmacro %}
+
+{% macro item_content_link(link, link_name) %}
+{% apply spaceless %}
+    {% set url = null %}
+    {% if link is not null %}
+        {% if link.value.isTypeInternal %}
+            {% set url = path("ibexa.url.alias", { contentId: link.value.reference }) %} 
+        {% elseif link.value.isTypeExternal %}
+            {% set url = link.value.reference %}
+        {% endif %}
+    {% endif %}
+
+    {% set open_in_new_tab = false %}
+    {% if link.value.isTargetLinkInNewTab %}
+        {% set open_in_new_tab = true %}
+    {% endif %}
+
+    
+    {% if link.value.suffix is not null %}
+        {% set url = url ~ link.value.suffix %}
+    {% endif %}
+
+    {% if url %}
+        <a href="{{ url }}"
+        {% if open_in_new_tab %}target="_blank" rel="nofollow noopener noreferrer" {% endif %}
+        >
+    {% endif %}
+
+    {{ link_name|default }}
+
+    {% if url %}
+        </a>
+    {% endif %}
+{% endapply %}
+{% endmacro %}
+
+{% macro item_image_link(link, field, alias, lazy_loading) %}
+{% apply spaceless %}
+    {% set url = null %}
+    {% if link is not null %}
+        {% if link.value.isTypeInternal %}
+            {% set url = path("ibexa.url.alias", { contentId: link.value.reference }) %} 
+        {% elseif link.value.isTypeExternal %}
+            {% set url = link.value.reference %}
+        {% endif %}
+    {% endif %}
+
+    {% set open_in_new_tab = false %}
+    {% if link.value.isTargetLinkInNewTab %}
+        {% set open_in_new_tab = true %}
+    {% endif %}
+    {% if link.value.suffix is not null %}
+        {% set url = url ~ link.value.suffix %}
+    {% endif %}
+    {% set lazy_loading = lazy_loading ?? ibexa.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
+
+    {% if url is empty %}
+        <span>
+    {% endif %}
+    {{ ng_render_field(
+        field, {
+            'parameters': {
+                'alias': alias,
+                'link_href': url,
+                'link_target': open_in_new_tab ? '_blank' : '',
+                'lazy_loading': lazy_loading,
+            }
+        }
+    ) }}
+    {% if url is empty %}
+        </span>
+    {% endif %}
+
+{% endapply %}
+{% endmacro %}

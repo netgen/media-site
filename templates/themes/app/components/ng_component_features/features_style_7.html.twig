@@ -43,7 +43,7 @@
                             <div class="view-type view-type-zigzag vl9">
                                 {% if item.image is defined and not item.image.empty %}
                                     <figure class="image">
-                                        {{ ng_render_field(item.image) }}
+                                        {{ macros.item_image_link(item.link, item.image) }}
                                     </figure>
                                 {% endif %}
                                 <div class="article-content">
@@ -52,7 +52,7 @@
                                             <span class="eyebrow-title">{{ ng_render_field(item.eyebrow_title) }}</span>
                                         {% endif %}
                                         {% if item.title is defined and not item.title.empty %}
-                                            <h2 class="title">{{ ng_render_field(item.title) }}</h2>
+                                            <h2 class="title">{{ macros.item_content_link(item.link, item.title.value.text) }}</h2>
                                         {% endif %}
                                     </header>
                                     {% if item.description is defined and not item.description.empty %}
