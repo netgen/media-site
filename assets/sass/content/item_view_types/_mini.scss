@@ -22,6 +22,7 @@
     }
     .title {
         @include text-1_125;
+        font-weight: 900;
         margin: 0 0 .25rem;
         a {
             @extend %item-title-link;

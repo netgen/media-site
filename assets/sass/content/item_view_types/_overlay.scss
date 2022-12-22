@@ -52,6 +52,7 @@
     }
     .title {
         @include text-1_25;
+        font-weight: 900;
         margin: 0 0 .25rem;
         display: -webkit-box;
         -webkit-line-clamp: 4;
@@ -73,6 +74,7 @@
     }
     .article-icon {
         @include text-base;
+        font-weight: 900;
         position: absolute;
         left: 0;
         top: 0;
