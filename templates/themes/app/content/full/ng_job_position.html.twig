@@ -12,13 +12,11 @@
 {% endif %}
 
 {% block content %}
-    <article class="view-type view-type-{{ view_type }} ng-job-position">
+    <article class="view-type view-type-{{ view_type }} ng-job-position vf1">
         {% block article_header %}
             <header class="full-page-header">
                 <div class="container">
-
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
-
                     <div class="full-page-info">
                         {% if not content.fields.job_location.empty %}
                             <span>{{ ng_render_field(content.fields.job_location) }}</span>
@@ -27,14 +25,14 @@
                             <span>{{ ng_render_field(content.fields.engagement_type) }}</span>
                         {% endif %}
                         {% if not content.fields.application_deadline.empty %}
-                            <span>Application deadline: {{ ng_render_field(content.fields.application_deadline) }}</span>
+                            <span>{{ 'ngsite.job_application.deadline'|trans }}: {{ ng_render_field(content.fields.application_deadline) }}</span>
                         {% endif %}
                     </div>
                 </div>
             </header>
         {% endblock %}
 
-        <div class="container"><div class="row justify-content-center"><div class="col-lg-9">
+        <div class="container">
             {% block image %}
                 {% if not content.fields.image.empty %}
                     <div class="full-page-image">
@@ -53,25 +51,22 @@
                     {% endif %}
 
                     {% if not content.fields.job_overview.empty %}
-                        <h3>Job overview</h3>
+                        <h3 class="job-details">{{ 'ngsite.job_application.job_overview'|trans }}</h3>
                         {{ ng_render_field(content.fields.job_overview) }}
                     {% endif %}
 
                     {% if not content.fields.requirements.empty %}
-                        <h3>Requirements</h3>
+                        <h3 class="job-details">{{ 'ngsite.job_application.requirements'|trans }}</h3>
                         {{ ng_render_field(content.fields.requirements) }}
                     {% endif %}
 
                     {% if not content.fields.responsibilities.empty %}
-                        <h3>Responsibilities</h3>
+                        <h3 class="job-details">{{ 'ngsite.job_application.responsibilities'|trans }}</h3>
                         {{ ng_render_field(content.fields.responsibilities) }}
                     {% endif %}
-
-
                 </div>
             {% endblock %}
-
-        </div></div></div>
+        </div>
     </article>
 {% endblock %}
 

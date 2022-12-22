@@ -22,15 +22,16 @@
     margin: 0 0 .5rem;
 }
 .full-page-intro {
-    @include text-1_125;
+    @include text-1_5;
     color: $black;
-    opacity: .54;
-    font-style: italic;
     p {
         margin: 0;
         + p {
             margin-top: 1em;
         }
+    }
+    & + * {
+        margin-top: 4rem;
     }
 }
 .full-page-info {

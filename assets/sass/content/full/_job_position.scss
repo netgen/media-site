@@ -1,14 +1,9 @@
-.ng-job-position {
+.vf1.ng-job-position {
     .full-page-header {
         padding: 4rem 0 8rem;
     }
     .full-page-title {
         margin: 0 0 3rem;
-    }
-    .full-page-intro {
-        @include text-2_5;
-        font-style: normal;
-        opacity: 1;
     }
     .full-page-info {
         @include text-base;
@@ -35,16 +30,15 @@
             }
         }
     }
-    .full-page-image {
-        border-radius: 1rem;
-        overflow: hidden;
-    }
-    .full-page-body {
-        padding: 4rem 0;
-        p, ul {
-            margin-bottom: 3rem;
+    .full-page-intro {
+        & + .job-details {
+            margin-top: 4rem;
         }
     }
+    .job-details {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }    
     @include media-breakpoint-down(lg) {
         .full-page-info {
             flex-direction: column;
