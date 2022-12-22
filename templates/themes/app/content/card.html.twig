@@ -10,9 +10,7 @@
         <header class="article-header">
             <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
         </header>
-
-        {% if with_intro|default(false) %}
-            {{ content_fields.intro(content) }}
-        {% endif %}
+        
+        {{ content_fields.intro(content) }}
     </div>
 </article>
