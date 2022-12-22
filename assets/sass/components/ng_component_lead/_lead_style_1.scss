@@ -15,16 +15,18 @@
     }
     .short {
         @include text-1_125;
-        & + .actions {
-            margin-left: 18rem;
+        & + .actions,
+        & + .embedded-form {
+            margin-top: 4rem;
         }
     }
-    .article-info {
-        display: flex;
-        justify-content: center;
-    }
     .actions {
-        display: flex;
-        gap: 2rem;
+        margin: 0 auto;
+        display: block;
+    }
+    .embedded-form {
+        width: 50%;
+        margin: 0 auto;
+        text-align: left;
     }
 }

@@ -15,8 +15,4 @@
     .short {
         @include text-1_125;
     }
-    .actions {
-        display: flex;
-        gap: 2rem;
-    }
 }
