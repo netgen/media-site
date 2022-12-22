@@ -36,3 +36,7 @@ ngsite.layout.recipe.carbs: 'carbs'
 ngsite.layout.recipe.protein: 'protein'
 
 ngsite.card.apply_now: 'Apply now'
+ngsite.job_application.job_overview: 'Job overview'
+ngsite.job_application.requirements: 'Requirements'
+ngsite.job_application.responsibilities: 'Responsibilities'
+ngsite.job_application.deadline: 'Application deadline'
