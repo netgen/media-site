@@ -6,5 +6,10 @@
         .form-label {
             @include text-0_875;
         }
+        .form-control {
+            .bg-color-secondary & {
+                background-color: $white;
+            }
+        }
     }
 }
