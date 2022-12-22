@@ -11,6 +11,8 @@
             <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
         </header>
         
-        {{ content_fields.intro(content) }}
+        {% if with_intro|default(false) %}
+            {{ content_fields.intro(content) }}
+        {% endif %}
     </div>
 </article>

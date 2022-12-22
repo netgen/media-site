@@ -194,22 +194,7 @@ system:
                         with_intro: false
                     match:
                         Identifier\ContentType:
-                            - file
-                            - image
-                            - ng_article
-                            - ng_audio
-                            - ng_banner
-                            - ng_blog_post
-                            - ng_category
-                            - ng_feedback_form
-                            - ng_frontpage
-                            - ng_gallery
-                            - ng_htmlbox
                             - ng_job_position
-                            - ng_landing_page
-                            - ng_news
-                            - ng_recipe
-                            - ng_video
                 match_all:
                     template: "@ibexadesign/content/card.html.twig"
                     params:
