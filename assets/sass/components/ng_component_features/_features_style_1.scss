@@ -1,6 +1,8 @@
 .features-style-1 {
     .article-header {
         text-align: center;
+        width: 66.666667%;
+        margin: 0 auto;
         .title {
             @include text-2_5;
             & + .short,
@@ -45,6 +47,9 @@
             }
             .item-title {
                 @include text-1_5;
+                a {
+                    @extend %item-title-link;
+                }
                 & + .item-short {
                     margin-top: 1rem;
                 }

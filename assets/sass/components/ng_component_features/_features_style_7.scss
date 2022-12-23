@@ -19,6 +19,13 @@
         & + .list-zigzag {
             margin-top: 4rem;
         }
+        .list-zigzag {
+            .title {
+                a {
+                    @extend %item-title-link;
+                }
+            }
+        }
     }
 }
 

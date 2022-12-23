@@ -42,6 +42,9 @@
             }
             .item-title {
                 @include text-1_5;
+                a {
+                    @extend %item-title-link;
+                }
                 & + .item-description {
                     margin-top: 1rem;
                 }

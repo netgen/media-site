@@ -48,7 +48,7 @@
                         <div class="features-grid-item">
                             {% if item.image is defined and not item.image.empty %}
                                 <div class="item-image">
-                                    {{ ng_render_field(item.image) }}
+                                    {{ macros.item_image_link(item.link, item.image, "i770") }}
                                 </div>
                             {% endif %}
                             {% if item.title is defined and not item.title.empty %}
