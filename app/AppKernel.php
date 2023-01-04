@@ -70,6 +70,7 @@ final class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Lolautruche\EzCoreExtraBundle\EzCoreExtraBundle(),
             new Http\HttplugBundle\HttplugBundle(),
+            new Kaliop\eZMigrationBundle\EzMigrationBundle(),
         ];
 
         if ($this->getEnvironment() === 'prod') {

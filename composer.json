@@ -92,7 +92,8 @@
         "netgen/layouts-ezplatform-site-api": "~1.3.0",
         "netgen/layouts-ezplatform-relation-list-query": "^1.3",
         "netgen/layouts-ezplatform-tags-query": "^1.3",
-        "netgen/layouts-remote-media": "^1.1"
+        "netgen/layouts-remote-media": "^1.1",
+        "kaliop/ezmigrationbundle": "^6.3"
     },
     "require-dev": {
         "behat/behat": "^3.7.0",
