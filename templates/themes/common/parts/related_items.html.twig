@@ -1,9 +1,5 @@
 {% if related_items|length > 0 %}
     {% for related_item in related_items %}
-        {% include '@ibexadesign/parts/ng_view_content.html.twig' with {
-            content: related_item.content,
-            location: related_item,
-            view_type: view_type
-        } only %}
+        {{ ng_view_content(related_item, view_type) }}
     {% endfor %}
 {% endif %}

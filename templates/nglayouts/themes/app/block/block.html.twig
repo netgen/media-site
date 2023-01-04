@@ -8,6 +8,7 @@
 {% set css_id = css_id|default(block.parameter('css_id').value) %}
 {% set set_container = block.parameter('set_container').value %}
 {% set container_size = block.parameter('set_container:size').value %}
+{% set is_preview = app.request.attributes.get('nglayouts_is_preview_request') %}
 
 {% set use_whitespace = block.parameter('vertical_whitespace:enabled').value is same as(true) %}
 {% set whitespace_top = block.parameter('vertical_whitespace:top').value %}
@@ -42,6 +43,22 @@
 
 {% set block_content = (block('content') is defined ? block('content') : '')|trim %}
 
+{% if is_preview %}
+    {% set view_type_name = block.viewType %}
+
+    {% if block.definition.hasViewType(view_type_name, block) %}
+        {% set view_type_name = block.definition.viewType(view_type_name, block).name %}
+    {% endif %}
+
+    <ngl-block
+        blockId="{{ block.id }}"
+        blockLocale="{{ block.locale }}"
+        viewTypeName="{{ view_type_name }}"
+        {% if block_content is empty %}isEmpty{% endif %}
+    >
+        <div class="ngl-slotted-block">
+{% endif %}
+
 {% if block_content is not empty or show_empty_wrapper %}
     <div
         class="{{ css_classes|join(' ') }}"
@@ -57,4 +74,9 @@
 
         {% if set_container %}</div>{% endif %}
     </div>
+{% endif %}
+
+{% if is_preview %}
+        </div>
+    </ngl-block>
 {% endif %}

@@ -29,9 +29,9 @@
         "doctrine/doctrine-bundle": "^2.4.2",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.13",
-        "ibexa/oss": "~4.2.0",
+        "ibexa/oss": "~4.3.0",
         "phpdocumentor/reflection-docblock": "^5.3",
-        "phpstan/phpdoc-parser": "^1.7",
+        "phpstan/phpdoc-parser": "^1.13",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.4.*",
         "symfony/console": "5.4.*",
@@ -75,15 +75,19 @@
         "netgen/media-site-data": "^3.0",
         "netgen/site-bundle": "^3.0",
         "netgen/site-installer-bundle": "^3.0",
-        "netgen/ibexa-site-api": "^5.0",
+        "netgen/ibexa-site-api": "^5.1",
         "netgen/ibexa-search-extra": "^3.0",
         "netgen/information-collection-bundle": "^3.0",
+        "netgen/ibexa-fieldtype-enhanced-link": "^1.0",
+        "mailerlite/mailerlite-api-v2-php-sdk": "^0.3.2",
 
-        "netgen/layouts-standard": "~1.3.0",
-        "netgen/layouts-ibexa": "~1.3.0",
-        "netgen/layouts-ibexa-site-api": "~1.3.0",
-        "netgen/layouts-ibexa-relation-list-query": "^1.3",
-        "netgen/layouts-ibexa-tags-query": "^1.3"
+        "netgen/layouts-standard": "~1.4.0@dev",
+        "netgen/layouts-ibexa": "~1.4.0@dev",
+        "netgen/layouts-ibexa-site-api": "~1.4.0@dev",
+        "netgen/layouts-ibexa-relation-list-query": "^1.4@dev",
+        "netgen/layouts-ibexa-tags-query": "^1.4@dev",
+        "netgen/layouts-enterprise": "~1.4.0@dev",
+        "netgen/layouts-enterprise-ibexa": "~1.4.0@dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
@@ -96,6 +100,7 @@
         "symfony/web-profiler-bundle": "5.4.*",
 
         "deployer/recipes": "^6.2",
+        "franzl/studio": "*",
 
         "netgen/git-hooks": "^2.2",
         "phpstan/phpstan": "^1.8",
@@ -105,6 +110,9 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "repositories": [
+        { "type": "composer", "url": "https://packagist.netgen.biz", "canonical": false }
+    ],
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
@@ -112,7 +120,8 @@
             "symfony/runtime": true,
             "ibexa/post-install": true,
             "netgen/git-hooks": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "franzl/studio": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
@@ -132,8 +141,7 @@
     "replace": {
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php73": "*"
+        "symfony/polyfill-php72": "*"
     },
     "scripts": {
         "auto-scripts": {
@@ -157,8 +165,7 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*",
-        "symfony/expression-language": "5.4.7"
+        "symfony/symfony": "*"
     },
     "extra": {
         "symfony": {

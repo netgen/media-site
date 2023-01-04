@@ -1,0 +1,36 @@
+.logos-style-2 {
+    .article-header {
+        .eyebrow-title {
+            @include text-base;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .title {
+            @include text-2_5;
+            & + .short {
+                margin-top: 2.5rem;
+            }
+            & + .actions {
+                margin-top: 4rem;
+            }
+        }
+        .short {
+            & + .actions {
+                margin-top: 4rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+        }
+    }
+    .logo-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        background-color: $white;
+        padding: 1.2rem;
+        .logo-grid-item {
+            padding: 0.75rem;
+        }
+    }
+}

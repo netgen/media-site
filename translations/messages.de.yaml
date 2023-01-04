@@ -1,0 +1,42 @@
+ngsite.layout.search: "Suche"
+ngsite.layout.search.button: "Los"
+ngsite.layout.search_site: "Suche %site_name%"
+ngsite.layout.site_frontpage: "%site_name% Titelseite"
+ngsite.layout.meta_generator: "Ibexa-Plattform, unterstützt von Netgen"
+ngsite.layout.powered_by: "Unterstützt durch"
+ngsite.layout.cookie_settings: "Cookie Einstellungen"
+ngsite.layout.cookie_settings.save: "Einstellungen speichern"
+ngsite.layout.cookie_settings.accepted: "Akzeptiert"
+ngsite.layout.cookie_settings.not_accepted: "Nicht akzeptiert"
+ngsite.layout.sponsored: 'Gesponsert'
+
+ngsite.search.title: 'Suche'
+ngsite.search.placeholder: 'Suche'
+ngsite.search.button: 'Suche'
+
+ngsite.search.results: 'Suche nach "%searchText%" ergab %searchCount% Treffer'
+ngsite.search.no_results: 'Es wurden keine Ergebnisse gefunden bei der Suche nach "%searchText%".'
+ngsite.search.did_you_mean: 'Meinten Sie'
+
+ngsite.search.no_results.check_spelling: 'Überprüfen Sie die Rechtschreibung der Keywords.'
+ngsite.search.no_results.change_keywords: 'Versuchen Sie, einige Keywords zu ändern (z. B. "Auto" anstelle von "Autos").'
+ngsite.search.no_results.less_specific_keywords: 'Versuchen Sie, mit weniger spezifischen Keywords zu suchen.'
+ngsite.search.no_results.reduce_keywords: 'Reduzieren Sie die Anzahl der Keywords, um mehr Ergebnisse zu erhalten.'
+
+ngsite.collected_info.success_text: 'Wir danken Ihnen für Ihr Feedback.'
+ngsite.collected_info.return_to_site: 'Zurück zur Website'
+ngsite.collected_info.button.send: 'Formular senden'
+ngsite.collected_info.information_collected: 'Die folgenden Informationen wurden gesammelt'
+
+ngsite.layout.recipe.min: 'min'
+ngsite.layout.recipe.cal: 'kal'
+ngsite.layout.recipe.preparation_time: 'Preparation time'
+ngsite.layout.recipe.fat: 'Fett'
+ngsite.layout.recipe.carbs: 'Kohlenhydrate'
+ngsite.layout.recipe.protein: 'Protein'
+
+ngsite.card.apply_now: 'Jetzt bewerben'
+ngsite.job_application.job_overview: 'Jobübersicht'
+ngsite.job_application.requirements: 'Anforderungen'
+ngsite.job_application.responsibilities: 'Verantwortlichkeiten'
+ngsite.job_application.deadline: 'Bewerbungsschluss'

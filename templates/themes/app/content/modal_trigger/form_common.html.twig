@@ -1,0 +1,12 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% set url = path(
+    'ngsite_info_collection_view_modal',
+    {
+        formContentId: content.id,
+        refererLocationId: refererLocationId,
+    }
+) %}
+
+<a href="#" class="{{ css_class }} js-form-modal-trigger" data-url="{{ url }}">{{ label|default(content.name) }}</a>

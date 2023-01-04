@@ -1,0 +1,19 @@
+{% extends nglayouts.layoutTemplate %}
+
+{% trans_default_domain 'ngsite_errors' %}
+
+{% set site_title = 'ngsite.errors.410.title'|trans %}
+
+{% block content %}
+    <div class="container container-narrow">
+        <div class="site-error text-center">
+            <h1 class="site-error-title">{{ 'ngsite.errors.410.title'|trans }}</h1>
+            <p class="site-error-message">{{ 'ngsite.errors.410.message'|trans }}</p>
+        </div>
+        <div class="site-error-buttons text-center">
+            <button class="btn btn-primary">
+                {{ 'ngsite.errors.button.back'|trans }}
+            </button>
+        </div>
+    </div>
+{% endblock %}

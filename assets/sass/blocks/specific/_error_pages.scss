@@ -1,0 +1,24 @@
+.site-error {
+    &-title {
+        @include text-8;
+        margin: 8rem 0 4rem;
+        @include media-breakpoint-down(lg) {
+            margin: 4rem 0 2rem;
+        }
+        &.site-error-generic-title {
+            @include text-4;
+        }
+    }
+
+    &-message {
+        @include text-1_25;
+        margin: 0 0 4rem;
+    }
+}
+
+.site-error-buttons {
+    margin-bottom: 8rem;
+    @include media-breakpoint-down(lg) {
+        margin-bottom: 4rem;
+    }
+}

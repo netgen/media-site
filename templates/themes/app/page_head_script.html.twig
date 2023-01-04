@@ -1,4 +1,4 @@
-{% for src in encore_entry_js_files('app', 'app') %}
+{% for src in encore_entry_js_files('index', 'app') %}
     {% if 'vendor' in src %}
         <script defer type="text/javascript" src="{{ src }}"></script>
     {% else %}
@@ -6,9 +6,10 @@
     {% endif %}
 {% endfor %}
 
-{% for src in encore_entry_js_files('app-noncore', 'app') %}
+{% for src in encore_entry_js_files('index-noncritical', 'app') %}
     <script defer type="text/javascript" src="{{ src }}"></script>
 {% endfor %}
 
 <script defer type="text/javascript" src="{{ asset('app.js', 'nglayouts_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'js') }}"></script>
-<script defer type="text/javascript" src="{{ asset('app.js', 'nglayouts_standard_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'js') }}"></script>
+
+{{ nglayouts_template_plugin('preview.javascripts') }}

@@ -1,0 +1,15 @@
+{% if open_graph is defined %}
+    {% for key, value in open_graph %}
+        <meta property="{{ key|trim }}" content="{{ value|trim }}" />
+    {% endfor %}
+{% endif %}
+
+{% if content is defined %}
+    {% set meta_tags = get_netgen_open_graph(content.innerContent) %}
+
+    {% for meta_tag in meta_tags %}
+        {% if open_graph is not defined or open_graph[meta_tag.tagName] is not defined %}
+            <meta property="{{ meta_tag.tagName|trim }}" content="{{ meta_tag.tagValue|trim }}" />
+        {% endif %}
+    {% endfor %}
+{% endif %}

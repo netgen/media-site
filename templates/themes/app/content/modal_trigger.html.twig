@@ -1,0 +1,6 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% set url = path('ngsite_view_modal', { contentId: content.id }) %}
+
+<a href="#" class="btn btn-default js-modal-trigger" data-url="{{ url }}">{{ label|default(content.name) }}</a>

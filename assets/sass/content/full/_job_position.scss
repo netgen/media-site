@@ -1,0 +1,54 @@
+.vf1.ng-job-position {
+    .full-page-header {
+        padding: 4rem 0 8rem;
+    }
+    .full-page-title {
+        margin: 0 0 3rem;
+    }
+    .full-page-info {
+        @include text-base;
+        font-weight: 700;
+        text-transform: uppercase;
+        background-color: lighten($primary, 10%);
+        color: $black;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        display: flex;
+        margin: 0;
+        opacity: 1;
+        .ezdatetime-field {
+            display: inline;
+        }
+        > span,
+        > time {
+            + span,
+            + time {
+                &::before {
+                    content: '•';
+                    margin: 0 .25em;
+                }
+            }
+        }
+    }
+    .full-page-intro {
+        & + .job-details {
+            margin-top: 4rem;
+        }
+    }
+    .job-details {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }    
+    @include media-breakpoint-down(lg) {
+        .full-page-info {
+            flex-direction: column;
+            > span,
+            > time {
+                &::before {
+                    content: '•';
+                    margin: 0 .25em;
+                }
+            }
+        }
+    }
+}

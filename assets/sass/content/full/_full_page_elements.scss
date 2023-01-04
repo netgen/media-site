@@ -6,8 +6,8 @@
         padding: 4rem 0 4rem;
     }
     .main-topic, .sponsored-text {
+        @include text-0_75;
         display: inline-block;
-        font-size: .75rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 900;
@@ -18,23 +18,24 @@
     }
 }
 .full-page-title {
-    font-size: 3.125rem;
+    @include text-3;
     margin: 0 0 .5rem;
 }
 .full-page-intro {
+    @include text-1_5;
     color: $black;
-    opacity: .54;
-    font-size: 1.3125rem;
-    font-style: italic;
     p {
         margin: 0;
         + p {
             margin-top: 1em;
         }
     }
+    & + * {
+        margin-top: 4rem;
+    }
 }
 .full-page-info {
-    font-size: 1rem;
+    @include text-base;
     margin: 0;
     color: $black;
     opacity: .54;
@@ -61,7 +62,7 @@
     > a,
     > span {
         display: inline-block;
-        font-size: .75rem;
+        @include text-0_75;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 900;
@@ -72,7 +73,7 @@
     }
 }
 .full-page-image {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         img {
             width: 100%;
         }
@@ -85,9 +86,9 @@
     @extend %clearfix;
     margin: 3rem 0 0;
     a {
+        @include text-0_75;
         display: inline-block;
         float: left;
-        font-size: .75rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 900;
@@ -139,7 +140,13 @@
     }
 
     .full-page-body {
-        padding: 0;
+        position: relative;
+        padding: 0 0 2rem;
         margin: 0 0 2rem;
+
+        @include media-breakpoint-up(lg) {
+            max-width: 754px;
+            margin: 0 auto;
+        }
     }
 }

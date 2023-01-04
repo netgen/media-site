@@ -27,6 +27,18 @@ system:
                             block\definition: list
                             block\view_type: list_numbered
 
+                    list\zigzag:
+                        template: "@nglayouts/block/list/zigzag.html.twig"
+                        match:
+                            block\definition: list
+                            block\view_type: list_zigzag
+
+                    list\accordion:
+                        template: "@nglayouts/block/list/accordion.html.twig"
+                        match:
+                            block\definition: list
+                            block\view_type: list_accordion
+
                     list\grid_featured:
                         template: "@nglayouts/block/list/grid_featured.html.twig"
                         match:
@@ -47,6 +59,18 @@ view:
                 match:
                     block\definition: list
                     block\view_type: list_numbered
+
+            list\zigzag:
+                template: "@NetgenLayoutsStandard/app/block/list/list.html.twig"
+                match:
+                    block\definition: list
+                    block\view_type: list_zigzag
+
+            list\accordion:
+                template: "@NetgenLayoutsStandard/app/block/list/list.html.twig"
+                match:
+                    block\definition: list
+                    block\view_type: list_accordion
 
             list\grid_featured:
                 template: "@NetgenLayoutsStandard/app/block/list/grid.html.twig"

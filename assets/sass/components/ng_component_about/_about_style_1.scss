@@ -1,0 +1,58 @@
+.about-style-1 {
+    .eyebrow-title {
+        @include text-1_5;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    .title {
+        @include text-4;
+        margin: 0;
+        .bg-color-black & {
+            color: $primary;
+        }
+    }
+
+    .article-header {
+        & + * {
+            margin-top: 4rem;
+        }
+    }
+
+    .short {
+        @include text-1_125;
+        width: 60%;
+    }
+
+    .image {
+        overflow: hidden;
+        display: block;
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%;
+        border-radius: 1rem;
+
+        source, img {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        & + .article-info {
+            margin-top: 4rem;
+        }
+    }
+
+    .article-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .actions {
+        display: flex;
+        gap: 2rem;
+    }
+}

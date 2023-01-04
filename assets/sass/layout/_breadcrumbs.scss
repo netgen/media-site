@@ -1,13 +1,90 @@
 .breadcrumb-wrapper {
-    .breadcrumb {
-        background-color: transparent;
-        margin: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+
+    @include media-breakpoint-down(md) {
         padding: 1.5rem 0;
-        font-size: 1.125rem;
-        line-height: 1.3125rem;
-        .breadcrumb-item {
-            & + .breadcrumb-item::before {
+    }
+
+    .fas {
+        margin-right: 0.5rem;
+        color: #000;
+        margin-bottom: 2px;
+    }
+
+    .breadcrumb-item {
+        @include text-base;
+        margin-right: 1rem;
+        background-color: transparent;
+        color: #000;
+        position: relative;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+
+        & + .breadcrumb-item {
+            padding-left: 0;
+            &:before {
+                @include text-1_25;
+                content: "/";
                 color: inherit;
+                margin-right: 1rem;
+                color: #000;
+                padding: 0;
+
+                @include media-breakpoint-down(md) {
+                    content: none;
+                }
+            }
+        }
+        &.breadcrumb-item--no-link {
+            display: none;
+            &:last-child {
+                display: inline-block;
+                width: 350px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+            }
+        }
+    }
+    a:last-of-type {
+        @include media-breakpoint-down(md) {
+            display: flex;
+        }
+
+        .icon-home-page {
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+        }
+
+        &.breadcrumb-item {
+            @include media-breakpoint-down(md) {
+                padding-left: 2rem;
+            }
+            &:before {
+                @extend %fontawesome;
+                @include media-breakpoint-down(md) {
+                    display: block;
+                    color: inherit;
+                    content: "\f053";
+                    margin-right: 0.5rem;
+                    color: #000;
+                    @include text-1_5;
+                    position: absolute;
+                    left: 0;
+                    transform: none;
+                }
             }
         }
     }

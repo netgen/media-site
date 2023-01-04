@@ -26,7 +26,7 @@
         flex: 1;
     }
     .title {
-        font-size: 1.5rem;
+        @include text-1_5;
         font-weight: 900;
         margin: 0 0 .25rem;
         a {
@@ -58,7 +58,7 @@
             padding-left: 4.875rem;
         }
     }
-    @include media-breakpoint-down(xxs) {
+    @include media-breakpoint-down(sm) {
         display: block;
         .image {
             width: 100%;

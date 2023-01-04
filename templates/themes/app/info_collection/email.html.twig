@@ -1,9 +1,9 @@
 {% block subject %}{% apply spaceless %}
     {% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
-    {{ site_name }} – {{ ibexa_content_name(content) }} [{{ collected_fields.email.value }}]
+    {{ site_name }} – {{ ibexa_content_name(content) }} [{{ collected_fields.sender_email.value }}]
 {% endapply %}{% endblock %}
 
-{#% block sender %}{{ collected_fields.email.value }}{% endblock %#}
+{#% block sender %}{{ collected_fields.sender_email.value }}{% endblock %#}
 
 {% block recipient %}{{ ibexa_field_value(content, 'recipient') }}{% endblock %}
 

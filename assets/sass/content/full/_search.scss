@@ -16,8 +16,7 @@
     .result-message {
         margin: 2rem 0 0;
         h2 {
-            font-size: 1.75rem;
-            margin: 0;
+            @include text-1_5;
         }
     }
 }

@@ -19,19 +19,17 @@
     {% endblock %}
 
     {% block open_graph %}
-        {% include '@NetgenSite/parts/opengraph.html.twig' %}
+        {% include '@ibexadesign/parts/opengraph.html.twig' %}
     {% endblock %}
 
-    {% include '@NetgenSite/parts/jwplayer.html.twig' %}
-
-    {% include '@NetgenSite/parts/google_tag_manager_code_script.html.twig' %}
+    {% include '@ibexadesign/parts/google_tag_manager_code_script.html.twig' %}
 
     {% block structuredData %}{% endblock %}
 </head>
 <body>
 
-{% include '@NetgenSite/parts/google_tag_manager_code_noscript.html.twig' %}
-{% include '@NetgenSite/parts/facebook_api.html.twig' %}
+{% include '@ibexadesign/parts/google_tag_manager_code_noscript.html.twig' %}
+{% include '@ibexadesign/parts/facebook_api.html.twig' %}
 
 <div id="page"{% if page_css_class|default is not empty %} class="{{ page_css_class }}"{% endif %}{% if location is defined and location is not empty %} data-path='["{{ location.path|join('","') }}"]'{% endif %}>
     {% block layout %}
@@ -51,6 +49,8 @@
             {% include '@ibexadesign/page_footer.html.twig' %}
         {% endblock %}
     {% endblock %}
+
+    {{ nglayouts_template_plugin('preview.body') }}
 </div>
 
 {% block page_footer_script %}

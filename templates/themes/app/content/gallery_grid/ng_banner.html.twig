@@ -7,11 +7,11 @@
     <div class="view-type view-type-{{ view_type }} ng-banner vl3">
         {% set title = content_fields.title(content) %}
 
-        <a href="{{ asset(ng_image_alias(content.fields.image, 'i1200').uri) }}" title="{{ title }}" class="js-mfp-item">
+        <a href="{{ asset(ng_image_alias(content.fields.image, 'i1320').uri) }}" title="{{ title }}" class="js-mfp-item">
             {{ ng_render_field(
                 content.fields.image, {
                     parameters: {
-                        alias: 'i1200',
+                        alias: 'i1320',
                         alt_text: title
                     }
                 }

@@ -1,8 +1,14 @@
 netgen_information_collection:
     system:
         default:
+            captcha:
+                enabled: false
+                secret: 'CHANGE_ME'
+                site_key: 'CHANGE_ME'
             action_config:
                 email:
+                    attachments:
+                        enabled: true
                     templates:
                         default: "@ibexadesign/info_collection/email.html.twig"
                     default_variables:
@@ -12,3 +18,4 @@ netgen_information_collection:
                 default:
                     - database
                     - email
+                    # - ngsite.info_collection.action.newsletter

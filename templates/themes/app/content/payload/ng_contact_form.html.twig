@@ -1,0 +1,60 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+{# form \Symfony\Component\Form\FormView #}
+
+{% form_theme form '@ibexadesign/forms/theme.html.twig' %}
+
+{% if not is_collected %}
+    {% set attributes = {} %}
+
+    {% if content.hasField('gtm_event_prefix') and not content.fields.gtm_event_prefix.empty %}
+        {% set attributes = attributes|merge({ 'data-gtm-event-prefix': content.fields.gtm_event_prefix.value.text }) %}
+    {% endif %}
+
+    {% if class is defined and class is not empty %}
+        {% set attributes = attributes|merge({ class: class }) %}
+    {% endif %}
+
+    {% set form_parameters = { action: action|default(''), attr: attributes } %}
+
+    {{ form_start(form, form_parameters) }}
+        {{ form_errors(form) }}
+
+        <fieldset>
+            {{ form_row(form.sender_first_name) }}
+            {{ form_row(form.sender_last_name) }}
+
+            {{ form_row(form.sender_middle_name, {'required': false}) }}
+
+            {{ form_row(form.referer.value, {
+                'hidden' : true,
+                'attr' : {
+                    'value': referer,
+                }
+            }) }}
+
+            {{ form_row(form.sender_email) }}
+            {{ form_row(form.sender_message) }}
+
+            <div class="form-submit">
+                <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>
+            </div>
+        </fieldset>
+
+    {{ form_rest(form) }}
+    {{ form_end(form, { 'render_rest': false }) }}
+{% else %}
+    <div class="full-form-response">
+        {% if not content.fields.success_text.empty %}
+            {{ ng_render_field(content.fields.success_text) }}
+        {% else %}
+            <p>{{ 'ngsite.collected_info.success_text'|trans }}</p>
+        {% endif %}
+
+{#        <p>{{ 'ngsite.collected_info.information_collected'|trans }}:</p>#}
+
+{#        {% for collected_field, collected_field_value in collected_fields %}#}
+{#            <p><strong>{{ content.fields[collected_field].name }}:</strong> {{ collected_field_value }}</p>#}
+{#        {% endfor %}#}
+    </div>
+{% endif %}

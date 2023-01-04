@@ -1,9 +1,13 @@
 {
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "extends": ["airbnb", "prettier"],
   "rules": {
     "indent":0,
     "max-len": 0,
     "no-plusplus": 0,
+    "no-console": "off",
     "func-names": 0,
     "no-unused-expressions": ["error", {
         "allowShortCircuit": true,

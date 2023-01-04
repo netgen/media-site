@@ -1,0 +1,45 @@
+.hero-style-2 {
+    .article-header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-bottom: 8rem;
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 4rem;
+        }
+        .title {
+            @include text-4;
+        }
+        .eyebrow-title {
+            @include text-2;
+            text-transform: uppercase;
+        }
+        .short {
+            @include text-1_125;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    }
+    figure {
+        padding-bottom: 42.85%;
+        height: 0;
+        border-radius: 1.5rem 1.5rem 0 0;
+        overflow: hidden;
+        box-shadow: 0px -80px 96px -56px rgba(0, 0, 0, 0.3);
+        .bg-color-primary & {
+            box-shadow: 0px -80px 96px -56px #C19D01;
+        }
+        .bg-color-black & {
+            box-shadow: 0px -80px 96px -56px #080808;
+        }
+    }
+}

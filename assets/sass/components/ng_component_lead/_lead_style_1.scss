@@ -1,0 +1,32 @@
+.lead-style-1 {
+    text-align: center;
+    .eyebrow-title {
+        @include text-1_5;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    .title {
+        @include text-4_5;
+    }
+    .article-header {
+        & + * {
+            margin-top: 4rem;
+        }
+    }
+    .short {
+        @include text-1_125;
+        & + .actions,
+        & + .embedded-form {
+            margin-top: 4rem;
+        }
+    }
+    .actions {
+        margin: 0 auto;
+        display: block;
+    }
+    .embedded-form {
+        width: 50%;
+        margin: 0 auto;
+        text-align: left;
+    }
+}

@@ -64,6 +64,10 @@ return [
     Netgen\Bundle\LayoutsIbexaTagsQueryBundle\NetgenLayoutsIbexaTagsQueryBundle::class => ['all' => true],
     Netgen\Bundle\LayoutsIbexaBundle\NetgenLayoutsIbexaBundle::class => ['all' => true],
     Netgen\Bundle\LayoutsIbexaSiteApiBundle\NetgenLayoutsIbexaSiteApiBundle::class => ['all' => true],
+    Netgen\Bundle\LayoutsEnterpriseUIBundle\NetgenLayoutsEnterpriseUIBundle::class => ['all' => true],
+    Netgen\Bundle\LayoutsEnterpriseBundle\NetgenLayoutsEnterpriseBundle::class => ['all' => true],
+    Netgen\Bundle\LayoutsEnterpriseAdminBundle\NetgenLayoutsEnterpriseAdminBundle::class => ['all' => true],
+    Netgen\Bundle\LayoutsEnterpriseIbexaBundle\NetgenLayoutsEnterpriseIbexaBundle::class => ['all' => true],
     Netgen\Bundle\OpenGraphBundle\NetgenOpenGraphBundle::class => ['all' => true],
     Netgen\Bundle\ContentTypeListBundle\NetgenContentTypeListBundle::class => ['all' => true],
     Netgen\Bundle\BirthdayBundle\NetgenBirthdayBundle::class => ['all' => true],
@@ -76,5 +80,6 @@ return [
     Netgen\Bundle\IbexaSiteApiBundle\NetgenIbexaSiteApiBundle::class => ['all' => true],
     Netgen\Bundle\IbexaFormsBundle\NetgenIbexaFormsBundle::class => ['all' => true],
     Netgen\Bundle\IbexaSearchExtraBundle\NetgenIbexaSearchExtraBundle::class => ['all' => true],
+    Netgen\IbexaFieldTypeEnhancedLinkBundle\NetgenIbexaFieldTypeEnhancedLinkBundle::class => ['all' => true],
     Novactive\Bundle\eZSEOBundle\NovaeZSEOBundle::class => ['all' => true],
 ];

@@ -1,0 +1,11 @@
+{% if ibexa.configResolver.hasParameter('site_settings.google_tag_manager_code', 'ngsite') %}
+    {% set google_tag_manager_code = ibexa.configResolver.getParameter('site_settings.google_tag_manager_code', 'ngsite') %}
+
+    {% if google_tag_manager_code is not empty %}
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ google_tag_manager_code|raw|escape('js') }}');</script>
+    {% endif %}
+{% endif %}

@@ -1,0 +1,137 @@
+system:
+    frontend_group:
+        ng_content_view:
+            about_style_1:
+                ng_component_about:
+                    template: "@ibexadesign/components/ng_component_about/about_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_about
+
+            about_style_2:
+                ng_component_about:
+                    template: "@ibexadesign/components/ng_component_about/about_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_about
+
+            about_style_3:
+                ng_component_about:
+                    template: "@ibexadesign/components/ng_component_about/about_style_3.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_about
+
+            about_style_4:
+                ng_component_about:
+                    template: "@ibexadesign/components/ng_component_about/about_style_4.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_about
+
+            hero_style_1:
+                ng_component_hero:
+                    template: "@ibexadesign/components/ng_component_hero/hero_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_hero
+
+            hero_style_2:
+                ng_component_hero:
+                    template: "@ibexadesign/components/ng_component_hero/hero_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_hero
+
+            hero_style_3:
+                ng_component_hero:
+                    template: "@ibexadesign/components/ng_component_hero/hero_style_3.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_hero
+
+            logos_style_1:
+                ng_component_logos:
+                    template: "@ibexadesign/components/ng_component_logos/logos_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_logos
+
+            logos_style_2:
+                ng_component_logos:
+                    template: "@ibexadesign/components/ng_component_logos/logos_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_logos
+
+            features_style_1:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            features_style_2:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            features_style_3:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_3.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            features_style_4:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_4.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            features_style_5:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_5.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            features_style_6:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_6.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            features_style_7:
+                ng_component_features:
+                    template: "@ibexadesign/components/ng_component_features/features_style_7.html.twig"
+                    params:
+                        valid_parameters: ['!number_of_columns']
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_features
+
+            quote_style_1:
+                ng_component_quote:
+                    template: "@ibexadesign/components/ng_component_quote/quote_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_quote
+
+            lead_style_1:
+                ng_component_lead:
+                    template: "@ibexadesign/components/ng_component_lead/lead_style_1.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_lead
+
+            lead_style_2:
+                ng_component_lead:
+                    template: "@ibexadesign/components/ng_component_lead/lead_style_2.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_component_lead

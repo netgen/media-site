@@ -1,0 +1,12 @@
+{{ ng_view_content(
+    content,
+    'payload',
+    {
+        params: {
+            action: path('ngsite_info_collection_ajax_submit', { formContentId: content.id }),
+            label: label,
+            refererLocationId: refererLocationId|default(null),
+            class: 'embed-form js-form-embed',
+        },
+    }
+) }}

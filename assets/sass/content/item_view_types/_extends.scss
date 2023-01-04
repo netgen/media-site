@@ -1,8 +1,8 @@
 %item-header-info {
     @extend %clearfix;
-    margin: 0 0 .25rem;
+    margin: 0;
     text-transform: uppercase;
-    font-size: .8125rem;
+    @include text-0_875;
     letter-spacing: 1px;
     > span,
     > time,
@@ -19,8 +19,12 @@
                 vertical-align: middle;
                 width: .25rem;
                 height: .25rem;
-                background: $primary;
+                background: $black;
                 margin: 0 .25rem .125rem 0;
+                border-radius: 50%;
+                .bg-color-black & {
+                    background: $primary;
+                }
             }
         }
     }
@@ -52,8 +56,8 @@
             display: none;
         }
     }
-    @include media-breakpoint-down(lg) {
-        font-size: .75rem;
+    @include media-breakpoint-down(xl) {
+        @include text-0_75;
     }
 }
 

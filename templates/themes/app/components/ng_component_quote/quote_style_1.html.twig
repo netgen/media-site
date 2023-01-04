@@ -1,0 +1,85 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import "@ibexadesign/parts/macros.html.twig" as macros %}
+
+{# {% set image = content.fieldValue('image') %}
+{% set image_mobile = content.fieldValue('image_mobile') %} #}
+
+{% block content %}
+    <article class="view-component view-component-quote quote-style-1">
+        {% if not content.fields.title.empty %}
+            <header class="article-header">
+                <div class="container">
+                    {% if not content.fields.title.empty %}
+                        <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+                    {% endif %}
+                </div>
+            </header>
+        {% endif %}
+
+        {% set items = ngsite_group_fields(content, "item") %}
+        {% if items|length %}
+            {% if items|length > 1 %}
+                <div class="quote-swiper swiper-container"
+                    data-effect="slide"
+                    data-loop="true"
+                    data-autoplay="5000"
+                >
+                    <div class="swiper-wrapper">
+            {% endif %}
+            {% for item in items %}
+                {% if not item.title.empty or not item.description.empty %}
+                    <div class="swiper-slide">
+                        <div class="container container-narrow">
+                            {% if not item.title.empty or not item.description.empty %}
+                                <div class="quote-item">
+                                    <img class="quote-icon" src="{{ asset('/images/quote.svg') }}" alt="quote" title="quote" />
+                                    {% if item.title is defined and not item.title.empty %}
+                                        <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
+                                    {% endif %}
+                                    {% if item.description is defined and not item.description.empty %}
+                                        <div class="item-short">
+                                            {{ ng_render_field(item.description) }}
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="quote-person">
+                                        {% if not item.person_image.empty %}
+                                            <div class="quote-person-image">
+                                                {{ ng_render_field(
+                                                    item.person_image, {
+                                                        parameters: {
+                                                            alias: 'i160'
+                                                        }
+                                                    }
+                                                ) }}
+                                            </div>
+                                        {% endif %}
+                                        {% if not item.person_name.empty or not item.person_description.empty %}
+                                            <div class="quote-person-info">
+                                                {% if not item.person_name.empty %}
+                                                    <h4 class="quote-person-info-name">{{ item.person_name.value.text }}</h4>
+                                                {% endif %}
+                                                {% if not item.person_description.empty %}
+                                                    {{ ng_render_field(item.person_description) }}
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if items|length > 1 %}
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            {% endif %}
+        {% endif %}
+
+    </article>
+{% endblock %}

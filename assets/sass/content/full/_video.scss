@@ -5,12 +5,11 @@
     }
     .full-video-header {
         .title {
-            font-size: 2.375rem;
+            @include text-2_5;
             margin: 0 0 .25rem;
-            line-height: 1.4;
         }
         time {
-            font-size: .75rem;
+            @include text-0_75;
             font-weight: 900;
             margin: 0 0 .25rem;
             text-transform: uppercase;
@@ -18,6 +17,6 @@
         }
     }
     .body {
-        font-size: 1rem;
+        @include text-base;
     }
 }

@@ -1,6 +1,6 @@
 .section-title {
     .title {
-        font-size: 1.125rem;
+        @include text-1_25;
         text-transform: uppercase;
         letter-spacing: 2px;
         font-weight: 900;

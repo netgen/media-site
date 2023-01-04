@@ -1,0 +1,24 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import '@ibexadesign/parts/content_field_macros.html.twig' as content_fields %}
+
+<article class="view-type view-type-{{ view_type }} ng-job-position vl8">
+    <div class="article-content">
+        <header class="article-header">
+            <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+            <div class="info">
+                {% if not content.fields.job_location.empty %}
+                    {{ ng_render_field(content.fields.job_location) }}
+                {% endif %}
+                {% if not content.fields.engagement_type.empty %}
+                    {{ ng_render_field(content.fields.engagement_type) }}
+                {% endif %}
+            </div>
+        </header>
+
+        <div class="actions">
+            <a class="btn btn-link" href="{{ ibexa_path(location) }}">{{ 'ngsite.card.apply_now'|trans }}</a>
+        </div>
+    </div>
+</article>

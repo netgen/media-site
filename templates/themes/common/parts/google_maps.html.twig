@@ -1,0 +1,25 @@
+{% include '@ibexadesign/parts/google_maps_init.html.twig' %}
+
+{% set container_id = container_id|default(0) %}
+{% set latitude = latitude|default(ibexa.configResolver.parameter('google_maps.latitude', 'ngsite')) %}
+{% set longitude = longitude|default(ibexa.configResolver.parameter('google_maps.longitude', 'ngsite')) %}
+{% set zoom = zoom|default(ibexa.configResolver.parameter('google_maps.zoom', 'ngsite')) %}
+{% set map_type = map_type|default(ibexa.configResolver.parameter('google_maps.map_type', 'ngsite')) %}
+
+<script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', function(){
+        initializeGoogleMaps({
+            containerId: "{{ container_id|raw|escape('js') }}",
+            latitude: {{ latitude|raw|escape('js') }},
+            longitude: {{ longitude|raw|escape('js') }},
+            zoom: {{ zoom|raw|escape('js') }},
+            mapType: "{{ map_type|raw|escape('js') }}"
+        });
+    });
+</script>
+
+<div
+    id="map-canvas-{{ container_id|raw|escape( 'js' ) }}"
+    class="google-maps"
+    style="height:{{ map_height|default(560)|raw|escape('js') }}px; width:100%;">
+</div>

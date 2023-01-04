@@ -6,10 +6,8 @@ body {
     -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
     -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
     background: $footer-bg;
-    overflow-wrap: break-word;
-    hyphens: auto;
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         font-size: 1rem;
     }
 }
@@ -46,6 +44,7 @@ h6 {
     text-rendering: optimizeLegibility;
     font-feature-settings: 'kern' 1;
     font-kerning: normal;
+    margin: 0;
 }
 
 img {

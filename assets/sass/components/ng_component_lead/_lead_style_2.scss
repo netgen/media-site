@@ -1,0 +1,18 @@
+.lead-style-2 {
+    .eyebrow-title {
+        @include text-1_5;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    .title {
+        @include text-2_5;
+    }
+    .article-header {
+        & + .article-info {
+            margin-top: 2.5rem;
+        }
+    }
+    .short {
+        @include text-1_125;
+    }
+}

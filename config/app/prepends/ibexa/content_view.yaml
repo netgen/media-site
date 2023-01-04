@@ -23,11 +23,6 @@ system:
                                 sort: "@=location"
                     match:
                         Identifier\ContentType: ng_category
-                ng_feedback_form:
-                    template: "@ibexadesign/content/full/ng_feedback_form.html.twig"
-                    controller: netgen_information_collection.controller.collect_information
-                    match:
-                        Identifier\ContentType: ng_feedback_form
                 ng_landing_page:
                     template: "@ibexadesign/content/full/ng_landing_page.html.twig"
                     controller: ngsite.controller.check_redirect
@@ -40,9 +35,11 @@ system:
                             - ng_article
                             - ng_audio
                             - ng_blog_post
+                            - ng_feedback_form
                             - ng_frontpage
                             - ng_gallery
                             - ng_htmlbox
+                            - ng_job_position
                             - ng_news
                             - ng_recipe
                             - ng_topic
@@ -51,6 +48,23 @@ system:
                     redirect:
                         target: '@=namedLocation("homepage")'
                         permanent: "@=!parameter('kernel.debug')"
+                    match: ~
+            payload:
+                form_common:
+                    template: "@ibexadesign/content/payload/{content_type}.html.twig"
+                    controller: ngsite.controller.info_collection.proxy_form_handler
+                    match:
+                        Identifier\ContentType:
+                            - ng_contact_form
+                            - ng_feedback_form
+                            - ng_job_application_form
+                common:
+                    template: "@ibexadesign/content/payload/{content_type}.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_article
+                match_all:
+                    template: "@ibexadesign/content/payload.html.twig"
                     match: ~
             line:
                 common:
@@ -71,6 +85,39 @@ system:
                             - ng_video
                 match_all:
                     template: "@ibexadesign/content/line.html.twig"
+                    match: ~
+            link_embed:
+                form_common:
+                    template: "@ibexadesign/content/link_embed/form_common.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_contact_form
+                            - ng_feedback_form
+                            - ng_job_application_form
+                match_all:
+                    template: "@ibexadesign/content/link_embed.html.twig"
+                    match: ~
+            modal:
+                form_common:
+                    template: "@ibexadesign/content/modal/form_common.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_contact_form
+                            - ng_feedback_form
+                            - ng_job_application_form
+                match_all:
+                    template: "@ibexadesign/content/modal.html.twig"
+                    match: ~
+            modal_trigger:
+                form_common:
+                    template: "@ibexadesign/content/modal_trigger/form_common.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_contact_form
+                            - ng_feedback_form
+                            - ng_job_application_form
+                match_all:
+                    template: "@ibexadesign/content/modal_trigger.html.twig"
                     match: ~
             listitem:
                 common:
@@ -139,6 +186,50 @@ system:
                     template: "@ibexadesign/content/standard.html.twig"
                     params:
                         with_intro: true
+                    match: ~
+            card:
+                common:
+                    template: "@ibexadesign/content/card/{content_type}.html.twig"
+                    params:
+                        with_intro: false
+                    match:
+                        Identifier\ContentType:
+                            - ng_job_position
+                match_all:
+                    template: "@ibexadesign/content/card.html.twig"
+                    params:
+                        with_intro: false
+                    match: ~
+            card_with_intro:
+                common:
+                    extends: card/common
+                    params:
+                        with_intro: true
+                match_all:
+                    template: "@ibexadesign/content/card.html.twig"
+                    params:
+                        with_intro: true
+                    match: ~
+            zigzag:
+                common:
+                    template: "@ibexadesign/content/zigzag/{content_type}.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_article
+                            - ng_banner
+                            - ng_blog_post
+                            - ng_news
+                match_all:
+                    template: "@ibexadesign/content/zigzag.html.twig"
+                    match: ~
+            accordion:
+                common:
+                    template: "@ibexadesign/content/accordion/{content_type}.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_accordion_item
+                match_all:
+                    template: "@ibexadesign/content/accordion.html.twig"
                     match: ~
             mini:
                 common:

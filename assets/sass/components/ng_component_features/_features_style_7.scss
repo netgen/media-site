@@ -1,0 +1,31 @@
+.features-style-7 {
+    .article-header {
+        .title {
+            @include text-2_5;
+            & + .short,
+            & + .actions {
+                margin-top: 1.5rem;
+            }
+        }
+        .short {
+            & + .actions {
+                margin-top: 1.5rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+        }
+        & + .list-zigzag {
+            margin-top: 4rem;
+        }
+        .list-zigzag {
+            .title {
+                a {
+                    @extend %item-title-link;
+                }
+            }
+        }
+    }
+}
+

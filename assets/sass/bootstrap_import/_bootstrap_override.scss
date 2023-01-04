@@ -1,64 +1,129 @@
 /* btn overrides */
 .btn {
-    font-weight: 900;
     font-size: 1.125rem;
     border-width: 2px;
-    line-height: 1;
+    border-style: solid;
+    text-decoration: none;
 }
 
 .btn-primary {
-    background: $black;
-    color: $white;
-    border-color: $black;
+    background: $primary;
+    border-color: $primary;
+    color: $black;
     &:active,
     &.active,
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active,
     &:hover {
-        background-color: $primary;
+        background: $primary;
+        border-color: $primary;
+        color: $black;
+    }
+    .bg-color-primary & {
+        background: $black;
+        border-color: $black;
+        color: $white;
+    }
+}
+
+.btn-secondary {
+    background: $black;
+    border-color: $black;
+    color: $white;
+    &:active,
+    &.active,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    &:hover {
+        background: $primary;
+        border-color: $primary;
+        color: $black;
+    }
+    .bg-color-black &,
+    .bg-with-media & {
+        background: $primary;
         border-color: $primary;
         color: $black;
     }
 }
 
-.btn-secondary {
+.btn-default {
     background: transparent;
     border-color: $black;
-    color: $gray-87;
+    color: $black;
     &:active,
     &.active,
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active,
     &:hover {
-        background-color: $gray-54;
+        background: $gray-54;
         border-color: $gray-54;
+        color: $white;
+    }
+    .bg-color-black &,
+    .bg-with-media & {
+        border-color: $white;
+        color: $white;
+    }
+}
+
+.btn-link {
+    border: none;
+    border-bottom: 2px solid $black;
+    color: $black;
+    padding: 0;
+    font-weight: 700;
+    &:hover {
+        color: $gray-54;
+        text-decoration: none;
+    }
+    .bg-color-black & {
+        border-bottom-color: $primary;
         color: $white;
     }
 }
 
 .container {
     &-wide {
-        max-width: 1500px;
+        max-width: 1650px;
         padding-left: 2 * $gutter;
         padding-right: 2 * $gutter;
     }
     &-narrow {
-        max-width: 768px;
+        max-width: 845px;
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         &-narrow {
             max-width: 600px;
         }
     }
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         &-narrow {
             max-width: 460px;
         }
     }
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
         &-wide {
             padding-left: $gutter;
             padding-right: $gutter;
         }
     }
+}
+
+.form-group {
+    input::file-selector-button {
+        font-size: 1rem;
+        padding: 1px 12px;
+        border: 1px solid $black;
+        border-radius: 3px;
+        margin-right: 8px;
+        background-color: $primary;
+        color: $black;
+    }
+}
+
+// temporary here, fix this!
+.bg-with-media {
+    background-color: $black;
+    color: $white;
 }

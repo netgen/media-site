@@ -1,0 +1,69 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import "@ibexadesign/parts/macros.html.twig" as macros %}
+{% set image = content.fieldValue('image') %}
+{% set image_mobile = content.fieldValue('image_mobile') %}
+
+{% block content %}
+    <article class="view-component view-component-logos logos-style-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    {% if not content.fields.eyebrow_title.empty or not content.fields.title.empty %}
+                        <header class="article-header">
+                            {% if not content.fields.eyebrow_title.empty %}
+                                <h4 class="eyebrow-title">
+                                    {{ ng_render_field(content.fields.eyebrow_title) }}
+                                </h4>
+                            {% endif %}
+                            {% if not content.fields.title.empty %}
+                                <h2 class="title">
+                                    {{ ng_render_field(content.fields.title)}}
+                                </h2>
+                            {% endif %}
+                            {% if not content.fields.description.empty %}
+                                <div class="short">
+                                    {{ ng_render_field(content.fields.description)}}
+                                </div>
+                            {% endif %}
+                            <div class="actions">
+                                {% if not content.fields.link_1.empty %}
+                                    {{ ng_render_field(
+                                        content.fields.link_1, {
+                                            parameters: {
+                                                css_class: 'btn btn-primary'
+                                            }
+                                        }
+                                    ) }}
+                                {% endif %}
+                                {% if not content.fields.link_2.empty %}
+                                    {{ ng_render_field(
+                                        content.fields.link_2, {
+                                            parameters: {
+                                                css_class: 'btn btn-default'
+                                            }
+                                        }
+                                    ) }}
+                                {% endif %}
+                            </div>
+                        </header>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 offset-md-1">
+                    {% set logos = content.filterFieldRelations('logos', ['ng_logo'], 6, 1) %}
+
+                    <div class="logo-grid">
+                    {% for logo in logos %}
+                        <div class="logo-grid-item">
+                            {% if not logo.fields.logo_svg.empty %}
+                                <img src="{{ asset(logo.fields.logo_svg.value.id, 'ibexa_file') }}" alt="{{ logo.name }}" />
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

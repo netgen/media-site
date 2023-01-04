@@ -28,10 +28,10 @@ ibexa:
                     filters:
                         - { name: geometry/scalewidthdownonly, params: [770] }
                         - { name: strip }
-                i1200:
+                i1320:
                     reference: original
                     filters:
-                        - { name: geometry/scalewidthdownonly, params: [1200] }
+                        - { name: geometry/scalewidthdownonly, params: [1320] }
                         - { name: strip }
                 i1920:
                     reference: original
@@ -62,7 +62,7 @@ liip_imagine:
         i770:
             quality: 85
             jpeg_quality: 85
-        i1200:
+        i1320:
             quality: 75
             jpeg_quality: 75
         i1920:

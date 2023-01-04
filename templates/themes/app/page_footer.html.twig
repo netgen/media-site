@@ -30,10 +30,6 @@
                     <li><a href="{{ site_info.fields.instagram.value.link }}"><i class="fab fa-instagram"></i><span class="tt">Instagram</span></a></li>
                 {% endif %}
 
-                {% if not site_info.fields.gplus.empty %}
-                    <li><a href="{{ site_info.fields.gplus.value.link }}"><i class="fab fa-google-plus"></i><span class="tt">Google+</span></a></li>
-                {% endif %}
-
                 {% if not site_info.fields.linkedin.empty %}
                     <li><a href="{{ site_info.fields.linkedin.value.link }}"><i class="fab fa-linkedin"></i><span class="tt">LinkedIn</span></a></li>
                 {% endif %}
@@ -41,15 +37,15 @@
         </div>
 
         <div class="footer-info">
+            <a href="#" class="js-open-ng-cc d-block my-2">{{ 'ngsite.layout.cookie_settings'|trans }}</a>
             {% if not site_info.fields.footer_block.empty %}
                 <div>
                     {{ ng_render_field(site_info.fields.footer_block) }}
-                    <a href="#" class="js-open-ng-cc d-block mb-2">{{ 'ngsite.layout.cookie_settings'|trans }}</a>
                 </div>
             {% endif %}
 
             <address>
-                {{ 'ngsite.layout.powered_by'|trans }} <a href="https://netgen.io/ux-web-development">Netgen &amp; Ibexa Platform</a>
+                {{ 'ngsite.layout.powered_by'|trans }} <a href="https://netgen.io/ux-web-development">Netgen &amp; Ibexa OSS</a>
             </address>
         </div>
 

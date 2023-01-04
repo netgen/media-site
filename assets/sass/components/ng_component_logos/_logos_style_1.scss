@@ -1,0 +1,42 @@
+.logos-style-1 {
+    .article-header {
+        display: flex;
+        justify-content: space-between;
+        .eyebrow-title {
+            @include text-base;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .title {
+            @include text-2_5;
+            & + .short {
+                margin-top: 2.5rem;
+            }
+            .bg-color-black & {
+                color: $primary;
+            }
+        }
+        & + .logo-grid {
+            margin-top: 4rem;
+        }
+        .article-content {
+            width: 60%;
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-end;
+        }
+    }
+    
+    .logo-grid {
+        margin-top: 4rem;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        background-color: $white;
+        padding: 1.2rem;
+        .logo-grid-item {
+            padding: 0.75rem;
+        }
+    }
+}

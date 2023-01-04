@@ -2,6 +2,7 @@
     flex: 1;
     .navbar-nav {
         display: flex;
+        flex-direction: row;
         justify-content: center;
         list-style-type: none;
         margin: 0;
@@ -12,11 +13,8 @@
             > a,
             > span {
                 @extend %hover-underline;
+                @include text-link;
                 display: inline-block;
-                font-weight: 700;
-                font-size: .75rem;
-                text-transform: uppercase;
-                letter-spacing: 1px;
                 padding: 0 1.3333333333em;
             }
         }
@@ -70,10 +68,7 @@
             background: $primary;
             box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
             a {
-                font-size: .75rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 1px;
+                @include text-link;
                 &:hover {
                     background: hsla(0, 0, 0, .05);
                 }
@@ -85,7 +80,7 @@
         display: none;
     }
     /* small screen sizes */
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         display: none;
         position: absolute;
         left: $gutter;
@@ -136,7 +131,7 @@
             width: 1.875rem;
             height: 1.875rem;
             line-height: 1.875rem;
-            font-size: .875rem;
+            @include text-0_875;
             &::before {
                 display: block;
                 content: '\f078';
@@ -146,7 +141,7 @@
             padding: 0 0 1rem;
             a {
                 color: $gray-54;
-                font-size: .875rem;
+                @include text-0_875;
             }
         }
     }
@@ -158,8 +153,7 @@
 
 .mainnav-toggle {
     display: none;
-    position: absolute;
-    right: $gutter;
+    position: relative;
     width: $header-height-sm;
     height: $header-height-sm;
     .hamburger {
@@ -202,10 +196,7 @@
             }
         }
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         display: block;
-    }
-    @include media-breakpoint-down(xs) {
-        right: 0;
     }
 }

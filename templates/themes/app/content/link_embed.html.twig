@@ -1,0 +1,11 @@
+{{ ng_view_content(
+    content,
+    'payload',
+    {
+        params: {
+            label: label,
+            suffix: suffix,
+            refererLocationId: refererLocationId|default(null),
+        },
+    }
+) }}
