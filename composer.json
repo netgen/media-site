@@ -77,7 +77,7 @@
         "kaliop/ezmigrationbundle": "^6.3",
 
         "netgen/media-site-data": "~1.8.0",
-        "netgen/site-bundle": "~1.6.1",
+        "netgen/site-bundle": "~1.7.0",
         "netgen/site-generator-bundle": "~1.5.0",
         "netgen/site-legacy-bundle": "^1.4",
         "netgen/site-installer-bundle": "^1.3",
