@@ -12,3 +12,5 @@
 
 <script defer type="text/javascript" src="{{ asset('app.js', 'nglayouts_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'js') }}"></script>
 <script defer type="text/javascript" src="{{ asset('app.js', 'nglayouts_standard_' ~ (nglayouts.debug ? 'dev_' : '') ~ 'js') }}"></script>
+
+{{ nglayouts_template_plugin('preview.javascripts') }}

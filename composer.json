@@ -88,11 +88,11 @@
         "netgen/admin-ui-bundle": "^2.8",
         "primedigital/translations-bundle": "^1.0",
 
-        "netgen/layouts-standard": "~1.3.0",
-        "netgen/layouts-ezplatform": "~1.3.0",
-        "netgen/layouts-ezplatform-site-api": "~1.3.0",
-        "netgen/layouts-ezplatform-relation-list-query": "^1.3",
-        "netgen/layouts-ezplatform-tags-query": "^1.3",
+        "netgen/layouts-standard": "~1.4.0",
+        "netgen/layouts-ezplatform": "~1.4.0",
+        "netgen/layouts-ezplatform-site-api": "~1.4.0",
+        "netgen/layouts-ezplatform-relation-list-query": "^1.4",
+        "netgen/layouts-ezplatform-tags-query": "^1.4",
         "netgen/layouts-remote-media": "^1.1"
     },
     "require-dev": {
