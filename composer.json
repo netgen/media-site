@@ -98,7 +98,6 @@
         "symfony/web-profiler-bundle": "5.4.*",
 
         "deployer/recipes": "^6.2",
-        "franzl/studio": "*",
 
         "netgen/git-hooks": "^2.2",
         "phpstan/phpstan": "^1.8",
@@ -113,8 +112,7 @@
             "symfony/runtime": true,
             "ibexa/post-install": true,
             "netgen/git-hooks": true,
-            "phpstan/extension-installer": true,
-            "franzl/studio": true
+            "phpstan/extension-installer": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
