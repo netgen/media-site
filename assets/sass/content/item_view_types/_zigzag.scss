@@ -5,7 +5,7 @@
     align-items: center;
     margin-bottom: 8rem;
     .image {
-        flex: 0 0 41.666667%;
+        flex: 0 0 50%;
         @include media-breakpoint-down(sm) {
             flex: 0 0 100%;
             & + .article-content {
@@ -14,7 +14,7 @@
         }
     }
     .article-content {
-        flex: 0 0 50%;
+        flex: 0 0 41.666667%;
         @include media-breakpoint-down(md) {
             flex: 0 0 100%;
         }
