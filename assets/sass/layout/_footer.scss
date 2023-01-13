@@ -38,6 +38,7 @@
             display: flex;
             justify-content: center;
             a {
+                @include text_2;
                 padding: .5em;
                 margin: 0 .5em;
             }
@@ -50,7 +51,6 @@
     /* footer info */
     .footer-info {
         @include text-0_875;
-        color: $gray-54;
         p {
             margin: 0 0 .5714285714em;
         }
