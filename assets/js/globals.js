@@ -4,9 +4,9 @@
  */
 
 // Import
-import updateSelectedFileNames from './globals/update-selected-file-names';
+import formUpdateSelectedFileNames from './globals/form-update-selected-file-name';
 
 // Assignment
 window.ngsite = {
-  updateSelectedFileNames,
+  formUpdateSelectedFileNames,
 };

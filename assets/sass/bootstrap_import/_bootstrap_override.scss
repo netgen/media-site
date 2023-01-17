@@ -78,6 +78,17 @@
             color: $white;
         }
     }
+    &.btn-icon-right {
+        position: relative;
+        padding-right: 3rem;
+        text-align: left;
+        .icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
 }
 
 .container {
@@ -107,16 +118,9 @@
     }
 }
 
-.form-group {
-    input::file-selector-button {
-        font-size: 1rem;
-        padding: 1px 12px;
-        border: 1px solid $black;
-        border-radius: 3px;
-        margin-right: 8px;
-        background-color: $primary;
-        color: $black;
-    }
+.form-check-label {
+    font-size: .75rem;
+    cursor: pointer;
 }
 
 // temporary here, fix this!

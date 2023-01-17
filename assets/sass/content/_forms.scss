@@ -17,5 +17,46 @@
                 background-color: $white;
             }
         }
+        .sender-middle-name {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            overflow: hidden;
+            height: 1px;
+            width: 1px;
+            word-wrap: normal;
+            visibility: hidden;
+        }
+        .file-group-row {
+            display: flex;
+            margin: -.75rem;
+            .file-group {
+                margin: .75rem;
+                flex: 1 1 auto;
+            }
+            @include media-breakpoint-down(md) {
+                flex-wrap: wrap;
+            }
+        }
+        .file-group {
+            position: relative;
+            overflow: hidden;
+            .form-label {
+                display: none;
+            }
+            input[type=file] {
+                position: absolute;
+                opacity: 0;
+                z-index: 1;
+                inset: 0;
+            }
+            .custom-file-label {
+                position: relative;
+                cursor: pointer;
+                width: 100%;
+            }
+            .js-selected-file-names {
+                @include text-0_875;
+            }
+        }
     }
 }

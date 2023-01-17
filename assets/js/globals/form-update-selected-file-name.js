@@ -11,7 +11,7 @@ export default (event) => {
     return;
   }
 
-  const container = input.parentElement.querySelector('.js-selected-file-names');
+  const container = input.closest('.file-group').querySelector('.js-selected-file-names');
 
   if (container === null) {
     console.error('Could not find selected file names container from the given target:', input);
@@ -20,4 +20,5 @@ export default (event) => {
   }
 
   container.innerHTML = [...input.files].map((file) => file.name).join('<br/>');
+  container.classList.add('mt-2');
 }
