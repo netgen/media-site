@@ -56,8 +56,8 @@
             position: absolute;
             inset: 0;
             mix-blend-mode: multiply;
-            background: linear-gradient(90deg, rgba($gray-87, 0.9) 7.81%, rgba($gray-87, 0.4) 100%);
-            opacity: 0.8;
+            background: linear-gradient(90deg, rgba($gray-87, .9) 7.81%, rgba($gray-87, .4) 100%);
+            opacity: .8;
         }
     }
 }

@@ -59,7 +59,7 @@
                 border-color: transparent;
                 will-change: transform;
                 background-color: grayer;
-                transition: cubic-bezier(0.34, 3.00, 0.64, 1) transform .5s;
+                transition: cubic-bezier(0.34, 3.00, .64, 1) transform .5s;
                 &:hover {
                     transform: scale(1.11);
                     opacity: 1;
