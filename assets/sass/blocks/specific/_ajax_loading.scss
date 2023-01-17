@@ -42,12 +42,7 @@ div[class^='ajax-status-reports-'] {
 
 .ajax-navigation {
     .ajax-load-more {
-        @include text-base;
-        font-weight: 900;
-        display: inline-block;
-        background: $primary;
-        color: $gray-87;
-        padding: .3125em 1em;
-        border: 0;
+        @extend .btn;
+        @extend .btn-primary;
     }
 }
