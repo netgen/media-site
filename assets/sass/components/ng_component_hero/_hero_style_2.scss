@@ -34,7 +34,7 @@
         height: 0;
         border-radius: 1.5rem 1.5rem 0 0;
         overflow: hidden;
-        box-shadow: 0px -80px 96px -56px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px -80px 96px -56px rgba($black, 0.3);
         .bg-color-primary & {
             box-shadow: 0px -80px 96px -56px #C19D01;
         }

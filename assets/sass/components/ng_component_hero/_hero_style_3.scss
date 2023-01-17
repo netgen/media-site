@@ -3,6 +3,9 @@
         display: flex;
         align-items: center;
         flex-direction: row-reverse;
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+        }
     }
     .image {
         overflow: hidden;
@@ -11,10 +14,18 @@
         height: 0;
         padding-bottom: 50%;
         width: 50%;
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
         border-radius: 1rem;
         & + .article-header {
             padding-right: 8.5rem;
             width: 50%;
+            @include media-breakpoint-down(md) {
+                padding-top: 3rem;
+                padding-right: 0;
+                width: 100%;
+            }
         }
         source, img {
             object-fit: cover;
