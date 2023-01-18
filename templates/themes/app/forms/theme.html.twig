@@ -174,3 +174,7 @@
         {{- form_errors(form) -}}
     </div>
 {%- endblock checkbox_row -%}
+
+{% block honeypot_row %}
+    {{ form_row(form.value) }}
+{% endblock %}
