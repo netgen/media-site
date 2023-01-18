@@ -31,7 +31,7 @@
             margin: -.75rem;
             .file-group {
                 margin: .75rem;
-                flex: 1 1 auto;
+                flex: 1 1 0;
             }
             @include media-breakpoint-down(md) {
                 flex-wrap: wrap;
@@ -56,6 +56,9 @@
             }
             .js-selected-file-names {
                 @include text-0_875;
+                text-overflow: ellipsis ' [..]';
+                overflow: hidden;
+                white-space: nowrap;
             }
         }
     }
