@@ -1,17 +1,23 @@
 .features-style-2 {
     .article-header {
-        display: flex;
-        justify-content: space-between;
         .title {
             @include text-4;
         }
         .article-content {
-            width: 60%;
+            width: calc((100% / 3) * 2);
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+            + * {
+                margin-top: 2.5rem;
+            }
         }
         .actions {
             display: flex;
             gap: 2rem;
-            align-items: flex-end;
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+            }
         }
         & + .features-grid {
             margin-top: 4rem;

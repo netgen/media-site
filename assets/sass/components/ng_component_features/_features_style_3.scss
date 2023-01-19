@@ -1,17 +1,23 @@
 .features-style-3 {
     .article-header {
-        display: flex;
-        justify-content: space-between;
         .title {
             @include text-3;
         }
         .article-content {
-            width: 60%;
+            width: calc((100% / 3) * 2);
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+            + * {
+                margin-top: 2.5rem;
+            }
         }
         .actions {
             display: flex;
             gap: 2rem;
-            align-items: flex-end;
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+            }
         }
         .bg-color-black & {
             .title {
@@ -35,6 +41,13 @@
                 padding-bottom: 56.25%;
                 position: relative;
                 height: 0;
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
             }
             .item-content {
                 padding: 2rem;

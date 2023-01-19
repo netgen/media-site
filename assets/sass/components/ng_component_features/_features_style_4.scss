@@ -1,7 +1,6 @@
 .features-style-4 {
     .article-header {
-        text-align: center;
-        .title {
+        /* .title {
             @include text-2_5;
             & + .short,
             & + .actions {
@@ -17,6 +16,32 @@
             display: flex;
             gap: 2rem;
             justify-content: center;
+        }
+        & + .features-grid {
+            margin-top: 4rem;
+        } */
+
+        .title {
+            @include text-2_5;
+            & + .short {
+                margin-top: 1.5rem;
+            }
+        }
+        .article-content {
+            width: calc((100% / 3) * 2);
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+            + * {
+                margin-top: 2.5rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+            }
         }
         & + .features-grid {
             margin-top: 4rem;
