@@ -147,7 +147,7 @@
         {{ block('form_widget_simple') }}
     </label>
     {%- set js_div_class = js_class|default('js-selected-file-names') -%}
-    <div class={{ js_div_class }}></div>
+    <div class={{ js_div_class }}><i class="fa fa-trash" aria-hidden="true"></i></div>
     {% do form.parent.children.remove.setRendered() %}
 {% endblock %}
 
