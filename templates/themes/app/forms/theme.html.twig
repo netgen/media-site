@@ -176,5 +176,5 @@
 {%- endblock checkbox_row -%}
 
 {% block honeypot_row %}
-    {{ form_row(form.value) }}
+    {{ form_row(form.value, {attr: {tabindex: -1}}) }}
 {% endblock %}
