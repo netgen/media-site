@@ -747,13 +747,13 @@ $headings-font-weight:        900 !default;
 $btn-padding-y:                 .875rem;
 $btn-padding-x:                 1.875rem;
 //$btn-font-family:             $input-btn-font-family !default;
-//$btn-font-size:               $input-btn-font-size !default;
+$btn-font-size:                 1.125rem;
 $btn-line-height:               1.4;
 //$btn-white-space:             null !default; // Set to `nowrap` to prevent text wrapping
 //
-//$btn-padding-y-sm:            $input-btn-padding-y-sm !default;
-//$btn-padding-x-sm:            $input-btn-padding-x-sm !default;
-//$btn-font-size-sm:            $input-btn-font-size-sm !default;
+$btn-padding-y-sm:              .75rem;
+$btn-padding-x-sm:              1.5rem;
+$btn-font-size-sm:              1rem;
 //
 //$btn-padding-y-lg:            $input-btn-padding-y-lg !default;
 //$btn-padding-x-lg:            $input-btn-padding-x-lg !default;
@@ -773,8 +773,8 @@ $btn-font-weight:               $font-weight-bold;
 //$btn-link-disabled-color:     $gray-600 !default;
 //
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius:             0 !default;
-//$btn-border-radius-sm:        $border-radius-sm !default;
+$btn-border-radius:             0;
+$btn-border-radius-sm:          0;
 //$btn-border-radius-lg:        $border-radius-lg !default;
 //
 //$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
@@ -875,7 +875,7 @@ $input-border-radius:                     none;
 //
 //$form-check-input-bg:                     $input-bg !default;
 //$form-check-input-border:                 1px solid rgba($black, .25) !default;
-//$form-check-input-border-radius:          .25em !default;
+$form-check-input-border-radius:            0;
 //$form-check-radio-border-radius:          50% !default;
 //$form-check-input-focus-border:           $input-focus-border-color !default;
 //$form-check-input-focus-box-shadow:       $input-btn-focus-box-shadow !default;
