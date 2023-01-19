@@ -7,7 +7,7 @@
     <div class="view-type view-type-{{ view_type }} ng-news vl3">
         {% set title = content_fields.title(content) %}
 
-        <a href="{{ asset(ng_image_alias(content.fields.image, 'i1320').uri) }}" title="{{ title }}" class="js-mfp-item">
+        <a href="{{ asset(ng_image_alias(content.fields.image, 'i1320').uri) }}" title="{{ title }}" class="js-lightbox-item" data-pswp-width="{{ content.fields.image.value.width }}" data-pswp-height="{{ content.fields.image.value.height }}">
             {{ ng_render_field(
                 content.fields.image, {
                     parameters: {

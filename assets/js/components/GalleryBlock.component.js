@@ -1,3 +1,5 @@
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
 export default class GalleryBlock {
     constructor(element, options) {
         this.el = element;
@@ -10,22 +12,14 @@ export default class GalleryBlock {
     }
 
     onInit() {
-        this.layoutAsFlexElements.forEach(el => {
-            const hasChildren = el.querySelectorAll('*');
-            if(!hasChildren) el.remove();
-        });
-
-        this.lightboxEnabledElements.forEach(el => {
-            el.magnificPopup({
-                delegate: this.options.popupToggle, // child items selector, by clicking on it popup will open
-                type: 'image',
-                zoom: {
-                    enabled: true,
-                },
-                gallery: {
-                    enabled: true,
-                },
+        this.lightboxEnabledElements.forEach((element) => {
+            const lightbox = new PhotoSwipeLightbox({
+                gallery: element,
+                children: '.js-lightbox-item',
+                pswpModule: () => import('photoswipe'),
             });
+
+            lightbox.init();
         });
     }
 }

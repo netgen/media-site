@@ -71,8 +71,7 @@
         "@netgen/javascript-cookie-control": "^0.0.8",
         "@popperjs/core": "^2.11.6",
         "bootstrap": "^5.2.1",
-        "jquery": "^3.4.0",
-        "magnific-popup": "^1.1.0",
+        "photoswipe": "^5.3.4",
         "popper.js": "^1.15.0",
         "swiper": "^4.5.0"
     },
