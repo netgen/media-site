@@ -4,6 +4,7 @@
 import AjaxCollection from './components/AjaxCollection.component';
 import CookieControlClass from './components/CookieControl.component';
 import FormEmbed from "./components/FormEmbed.component";
+import VideoModal from "./components/VideoModal.component"
 import FormModal from "./components/FormModal.component";
 import GalleryBlock from './components/GalleryBlock.component';
 import GoogleMap from './components/GoogleMap.component';
@@ -36,6 +37,10 @@ const componentConfiguration = [
       rotateArrowClass: "rotate-arrow",
       shownClass: 'shown',
     },
+  },
+  {
+    Component: VideoModal,
+    selector: '.js-modal-video-trigger',
   },
   {
     Component: FormModal,

@@ -105,6 +105,11 @@ system:
                             - ng_contact_form
                             - ng_feedback_form
                             - ng_job_application_form
+                video:
+                    template: "@ibexadesign/content/modal/video.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_video
                 match_all:
                     template: "@ibexadesign/content/modal.html.twig"
                     match: ~
@@ -116,6 +121,11 @@ system:
                             - ng_contact_form
                             - ng_feedback_form
                             - ng_job_application_form
+                video:
+                    template: "@ibexadesign/content/modal_trigger/video.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_video
                 match_all:
                     template: "@ibexadesign/content/modal_trigger.html.twig"
                     match: ~
