@@ -32,9 +32,12 @@
     .logo-grid {
         margin-top: 4rem;
         display: grid;
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
         background-color: $white;
         padding: 1.2rem;
+        @include media-breakpoint-down(lg) {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
         .logo-grid-item {
             padding: .75rem;
         }
