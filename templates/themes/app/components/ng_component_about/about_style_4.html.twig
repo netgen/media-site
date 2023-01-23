@@ -45,14 +45,14 @@
                     </div>
                 {% endif %}
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-5 mt-md-0">
                 {% if not content.fields.description_2.empty %}
                     <div class="short">
                         {{ ng_render_field(content.fields.description_2) }}
                     </div>
                 {% endif %}
             </div>
-            <div class="col-md-6">
+            <div class="col mt-5">
                 <div class="actions">
                     {% if not content.fields.link_1.empty %}
                         {{ ng_render_field(

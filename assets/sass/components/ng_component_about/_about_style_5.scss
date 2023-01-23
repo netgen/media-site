@@ -1,0 +1,9 @@
+.about-style-5 {
+    .title {
+        @include text-2_5;
+    }
+
+    .short {
+        @include text-1_125;
+    }
+}

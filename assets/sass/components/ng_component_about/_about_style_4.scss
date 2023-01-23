@@ -42,8 +42,10 @@
     }
 
     .actions {
-        margin-top: 3rem;
         display: flex;
         gap: 2rem;
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
     }
 }

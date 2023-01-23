@@ -1,0 +1,26 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% import "@ibexadesign/parts/macros.html.twig" as macros %}
+{% set image = content.fieldValue('image') %}
+{% set image_mobile = content.fieldValue('image_mobile') %}
+
+
+{% block content %}
+<article class="view-component view-component-about about-style-5">
+    <header class="article-header">
+        <div class="row justify-content-center">
+            {% if not content.fields.title.empty %}
+                <h2 class="title{% if not content.fields.description.empty %} col-lg-6{% endif %}">
+                    {{ ng_render_field(content.fields.title)}}
+                </h2>
+            {% endif %}
+            {% if not content.fields.description.empty %}
+                <div class="short{% if not content.fields.title.empty %} col-lg-6{% endif %}">
+                    {{ ng_render_field(content.fields.description) }}
+                </div>
+            {% endif %}
+        </div>
+    </header>
+</article>
+{% endblock %}
