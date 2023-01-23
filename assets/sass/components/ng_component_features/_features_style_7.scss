@@ -23,6 +23,9 @@
             gap: 2rem;
             @include media-breakpoint-down(sm) {
                 flex-direction: column;
+                .btn {
+                    width: 100%;
+                }
             }
         }
         & + .list-zigzag {
