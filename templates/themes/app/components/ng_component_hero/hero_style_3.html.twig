@@ -8,62 +8,67 @@
 {% block content %}
     <article class="view-component view-component-hero hero-style-3">
         <div class="container">
-            {% if image is not empty %}
-                <picture class="image">
-                    {% if image_mobile is not empty %}
-                        <source media="(max-width: 991px)" srcset="{{ ng_image_alias( content.fields.image_mobile, 'i770' ).uri }}">
-                    {% endif %}
-                    <source media="(min-width: 992px)" srcset="{{ ng_image_alias( content.fields.image, 'i1920' ).uri }}">
-                    {{ ng_render_field(content.fields.image,  {
-                        'parameters': {
-                            'lazy_loading': false,
-                            'alt_text': content.name,
-                            'alias': 'i1920'
-                        }
-                    }) }}
-                </picture>
-            {% endif %}
-
-            <header class="article-header">
-                {% if not content.fields.eyebrow_title.empty %}
-                    <h4 class="eyebrow-title">
-                        {{ ng_render_field(content.fields.eyebrow_title) }}
-                    </h4>
-                {% endif %}
-
-                {% if not content.fields.title.empty %}
-                    <h1 class="title">
-                        {{ ng_render_field(content.fields.title)}}
-                    </h1>
-                {% endif %}
-
-                {% if not content.fields.description.empty %}
-                    <div class="short">
-                        {{ ng_render_field(content.fields.description) }}
+            <div class="row align-items-center">
+                {% if image is not empty %}
+                    <div class="col-md-6 order-md-2">
+                        <picture class="image ratio ratio-1x1">
+                            {% if image_mobile is not empty %}
+                                <source media="(max-width: 991px)" srcset="{{ ng_image_alias( content.fields.image_mobile, 'i770' ).uri }}">
+                            {% endif %}
+                            <source media="(min-width: 992px)" srcset="{{ ng_image_alias( content.fields.image, 'i1920' ).uri }}">
+                            {{ ng_render_field(content.fields.image,  {
+                                'parameters': {
+                                    'lazy_loading': false,
+                                    'alt_text': content.name,
+                                    'alias': 'i1920'
+                                }
+                            }) }}
+                        </picture>
                     </div>
                 {% endif %}
+                <div class="col-md-6 order-md-1">
+                    <header class="article-header">
+                        {% if not content.fields.eyebrow_title.empty %}
+                            <h4 class="eyebrow-title">
+                                {{ ng_render_field(content.fields.eyebrow_title) }}
+                            </h4>
+                        {% endif %}
 
-                <div class="actions">
-                    {% if not content.fields.link_1.empty %}
-                        {{ ng_render_field(
-                            content.fields.link_1, {
-                                parameters: {
-                                    css_class: 'btn btn-primary'
-                                }
-                            }
-                        ) }}
-                    {% endif %}
-                    {% if not content.fields.link_2.empty %}
-                        {{ ng_render_field(
-                            content.fields.link_2, {
-                                parameters: {
-                                    css_class: 'btn btn-default'
-                                }
-                            }
-                        ) }}
-                    {% endif %}
+                        {% if not content.fields.title.empty %}
+                            <h1 class="title">
+                                {{ ng_render_field(content.fields.title)}}
+                            </h1>
+                        {% endif %}
+
+                        {% if not content.fields.description.empty %}
+                            <div class="short">
+                                {{ ng_render_field(content.fields.description) }}
+                            </div>
+                        {% endif %}
+
+                        <div class="actions">
+                            {% if not content.fields.link_1.empty %}
+                                {{ ng_render_field(
+                                    content.fields.link_1, {
+                                        parameters: {
+                                            css_class: 'btn btn-primary'
+                                        }
+                                    }
+                                ) }}
+                            {% endif %}
+                            {% if not content.fields.link_2.empty %}
+                                {{ ng_render_field(
+                                    content.fields.link_2, {
+                                        parameters: {
+                                            css_class: 'btn btn-default'
+                                        }
+                                    }
+                                ) }}
+                            {% endif %}
+                        </div>
+                    </header>
                 </div>
-            </header>
+            </div>
         </div>
     </article>
 {% endblock %}

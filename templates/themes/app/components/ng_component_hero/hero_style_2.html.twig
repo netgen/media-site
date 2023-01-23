@@ -8,9 +8,9 @@
 {% block content %}
     <article class="view-component view-component-hero hero-style-2">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <header class="article-header">
+            <header class="article-header">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
                         {% if not content.fields.eyebrow_title.empty %}
                             <h4 class="eyebrow-title">
                                 {{ ng_render_field(content.fields.eyebrow_title) }}
@@ -49,9 +49,9 @@
                                 ) }}
                             {% endif %}
                         </div>
-                    </header>
+                    </div>
                 </div>
-            </div>
+            </header>
 
             {% if image is not empty %}
                 <figure>

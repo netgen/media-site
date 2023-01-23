@@ -11,13 +11,18 @@
         z-index: 1;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
         padding: 4rem 0;
         @include media-breakpoint-down(sm) {
             text-align: center;
         }
         .title {
             @include text-4;
+            & + .short {
+                margin-top: 2.5rem;
+            }
+            & + .actions {
+                margin-top: 4rem;
+            }
         }
         .eyebrow-title {
             @include text-2;
@@ -25,14 +30,15 @@
         }
         .short {
             @include text-1_125;
+            & + .actions {
+                margin-top: 4rem;
+            }
         }
         .actions {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             @include media-breakpoint-down(sm) {
                 flex-direction: column;
-                align-items: center;
-                gap: 1rem;
             }
         }
     }
