@@ -29,9 +29,6 @@
             justify-content: center;
             @include media-breakpoint-down(sm) {
                 flex-direction: column;
-                .btn {
-                    width: 100%;
-                }
             }
         }
         & + .features-grid {
