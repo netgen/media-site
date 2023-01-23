@@ -6,13 +6,15 @@
         @include media-breakpoint-down(md) {
             width: 100%;
         }
+        .text {
+            & + .actions {
+                margin-top: 2.5rem;
+            }
+        }
         .title {
             @include text-2_5;
             & + .short {
                 margin-top: 1.5rem;
-            }
-            & + .actions {
-                margin-top: 2.5rem;
             }
         }
         .short {

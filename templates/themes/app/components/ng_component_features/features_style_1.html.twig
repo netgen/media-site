@@ -8,12 +8,14 @@
 {% block content %}
     <article class="view-component view-component-features features-style-1">
         <header class="article-header">
-            <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
-            {% if not content.fields.description.empty %}
-                <div class="short">
-                    {{ ng_render_field(content.fields.description) }}
-                </div>
-            {% endif %}
+            <div class="text">
+                <h2 class="title">{{ ng_render_field(content.fields.title) }}</h2>
+                {% if not content.fields.description.empty %}
+                    <div class="short">
+                        {{ ng_render_field(content.fields.description) }}
+                    </div>
+                {% endif %}
+            </div>
             <div class="actions">
                 {% if not content.fields.link_1.empty %}
                     {{ ng_render_field(

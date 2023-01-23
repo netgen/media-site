@@ -1,9 +1,6 @@
 .features-style-3 {
     .article-header {
-        .title {
-            @include text-3;
-        }
-        .article-content {
+        .text {
             width: calc((100% / 3) * 2);
             @include media-breakpoint-down(md) {
                 width: 100%;
@@ -11,6 +8,12 @@
             + * {
                 margin-top: 2.5rem;
             }
+        }
+        .title {
+            @include text-3;
+        }
+        .short {
+            @include text-1_125;
         }
         .actions {
             display: flex;

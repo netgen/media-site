@@ -1,24 +1,33 @@
 .features-style-5 {
     .article-header {
         text-align: center;
+        width: calc((100% / 3) * 2);
+        margin: 0 auto;
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+        .text {
+            & + .actions {
+                margin-top: 2.5rem;
+            }
+        }
         .title {
             @include text-4_5;
-            & + .short,
-            & + .actions {
+            & + .short {
                 margin-top: 1.5rem;
             }
         }
         .short {
-            & + .actions {
-                margin-top: 1.5rem;
-            }
+            @include text-1_125;
         }
         .actions {
             display: flex;
             gap: 2rem;
             justify-content: center;
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+            }
         }
-
         & + .features-grid {
             margin-top: 4rem;
         }

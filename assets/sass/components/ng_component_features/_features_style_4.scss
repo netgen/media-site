@@ -1,33 +1,6 @@
 .features-style-4 {
     .article-header {
-        /* .title {
-            @include text-2_5;
-            & + .short,
-            & + .actions {
-                margin-top: 1.5rem;
-            }
-        }
-        .short {
-            & + .actions {
-                margin-top: 1.5rem;
-            }
-        }
-        .actions {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-        }
-        & + .features-grid {
-            margin-top: 4rem;
-        } */
-
-        .title {
-            @include text-2_5;
-            & + .short {
-                margin-top: 1.5rem;
-            }
-        }
-        .article-content {
+        .text {
             width: calc((100% / 3) * 2);
             @include media-breakpoint-down(md) {
                 width: 100%;
@@ -35,6 +8,15 @@
             + * {
                 margin-top: 2.5rem;
             }
+        }
+        .title {
+            @include text-2_5;
+            & + .short {
+                margin-top: 1.5rem;
+            }
+        }
+        .short {
+            @include text-1_125;
         }
         .actions {
             display: flex;
