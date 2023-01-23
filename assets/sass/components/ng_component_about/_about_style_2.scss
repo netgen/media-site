@@ -1,6 +1,4 @@
 .about-style-2 {
-    display: flex;
-    align-items: center;
 
     .eyebrow-title {
         @include text-1_5;
@@ -34,12 +32,9 @@
         position: relative;
         height: 0;
         padding-bottom: 50%;
-        width: 50%;
         border-radius: 1rem;
-
-        & + .article-header {
-            padding-left: 8.5rem;
-            width: 50%;
+        @include media-breakpoint-down(lg) {
+            padding-bottom: 100%;
         }
 
         source, img {
@@ -49,11 +44,17 @@
             position: absolute;
             width: 100%;
             height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 
     .actions {
         display: flex;
         gap: 2rem;
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
     }
 }

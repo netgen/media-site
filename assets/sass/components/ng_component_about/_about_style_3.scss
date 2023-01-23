@@ -1,15 +1,4 @@
 .about-style-3 {
-    display: flex;
-
-    .article-header {
-        flex: 0 0 50%;
-
-        & + .article-info {
-            padding-left: 8.5rem;
-            flex: 0 0 50%;
-        }
-    }
-
     .eyebrow-title {
         @include text-1_5;
         margin-bottom: 1rem;
@@ -19,27 +8,35 @@
         @include text-3;
     }
 
-    .short {
-        @include text-1_125;
-        & + .actions {
-            margin-top: 3rem;
-        }
-    }
-
+    
     .image {
         overflow: hidden;
         display: block;
         position: relative;
         width: 100%;
         width: 13rem;
-
+        
         & + * {
             margin-top: 2rem;
         }
     }
-
-    .actions {
+    .article-info {
         display: flex;
-        gap: 2rem;
+        flex-direction: column;
+        .short {
+            @include text-1_125;
+            margin-bottom: auto;
+            & + .actions {
+                margin-top: 2.5rem;
+            }
+        }
+        .actions {
+            display: flex;
+            gap: 2rem;
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+            }
+        }
     }
+
 }
