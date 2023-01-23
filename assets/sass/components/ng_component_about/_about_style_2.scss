@@ -31,11 +31,8 @@
         display: block;
         position: relative;
         height: 0;
-        padding-bottom: 50%;
+        padding-bottom: 100%;
         border-radius: 1rem;
-        @include media-breakpoint-down(lg) {
-            padding-bottom: 100%;
-        }
 
         source, img {
             object-fit: cover;
