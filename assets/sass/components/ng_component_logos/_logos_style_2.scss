@@ -1,27 +1,43 @@
 .logos-style-2 {
+    .container {
+        display: flex;
+        gap: 2rem;
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+    }
     .article-header {
+        .text {
+            + * {
+                margin-top: 2.5rem;
+            }
+        }
         .eyebrow-title {
             @include text-base;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            + * {
+                margin-top: .5rem;
+            }
         }
         .title {
             @include text-2_5;
             & + .short {
-                margin-top: 2.5rem;
+                margin-top: 1.5rem;
             }
-            & + .actions {
-                margin-top: 4rem;
+            .bg-color-black & {
+                color: $primary;
             }
         }
         .short {
-            & + .actions {
-                margin-top: 4rem;
-            }
+            @include text-1_125;
         }
         .actions {
             display: flex;
             gap: 2rem;
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+            }
         }
     }
     .logo-grid {
