@@ -1,6 +1,7 @@
 .hero-style-3 {
     .image {
         position: relative;
+        display: block;
         @include media-breakpoint-down(md) {
             width: 100%;
         }
