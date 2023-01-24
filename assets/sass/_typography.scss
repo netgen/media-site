@@ -53,11 +53,6 @@ img {
     transition: opacity .3s;
 }
 
-img[data-src] {
-    opacity: 0;
-    width: 100%;
-}
-
 figure {
     margin: 0;
 }
