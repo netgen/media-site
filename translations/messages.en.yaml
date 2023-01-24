@@ -10,7 +10,6 @@ ngsite.layout.cookie_settings.accepted: "Accepted"
 ngsite.layout.cookie_settings.not_accepted: "Not accepted"
 ngsite.layout.sponsored: 'Sponsored'
 
-ngsite.search.title: 'Search'
 ngsite.search.placeholder: 'Search'
 ngsite.search.button: 'Search'
 
@@ -24,7 +23,6 @@ ngsite.search.no_results.less_specific_keywords: 'Try searching with less specif
 ngsite.search.no_results.reduce_keywords: 'Reduce number of keywords to get more results.'
 
 ngsite.collected_info.success_text: 'Thank you for your feedback.'
-ngsite.collected_info.return_to_site: 'Return to site'
 ngsite.collected_info.button.send: 'Send form'
 ngsite.collected_info.information_collected: 'The following information was collected'
 
