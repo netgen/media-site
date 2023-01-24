@@ -1,12 +1,11 @@
 export default class LoginFormFragment {
-    constructor(form, options) {
-        this.form = form;
-        this.options = options;
+  constructor(form) {
+    this.form = form;
 
-        this.init();
-    }
+    this.init();
+  }
 
-    init() {
-        this.form.setAttribute('action', this.form.getAttribute('action') + window.location.hash);
-    }
+  init() {
+    this.form.action += window.location.hash;
+  }
 }
