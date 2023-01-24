@@ -3,6 +3,11 @@
     border-width: 2px;
     border-style: solid;
     text-decoration: none;
+    @include media-breakpoint-down(sm) {
+        &:not(&.btn-link) {
+            width: 100%;
+        }
+    }
     &.btn-primary {
         background: $primary;
         border-color: $primary;
