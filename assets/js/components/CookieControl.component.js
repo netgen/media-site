@@ -1,49 +1,43 @@
-import CookieControl from '@netgen/javascript-cookie-control';
+import NetgenCookieControl from '@netgen/javascript-cookie-control';
+import GTM from '../utilities/gtm';
 
-export default class CookieControlClass {
-    constructor(element, options) {
-        this.el = element
-        this.options = options;
+export default class CookieControl {
+  constructor(element, options) {
+    this.options = options;
 
-        this.optionalSaveBtn = element.querySelector(options.optionalSaveBtn);
-        this.optionalList = element.querySelector(options.optionalList);
-        this.optionalListToggle = element.querySelector(options.optionalListToggle);
+    this.optionalSaveBtn = element.querySelector(options.optionalSaveBtn);
+    this.optionalList = element.querySelector(options.optionalList);
+    this.optionalListToggle = element.querySelector(options.optionalListToggle);
 
-        this.onInit();
-    }
+    this.init();
+  }
 
-    onInit() {
-        const self = this;
-        const cookieControl = new CookieControl(window.__ngCcConfig); // eslint-disable-line no-underscore-dangle
-        cookieControl.init();
+  init() {
+    this.initNetgenCookieControl();
+    this.optionalListToggle.addEventListener('click', this.handleOptionalListToggle.bind(this));
+    this.optionalSaveBtn.addEventListener('click', this.handleConsentChange);
+  }
 
-        /* cookie control optional list toggle */
-        this.optionalListToggle.addEventListener('click', (e) => {
-          e.preventDefault();
+  initNetgenCookieControl() {
+    // eslint-disable-next-line no-underscore-dangle
+    const cookieControl = new NetgenCookieControl(window.__ngCcConfig);
+    cookieControl.init();
+  }
 
-          this.optionalListToggle.classList.toggle(this.options.rotateArrowClass);
-          this.optionalList.classList.toggle(this.options.shownClass);
-          const isVisible = [...this.optionalList.classList].includes(this.options.shownClass)
-          
-          this.optionalList.style.maxHeight = isVisible ? `100vh` : '0px';
-          
-          this.optionalListToggle.classList.toggle(this.options.shownClass);
-        })
-        /* /cookie control optional list toggle */
+  handleOptionalListToggle(event) {
+    event.preventDefault();
 
-        /* cookie consent changed */
-        this.optionalSaveBtn.addEventListener('click', (e) => {
-          e.preventDefault();
+    this.optionalList.classList.toggle(this.options.shownClass);
+    const isVisible = this.optionalList.classList.contains(this.options.shownClass);
+    this.optionalList.style.maxHeight = isVisible ? `100vh` : '0px';
+    
+    this.optionalListToggle.classList.toggle(this.options.rotateArrowClass);
+    this.optionalListToggle.classList.toggle(this.options.shownClass);
+  }
 
-          if(!dataLayer) {
-            console.warn('Data layer is not defined!');
-            return;
-          }
+  handleConsentChange(event) {
+    event.preventDefault();
 
-          dataLayer.push({
-            event: 'ngcc-changed',
-          });
-        })
-        /* /cookie consent changed */
-    }
+    GTM.push('ngcc', GTM.EVENTS.CHANGED);
+  }
 }
