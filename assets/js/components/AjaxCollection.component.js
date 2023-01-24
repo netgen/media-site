@@ -20,6 +20,7 @@ export default class AjaxCollection {
     const posters = this.element.querySelectorAll(this.options.posters);
 
     posters.forEach((poster) => {
+      // eslint-disable-next-line no-new
       new VideoPoster(poster, {
         vimeoClass: this.options.vimeoClass,
         dailymotionClass: this.options.dailymotionClass,
