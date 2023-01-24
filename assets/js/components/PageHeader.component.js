@@ -1,0 +1,162 @@
+/* global page */
+
+export default class PageHeader {
+  constructor(_, options) {
+    this.options = options;
+
+    this.pageWrapper = document.querySelector(options.pageWrapper);
+    this.navToggle = document.querySelector(options.navToggle);
+    this.searchToggle = document.querySelector(options.searchToggle);
+    this.headerSearch = document.querySelector(options.headerSearch);
+    this.searchInput = this.headerSearch.querySelector(options.searchInput);
+    this.mainNav = document.querySelector(options.mainNav);
+    this.level1Menus = [];
+    this.submenuTriggerElements = [];
+
+    this.init();
+  }
+
+  init() {
+    this.setActiveStateOnMenuItems();
+    this.navToggleSetup();
+    this.searchToggleSetup();
+    this.headerSearchSetup();
+    this.addSubmenuTriggers();
+  }
+
+  navToggleSetup() {
+    if (this.navToggle === null) {
+      return;
+    }
+
+    this.navToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      this.changePageClasses({
+        toggle: this.options.navActiveClass,
+      });
+    });
+  }
+
+  searchToggleSetup() {
+    if (this.searchToggle === null) {
+      return;
+    }
+
+    this.searchToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      this.changePageClasses({
+        toggle: this.options.searchboxActiveClass,
+        remove: this.options.navActiveClass,
+      });
+      this.searchInput.focus();
+    });
+  }
+
+  headerSearchSetup() {
+    if (this.headerSearch === null) {
+      return;
+    }
+
+    this.headerSearch.addEventListener('blur', () => {
+      this.changePageClasses({ remove: this.options.searchboxActiveClass });
+    });
+
+    this.headerSearch.addEventListener('click', (event) => {
+      if (this.headerSearch.contains(event.target)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      this.changePageClasses({ remove: this.options.searchboxActiveClass });
+    });
+
+    this.headerSearch.addEventListener('input', () => {
+      if (this.searchInput.value !== '') {
+        this.headerSearch.classList.add(this.options.filledClass);
+
+        return;
+      }
+
+      this.headerSearch.classList.remove(this.options.filledClass);
+    });
+  }
+
+  addSubmenuTriggers() {
+    if (this.mainNav === null) {
+      return;
+    }
+
+    this.level1Menus = this.mainNav.querySelectorAll(this.options.menuLevel1);
+    if (this.level1Menus.length === 0) {
+      return;
+    }
+
+    this.level1Menus.forEach((menu) => {
+      const submenuTriggerContent = document.createElement(this.options.submenuTriggerElement);
+      submenuTriggerContent.classList.add(this.options.submenuTriggerClass);
+
+      menu.parentElement.insertBefore(submenuTriggerContent, menu);
+      menu.parentElement.dataset[this.options.submenuDataParam] = true;
+
+      this.submenuTriggerElements.push(submenuTriggerContent);
+    });
+
+    this.submenuTriggerElements.forEach((submenuTrigger) => {
+      submenuTrigger.addEventListener('click', () => {
+        this.toggleMobileSubmenu(submenuTrigger);
+      });
+    });
+  }
+
+  toggleMobileSubmenu(submenuTrigger) {
+    submenuTrigger.parentElement.classList.toggle(this.options.submenuActiveClass);
+  }
+
+  setActiveStateOnMenuItems() {
+    if (page.dataset.path === undefined) {
+      return;
+    }
+
+    const activeItemsList = JSON.parse(page.dataset.path);
+    const navigationList = document.querySelectorAll(this.options.navigationList);
+
+    navigationList.forEach((navigation) => {
+      activeItemsList.forEach((activeItemId) => {
+        const item = navigation.querySelector(`[data-location-id="${activeItemId}"]`);
+
+        if (item !== null) {
+          item.classList.add('active', this.options.submenuActiveClass);
+        }
+      });
+    });
+  }
+
+  changePageClasses({ remove = null, add = null, toggle = null }) {
+    if (remove !== null) {
+      this.removePageClass(remove);
+    }
+
+    if (add !== null) {
+      this.addPageClass(add);
+    }
+
+    if (toggle !== null) {
+      this.togglePageClass(toggle);
+    }
+  }
+
+  removePageClass(classToRemove) {
+    this.pageWrapper.classList.remove(classToRemove);
+  }
+
+  addPageClass(classToAdd) {
+    this.pageWrapper.classList.add(classToAdd);
+  }
+
+  togglePageClass(classToToggle) {
+    this.pageWrapper.classList.toggle(classToToggle);
+  }
+}
