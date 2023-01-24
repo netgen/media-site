@@ -1,51 +1,50 @@
 import Swiper from 'swiper/dist/js/swiper';
 
 export default class SwiperThumb {
-    constructor(element, options) {
-        this.el = element;
-        this.options = options;
+  constructor(element, options) {
+    this.options = options;
 
-        this.data = element.dataset;
-        this.swiper = false;
-        this.swiperPrevBtn = element.querySelector(options.swiperPrevBtn)
-        this.swiperNextBtn = element.querySelector(options.swiperNextBtn)
+    this.swiper = false;
 
-        this.topSwiper = element.querySelectorAll(options.topSwiper)[0]
-        this.topSwiperConfig = options.topSwiperConfig;
-        this.thumbnailsSwiper = element.querySelectorAll(options.thumbnailsSwiper)[0]
-        this.thumbnailsSwiperConfig = options.thumbnailsSwiperConfig;
+    this.swiperPreviousButton = element.querySelector(options.swiperPreviousButton);
+    this.swiperNextButton = element.querySelector(options.swiperNextButton);
 
-        this.onInit()
-    }
+    this.topSwiper = element.querySelector(options.topSwiper);
+    this.topSwiperConfig = options.topSwiperConfig;
+    this.topDataset = this.topSwiper.dataset;
 
-    onInit() {
-        const self = this;
+    this.thumbnailsSwiper = element.querySelector(options.thumbnailsSwiper);
+    this.thumbnailsSwiperConfig = options.thumbnailsSwiperConfig;
 
-        const { loop, autoplay, effect, slidesPerView, slidesPerGroup } = self.data;
+    this.init();
+  }
 
-        const galleryTop = new Swiper(this.topSwiper, {
-            navigation: {
-              nextEl: this.swiperPrevBtn,
-              prevEl: this.swiperNextBtn,
-            },
-            loop,
-            effect,
-            autoplay: autoplay ? { delay: autoplay * 1000 } : false,
-            loopedSlides: loop ? length : null,
-            on: {
-              lazyImageReady() {
-                this.updateAutoHeight();
-              },
-            },
-            ...this.topSwiperConfig
-        })
+  init() {
+    const { loop, autoplay, effect, length } = this.topDataset;
 
-        const galleryThumbs = new Swiper(this.thumbnailsSwiper, {
-            loop,
-            ...this.thumbnailsSwiperConfig
-        });
+    const galleryTop = new Swiper(this.topSwiper, {
+      navigation: {
+        nextEl: this.swiperPrevBtn,
+        prevEl: this.swiperNextBtn,
+      },
+      loop,
+      effect,
+      autoplay: autoplay ? { delay: autoplay * 1000 } : false,
+      loopedSlides: loop ? length : null,
+      on: {
+        lazyImageReady() {
+          this.updateAutoHeight();
+        },
+      },
+      ...this.topSwiperConfig,
+    });
 
-        galleryTop.controller.control = galleryThumbs;
-        galleryThumbs.controller.control = galleryTop;
-    }
+    const galleryThumbs = new Swiper(this.thumbnailsSwiper, {
+      loop,
+      ...this.thumbnailsSwiperConfig,
+    });
+
+    galleryTop.controller.control = galleryThumbs;
+    galleryThumbs.controller.control = galleryTop;
+  }
 }
