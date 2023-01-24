@@ -77,7 +77,7 @@
             "@type": "Article",
             "headline": "{{ content.fields.title.value.text }}",
             {% if content.contentInfo.publishedDate -%}
-                "datePublished": "{{ content.contentInfo.publishedDate|date('Y-m-d') }}",
+                "datePublished": "{{ content.contentInfo.publishedDate|format_date(pattern='Y-MM-dd') }}",
             {% endif -%}
             {% if not content.fields.image.empty %}
                 "image": "{{ absolute_url(ng_image_alias(content.fields.image, 'i1320').uri) }}",
