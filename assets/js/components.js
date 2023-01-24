@@ -3,14 +3,14 @@
 // Import
 import AjaxCollection from './components/AjaxCollection.component';
 import CookieControlClass from './components/CookieControl.component';
-import FormEmbed from "./components/FormEmbed.component";
-import VideoModal from "./components/VideoModal.component"
-import FormModal from "./components/FormModal.component";
+import FormEmbed from './components/FormEmbed.component';
+import VideoModal from './components/VideoModal.component';
+import FormModal from './components/FormModal.component';
 import GalleryBlock from './components/GalleryBlock.component';
 import GoogleMap from './components/GoogleMap.component';
-import HeaderNav from './components/HeaderNav.component';
+import PageHeader from './components/PageHeader.component';
 import LoginFormFragment from './components/LoginFormFragment.component';
-import ResponsiveVideoComponent from './components/ResponsiveVideo.component';
+import ResponsiveVideo from './components/ResponsiveVideo.component';
 import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
@@ -33,8 +33,8 @@ const componentConfiguration = [
     options: {
       optionalSaveBtn: '#ng-cc-accept, #ng-cc-optional-save',
       optionalList: '.ng-cc-optional-list',
-      optionalListToggle: ".optional-list-toggle",
-      rotateArrowClass: "rotate-arrow",
+      optionalListToggle: '.optional-list-toggle',
+      rotateArrowClass: 'rotate-arrow',
       shownClass: 'shown',
     },
   },
@@ -53,18 +53,13 @@ const componentConfiguration = [
   {
     Component: GalleryBlock,
     selector: '.ngl-vt-grid_gallery',
-    options: {
-      layoutAsFlexElements: '.nglayouts-as-flex',
-      lightboxEnabledElements: '.js-lightbox-enabled',
-      popupToggle: '.js-mfp-item',
-    },
   },
   {
     Component: GoogleMap,
     selector: '.nglayouts-map-embed',
   },
   {
-    Component: HeaderNav,
+    Component: PageHeader,
     selector: 'html',
     options: {
       pageWrapper: '#page',
@@ -78,7 +73,7 @@ const componentConfiguration = [
       searchboxActiveClass: 'searchbox-active',
       submenuTriggerElement: 'i',
       submenuTriggerClass: 'submenu-trigger',
-      submenuDataParam: 'data-submenu',
+      submenuDataParam: 'submenu',
       submenuActiveClass: 'submenu-active',
       navigationList: 'ul.nav.navbar-nav',
       filledClass: 'filled',
@@ -89,15 +84,15 @@ const componentConfiguration = [
     selector: 'form[name="loginform"]',
   },
   {
-    Component: ResponsiveVideoComponent,
+    Component: ResponsiveVideo,
     selector: '.js-responsive-video',
   },
   {
     Component: SwiperBase,
     selector: '.related-multimedia.swiper-container',
     options: {
-      swiperPrevBtn: '.swiper-button-prev',
-      swiperNextBtn: '.swiper-button-next',
+      swiperPreviousButton: '.swiper-button-prev',
+      swiperNextButton: '.swiper-button-next',
       swiperPagination: '.swiper-pagination',
     },
   },
@@ -105,8 +100,8 @@ const componentConfiguration = [
     Component: SwiperBase,
     selector: '.sushi-swiper',
     options: {
-      swiperPrevBtn: '.swiper-button-prev',
-      swiperNextBtn: '.swiper-button-next',
+      swiperPreviousButton: '.swiper-button-prev',
+      swiperNextButton: '.swiper-button-next',
       swiperPagination: '.swiper-pagination',
       swiperConfig: {
         loopFillGroupWithBlank: true,
@@ -127,8 +122,8 @@ const componentConfiguration = [
     Component: SwiperBase,
     selector: '.default-swiper',
     options: {
-      swiperPrevBtn: '.swiper-button-prev',
-      swiperNextBtn: '.swiper-button-next',
+      swiperPreviousButton: '.swiper-button-prev',
+      swiperNextButton: '.swiper-button-next',
       swiperPagination: '.swiper-pagination',
       swiperConfig: {
         preloadImages: false,
@@ -149,8 +144,8 @@ const componentConfiguration = [
     Component: SwiperBase,
     selector: '.quote-swiper',
     options: {
-      swiperPrevBtn: '.swiper-button-prev',
-      swiperNextBtn: '.swiper-button-next',
+      swiperPreviousButton: '.swiper-button-prev',
+      swiperNextButton: '.swiper-button-next',
       swiperPagination: '.swiper-pagination',
       swiperConfig: {
         preloadImages: false,
@@ -170,8 +165,8 @@ const componentConfiguration = [
     Component: SwiperThumb,
     selector: '.thumb-swiper',
     options: {
-      swiperPrevBtn: '.swiper-button-prev',
-      swiperNextBtn: '.swiper-button-next',
+      swiperPreviousButton: '.swiper-button-prev',
+      swiperNextButton: '.swiper-button-next',
       topSwiper: '.gallery-top',
       topSwiperConfig: {
         spaceBetween: 10,
@@ -200,7 +195,7 @@ const componentConfiguration = [
     options: {
       vimeoClass: 'vimeo-poster',
       dailymotionClass: 'dailymotion-poster',
-      posterLinkElement: '.js-video-poster'
+      posterLinkElement: '.js-video-poster',
     },
   },
 ];
@@ -208,11 +203,11 @@ const componentConfiguration = [
 // Initialization
 const componentsInit = () => {
   componentConfiguration.forEach((configuration) => {
-    document.querySelectorAll(configuration.selector).forEach(
-      element => new configuration.Component(element, configuration.options)
-    );
+    document
+      .querySelectorAll(configuration.selector)
+      .forEach((element) => new configuration.Component(element, configuration.options));
   });
-}
+};
 
 document.addEventListener('DOMContentLoaded', componentsInit);
 document.addEventListener('ngl:preview:block:refresh', componentsInit);
