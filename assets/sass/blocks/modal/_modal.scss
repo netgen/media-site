@@ -1,0 +1,22 @@
+.modal {
+    &.video-modal {
+        .modal-content {
+            background-color: $black;
+            .modal-header {
+                border: 0;
+                justify-content: center;
+                .btn-close {
+                    margin: 0;
+                    filter: brightness(0) saturate(100%) invert(100%) sepia(19%) saturate(0%) hue-rotate(206deg) brightness(103%) contrast(101%);
+                }
+            }
+            .modal-body {
+                order: -1;
+                padding: 0;
+                video {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

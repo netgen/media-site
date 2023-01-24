@@ -3,43 +3,14 @@
 
 {% import '@ibexadesign/parts/video.html.twig' as video %}
 
-{% set url = path('ngsite_view_modal', { contentId: content.id }) %}
+{% set videoOptions = {
+    'type': content.fields.video_type.value.identifiers.0,
+    'fileLink': content.fields.video_file.value.uri,
+    'mimeType': content.fields.video_file.value.mimeType,
+    'identifier': content.fields.video_identifier.value.text,
+    'poster': content.fields.poster.value.uri,
+    'autoplay': content.fields.autoplay.value.bool,
+    'autoresize': content.fields.autoresize.value.identifiers.0
+} %}
 
-{% set videoType = content.fields.video_type.value.identifiers.0 %}
-{% set videoFileLink = null %}
-{% set videoMimeType = null %}
-{% set videoIdentifier = null %}
-{% set videoPoster = null %}
-{% set videoAutoplay = content.fields.autoplay.value.bool %}
-{% set videoAutoresize = content.fields.autoresize.value.identifiers.0 %}
-
-{% dump(content.fields) %}
-
-{% if videoType == 'upload' %}
-    {% set videoFileLink = content.fields.video_file.value.uri %}
-    {% set videoMimeType = content.fields.video_file.value.mimeType %}
-{% else %}
-    {% set videoIdentifier = content.fields.video_identifier.value.text %}
-{% endif %}
-{% if not content.fields.poster.empty %}
-    {% set videoPoster = content.fields.poster.value.uri %}
-{% endif %}
-
-<a href="#" class="btn btn-default js-modal-video-trigger" 
-    data-video-type="{{ videoType }}"
-    data-video-autoplay="{{ videoAutoplay }}"
-    data-video-autoresize="{{ videoAutoresize }}"
-    {% if videoType == 'upload' %}
-        data-video-file-link="{{ videoFileLink }}"
-        data-video-mime-type="{{ videoMimeType }}"
-    {% else %}
-        data-video-identifier="{{ videoIdentifier }}"
-    {% endif %}
-    {% if videoPoster != null %}
-        data-video-poster="{{ videoPoster }}"
-    {% endif %}
->{{ label|default(content.name) }}</a>
-
-<div class="d-none">
-{{ video.player(content) }}
-</div>
+<a href="#" class="btn btn-default js-modal-video-trigger" data-video-options="{{ videoOptions|json_encode() }}">{{ label|default(content.name) }}</a>
