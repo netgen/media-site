@@ -32,7 +32,7 @@ netgen_open_graph:
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
                     - { handler: field_type/ezrichtext, tag: "og:description", params: [full_intro] }
                     - { handler: field_type/ezimage, tag: "og:image", params: [image, i1200] }
-                ng_feedback_form:
+                ng_contact_form:
                     - { handler: literal/text, tag: "og:type", params: [article] }
                     - { handler: field_type/ezstring, tag: "og:title", params: [title] }
                     - { handler: field_type/ezrichtext, tag: "og:description", params: [full_intro] }

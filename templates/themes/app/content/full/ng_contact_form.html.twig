@@ -4,11 +4,11 @@
 {% extends nglayouts.layoutTemplate %}
 
 {% block content %}
-    <div class="view-type view-type-{{ view_type }} ng-feedback-form">
+    <div class="view-type view-type-{{ view_type }} ng-contact-form">
         <header class="full-page-header full-form-header">
             <div class="container">
                 <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
-                {% if not is_valid and not content.fields.full_intro.empty %}
+                {% if not content.fields.full_intro.empty %}
                     <div class="full-page-intro">
                         {{ ng_render_field(content.fields.full_intro) }}
                     </div>

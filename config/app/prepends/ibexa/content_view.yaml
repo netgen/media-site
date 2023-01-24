@@ -35,7 +35,7 @@ system:
                             - ng_article
                             - ng_audio
                             - ng_blog_post
-                            - ng_feedback_form
+                            - ng_contact_form
                             - ng_frontpage
                             - ng_gallery
                             - ng_htmlbox
@@ -56,7 +56,7 @@ system:
                     match:
                         Identifier\ContentType:
                             - ng_lead_form
-                            - ng_feedback_form
+                            - ng_contact_form
                             - ng_job_application_form
                 common:
                     template: "@ibexadesign/content/payload/{content_type}.html.twig"
@@ -77,7 +77,7 @@ system:
                             - ng_banner
                             - ng_blog_post
                             - ng_category
-                            - ng_feedback_form
+                            - ng_contact_form
                             - ng_gallery
                             - ng_landing_page
                             - ng_news
@@ -92,7 +92,7 @@ system:
                     match:
                         Identifier\ContentType:
                             - ng_lead_form
-                            - ng_feedback_form
+                            - ng_contact_form
                             - ng_job_application_form
                 match_all:
                     template: "@ibexadesign/content/link_embed.html.twig"
@@ -103,7 +103,7 @@ system:
                     match:
                         Identifier\ContentType:
                             - ng_lead_form
-                            - ng_feedback_form
+                            - ng_contact_form
                             - ng_job_application_form
                 match_all:
                     template: "@ibexadesign/content/modal.html.twig"
@@ -114,7 +114,7 @@ system:
                     match:
                         Identifier\ContentType:
                             - ng_lead_form
-                            - ng_feedback_form
+                            - ng_contact_form
                             - ng_job_application_form
                 video:
                     template: "@ibexadesign/content/modal_trigger/video.html.twig"
@@ -169,7 +169,7 @@ system:
                             - ng_banner
                             - ng_blog_post
                             - ng_category
-                            - ng_feedback_form
+                            - ng_contact_form
                             - ng_frontpage
                             - ng_gallery
                             - ng_htmlbox
@@ -327,7 +327,7 @@ system:
                             - ng_banner
                             - ng_blog_post
                             - ng_category
-                            - ng_feedback_form
+                            - ng_contact_form
                             - ng_frontpage
                             - ng_gallery
                             - ng_htmlbox

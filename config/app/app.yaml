@@ -4,7 +4,7 @@ parameters:
         - ng_article
         - ng_news
         - ng_category
-        - ng_feedback_form
+        - ng_contact_form
         - ng_landing_page
         - ng_video
         - ng_audio
