@@ -16,7 +16,7 @@
             {{ form_row(form.sender_middle_name) }}
             {{ form_row(form.sender_email) }}
             {{ form_row(form.sender_message) }}
-            {{ form_row(form.gdpr) }}
+            {{ form_row(form.gdpr, { ngparams: { label: 'hello world'} }) }}
             {{ form_row(form.newsletter) }}
 
             <div class="file-group-row">
