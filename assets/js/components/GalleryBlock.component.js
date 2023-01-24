@@ -1,25 +1,27 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
 export default class GalleryBlock {
-    constructor(element, options) {
-        this.el = element;
-        this.options = options;
+  constructor(gallery) {
+    this.gallery = gallery;
 
-        this.layoutAsFlexElements = element.querySelectorAll(options.layoutAsFlexElements)
-        this.lightboxEnabledElements = element.querySelectorAll(options.lightboxEnabledElements)
+    this.init();
+  }
 
-        this.onInit()
+  init() {
+    this.setupLightbox();
+  }
+
+  setupLightbox() {
+    const lightboxGallery = this.gallery.querySelector('.js-lightbox-enabled');
+    if (lightboxGallery === null) {
+      return;
     }
 
-    onInit() {
-        this.lightboxEnabledElements.forEach((element) => {
-            const lightbox = new PhotoSwipeLightbox({
-                gallery: element,
-                children: '.js-lightbox-item',
-                pswpModule: () => import('photoswipe'),
-            });
-
-            lightbox.init();
-        });
-    }
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: lightboxGallery,
+      children: '.js-lightbox-item',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+  }
 }
