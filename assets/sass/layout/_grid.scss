@@ -1,0 +1,20 @@
+.ngl-list {
+    &.ngl-vt-grid {
+        .row {
+            gap: $grid-gutter-width 0;
+        }
+    }
+    &.ngl-vt-list {
+        .list-row {
+            display: flex;
+            flex-direction: column;
+            gap: $grid-gutter-width;
+        }
+    }
+}
+
+.search-result {
+    display: flex;
+    flex-direction: column;
+    gap: $grid-gutter-width;
+}
