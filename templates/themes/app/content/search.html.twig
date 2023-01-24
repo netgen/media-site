@@ -13,8 +13,7 @@
                     <header class="article-header">
                         <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
                         <div class="info">
-                            <time>Last updated: {{ content.contentInfo.modificationDate|date('F jS, Y H:i') }}</time>
-                            <time>Last updated: {{ content.contentInfo.modificationDate|format_datetime(pattern='MMMM d, Y HH:mm') }}</time>
+                            <time>{{ 'ngsite.search.item.last_updated'|trans }}: {{ content.contentInfo.modificationDate|format_datetime(pattern='MMMM d, Y HH:mm') }}</time>
                         </div>
                     </header>
                     <div class="short">
@@ -33,7 +32,7 @@
             <div class="additional-info">
                 <div class="type">
                     <label>
-                        Type:
+                        {{ 'ngsite.search.item.type'|trans }}:
                     </label>
                     {{ content.contentInfo.contentTypeName }}
                 </div>

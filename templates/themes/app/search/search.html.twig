@@ -46,7 +46,7 @@
                                     {{ pagerfanta(pager, 'ngsite') }}
                                 {% endif %}
 
-                                <div id="search-result">
+                                <div id="search-result" class="search-result">
                                     {% for search_hit in pager.currentPageResults.searchHits %}
                                         {% set score = null %}
                                         {% if search_hit.score is not null and pager.adapter.maxScore is defined and pager.adapter.maxScore is not null %}
