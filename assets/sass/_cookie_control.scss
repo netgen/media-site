@@ -56,12 +56,6 @@
                 justify-content: flex-end;
                 width: 30%;
 
-                .btn {
-                    background-color: $primary;
-                    border-color: $primary;
-                    color: #212121;
-                }
-
                 .optional-list-toggle {
                     margin-right: 3rem;
                     color: inherit;
@@ -203,6 +197,7 @@
                             text-transform: uppercase;
                             font-weight: normal;
                             white-space: nowrap;
+                            font-style: normal;
                         }
 
                         &.on {
