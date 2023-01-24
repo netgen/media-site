@@ -1,11 +1,11 @@
 {
     "ibexa/oss": {
-        "version": "4.2",
+        "version": "4.3",
         "recipe": {
             "repo": "github.com/ibexa/recipes",
             "branch": "master",
-            "version": "4.2",
-            "ref": "e5c8c210fa27ab7411a78d8b0458e82a96b71344"
+            "version": "4.3",
+            "ref": "df4816de17e19c471e443d443b8c176d9086f0dc"
         },
         "files": [
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -46,18 +46,6 @@
             "assets/scss/welcome-page.scss"
         ]
     },
-    "symfony/debug-bundle": {
-        "version": "5.4",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "5.3",
-            "ref": "5aa8aa48234c8eb6dbdd7b3cd5d791485d2cec4b"
-        },
-        "files": [
-            "config/packages/debug.yaml"
-        ]
-    },
     "symfony/framework-bundle": {
         "version": "5.4",
         "recipe": {
@@ -75,18 +63,6 @@
             "public/index.php",
             "src/Controller/.gitignore",
             "src/Kernel.php"
-        ]
-    },
-    "symfony/monolog-bundle": {
-        "version": "3.8",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "3.7",
-            "ref": "213676c4ec929f046dfde5ea8e97625b81bc0578"
-        },
-        "files": [
-            "config/packages/monolog.yaml"
         ]
     },
     "symfony/routing": {
@@ -115,26 +91,13 @@
             "templates/base.html.twig"
         ]
     },
-    "symfony/web-profiler-bundle": {
-        "version": "5.4",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "5.3",
-            "ref": "24bbc3d84ef2f427f82104f766014e799eefcc3e"
-        },
-        "files": [
-            "config/packages/web_profiler.yaml",
-            "config/routes/web_profiler.yaml"
-        ]
-    },
     "symfony/webpack-encore-bundle": {
-        "version": "1.15",
+        "version": "1.16",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "1.10",
-            "ref": "2e458cc7e6f1df1dad890eb104b81e4f302c9bd4"
+            "ref": "f8fc53f1942f76679e9ee3c25fd44865355707b5"
         },
         "files": [
             "assets/app.js",
