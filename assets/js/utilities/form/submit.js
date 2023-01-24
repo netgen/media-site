@@ -21,7 +21,13 @@ export default function (formType, event) {
 
   const options = { method: 'POST', body: new FormData(this.form) };
   fetch(action, options)
-    .then((response) => response.text())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+
+      return response.text();
+    })
     .then((text) => {
       formContainer.innerHTML = text.trim();
 
@@ -32,6 +38,7 @@ export default function (formType, event) {
       GTM.push(gtmEventPrefix, GTM.EVENTS.SUBMITTED);
     })
     .catch((error) => {
+      formContainer.innerHTML = '<p>Something went wrong</p>';
       console.error(`Form type "${formType}" submit failed: ${error}`);
 
       if (this.onFailure !== undefined) {
