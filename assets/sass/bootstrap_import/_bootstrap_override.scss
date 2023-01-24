@@ -1,4 +1,5 @@
 /* btn overrides */
+
 .btn {
     border-width: 2px;
     border-style: solid;
@@ -17,17 +18,25 @@
         &:not(:disabled):not(.disabled):active,
         &:not(:disabled):not(.disabled).active,
         &:hover {
-            background: $primary;
-            border-color: $primary;
+            background: darken($primary, 10%);
+            border-color: darken($primary, 10%);
             color: $black;
         }
         .bg-color-primary & {
             background: $black;
             border-color: $black;
             color: $white;
+            &:active,
+            &.active,
+            &:not(:disabled):not(.disabled):active,
+            &:not(:disabled):not(.disabled).active,
+            &:hover {
+                background: lighten($black, 20%);
+                border-color: lighten($black, 20%);
+                color: $white;
+            }
         }
     }
-    
     &.btn-secondary {
         background: $black;
         border-color: $black;
@@ -37,18 +46,26 @@
         &:not(:disabled):not(.disabled):active,
         &:not(:disabled):not(.disabled).active,
         &:hover {
-            background: $primary;
-            border-color: $primary;
-            color: $black;
+            background: lighten($black, 20%);
+            border-color: lighten($black, 20%);
+            color: $white;
         }
         .bg-color-black &,
         .bg-with-media & {
             background: $primary;
             border-color: $primary;
             color: $black;
+            &:active,
+            &.active,
+            &:not(:disabled):not(.disabled):active,
+            &:not(:disabled):not(.disabled).active,
+            &:hover {
+                background: darken($primary, 10%);
+                border-color: darken($primary, 10%);
+                color: $black;
+            }
         }
     }
-    
     &.btn-default {
         background: transparent;
         border-color: $black;
@@ -66,6 +83,15 @@
         .bg-with-media & {
             border-color: $white;
             color: $white;
+            &:active,
+            &.active,
+            &:not(:disabled):not(.disabled):active,
+            &:not(:disabled):not(.disabled).active,
+            &:hover {
+                background: $gray-54;
+                border-color: $gray-54;
+                color: $white;
+            }
         }
     }
     &.btn-link {
