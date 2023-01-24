@@ -1,26 +1,30 @@
 import { Modal } from 'bootstrap';
 import GTM from '../utilities/gtm';
+import submit from '../utilities/form/submit';
 
-export default class FormModalComponent {
-  constructor(trigger, options) {
-    this.options = options;
+export default class FormModal {
+  constructor(trigger) {
     this.trigger = trigger;
     this.submitted = false;
+
+    this.form = null;
+    this.modal = null;
+    this.modalElement = null;
+
     this.init();
   }
 
   init() {
-    this.trigger.addEventListener('click', (e) => {
-      e.preventDefault();
+    this.trigger.addEventListener('click', (event) => {
+      event.preventDefault();
 
-      const url = this.trigger.getAttribute('data-url');
+      const { url } = this.trigger.dataset;
 
       fetch(url)
         .then((response) => response.text())
-        .then((text) => this.openModal(text))
+        .then(this.openModal.bind(this))
         .catch((error) => {
-          // eslint-disable-next-line no-console
-          console.error('Modal form open failed: ', error);
+          console.error(`Failed to open modal form: ${error}`);
         });
     });
   }
@@ -28,47 +32,34 @@ export default class FormModalComponent {
   openModal(text) {
     const template = document.createElement('template');
     template.innerHTML = text.trim();
-    const modalElement = template.content.firstElementChild;
-    const modal = new Modal(modalElement);
-    const form = modalElement.querySelector('form');
-    const gtmEventPrefix = form.getAttribute('data-gtm-event-prefix');
 
-    form.addEventListener('submit', (event) => this.submit(event));
-    modalElement.addEventListener('hidden.bs.modal', () => this.closeModal(modal, modalElement, gtmEventPrefix));
+    this.modalElement = template.content.firstElementChild;
+    this.modal = new Modal(this.modalElement);
+    this.form = this.modalElement.querySelector('form');
+
+    this.modalElement.addEventListener('hidden.bs.modal', this.closeModal.bind(this));
+    this.form.addEventListener('submit', submit.bind(this, 'modal'));
+
     document.body.appendChild(template.content);
 
-    modal.show();
     this.submitted = false;
-    GTM.push(gtmEventPrefix, 'opened');
+    this.modal.show();
+
+    const { gtmEventPrefix } = this.form.dataset;
+    GTM.push(gtmEventPrefix, GTM.EVENTS.OPENED);
   }
 
-  closeModal(modal, modalElement, gtmEventPrefix) {
-    modal.dispose();
-    modalElement.remove();
-    !this.submitted && GTM.push(gtmEventPrefix, 'cancelled');
+  closeModal() {
+    this.modal.dispose();
+    this.modalElement.remove();
+
+    if (this.submitted === false) {
+      const { gtmEventPrefix } = this.form.dataset;
+      GTM.push(gtmEventPrefix, GTM.EVENTS.CANCELLED);
+    }
   }
 
-  submit(e) {
-    e.preventDefault();
-    const form = e.target;
-
-    const action = form.getAttribute('action');
-    const options = { method: 'POST', body: new FormData(form) };
-    const gtmEventPrefix = form.getAttribute('data-gtm-event-prefix');
-    const formContainer = form.parentElement;
-
-    formContainer.innerHTML = '<div class="loading-animation"><span></span></div>';
-
-    fetch(action, options)
-      .then((response) => response.text())
-      .then((text) => {
-        formContainer.innerHTML = text.trim();
-        this.submitted = true;
-        GTM.push(gtmEventPrefix, 'submitted');
-      })
-      .catch((error) => {
-        GTM.push(gtmEventPrefix, 'failed');
-        console.error('Modal form submit failed: ', error);
-      });
+  onSuccess() {
+    this.submitted = true;
   }
 }

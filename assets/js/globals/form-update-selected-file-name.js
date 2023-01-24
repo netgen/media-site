@@ -21,4 +21,4 @@ export default (event) => {
 
   container.innerHTML = [...input.files].map((file) => file.name).join('<br/>');
   container.classList.add('mt-2');
-}
+};
