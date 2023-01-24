@@ -812,7 +812,7 @@ $btn-border-radius-sm:          0;
 //$input-padding-y:                       $input-btn-padding-y !default;
 //$input-padding-x:                       $input-btn-padding-x !default;
 //$input-font-family:                     $input-btn-font-family !default;
-//$input-font-size:                       $input-btn-font-size !default;
+$input-font-size:                         1rem;
 //$input-font-weight:                     $font-weight-base !default;
 //$input-line-height:                     $input-btn-line-height !default;
 //
@@ -874,15 +874,15 @@ $input-border-radius:                     none;
 //$form-check-input-active-filter:          brightness(90%) !default;
 //
 //$form-check-input-bg:                     $input-bg !default;
-//$form-check-input-border:                 1px solid rgba($black, .25) !default;
+$form-check-input-border:                   1px solid $gray-19;
 $form-check-input-border-radius:            0;
 //$form-check-radio-border-radius:          50% !default;
-//$form-check-input-focus-border:           $input-focus-border-color !default;
-//$form-check-input-focus-box-shadow:       $input-btn-focus-box-shadow !default;
+$form-check-input-focus-border:             1px solid $gray-19;
+$form-check-input-focus-box-shadow:         none;
 //
-//$form-check-input-checked-color:          $component-active-color !default;
-//$form-check-input-checked-bg-color:       $component-active-bg !default;
-//$form-check-input-checked-border-color:   $form-check-input-checked-bg-color !default;
+$form-check-input-checked-color:            $black;
+$form-check-input-checked-bg-color:         transparent;
+$form-check-input-checked-border-color:     $gray-19;
 //$form-check-input-checked-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>") !default;
 //$form-check-radio-checked-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>") !default;
 //

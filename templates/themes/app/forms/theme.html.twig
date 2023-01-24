@@ -128,7 +128,17 @@
     {{ block('form_widget_simple') }}
 {%- endblock hidden_widget -%}
 
-{%- block file_row -%}
+{% block file_row %}
+    <div class="form-group file-group {{ form.parent.parent.vars.name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+    {% do form.parent.children.remove.setRendered() %}
+{% endblock %}
+
+{# Custom file upload widget, commented out intentionaly. Override default UI file input if needed. Remove file_row block above #}
+{# {%- block file_row -%}
     <div class="form-group file-group {{ form.parent.parent.vars.name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
         {{- form_label(form) -}}
         {{ block('file_widget') }}
@@ -141,15 +151,14 @@
     {%- set type = type|default('file') -%}
     {%- set label_translated_text = label_translated|default('') -%}
     <label class="custom-file-label btn btn-sm btn-default btn-icon-right" for={{ id }}>
-        {# TODO - add dynamic labels, replace dummy text #}
-        {# {{ label_translated_text }} #}
+        {{ label_translated_text }}
         Dummy text<i class="icon fas fa-file-upload"></i>
         {{ block('form_widget_simple') }}
     </label>
     {%- set js_div_class = js_class|default('js-selected-file-names') -%}
     <div class={{ js_div_class }}><i class="fa fa-trash" aria-hidden="true"></i></div>
     {% do form.parent.children.remove.setRendered() %}
-{% endblock %}
+{% endblock %} #}
 
 {%- block form_widget_compound -%}
     {# <div {{ block('widget_container_attributes') }}>#}
@@ -164,7 +173,7 @@
 {%- block checkbox_widget -%}
     {%- set label_checkbox = label|default('') -%}
     <input type="checkbox" class="form-check-input" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
-    <label class="form-check-label" for={{ id }}>{{ label_checkbox }}</label>
+    <label class="form-label" for={{ id }}>{{ label_checkbox }}</label>
 {%- endblock checkbox_widget %}
 
 {%- block checkbox_row -%}
