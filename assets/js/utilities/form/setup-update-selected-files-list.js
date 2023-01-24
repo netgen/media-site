@@ -1,8 +1,7 @@
 /**
  * Put input[type=file] element selected file names into a separate container.
- * Used from element's "onchange" attribute.
  */
-export default (event) => {
+function updateSelectedFilesList (event) {
   const input = event.target;
 
   if (!(input instanceof HTMLInputElement) || input.getAttribute('type') !== 'file') {
@@ -22,3 +21,10 @@ export default (event) => {
   container.innerHTML = [...input.files].map((file) => file.name).join('<br/>');
   container.classList.add('mt-2');
 };
+
+export default function (form) {
+  form.querySelectorAll('input[type="file"]').forEach((inputElement) => {
+    inputElement.addEventListener('change', updateSelectedFilesList);
+  })
+}
+

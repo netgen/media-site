@@ -2,6 +2,5 @@
 
 import '../sass/style.scss';
 import './components';
-import './globals';
 
 import 'bootstrap';

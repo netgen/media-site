@@ -1,6 +1,7 @@
 import { Modal } from 'bootstrap';
 import GTM from '../utilities/gtm';
 import submit from '../utilities/form/submit';
+import setupUpdateSelectedFilesList from '../utilities/form/setup-update-selected-files-list';
 
 export default class FormModal {
   constructor(trigger) {
@@ -15,18 +16,26 @@ export default class FormModal {
   }
 
   init() {
-    this.trigger.addEventListener('click', (event) => {
-      event.preventDefault();
+    this.trigger.addEventListener('click', this.handleOpenModal.bind(this));
+  }
 
-      const { url } = this.trigger.dataset;
+  handleOpenModal(event) {
+    event.preventDefault();
 
-      fetch(url)
-        .then((response) => response.text())
-        .then(this.openModal.bind(this))
-        .catch((error) => {
-          console.error(`Failed to open modal form: ${error}`);
-        });
-    });
+    const { url } = this.trigger.dataset;
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error();
+        }
+
+        return response.text();
+      })
+      .then(this.openModal.bind(this))
+      .catch((error) => {
+        console.error(`Failed to open modal form: ${error}`);
+      });
   }
 
   openModal(text) {
@@ -38,6 +47,8 @@ export default class FormModal {
     this.form = this.modalElement.querySelector('form');
 
     this.modalElement.addEventListener('hidden.bs.modal', this.closeModal.bind(this));
+
+    setupUpdateSelectedFilesList(this.form);
     this.form.addEventListener('submit', submit.bind(this, 'modal'));
 
     document.body.appendChild(template.content);
