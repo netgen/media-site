@@ -23,43 +23,6 @@ This file contains imports of noncritical JS and CSS modules.
 Utilities are small reusable pieces of JavaScript code. They are located in
 the `utilities/` directory and are imported where needed.
 
-## Globals
-
-Globals are functions that must be available in the global scope. In our case
-this means on the `window` object. They are always assigned to the
-`window.ngsite` object.
-
-Generally, placing functionality in the global scope should be avoided, but
-there are cases where other approaches are too awkward, and solving the problem
-using the global scope is the most elegant one. Typical example is code that
-needs to execute when input element changes, when the element can be added to
-the DOM tree dynamically. The problem is solved by calling the function defined
-in the global scope from the element's `onchange` attribute.
-
-Calling the global function always has to be done explicitly through the
-`window.ngsite` object, for example:
-
-```html
-<input type="file" onchange="window.ngsite.updateSelectedFileNames(event)">
-```
-
-Note: you should not use globals if other approaches are also possible, unless
-the alternative is more awkward for implementation than it's justified.
-
-### `globals/`
-
-This directory contains specific global functions. The files inside it should be
-named using kebab-case, for example:
-
-```
-update-selected-field-names.js
-```
-
-### `globals.js`
-
-This file contains import and assignment of the global functions to the
-`window.ngsite` object. It is imported from a index.
-
 ## Components
 
 **Component** is a smaller piece of functionality, implemented in a single
