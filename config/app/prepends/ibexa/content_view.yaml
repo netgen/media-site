@@ -55,7 +55,7 @@ system:
                     controller: ngsite.controller.info_collection.proxy_form_handler
                     match:
                         Identifier\ContentType:
-                            - ng_contact_form
+                            - ng_lead_form
                             - ng_feedback_form
                             - ng_job_application_form
                 common:
@@ -91,7 +91,7 @@ system:
                     template: "@ibexadesign/content/link_embed/form_common.html.twig"
                     match:
                         Identifier\ContentType:
-                            - ng_contact_form
+                            - ng_lead_form
                             - ng_feedback_form
                             - ng_job_application_form
                 match_all:
@@ -102,14 +102,9 @@ system:
                     template: "@ibexadesign/content/modal/form_common.html.twig"
                     match:
                         Identifier\ContentType:
-                            - ng_contact_form
+                            - ng_lead_form
                             - ng_feedback_form
                             - ng_job_application_form
-                video:
-                    template: "@ibexadesign/content/modal/video.html.twig"
-                    match:
-                        Identifier\ContentType:
-                            - ng_video
                 match_all:
                     template: "@ibexadesign/content/modal.html.twig"
                     match: ~
@@ -118,7 +113,7 @@ system:
                     template: "@ibexadesign/content/modal_trigger/form_common.html.twig"
                     match:
                         Identifier\ContentType:
-                            - ng_contact_form
+                            - ng_lead_form
                             - ng_feedback_form
                             - ng_job_application_form
                 video:
