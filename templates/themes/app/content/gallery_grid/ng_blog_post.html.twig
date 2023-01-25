@@ -11,7 +11,7 @@
             {% set author = content.owner.name %}
         {% endif %}
 
-        {% set date = content.fields.publish_date.value.value|format_date(pattern='d. M. Y.') %}
+        {% set date = content.fields.publish_date.value.value|format_date(pattern='d MMM Y') %}
         {% set title = content_fields.title(content) %}
 
         <a href="{{ asset(ng_image_alias(content.fields.image, 'i1320').uri) }}" title="{{ title }} by {{ author }} ({{ date }})" class="js-lightbox-item" data-pswp-width="{{ content.fields.image.value.width }}" data-pswp-height="{{ content.fields.image.value.height }}">
