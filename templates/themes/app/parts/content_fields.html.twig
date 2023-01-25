@@ -6,46 +6,43 @@
         {% set css_class = parameters.css_class|default('') %}
         <div {{ block('field_attributes') }}>
             {% if field.value.isTypeInternal %}
-                {% set contentName = ngsite_content_name(field.value.reference) %}
-                {% if contentName is not null %}
-                    {% set label = field.value.label ? field.value.label : contentName %}
-                    {% set suffix = field.value.suffix|default('') %}
-                    {% if field.value.isTargetModal %}
-                        {{ render(
-                            controller(
-                                "ng_content::viewAction",
-                                {
-                                    'contentId': field.value.reference,
-                                    'viewType': 'modal_trigger',
-                                    'layout': false,
-                                    'params': {
-                                        'label': label,
-                                        'suffix': suffix,
-                                        'refererLocationId': contentInfo.mainLocationId,
-                                        'css_class': css_class
-                                    }
+                {% set label = field.value.label ? field.value.label : ngsite_content_name(field.value.reference) %}
+                {% set suffix = field.value.suffix|default('') %}
+                {% if field.value.isTargetModal %}
+                    {{ render(
+                        controller(
+                            "ng_content::viewAction",
+                            {
+                                'contentId': field.value.reference,
+                                'viewType': 'modal_trigger',
+                                'layout': false,
+                                'params': {
+                                    'label': label,
+                                    'suffix': suffix,
+                                    'refererLocationId': contentInfo.mainLocationId,
+                                    'css_class': css_class
                                 }
-                            )
-                        ) }}
-                    {% elseif field.value.isTargetEmbed %}
-                        {{ render(
-                            controller(
-                                "ng_content::viewAction",
-                                {
-                                    'contentId': field.value.reference,
-                                    'viewType': 'link_embed',
-                                    'layout': false,
-                                    'params': {
-                                        'label': label,
-                                        'suffix': suffix,
-                                        'refererLocationId': contentInfo.mainLocationId
-                                    }
+                            }
+                        )
+                    ) }}
+                {% elseif field.value.isTargetEmbed %}
+                    {{ render(
+                        controller(
+                            "ng_content::viewAction",
+                            {
+                                'contentId': field.value.reference,
+                                'viewType': 'link_embed',
+                                'layout': false,
+                                'params': {
+                                    'label': label,
+                                    'suffix': suffix,
+                                    'refererLocationId': contentInfo.mainLocationId
                                 }
-                            )
-                        ) }}
-                    {% else %}
-                        <a href="{{ path("ibexa.url.alias", { "contentId": field.value.reference }) ~ suffix }}"{% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if field.value.isTargetLinkInNewTab %} target="_blank"{% endif %}>{{ label }}</a>
-                    {% endif %}
+                            }
+                        )
+                    ) }}
+                {% else %}
+                    <a href="{{ path("ibexa.url.alias", { "contentId": field.value.reference }) ~ suffix }}"{% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if field.value.isTargetLinkInNewTab %} target="_blank"{% endif %}>{{ label }}</a>
                 {% endif %}
             {% elseif field.value.isTypeExternal %}
                 {% set label = field.value.label ? field.value.label : field.value.reference %}
