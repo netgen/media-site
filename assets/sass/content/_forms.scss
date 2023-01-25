@@ -31,9 +31,27 @@
             &.form-check {
                 margin-bottom: 0;
                 font-size: $font-size-base;
+                .form-check-input {
+                    margin-top: 0;
+                }
                 .form-label {
                     cursor: pointer;
                     margin-bottom: 0;
+                    display: block;
+                    p {
+                        margin-bottom: 0;
+                        + p {
+                            margin-top: 1em;
+                        }
+                    }
+                    a:not(.btn) {
+                        border-bottom: .25rem solid $primary;
+                        transition: border .3s;
+                        &:hover {
+                            color: inherit;
+                            border-color: darken($primary, 15%);
+                        }
+                    }
                 }
             }
         }
