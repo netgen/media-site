@@ -1,4 +1,4 @@
-SYMFONY_ENV = dev
+APP_ENV = dev
 PHP_VERSION = php7.4
 PHP_RUN = /usr/bin/env $(PHP_VERSION)
 COMPOSER_PATH = /usr/local/bin/composer2
@@ -19,7 +19,7 @@ php-version: ## See PHP version needed for this project
 	@echo $(PHP_VERSION)
 
 COMPOSER_INSTALL_PARAMETERS =
-ifeq ($(SYMFONY_ENV), prod)
+ifeq ($(APP_ENV), prod)
 	COMPOSER_INSTALL_PARAMETERS = --no-dev -o
 endif
 
@@ -50,32 +50,32 @@ assets-watch: ## Watch frontend assets (during development)
 	yarn watch
 
 .PHONY: clear-cache
-clear-cache: ## Clear caches for specified environment (default: SYMFONY_ENV=dev)
-	$(PHP_RUN) bin/console cache:clear --env=$(SYMFONY_ENV)
+clear-cache: ## Clear caches for specified environment (default: APP_ENV=dev)
+	$(PHP_RUN) bin/console cache:clear --env=$(APP_ENV)
 
 .PHONY: clear-all-cache
-clear-all-cache: ## Clear all caches for specified environment (including eg. Redis) (default: SYMFONY_ENV=dev)
+clear-all-cache: ## Clear all caches for specified environment (including eg. Redis) (default: APP_ENV=dev)
 	@$(MAKE) -s clear-cache
-	$(PHP_RUN) bin/console cache:pool:clear $(CACHE_POOL) --env=$(SYMFONY_ENV)
+	$(PHP_RUN) bin/console cache:pool:clear $(CACHE_POOL) --env=$(APP_ENV)
 
 .PHONY: images
-images: ## Generate most used image variations for all images for specified environment (default: SYMFONY_ENV=dev)
-	$(PHP_RUN) bin/console ngsite:content:generate-image-variations --variations=i30,i160,i320,i480,nglayouts_app_preview,ngcb_thumbnail --env=$(SYMFONY_ENV)
+images: ## Generate most used image variations for all images for specified environment (default: APP_ENV=dev)
+	$(PHP_RUN) bin/console ngsite:content:generate-image-variations --variations=i30,i160,i320,i480,nglayouts_app_preview,ngcb_thumbnail --env=$(APP_ENV)
 
 .PHONY: migrations
-migrations: ## Run Doctrine migrations for specified environment (default: SYMFONY_ENV=dev)
-	$(PHP_RUN) bin/console doctrine:migration:migrate --env=$(SYMFONY_ENV)
+migrations: ## Run Doctrine migrations for specified environment (default: APP_ENV=dev)
+	$(PHP_RUN) bin/console doctrine:migration:migrate --env=$(APP_ENV)
 
 .PHONY: reindex
-reindex: ## Recreate or refresh search engine index for specified environment (default: SYMFONY_ENV=dev)
-	$(PHP_RUN) bin/console ezplatform:reindex --env=$(SYMFONY_ENV)
+reindex: ## Recreate or refresh search engine index for specified environment (default: APP_ENV=dev)
+	$(PHP_RUN) bin/console ezplatform:reindex --env=$(APP_ENV)
 
 .PHONY: build
-build: ## Build the project (install vendor, migrations, reindex, build assets, clear cache) for specified environment (default: SYMFONY_ENV=dev)
+build: ## Build the project (install vendor, migrations, reindex, build assets, clear cache) for specified environment (default: APP_ENV=dev)
 	@$(MAKE) -s vendor
 	@$(MAKE) -s migrations
 	@$(MAKE) -s reindex
-	ifeq ($(SYMFONY_ENV), prod)
+	ifeq ($(APP_ENV), prod)
 		$(MAKE) -s assets-prod
 	else
 		$(MAKE) -s assets
@@ -83,7 +83,7 @@ build: ## Build the project (install vendor, migrations, reindex, build assets, 
 	@$(MAKE) -s clear-cache
 
 .PHONY: refresh
-refresh: ## Fetch latest changes and build the project for specified environment (default: SYMFONY_ENV=dev)
+refresh: ## Fetch latest changes and build the project for specified environment (default: APP_ENV=dev)
 	/usr/bin/env git stash
 	/usr/bin/env git pull --rebase
 	/usr/bin/env git stash pop
