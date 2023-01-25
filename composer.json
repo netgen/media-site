@@ -110,8 +110,7 @@
             "netgen/git-hooks": true,
             "phpstan/extension-installer": true,
             "symfony/flex": true,
-            "symfony/runtime": true,
-            "symfony/thanks": false
+            "symfony/runtime": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
