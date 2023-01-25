@@ -11,3 +11,6 @@ parameters:
         - file
 
     ngsite.default.lazy_loading.enabled: true
+
+    # Empty string for API key will mean that MailerLite newsletter integration is disabled
+    ngsite.default.info_collection.mailer_lite.api_key: ''
