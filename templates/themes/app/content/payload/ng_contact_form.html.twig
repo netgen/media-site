@@ -15,10 +15,16 @@
         {{ form_errors(form) }}
 
         <fieldset>
-            {{ form_row(form.sender_name) }}
+            {{ form_row(form.sender_first_name) }}
+            {{ form_row(form.sender_last_name) }}
             {% if not content.fields.honeypot_field_name.empty %}
                 {{ form_row(form[content.fields.honeypot_field_name.value.text]) }}
             {% endif %}
+            {{ form_row(form.sender_email) }}
+            {{ form_row(form.sender_message) }}
+
+            {{ form_row(form.gdpr_consent, { ngparams: { label: content.fields.gdpr_consent_label.value.xml|ibexa_richtext_to_html5} }) }}
+            {{ form_row(form.newsletter_1_consent, { ngparams: { label: content.fields.newsletter_1_label.value.xml|ibexa_richtext_to_html5} }) }}
 
             {{ form_row(form.referer.value, {
                 'hidden' : true,
@@ -26,11 +32,6 @@
                     'value': referer,
                 }
             }) }}
-
-            {{ form_row(form.sender_email) }}
-            {{ form_row(form.sender_subject) }}
-            {{ form_row(form.sender_message) }}
-            {{ form_row(form.newsletter_opt_in_newsletter_1_choice) }}
 
             <div class="form-submit">
                 <button type="submit" class="btn btn-primary">{{ 'ngsite.collected_info.button.send'|trans }}</button>

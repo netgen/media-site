@@ -147,16 +147,12 @@
 {%- endblock file_row -%}
 
 {% block file_widget -%}
-    {% set attr = attr|merge({'onchange': (attr.onchange|default('window.ngsite.formUpdateSelectedFileNames(event)'))}) %}
     {%- set type = type|default('file') -%}
     {%- set label_translated_text = label_translated|default('') -%}
     <label class="custom-file-label btn btn-sm btn-default btn-icon-right" for={{ id }}>
         {{ label_translated_text }}
-        Dummy text<i class="icon fas fa-file-upload"></i>
         {{ block('form_widget_simple') }}
     </label>
-    {%- set js_div_class = js_class|default('js-selected-file-names') -%}
-    <div class={{ js_div_class }}><i class="fa fa-trash" aria-hidden="true"></i></div>
     {% do form.parent.children.remove.setRendered() %}
 {% endblock %} #}
 
@@ -173,7 +169,7 @@
 {%- block checkbox_widget -%}
     {%- set label_checkbox = label|default('') -%}
     <input type="checkbox" class="form-check-input" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
-    <label class="form-label" for={{ id }}>{{ ngparams.label|default(label_checkbox) }}</label>
+    <label class="form-label" for={{ id }}>{{ ngparams.label|default(label_checkbox)|raw }}</label>
 {%- endblock checkbox_widget %}
 
 {%- block checkbox_row -%}
