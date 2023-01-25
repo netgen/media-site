@@ -78,4 +78,5 @@ return [
     Netgen\Bundle\IbexaSearchExtraBundle\NetgenIbexaSearchExtraBundle::class => ['all' => true],
     Netgen\IbexaFieldTypeEnhancedLinkBundle\NetgenIbexaFieldTypeEnhancedLinkBundle::class => ['all' => true],
     Novactive\Bundle\eZSEOBundle\NovaeZSEOBundle::class => ['all' => true],
+    Kaliop\eZMigrationBundle\eZMigrationBundle::class => ['all' => true],
 ];
