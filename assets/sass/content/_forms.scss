@@ -19,7 +19,7 @@
                 }
             }
             // Honeypot field
-            &.form-group:has([tabindex='-1']) {
+            &.sender-middle-name {
                 position: absolute;
                 clip: rect(1px, 1px, 1px, 1px);
                 overflow: hidden;
