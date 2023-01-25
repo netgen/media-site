@@ -50,6 +50,7 @@ export default class PageHeader {
         toggle: this.options.searchboxActiveClass,
         remove: this.options.navActiveClass,
       });
+
       this.searchInput.focus();
     });
   }
@@ -67,8 +68,6 @@ export default class PageHeader {
       if (this.headerSearch.contains(event.target)) {
         return;
       }
-
-      event.preventDefault();
 
       this.changePageClasses({ remove: this.options.searchboxActiveClass });
     });
