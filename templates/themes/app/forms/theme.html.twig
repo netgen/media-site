@@ -130,7 +130,7 @@
 
 {% block file_row %}
     <div class="form-group file-group {{ form.parent.parent.vars.name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
-        {{- form_label(form) -}}
+        <label class="form-label{% if required %} required{% endif %}" for={{ id }}>{{ ngparams.label|default(label|trans(label_translation_parameters, translation_domain)|default('File'))|raw }}</label>
         {{- form_widget(form) -}}
         {{- form_errors(form) -}}
     </div>
