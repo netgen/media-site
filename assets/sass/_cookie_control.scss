@@ -14,7 +14,7 @@
         z-index: 1000000;
         width: auto;
         height: auto;
-        transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, calc(100% + 30px), 0);
         padding: 0;
         background: $white;
         color: #000;
