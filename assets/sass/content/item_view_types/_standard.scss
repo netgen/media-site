@@ -17,11 +17,16 @@
     }
     .title {
         @include text-1_5;
-        font-weight: 900;
-        margin: 0 0 .25rem;
+        font-weight: 700;
         a {
             @extend %item-title-link;
         }
+    }
+    .info {
+        @extend %item-header-info;
+    }
+    .title + .info {
+        margin-top: 1rem;
     }
     .short {
         color: $gray-54;
@@ -29,8 +34,8 @@
             margin: 0;
         }
     }
-    .info {
-        @extend %item-header-info;
+    .article-header + .short {
+        margin-top: 1rem;
     }
     .article-icon {
         position: absolute;

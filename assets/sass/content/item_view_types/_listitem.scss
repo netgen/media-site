@@ -4,7 +4,7 @@
     border-bottom: 1px solid hsla(0, 0, 0, .12);
     .title {
         @include text-1_125;
-        font-weight: 900;
+        font-weight: 700;
         margin: 0 0 .25rem;
         a {
             @extend %item-title-link;
@@ -19,6 +19,10 @@
     }
     .info {
         @extend %item-header-info;
+        .recipe-details {
+            width: 100%;
+            margin: 0;
+        }
     }
     .article-icon {
         position: absolute;

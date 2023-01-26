@@ -5,12 +5,12 @@
     &.no-breadcrumbs {
         padding: 4rem 0 4rem;
     }
-    .main-topic, .sponsored-text {
+    .main-topic, .important-notice {
         @include text-0_75;
         display: inline-block;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-weight: 900;
+        font-weight: 700;
         color: $primary;
         background: $black;
         padding: .3333333333em 1em;
@@ -58,14 +58,14 @@
     }
 }
 .full-page-main-topic,
-.full-page-sponsored-text {
+.full-page-important-notice {
     > a,
     > span {
         display: inline-block;
         @include text-0_75;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-weight: 900;
+        font-weight: 700;
         color: $primary;
         background: $black;
         padding: .3333333333em 1em;
@@ -91,7 +91,7 @@
         float: left;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-weight: 900;
+        font-weight: 700;
         color: $gray-87;
         padding: .1666666667em .8333333333em;
         border: 2px solid $primary;

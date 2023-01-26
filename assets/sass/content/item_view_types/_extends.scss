@@ -4,6 +4,8 @@
     @include text-0_875;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    color: $gray-54;
     > span,
     > time,
     > a {
@@ -21,10 +23,14 @@
                 top: 50%;
                 transform: translateY(-50%);
                 left: -.75rem;
+                background-color: $black;
                 .vl2 & {
                     background-color: $white;
                 }
             }
+        }
+        + .recipe-details {
+            margin-left: 0;
         }
     }
     a {
@@ -35,16 +41,24 @@
         }
     }
     .recipe-details {
-        background: $secondary;
-        padding: 0 .6153846154em;
-        color: $gray-87;
+        display: flex;
+        color: $black;
+        width: 100%;
+        margin: .25rem 0 0 0;
         i {
-            color: $gray-38;
             font-size: .8461538462em;
             margin: 0 0 .1538461538em;
         }
-        span + span {
-            margin-left: 1em;
+        & > span {
+            padding: .125rem .25rem;
+            background-color: $primary;
+            border-radius: 2px;
+            .bg-color-primary & {
+                background-color: $white;
+            }
+        }
+        & > span + span {
+            margin-left: .5rem;
         }
         &::before {
             display: none;

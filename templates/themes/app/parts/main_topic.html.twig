@@ -12,9 +12,9 @@ we will display the short format provided by a translation string.
 
 {% if content.hasField('sponsored_content_disclosure') and not content.fields.sponsored_content_disclosure.empty %}
     {% if use_field|default(false) %}
-        <span class="sponsored-text">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
+        <span class="important-notice">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
     {% else %}
-        <span class="sponsored-text">{{ 'ngsite.layout.sponsored'|trans }}</span>
+        <span class="important-notice">{{ 'ngsite.layout.sponsored'|trans }}</span>
     {% endif %}
 {% elseif content.hasField('main_topic') and not content.fields.main_topic.empty %}
     <a class="main-topic" href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
