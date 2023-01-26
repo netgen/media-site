@@ -6,7 +6,7 @@
 {% block content %}
 <article class="view-component view-component-lead lead-style-2">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-5">
             <header class="article-header">
                 {% if not content.fields.eyebrow_title.empty %}
                     <h4 class="eyebrow-title">
@@ -28,7 +28,7 @@
                 </div>
             {% endif %}
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-5 offset-lg-1 mt-5 mt-lg-0">
             {% if not content.fields.link_1.empty %}
                 {% if content.fields.link_1.value.isTargetEmbed %}
                     <div class="embedded-form">
