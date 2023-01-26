@@ -34,7 +34,6 @@
             flex-direction: column;
             .item-highlight-title {
                 @include text-6;
-                color: $tertiary;
                 .bg-color-black & {
                     color: $primary;
                 }

@@ -46,7 +46,7 @@
             .item-icon {
                 display: inline-block;
                 img {
-                    @include icon-color(tertiary);
+                    @include icon-color(black);
                 }
                 .bg-color-black & {
                     img {
