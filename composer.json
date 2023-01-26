@@ -71,6 +71,7 @@
         "sentry/sentry-symfony": "^4.2",
         "twig/intl-extra": "^3.3",
         "tanoconsulting/ibexa-migration-bundle": "^1.0",
+        "mailerlite/mailerlite-api-v2-php-sdk": "^0.3.2",
 
         "netgen/media-site-data": "^3.0",
         "netgen/site-bundle": "^3.0",
@@ -79,7 +80,6 @@
         "netgen/ibexa-search-extra": "^3.0",
         "netgen/information-collection-bundle": "^3.0",
         "netgen/ibexa-fieldtype-enhanced-link": "^1.0",
-        "mailerlite/mailerlite-api-v2-php-sdk": "^0.3.2",
 
         "netgen/layouts-standard": "~1.4.0",
         "netgen/layouts-ibexa": "~1.4.0",
