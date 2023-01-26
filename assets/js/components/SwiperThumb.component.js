@@ -24,8 +24,8 @@ export default class SwiperThumb {
 
     const galleryTop = new Swiper(this.topSwiper, {
       navigation: {
-        nextEl: this.swiperPrevBtn,
-        prevEl: this.swiperNextBtn,
+        nextEl: this.swiperNextButton,
+        prevEl: this.swiperPreviousButton,
       },
       loop,
       effect,
