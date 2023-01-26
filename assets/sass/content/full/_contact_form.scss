@@ -17,6 +17,7 @@
 .full-form-response {
     padding: 2rem;
     background-color: $secondary;
+    border-radius: 1rem;
     .bg-color-black & {
         background-color: lighten($black, 10%);
     }
