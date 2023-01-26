@@ -46,25 +46,28 @@ export const dailymotionVideoTemplate = ({ videoIdentifier, autoplayAttribute, t
 export const videoModalStyleTemplate = () =>
   `.modal.video-modal .modal-content {
     background-color: #000;
- }
+  }
   .modal.video-modal .modal-content .modal-header {
     border: 0;
     justify-content: center;
- }
+  }
   .modal.video-modal .modal-content .modal-header .btn-close {
     margin: 0;
     filter: brightness(0) saturate(100%) invert(100%) sepia(19%) saturate(0%) hue-rotate(206deg) brightness(103%) contrast(101%);
- }
+  }
   .modal.video-modal .modal-content .modal-body {
     order: -1;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
- }
+  }
+  .modal.video-modal .modal-content .modal-body .iframe-video {
+    max-height: 100%;
+  }
   .modal.video-modal .modal-content .modal-body .video-js {
-    height: 100%;
- }
+    max-height: 100%;
+  }
   .modal.video-modal .modal-content .modal-body .video-js .vjs-big-play-button {
     left: 50%;
     top: 50%;
@@ -76,4 +79,4 @@ export const videoModalStyleTemplate = () =>
     line-height: 2em;
     border-radius: 50%;
     filter: brightness(75%);
- }`;
+  }`;
