@@ -54,24 +54,25 @@
                         '3': 'col-md-4 col-sm-6',
                         '4': 'col-lg-3 col-md-4 col-sm-6'
                     } %}
-
-                    {% if children_view_type == 'listitem' %}
-                        <ul class="listitem-list">
-                            {% for pager_item in pager %}
-                                <li>
-                                    {{ ng_view_content(pager_item, children_view_type) }}
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        <div class="row">
-                            {% for pager_item in pager %}
-                                <div class="{{ column_css_class[columns] }}">
-                                    {{ ng_view_content(pager_item, children_view_type) }}
-                                </div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
+                    <div class="category-children">
+                        {% if children_view_type == 'listitem' %}
+                            <ul class="listitem-list">
+                                {% for pager_item in pager %}
+                                    <li>
+                                        {{ ng_view_content(pager_item, children_view_type) }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <div class="row">
+                                {% for pager_item in pager %}
+                                    <div class="{{ column_css_class[columns] }}">
+                                        {{ ng_view_content(pager_item, children_view_type) }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
                 {% endif %}
 
                 {% if pager.haveToPaginate() %}
