@@ -84,7 +84,6 @@ ibexa:
     #      on single-site you can place shared config under "default" for simplicity as shown below.
     system:
         default:
-            repository: default
             # Cache pool service, needs to be different per repository (database) on multi repository install.
             cache_service_name: '%cache_pool%'
             # These reflect the current installers, complete installation before you change them. For changing var_dir
