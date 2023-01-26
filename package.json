@@ -59,12 +59,12 @@
         "style-loader": "^2.0.0",
         "file-loader": "^6.0.0",
         "webpack-notifier": "^1.6.0",
-        "@ckeditor/ckeditor5-alignment": "^34.1.0",
-        "@ckeditor/ckeditor5-build-inline": "^34.1.0",
-        "@ckeditor/ckeditor5-dev-utils": "^30.0.0",
-        "@ckeditor/ckeditor5-widget": "^34.1.0",
-        "@ckeditor/ckeditor5-theme-lark": "^34.1.0",
-        "@ckeditor/ckeditor5-code-block": "^34.1.0"
+        "@ckeditor/ckeditor5-alignment": "^35.3.2",
+        "@ckeditor/ckeditor5-build-inline": "^35.3.2",
+        "@ckeditor/ckeditor5-dev-utils": "^31.0.0",
+        "@ckeditor/ckeditor5-widget": "^35.3.2",
+        "@ckeditor/ckeditor5-theme-lark": "^35.3.2",
+        "@ckeditor/ckeditor5-code-block": "^35.3.2"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.8.1",

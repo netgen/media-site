@@ -50,7 +50,7 @@ security:
 
         # Uncomment the rules below to enable JSON Web Token (JWT) authentication for REST and/or GraphQL
         #ibexa_jwt_rest:
-        #    request_matcher: Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher
+        #    request_matcher: Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher
         #    user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
         #    anonymous: ~
         #    guard:
