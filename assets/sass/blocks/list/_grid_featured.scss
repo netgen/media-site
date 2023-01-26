@@ -1,29 +1,17 @@
 .grid-featured {
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
-    margin-left: -.25rem;
-    margin-right: -.25rem;
-    .item {
-        padding: .25rem;
-        flex: 0 0 33.333333333%;
-        max-width: 33.333333333%;
-    }
+    grid-gap: 1.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     .vl2 {
         margin: 0;
         .image {
             padding-bottom: 100%;
         }
         .title {
-            @include text-2;
+            @include text-1_5;
             -webkit-line-clamp: 5;
             max-height: 6.25em;
-        }
-    }
-    @include media-breakpoint-down(xxl) {
-        .vl2 {
-            .title {
-                @include text-1_5;
-            }
         }
     }
     @include media-breakpoint-down(xl) {

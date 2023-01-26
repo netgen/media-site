@@ -1,17 +1,16 @@
 .section-title {
     .title {
-        @include text-1_25;
+        @include text-base;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 900;
+        font-weight: 700;
         position: relative;
-        padding: 0 .75em;
         &::before {
             content: '';
             position: absolute;
             left: 0;
             right: 0;
-            bottom: .2222222222em;
+            top: 50%;
+            transform: translateY(-50%);
             height: .625rem;
             background: hsla(0, 0, 0, .04);
         }

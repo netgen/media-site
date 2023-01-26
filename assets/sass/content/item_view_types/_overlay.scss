@@ -15,10 +15,7 @@
         overflow: hidden;
         a, span {
             position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
+            inset: 0;
             &::before {
                 content: '';
                 position: absolute;
@@ -44,15 +41,13 @@
     .article-header {
         position: absolute;
         z-index: 3;
-        bottom: 1.75rem;
-        left: 2rem;
-        right: 2rem;
+        inset: auto 1.75rem 1.75rem;
         color: $white;
     }
     .title {
         @include text-1_25;
         font-weight: 900;
-        margin: 0 0 .25rem;
+        padding: 0 0 .25rem;
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
