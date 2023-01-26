@@ -184,7 +184,7 @@ const componentConfiguration = [
       thumbnailsSwiperConfig: {
         spaceBetween: 10,
         centeredSlides: true,
-        slidesPerView: 'auto',
+        slidesPerView: '4',
         touchRatio: 0.2,
         slideToClickedSlide: true,
       },
