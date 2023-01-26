@@ -1,7 +1,7 @@
-TanoConsulting Ibexa-Migration-Bundle
-=====================================
+Tano Consulting Ibexa Migration Bundle
+======================================
 
-For migrating eZ content types, users, user groups, permissions and other between installations it is advised that TanoConsulting Ibexa-Migration-Bundle is used. It is a direct replacement of [https://github.com/kaliop-uk/ezmigrationbundle](kaliop/ezmigrationbundle) for Ibexa 4.
+For migrating Ibexa content types, users, user groups, permissions and other between installations it is advised that Tano Consulting Ibexa Migration Bundle is used. It is a direct replacement of [https://github.com/kaliop-uk/ezmigrationbundle](kaliop/ezmigrationbundle) for Ibexa 4.
 
 For example, when implementing a feature that requires adding a field to some content type, it would be best to include migration file into the commit.
 
