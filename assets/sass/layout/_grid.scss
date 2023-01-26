@@ -11,6 +11,10 @@
             gap: $grid-gutter-width;
         }
     }
+    .ajax-collection {
+        display: grid;
+        gap: $gap 0;
+    }
 }
 
 .search-result {
