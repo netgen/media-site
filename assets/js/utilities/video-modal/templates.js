@@ -1,7 +1,7 @@
 export const videoSourceTemplate = (collectedVideoOptions) =>
   `<source src="${collectedVideoOptions.fileLink}" type="${collectedVideoOptions.mimeType}" />`;
 
-export const uploadVideoTemplate = ({collectedVideoOptions, videoSource, autoplayAttribute}) =>
+export const uploadVideoTemplate = ({ collectedVideoOptions, videoSource, autoplayAttribute }) =>
   `<video
     id="${collectedVideoOptions.id}"
     data-setup='{}'
