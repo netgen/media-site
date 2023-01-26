@@ -26,7 +26,7 @@ export const vimeoVideoTemplate = (videoIdentifier, autoplayAttribute) =>
 
 export const dailymotionVideoTemplate = (videoIdentifier, autoplayAttribute) =>
   `<div class="video-dailymotion iframe-video ratio ratio-16x9">
-    <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/${videoIdentifier}" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
+    <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/${videoIdentifier}?autoplay=1" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
   </div>`;
 
 export const videoModalStyleTemplate = () =>
