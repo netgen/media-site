@@ -110,4 +110,24 @@
     }
 }
 
+.ngl-vt-grid_gallery {
+    .row {
+        gap: $gap 0;
+        .view-type-gallery_grid {
+            height: 100%;
+            a {
+                display: block;
+                height: 100%;
+                position: relative;
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
 
