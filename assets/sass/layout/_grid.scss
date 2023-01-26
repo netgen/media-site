@@ -11,6 +11,12 @@
             gap: $grid-gutter-width;
         }
     }
+    &.ngl-vt-list_zigzag {
+        .list-row {
+            display: grid;
+            gap: 8rem;
+        }
+    }
     .ajax-collection {
         display: grid;
         gap: $gap 0;

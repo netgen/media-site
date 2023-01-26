@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8rem;
     .image {
         flex: 0 0 50%;
         @include media-breakpoint-down(sm) {

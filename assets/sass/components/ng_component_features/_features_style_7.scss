@@ -28,11 +28,13 @@
         & + .list-zigzag {
             margin-top: 4rem;
         }
-        .list-zigzag {
-            .title {
-                a {
-                    @extend %item-title-link;
-                }
+    }
+    .list-zigzag {
+        display: grid;
+        gap: 8rem;
+        .title {
+            a {
+                @extend %item-title-link;
             }
         }
     }
