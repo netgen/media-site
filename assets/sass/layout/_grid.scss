@@ -28,3 +28,9 @@
     flex-direction: column;
     gap: $grid-gutter-width;
 }
+
+.category-children {
+    .row {
+        gap: $grid-gutter-width 0;
+    }
+}
