@@ -130,4 +130,40 @@
     }
 }
 
+.swiper-container {
+    &.has-pagination {
+        padding-bottom: 2rem;
+        .swiper-pagination {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0 .5rem;
+            .swiper-pagination-bullet {
+                width: .875rem;
+                height: .875rem;
+                background-color: transparent;
+                border: .125rem solid $black;
+                transition: background-color .125s ease, border-color .125s ease;
+                &.swiper-pagination-bullet-active {
+                    background-color: $black;
+                }
+                .bg-color-black & {
+                    border-color: $white;
+                    &.swiper-pagination-bullet-active {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+    &.gallery-top {
+        + .gallery-thumbs {
+            margin-top: $gutter;
+        }
+    }
+}
+
 

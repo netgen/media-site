@@ -1,0 +1,32 @@
+{% extends '@nglayouts/block/block.html.twig' %}
+
+{% import '@NetgenLayouts/parts/macros.html.twig' as macros %}
+
+{% block content %}
+    {% if collections.default is defined and collections.default is not empty %}
+        <div class="sushi-swiper swiper-container{% if block.parameter('show_pagination').value %} has-pagination{% endif %}"
+            data-effect="slide"
+            {% if block.parameter('infinite_loop').value %}data-loop="true"{% endif %}
+            {% if block.parameter('autoplay').value %}data-autoplay="{{ block.parameter('autoplay_time').value }}"{% endif %}
+            {% if block.parameter('number_of_thumbnails').value %}data-slides-per-view="{{ block.parameter('number_of_thumbnails').value }}"{% endif %}
+            {% if block.parameter('thumbnails_to_move').value %}data-slides-per-group="{{ block.parameter('thumbnails_to_move').value }}"{% endif %}
+        >
+            <div class="swiper-wrapper">
+                {% for result in collections.default %}
+                    <div class="swiper-slide">
+                        {{ nglayouts_render_result(result, null, block.itemViewType) }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if block.parameter('show_pagination').value %}
+                <div class="swiper-pagination"></div>
+            {% endif %}
+
+            {% if block.parameter('next_and_previous').value %}
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            {% endif %}
+        </div>
+   {% endif %}
+{% endblock %}

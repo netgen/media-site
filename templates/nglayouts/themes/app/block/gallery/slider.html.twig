@@ -1,0 +1,28 @@
+{% extends '@nglayouts/block/block.html.twig' %}
+
+{% import '@NetgenLayouts/parts/macros.html.twig' as macros %}
+
+{% block content %}
+    {% if collections.default is defined and collections.default is not empty %}
+        <div class="default-swiper swiper-container{% if block.parameter('show_pagination').value %} has-pagination{% endif %}"
+            data-effect="{{ block.parameter('transition').value }}"
+            {% if block.parameter('infinite_loop').value %}data-loop="true"{% endif %}
+            {% if block.parameter('autoplay').value %}data-autoplay="{{ block.parameter('autoplay_time').value }}"{% endif %}
+        >
+            <div class="swiper-wrapper">
+                {% for result in collections.default %}
+                    <div class="swiper-slide">
+                        {{ nglayouts_render_result(result, null, block.itemViewType) }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% if block.parameter('show_pagination').value %}
+                <div class="swiper-pagination"></div>
+            {% endif %}
+            {% if block.parameter('next_and_previous').value %}
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            {% endif %}
+        </div>
+   {% endif %}
+{% endblock %}

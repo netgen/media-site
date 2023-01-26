@@ -1,0 +1,93 @@
+/* slide item view type */
+.vl3 {
+    .swiper-container.gallery-thumbs & {
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%;
+        overflow: hidden;
+        img {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform .75s ease-out;
+            will-change: transform;
+        }
+    }
+    .swiper-container:not(.gallery-thumbs) & {
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%;
+        overflow: hidden;
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(transparent,rgba(0,0,0,0.9));
+            z-index: 1;
+            transition: opacity .75s ease-out;
+        }
+        img {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform .75s ease-out;
+            will-change: transform;
+        }
+        .info {
+            position: absolute;
+            z-index: 3;
+            inset: auto 1.75rem 1.75rem;
+            color: $white;
+        }
+        .title {
+            @include text-1_25;
+            font-weight: 900;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 5em;
+            a {
+                @extend %item-title-link;
+            }
+        }
+        &:hover,
+        &:focus {
+            &::before {
+                opacity: .75;
+            }
+            img {
+                transform: scale(1.08);
+            }
+        }
+        @include media-breakpoint-down(xl) {
+            .article-header {
+                bottom: 1.25rem;
+                left: 1.5rem;
+                right: 1.5rem;
+            }
+            .title {
+                @include text-1_25;
+            }
+        }
+        @include media-breakpoint-down(md) {
+            .info {
+                bottom: 1rem;
+                left: 1.25rem;
+                right: 1.25rem;
+            }
+            .title {
+                -webkit-line-clamp: 3;
+                max-height: 3.75em;
+            }
+        }
+    }
+}
