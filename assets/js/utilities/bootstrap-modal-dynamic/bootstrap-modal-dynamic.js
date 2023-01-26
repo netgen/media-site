@@ -4,7 +4,7 @@ const bootstrapModalTemplate = (
   modalCssClasses,
   dialogCssClasses,
   modalId = 'bootstrap-modal-placeholder',
-  transition = 'fade'
+  transition = 'fade',
 ) =>
   `<div id="${modalId}" class="modal ${transition} ${modalCssClasses}" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog ${dialogCssClasses}" role="document">
@@ -92,7 +92,7 @@ export default class BootstrapModalDynamic {
     this.bootstrapModal.dispose();
     this.modalElement.remove();
     this.modalShown = false;
-    if (this.onOpenCallback && this.onOpenCallback instanceof Function) {
+    if (this.onCloseCallback && this.onCloseCallback instanceof Function) {
       this.onCloseCallback();
     }
   }

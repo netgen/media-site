@@ -15,17 +15,51 @@ const uploadVideoTemplate = (collectedVideoOptions, videoSource, autoplayAttribu
     ${videoSource}
   </video>`;
 const youtubeVideoTemplate = (videoIdentifier, autoplayAttribute) =>
-  `<div class="video-youtube ratio ratio-16x9">
-    <iframe frameborder="0" src="https://www.youtube.com/embed/${videoIdentifier}" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
+  `<div class="video-youtube iframe-video ratio ratio-16x9">
+    <iframe frameborder="0" src="https://www.youtube.com/embed/${videoIdentifier}?autoplay=1" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
   </div>`;
 const vimeoVideoTemplate = (videoIdentifier, autoplayAttribute) =>
-  `<div class="video-vimeo ratio ratio-16x9">
-    <iframe frameborder="0" src="https://player.vimeo.com/video/${videoIdentifier}" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
+  `<div class="video-vimeo iframe-video ratio ratio-16x9">
+    <iframe frameborder="0" src="https://player.vimeo.com/video/${videoIdentifier}?autoplay=1" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
   </div>`;
 const dailymotionVideoTemplate = (videoIdentifier, autoplayAttribute) =>
-  `<div class="video-dailymotion ratio ratio-16x9">
+  `<div class="video-dailymotion iframe-video ratio ratio-16x9">
     <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/${videoIdentifier}" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
   </div>`;
+const videoModalStyle = () =>
+  `.modal.video-modal .modal-content {
+    background-color: #000;
+ }
+  .modal.video-modal .modal-content .modal-header {
+    border: 0;
+    justify-content: center;
+ }
+  .modal.video-modal .modal-content .modal-header .btn-close {
+    margin: 0;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(19%) saturate(0%) hue-rotate(206deg) brightness(103%) contrast(101%);
+ }
+  .modal.video-modal .modal-content .modal-body {
+    order: -1;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+  .modal.video-modal .modal-content .modal-body .video-js {
+    height: 100%;
+ }
+  .modal.video-modal .modal-content .modal-body .video-js .vjs-big-play-button {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    font-size: 5rem;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    filter: brightness(75%);
+ }`;
 
 export default class VideoModalComponent {
   constructor(trigger, options) {
@@ -39,35 +73,50 @@ export default class VideoModalComponent {
       { url: 'https://vjs.zencdn.net/7.20.3/video-js.min.css', type: 'text/css' },
       { url: 'https://vjs.zencdn.net/7.20.3/video.min.js', type: 'text/javascript' },
     ];
+    this.internalAssets = [
+      { url: 'local-modal-style', type: 'text/css' }
+    ]
 
     this.init();
   }
 
   init() {
-    this.trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      // this.setupVideo();
-
-      this.externalAssets.forEach((asset) => {
-        if(document.getElementById(`video-js-${asset.type}`) === null) {
-          this.promises.push(this.loadExternalAssets(asset));
-        }
-      });
-
-      Promise.all(this.promises)
-        .then(() => {
-          console.log('all scripts loaded');
-          this.setupVideo();
-        })
-        .catch((script) => {
-          console.log(`${script} failed to load`);
-        });
-    });
+    this.trigger.addEventListener('click', this.handleButtonClick.bind(this));
   }
 
-  setupVideo() {
+  handleButtonClick(e) {
+    e.preventDefault();
     this.collectedVideoOptions = JSON.parse(this.trigger.getAttribute('data-video-options'));
+    this.getResources();
+    this.setupVideoData();
+  }
+
+  getResources() {
+    this.internalAssets.forEach((asset) => {
+      if(document.querySelector(`[data-id="video-${asset.url}"]`) === null) {
+        VideoModalComponent.loadResources(asset, videoModalStyle());
+      }
+    });
+    if (this.collectedVideoOptions.type === 'upload') {
+      this.externalAssets.forEach((asset) => {
+        if(document.querySelector(`[data-id="video-${asset.url}"]`) === null) {
+          fetch(asset.url)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error();
+              }
+              return response.text();
+            })
+            .then(data => VideoModalComponent.loadResources(asset, data))
+            .catch((error) => {
+              console.error(`Failed to load resources: ${error}`);
+            });
+        }
+      });
+    }
+  }
+
+  setupVideoData() {
     this.collectedVideoOptions.id = `video-js-${this.collectedVideoOptions.type}`;
     this.collectedVideoOptions.width = '100%';
     this.collectedVideoOptions.controls = 'controls';
@@ -80,10 +129,17 @@ export default class VideoModalComponent {
     this.collectedVideoOptions.class = 'vjs-fill';
 
     let autoplayAttribute = '';
-    if (this.collectedVideoOptions.autoplay) {
+    if (this.collectedVideoOptions.type === 'upload' && this.collectedVideoOptions.autoplay) {
       autoplayAttribute = 'autoplay';
+    } else {
+      autoplayAttribute = 'autoplay allow="autoplay"';
     }
 
+    this.createModalContent(autoplayAttribute);
+
+  }
+
+  createModalContent(autoplayAttribute) {
     if (this.collectedVideoOptions.type === 'upload') {
       this.modalContent = uploadVideoTemplate(this.collectedVideoOptions, videoSourceTemplate(this.collectedVideoOptions), autoplayAttribute);
     } else if (this.collectedVideoOptions.type === 'youtube') {
@@ -97,6 +153,7 @@ export default class VideoModalComponent {
     this.createBootstrapModalDynamic();
   }
 
+
   createBootstrapModalDynamic() {
     this.bootstrapModalDynamic = new BootstrapModalDynamic({
       receivedContent: this.modalContent,
@@ -107,34 +164,16 @@ export default class VideoModalComponent {
     });
   }
 
-  loadExternalAssets() {
-    const head = document.getElementsByTagName('head')[0];
-    return new Promise((resolve, reject) => {
-      this.externalAssets.forEach((asset) => {
-        if(document.getElementById(`video-js-${asset.type}`) === null) {
-          let fileRef = null;
-          if (asset.type === 'text/javascript') {
-            fileRef = document.createElement('script');
-          } else if (asset.type === 'text/css') {
-            fileRef = document.createElement('link');
-            fileRef.setAttribute('rel', 'stylesheet');
-          }
-          fileRef.setAttribute('id', `video-js-${asset.type}`);
-          fileRef.setAttribute('type', asset.type);
-          fileRef.setAttribute('src', asset.url);
-          if (asset.type === 'text/javascript') {
-            fileRef.onload = () => {
-              resolve();
-            }
-            fileRef.onerror = () => {
-              reject(new Error(`cannot load file ${ asset.url}`));
-            }
-          } else {
-            resolve();
-          }
-          head.appendChild(fileRef);
-        }
-      });
-    })
+  static loadResources(asset, data) {
+    let fileRef = null;
+    if (asset.type === 'text/javascript') {
+      fileRef = document.createElement('script');
+    } else if (asset.type === 'text/css') {
+      fileRef = document.createElement('style');
+    }
+    fileRef.innerHTML = data;
+    fileRef.setAttribute('data-id', `video-${asset.url}`);
+    fileRef.setAttribute('type', asset.type);
+    document.body.appendChild(fileRef);
   }
 }
