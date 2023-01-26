@@ -1,7 +1,7 @@
 export const videoSourceTemplate = (collectedVideoOptions) =>
   `<source src="${collectedVideoOptions.fileLink}" type="${collectedVideoOptions.mimeType}" />`;
 
-export const uploadVideoTemplate = (collectedVideoOptions, videoSource, autoplayAttribute) =>
+export const uploadVideoTemplate = ({collectedVideoOptions, videoSource, autoplayAttribute}) =>
   `<video
     id="${collectedVideoOptions.id}"
     data-setup='{}'
@@ -14,20 +14,34 @@ export const uploadVideoTemplate = (collectedVideoOptions, videoSource, autoplay
     ${videoSource}
   </video>`;
 
-export const youtubeVideoTemplate = (videoIdentifier, autoplayAttribute) =>
-  `<div class="video-youtube iframe-video ratio ratio-16x9">
-    <iframe frameborder="0" src="https://www.youtube.com/embed/${videoIdentifier}?autoplay=1" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
+const iframeEmbedTemplate = ({ src, srcParameters, autoplayAttribute, type }) =>
+  `<div class="video-${type} iframe-video ratio ratio-16x9">
+      <iframe frameborder="0" src="${src}?${srcParameters}" ${autoplayAttribute} allowfullscreen></iframe>
   </div>`;
 
-export const vimeoVideoTemplate = (videoIdentifier, autoplayAttribute) =>
-  `<div class="video-vimeo iframe-video ratio ratio-16x9">
-    <iframe frameborder="0" src="https://player.vimeo.com/video/${videoIdentifier}?autoplay=1" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
-  </div>`;
+export const youtubeVideoTemplate = ({ videoIdentifier, autoplayAttribute, type }) =>
+  iframeEmbedTemplate({
+    src: `https://www.youtube.com/embed/${videoIdentifier}`,
+    srcParameters: 'autoplay=1',
+    autoplayAttribute,
+    type,
+  });
 
-export const dailymotionVideoTemplate = (videoIdentifier, autoplayAttribute) =>
-  `<div class="video-dailymotion iframe-video ratio ratio-16x9">
-    <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/${videoIdentifier}?autoplay=1" ${autoplayAttribute} width="770" height="433" allowfullscreen></iframe>
-  </div>`;
+export const vimeoVideoTemplate = ({ videoIdentifier, autoplayAttribute, type }) =>
+  iframeEmbedTemplate({
+    src: `https://player.vimeo.com/video/${videoIdentifier}`,
+    srcParameters: 'autoplay=1',
+    autoplayAttribute,
+    type,
+  });
+
+export const dailymotionVideoTemplate = ({ videoIdentifier, autoplayAttribute, type }) =>
+  iframeEmbedTemplate({
+    src: `https://www.dailymotion.com/embed/video/${videoIdentifier}`,
+    srcParameters: 'autoplay=1',
+    autoplayAttribute,
+    type,
+  });
 
 export const videoModalStyleTemplate = () =>
   `.modal.video-modal .modal-content {

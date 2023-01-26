@@ -1,5 +1,5 @@
 import BootstrapModalDynamic from '../utilities/bootstrap-modal-dynamic/bootstrap-modal-dynamic';
-import * as templates from '../utilities/video-modal/templates'
+import * as templates from '../utilities/video-modal/templates';
 
 export default class VideoModalComponent {
   constructor(trigger, options) {
@@ -13,9 +13,7 @@ export default class VideoModalComponent {
       { url: 'https://vjs.zencdn.net/7.20.3/video-js.min.css', type: 'text/css' },
       { url: 'https://vjs.zencdn.net/7.20.3/video.min.js', type: 'text/javascript' },
     ];
-    this.internalAssets = [
-      { url: 'local-modal-style', type: 'text/css' }
-    ]
+    this.internalAssets = [{ url: 'local-modal-style', type: 'text/css' }];
 
     this.init();
   }
@@ -33,13 +31,13 @@ export default class VideoModalComponent {
 
   getResources() {
     this.internalAssets.forEach((asset) => {
-      if(document.querySelector(`[data-id="video-${asset.url}"]`) === null) {
+      if (document.querySelector(`[data-id="video-${asset.url}"]`) === null) {
         VideoModalComponent.loadResources(asset, templates.videoModalStyleTemplate());
       }
     });
     if (this.collectedVideoOptions.type === 'upload') {
       this.externalAssets.forEach((asset) => {
-        if(document.querySelector(`[data-id="video-${asset.url}"]`) === null) {
+        if (document.querySelector(`[data-id="video-${asset.url}"]`) === null) {
           fetch(asset.url)
             .then((response) => {
               if (!response.ok) {
@@ -47,7 +45,7 @@ export default class VideoModalComponent {
               }
               return response.text();
             })
-            .then(data => VideoModalComponent.loadResources(asset, data))
+            .then((data) => VideoModalComponent.loadResources(asset, data))
             .catch((error) => {
               console.error(`Failed to load resources: ${error}`);
             });
@@ -76,23 +74,37 @@ export default class VideoModalComponent {
     }
 
     this.createModalContent(autoplayAttribute);
-
   }
 
   createModalContent(autoplayAttribute) {
     if (this.collectedVideoOptions.type === 'upload') {
-      this.modalContent = templates.uploadVideoTemplate(this.collectedVideoOptions, templates.videoSourceTemplate(this.collectedVideoOptions), autoplayAttribute);
+      this.modalContent = templates.uploadVideoTemplate({
+        collectedVideoOptions: this.collectedVideoOptions,
+        videoSource: templates.videoSourceTemplate(this.collectedVideoOptions),
+        autoplayAttribute,
+      });
     } else if (this.collectedVideoOptions.type === 'youtube') {
-      this.modalContent = templates.youtubeVideoTemplate(this.collectedVideoOptions.identifier, autoplayAttribute);
+      this.modalContent = templates.youtubeVideoTemplate({
+        videoIdentifier: this.collectedVideoOptions.identifier,
+        autoplayAttribute,
+        type: this.collectedVideoOptions.type,
+      });
     } else if (this.collectedVideoOptions.type === 'vimeo') {
-      this.modalContent = templates.vimeoVideoTemplate(this.collectedVideoOptions.identifier, autoplayAttribute);
+      this.modalContent = templates.vimeoVideoTemplate({
+        videoIdentifier: this.collectedVideoOptions.identifier,
+        autoplayAttribute,
+        type: this.collectedVideoOptions.type,
+      });
     } else if (this.collectedVideoOptions.type === 'dailymotion') {
-      this.modalContent = templates.dailymotionVideoTemplate(this.collectedVideoOptions.identifier, autoplayAttribute);
+      this.modalContent = templates.dailymotionVideoTemplate({
+        videoIdentifier: this.collectedVideoOptions.identifier,
+        autoplayAttribute,
+        type: this.collectedVideoOptions.type,
+      });
     }
 
     this.createBootstrapModalDynamic();
   }
-
 
   createBootstrapModalDynamic() {
     this.bootstrapModalDynamic = new BootstrapModalDynamic({
