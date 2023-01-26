@@ -15,11 +15,22 @@
 }
 
 .full-form-response {
-    text-align: center;
-    min-height: 15rem;
-    p {
+    padding: 2rem;
+    background-color: $secondary;
+    .bg-color-black & {
+        background-color: lighten($black, 10%);
+    }
+    .bg-color-primary & {
+        background-color: lighten($primary, 10%);
+    }
+    .bg-color-secondary & {
+        background-color: $white;
+    }
+    h2 {
         @include text-2;
-        font-style: italic;
+    }
+    p {
+        @include text-1_25;
     }
 }
 

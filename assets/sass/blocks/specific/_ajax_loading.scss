@@ -23,8 +23,11 @@
             line-height: 40px;
             text-align: center;
             margin: -20px 0 0 -20px;
-            color: #333;
+            color: $black;
             animation: ajaxLoader 1s infinite linear;
+            .bg-color-black & {
+                color: $primary;
+            }
         }
     }
 }

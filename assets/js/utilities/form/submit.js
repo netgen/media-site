@@ -1,7 +1,5 @@
 import GTM from '../gtm';
 
-const loader = '<div class="loading-animation"><span></span></div>';
-
 export default function (formType, event) {
   event.preventDefault();
 
@@ -17,7 +15,11 @@ export default function (formType, event) {
     parentElement: formContainer,
   } = this.form;
 
-  formContainer.innerHTML = loader;
+  if (formContainer.classList.contains('loading')) {
+    return;
+  }
+
+  formContainer.classList.add('loading');
 
   const options = { method: 'POST', body: new FormData(this.form) };
   fetch(action, options)
@@ -30,6 +32,10 @@ export default function (formType, event) {
     })
     .then((text) => {
       formContainer.innerHTML = text.trim();
+      formContainer.classList.remove('loading');
+      formContainer.scrollIntoView({
+        behavior: 'smooth'
+      });
 
       if (this.onSuccess !== undefined) {
         this.onSuccess();
@@ -40,6 +46,10 @@ export default function (formType, event) {
     .catch((error) => {
       formContainer.innerHTML = '<p>Something went wrong</p>';
       console.error(`Form type "${formType}" submit failed: ${error}`);
+      formContainer.classList.remove('loading');
+      formContainer.scrollIntoView({
+        behavior: 'smooth'
+      });
 
       if (this.onFailure !== undefined) {
         this.onFailure();
