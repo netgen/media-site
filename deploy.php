@@ -65,7 +65,7 @@ task('deploy', [
     // Migrate database before symlink new release.
     //  'database:migrate',
     // Optional: if the project uses kaliop migrations
-    //database:kaliop:migrate
+    'database:kaliop:migrate',
     'deploy:symlink',
     // Netgen specific setup, comment out what's not needed
     'server:symlink_public',
