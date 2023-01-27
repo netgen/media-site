@@ -12,6 +12,9 @@
         position: relative;
         text-align: center;
         padding-top: 5rem;
+        @include media-breakpoint-down(sm) {
+            padding: 5rem 3rem 0;
+        }
         .quote-icon {
             position: absolute;
             width: 10rem;
@@ -48,7 +51,7 @@
             }
             .quote-person-info {
                 margin-left: 1.5rem;
-                flex: 0 0 auto;
+                flex: 0 1 auto;
                 .quote-person-info-name {
                     @include text-1_5;
                 }

@@ -70,12 +70,6 @@
     }
 }
 
-.swiper-wrapper {
-    @include media-breakpoint-down(sm) {
-        padding-bottom: 4rem;
-    }
-}
-
 .swiper-button-prev,
 .swiper-button-next {
     background-image: url("../../assets/swiper_arrow.svg");
@@ -89,25 +83,20 @@
     left: 0;
     margin: 0;
     transform: translateY(-50%);
-    @include media-breakpoint-down(sm) {
-        top: 100%;
-        transform: translate(calc(-100% - 1px), -100%);
-        left: 50%;
-    }
     .bg-color-primary &,
     .bg-color-black & {
         background-color: $white;
+    }
+    @include media-breakpoint-down(sm) {
+        width: 2.25rem;
+        height: 2.25rem;
+        background-size: .75rem 1.5rem;
     }
 }
 .swiper-button-next {
     transform: translateY(-50%) rotate(180deg);
     left: auto;
     right: 0;
-    @include media-breakpoint-down(sm) {
-        top: 100%;
-        transform: translate(1px, -100%) rotate(180deg);
-        left: 50%;
-    }
 }
 
 .ngl-vt-grid_gallery {
