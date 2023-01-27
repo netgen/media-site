@@ -38,6 +38,7 @@
         }
         .info {
             @extend %item-header-info;
+            color: $black;
             & + .short {
                 margin-top: 1rem;
             }
