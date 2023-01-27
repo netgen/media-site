@@ -23,6 +23,7 @@
         display: inline-block;
         background: transparent;
         margin: 0;
+        transform: none;
         &::before {
             content: '';
             display: block;
