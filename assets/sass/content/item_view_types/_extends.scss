@@ -40,6 +40,7 @@
     a {
         transition: border-color .15s;
         border-bottom: .125rem solid transparent;
+        margin-top: .125rem;
         &:hover {
             border-bottom-color: currentColor;
         }
