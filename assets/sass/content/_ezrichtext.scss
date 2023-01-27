@@ -1,39 +1,28 @@
 /* EMBEDED OBJECTS ----------------------------------------------------- */
-.ibexa-embed-type-image {
-    margin-left: -4rem;
-    margin-right: -4rem;
-    &.align-left {
-        float: left;
-        clear: left;
-        margin-right: 2.5%;
+
+.align-left {
+    float: left;
+    clear: left;
+    margin-right: 2.5%;
+}
+.align-right {
+    float: right;
+    clear: right;
+    margin-left: 2.5%;
+}
+.align-left,
+.align-right {
+    max-width: 47.5%;
+}
+.view-type-embed {
+    &.image,
+    &.ng-gallery {
+        margin-bottom: 2rem;
     }
-    &.align-right {
-        float: right;
-        clear: right;
-        margin-left: 2.5%;
-    }
-    &.align-left,
-    &.align-right {
-        max-width: 47.5%;
-    }
-    &.align-center {
-        margin-left: 0;
-        margin-right: 0;
-        .view-type-embed {
-            max-width: 75%;
-            margin: 0 auto;
-        }
-    }
-    .view-type-embed {
-        &.image,
-        &.ng-gallery {
-            margin-bottom: 2rem;
-        }
-        &.ng-video {
-            margin: 20px 0;
-            h4 {
-                margin: 10px 0;
-            }
+    &.ng-video {
+        margin: 20px 0;
+        h4 {
+            margin: 10px 0;
         }
     }
 }
@@ -42,6 +31,16 @@
 .view-type-embed.image {
     margin-left: -4rem;
     margin-right: -4rem;
+    .align-left & {
+        margin-right: 0;
+    }
+    .align-right & {
+        margin-left: 0;
+    }
+    .align-center & {
+        max-width: 75%;
+        margin: 0 auto;
+    }
 }
 
 .clear {
