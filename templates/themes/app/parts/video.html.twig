@@ -70,7 +70,7 @@
                     "controls": true,
                     "preload": "auto",
                     "width": "1024",
-                    {{ autoresize == "fit" ? '"fluid": true,' : autoresize == "fill" ? '"fill": true,' : false }}
+                    "fill": true,
                     "autoplay": {% if autoplay %}true{% else %}false{% endif %},
                     "poster": "{{ image_path }}"
                 }'>
@@ -149,7 +149,7 @@
                     "controls": true,
                     "preload": "auto",
                     "width": "1024",
-                    {{ autoresize == "fit" ? '"fluid": true,' : autoresize == "fill" ? '"fill": true,' : false }}
+                    "fill": true,
                     "autoplay": {% if autoplay %}true{% else %}false{% endif %},
                     "poster": "{{ image_path }}"
                 }'>

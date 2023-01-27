@@ -9,8 +9,7 @@
     'mimeType': content.fields.video_file.value.mimeType,
     'identifier': content.fields.video_identifier.value.text,
     'poster': content.fields.poster.value.uri,
-    'autoplay': content.fields.autoplay.value.bool,
-    'autoresize': content.fields.autoresize.value.identifiers.0
+    'autoplay': content.fields.autoplay.value.bool
 } %}
 
 <a href="#" class="btn btn-default js-modal-video-trigger" data-video-options="{{ videoOptions|json_encode() }}">{{ label|default(content.name) }}</a>

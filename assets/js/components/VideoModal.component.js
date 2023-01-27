@@ -22,8 +22,9 @@ export default class VideoModalComponent {
     this.trigger.addEventListener('click', this.handleButtonClick.bind(this));
   }
 
-  handleButtonClick(e) {
-    e.preventDefault();
+  handleButtonClick(event) {
+    event.preventDefault();
+
     this.collectedVideoOptions = JSON.parse(this.trigger.getAttribute('data-video-options'));
     this.getResources();
     this.setupVideoData();
@@ -35,6 +36,7 @@ export default class VideoModalComponent {
         VideoModalComponent.loadResources(asset, templates.videoModalStyleTemplate());
       }
     });
+
     if (this.collectedVideoOptions.type === 'upload') {
       this.externalAssets.forEach((asset) => {
         if (document.querySelector(`[data-id="video-${asset.url}"]`) === null) {
@@ -43,6 +45,7 @@ export default class VideoModalComponent {
               if (!response.ok) {
                 throw new Error();
               }
+
               return response.text();
             })
             .then((data) => VideoModalComponent.loadResources(asset, data))
@@ -59,49 +62,36 @@ export default class VideoModalComponent {
     this.collectedVideoOptions.width = '100%';
     this.collectedVideoOptions.controls = 'controls';
     this.collectedVideoOptions.preload = 'auto';
-    if (this.collectedVideoOptions.autoResize === 'fit') {
-      this.collectedVideoOptions.class = 'vjs-fluid';
-    } else if (this.collectedVideoOptions.autoResize === 'fill') {
-      this.collectedVideoOptions.class = 'vjs-fill';
-    }
+    
     this.collectedVideoOptions.class = 'vjs-fill';
 
     let autoplayAttribute = '';
-    if (this.collectedVideoOptions.type === 'upload' && this.collectedVideoOptions.autoplay) {
+    if (this.collectedVideoOptions.autoplay === true) {
       autoplayAttribute = 'autoplay';
-    } else {
-      autoplayAttribute = 'autoplay allow="autoplay"';
+      
+      if (this.collectedVideoOptions.type !== 'upload') {
+        autoplayAttribute += ' allow="autoplay"';
+      }
     }
 
     this.createModalContent(autoplayAttribute);
   }
 
   createModalContent(autoplayAttribute) {
+    const template = templates[`${this.collectedVideoOptions.type}VideoTemplate`];
+    const templateOptions = {
+      autoplayAttribute
+    };
+    
     if (this.collectedVideoOptions.type === 'upload') {
-      this.modalContent = templates.uploadVideoTemplate({
-        collectedVideoOptions: this.collectedVideoOptions,
-        videoSource: templates.videoSourceTemplate(this.collectedVideoOptions),
-        autoplayAttribute,
-      });
-    } else if (this.collectedVideoOptions.type === 'youtube') {
-      this.modalContent = templates.youtubeVideoTemplate({
-        videoIdentifier: this.collectedVideoOptions.identifier,
-        autoplayAttribute,
-        type: this.collectedVideoOptions.type,
-      });
-    } else if (this.collectedVideoOptions.type === 'vimeo') {
-      this.modalContent = templates.vimeoVideoTemplate({
-        videoIdentifier: this.collectedVideoOptions.identifier,
-        autoplayAttribute,
-        type: this.collectedVideoOptions.type,
-      });
-    } else if (this.collectedVideoOptions.type === 'dailymotion') {
-      this.modalContent = templates.dailymotionVideoTemplate({
-        videoIdentifier: this.collectedVideoOptions.identifier,
-        autoplayAttribute,
-        type: this.collectedVideoOptions.type,
-      });
+      templateOptions.collectedVideoOptions = this.collectedVideoOptions;
+      templateOptions.videoSource = templates.videoSourceTemplate(this.collectedVideoOptions);
+    } else {
+      templateOptions.videoIdentifier = this.collectedVideoOptions.identifier;
+      templateOptions.type = this.collectedVideoOptions.type;
     }
+
+    this.modalContent = template(templateOptions);
 
     this.createBootstrapModalDynamic();
   }
@@ -123,9 +113,11 @@ export default class VideoModalComponent {
     } else if (asset.type === 'text/css') {
       fileRef = document.createElement('style');
     }
+
     fileRef.innerHTML = data;
     fileRef.setAttribute('data-id', `video-${asset.url}`);
     fileRef.setAttribute('type', asset.type);
+
     document.body.appendChild(fileRef);
   }
 }
