@@ -5,13 +5,13 @@
 
 <article class="view-type view-type-search {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl7">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+        <div class="col">
             <div class="article-content">
-                {{ content_fields.image(content, location, 'i320') }}
+                {{ content_fields.image(content, location, 'i480') }}
 
                 <div class="article-content-text">
                     <header class="article-header">
-                        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+                        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a><span class="type">{{ content.contentInfo.contentTypeName }}</span></h2>
                         <div class="info">
                             <time>{{ 'ngsite.search.item.last_updated'|trans }}: {{ content.contentInfo.modificationDate|format_date(pattern='d MMM Y') }}</time>
                         </div>
@@ -26,22 +26,6 @@
                         {% endif %}
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-            <div class="additional-info">
-                <div class="type">
-                    <label>
-                        {{ 'ngsite.search.item.type'|trans }}:
-                    </label>
-                    {{ content.contentInfo.contentTypeName }}
-                </div>
-
-                {% if score_percent|default(null) is not null %}
-                    <div class="score progress">
-                        <div class="bar" style="width:{{ score_percent }}%">{{ score_percent }}%</div>
-                    </div>
-                {% endif %}
             </div>
         </div>
     </div>

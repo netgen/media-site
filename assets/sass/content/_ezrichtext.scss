@@ -1,52 +1,73 @@
 /* EMBEDED OBJECTS ----------------------------------------------------- */
-.object-left {
-    float: left;
-    clear: left;
-    margin-right: 2.5%;
-}
-.object-right {
-    float: right;
-    clear: right;
-    margin-left: 2.5%;
-}
-.object-left,
-.object-right {
-    max-width: 47.5%;
-}
-.object-center {
+.ibexa-embed-type-image {
+    margin-left: -4rem;
+    margin-right: -4rem;
+    &.align-left {
+        float: left;
+        clear: left;
+        margin-right: 2.5%;
+    }
+    &.align-right {
+        float: right;
+        clear: right;
+        margin-left: 2.5%;
+    }
+    &.align-left,
+    &.align-right {
+        max-width: 47.5%;
+    }
+    &.align-center {
+        margin-left: 0;
+        margin-right: 0;
+        .view-type-embed {
+            max-width: 75%;
+            margin: 0 auto;
+        }
+    }
     .view-type-embed {
-        max-width: 75%;
-        margin: 0 auto;
-    }
-}
-.view-type-embed {
-    &.image,
-    &.ng-gallery {
-        margin-bottom: 2rem;
-    }
-    &.ng-video {
-        margin: 20px 0;
-        h4 {
-            margin: 10px 0;
+        &.image,
+        &.ng-gallery {
+            margin-bottom: 2rem;
+        }
+        &.ng-video {
+            margin: 20px 0;
+            h4 {
+                margin: 10px 0;
+            }
         }
     }
 }
+
+.view-type-embed.ng-video,
+.view-type-embed.image {
+    margin-left: -4rem;
+    margin-right: -4rem;
+}
+
 .clear {
     clear: both;
 }
 
-@include media-breakpoint-down(sm) {
-    .object-left,
-    .object-right {
-        width: 100%;
-        max-width: 100%;
+@include media-breakpoint-down(md) {
+    .ibexa-embed-type-image {
         margin-left: 0;
         margin-right: 0;
-    }
-    .object-center {
-        .view-type-embed {
+        &.align-left,
+        &.align-right {
+            width: 100%;
             max-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
         }
+        &.align-center {
+            .view-type-embed {
+                max-width: 100%;
+            }
+        }
+    }
+    .view-type-embed.ng-video {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 /* /EMBEDED OBJECTS */

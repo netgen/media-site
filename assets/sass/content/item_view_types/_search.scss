@@ -1,17 +1,19 @@
 /* search result item */
 .vl7 {
     background: $secondary;
-    padding: 2rem;
+    padding: 1.5rem;
     .article-content {
         display: flex;
     }
     .image {
-        width: 10rem;
+        width: 44%;
         + .article-content-text {
             padding-left: $gap;
+            padding-right: 4rem;
         }
     }
     .article-content-text {
+        position: relative;
         flex: 1;
     }
     .title {
@@ -37,6 +39,11 @@
     .type {
         @include text-0_875;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: .25rem .5rem;
+        color: $primary;
+        background-color: $black;
     }
 }

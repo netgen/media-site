@@ -22,31 +22,31 @@
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
 
                     <div class="full-page-info">
-                        By {% include '@ibexadesign/parts/author.html.twig' %} -
+                        {% include '@ibexadesign/parts/author.html.twig' %}
                         {% include '@ibexadesign/parts/time.html.twig' %}
                     </div>
                 </div>
             </header>
         {% endblock %}
 
-        <div class="container">
-            {% block image %}
-                {% if not content.fields.image.empty %}
-                    <div class="full-page-image">
-                        {{ render(
-                            controller(
-                                'ngsite.controller.relations.related_multimedia_items', {
-                                    'locationId': location.id,
-                                    'includeChildren': true,
-                                    'contentTypeIdentifiers': ['image', 'ng_video'],
-                                    'template': '@ibexadesign/parts/related_multimedia.html.twig'
-                                }
-                            )
-                        ) }}
-                    </div>
-                {% endif %}
-            {% endblock %}
+        {% block image %}
+            {% if not content.fields.image.empty %}
+                <div class="full-page-image">
+                    {{ render(
+                        controller(
+                            'ngsite.controller.relations.related_multimedia_items', {
+                                'locationId': location.id,
+                                'includeChildren': true,
+                                'contentTypeIdentifiers': ['image', 'ng_video'],
+                                'template': '@ibexadesign/parts/related_multimedia.html.twig'
+                            }
+                        )
+                    ) }}
+                </div>
+            {% endif %}
+        {% endblock %}
 
+        <div class="container container-narrow">
             {% block body %}
                 <div class="full-page-body">
                     <div class="sticky-sidebar-wrapper">

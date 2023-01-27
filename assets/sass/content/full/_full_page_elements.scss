@@ -2,6 +2,9 @@
     background: $primary;
     padding: 2rem 0 4rem;
     margin-bottom: 4rem;
+    @include media-breakpoint-down(xxl) {
+        margin-bottom: 0;
+    }
     &.no-breadcrumbs {
         padding: 4rem 0 4rem;
     }
@@ -23,39 +26,38 @@
 }
 .full-page-intro {
     @include text-1_5;
-    color: $black;
-    p {
-        margin: 0;
-        + p {
-            margin-top: 1em;
-        }
-    }
+    // p {
+    //     margin: 0;
+    //     + p {
+    //         margin-top: 1em;
+    //     }
+    // }
     & + * {
         margin-top: 4rem;
     }
 }
 .full-page-info {
-    @include text-base;
-    margin: 0;
-    color: $black;
-    opacity: .54;
-    > span,
-    > time {
-        + span,
-        + time {
-            &::before {
-                content: '-';
-                margin: 0 .25em;
-            }
-        }
-    }
-    a {
-        transition: border-color .15s;
-        border-bottom: .125rem solid transparent;
-        &:hover {
-            border-bottom-color: currentColor;
-        }
-    }
+    // @include text-base;
+    // margin: 0;
+    // color: $black;
+    // opacity: .54;
+    // > span,
+    // > time {
+    //     + span,
+    //     + time {
+    //         &::before {
+    //             content: '-';
+    //             margin: 0 .25em;
+    //         }
+    //     }
+    // }
+    // a {
+    //     transition: border-color .15s;
+    //     border-bottom: .125rem solid transparent;
+    //     &:hover {
+    //         border-bottom-color: currentColor;
+    //     }
+    // }
 }
 .full-page-main-topic,
 .full-page-important-notice {
@@ -73,13 +75,12 @@
     }
 }
 .full-page-image {
-    @include media-breakpoint-down(lg) {
-        img {
-            width: 100%;
-        }
-    }
-    margin: 0;
+    max-width: 1400px;
+    margin: 0 auto;
     text-align: center;
+    img {
+        width: 100%;
+    }
 }
 
 .full-page-tags {
@@ -101,19 +102,7 @@
 
 /* full page body styling */
 .full-page-body {
-    @extend %clearfix;
-    padding: 4rem 4rem 2rem;
-    background: $body-bg;
-    .object-full {
-        margin-left: -4rem;
-        margin-right: -4rem;
-    }
-    .object-left > .view-type-embed {
-        margin-left: -4rem;
-    }
-    .object-right > .view-type-embed {
-        margin-right: -4rem;
-    }
+    margin-top: 4rem;
 }
 
 /* full page newsletter box */
@@ -134,19 +123,19 @@
     }
 }
 
-.vf1 {
-    .full-page-image {
-        margin: 0 0 4rem;
-    }
+// .vf1 {
+//     .full-page-image {
+//         margin: 0 0 4rem;
+//     }
 
-    .full-page-body {
-        position: relative;
-        padding: 0 0 2rem;
-        margin: 0 0 2rem;
+//     .full-page-body {
+//         position: relative;
+//         padding: 0 0 2rem;
+//         margin: 0 0 2rem;
 
-        @include media-breakpoint-up(lg) {
-            max-width: 754px;
-            margin: 0 auto;
-        }
-    }
-}
+//         @include media-breakpoint-up(lg) {
+//             max-width: 754px;
+//             margin: 0 auto;
+//         }
+//     }
+// }
