@@ -15,6 +15,7 @@ import ResponsiveVideo from './components/ResponsiveVideo.component';
 import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
+import SkipToMainContent from './components/SkipToMainContent.component';
 
 // Configuration
 const componentConfiguration = [
@@ -198,6 +199,10 @@ const componentConfiguration = [
       dailymotionClass: 'dailymotion-poster',
       posterLinkElement: '.js-video-poster',
     },
+  },
+  {
+    Component: SkipToMainContent,
+    selector: '#skip-to-main-content',
   },
 ];
 

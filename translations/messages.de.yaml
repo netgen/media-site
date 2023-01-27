@@ -40,3 +40,5 @@ ngsite.job_application.job_overview: 'Jobübersicht'
 ngsite.job_application.requirements: 'Anforderungen'
 ngsite.job_application.responsibilities: 'Verantwortlichkeiten'
 ngsite.job_application.deadline: 'Bewerbungsschluss'
+
+ngsite.skip_to_main_content: 'Zum Hauptinhalt springen'

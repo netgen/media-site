@@ -1,0 +1,30 @@
+@mixin highlight {
+    outline: none;
+    background-color: $primary!important;
+    color: $black !important;
+    .bg-color-primary & {
+        background-color: $black!important;
+        color: $primary !important;
+    }
+}
+
+#skip-to-main-content {
+    @include visually-hidden-focusable;
+    position: fixed;
+    z-index: 99999;
+    top: $gap;
+    left: 50%;
+    transform: translate(-50%, -200%);
+    background-color: $primary;
+    color: $black;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: .0625rem solid $black;
+    box-shadow: 0 .125rem 20px rgba($black, .5);
+    transition: transform .125s ease;
+    &:focus,
+    &:focus-within {
+        transform: translate(-50%, 0);
+        @include highlight;
+    }
+}
