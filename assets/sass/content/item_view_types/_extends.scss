@@ -6,6 +6,9 @@
     flex-wrap: wrap;
     align-items: center;
     color: $gray-54;
+    .bg-color-black & {
+        color: $white;
+    }
     > span,
     > time,
     > a {
@@ -24,7 +27,8 @@
                 transform: translateY(-50%);
                 left: -.75rem;
                 background-color: $black;
-                .vl2 & {
+                .vl2 &,
+                .bg-color-black & {
                     background-color: $white;
                 }
             }

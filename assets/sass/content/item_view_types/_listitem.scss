@@ -13,6 +13,9 @@
     .short {
         margin: .25rem 0 0;
         color: $gray-54;
+        .bg-color-black & {
+            color: $white;
+        }
         p {
             margin: 0;
         }

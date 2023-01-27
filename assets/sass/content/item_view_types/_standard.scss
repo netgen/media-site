@@ -30,6 +30,9 @@
     }
     .short {
         color: $gray-54;
+        .bg-color-black & {
+            color: $white;
+        }
         p {
             margin: 0;
         }
