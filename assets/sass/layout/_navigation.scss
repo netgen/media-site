@@ -152,6 +152,7 @@
 }
 
 .mainnav-toggle {
+    @extend %hover-underline;
     display: none;
     position: relative;
     width: $header-height-sm;
@@ -182,6 +183,9 @@
         &::after {
             bottom: -.375rem;
         }
+    }
+    &:hover {
+        color: inherit;
     }
     .mainnav-active & {
         background: $primary;

@@ -113,6 +113,8 @@ $header-bg: $white;
         background: transparent;
         border: 0;
         border-bottom: 2px solid $black;
+        appearance: none;
+        border-radius: 0;
         &:focus {
             outline: none;
         }

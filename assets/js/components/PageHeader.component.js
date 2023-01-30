@@ -34,6 +34,7 @@ export default class PageHeader {
 
       this.changePageClasses({
         toggle: this.options.navActiveClass,
+        remove: this.options.searchboxActiveClass,
       });
     });
   }
