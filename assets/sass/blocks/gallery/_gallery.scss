@@ -37,6 +37,9 @@
             transform: rotate(45deg) translate3d(-50%, -20%, 0);
             margin-left: -.1666666667em;
         }
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
     }
     .swiper-button-next {
         transform: rotate(180deg);
@@ -46,6 +49,9 @@
         width: auto;
         @include text-1_125;
         padding: 0 2.4em;
+        @include media-breakpoint-down(sm) {
+            padding: .25em .5em;
+        }
     }
     .image-wrapper {
         figcaption {
