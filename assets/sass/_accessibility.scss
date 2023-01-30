@@ -28,3 +28,12 @@
         @include highlight;
     }
 }
+
+a,
+.btn,
+button {
+    outline: none;
+    &:focus-visible {
+        @include custom-outline;
+    }
+}

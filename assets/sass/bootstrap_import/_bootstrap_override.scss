@@ -17,7 +17,8 @@
         &.active,
         &:not(:disabled):not(.disabled):active,
         &:not(:disabled):not(.disabled).active,
-        &:hover {
+        &:hover,
+        &:focus-visible {
             background: darken($primary, 10%);
             border-color: darken($primary, 10%);
             color: $black;
@@ -30,7 +31,8 @@
             &.active,
             &:not(:disabled):not(.disabled):active,
             &:not(:disabled):not(.disabled).active,
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 background: lighten($black, 20%);
                 border-color: lighten($black, 20%);
                 color: $white;
@@ -45,7 +47,8 @@
         &.active,
         &:not(:disabled):not(.disabled):active,
         &:not(:disabled):not(.disabled).active,
-        &:hover {
+        &:hover,
+        &:focus-visible {
             background: lighten($black, 20%);
             border-color: lighten($black, 20%);
             color: $white;
@@ -59,7 +62,8 @@
             &.active,
             &:not(:disabled):not(.disabled):active,
             &:not(:disabled):not(.disabled).active,
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 background: darken($primary, 10%);
                 border-color: darken($primary, 10%);
                 color: $black;
@@ -74,7 +78,8 @@
         &.active,
         &:not(:disabled):not(.disabled):active,
         &:not(:disabled):not(.disabled).active,
-        &:hover {
+        &:hover,
+        &:focus-visible {
             background: $gray-54;
             border-color: $gray-54;
             color: $white;
@@ -87,7 +92,8 @@
             &.active,
             &:not(:disabled):not(.disabled):active,
             &:not(:disabled):not(.disabled).active,
-            &:hover {
+            &:hover,
+            &:focus-visible {
                 background: $gray-54;
                 border-color: $gray-54;
                 color: $white;
@@ -100,7 +106,8 @@
         color: $black;
         padding: 0;
         font-weight: 700;
-        &:hover {
+        &:hover,
+        &:focus-visible {
             color: $gray-54;
             text-decoration: none;
         }
