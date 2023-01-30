@@ -1,57 +1,6 @@
 .related-multimedia.swiper-container {
     .swiper-navigation {
-        @include text-base;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        background: $black;
-        color: $white;
-        font-weight: 900;
-        display: flex;
-        z-index: 10;
-        align-items: center;
-    }
-    .swiper-button-prev,
-    .swiper-button-next {
-        position: relative;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        width: 3.5em;
-        height: 3.5em;
-        display: inline-block;
-        background: transparent;
-        margin: 0;
-        transform: none;
-        &::before {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 1.125em;
-            height: 1.125em;
-            border-left: .2222222222em solid currentColor;
-            border-bottom: .2222222222em solid currentColor;
-            transform: rotate(45deg) translate3d(-50%, -20%, 0);
-            margin-left: -.1666666667em;
-        }
-        @include media-breakpoint-down(sm) {
-            display: none;
-        }
-    }
-    .swiper-button-next {
-        transform: rotate(180deg);
-    }
-    .swiper-pagination {
-        position: static;
-        width: auto;
-        @include text-1_125;
-        padding: 0 2.4em;
-        @include media-breakpoint-down(sm) {
-            padding: .25em .5em;
-        }
+        @include swiper-navigation-as-overlay($right: 0, $bottom: 0, $hide-arrows-on-mobile: true);
     }
     .image-wrapper {
         figcaption {
@@ -128,7 +77,6 @@
 
 .swiper-container {
     &.has-pagination {
-        padding-bottom: 2rem;
         .swiper-pagination {
             bottom: 0;
             left: 0;
@@ -154,6 +102,20 @@
                 }
             }
         }
+        &.default-swiper {
+            .swiper-navigation {
+                @include swiper-navigation-as-overlay($right: 0, $top: 0);
+            }
+        }
+        &.sushi-swiper {
+            padding-bottom: 4rem;
+            .swiper-navigation {
+                @include swiper-navigation-as-overlay($right: 0, $bottom: 0);
+            }
+            @include media-breakpoint-down(sm) {
+                padding-bottom: 2.75rem;
+            }
+        }
     }
     &.gallery-top {
         + .gallery-thumbs {
@@ -161,5 +123,3 @@
         }
     }
 }
-
-

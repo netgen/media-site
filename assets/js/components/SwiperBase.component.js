@@ -26,6 +26,7 @@ export default class SwiperBase {
       pagination: {
         el: this.swiperPagination,
         clickable: true,
+        type: "fraction",
       },
       loop,
       effect,

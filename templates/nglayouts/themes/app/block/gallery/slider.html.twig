@@ -16,13 +16,15 @@
                     </div>
                 {% endfor %}
             </div>
-            {% if block.parameter('show_pagination').value %}
-                <div class="swiper-pagination"></div>
-            {% endif %}
-            {% if block.parameter('next_and_previous').value %}
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            {% endif %}
+            <div class="swiper-navigation">
+                {% if block.parameter('show_pagination').value %}
+                    <div class="swiper-pagination"></div>
+                {% endif %}
+                {% if block.parameter('next_and_previous').value %}
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                {% endif %}
+            </div>
         </div>
    {% endif %}
 {% endblock %}

@@ -1,0 +1,97 @@
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+@mixin absolute($args...) {
+    @include position(absolute, $args...);
+}
+@mixin relative($args...) {
+    @include position(relative, $args...);
+}
+@mixin fixed($args...) {
+    @include position(fixed, $args...);
+}
+
+@mixin small-arrows {
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 2.25rem;
+        height: 2.25rem;
+        &::before {
+            width: .75rem;
+            height: .75rem;
+        }
+    }
+    .swiper-pagination {
+        padding: 0 1.5rem;
+    }
+}
+
+@mixin swiper-navigation-as-overlay(
+    $top: null,
+    $right: null,
+    $bottom: null,
+    $left: null,
+    $hide-arrows-on-mobile: false,
+    $modifier: null,
+) {
+    @include text-base;
+    @include absolute($top, $right, $bottom, $left);
+    background: $black;
+    color: $white;
+    font-weight: 900;
+    display: flex;
+    z-index: 10;
+    align-items: center;
+    .swiper-button-prev,
+    .swiper-button-next {
+        @include relative($top: auto, $right: auto, $bottom: auto, $left: auto);
+        width: 3.5em;
+        height: 3.5em;
+        display: inline-block;
+        background: transparent;
+        margin: 0;
+        transform: none;
+        &::before {
+            content: '';
+            display: block;
+            @include absolute($top: 50%, $left: 50%);
+            width: 1.125em;
+            height: 1.125em;
+            border-left: 0.2222222222em solid currentColor;
+            border-bottom: 0.2222222222em solid currentColor;
+            transform: rotate(45deg) translate3d(-50%, -20%, 0);
+            margin-left: -0.1666666667em;
+        }
+        @include media-breakpoint-down(sm) {
+            @if $hide-arrows-on-mobile {
+                display: none;
+            }
+        }
+    }
+    .swiper-button-next {
+        transform: rotate(180deg);
+    }
+    .swiper-pagination {
+        position: static;
+        width: auto;
+        @include text-1_125;
+        padding: 0 2.4em;
+        @include media-breakpoint-down(sm) {
+            padding: .25em .5em;
+        }
+    }
+    @if $modifier == small {
+        @include small-arrows;
+    }
+    @include media-breakpoint-down(sm) {
+        @include small-arrows;
+    }
+    .bg-color-black & {
+        color: $black;
+        background: $white;
+    }
+}
