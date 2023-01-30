@@ -43,6 +43,10 @@
         z-index: 3;
         inset: auto 1.75rem 1.75rem;
         color: $white;
+        pointer-events: none;
+        a {
+            pointer-events: initial;
+        }
     }
     .title {
         @include text-1_25;
