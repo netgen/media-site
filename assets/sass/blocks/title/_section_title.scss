@@ -11,8 +11,13 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            height: .625rem;
-            background: hsla(0, 0, 0, .04);
+            height: .625em;
+            background: rgba($black, .04);
+        }
+        .bg-color-black & {
+            &::before {
+                background: rgba($white, .2);
+            }
         }
     }
     &.section-title-centered {
