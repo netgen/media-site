@@ -16,6 +16,7 @@ $gray-38: hsl(0, 0, 62);
 $gray-19: hsl(0, 0, 81);
 $gray-12: hsl(0, 0, 88);
 $gray-7: hsl(0, 0, 93);
+$outline-color: #4D90FE;
 
 $body-bg: $white;
 $footer-bg: $black;
@@ -27,50 +28,3 @@ $filtered-colours: (
     white: brightness(0) saturate(100%) invert(92%) sepia(93%) saturate(32%) hue-rotate(251deg) brightness(107%) contrast(100%),
     black: brightness(0) saturate(100%) invert(0%) sepia(9%) saturate(7500%) hue-rotate(154deg) brightness(91%) contrast(108%),
 );
-
-
-%clearfix {
-    &::after {
-        clear: both;
-        display: table;
-        content: '';
-    }
-}
-
-%fontawesome {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-}
-
-%hover-underline {
-    position: relative;
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: .5rem;
-        transform: scaleY(0);
-        transform-origin: bottom;
-        background: $primary;
-        transition: transform .2s;
-    }
-    &:hover,
-    &:focus {
-        &::after {
-            transform: scaleY(1);
-        }
-    }
-}
-
-@mixin icon-color($color) {
-    filter: map-get($filtered-colours, $color);
-}

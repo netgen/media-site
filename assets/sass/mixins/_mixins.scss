@@ -1,3 +1,49 @@
+%clearfix {
+    &::after {
+        clear: both;
+        display: table;
+        content: '';
+    }
+}
+
+%fontawesome {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+%hover-underline {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: .5rem;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        background: $primary;
+        transition: transform .2s;
+    }
+    &:hover,
+    &:focus {
+        &::after {
+            transform: scaleY(1);
+        }
+    }
+}
+
+@mixin icon-color($color) {
+    filter: map-get($filtered-colours, $color);
+}
+
 @mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
     position: $position;
     top: $top;
@@ -94,4 +140,9 @@
         color: $black;
         background: $white;
     }
+}
+
+@mixin custom-outline($border-color: $primary, $accent-color: $outline-color) {
+    outline: 2px transparent solid;
+    box-shadow: 0 0 0 2px $accent-color, 0 0 0 4px $border-color, 0 0 4px 8px $accent-color;
 }
