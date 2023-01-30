@@ -41,6 +41,16 @@
         max-width: 75%;
         margin: 0 auto;
     }
+    @include media-breakpoint-down(md) {
+        .align-left &,
+        .align-right & {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .align-center & {
+            max-width: 100%;
+        }
+    }
 }
 
 .clear {
@@ -63,10 +73,6 @@
                 max-width: 100%;
             }
         }
-    }
-    .view-type-embed.ng-video {
-        margin-left: 0;
-        margin-right: 0;
     }
 }
 /* /EMBEDED OBJECTS */
