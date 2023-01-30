@@ -17,7 +17,6 @@ ngsite.search.results: 'Suche nach "%searchText%" ergab %searchCount% Treffer'
 ngsite.search.no_results: 'Es wurden keine Ergebnisse gefunden bei der Suche nach "%searchText%".'
 ngsite.search.did_you_mean: 'Meinten Sie'
 ngsite.search.item.last_updated: 'Zuletzt geändert'
-ngsite.search.item.type: 'Typ'
 
 ngsite.search.no_results.check_spelling: 'Überprüfen Sie die Rechtschreibung der Keywords.'
 ngsite.search.no_results.change_keywords: 'Versuchen Sie, einige Keywords zu ändern (z. B. "Auto" anstelle von "Autos").'

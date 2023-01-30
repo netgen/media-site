@@ -17,7 +17,6 @@ ngsite.search.results: 'Search for "%searchText%" returned %searchCount% matches
 ngsite.search.no_results: 'No results were found when searching for "%searchText%".'
 ngsite.search.did_you_mean: 'Did you mean'
 ngsite.search.item.last_updated: 'Last updated'
-ngsite.search.item.type: 'Type'
 
 ngsite.search.no_results.check_spelling: 'Check spelling of keywords.'
 ngsite.search.no_results.change_keywords: 'Try changing some keywords (eg, "car" instead of "cars").'
