@@ -49,8 +49,7 @@
         }
     }
     .title {
-        @include text-1_25;
-        font-weight: 700;
+        @include text-1_5;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
@@ -60,6 +59,9 @@
         padding-bottom: 0.25rem;
         a {
             @extend %item-title-link;
+        }
+        @include media-breakpoint-only(sm) {
+            -webkit-line-clamp: 2;
         }
     }
     .title + .info {
