@@ -62,7 +62,6 @@
 
     {% if 'upload' in video_types %}
         {% if not content.fields.video_file.empty %}
-            {% set autoresize = content.fields.autoresize.value.identifiers.0 %}
             <video
                 id="video-{{ content.id }}"
                 class="video-js"
@@ -140,8 +139,6 @@
 
     {% if 'upload' in video_types %}
         {% if not content.fields.video_file.empty %}
-            {% set autoresize = content.fields.autoresize.value.identifiers.0 %}
-
             <video
                 id="video-{{ content.id }}"
                 class="video-js"
