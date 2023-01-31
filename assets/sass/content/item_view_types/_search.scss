@@ -15,6 +15,9 @@
         @include media-breakpoint-down(lg) {
             display: none;
         }
+        a {
+            display: block;
+        }
     }
     .article-content-text {
         position: relative;
@@ -39,5 +42,23 @@
     }
     .info {
         @extend %item-header-info;
+    }
+    &.ng-video {
+        .image {
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(ellipse at center, rgba(255, 255, 255, .75) 0%,rgba(255, 255, 255, 0) 25%);
+                pointer-events: none;
+            }
+            .article-icon {
+                @include absolute($top: 50%, $left: 50%);
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                pointer-events: none;
+            }
+        }
     }
 }

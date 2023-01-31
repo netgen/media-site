@@ -339,6 +339,11 @@ system:
                     template: "@ibexadesign/content/embed.html.twig"
                     match: ~
             search:
+                video:
+                    template: "@ibexadesign/content/search/ng_video.html.twig"
+                    match:
+                        Identifier\ContentType:
+                            - ng_video
                 match_all:
                     template: "@ibexadesign/content/search.html.twig"
                     match: ~
