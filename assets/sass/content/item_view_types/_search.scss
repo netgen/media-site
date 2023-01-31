@@ -4,12 +4,16 @@
     padding: 1.5rem;
     .article-content {
         display: flex;
+        gap: 1.5rem;
     }
     .image {
-        width: 44%;
+        width: 12.5rem;
         + .article-content-text {
             padding-left: $gap;
             padding-right: 4rem;
+        }
+        @include media-breakpoint-down(lg) {
+            display: none;
         }
     }
     .article-content-text {
@@ -35,15 +39,5 @@
     }
     .info {
         @extend %item-header-info;
-    }
-    .type {
-        @include text-0_875;
-        text-transform: uppercase;
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: .25rem .5rem;
-        color: $primary;
-        background-color: $black;
     }
 }

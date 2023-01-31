@@ -7,13 +7,13 @@
     <div class="row">
         <div class="col">
             <div class="article-content">
-                {{ content_fields.image(content, location, 'i480') }}
-
                 <div class="article-content-text">
                     <header class="article-header">
-                        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a><span class="type">{{ content.contentInfo.contentTypeName }}</span></h2>
+                        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
                         <div class="info">
-                            <time>{{ 'ngsite.search.item.last_updated'|trans }}: {{ content.contentInfo.modificationDate|format_date(pattern='d MMM Y') }}</time>
+                            {% include '@ibexadesign/parts/author.html.twig' %}
+                            {% include '@ibexadesign/parts/time.html.twig' %}
+                            {% include '@ibexadesign/parts/main_topic.html.twig' %}
                         </div>
                     </header>
                     <div class="short">
@@ -26,6 +26,7 @@
                         {% endif %}
                     </div>
                 </div>
+                {{ content_fields.image(content, location, 'i480') }}
             </div>
         </div>
     </div>

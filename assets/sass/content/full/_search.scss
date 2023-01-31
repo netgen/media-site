@@ -3,6 +3,13 @@
     .search-inputs {
         margin: 0 auto;
         max-width: 45rem;
+        .input-group {
+            .btn {
+                @include media-breakpoint-down(sm) {
+                    width: auto;
+                }
+            }
+        }
         .result-notice {
             a {
                 transition: border-color .15s;
