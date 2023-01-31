@@ -9,13 +9,13 @@
                 <div class="search-inputs">
                     <div class="input-group">
                         <input type="text" value="{{ search_text }}" name="searchText" id="Search" class="form-control" placeholder="{{ 'ngsite.search.placeholder'|trans }}" />
-                        <button type="submit" class="btn btn-dark">{{ 'ngsite.search.button'|trans }}</button>
+                        <button type="submit" class="btn btn-sm btn-dark">{{ 'ngsite.search.button'|trans }}<i class="fas fa-search icon"></i></button>
                     </div>
 
                     {% if search_text is not empty %}
                         {% if pager.nbResults == 0 %}
                             <div class="result-message result-message-error">
-                                <h2>{{ 'ngsite.search.no_results'|trans({'%searchText%': search_text}) }}</h2>
+                                <p class="search-text">{{ 'ngsite.search.no_results'|trans({'%searchText%': search_text}) }}</p>
 
                                 {% if search_suggestion is not empty %}
                                     <div class="result-notice">
@@ -28,7 +28,7 @@
                             </div>
                         {% else %}
                             <div class="result-message result-message-success">
-                                <h2>{{ 'ngsite.search.results'|trans({'%searchText%': search_text, '%searchCount%': pager.nbResults}) }}</h2>
+                                <p class="search-text">{{ 'ngsite.search.results'|trans({'%searchText%': search_text, '%searchCount%': pager.nbResults}) }}</p>
                             </div>
                         {% endif %}
                     {% endif %}

@@ -6,7 +6,10 @@
         margin-bottom: 0;
     }
     &.no-breadcrumbs {
-        padding: 4rem 0 4rem;
+        padding: 8rem 0;
+        @include media-breakpoint-down(md) {
+            padding: 4rem 0;
+        }
     }
     .main-topic, .important-notice {
         @include text-0_75;

@@ -4,9 +4,13 @@
         margin: 0 auto;
         max-width: 45rem;
         .input-group {
+            gap: .5rem;
             .btn {
                 @include media-breakpoint-down(sm) {
                     width: auto;
+                }
+                i {
+                    margin-left: .75rem;
                 }
             }
         }
@@ -21,10 +25,14 @@
         border: 0;
     }
     .result-message {
-        margin: 2rem 0 0;
+        margin: 1.5rem 0 0;
         text-align: center;
-        h2 {
-            @include text-1_5;
+        .search-text {
+            @include text-1_25;
+            margin-bottom: 0;
+            + * {
+                margin-top: 1rem;
+            }
         }
     }
 }
