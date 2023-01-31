@@ -3,13 +3,15 @@
 
 {% import '@ibexadesign/parts/video.html.twig' as video %}
 
-{% set videoOptions = {
-    'type': content.fields.video_type.value.identifiers.0,
-    'fileLink': content.fields.video_file.value.uri,
-    'mimeType': content.fields.video_file.value.mimeType,
-    'identifier': content.fields.video_identifier.value.text,
-    'poster': content.fields.poster.value.uri,
-    'autoplay': content.fields.autoplay.value.bool
-} %}
+{% if location is defined %}
+    {% set videoOptions = {
+        'type': content.fields.video_type.value.identifiers.0,
+        'fileLink': content.fields.video_file.value.uri,
+        'mimeType': content.fields.video_file.value.mimeType,
+        'identifier': content.fields.video_identifier.value.text,
+        'poster': content.fields.poster.value.uri,
+        'autoplay': content.fields.autoplay.value.bool
+    } %}
 
-<a href="#" class="btn btn-default js-modal-video-trigger" data-video-options="{{ videoOptions|json_encode() }}">{{ label|default(content.name) }}</a>
+    <a href="#" class="btn btn-default js-modal-video-trigger" data-video-options="{{ videoOptions|json_encode() }}">{{ label|default(content.name) }}</a>
+{% endif %}

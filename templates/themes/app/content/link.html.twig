@@ -1,0 +1,3 @@
+{% if location is defined %}
+    <a href="{{ ibexa_path(location) ~ suffix|default('') }}"{% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if new_tab is defined and new_tab %} target="_blank"{% endif %}>{{ label|default(content.name) }}</a>
+{% endif %}
