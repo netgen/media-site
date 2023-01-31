@@ -58,7 +58,11 @@ $header-bg: $white;
         text-align: right;
         right: 0;
         left: auto !important;
+        top: -.125rem !important;
         box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .1);
+        @include media-breakpoint-down(lg) {
+            text-align: left;
+        }
         a {
             padding: .5em 1em;
             display: block;

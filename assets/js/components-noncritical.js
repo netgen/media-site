@@ -79,6 +79,7 @@ const componentConfiguration = [
       submenuActiveClass: 'submenu-active',
       navigationList: 'ul.nav.navbar-nav',
       filledClass: 'filled',
+      languageSelector: '.site-header .language-selector',
     },
   },
   {

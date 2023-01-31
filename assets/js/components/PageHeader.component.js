@@ -12,6 +12,7 @@ export default class PageHeader {
     this.mainNav = document.querySelector(options.mainNav);
     this.level1Menus = [];
     this.submenuTriggerElements = [];
+    this.languageSelector = document.querySelector(options.languageSelector);
 
     this.init();
   }
@@ -22,6 +23,7 @@ export default class PageHeader {
     this.searchToggleSetup();
     this.headerSearchSetup();
     this.addSubmenuTriggers();
+    this.languageSelectorSetup();
   }
 
   navToggleSetup() {
@@ -132,6 +134,16 @@ export default class PageHeader {
         }
       });
     });
+  }
+
+  languageSelectorSetup() {
+    if (this.languageSelector === null) {
+      return;
+    }
+    this.languageSelector.addEventListener('show.bs.dropdown', () => {
+      this.removePageClass(this.options.navActiveClass);
+      this.removePageClass(this.options.searchboxActiveClass);
+    })
   }
 
   changePageClasses({ remove = null, add = null, toggle = null }) {
