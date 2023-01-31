@@ -64,15 +64,13 @@
         {% if not content.fields.video_file.empty %}
             <video
                 id="video-{{ content.id }}"
-                class="video-js"
-                data-setup='{
-                    "controls": true,
-                    "preload": "auto",
-                    "width": "1024",
-                    "fill": true,
-                    "autoplay": {% if autoplay %}true{% else %}false{% endif %},
-                    "poster": "{{ image_path }}"
-                }'>
+                class="video-js vjs-fill ratio ratio-16x9"
+                data-setup='{}'
+                controls
+                preload="auto"
+                width="100%"
+                poster="{{ image_path }}"
+                autoplay="{% if autoplay %}true{% else %}false{% endif %}">
                 <source
                     src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields.video_file.id}) }}"
                     type="{{ content.fields.video_file.value.mimeType }}"
@@ -141,15 +139,13 @@
         {% if not content.fields.video_file.empty %}
             <video
                 id="video-{{ content.id }}"
-                class="video-js"
-                data-setup='{
-                    "controls": true,
-                    "preload": "auto",
-                    "width": "1024",
-                    "fill": true,
-                    "autoplay": {% if autoplay %}true{% else %}false{% endif %},
-                    "poster": "{{ image_path }}"
-                }'>
+                class="video-js vjs-fill ratio ratio-16x9"
+                data-setup='{}'
+                controls
+                preload="auto"
+                width="100%"
+                poster="{{ image_path }}"
+                autoplay="{% if autoplay %}true{% else %}false{% endif %}">
                 <source
                     src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields.video_file.id}) }}"
                     type="{{ content.fields.video_file.value.mimeType }}"

@@ -2,6 +2,11 @@
 .vf3 {
     .full-video-player {
         margin: 0 0 2rem;
+        .video-js {
+            .vjs-control-bar {
+                top: auto;
+            }
+        }
     }
     .full-video-header {
         .title {
