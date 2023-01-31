@@ -42,7 +42,22 @@
                         )
                     ) }}
                 {% else %}
-                    <a href="{{ path("ibexa.url.alias", { "contentId": field.value.reference }) ~ suffix }}"{% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if field.value.isTargetLinkInNewTab %} target="_blank"{% endif %}>{{ label }}</a>
+                    {{ render(
+                        controller(
+                            "ng_content::viewAction",
+                            {
+                                'contentId': field.value.reference,
+                                'viewType': 'link',
+                                'layout': false,
+                                'params': {
+                                    'label': label,
+                                    'suffix': suffix,
+                                    'css_class': css_class|default(''),
+                                    'new_tab': field.value.isTargetLinkInNewTab
+                                }
+                            }
+                        )
+                    ) }}
                 {% endif %}
             {% elseif field.value.isTypeExternal %}
                 {% set label = field.value.label ? field.value.label : field.value.reference %}
