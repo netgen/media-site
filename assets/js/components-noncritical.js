@@ -106,16 +106,17 @@ const componentConfiguration = [
       swiperPreviousButton: '.swiper-button-prev',
       swiperNextButton: '.swiper-button-next',
       swiperPagination: '.swiper-pagination',
+      swiperPaginationType: 'bullets',
       swiperConfig: {
         loopFillGroupWithBlank: true,
         watchSlidesVisibility: true,
         spaceBetween: 30,
         breakpoints: {
-          991: {
-            slidesPerView: 2,
+          767: {
+            slidesPerView: 1.2,
           },
-          480: {
-            slidesPerView: 1,
+          1199: {
+            slidesPerView: 2.2,
           },
         },
       },
@@ -140,6 +141,12 @@ const componentConfiguration = [
           enabled: true,
         },
         autoHeight: true,
+        breakpoints: {
+          1199: {
+            slidesPerView: 1.2,
+            spaceBetween: 30,
+          },
+        },
       },
     },
   },

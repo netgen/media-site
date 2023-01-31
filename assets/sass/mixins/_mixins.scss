@@ -72,7 +72,7 @@
         }
     }
     .swiper-pagination {
-        padding: 0 1.5rem;
+        padding: .25em 1em;
     }
 }
 
@@ -112,7 +112,7 @@
             transform: rotate(45deg) translate3d(-50%, -20%, 0);
             margin-left: -0.1666666667em;
         }
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(xl) {
             @if $hide-arrows-on-mobile {
                 display: none;
             }
@@ -125,15 +125,12 @@
         position: static;
         width: auto;
         @include text-1_125;
-        padding: 0 2.4em;
-        @include media-breakpoint-down(sm) {
-            padding: .25em .5em;
-        }
+        padding: 0 1rem;
     }
     @if $modifier == small {
         @include small-arrows;
     }
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(xl) {
         @include small-arrows;
     }
     .bg-color-black & {

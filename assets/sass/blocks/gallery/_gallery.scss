@@ -1,6 +1,6 @@
 .related-multimedia.swiper-container {
     .swiper-navigation {
-        @include swiper-navigation-as-overlay($right: 0, $bottom: 0, $hide-arrows-on-mobile: true);
+        @include swiper-navigation-as-overlay($top: 0, $right: 0, $hide-arrows-on-mobile: true);
     }
     .image-wrapper {
         figcaption {
@@ -105,15 +105,26 @@
         &.default-swiper {
             .swiper-navigation {
                 @include swiper-navigation-as-overlay($right: 0, $top: 0);
+                @include media-breakpoint-down(xl) {
+                    display: none;
+                }
             }
         }
         &.sushi-swiper {
-            padding-bottom: 4rem;
-            .swiper-navigation {
-                @include swiper-navigation-as-overlay($right: 0, $bottom: 0);
+            padding-bottom: 2rem;
+            .swiper-navigation,
+            .swiper-pagination,
+            .swiper-button-prev,
+            .swiper-button-next {
+                @include media-breakpoint-down(xl) {
+                    display: none;
+                }
             }
-            @include media-breakpoint-down(sm) {
-                padding-bottom: 2.75rem;
+            .swiper-button-prev {
+                transform: translateY(calc(-50% - 1rem));
+            }
+            .swiper-button-next {
+                transform: translateY(calc(-50% - 1rem)) rotate(180deg);
             }
         }
     }

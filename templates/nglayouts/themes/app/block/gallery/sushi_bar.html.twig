@@ -3,8 +3,9 @@
 {% import '@NetgenLayouts/parts/macros.html.twig' as macros %}
 
 {% block content %}
+{% dump(block) %}
     {% if collections.default is defined and collections.default is not empty %}
-        <div class="sushi-swiper swiper-container{% if block.parameter('show_pagination').value %} has-pagination{% endif %}"
+        <div class="sushi-swiper swiper-container{% if block.parameter('show_pagination').value %} has-pagination{% endif %}{% if block.parameter('set_container').value %} is-in-container{% endif %}"
             data-effect="slide"
             {% if block.parameter('infinite_loop').value %}data-loop="true"{% endif %}
             {% if block.parameter('autoplay').value %}data-autoplay="{{ block.parameter('autoplay_time').value }}"{% endif %}
@@ -18,17 +19,14 @@
                     </div>
                 {% endfor %}
             </div>
+            {% if block.parameter('show_pagination').value %}
+                <div class="swiper-pagination"></div>
+            {% endif %}
 
-            <div class="swiper-navigation">
-                {% if block.parameter('show_pagination').value %}
-                    <div class="swiper-pagination"></div>
-                {% endif %}
-
-                {% if block.parameter('next_and_previous').value %}
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                {% endif %}
-            </div>
+            {% if block.parameter('next_and_previous').value %}
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            {% endif %}
         </div>
    {% endif %}
 {% endblock %}

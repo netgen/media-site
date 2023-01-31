@@ -7,15 +7,17 @@ export default class SwiperBase {
 
     this.swiper = false;
     this.swiperConfig = options.swiperConfig;
-    
+
     this.swiperPreviousButton = element.querySelector(options.swiperPreviousButton);
     this.swiperNextButton = element.querySelector(options.swiperNextButton);
     this.swiperPagination = element.querySelector(options.swiperPagination);
+    this.swiperPaginationType = options.swiperPaginationType;
 
     this.init();
   }
 
   init() {
+
     const { loop, autoplay, effect, slidesPerView, slidesPerGroup } = this.dataset;
 
     this.swiper = new Swiper(this.element, {
@@ -26,7 +28,7 @@ export default class SwiperBase {
       pagination: {
         el: this.swiperPagination,
         clickable: true,
-        type: "fraction",
+        type: this.swiperPaginationType ? this.swiperPaginationType : 'fraction',
       },
       loop,
       effect,
