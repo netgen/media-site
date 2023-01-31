@@ -1,5 +1,5 @@
-## Ibexa Platform/Symfony ENVIRONMENT variables, for customizing index.php* execution
-# * Only APP_ENV and APP_DEBUG supported by console command, rest are Ibexa Platform features in index.php.
+## Ibexa/Symfony ENVIRONMENT variables, for customizing index.php* execution
+# * Only APP_ENV and APP_DEBUG supported by console command, rest are Ibexa DXP features in index.php.
 
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
@@ -9,22 +9,22 @@ SetEnvIf Request_URI ".*" APP_ENV=dev
 # Optional: Whether to use debugging.
 # Possible values: 0, 1 or ""
 # Defaults to enabled if APP_ENV is set to "dev" if env value is omitted or empty
-#SetEnv APP_DEBUG "0"
+#if[APP_DEBUG] SetEnv APP_DEBUG "%APP_DEBUG%"
 
 # Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
 # Disable it if you are using an external reverse proxy (e.g. Varnish)
 # Possible values: 0, 1 or ""
 # Defaults to disabled if APP_ENV is set to "dev" or TRUSTED_PROXIES is set,
 # and if this env value is omitted or empty
-#SetEnv APP_HTTP_CACHE "1"
+#if[APP_HTTP_CACHE] SetEnv APP_HTTP_CACHE "%APP_HTTP_CACHE%"
 
 # Optional: Defines the proxies to trust
 # Needed when using Varnish as proxy, if so disable APP_HTTP_CACHE.
 # Separate entries by a comma, example: "ip1,ip2"
 # Defaults to not be set if env value is omitted or empty
-#SetEnv TRUSTED_PROXIES "127.0.0.1"
+#if[TRUSTED_PROXIES] SetEnv TRUSTED_PROXIES "%TRUSTED_PROXIES%"
 
-# TIP: There are many more environment variables supported by Ibexa Platform. However unlike those listed above
+# TIP: There are many more environment variables supported by Ibexa DXP. However unlike those listed above
 #      they should in most cases rather be set in the environment then in vhost config to make sure cronjobs
 #      and cli command usage takes them into account as well.
 
@@ -68,6 +68,10 @@ RewriteRule ^\.well-known/acme-challenge/ - [L]
 
 # Disable .php(3) and other executable extensions in the var directory
 RewriteRule ^var/.*(?i)\.(php3?|phar|phtml|sh|exe|pl|bin)$ - [F]
+
+# Cluster/streamed files rewrite rules. Enable on cluster with DFS as a binary data handler
+# RewriteCond %{ENV:BINARY_DATA_HANDLER} "dfs"
+# RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* /index.php [L]
 
 RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
 RewriteRule ^var/([^/]+/)?storage/original/image/(.*)\.svg - [L]
