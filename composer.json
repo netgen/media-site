@@ -99,7 +99,6 @@
 
         "netgen/git-hooks": "^2.2",
         "deployer/recipes": "^6.2",
-        "netgen/git-hooks": "^2.2",
         "phpstan/phpstan": "^1.8",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-symfony": "^1.2",
