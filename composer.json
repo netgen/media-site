@@ -2,7 +2,7 @@
     "name": "netgen/media-site",
     "type": "project",
     "license": "GPL-2.0-only",
-    "description": "Netgen Media Site (Powered by Netgen Layouts & Ibexa Platform)",
+    "description": "Netgen Media Site (Powered by Netgen Layouts & Ibexa OSS)",
     "homepage": "https://netgen.io",
     "authors": [
         {
@@ -97,8 +97,8 @@
         "symfony/stopwatch": "5.4.*",
         "symfony/web-profiler-bundle": "5.4.*",
 
+        "netgen/git-hooks": "^2.2",
         "deployer/recipes": "^6.2",
-
         "netgen/git-hooks": "^2.2",
         "phpstan/phpstan": "^1.8",
         "phpstan/extension-installer": "^1.1",
