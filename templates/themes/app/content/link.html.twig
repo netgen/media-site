@@ -1,3 +1,6 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
 {% if location is defined %}
     <a href="{{ ibexa_path(location) ~ suffix }}"{% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if open_in_new_tab %} target="_blank"{% endif %}>{{ label }}</a>
 {% endif %}

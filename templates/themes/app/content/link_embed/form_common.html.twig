@@ -1,6 +1,9 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
 {% if location is defined %}
     {{ ng_view_content(
-        content,
+        location,
         'payload',
         {
             params: {
