@@ -34,7 +34,7 @@ export default function (formType, event) {
       formContainer.innerHTML = text.trim();
       formContainer.classList.remove('loading');
       formContainer.scrollIntoView({
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
 
       if (this.onSuccess !== undefined) {
@@ -48,7 +48,7 @@ export default function (formType, event) {
       console.error(`Form type "${formType}" submit failed: ${error}`);
       formContainer.classList.remove('loading');
       formContainer.scrollIntoView({
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
 
       if (this.onFailure !== undefined) {

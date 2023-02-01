@@ -30,7 +30,7 @@ export default class CookieControl {
     this.optionalList.classList.toggle(this.options.shownClass);
     const isVisible = this.optionalList.classList.contains(this.options.shownClass);
     this.optionalList.style.maxHeight = isVisible ? `100vh` : '0px';
-    
+
     this.optionalListToggle.classList.toggle(this.options.rotateArrowClass);
     this.optionalListToggle.classList.toggle(this.options.shownClass);
   }

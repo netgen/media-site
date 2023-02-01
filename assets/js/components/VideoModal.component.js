@@ -62,13 +62,13 @@ export default class VideoModalComponent {
     this.collectedVideoOptions.width = '100%';
     this.collectedVideoOptions.controls = 'controls';
     this.collectedVideoOptions.preload = 'auto';
-    
+
     this.collectedVideoOptions.class = 'vjs-fill';
 
     let autoplayAttribute = '';
     if (this.collectedVideoOptions.autoplay === true) {
       autoplayAttribute = 'autoplay';
-      
+
       if (this.collectedVideoOptions.type !== 'upload') {
         autoplayAttribute += ' allow="autoplay"';
       }
@@ -80,9 +80,9 @@ export default class VideoModalComponent {
   createModalContent(autoplayAttribute) {
     const template = templates[`${this.collectedVideoOptions.type}VideoTemplate`];
     const templateOptions = {
-      autoplayAttribute
+      autoplayAttribute,
     };
-    
+
     if (this.collectedVideoOptions.type === 'upload') {
       templateOptions.collectedVideoOptions = this.collectedVideoOptions;
       templateOptions.videoSource = templates.videoSourceTemplate(this.collectedVideoOptions);

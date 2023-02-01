@@ -17,7 +17,6 @@ export default class SwiperBase {
   }
 
   init() {
-
     const { loop, autoplay, effect, slidesPerView, slidesPerGroup } = this.dataset;
 
     this.swiper = new Swiper(this.element, {

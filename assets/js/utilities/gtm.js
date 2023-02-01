@@ -27,5 +27,5 @@ export default {
 
     window.dataLayer.push({ event: eventName });
     console.info(`GTM event pushed: ${eventName}`);
-  }
+  },
 };

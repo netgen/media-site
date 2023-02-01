@@ -143,7 +143,7 @@ export default class PageHeader {
     this.languageSelector.addEventListener('show.bs.dropdown', () => {
       this.removePageClass(this.options.navActiveClass);
       this.removePageClass(this.options.searchboxActiveClass);
-    })
+    });
   }
 
   changePageClasses({ remove = null, add = null, toggle = null }) {
