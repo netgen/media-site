@@ -143,3 +143,16 @@
     outline: 2px transparent solid;
     box-shadow: 0 0 0 2px $accent-color, 0 0 0 4px $border-color, 0 0 4px 8px $accent-color;
 }
+
+@mixin tag {
+    @include text-0_875;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $primary;
+    background-color: $black;
+    padding: .1666666667em .8333333333em;
+    border-radius: 2px;
+    padding: .25rem;
+    margin: 0 .1666666667em;
+}
