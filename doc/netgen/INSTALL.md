@@ -4,15 +4,15 @@ Netgen Site install instructions
 Software requirements
 ---------------------
 
-* PHP built in server / Symfony CLI / Apache 2.4+ / Nginx 1.12+
-* MySQL 5.7+
-* PHP 8.1+ (with `gd`, `imagick`, `curl`, `json`, `mysql`, `xsl`, `xml`, `intl` and `mbstring` extensions)
+* PHP built in server / Symfony CLI / Apache 2.4+ / Nginx 1.18+
+* MySQL 8.0+
+* PHP 8.1+ (with `gd`, `imagick`, `redis`, `curl`, `json`, `mysql`, `xsl`, `xml`, `intl` and `mbstring` extensions)
 
 Optional dependencies
 ---------------------
 
-* Varnish 6.0
-* Solr 6.5+
+* Varnish 6.0 or 7.1+ with (`varnish-modules`)[https://github.com/varnish/varnish-modules/blob/master/README.md]
+* Solr 7.7 or 8.11.1+
 
 Installation instructions
 -------------------------
