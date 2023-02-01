@@ -7,6 +7,7 @@ It integrates most of Netgen open source tools and bundles, including [Netgen La
 * [Installation with Docker and eZ Launchpad](/doc/netgen/LAUNCHPAD.md)
 * [Frontend setup](/doc/netgen/FRONTEND.md)
 * [Search suggestions](/doc/netgen/SEARCH_SUGGESTIONS.md)
+* [Ibexa Migrations](/doc/netgen/IBEXA_MIGRATIONS.md)
 
 # Ibexa Flex website skeleton
 
