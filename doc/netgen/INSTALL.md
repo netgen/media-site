@@ -121,11 +121,10 @@ after `bin/console` if running in prod mode):
 php bin/console ibexa:install <SITE_NAME>
 ```
 
-where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`,
-or `netgen-media-clean` for the clean version, without demo data.
+where `<SITE_NAME>` is the name of wanted site, e.g. `netgen-media`.
 
-Both of these sets of demo data add an administrator user to the database.
-This user's username is `admin` and its password is `publish`.
+The demo data adds an administrator user to the database.  This user's username
+is `admin` and its password is `publish`.
 
 Finally, generate the GraphQL schema for admin interface:
 
