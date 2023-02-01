@@ -3,7 +3,6 @@
 {% import '@NetgenLayouts/parts/macros.html.twig' as macros %}
 
 {% block content %}
-{% dump(block) %}
     {% if collections.default is defined and collections.default is not empty %}
         <div class="sushi-swiper swiper-container{% if block.parameter('show_pagination').value %} has-pagination{% endif %}{% if block.parameter('set_container').value %} is-in-container{% endif %}"
             data-effect="slide"
