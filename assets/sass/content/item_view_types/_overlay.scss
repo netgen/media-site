@@ -56,7 +56,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-height: 5em;
-        padding-bottom: 0.25rem;
         a {
             @extend %item-title-link;
         }
