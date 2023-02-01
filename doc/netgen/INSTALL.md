@@ -159,11 +159,11 @@ symfony server:start
 Alternatively, you can create a new Apache virtual host and set it up to point
 to `public/` directory inside the repo root.
 
-An example virtual host is available at `doc/apache2/netgen-site-vhost.conf`
+An example virtual host is available at `doc/apache2/media-site-vhost.conf`
 
 If you wish to use rewrite rules located `.htaccess` file instead of putting
 them in virtual host configuration, you can use a virtual host variant located
-at `doc/apache2/netgen-site.conf`
+at `doc/apache2/media-site.conf`
 
 ### Setup folder permissions
 
