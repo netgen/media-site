@@ -1,17 +1,21 @@
 /* contact form full view */
 .full-form-content {
-    padding: 2rem;
-    margin: 4rem auto;
+    margin-left: auto;
+    margin-right: auto;
     background: $white;
-    max-width: 35rem;
+    max-width: 37rem;
     a {
         border-bottom: .25rem solid $primary;
     }
 }
 
 .full-form-header {
-    padding-bottom: 10rem;
-    margin-bottom: -10rem;
+    + * {
+        margin-top: 8rem;
+        @include media-breakpoint-down(md) {
+            margin-top: 4rem;
+        }
+    }
 }
 
 .full-form-response {
