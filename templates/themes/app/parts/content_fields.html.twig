@@ -9,55 +9,43 @@
                 {% set label = field.value.label ? field.value.label : ngsite_content_name(field.value.reference) %}
                 {% set suffix = field.value.suffix|default('') %}
                 {% if field.value.isTargetModal %}
-                    {{ render(
-                        controller(
-                            "ng_content::viewAction",
-                            {
-                                'contentId': field.value.reference,
-                                'viewType': 'modal_trigger',
-                                'layout': false,
-                                'params': {
-                                    'label': label,
-                                    'suffix': suffix,
-                                    'refererLocationId': contentInfo.mainLocationId,
-                                    'css_class': css_class
-                                }
+                    {{ ng_view_content_embedded(
+                        'modal_trigger',
+                        {
+                            'contentId': field.value.reference,
+                            'params': {
+                                'label': label,
+                                'suffix': suffix,
+                                'refererLocationId': contentInfo.mainLocationId,
+                                'css_class': css_class
                             }
-                        )
-                    ) }}
+                        })
+                    }}
                 {% elseif field.value.isTargetEmbed %}
-                    {{ render(
-                        controller(
-                            "ng_content::viewAction",
-                            {
-                                'contentId': field.value.reference,
-                                'viewType': 'link_embed',
-                                'layout': false,
-                                'params': {
-                                    'label': label,
-                                    'suffix': suffix,
-                                    'refererLocationId': contentInfo.mainLocationId
-                                }
+                    {{ ng_view_content_embedded(
+                        'link_embed',
+                        {
+                            'contentId': field.value.reference,
+                            'params': {
+                                'label': label,
+                                'suffix': suffix,
+                                'refererLocationId': contentInfo.mainLocationId,
                             }
-                        )
-                    ) }}
+                        })
+                    }}
                 {% else %}
-                    {{ render(
-                        controller(
-                            "ng_content::viewAction",
-                            {
-                                'contentId': field.value.reference,
-                                'viewType': 'link',
-                                'layout': false,
-                                'params': {
-                                    'label': label,
-                                    'suffix': suffix,
-                                    'css_class': css_class,
-                                    'open_in_new_tab': field.value.isTargetLinkInNewTab
-                                }
+                    {{ ng_view_content_embedded(
+                        'link',
+                        {
+                            'contentId': field.value.reference,
+                            'params': {
+                                'label': label,
+                                'suffix': suffix,
+                                'css_class': css_class,
+                                'open_in_new_tab': field.value.isTargetLinkInNewTab
                             }
-                        )
-                    ) }}
+                        })
+                    }}
                 {% endif %}
             {% elseif field.value.isTypeExternal %}
                 {% set label = field.value.label ? field.value.label : field.value.reference %}
