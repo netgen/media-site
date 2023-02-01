@@ -47,9 +47,20 @@
         a {
             pointer-events: initial;
         }
+        @include media-breakpoint-down(xl) {
+            bottom: 1.25rem;
+            left: 1.5rem;
+            right: 1.5rem;
+        }
+        @include media-breakpoint-down(md) {
+            bottom: 1rem;
+            left: 1.25rem;
+            right: 1.25rem;
+        }
     }
     .title {
         @include text-1_5;
+        font-weight: 700;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
@@ -59,8 +70,13 @@
         a {
             @extend %item-title-link;
         }
+        @include media-breakpoint-down(md) {
+            .title {
+                max-height: 3.75em;
+            }
+        }
         @include media-breakpoint-only(sm) {
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 1;
         }
     }
     .title + .info {
@@ -102,26 +118,6 @@
                     transform: scale(1.08);
                 }
             }
-        }
-    }
-    @include media-breakpoint-down(xl) {
-        .article-header {
-            bottom: 1.25rem;
-            left: 1.5rem;
-            right: 1.5rem;
-        }
-        .title {
-            @include text-1_25;
-        }
-    }
-    @include media-breakpoint-down(md) {
-        .article-header {
-            bottom: 1rem;
-            left: 1.25rem;
-            right: 1.25rem;
-        }
-        .title {
-            max-height: 3.75em;
         }
     }
 }

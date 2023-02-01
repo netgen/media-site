@@ -1,14 +1,14 @@
 .ngl-list {
     &.ngl-vt-grid {
         .row {
-            gap: $grid-gutter-width 0;
+            gap: 2.5rem 0;
         }
     }
     &.ngl-vt-list {
         .list-row {
             display: flex;
             flex-direction: column;
-            gap: $grid-gutter-width;
+            gap: 2.5rem;
         }
     }
     &.ngl-vt-list_zigzag {
@@ -19,18 +19,18 @@
     }
     .ajax-collection {
         display: grid;
-        gap: $gap 0;
+        gap: 2.5rem 0;
     }
 }
 
 .search-result {
     display: flex;
     flex-direction: column;
-    gap: $grid-gutter-width;
+    gap: 2.5rem;
 }
 
 .category-children {
     .row {
-        gap: $grid-gutter-width 0;
+        gap: 2.5rem 0;
     }
 }

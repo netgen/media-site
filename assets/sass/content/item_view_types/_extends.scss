@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     align-items: center;
     color: $gray-54;
+    gap: .25rem 1.25rem;
     .bg-color-black & {
         color: $white;
     }
@@ -17,7 +18,6 @@
         + time,
         + a {
             position: relative;
-            margin-left: 1.25rem;
             &::before {
                 content: '';
                 width: .25rem;
@@ -38,7 +38,7 @@
         }
     }
     a {
-        transition: border-color .15s;
+        transition: border-color .15s, color .15s;
         border-bottom: .125rem solid transparent;
         margin-top: .125rem;
         &:hover {
