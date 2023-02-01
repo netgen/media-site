@@ -16,13 +16,15 @@
 }
 .view-type-embed {
     &.image,
-    &.ng-gallery {
+    &.ng-gallery,
+    &.ng-video {
         margin-bottom: 2rem;
     }
-    &.ng-video {
-        margin: 20px 0;
-        h4 {
-            margin: 10px 0;
+    &:last-child {
+        &.image,
+        &.ng-gallery,
+        &.ng-video {
+            margin-bottom: 0;
         }
     }
 }
@@ -82,8 +84,13 @@
     & > *[style*="text-align:justify;"] {
         text-align: inherit !important;
     }
+    > * {
+        + * {
+            margin-top: 2rem;
+        }
+    }
     p {
-        margin: 0 0 2em;
+        margin-bottom: 0;
         a:not(.btn) {
             border-bottom: .25rem solid $primary;
             transition: border .3s;
@@ -92,20 +99,13 @@
                 border-color: darken($primary, 15%);
             }
         }
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-    h1, h2, h3, h4, h5, h6 {
-        margin: 0 0 2rem;
     }
     ul {
         list-style-type: none;
-        margin: 0 0 2em;
+        margin-bottom: 0;
         padding: 0;
         > li {
             position: relative;
-            margin: 0 0 1em;
             padding: 0 0 0 1em;
             &::before {
                 content: '';
@@ -117,22 +117,18 @@
                 height: .33333333em;
                 background: $black;
             }
-            &:last-child {
-                margin-bottom: 0;
+            + li {
+                margin-top: 1rem;
             }
-        }
-        &:last-child {
-            margin-bottom: 0;
         }
     }
     ol {
         counter-reset: ol-counter;
         list-style-type: none;
-        margin: 0 0 2em;
+        margin-bottom: 0;
         padding: 0;
         > li {
             position: relative;
-            margin: 0 0 1em;
             padding: 0 0 0 1.5em;
             &::before {
                 counter-increment: ol-counter;
@@ -141,23 +137,20 @@
                 left: 0;
                 font-weight: 900;
             }
-            &:last-child {
-                margin-bottom: 0;
+            + li {
+                margin-top: 1rem;
             }
-        }
-        &:last-child {
-            margin-bottom: 0;
         }
     }
     blockquote {
         background-color: rgba(254, 215, 47, .04);
         border-bottom: .375rem solid $primary;
         padding: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         text-align: center;
+        @include text-1_5;
+        font-style: italic;
         .blockquote-body {
-            @include text-1_5;
-            font-style: italic;
             &::before {
                 @extend %fontawesome;
                 content: '\f10d';
@@ -166,10 +159,13 @@
             }
         }
         p {
-            margin: 0;
-            + p {
-                margin-top: 2em;
-            }
+            opacity: .87;
         }
+    }
+    * + h1 {
+        margin-top: 3.75rem;
+    }
+    * + h2 {
+        margin-top: 3rem;
     }
 }

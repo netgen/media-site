@@ -29,6 +29,9 @@
 }
 .full-page-intro {
     @include text-1_5;
+    font-style: italic;
+    font-weight: 400;
+    opacity: .54;
     // p {
     //     margin: 0;
     //     + p {
@@ -36,7 +39,7 @@
     //     }
     // }
     & + * {
-        margin-top: 4rem;
+        margin-top: 3.75rem;
     }
 }
 .full-page-info {
