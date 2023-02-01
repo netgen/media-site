@@ -1,6 +1,6 @@
 # Netgen Media Site
 
-Netgen Media Site is a blueprint installation of Ibexa OSS used by Netgen to bootstrap new client projects.
+Netgen Media Site is a blueprint installation of Ibexa DXP used by Netgen to bootstrap new client projects.
 It integrates most of Netgen open source tools and bundles, including [Netgen Layouts](https://github.com/netgen-layouts).
 
 * [Installation instructions](/doc/netgen/INSTALL.md)

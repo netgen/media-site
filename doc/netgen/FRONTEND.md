@@ -38,7 +38,7 @@ $ yarn add autoprefixer --save-dev
 ```
 
 After adding files, use them as Node JS modules by requiring them in your
-`.js` file in `es6` folder, e.g.:
+`.js` file in `js` folder, e.g.:
 
 ```javascript
 require('swiper');
@@ -65,21 +65,12 @@ To start webpack dev server use `yarn server` or `yarn encore dev-server`.
 What Webpack Encore does
 ------------------------
 
-1. Watches `public/sass` and `public/es6` directories if started with `--watch`
-2. Compiles Sass and ES6 files
+1. Watches `assets/sass` and `assets/js` directories if started with `--watch`
+2. Compiles Sass and JavaScript files
 3. Copies all assets (images, fonts...) referenced in CSS to `public/assets/app/build` folder (or `public/assets/app/build_dev` in development environment)
 4. Adds vendor prefixes to css (`-moz`, `-webkit` ...)
-5. Compiles es6 `.js` files to supported syntax and transpiles required node modules to `app.js`
+5. Compiles `.js` files to supported syntax and transpiles required node modules to `index.js`
 6. Adds hashes to `manifest.json` for cache busting if building production assets
-
-Ibexa Platform
---------------
-
-Clear cache after adding/removing files. From project root directory execute:
-
-```
-php bin/console cache:clear
-```
 
 Conventions
 -----------
@@ -90,4 +81,4 @@ Resources
 ---------
 
 * [Yarn](https://yarnpkg.com)
-* [Webpack Encore](http://symfony.com/doc/current/frontend.html)
+* [Webpack Encore](https://symfony.com/doc/current/frontend.html)

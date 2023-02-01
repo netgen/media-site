@@ -2,7 +2,7 @@
     "name": "netgen/media-site",
     "type": "project",
     "license": "GPL-2.0-only",
-    "description": "Netgen Media Site (Powered by Netgen Layouts & Ibexa OSS)",
+    "description": "Netgen Media Site (Powered by Netgen Layouts & Ibexa DXP)",
     "homepage": "https://netgen.io",
     "authors": [
         {
