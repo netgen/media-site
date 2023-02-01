@@ -36,7 +36,6 @@ return (new PhpCsFixer\Config())
             'import_constants' => true,
             'import_functions' => true,
         ],
-        'list_syntax' => ['syntax' => 'short'],
         'heredoc_indentation' => ['indentation' => 'same_as_start'],
         'mb_str_functions' => true,
         'native_constant_invocation' => true,
