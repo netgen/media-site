@@ -17,6 +17,12 @@ framework:
     php_errors:
         log: true
 
+    # The phpstorm option is supported natively by PhpStorm on MacOS, Linux requires
+    # phpstorm-url-handler https://github.com/sanduhrs/phpstorm-url-handler.
+    ide: 'phpstorm://open?file=%%f&line=%%l'
+    # For Visual Studio Code replace with following
+    #ide: 'vscode://file/%%f:%%l'
+
 when@test:
     framework:
         test: true
