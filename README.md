@@ -4,7 +4,6 @@ Netgen Media Site is a blueprint installation of Ibexa DXP used by Netgen to boo
 It integrates most of Netgen open source tools and bundles, including [Netgen Layouts](https://github.com/netgen-layouts).
 
 * [Installation instructions](/doc/netgen/INSTALL.md)
-* [Installation with Docker and eZ Launchpad](/doc/netgen/LAUNCHPAD.md)
 * [Frontend setup](/doc/netgen/FRONTEND.md)
 * [Search suggestions](/doc/netgen/SEARCH_SUGGESTIONS.md)
 * [Ibexa Migrations](/doc/netgen/IBEXA_MIGRATIONS.md)
