@@ -12,12 +12,12 @@
         ]
     },
     "ibexa/oss": {
-        "version": "4.3",
+        "version": "4.4",
         "recipe": {
             "repo": "github.com/ibexa/recipes",
             "branch": "master",
-            "version": "4.3",
-            "ref": "df4816de17e19c471e443d443b8c176d9086f0dc"
+            "version": "4.4",
+            "ref": "7154537665bd5ca634b51253d0c3623abf2a2fe4"
         },
         "files": [
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -52,9 +52,31 @@
             "templates/themes/standard/full/welcome_page.html.twig",
             "templates/themes/standard/pagelayout.html.twig",
             "translations/ibexa_welcome_page.en.xlf",
-            "assets/images/conversation-chat-icon.svg",
-            "assets/images/file-text-info-icon.svg",
-            "assets/images/folder-icon.svg",
+            "assets/images/caret-down.svg",
+            "assets/images/development.svg",
+            "assets/images/documentation.svg",
+            "assets/images/header-background.png",
+            "assets/images/oss.svg",
+            "assets/images/php-api.svg",
+            "assets/images/rest-api.svg",
+            "assets/images/support-background.png",
+            "assets/images/support.png",
+            "assets/images/training-background.png",
+            "assets/images/training.svg",
+            "assets/images/tutorials-icon.svg",
+            "assets/images/tutorials.svg",
+            "assets/images/user.svg",
+            "assets/js/welcome.page.js",
+            "assets/scss/_contact.scss",
+            "assets/scss/_custom-normalize.scss",
+            "assets/scss/_documentation.scss",
+            "assets/scss/_footer.scss",
+            "assets/scss/_header.scss",
+            "assets/scss/_main.scss",
+            "assets/scss/_training.scss",
+            "assets/scss/_tutorials.scss",
+            "assets/scss/normalize.css",
+            "assets/scss/variables.scss",
             "assets/scss/welcome-page.scss"
         ]
     },
