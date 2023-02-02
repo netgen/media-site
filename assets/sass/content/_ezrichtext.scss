@@ -137,23 +137,36 @@
         }
     }
     blockquote {
-        background-color: rgba(254, 215, 47, .04);
-        border-bottom: .375rem solid $primary;
-        padding: 2rem;
+        background-color: rgba($primary, .2);
+        border-bottom: .5rem solid $primary;
+        padding: 1.5rem;
         margin-bottom: 0;
         text-align: center;
         @include text-1_5;
-        font-style: italic;
         .blockquote-body {
             &::before {
                 @extend %fontawesome;
                 content: '\f10d';
                 color: $primary;
-                font-size: 2.5em;
+                font-size: 3.5rem;
+                margin-bottom: 0.5rem;
             }
         }
         p {
             opacity: .87;
+        }
+    }
+    .factbox {
+        background-color: rgba($primary, .2);
+        border-bottom: .5rem solid $primary;
+        padding: 2rem;
+        .factbox-header {
+            h2 {
+                @include text-1_5;
+            }
+            & + .factbox-content {
+                margin-top: 1.5rem;
+            }
         }
     }
     * + h1 {
