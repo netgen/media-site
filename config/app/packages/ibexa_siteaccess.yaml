@@ -72,6 +72,4 @@ ibexa_design_engine:
             - common
             - standard
         admin:
-            - admin
-            - standard
             - common
