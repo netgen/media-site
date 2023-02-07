@@ -10,13 +10,13 @@
 {% endif %}
 
 {% block content %}
-    <div class="view-type view-type-{{ view_type }} ng-category vf2">
+    <div class="view-type view-type-{{ view_type }} ng-category">
 
-        <header class="full-page-header">
+        <header class="full-page-header text-center no-breadcrumbs">
             <div class="container">
                 <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
                 {% if not content.fields.full_intro.empty %}
-                    <div class="full-page-intro">
+                    <div class="full-page-header-text">
                         {{ ng_render_field(content.fields.full_intro) }}
                     </div>
                 {% endif %}
