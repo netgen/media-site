@@ -19,7 +19,11 @@
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
                     {% if not content.fields.full_intro.empty %}
                         <div class="full-page-header-text">
-                            {{ ng_render_field(content.fields.full_intro) }}
+                            <div class="row">
+                                <div class="container container-narrow">
+                                    {{ ng_render_field(content.fields.full_intro) }}
+                                </div>
+                            </div>
                         </div>
                     {% endif %}
                 </div>
