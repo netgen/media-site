@@ -55,3 +55,8 @@ img {
 figure {
     margin: 0;
 }
+
+.ratio > img {
+    object-fit: cover;
+    object-position: center;
+}

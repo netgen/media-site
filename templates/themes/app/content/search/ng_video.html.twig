@@ -5,34 +5,30 @@
 {% import '@ibexadesign/parts/video.html.twig' as video %}
 
 <article class="view-type view-type-search ng-video vl7">
-    <div class="row">
-        <div class="col">
-            <div class="article-content">
-                <div class="article-content-text">
-                    <header class="article-header">
-                        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
-                        <div class="info">
-                            {% include '@ibexadesign/parts/time.html.twig' %}
-                            <span class="type">{{ content.contentInfo.contentTypeName }}</span>
-                        </div>
-                    </header>
-                    <div class="short">
-                        {% if content.hasField('teaser_intro') and not content.fields.teaser_intro.empty %}
-                            {{ ng_render_field(content.fields.teaser_intro) }}
-                        {% elseif content.hasField('full_intro') and not content.fields.full_intro.empty %}
-                            {{ ng_render_field(content.fields.full_intro) }}
-                        {% elseif content.hasField('body') and not content.fields.body.empty %}
-                            {{ content.fields.body.value.xml.saveXML()|striptags|trim|u.truncate(210) }}
-                        {% endif %}
-                    </div>
+    <div class="article-content">
+        <div class="article-content-text">
+            <header class="article-header">
+                <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+                <div class="info">
+                    {% include '@ibexadesign/parts/time.html.twig' %}
+                    <span class="type">{{ content.contentInfo.contentTypeName }}</span>
                 </div>
-                {% if not content.fields.video_file.empty or not content.fields.video_identifier.empty %}
-                    <figure class="image">
-                        <i class="fas fa-play article-icon" aria-hidden="true"></i>
-                        {{ video.poster(content, location) }}
-                    </figure>
+            </header>
+            <div class="short">
+                {% if content.hasField('teaser_intro') and not content.fields.teaser_intro.empty %}
+                    {{ ng_render_field(content.fields.teaser_intro) }}
+                {% elseif content.hasField('full_intro') and not content.fields.full_intro.empty %}
+                    {{ ng_render_field(content.fields.full_intro) }}
+                {% elseif content.hasField('body') and not content.fields.body.empty %}
+                    {{ content.fields.body.value.xml.saveXML()|striptags|trim|u.truncate(210) }}
                 {% endif %}
             </div>
         </div>
+        {% if not content.fields.video_file.empty or not content.fields.video_identifier.empty %}
+            <figure class="image">
+                <i class="fas fa-play article-icon" aria-hidden="true"></i>
+                {{ video.poster(content, location) }}
+            </figure>
+        {% endif %}
     </div>
 </article>
