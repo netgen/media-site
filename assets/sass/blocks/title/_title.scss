@@ -1,6 +1,10 @@
 .ngl-title {
+    .title {
+        @include text-4_5;
+    }
     .title-icon {
-        font-size: .64em;
-        margin: 0 0 .2em;
+        font-size: .55555556em;
+        line-height: 1;
+        margin: 0 0 1.25rem;
     }
 }
