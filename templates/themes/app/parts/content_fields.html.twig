@@ -34,18 +34,10 @@
                         })
                     }}
                 {% else %}
-                    {{ ng_view_content_embedded(
-                        'link',
-                        {
-                            'contentId': field.value.reference,
-                            'params': {
-                                'label': label,
-                                'suffix': suffix,
-                                'css_class': css_class,
-                                'open_in_new_tab': field.value.isTargetLinkInNewTab
-                            }
-                        })
-                    }}
+                    {% if ng_enhancedlink_has_location(field.value.reference) %}
+                        {% set href = path('ibexa.url.alias', { 'contentId': field.value.reference }) ~ suffix %}
+                        <a href="{{ href }}"{% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if field.value.isTargetLinkInNewTab %} target="_blank"{% endif %}>{{ label }}</a>
+                    {% endif %}
                 {% endif %}
             {% elseif field.value.isTypeExternal %}
                 {% set label = field.value.label ? field.value.label : field.value.reference %}

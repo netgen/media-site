@@ -7,6 +7,9 @@ system:
             render_missing_field_info: false
             named_objects: []
             named_queries: []
+            cross_siteaccess_routing:
+                excluded_siteaccess_groups:
+                    - admin_group
         ng_content_view:
             full:
                 ng_category:
