@@ -1,10 +1,6 @@
 .full-page-header {
     background: $primary;
     padding: 2rem 0 4rem;
-    margin-bottom: 4rem;
-    @include media-breakpoint-down(xxl) {
-        margin-bottom: 0;
-    }
     &.no-breadcrumbs {
         padding: 8rem 0;
         @include media-breakpoint-down(md) {
@@ -14,6 +10,15 @@
     .main-topic, .important-notice {
         @include tag;
         color: $white;
+    }
+    & + .full-page-image {
+        margin-top: 4rem;
+        @include media-breakpoint-down(xxl) {
+            margin-top: 0;
+        }
+    }
+    & + .full-form-content {
+        margin-top: 4rem;
     }
 }
 
@@ -27,6 +32,9 @@
     @include text-4_5;
     + .full-page-info {
         margin-top: 1.5rem;
+    }
+    + .full-page-header-text {
+        margin-top: 1rem;
     }
 }
 
