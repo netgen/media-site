@@ -53,19 +53,19 @@ system:
                         permanent: "@=!parameter('kernel.debug')"
                     match: ~
             payload:
-                form_common:
-                    template: "@ibexadesign/content/payload/{content_type}.html.twig"
-                    controller: ngsite.controller.info_collection.proxy_form_handler
-                    match:
-                        Identifier\ContentType:
-                            - ng_lead_form
-                            - ng_contact_form
-                            - ng_job_application_form
                 common:
                     template: "@ibexadesign/content/payload/{content_type}.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_article
+                form_common:
+                    template: "@ibexadesign/content/payload/{content_type}.html.twig"
+                    controller: ngsite.controller.info_collection.proxy_form_handler
+                    match:
+                        Identifier\ContentType:
+                            - ng_contact_form
+                            - ng_job_application_form
+                            - ng_lead_form
                 match_all:
                     template: "@ibexadesign/content/payload.html.twig"
                     match: ~
@@ -89,18 +89,14 @@ system:
                 match_all:
                     template: "@ibexadesign/content/line.html.twig"
                     match: ~
-            link:
-                match_all:
-                    template: "@ibexadesign/content/link.html.twig"
-                    match: ~
             link_embed:
                 form_common:
                     template: "@ibexadesign/content/link_embed/form_common.html.twig"
                     match:
                         Identifier\ContentType:
-                            - ng_lead_form
                             - ng_contact_form
                             - ng_job_application_form
+                            - ng_lead_form
                 match_all:
                     template: "@ibexadesign/content/link_embed.html.twig"
                     match: ~
@@ -109,9 +105,9 @@ system:
                     template: "@ibexadesign/content/modal/form_common.html.twig"
                     match:
                         Identifier\ContentType:
-                            - ng_lead_form
                             - ng_contact_form
                             - ng_job_application_form
+                            - ng_lead_form
                 match_all:
                     template: "@ibexadesign/content/modal.html.twig"
                     match: ~
@@ -120,11 +116,11 @@ system:
                     template: "@ibexadesign/content/modal_trigger/form_common.html.twig"
                     match:
                         Identifier\ContentType:
-                            - ng_lead_form
                             - ng_contact_form
                             - ng_job_application_form
-                video:
-                    template: "@ibexadesign/content/modal_trigger/video.html.twig"
+                            - ng_lead_form
+                common:
+                    template: "@ibexadesign/content/modal_trigger/{content_type}.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_video
@@ -342,12 +338,9 @@ system:
                             - ng_news
                             - ng_shortcut
                             - ng_video
-                match_all:
-                    template: "@ibexadesign/content/embed.html.twig"
-                    match: ~
             search:
-                video:
-                    template: "@ibexadesign/content/search/ng_video.html.twig"
+                common:
+                    template: "@ibexadesign/content/search/{content_type}.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_video
@@ -369,5 +362,5 @@ system:
                             - ng_blog_post
                             - ng_gallery
                             - ng_news
-                            - ng_video
                             - ng_recipe
+                            - ng_video
