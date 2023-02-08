@@ -129,17 +129,20 @@
 {%- endblock hidden_widget -%}
 
 {% block file_row %}
-    <div class="form-group file-group {{ form.parent.parent.vars.name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
+    <div class="form-group file-group {{ form.parent.parent.vars|default(form.parent.vars).name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
         <label class="form-label{% if required %} required{% endif %}" for={{ id }}>{{ ngparams.label|default(label|trans(label_translation_parameters, translation_domain)|default('File'))|raw }}</label>
         {{- form_widget(form) -}}
         {{- form_errors(form) -}}
     </div>
-    {% do form.parent.children.remove.setRendered() %}
+
+    {% if form.parent.children.remove is defined %}
+        {% do form.parent.children.remove.setRendered() %}
+    {% endif %}
 {% endblock %}
 
 {# Custom file upload widget, commented out intentionaly. Override default UI file input if needed. Remove file_row block above #}
 {# {%- block file_row -%}
-    <div class="form-group file-group {{ form.parent.parent.vars.name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
+    <div class="form-group file-group {{ form.parent.parent.vars|default(form.parent.vars).name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
         {{- form_label(form) -}}
         {{ block('file_widget') }}
         {{- form_errors(form) -}}
@@ -153,7 +156,10 @@
         {{ label_translated_text }}
         {{ block('form_widget_simple') }}
     </label>
-    {% do form.parent.children.remove.setRendered() %}
+
+    {% if form.parent.children.remove is defined %}
+        {% do form.parent.children.remove.setRendered() %}
+    {% endif %}
 {% endblock %} #}
 
 {%- block form_widget_compound -%}
