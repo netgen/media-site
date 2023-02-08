@@ -79,6 +79,7 @@
         "netgen/ibexa-search-extra": "^3.0",
         "netgen/information-collection-bundle": "^3.0",
         "netgen/ibexa-fieldtype-enhanced-link": "^1.0",
+        "netgen/better-ibexa-admin-ui": "^1.0",
 
         "netgen/layouts-standard": "~1.4.0",
         "netgen/layouts-ibexa": "~1.4.0",
