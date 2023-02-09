@@ -132,8 +132,8 @@
 .container {
     &-wide {
         max-width: 1650px;
-        padding-left: 2 * $gutter;
-        padding-right: 2 * $gutter;
+        padding-right: calc(var(--bs-gutter-x) * 2);
+        padding-left: calc(var(--bs-gutter-x) * 2);
     }
     &-narrow {
         max-width: 845px;
@@ -150,8 +150,8 @@
     }
     @include media-breakpoint-down(sm) {
         &-wide {
-            padding-left: $gutter;
-            padding-right: $gutter;
+            padding-right: calc(var(--bs-gutter-x) * .5);
+            padding-left: calc(var(--bs-gutter-x) * .5);
         }
     }
 }
