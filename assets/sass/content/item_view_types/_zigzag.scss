@@ -5,6 +5,8 @@
     align-items: center;
     .image {
         flex: 0 0 50%;
+        border-radius: 1rem;
+        overflow: hidden;
         @include media-breakpoint-down(sm) {
             flex: 0 0 100%;
             & + .article-content {

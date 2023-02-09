@@ -50,8 +50,8 @@
                                 {% endif %}
                                 <div class="article-content">
                                     <header class="article-header">
-                                        {% if item.eyebrow_title is defined and not item.eyebrow_title.empty %}
-                                            <span class="eyebrow-title">{{ ng_render_field(item.eyebrow_title) }}</span>
+                                        {% if item.highlight_title is defined and not item.highlight_title.empty %}
+                                            <span class="eyebrow-title">{{ item.highlight_title.value.text }}</span>
                                         {% endif %}
                                         {% if item.title is defined and not item.title.empty %}
                                             <h2 class="title">{{ macros.item_content_link(item.link, item.title.value.text) }}</h2>
