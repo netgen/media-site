@@ -14,7 +14,10 @@
     & + .full-page-image {
         margin-top: 4rem;
         @include media-breakpoint-down(xxl) {
-            margin-top: 0;
+            margin-top: 2rem;
+        }
+        @include media-breakpoint-down(sm) {
+            margin-top: 1rem;
         }
     }
     & + .full-form-content {
@@ -72,19 +75,16 @@
     }
 }
 .full-page-image {
-    max-width: 1440px;
-    margin: 0 auto;
-    text-align: center;
+    // max-width: 1460px;
+    // margin: 0 auto;
+    // text-align: center;
     img {
         width: 100%;
     }
 }
 
 .full-page-intro {
-    @include text-1_5;
-    font-style: italic;
-    font-weight: 400;
-    opacity: .54;
+    @include text-2_5;
     & + * {
         margin-top: 3.75rem;
     }
