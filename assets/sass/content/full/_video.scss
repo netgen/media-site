@@ -20,6 +20,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+        & + .body {
+            margin-top: 2rem;
+        }
     }
     .body {
         @include text-base;

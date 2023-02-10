@@ -32,16 +32,18 @@
         {% block image %}
             {% if not content.fields.image.empty or not content.fields.related_multimedia.empty %}
                 <div class="full-page-image">
-                    {{ render(
-                        controller(
-                            'ngsite.controller.relations.related_multimedia_items', {
-                                'locationId': location.id,
-                                'includeChildren': true,
-                                'contentTypeIdentifiers': ['image', 'ng_video'],
-                                'template': '@ibexadesign/parts/related_multimedia.html.twig'
-                            }
-                        )
-                    ) }}
+                    <div class="container container-wide">
+                        {{ render(
+                            controller(
+                                'ngsite.controller.relations.related_multimedia_items', {
+                                    'locationId': location.id,
+                                    'includeChildren': true,
+                                    'contentTypeIdentifiers': ['image', 'ng_video'],
+                                    'template': '@ibexadesign/parts/related_multimedia.html.twig'
+                                }
+                            )
+                        ) }}
+                    </div>
                 </div>
             {% endif %}
         {% endblock %}
