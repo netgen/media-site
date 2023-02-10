@@ -4,7 +4,7 @@
 
 {% block content %}
     {% if collections.default is defined and collections.default is not empty %}
-        <div class="default-swiper swiper-container{% if block.parameter('show_pagination').value %} has-pagination{% endif %}"
+        <div class="default-swiper swiper-container"
             data-effect="{{ block.parameter('transition').value }}"
             {% if block.parameter('infinite_loop').value %}data-loop="true"{% endif %}
             {% if block.parameter('autoplay').value %}data-autoplay="{{ block.parameter('autoplay_time').value }}"{% endif %}

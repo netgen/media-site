@@ -76,56 +76,53 @@
 }
 
 .swiper-container {
-    &.has-pagination {
-        .swiper-pagination {
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0 .5rem;
-            .swiper-pagination-bullet {
-                width: .875rem;
-                height: .875rem;
-                background-color: transparent;
-                border: .125rem solid $black;
-                transition: background-color .125s ease, border-color .125s ease;
+    .swiper-pagination {
+        position: static;
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 .5rem;
+        .swiper-pagination-bullet {
+            width: .875rem;
+            height: .875rem;
+            background-color: transparent;
+            border: .125rem solid $black;
+            transition: background-color .125s ease, border-color .125s ease;
+            &.swiper-pagination-bullet-active {
+                background-color: $black;
+            }
+            .bg-color-black & {
+                border-color: $white;
                 &.swiper-pagination-bullet-active {
-                    background-color: $black;
-                }
-                .bg-color-black & {
-                    border-color: $white;
-                    &.swiper-pagination-bullet-active {
-                        background-color: $white;
-                    }
+                    background-color: $white;
                 }
             }
         }
-        &.default-swiper {
-            .swiper-navigation {
-                @include swiper-navigation-as-overlay($right: 0, $top: 0);
-                @include media-breakpoint-down(xl) {
-                    display: none;
-                }
+    }
+    &.default-swiper {
+        .swiper-navigation {
+            @include swiper-navigation-as-overlay($right: 0, $top: 0);
+            @include media-breakpoint-down(xl) {
+                display: none;
             }
         }
-        &.sushi-swiper {
-            padding-bottom: 2rem;
-            .swiper-navigation,
-            .swiper-pagination,
-            .swiper-button-prev,
-            .swiper-button-next {
-                @include media-breakpoint-down(xl) {
-                    display: none;
-                }
+    }
+    &.sushi-swiper {
+        .swiper-navigation,
+        .swiper-pagination,
+        .swiper-button-prev,
+        .swiper-button-next {
+            @include media-breakpoint-down(xl) {
+                display: none;
             }
-            .swiper-button-prev {
-                transform: translateY(calc(-50% - 1rem));
-            }
-            .swiper-button-next {
-                transform: translateY(calc(-50% - 1rem)) rotate(180deg);
-            }
+        }
+        .swiper-button-prev {
+            transform: translateY(calc(-50% - 1rem));
+        }
+        .swiper-button-next {
+            transform: translateY(calc(-50% - 1rem)) rotate(180deg);
         }
     }
     &.gallery-top {
