@@ -12,24 +12,22 @@
             &.current {
                 opacity: 1;
                 .page-link, .ajax-nav-link {
-                    background: $white;
-                    color: $black;
+                    background: $gray-87;
+                    color: $white;
                 }
             }
             .page-link, .ajax-nav-link, a {
-                @include text-1_125;
+                @include text-button;
                 position: relative;
                 display: block;
-                background: $black;
-                color: $white;
-                border: 0;
-                margin: 0;
-                font-weight: 900;
-                padding: .9em 1.2em;
+                border: 2px solid $gray-87;
+                margin-inline: -2px;
+                padding: .9em 1.2em .75em;
             }
             a.page-link, a.ajax-nav-link {
                 &:hover {
                     background: $gray-87;
+                    color: $white;
                 }
             }
         }
