@@ -5,7 +5,7 @@
 
         {# First page link (for mobile) #}
         {% if pages.mobile_first_page %}
-            <li class="page-item d-block d-xs-none"><a href="{{ pages.mobile_first_page }}" class="page-link"><i class="fa fa-angle-double-left"></i></a></li>
+            <li class="page-item d-block d-sm-none"><a href="{{ pages.mobile_first_page }}" class="page-link"><i class="fa fa-angle-double-left"></i></a></li>
         {% endif %}
 
         {# Previous page link #}
@@ -15,41 +15,41 @@
 
         {# First page link #}
         {% if pages.first_page %}
-            <li class="page-item d-none d-xs-block"><a href="{{ pages.first_page }}" class="page-link">1</a></li>
+            <li class="page-item d-none d-sm-block"><a href="{{ pages.first_page }}" class="page-link">1</a></li>
         {% endif %}
 
         {# Second page link #}
         {% if pages.second_page %}
-            <li class="page-item d-none d-xs-block"><a href="{{ pages.second_page }}" class="page-link">2</a></li>
+            <li class="page-item d-none d-sm-block"><a href="{{ pages.second_page }}" class="page-link">2</a></li>
         {% endif %}
 
         {# Dots if start is over 3 #}
         {% if pages.separator_before %}
-            <li class="page-item disabled d-none d-xs-block"><span class="page-link page-link-separate">...</span></li>
+            <li class="page-item disabled d-none d-sm-block"><span class="page-link page-link-separate">...</span></li>
         {% endif %}
 
         {# Middle pages #}
         {% for page, page_url in pages.middle_pages %}
             {% if page == pager.currentPage %}
-                <li class="page-item current"><span class="page-link">{{ page }}<span class="d-inline d-xs-none"> of {{ pager.nbPages }}</span></span></li>
+                <li class="page-item current"><span class="page-link">{{ page }}<span class="d-inline d-sm-none"> of {{ pager.nbPages }}</span></span></li>
             {% else %}
-                <li class="page-item d-none d-xs-block"><a href="{{ page_url }}" class="page-link">{{ page }}</a></li>
+                <li class="page-item d-none d-sm-block"><a href="{{ page_url }}" class="page-link">{{ page }}</a></li>
             {% endif %}
         {% endfor %}
 
         {# Dots if end is under 3 to last #}
         {% if pages.separator_after %}
-            <li class="page-item disabled d-none d-xs-block"><span class="page-link page-link-separate">...</span></li>
+            <li class="page-item disabled d-none d-sm-block"><span class="page-link page-link-separate">...</span></li>
         {% endif %}
 
         {# Second to last page link #}
         {% if pages.second_to_last_page %}
-            <li class="page-item d-none d-xs-block"><a href="{{ pages.second_to_last_page }}" class="page-link">{{ pager.nbPages - 1 }}</a></li>
+            <li class="page-item d-none d-sm-block"><a href="{{ pages.second_to_last_page }}" class="page-link">{{ pager.nbPages - 1 }}</a></li>
         {% endif %}
 
         {# Last page link #}
         {% if pages.last_page %}
-            <li class="page-item d-none d-xs-block"><a href="{{ pages.last_page }}" class="page-link">{{ pager.nbPages }}</a></li>
+            <li class="page-item d-none d-sm-block"><a href="{{ pages.last_page }}" class="page-link">{{ pager.nbPages }}</a></li>
         {% endif %}
 
         {# Next page link #}
@@ -59,7 +59,7 @@
 
         {# Last page link (for mobile) #}
         {% if pages.mobile_last_page %}
-            <li class="page-item d-block d-xs-none"><a href="{{ pages.mobile_last_page }}" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
+            <li class="page-item d-block d-sm-none"><a href="{{ pages.mobile_last_page }}" class="page-link"><i class="fa fa-angle-double-right"></i></a></li>
         {% endif %}
 
     </ul>
