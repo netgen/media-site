@@ -11,7 +11,8 @@
         @include tag;
         color: $white;
     }
-    & + .full-page-image {
+    & + .full-page-image,
+    & + .full-page-audio {
         margin-top: 4rem;
         @include media-breakpoint-down(xxl) {
             margin-top: 2rem;
@@ -75,16 +76,13 @@
     }
 }
 .full-page-image {
-    // max-width: 1460px;
-    // margin: 0 auto;
-    // text-align: center;
     img {
         width: 100%;
     }
 }
 
 .full-page-intro {
-    @include text-2_5;
+    @include text-1_5;
     & + * {
         margin-top: 3.75rem;
     }
@@ -94,6 +92,9 @@
 .category-children {
     margin-top: 8rem;
     position: relative;
+    @include media-breakpoint-down(md) {
+        margin-top: 4rem;
+    }
 }
 
 .full-page-tags {

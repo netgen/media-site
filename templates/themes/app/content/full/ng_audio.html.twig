@@ -9,27 +9,52 @@
 
 {% block content %}
     <div class="view-type view-type-{{ view_type }} ng-audio">
-        <div class="container">
-            <h1 class="page-header">{{ ng_render_field(content.fields.title) }}</h1>
 
-            {% if not content.fields.teaser_intro.empty %}
-                <div class="short">
-                    {{ ng_render_field(content.fields.teaser_intro) }}
+        {% block article_header %}
+            <header class="full-page-header">
+                <div class="container">
+                    <div class="full-page-eyebrow">
+                        {% include '@ibexadesign/parts/main_topic.html.twig' with {'use_field': true} %}
+                    </div>
+                    <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
+
+                    <div class="full-page-info">
+                        {% include '@ibexadesign/parts/author.html.twig' %}
+                        {% include '@ibexadesign/parts/time.html.twig' %}
+                    </div>
                 </div>
-            {% endif %}
+            </header>
+        {% endblock %}
 
+        {% block audio %}
             {% if not content.fields.file.empty %}
-                <audio controls>
-                    <source type="audio/mpeg" src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields.file.id}) }}" />
-                    Your browser does not support the audio element.
-                </audio>
-            {% endif %}
-
-            {% if not content.fields.description.empty %}
-                <div class="body">
-                    {{ ng_render_field(content.fields.description) }}
+                <div class="full-page-audio">
+                    <div class="container container-narrow">
+                            <audio controls>
+                                <source type="audio/mpeg" src="{{ path('ngsite_download', {'contentId': content.id, 'fieldId': content.fields.file.id}) }}" />
+                                Your browser does not support the audio element.
+                            </audio>
+                    </div>
                 </div>
             {% endif %}
+        {% endblock %}
+
+        <div class="container container-narrow">
+            {% block body %}
+                <div class="full-page-body">
+                    {% if not content.fields.teaser_intro.empty %}
+                        <div class="full-page-intro">
+                            {{ ng_render_field(content.fields.teaser_intro) }}
+                        </div>
+                    {% endif %}
+
+                    {% if not content.fields.description.empty %}
+                        {{ ng_render_field(content.fields.description) }}
+                    {% endif %}
+
+                    {% include '@ibexadesign/parts/tags.html.twig' %}
+                </div>
+            {% endblock %}
         </div>
     </div>
 {% endblock %}
