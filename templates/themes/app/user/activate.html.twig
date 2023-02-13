@@ -5,13 +5,13 @@
 {% form_theme form '@ibexadesign/forms/theme.html.twig' %}
 
 {% block content %}
-    <div class="page-header">
+    <header class="full-page-header text-center no-breadcrumbs">
         <h1>{{ 'ngsite.user.activate.title'|trans }}</h1>
-    </div>
+    </header>
 
     <p>{{ 'ngsite.user.activate.text'|trans }}</p>
 
-    {{ form_start(form) }}
+    {{ form_start(form, { 'attr' : { 'class': 'embed-form' } }) }}
 
     <fieldset>
         <div class="form-group">
