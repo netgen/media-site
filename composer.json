@@ -111,7 +111,8 @@
             "symfony/runtime": true,
             "ibexa/post-install": true,
             "netgen/git-hooks": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "php-http/discovery": false
         },
         "optimize-autoloader": true,
         "preferred-install": {
