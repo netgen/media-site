@@ -17,3 +17,8 @@ parameters:
 
     collected_info_sender: info@netgen.io
     collected_info_recipient: test@netgen.io
+
+    # This is Netgen Stack Demo GTM code: GTM-WMG2VT2
+    # Replace it with project specific GTM code before going live
+    ngsite.default.site_settings.google_tag_manager_code: 'GTM-WMG2VT2'
+
