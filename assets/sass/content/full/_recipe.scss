@@ -31,4 +31,17 @@
         border-top: 2px dashed rgba($black, .12);
         text-align: center;
     }
+
+    .social-share-wrapper {
+        .social-share {
+            display: block;
+            .social {
+                display: flex;
+                justify-content: center;
+                li {
+                    margin: 0;
+                }
+            }
+        }
+    }
 }
