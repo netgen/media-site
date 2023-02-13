@@ -1,6 +1,6 @@
 .full-page-header {
     background: $primary;
-    padding: 2rem 0 4rem;
+    padding: 2rem 0 8rem;
     &.no-breadcrumbs {
         padding: 8rem 0;
         @include media-breakpoint-down(md) {

@@ -10,28 +10,25 @@
         margin: 2rem 0 0;
         padding: 0;
         text-align: center;
+        display: flex;
+        justify-content: space-around;
         li {
-            @include text-1_25;
+            @include text-1_5;
             display: inline-block;
-            font-weight: 900;
             margin: 0 .7em;
             .tt {
                 display: block;
-                font-size: .5714285714em;
+                @include text-0_875;
                 color: $gray-38;
-                text-transform: uppercase;
             }
         }
     }
 
     .recipe-time {
-        @extend %clearfix;
+        @include text-1_5;
         margin: 2rem 0 0;
         padding: 2rem 0 0;
-        border-top: 2px dashed hsla(0, 0, 0, .12);
-        time {
-            float: right;
-            font-weight: 900;
-        }
+        border-top: 2px dashed rgba($black, .12);
+        text-align: center;
     }
 }
