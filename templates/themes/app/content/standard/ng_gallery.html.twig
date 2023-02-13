@@ -25,9 +25,6 @@
     {% endif %}
     <header class="article-header">
         <h2 class="title"><a href="{{ location_path }}">{{ content_fields.title(content) }}</a></h2>
-        <div class="info">
-            {% include '@ibexadesign/parts/main_topic.html.twig' %}
-        </div>
     </header>
 
     {% if with_intro|default(false) %}

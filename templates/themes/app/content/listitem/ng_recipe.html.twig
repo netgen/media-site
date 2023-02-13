@@ -7,7 +7,6 @@
     <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
     <div class="info">
         {% include '@ibexadesign/parts/author.html.twig' %}
-        {% include '@ibexadesign/parts/main_topic.html.twig' %}
 
         <span class="recipe-details">
             {% if not content.fields.preparation_time.empty %}

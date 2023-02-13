@@ -13,9 +13,7 @@
         {% block article_header %}
             <header class="full-page-header">
                 <div class="container">
-                    <div class="full-page-eyebrow">
-                        {% include '@ibexadesign/parts/main_topic.html.twig' with {'use_field': true} %}
-                    </div>
+                    {% include '@ibexadesign/parts/main_topic.html.twig' with {'use_field': true} %}
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
 
                     <div class="full-page-info">

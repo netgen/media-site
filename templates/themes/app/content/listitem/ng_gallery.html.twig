@@ -9,9 +9,6 @@
             <i class="fas fa-camera article-icon" aria-hidden="true"></i>{{ content_fields.title(content) }}
         </a>
     </h2>
-    <div class="info">
-        {% include '@ibexadesign/parts/main_topic.html.twig' %}
-    </div>
 
     {% if with_intro|default(false) %}
         {{ content_fields.intro(content) }}

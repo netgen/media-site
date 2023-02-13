@@ -9,13 +9,16 @@ necessary space to display full sponsored content disclosure. In that case, even
 we will display the short format provided by a translation string.
 
 #}
-
-{% if content.hasField('sponsored_content_disclosure') and not content.fields.sponsored_content_disclosure.empty %}
-    {% if use_field|default(false) %}
-        <span class="important-notice">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
-    {% else %}
-        <span class="important-notice">{{ 'ngsite.layout.sponsored'|trans }}</span>
-    {% endif %}
-{% elseif content.hasField('main_topic') and not content.fields.main_topic.empty %}
-    <a class="main-topic" href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+{% if not content.fields.sponsored_content_disclosure.empty or not content.fields.main_topic.empty %}
+    <div class="full-page-eyebrow">
+        {% if not content.fields.sponsored_content_disclosure.empty %}
+            {% if use_field|default(false) %}
+                <span class="important-notice">{{ content.fields.sponsored_content_disclosure.value.text }}</span>
+            {% else %}
+                <span class="important-notice">{{ 'ngsite.layout.sponsored'|trans }}</span>
+            {% endif %}
+        {% elseif not content.fields.main_topic.empty %}
+            <a class="main-topic" href="{{ ngsite_topic_path(content.fields.main_topic.value.tags[0]) }}">{{ content.fields.main_topic.value.tags[0].keyword }}</a>
+        {% endif %}
+    </div>
 {% endif %}
