@@ -47,24 +47,43 @@
     margin: 0;
     display: flex;
     gap: 0.25rem 1.25rem;
+    flex-wrap: wrap;
     > span,
     > time,
     > a {
         display: inline-block;
-        + span,
-        + time,
-        + a {
-            position: relative;
-            &::before {
-                content: '';
-                width: .25rem;
-                height: .25rem;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                left: -.75rem;
-                background-color: rgba($black, .37);
+        position: relative;
+        div {
+            display: inline;
+        }
+        &::before {
+            content: '';
+            width: .25em;
+            height: .25em;
+            position: absolute;
+            top: .66666667em;
+            left: -.75em;
+            background-color: rgba($black, .37);
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        > span,
+        > time,
+        > a {
+            &:first-child {
+                &::before {
+                    content: none;
+                }
             }
+        }
+    }
+    @include media-breakpoint-down(lg) {
+        display: block;
+        padding-left: 1rem;
+        > span,
+        > time,
+        > a {
+            width: 100%;
         }
     }
     a {

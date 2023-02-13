@@ -32,16 +32,17 @@
             </header>
         {% endblock %}
 
-        <div class="container">
-            {% block image %}
-                {% if not content.fields.image.empty %}
-                    <div class="full-page-image">
+        {% block image %}
+            {% if not content.fields.image.empty %}
+                <div class="full-page-image">
+                    <div class="container container-wide">
                         {{ ng_render_field(content.fields.image) }}
                     </div>
-                {% endif %}
-            {% endblock %}
+                </div>
+            {% endif %}
+        {% endblock %}
 
-
+        <div class="container container-narrow">
             {% block body %}
                 <div class="full-page-body">
                     {% if not content.fields.full_intro.empty %}
