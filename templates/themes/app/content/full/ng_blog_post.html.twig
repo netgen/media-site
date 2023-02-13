@@ -15,7 +15,7 @@
     <article class="view-type view-type-{{ view_type }} ng-blog-post vf1">
 
         {% block article_header %}
-            <header class="full-page-header">
+            <header class="full-page-header{% if not show_path or path_array|length <= 2 %} no-breadcrumbs{% endif %}">
                 <div class="container">
                     {% include '@ibexadesign/parts/main_topic.html.twig' with {'use_field': true} %}
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>

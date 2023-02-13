@@ -14,7 +14,7 @@
 {% block content %}
     <article class="view-type view-type-{{ view_type }} ng-news">
         {% block article_header %}
-            <header class="full-page-header">
+            <header class="full-page-header{% if not show_path or path_array|length <= 2 %} no-breadcrumbs{% endif %}">
                 <div class="container">
                     {% include '@ibexadesign/parts/main_topic.html.twig' with {'use_field': true} %}
 
