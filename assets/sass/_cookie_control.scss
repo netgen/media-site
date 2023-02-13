@@ -31,8 +31,8 @@
             border-bottom: 1px solid #ddd;
 
             .wrapper {
-                padding-right: 20%;
-                width: 70%;
+                padding-right: 10%;
+                width: 60%;
 
                 p {
                     margin-bottom: 0;
@@ -54,7 +54,7 @@
                 margin-top: 0;
                 display: flex;
                 justify-content: flex-end;
-                width: 30%;
+                width: 40%;
 
                 .optional-list-toggle {
                     margin-right: 3rem;
@@ -247,6 +247,20 @@
                 float: right;
                 color: #212121;
                 border-color: #212121;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(xxl) {
+        .ng-cc-modal {
+            .ng-cc-content {
+                .wrapper {
+                    padding-right: 5%;
+                    width: 50%;
+                }
+                .ng-cc-actions {
+                    width: 45%;
+                }
             }
         }
     }
