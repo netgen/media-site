@@ -20,8 +20,8 @@
                       {% endif %}
                     </a>
                     <button id="ng-cc-accept" class="btn btn-primary">
-                        {% if not cookie_policy.fields.ribbon_button_label.empty %}
-                            {{ ng_render_field(cookie_policy.fields.ribbon_button_label) }}
+                        {% if not cookie_policy.fields.ribbon_button_accept_all_label.empty %}
+                            {{ ng_render_field(cookie_policy.fields.ribbon_button_accept_all_label) }}
                         {% endif %}
                     </button>
                 </div>
@@ -47,9 +47,11 @@
                     </li>
                 </ul>
                 <div class="ng-cc-optional-actions clearfix">
-                  <button id="ng-cc-optional-save" class="btn btn-outline-primary">
-                    {{ 'ngsite.layout.cookie_settings.save'|trans }}
-                  </button>
+                    <button id="ng-cc-optional-save" class="btn btn-outline-primary">
+                        {% if not cookie_policy.fields.ribbon_button_save_label.empty %}
+                            {{ ng_render_field(cookie_policy.fields.ribbon_button_save_label) }}
+                        {% endif %}
+                    </button>
               </div>
             </div>
         </div>
