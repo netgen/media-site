@@ -9,7 +9,7 @@ necessary space to display full sponsored content disclosure. In that case, even
 we will display the short format provided by a translation string.
 
 #}
-{% if not content.fields.sponsored_content_disclosure.empty or not content.fields.main_topic.empty %}
+{% if (content.hasField('sponsored_content_disclosure') and not content.fields.sponsored_content_disclosure.empty) or (content.hasField('main_topic') and not content.fields.main_topic.empty) %}
     <div class="full-page-eyebrow">
         {% if not content.fields.sponsored_content_disclosure.empty %}
             {% if use_field|default(false) %}
