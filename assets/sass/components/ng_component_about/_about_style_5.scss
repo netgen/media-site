@@ -1,6 +1,11 @@
 .about-style-5 {
     .title {
         @include text-2_5;
+        @include media-breakpoint-down(lg) {
+            & + .short {
+                margin-top: 2rem;
+            }
+        }
     }
 
     .short {
