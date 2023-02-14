@@ -11,6 +11,9 @@
         }
         .title {
             @include text-4;
+            + .short {
+                margin-top: 2rem;
+            }
         }
         .short {
             @include text-1_125;
