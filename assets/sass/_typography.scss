@@ -6,7 +6,7 @@ body {
     -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
     -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
     background: $footer-bg;
-    hyphens: auto;
+    word-wrap: break-word;
     @include media-breakpoint-down(md) {
         font-size: 1rem;
     }
