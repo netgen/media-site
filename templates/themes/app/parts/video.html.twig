@@ -1,8 +1,9 @@
-{% macro poster(content, location, alias_name, alt_text) %}
+{% macro poster(content, location, alias_name, alt_text, image_ratio) %}
     {% set alias_name = alias_name|default('i480') %}
     {% set alt_text = alt_text ?? null %}
+    {% set image_ratio = image_ratio|default('ratio-16x9') %}
 
-    <a href="{{ ibexa_path(location is not empty ? location : content) }}" class="ratio ratio-16x9" {% if alt_text is not empty %}aria-label="{{ alt_text }}"{% endif %}>
+    <a href="{{ ibexa_path(location is not empty ? location : content) }}" class="ratio {{ image_ratio }}" {% if alt_text is not empty %}aria-label="{{ alt_text }}"{% endif %}>
         {% if not content.fields.poster.empty %}
             {{ ng_render_field(content.fields.poster, {'parameters': {'alias': alias_name}}) }}
         {% elseif not content.fields.video_identifier.empty %}
