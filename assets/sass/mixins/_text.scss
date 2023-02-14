@@ -1,109 +1,109 @@
 @mixin text-base {
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1.5rem;
+    line-height: 1.5;
     @include media-breakpoint-down(sm) {
         font-size: .875rem;
-        line-height: 1.25rem;
+        line-height: 1.66;
     }
 }
 
 @mixin text-0_75 {
     font-size: .75rem;
     font-weight: 400;
-    line-height: 1.125rem;
+    line-height: 1.5;
 }
 
 @mixin text-0_875 {
     font-size: .875rem;
     font-weight: 400;
-    line-height: 1.25rem;
+    line-height: 1.66;
     @include media-breakpoint-down(sm) {
         font-size: .75rem;
-        line-height: 1.125rem;
+        line-height: 1.5;
     }
 }
 
 @mixin text-1_125 {
     font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.75rem;
+    line-height: 1.55;
 }
 
 @mixin text-1_25 {
     font-size: 1.25rem;
     font-weight: 400;
-    line-height: 1.75rem;
+    line-height: 1.4;
 }
 
 @mixin text-1_5 {
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 2rem;
+    line-height: 1.33;
 }
 
 @mixin text-2 {
     font-size: 2rem;
     font-weight: 700;
-    line-height: 2.5rem;
+    line-height: 1.25;
     @include media-breakpoint-down(lg) {
         font-size: 1.5rem;
-        line-height: 2rem;
+        line-height: 1.33;
     }
 }
 
 @mixin text-2_5 {
     font-size: 2.5rem;
     font-weight: 700;
-    line-height: 3rem;
+    line-height: 1.2;
     @include media-breakpoint-down(lg) {
         font-size: 2rem;
-        line-height: 2.5rem;
+        line-height: 1.25;
     }
 }
 
 @mixin text-3 {
     font-size: 3rem;
     font-weight: 700;
-    line-height: 3.5rem;
+    line-height: 1.16;
     @include media-breakpoint-down(lg) {
         font-size: 2.5rem;
-        line-height: 3rem;
+        line-height: 1.2;
     }
     @include media-breakpoint-down(sm) {
         font-size: 2rem;
-        line-height: 2.5rem;
+        line-height: 1.25;
     }
 }
 
 @mixin text-4 {
     font-size: 4rem;
     font-weight: 700;
-    line-height: 4.5rem;
-    letter-spacing: -0.02em;
+    line-height: 1.125;
+    letter-spacing: -0.02;
     @include media-breakpoint-down(lg) {
         font-size: 3rem;
-        line-height: 3.5rem;
+        line-height: 1.16;
     }
     @include media-breakpoint-down(sm) {
         font-size: 2rem;
-        line-height: 2.5rem;
+        line-height: 1.2;
     }
 }
 
 @mixin text-4_5 {
     font-size: 4.5rem;
     font-weight: 700;
-    line-height: 5rem;
-    letter-spacing: -0.03em;
+    line-height: 1.11;
+    letter-spacing: -0.03;
     @include media-breakpoint-down(lg) {
         font-size: 3.5rem;
-        line-height: 4rem;
-        letter-spacing: -0.02em;
+        line-height: 1.142;
+        letter-spacing: -0.02;
     }
     @include media-breakpoint-down(sm) {
         font-size: 2.5rem;
-        line-height: 3rem;
+        line-height: 1.2;
         letter-spacing: 0;
     }
 }
@@ -111,16 +111,16 @@
 @mixin text-6 {
     font-size: 6rem;
     font-weight: 700;
-    line-height: 6.5rem;
-    letter-spacing: -0.03em;
+    line-height: 1.08;
+    letter-spacing: -0.03;
     @include media-breakpoint-down(lg) {
         font-size: 4rem;
-        line-height: 4.5rem;
-        letter-spacing: -0.02em;
+        line-height: 1.125;
+        letter-spacing: -0.02;
     }
     @include media-breakpoint-down(sm) {
         font-size: 2.5rem;
-        line-height: 3rem;
+        line-height: 1.2;
         letter-spacing: 0;
     }
 }
@@ -128,16 +128,16 @@
 @mixin text-8 {
     font-size: 8rem;
     font-weight: 700;
-    line-height: 8rem;
-    letter-spacing: -0.03em;
+    line-height: 1;
+    letter-spacing: -0.03;
     @include media-breakpoint-down(lg) {
         font-size: 4.5rem;
-        line-height: 5rem;
-        letter-spacing: -0.02em;
+        line-height: 1.11;
+        letter-spacing: -0.02;
     }
     @include media-breakpoint-down(sm) {
         font-size: 2.5rem;
-        line-height: 3rem;
+        line-height: 1.2;
         letter-spacing: 0;
     }
 }
@@ -145,19 +145,19 @@
 @mixin text-button {
     font-size: 1rem;
     font-weight: 700;
-    line-height: 1.5rem;
+    line-height: 1.5;
     @include media-breakpoint-down(sm) {
         font-size: .875rem;
-        line-height: 1.375rem;
+        line-height: 1.57;
     }
 }
 
 @mixin text-link {
     font-size: 1rem;
     font-weight: 700;
-    line-height: 1.5rem;
+    line-height: 1.5;
     @include media-breakpoint-down(sm) {
         font-size: .875rem;
-        line-height: 1.375rem;
+        line-height: 1.57;
     }
 }
