@@ -49,6 +49,7 @@
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
         background-color: $white;
         padding: 1.2rem;
+        border-radius: 1rem;
         @include media-breakpoint-down(lg) {
             grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         }

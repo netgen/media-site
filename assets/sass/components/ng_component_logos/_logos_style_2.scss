@@ -1,5 +1,5 @@
 .logos-style-2 {
-    .container {
+    .article-wrapper {
         display: flex;
         gap: 2rem;
         @include media-breakpoint-down(lg) {
@@ -8,6 +8,7 @@
         }
     }
     .article-header {
+        flex: 0 0 50%;
         .text {
             + * {
                 margin-top: 2.5rem;
@@ -48,6 +49,7 @@
         grid-template-columns: auto auto;
         background-color: $white;
         padding: 1.2rem;
+        border-radius: 1rem;
         .logo-grid-item {
             padding: .75rem;
         }
