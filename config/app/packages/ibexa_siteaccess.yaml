@@ -23,6 +23,7 @@ ibexa:
                 - bold_ger
     system:
         admin_group:
+            design: ngadmin
             languages:
                 - eng-GB
                 - ger-DE
@@ -71,5 +72,7 @@ ibexa_design_engine:
             - app
             - common
             - standard
+        ngadmin:
+            - common
         admin:
             - common
