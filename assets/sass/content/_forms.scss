@@ -51,6 +51,12 @@
                             color: inherit;
                             border-color: darken($primary, 15%);
                         }
+                        .bg-color-primary & {
+                            border-bottom: .25rem solid $black;
+                            &:hover {
+                                border-color: darken($black, 15%);
+                            }
+                        }
                     }
                 }
             }
