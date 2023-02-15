@@ -1,0 +1,24 @@
+{
+  "files.eol": "\n",
+  "editor.tabSize": 4,
+  "[javascript][typescript][json]": {
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+  },
+  "[sass][scss][css]": {
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+  },
+  "[twig][html][html.twig]": {
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+  },
+  "[php]": {
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+  },
+  "[yaml]": {
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+  },
+}

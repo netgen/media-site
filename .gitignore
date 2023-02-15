@@ -35,7 +35,9 @@ yarn-error.log
 ###< liip/imagine-bundle ###
 
 .idea/
-.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 
 /bin/*
 !bin/console
