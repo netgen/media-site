@@ -1,4 +1,4 @@
-{% extends '@ibexadesign/pagelayout_variables.html.twig' %}
+{% extends '@ibexadesign/pagelayout/variables.html.twig' %}
 
 {% block pagelayout_content %}
 <!DOCTYPE html>
@@ -6,19 +6,27 @@
 <head>
     <meta charset="utf-8">
 
-    {% block page_head %}
-        {% include '@ibexadesign/page_head.html.twig' %}
+    {% block page_head_title %}
+        {% include '@ibexadesign/pagelayout/head/title.html.twig' %}
+    {% endblock %}
+
+    {% block page_head_meta %}
+        {% include '@ibexadesign/pagelayout/head/meta.html.twig' %}
+    {% endblock %}
+
+    {% block page_head_link %}
+        {% include '@ibexadesign/pagelayout/head/link.html.twig' %}
     {% endblock %}
 
     {% block page_head_style %}
-        {% include '@ibexadesign/page_head_style.html.twig' %}
+        {% include '@ibexadesign/pagelayout/head/style.html.twig' %}
     {% endblock %}
 
     {% block page_head_script %}
-        {% include '@ibexadesign/page_head_script.html.twig' %}
+        {% include '@ibexadesign/pagelayout/head/script.html.twig' %}
     {% endblock %}
 
-    {% block open_graph %}
+    {% block page_head_opengraph %}
         {% include '@ibexadesign/parts/opengraph.html.twig' %}
     {% endblock %}
 
@@ -35,11 +43,11 @@
 <div id="page"{% if page_css_class|default is not empty %} class="{{ page_css_class }}"{% endif %}{% if location is defined and location is not empty %} data-path='["{{ location.path|join('","') }}"]'{% endif %}>
     {% block layout %}
         {% block header %}
-            {% include '@ibexadesign/page_header.html.twig' %}
+            {% include '@ibexadesign/pagelayout/header.html.twig' %}
         {% endblock %}
 
         {% block breadcrumb %}
-            {% include '@ibexadesign/page_path.html.twig' %}
+            {% include '@ibexadesign/pagelayout/breadcrumbs.html.twig' %}
         {% endblock %}
 
         <div id="main">
@@ -47,7 +55,7 @@
         </div>
 
         {% block footer %}
-            {% include '@ibexadesign/page_footer.html.twig' %}
+            {% include '@ibexadesign/pagelayout/footer.html.twig' %}
         {% endblock %}
     {% endblock %}
 
@@ -55,11 +63,10 @@
 </div>
 
 {% block page_footer_script %}
-    {% include '@ibexadesign/page_footer_script.html.twig' %}
+    {% include '@ibexadesign/pagelayout/script_bottom.html.twig' %}
 {% endblock %}
 
-{% include '@ibexadesign/parts/cookie_control.html.twig' %}
-
+{% include '@ibexadesign/pagelayout/cookie_control.html.twig' %}
 </body>
 </html>
 {% endblock %}

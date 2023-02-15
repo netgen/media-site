@@ -1,0 +1,29 @@
+<meta name="generator" content="{{ 'ngsite.layout.meta_generator'|trans }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2">
+<meta name="theme-color" content="#ffffff">
+
+{% set site_info_metadata = ngsite.siteInfoContent.fields.metadata.value %}
+
+{% set default_meta_data = {
+    keywords: site_info_metadata.metas.keywords.content|default(''),
+    description: site_info_metadata.metas.description.content|default('')
+} %}
+
+{% set meta_data = default_meta_data|merge(meta_data|default([])) %}
+
+{% if content is defined %}
+    {% if content.hasField('metadata') and not content.fields.metadata.empty %}
+        {% set content_meta_data = content.fields.metadata.value %}
+        {% for key in default_meta_data|keys %}
+            {% if content_meta_data.metas[key].content|default('') is not empty %}
+                {% set meta_data = meta_data|merge({(key): content_meta_data.metas[key].content}) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% for key in default_meta_data|keys %}
+    {% if meta_data[key]|default('') is not empty %}
+        <meta name="{{ key }}" content="{{ meta_data[key] }}" />
+    {% endif %}
+{% endfor %}
