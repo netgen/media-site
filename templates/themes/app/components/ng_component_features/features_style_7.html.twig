@@ -49,7 +49,11 @@
                             <div class="view-type view-type-zigzag vl9">
                                 {% if item.image is defined and not item.image.empty %}
                                     <figure class="image">
-                                        {{ macros.item_image_link(item.link, item.image, "i770") }}
+                                        {% set alt_text = "" %}
+                                        {% if item.title is defined and not item.title.empty %}
+                                            {% set alt_text = item.title.value.text %}
+                                        {% endif %}
+                                        {{ macros.item_image_link(item.link, item.image, "i770", alt_text) }}
                                     </figure>
                                 {% endif %}
                                 <div class="article-content">

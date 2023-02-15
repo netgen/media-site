@@ -50,7 +50,7 @@
                         <div class="features-grid-item">
                             {% if item.icon is defined and not item.icon.empty %}
                                 <div class="item-icon">
-                                    <img src="{{ asset(item.icon.value.id, 'ibexa_file') }}" alt="{{ content.name }}" />
+                                    <img src="{{ asset(item.icon.value.id, 'ibexa_file') }}" aria-hidden="true" />
                                 </div>
                             {% endif %}
                             {% if item.title is defined and not item.title.empty %}

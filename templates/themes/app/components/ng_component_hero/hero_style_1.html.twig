@@ -70,10 +70,15 @@
                         <source media="(max-width: 991px)" srcset="{{ ng_image_alias( content.fields.image_mobile, 'i770' ).uri }}">
                     {% endif %}
                     <source media="(min-width: 992px)" srcset="{{ ng_image_alias( content.fields.image, 'original' ).uri }}">
+                    {% set alt_text = "" %}
+                    {% if not content.fields.title.empty %}
+                        {% set alt_text = content.fields.title.value.text %}
+                    {% endif %}
                     {{ ng_render_field(content.fields.image,  {
                         'parameters': {
                             'lazy_loading': false,
-                            'alias': 'i1920'
+                            'alias': 'i1920',
+                            'alt_text': alt_text,
                         }
                     }) }}
                 </picture>

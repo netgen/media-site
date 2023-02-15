@@ -50,7 +50,11 @@
                         <div class="features-grid-item">
                             {% if item.image is defined and not item.image.empty %}
                                 <div class="item-image">
-                                    {{ macros.item_image_link(item.link, item.image, "i770") }}
+                                    {% set alt_text = "" %}
+                                    {% if item.title is defined and not item.title.empty %}
+                                        {% set alt_text = item.title.value.text %}
+                                    {% endif %}
+                                    {{ macros.item_image_link(item.link, item.image, "i770", alt_text) }}
                                 </div>
                             {% endif %}
                             {% if item.title is defined and not item.title.empty %}

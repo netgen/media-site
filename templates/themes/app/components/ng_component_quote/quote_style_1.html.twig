@@ -46,11 +46,16 @@
 
                                     <div class="quote-person">
                                         {% if not item.person_image.empty %}
+                                            {% set alt_text = "" %}
+                                            {% if not item.person_name.empty %}
+                                                {% set alt_text = item.person_name.value.text %}
+                                            {% endif %}
                                             <div class="quote-person-image">
                                                 {{ ng_render_field(
                                                     item.person_image, {
                                                         parameters: {
-                                                            alias: 'i160'
+                                                            alias: 'i160',
+                                                            alt_text: alt_text,
                                                         }
                                                     }
                                                 ) }}
