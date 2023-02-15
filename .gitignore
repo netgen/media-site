@@ -1,8 +1,12 @@
 .idea/
-.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
 .sass-cache/
 .tmp/
 node_modules/
+
 /bin/*
 !bin/.ci/
 !bin/.travis/
