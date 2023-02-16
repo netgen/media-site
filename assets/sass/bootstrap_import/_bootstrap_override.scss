@@ -156,10 +156,16 @@
     }
 }
 
-// temporary here, fix this!
 .bg-with-media {
     background-color: $black;
     color: $white;
 }
 
+.ratio {
+    display: block;
+}
+.ratio > img {
+    object-fit: cover;
+    object-position: center;
+}
 
