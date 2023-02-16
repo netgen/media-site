@@ -23,16 +23,16 @@ final class XslRegisterPass implements CompilerPassInterface
         );
 
         foreach ($scopes as $scope) {
-            if ($container->hasParameter("ibexa.site_access.config." . $scope . ".fieldtypes.ezrichtext.output_custom_xsl")) {
-                $xslConfig = $container->getParameter("ibexa.site_access.config." . $scope . ".fieldtypes.ezrichtext.output_custom_xsl");
+            if ($container->hasParameter('ibexa.site_access.config.' . $scope . '.fieldtypes.ezrichtext.output_custom_xsl')) {
+                $xslConfig = $container->getParameter('ibexa.site_access.config.' . $scope . '.fieldtypes.ezrichtext.output_custom_xsl');
                 $xslConfig[] = ['path' => __DIR__ . '/../../../assets/docbook/output/core.xsl', 'priority' => 10000];
-                $container->setParameter("ibexa.site_access.config." . $scope . ".fieldtypes.ezrichtext.output_custom_xsl", $xslConfig);
+                $container->setParameter('ibexa.site_access.config.' . $scope . '.fieldtypes.ezrichtext.output_custom_xsl', $xslConfig);
             }
 
-            if ($container->hasParameter("ibexa.site_access.config." . $scope . ".fieldtypes.ezrichtext.edit_custom_xsl")) {
-                $xslConfig = $container->getParameter("ibexa.site_access.config." . $scope . ".fieldtypes.ezrichtext.edit_custom_xsl");
+            if ($container->hasParameter('ibexa.site_access.config.' . $scope . '.fieldtypes.ezrichtext.edit_custom_xsl')) {
+                $xslConfig = $container->getParameter('ibexa.site_access.config.' . $scope . '.fieldtypes.ezrichtext.edit_custom_xsl');
                 $xslConfig[] = ['path' => __DIR__ . '/../../../assets/docbook/edit/core.xsl', 'priority' => 10000];
-                $container->setParameter("ibexa.site_access.config." . $scope . ".fieldtypes.ezrichtext.edit_custom_xsl", $xslConfig);
+                $container->setParameter('ibexa.site_access.config.' . $scope . '.fieldtypes.ezrichtext.edit_custom_xsl', $xslConfig);
             }
         }
     }
