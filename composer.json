@@ -159,7 +159,7 @@
             "ezsystems/ezpublish-legacy-installer": true,
             "netgen/git-hooks": true,
             "phpstan/extension-installer": true,
-            "php-http/discovery": false
+            "*": false
         }
     },
     "extra": {
