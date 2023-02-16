@@ -37,7 +37,7 @@ netgen_tags:
     system:
         frontend_group:
             tag_view:
-                template: "@ibexadesign/tag/view.html.twig"
+                template: "@ibexadesign/pages/tag.html.twig"
                 related_content_list:
                     limit: 6
                     return_content_info: false
