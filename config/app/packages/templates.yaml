@@ -35,6 +35,6 @@ parameters:
     ngsite.default.template.errors.default: "@@ibexadesign/errors/default.html.twig"
 
     ngsite.default.template.pagerfanta.ngsite: "@@ibexadesign/modules/pagerfanta/ngsite.html.twig"
-    ngsite.default.template.menu: '@@ibexadesign/modules/knp_menu/menu.html.twig'
+    ngsite.default.template.menu: "@@ibexadesign/modules/knp_menu/menu.html.twig"
 
     ngsite.default.template.search: "@@ibexadesign/pages/search.html.twig"
