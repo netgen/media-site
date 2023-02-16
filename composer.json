@@ -112,7 +112,7 @@
             "ibexa/post-install": true,
             "netgen/git-hooks": true,
             "phpstan/extension-installer": true,
-            "php-http/discovery": false
+            "*": false
         },
         "optimize-autoloader": true,
         "preferred-install": {
