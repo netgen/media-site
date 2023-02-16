@@ -32,8 +32,6 @@
     <link rel="apple-touch-icon" href="{{ site_info.fields.favicon_180x180.value.uri }}" sizes="180x180">
 {% endif %}
 
-<meta name="theme-color" content="#ffffff">
-
 {% if available_hreflang_translations|default|length > 1 %}
     {% set locale_conversion_map = ibexa.configResolver.getParameter('locale.conversion_map', 'ngsite') %}
 
