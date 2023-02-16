@@ -13,12 +13,12 @@
         {% block article_header %}
             <header class="full-page-header{% if not show_path or path_array|length <= 2 %} no-breadcrumbs{% endif %}">
                 <div class="container">
-                    {% include '@ibexadesign/parts/main_topic.html.twig' with {'use_field': true} %}
+                    {% include '@ibexadesign/content/parts/main_topic.html.twig' with {'use_field': true} %}
                     <h1 class="full-page-title">{{ ng_render_field(content.fields.title) }}</h1>
 
                     <div class="full-page-info">
-                        {% include '@ibexadesign/parts/author.html.twig' %}
-                        {% include '@ibexadesign/parts/time.html.twig' %}
+                        {% include '@ibexadesign/content/parts/author.html.twig' %}
+                        {% include '@ibexadesign/content/parts/time.html.twig' %}
                     </div>
                 </div>
             </header>
@@ -50,7 +50,7 @@
                         {{ ng_render_field(content.fields.description) }}
                     {% endif %}
 
-                    {% include '@ibexadesign/parts/tags.html.twig' %}
+                    {% include '@ibexadesign/content/parts/tags.html.twig' %}
                 </div>
             {% endblock %}
         </div>

@@ -1,3 +1,5 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+
 {% macro content_link(content, link_name, link_class) %}
 {% apply spaceless %}
     {% set url = _self.related_content_link(content)|trim %}
@@ -63,7 +65,7 @@
     {% set url = null %}
     {% if content.hasField('link') %}
         {% if content.fields.link.value.isTypeInternal %}
-            {% set url = path("ibexa.url.alias", { contentId: content.fields.link.value.reference }) %} 
+            {% set url = path("ibexa.url.alias", { contentId: content.fields.link.value.reference }) %}
         {% elseif content.fields.link.value.isTypeExternal %}
             {% set url = content.fields.link.value.reference %}
         {% endif %}
@@ -79,7 +81,7 @@
     {% set url = null %}
     {% if link is not null %}
         {% if link.value.isTypeInternal %}
-            {% set url = path("ibexa.url.alias", { contentId: link.value.reference }) %} 
+            {% set url = path("ibexa.url.alias", { contentId: link.value.reference }) %}
         {% elseif link.value.isTypeExternal %}
             {% set url = link.value.reference %}
         {% endif %}
@@ -90,7 +92,7 @@
         {% set open_in_new_tab = true %}
     {% endif %}
 
-    
+
     {% if link.value.suffix is not null %}
         {% set url = url ~ link.value.suffix %}
     {% endif %}
@@ -114,7 +116,7 @@
     {% set url = null %}
     {% if link is not null %}
         {% if link.value.isTypeInternal %}
-            {% set url = path("ibexa.url.alias", { contentId: link.value.reference }) %} 
+            {% set url = path("ibexa.url.alias", { contentId: link.value.reference }) %}
         {% elseif link.value.isTypeExternal %}
             {% set url = link.value.reference %}
         {% endif %}

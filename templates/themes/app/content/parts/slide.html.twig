@@ -1,5 +1,7 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+
 {% macro image(content, field_name, alias_name, use_lazy_load) %}
-    {% import '@ibexadesign/parts/content_field_macros.html.twig' as content_fields %}
+    {% import '@ibexadesign/content/parts/content_field_macros.html.twig' as content_fields %}
 
     {% set field_name = field_name|default('image') %}
     {% set alias_name = alias_name|default('i1320') %}
