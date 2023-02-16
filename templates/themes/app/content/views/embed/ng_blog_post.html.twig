@@ -1,16 +1,16 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import '@ibexadesign/parts/content_field_macros.html.twig' as content_fields %}
+{% import '@ibexadesign/content/parts/content_field_macros.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ view_type }} ng-blog-post">
     <h3><a href="{{ ibexa_path(content) }}">{{ content_fields.title(content) }}</a></h3>
 
     <div class="date">
-        {% include '@ibexadesign/parts/time.html.twig' %}
+        {% include '@ibexadesign/content/parts/time.html.twig' %}
     </div>
 
-    {% include '@ibexadesign/parts/author.html.twig' %}
+    {% include '@ibexadesign/content/parts/author.html.twig' %}
 
     {{ content_fields.image(content, null, 'i320') }}
 </div>

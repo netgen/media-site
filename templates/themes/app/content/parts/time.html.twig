@@ -1,3 +1,5 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+
 {% if content.hasField('publish_date') and not content.fields.publish_date.empty %}
     <time>{{ content.fields.publish_date.value.value|format_date(pattern=date_format) }}</time>
 {% else %}

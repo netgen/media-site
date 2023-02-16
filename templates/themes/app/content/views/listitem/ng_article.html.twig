@@ -1,12 +1,12 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import '@ibexadesign/parts/content_field_macros.html.twig' as content_fields %}
+{% import '@ibexadesign/content/parts/content_field_macros.html.twig' as content_fields %}
 
 <article class="view-type view-type-{{ view_type }} ng-article vl6">
     <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
     <div class="info">
-        {% include '@ibexadesign/parts/author.html.twig' %}
+        {% include '@ibexadesign/content/parts/author.html.twig' %}
     </div>
 
     {% if with_intro|default(false) %}

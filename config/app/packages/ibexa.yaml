@@ -31,7 +31,7 @@ ibexa:
             user:
                 login_template: "@ibexadesign/user/login.html.twig"
             field_templates:
-                - { template: "@ibexadesign/parts/content_fields.html.twig", priority: 5000 }
+                - { template: "@ibexadesign/content/parts/content_fields.html.twig", priority: 5000 }
 
 netgen_tags:
     system:

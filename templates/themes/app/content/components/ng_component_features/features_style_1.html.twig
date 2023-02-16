@@ -1,7 +1,7 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import "@ibexadesign/parts/macros.html.twig" as macros %}
+{% import "@ibexadesign/content/parts/macros.html.twig" as macros %}
 
 {% set grid_class = "features-grid-col-" ~  block.parameter('number_of_columns').value|default(3) %}
 {% set actions = not content.fields.link_1.empty or not content.fields.link_2.empty %}
@@ -76,6 +76,6 @@
                     </div>
                 {% endfor %}
             </div>
-        {% endif %}  
+        {% endif %}
     </article>
 {% endblock %}

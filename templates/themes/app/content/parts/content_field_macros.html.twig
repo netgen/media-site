@@ -1,3 +1,6 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
 {% macro image(content, location, alias_name, lazy_loading, link_class) %}
     {% set alias_name = alias_name ?? 'i480' %}
     {% set lazy_loading = lazy_loading ?? ibexa.configResolver.getParameter('lazy_loading.enabled', 'ngsite') %}
