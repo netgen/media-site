@@ -1,13 +1,14 @@
 parameters:
     ngsite.default.search.content_types:
-        - ng_blog_post
         - ng_article
-        - ng_news
+        - ng_audio
+        - ng_blog_post
         - ng_category
         - ng_contact_form
+        - ng_job_position
         - ng_landing_page
+        - ng_news
         - ng_video
-        - ng_audio
         - file
 
     ngsite.default.lazy_loading.enabled: true
