@@ -8,14 +8,13 @@
         @include text-3;
     }
 
-    
     .image {
         overflow: hidden;
         display: block;
         position: relative;
         width: 100%;
         width: 13rem;
-        
+
         & + * {
             margin-top: 2rem;
         }
