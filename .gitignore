@@ -43,8 +43,8 @@ yarn-error.log
 !bin/console
 !bin/sync_db_and_var.sh
 
-/config/packages/server/local/
-/config/packages/server/local.yml
+/config/app/server/local/
+/config/app/server/local.yaml
 
 /public/assets/
 /public/var
