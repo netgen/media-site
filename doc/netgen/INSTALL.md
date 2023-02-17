@@ -73,6 +73,14 @@ yarn install
 yarn build:prod
 ```
 
+### Generate backend assets
+
+Run the following to generate Ibexa Admin UI assets:
+
+```
+composer ibexa-assets
+```
+
 ### Note for Ibexa DXP official WebPack support
 
 This repo completely replaces the default `webpack.config.js` file coming from Ibexa DXP with
