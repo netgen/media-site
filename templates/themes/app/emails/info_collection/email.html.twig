@@ -3,8 +3,6 @@
     {{ site_name }} – {{ ibexa_content_name(content) }} [{{ collected_fields.sender_email.value }}]
 {% endapply %}{% endblock %}
 
-{#% block sender %}{{ collected_fields.sender_email.value }}{% endblock %#}
-
 {% block recipient %}{{ ibexa_field_value(content, 'recipient') }}{% endblock %}
 
 {% block email %}

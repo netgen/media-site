@@ -6,11 +6,13 @@
     {% if item.displayed %}
         {# building the class of the item #}
         {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : [] %}
+
         {# NGSTACK-448 comment out default matcher so it doesn't add current/active class on any items #}
         {#{%- if matcher.isCurrent(item) %}#}
             {#{%- set classes = classes|merge([options.currentClass]) %}#}
         {#{%- elseif matcher.isAncestor(item, options.matchingDepth) %}#}
         {# END NGSTACK-448 #}
+
         {%- if matcher.isAncestor(item, options.matchingDepth) %}
             {%- set classes = classes|merge([options.ancestorClass]) %}
         {%- endif %}
@@ -34,11 +36,13 @@
         {%- if classes is not empty %}
             {%- set attributes = attributes|merge({'class': classes|join(' ')}) %}
         {%- endif %}
+
         {# NGSTACK-448 add data-location-id parameter to all menu items with Ibexa location #}
         {%- if item.extras.ibexa_location is defined and item.extras.ibexa_location is not empty %}
             {%- set attributes = attributes|merge({'data-location-id': item.extras.ibexa_location.id}) %}
         {%- endif %}
         {# END NGSTACK-448 #}
+
         {# displaying the item #}
         {% import _self as knp_menu %}
         <li{{ knp_menu.attributes(attributes) }}>
@@ -47,10 +51,12 @@
             {%- else %}
                 {{ block('spanElement') }}
             {%- endif %}
-            {# render the list of children#}
+
+            {# render the list of children #}
             {%- set childrenClasses = item.childrenAttribute('class') is not empty ? [item.childrenAttribute('class')] : [] %}
             {%- set childrenClasses = childrenClasses|merge(['menu_level_' ~ item.level]) %}
             {%- set listAttributes = item.childrenAttributes|merge({'class': childrenClasses|join(' ') }) %}
+
             {{ block('list') }}
         </li>
     {% endif %}

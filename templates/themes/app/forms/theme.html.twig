@@ -118,7 +118,6 @@
 {%- endblock form_widget_simple -%}
 
 {%- block hidden_row -%}
-        {#{{- form_label(form) -}}#}
         {{ block('hidden_widget') }}
         {{- form_errors(form) -}}
 {%- endblock hidden_row -%}
@@ -163,13 +162,11 @@
 {% endblock %} #}
 
 {%- block form_widget_compound -%}
-    {# <div {{ block('widget_container_attributes') }}>#}
-        {%- if form is rootform -%}
-            {{ form_errors(form) }}
-        {%- endif -%}
-        {{- block('form_rows') -}}
-        {{- form_rest(form) -}}
-    {#</div>#}
+    {%- if form is rootform -%}
+        {{ form_errors(form) }}
+    {%- endif -%}
+    {{- block('form_rows') -}}
+    {{- form_rest(form) -}}
 {%- endblock form_widget_compound -%}
 
 {%- block checkbox_widget -%}
