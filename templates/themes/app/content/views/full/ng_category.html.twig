@@ -34,17 +34,14 @@
                 </div>
             {% endif %}
 
-            <div class="category-featured-content">
-                {{ render(
-                    controller(
-                        'ngsite.controller.relations.related_items', {
-                            'contentId': content.id,
-                            'fieldDefinitionIdentifier': 'featured_content',
-                            'template': '@ibexadesign/content/parts/related_items.html.twig'
-                        }
-                    )
-                ) }}
-            </div>
+            {% set featured_locations = content.filterFieldRelationLocations('featured_content') %}
+            {% if featured_locations|length > 0 %}
+                <div class="category-featured-content">
+                    {% for featured_location in featured_locations %}
+                        {{ ng_view_content(featured_location, 'line') }}
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             {% if content.fields.show_children.value.bool %}
                 {% set pager = ng_query('subtree') %}
