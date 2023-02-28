@@ -1,16 +1,16 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import "@ibexadesign/content/parts/macros.html.twig" as macros %}
+{% import "@ibexadesign/content/macros/links.html.twig" as links %}
 
 {% block content %}
 <article class="view-type view-type-{{ view_type }} ng-banner vl2">
     <figure class="image">
-        {{ macros.image_link(content, 'image', 'i480') }}
+        {{ links.image_link(content, 'image', 'i480') }}
     </figure>
     <header class="article-header">
         <h2 class="title">
-            {{ macros.content_link(content, content.fields.title.value.text) }}
+            {{ links.content_link(content, content.fields.title.value.text) }}
         </h2>
     </header>
 

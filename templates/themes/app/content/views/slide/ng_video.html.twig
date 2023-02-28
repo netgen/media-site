@@ -1,8 +1,8 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import '@ibexadesign/content/parts/content_field_macros.html.twig' as content_fields %}
-{% import "@ibexadesign/content/parts/video.html.twig" as video %}
+{% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
+{% import "@ibexadesign/content/macros/video.html.twig" as video %}
 
 {% if not content.fields.video_file.empty or not content.fields.video_identifier.empty %}
     <div class="view-type view-type-{{ view_type }} ng-video vl3">

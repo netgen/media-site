@@ -1,13 +1,13 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import "@ibexadesign/content/parts/macros.html.twig" as macros %}
+{% import "@ibexadesign/content/macros/links.html.twig" as links %}
 
 <article class="view-type view-type-{{ view_type }} ng-banner vl9">
 
     {% if not content.fields.image.empty %}
         <figure class="image">
-            {{ macros.image_link(content, 'image', 'i770') }}
+            {{ links.image_link(content, 'image', 'i770') }}
         </figure>
     {% endif %}
 
@@ -17,7 +17,7 @@
                 <span class="eyebrow-title">{{ content.fields.eyebrow_title.value.text }}</span>
             {% endif %}
             <h2 class="title">
-                {{ macros.content_link(content, content.fields.title.value.text) }}
+                {{ links.content_link(content, content.fields.title.value.text) }}
             </h2>
         </header>
         <div class="short">

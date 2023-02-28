@@ -1,8 +1,6 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import '@ibexadesign/content/parts/video.html.twig' as video %}
-
 {% if location is defined %}
     {% set videoOptions = {
         'type': content.fields.video_type.value.identifiers.0,

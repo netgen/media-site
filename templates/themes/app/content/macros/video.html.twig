@@ -27,7 +27,7 @@
 {% endmacro %}
 
 {% macro poster_slide(content, use_lazy_load, alt_text) %}
-    {% import '@ibexadesign/content/parts/slide.html.twig' as slide %}
+    {% import '@ibexadesign/content/macros/slide.html.twig' as slide %}
 
     {% set use_lazy_load = use_lazy_load|default(false) %}
     {% set alt_text = alt_text ?? null %}
