@@ -1,7 +1,7 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import "@ibexadesign/content/parts/macros.html.twig" as macros %}
+{% import "@ibexadesign/content/macros/links.html.twig" as links %}
 {% set actions = not content.fields.link_1.empty or not content.fields.link_2.empty %}
 
 {% block content %}
@@ -53,7 +53,7 @@
                                         {% if item.title is defined and not item.title.empty %}
                                             {% set alt_text = item.title.value.text %}
                                         {% endif %}
-                                        {{ macros.item_image_link(item.link, item.image, "i770", alt_text) }}
+                                        {{ links.item_image_link(item.link, item.image, "i770", alt_text) }}
                                     </figure>
                                 {% endif %}
                                 <div class="article-content">
@@ -62,7 +62,7 @@
                                             <span class="eyebrow-title">{{ item.highlight_title.value.text }}</span>
                                         {% endif %}
                                         {% if item.title is defined and not item.title.empty %}
-                                            <h2 class="title">{{ macros.item_content_link(item.link, item.title.value.text) }}</h2>
+                                            <h2 class="title">{{ links.item_content_link(item.link, item.title.value.text) }}</h2>
                                         {% endif %}
                                     </header>
                                     {% if item.description is defined and not item.description.empty %}

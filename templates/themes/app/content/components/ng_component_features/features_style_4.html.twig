@@ -1,7 +1,7 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% import "@ibexadesign/content/parts/macros.html.twig" as macros %}
+{% import "@ibexadesign/content/macros/links.html.twig" as links %}
 
 {% set grid_class = "features-grid-col-" ~  block.parameter('number_of_columns').value|default(3) %}
 {% set actions = not content.fields.link_1.empty or not content.fields.link_2.empty %}
@@ -54,7 +54,7 @@
                                 </div>
                             {% endif %}
                             {% if item.title is defined and not item.title.empty %}
-                                <h3 class="item-title">{{ macros.item_content_link(item.link, item.title.value.text) }}</h3>
+                                <h3 class="item-title">{{ links.item_content_link(item.link, item.title.value.text) }}</h3>
                             {% endif %}
                             {% if item.description is defined and not item.description.empty %}
                                 <div class="item-short">
