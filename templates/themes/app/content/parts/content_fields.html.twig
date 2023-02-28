@@ -18,7 +18,7 @@
                             'params': {
                                 'label': label,
                                 'suffix': suffix,
-                                'refererLocationId': contentInfo.mainLocationId,
+                                'refererLocationId': app.request.attributes.get('locationId'),
                                 'css_class': css_class
                             }
                         })
@@ -31,7 +31,7 @@
                             'params': {
                                 'label': label,
                                 'suffix': suffix,
-                                'refererLocationId': contentInfo.mainLocationId,
+                                'refererLocationId': app.request.attributes.get('locationId'),
                             }
                         })
                     }}
