@@ -29,7 +29,7 @@ vendor: ## Run composer install
 
 .PHONY: assets-node
 assets-node:
-	n auto
+	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
 
 .PHONY: assets
 assets: ## Build frontend assets for DEV environment
