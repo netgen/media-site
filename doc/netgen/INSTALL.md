@@ -11,7 +11,7 @@ Software requirements
 Optional dependencies
 ---------------------
 
-* Varnish 6.0 or 7.1+ with (`varnish-modules`)[https://github.com/varnish/varnish-modules/blob/master/README.md]
+* Varnish 6.0 or 7.1+ with [`varnish-modules`](https://github.com/varnish/varnish-modules/blob/master/README.md)
 * Solr 7.7 or 8.11.1+
 
 Installation instructions
