@@ -18,6 +18,7 @@ require __DIR__ . '/deploy/tasks/sentry.php';
 require __DIR__ . '/deploy/tasks/logs.php';
 require __DIR__ . '/deploy/tasks/overrides.php';
 require __DIR__ . '/deploy/tasks/assets.php';
+require __DIR__ . '/deploy/tasks/graphql.php';
 require __DIR__ . '/deploy/tasks/git.php';
 require __DIR__ . '/deploy/tasks/app.php';
 require __DIR__ . '/deploy/parameters.php';
@@ -60,6 +61,7 @@ task('deploy', [
     'app:assets:deploy',
     // symfony recipe - set asset timestamp (see https://github.com/deployphp/deployer/blob/6.x/recipe/symfony.php#L85)
     'deploy:assets',
+    'app:graphql:deploy',
     // copy vendors folder between releases before running composer install to speed it up
     'deploy:copy_dirs',
     'deploy:vendors',

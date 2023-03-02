@@ -18,6 +18,7 @@ node_modules/
 /app/config/remote_media.yml
 /app/config/server/local/
 /app/config/server/local.yml
+/app/config/graphql
 /app/solr
 /doc/docker/entrypoint/*/*.sql
 /dfsdata
