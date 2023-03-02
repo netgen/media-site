@@ -49,6 +49,10 @@ assets-watch: ## Watch frontend assets (during development)
 	yarn install
 	yarn watch
 
+.PHONY: graphql-schema
+graphql-schema: ## Generate graphql schema
+	$(PHP_RUN) bin/console ezplatform:graphql:generate-schema --env=$(SYMFONY_ENV)
+
 .PHONY: clear-cache
 clear-cache: ## Clear caches for specified environment (default: SYMFONY_ENV=dev)
 	$(PHP_RUN) bin/console cache:clear --env=$(SYMFONY_ENV)
@@ -64,7 +68,7 @@ images: ## Generate most used image variations for all images for specified envi
 
 .PHONY: migrations
 migrations: ## Run Doctrine migrations for specified environment (default: SYMFONY_ENV=dev)
-	$(PHP_RUN) bin/console doctrine:migration:migrate --env=$(SYMFONY_ENV)
+	$(PHP_RUN) bin/console doctrine:migration:migrate --allow-no-migration --env=$(SYMFONY_ENV)
 
 .PHONY: reindex
 reindex: ## Recreate or refresh search engine index for specified environment (default: SYMFONY_ENV=dev)
@@ -75,11 +79,12 @@ build: ## Build the project (install vendor, migrations, reindex, build assets, 
 	@$(MAKE) -s vendor
 	@$(MAKE) -s migrations
 	@$(MAKE) -s reindex
-	ifeq ($(SYMFONY_ENV), prod)
-		$(MAKE) -s assets-prod
-	else
-		$(MAKE) -s assets
-	endif
+ifeq ($(SYMFONY_ENV), prod)
+	$(MAKE) -s assets-prod
+else
+	$(MAKE) -s assets
+endif
+	@$(MAKE) -s graphql-schema
 	@$(MAKE) -s clear-cache
 
 .PHONY: refresh
