@@ -34,4 +34,6 @@ set('sentry_dsn', 'https://yourtoken@sentry.io/here');
 
 set('deploy_log', 'DEPLOY_LOG.md');
 
+set('local_php_path', '/usr/bin/env php8.1');
+
 //set('slack_webhook', 'https://hooks.slack.com/services/S0M3/3XAMP7E');
