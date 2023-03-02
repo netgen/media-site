@@ -4,7 +4,7 @@ namespace Deployer;
 
 set('application', 'project_name');
 
-set('repository', 'git@bitbucket.org:netgen/example.git');
+set('repository', 'git@bitbucket.org:netgen/deploymenttest.git');
 set('branch', 'master');
 
 set('repository_name', 'netgen/example');
@@ -34,5 +34,7 @@ set('sentry_projects', ['netgenlabscom']);
 set('sentry_dsn', 'https://yourtoken@sentry.io/here');
 
 set('deploy_log', 'DEPLOY_LOG.md');
+
+set('local_php_path', '/usr/bin/env php7.4');
 
 //set('slack_webhook', 'https://hooks.slack.com/services/S0M3/3XAMP7E');
