@@ -87,9 +87,30 @@ endif
 	@$(MAKE) -s graphql-schema
 	@$(MAKE) -s clear-cache
 
-.PHONY: refresh
-refresh: ## Fetch latest changes and build the project for specified environment (default: SYMFONY_ENV=dev)
+.PHONY: build
+build: ## Build the project (install vendor, migrations, reindex, build assets, clear cache) for specified environment (default: SYMFONY_ENV=dev)
+	@$(MAKE) -s vendor
+	@$(MAKE) -s migrations
+	@$(MAKE) -s reindex
+ifeq ($(SYMFONY_ENV), prod)
+		$(MAKE) -s assets-prod
+else
+		$(MAKE) -s assets
+endif
+	@$(MAKE) -s clear-cache
+
+.PHONY: update-code
+update-code: ## Pull the latest code from the repository (on the current branch)
+	$(eval TEST=$(shell git stash create))
+ifeq ($(strip $(TEST)),)
+	/usr/bin/env git pull --rebase
+else
 	/usr/bin/env git stash
 	/usr/bin/env git pull --rebase
 	/usr/bin/env git stash pop
+endif
+
+.PHONY: refresh
+refresh: ## Fetch latest changes and build the project for specified environment (default: SYMFONY_ENV=dev)
+	@$(MAKE) -s update-code
 	@$(MAKE) -s build
