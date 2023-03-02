@@ -43,6 +43,7 @@ yarn-error.log
 !bin/console
 !bin/sync_db_and_var.sh
 
+/config/graphql/
 /config/app/server/local/
 /config/app/server/local.yaml
 

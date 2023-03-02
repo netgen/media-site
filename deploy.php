@@ -17,6 +17,7 @@ require __DIR__ . '/deploy/tasks/sentry.php';
 require __DIR__ . '/deploy/tasks/logs.php';
 require __DIR__ . '/deploy/tasks/overrides.php';
 require __DIR__ . '/deploy/tasks/assets.php';
+require __DIR__ . '/deploy/tasks/graphql.php';
 require __DIR__ . '/deploy/tasks/git.php';
 require __DIR__ . '/deploy/tasks/app.php';
 require __DIR__ . '/deploy/parameters.php';
@@ -52,6 +53,7 @@ task('deploy', [
     'deploy:shared',
     // build and upload assets
     'app:assets:deploy',
+    'app:graphql:deploy',
     // copy vendors folder between releases before running composer install to speed it up
     'deploy:copy_dirs',
     'deploy:vendors',
