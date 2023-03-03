@@ -36,14 +36,14 @@ assets: ## Build frontend assets for DEV environment
 
 .PHONY: assets-prod
 .ONESHELL:
-assets-prod: assets-node ## Build frontend assets for PROD environment
+assets-prod: ## Build frontend assets for PROD environment
 	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
 	yarn install
 	yarn build:prod
 
 .PHONY: assets-watch
 .ONESHELL:
-assets-watch: assets-node ## Watch frontend assets (during development)
+assets-watch: ## Watch frontend assets (during development)
 	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
 	yarn install
 	yarn watch
