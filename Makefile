@@ -7,6 +7,7 @@ ifeq ("$(wildcard $(COMPOSER_PATH))","")
 endif
 COMPOSER_RUN = $(PHP_RUN) $(COMPOSER_PATH)
 CACHE_POOL = cache.redis
+STASH_HASH := $(shell git stash create)
 
 .PHONY: help
 help: ## List of all available commands
@@ -89,13 +90,10 @@ endif
 
 .PHONY: update-code
 update-code: ## Pull the latest code from the repository (on the current branch)
-	$(eval TEST=$(shell git stash create))
-ifeq ($(strip $(TEST)),)
-	/usr/bin/env git pull --rebase
+ifeq ($(STASH_HASH),)
+	git pull --rebase
 else
-	/usr/bin/env git stash
-	/usr/bin/env git pull --rebase
-	/usr/bin/env git stash pop
+	git stash && git pull --rebase && git stash pop
 endif
 
 .PHONY: refresh
