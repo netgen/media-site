@@ -32,20 +32,17 @@ assets-node:
 	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
 
 .PHONY: assets
-assets: ## Build frontend assets for DEV environment
-	@$(MAKE) -s assets-node
+assets: assets-node ## Build frontend assets for DEV environment
 	yarn install
 	yarn build:dev
 
 .PHONY: assets-prod
-assets-prod: ## Build frontend assets for PROD environment
-	@$(MAKE) -s assets-node
+assets-prod: assets-node ## Build frontend assets for PROD environment
 	yarn install
 	yarn build:prod
 
 .PHONY: assets-watch
-assets-watch: ## Watch frontend assets (during development)
-	@$(MAKE) -s assets-node
+assets-watch: assets-node ## Watch frontend assets (during development)
 	yarn install
 	yarn watch
 
