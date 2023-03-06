@@ -7,6 +7,7 @@ ifeq ("$(wildcard $(COMPOSER_PATH))","")
 endif
 COMPOSER_RUN = $(PHP_RUN) $(COMPOSER_PATH)
 CACHE_POOL = cache.redis
+STASH_HASH := $(shell git stash create)
 
 .PHONY: help
 help: ## List of all available commands
@@ -27,25 +28,24 @@ endif
 vendor: ## Run composer install
 	$(COMPOSER_RUN) install $(COMPOSER_INSTALL_PARAMETERS)
 
-.PHONY: assets-node
-assets-node:
-	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
-
 .PHONY: assets
+.ONESHELL:
 assets: ## Build frontend assets for DEV environment
-	@$(MAKE) -s assets-node
+	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
 	yarn install
 	yarn build:dev
 
 .PHONY: assets-prod
+.ONESHELL:
 assets-prod: ## Build frontend assets for PROD environment
-	@$(MAKE) -s assets-node
+	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
 	yarn install
 	yarn build:prod
 
 .PHONY: assets-watch
+.ONESHELL:
 assets-watch: ## Watch frontend assets (during development)
-	@$(MAKE) -s assets-node
+	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
 	yarn install
 	yarn watch
 
@@ -87,9 +87,15 @@ endif
 	@$(MAKE) -s graphql-schema
 	@$(MAKE) -s clear-cache
 
+.PHONY: update-code
+update-code: ## Pull the latest code from the repository (on the current branch)
+ifeq ($(STASH_HASH),)
+	git pull --rebase
+else
+	git stash && git pull --rebase && git stash pop
+endif
+
 .PHONY: refresh
 refresh: ## Fetch latest changes and build the project for specified environment (default: APP_ENV=dev)
-	/usr/bin/env git stash
-	/usr/bin/env git pull --rebase
-	/usr/bin/env git stash pop
+	@$(MAKE) -s update-code
 	@$(MAKE) -s build
