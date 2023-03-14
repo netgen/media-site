@@ -188,13 +188,11 @@ to set up the permissions correctly.
 
 [Symfony installation instructions]: https://symfony.com/doc/3.4/setup/file_permissions.html
 
-
 ### Activate Captainhook
 
-Symlink captainhook.template.json file to captainhook.json
+Symlink `captainhook.template.json` file to `captainhook.json`
 
 ```bash
 $ ln -s captainhook.template.json captainhook.json
 ```
-
-After that run ```composer install```
+After that run ```composer install``` to activate git hooks used by Captainhook
