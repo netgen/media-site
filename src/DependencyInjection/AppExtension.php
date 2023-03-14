@@ -25,7 +25,8 @@ final class AppExtension extends Extension implements PrependExtensionInterface
     {
         foreach ((new Finder())->in(__DIR__ . '/../../config/app/prepends')->directories() as $directory) {
             foreach ((new Finder())->files()->in($directory->getPathname()) as $file) {
-                $config = Yaml::parse(file_get_contents($file->getPathname()));
+                /** @var array<string, mixed> $config */
+                $config = Yaml::parse((string) file_get_contents($file->getPathname()));
                 $container->prependExtensionConfig($directory->getBasename(), $config);
                 $container->addResource(new FileResource($file->getPathname()));
             }

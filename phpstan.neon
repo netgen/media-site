@@ -1,6 +1,6 @@
 parameters:
     excludePaths:
-       - src/AppBundle/ezpublish_legacy/*
+       - src/Kernel.php
     symfony:
-        container_xml_path: var/cache/dev/appDevDebugProjectContainer.xml
+        container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
 
