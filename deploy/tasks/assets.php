@@ -4,7 +4,7 @@ namespace Deployer;
 
 // parameters
 set('asset_resource_paths', [
-    'assets/es6',
+    'assets/js',
     'assets/sass'
 ]);
 set('asset_build_paths', [
