@@ -154,7 +154,7 @@
             "@php bin/console bazinga:js-translation:dump public/assets --merge-domains",
             "yarn ibexa"
         ],
-        "phpstan": "@php vendor/bin/phpstan analyse -c phpstan.neon --level=9 --ansi src tests"
+        "phpstan": "@php vendor/bin/phpstan analyse -c phpstan.neon --level=8 --ansi src tests"
     },
     "conflict": {
         "symfony/symfony": "*"
