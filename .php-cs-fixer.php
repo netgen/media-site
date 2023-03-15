@@ -5,8 +5,8 @@ declare(strict_types=1);
 return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
-        '@PSR12' => true,
-        '@PSR12:risky' => true,
+        '@PER' => true,
+        '@PER:risky' => true,
         '@PhpCsFixer' => true,
         '@PhpCsFixer:risky' => true,
 
