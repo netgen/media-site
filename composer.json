@@ -101,6 +101,7 @@
         "deployer/recipes": "^6.2",
         "phpstan/phpstan": "^1.9",
         "phpstan/extension-installer": "^1.2",
+        "phpstan/phpstan-strict-rules": "^1.4",
         "phpstan/phpstan-symfony": "^1.2",
         "phpstan/phpstan-doctrine": "^1.3"
     },
