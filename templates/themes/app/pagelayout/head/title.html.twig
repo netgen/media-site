@@ -1,28 +1,29 @@
 {% apply spaceless %}
-{% if site_title is not defined %}
-    {% set site_title = '' %}
+    {% if site_title is not defined %}
+        {% set site_title = '' %}
 
-    {% if path_array is not empty %}
-        {% if not ibexa.configResolver.getParameter('site_settings.show_path_in_title', 'ngsite') %}
-            {% set site_title = path_array[path_array|length - 1].text %}
-        {% elseif path_array|length > 1 %}
-            {% for path_item in path_array %}
-                {% if not loop.first %}
-                    {% set site_title = path_item.text ~ (site_title is not empty ? ' - ' ~ site_title : '') %}
-                {% endif %}
-            {% endfor %}
+        {% if path_array is not empty %}
+            {% if not ibexa.configResolver.getParameter('site_settings.show_path_in_title', 'ngsite') %}
+                {% set site_title = path_array[path_array|length - 1].text %}
+            {% elseif path_array|length > 1 %}
+                {% for path_item in path_array %}
+                    {% if not loop.first %}
+                        {% set site_title = path_item.text ~ (site_title is not empty ? ' - ' ~ site_title : '') %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         {% endif %}
     {% endif %}
-{% endif %}
 
-{% if site_title is not empty %}
-    {% set site_title = site_title ~ (site_name is not empty ? ' - ' ~ site_name : '') %}
-{% else %}
-    {% set site_title = site_name|default('') %}
-{% endif %}
+    {% if site_title is not empty %}
+        {% set site_title = site_title ~ (site_name is not empty ? ' - ' ~ site_name : '') %}
+    {% else %}
+        {% set site_title = site_name|default('') %}
+    {% endif %}
 
-{% if content_meta_data.title|default('') is not empty %}
-    {% set site_title = content_meta_data.title %}
-{% endif %}
+    {% if content_meta_data.title|default('') is not empty %}
+        {% set site_title = content_meta_data.title %}
+    {% endif %}
 {% endapply %}
+
 <title>{{ site_title }}</title>
