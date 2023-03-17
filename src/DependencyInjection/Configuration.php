@@ -15,7 +15,7 @@ final class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->getRootNode();
 
         // Here you should define the parameters that are allowed to
-        // configure your bundle.
+        // configure your application.
 
         return $treeBuilder;
     }
