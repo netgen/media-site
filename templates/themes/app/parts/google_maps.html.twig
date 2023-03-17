@@ -19,7 +19,7 @@
 </script>
 
 <div
-    id="map-canvas-{{ container_id|raw|escape( 'js' ) }}"
+    id="map-canvas-{{ container_id|raw|escape( 'html_attr' ) }}"
     class="google-maps"
-    style="height:{{ map_height|default(560)|raw|escape('js') }}px; width:100%;">
+    style="height:{{ map_height|default(560)|raw|escape('html_attr') }}px; width:100%;">
 </div>
