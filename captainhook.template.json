@@ -22,7 +22,7 @@
                 "action": "\\Netgen\\GitHooks\\Action\\CheckForBlockedWords",
                 "options": {
                     "extensions": ["php", "twig"],
-                    "keyword_blocklist": ["var_dump", "dump", "dd("],
+                    "keyword_blocklist": ["var_dump(", "dump(", "dd("],
                     "excluded_files": []
                 }
             },
