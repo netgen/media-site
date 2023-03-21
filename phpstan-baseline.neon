@@ -1,0 +1,4 @@
+parameters:
+    ignoreErrors:
+        - '#Access to an undefined property Ibexa\\Contracts\\Core\\FieldType\\Value::\$\w+#'
+        - '#Cannot access property \$\w+ on Ibexa\\Contracts\\Core\\FieldType\\Value\|null#'

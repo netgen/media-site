@@ -1,6 +1,11 @@
+includes:
+	- phpstan-baseline.neon
+
 parameters:
+    reportUnmatchedIgnoredErrors: false
+
     excludePaths:
        - src/Kernel.php
+
     symfony:
         container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
-
