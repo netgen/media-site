@@ -1,5 +1,3 @@
 imports:
-    -
-        resource: dev/ibexa_siteaccess.yaml
-    -
-        resource: dev/app.yaml
+    - { resource: dev/app.yaml }
+    - { resource: dev/ibexa_siteaccess.yaml }

@@ -1,4 +1,4 @@
 ibexa:
     siteaccess:
         match:
-            URIElement: '1'
+            URIElement: 1
