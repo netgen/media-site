@@ -1,5 +1,6 @@
 {
   "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
   "editor.tabSize": 4,
   "[javascript][typescript][json]": {
     "editor.tabSize": 2,
