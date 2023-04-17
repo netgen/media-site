@@ -66,7 +66,7 @@
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
 
-        "novactive/ezseobundle": "^7.0@rc",
+        "novactive/ezseobundle": "^7.0",
         "sentry/sentry-symfony": "^4.6",
         "twig/intl-extra": "^3.5",
         "tanoconsulting/ibexa-migration-bundle": "^1.0",
