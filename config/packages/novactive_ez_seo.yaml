@@ -1,0 +1,31 @@
+nova_ezseo:
+    system:
+        default:
+            default_metas: [ ]
+            fieldtype_metas: [ ]
+            robots:
+                sitemap:
+                    - url: 'https://www.example.com/sitemap.xml'
+            robots_disallow:
+                - "/layout/"
+                - "*/content/search"
+            sitemap_excludes:
+                contentTypeIdentifiers: [
+                    'user_group',
+                    'user',
+                    'ng_site_info',
+                    'ng_shortcut',
+                    'ng_menu_item',
+                    'ng_logo',
+                    'ng_cookie_policy',
+                    'ng_component_quote',
+                    'ng_component_logos',
+                    'ng_component_lead',
+                    'ng_component_hero',
+                    'ng_component_features',
+                    'ng_component_about',
+                    'ng_banner',
+                    'ng_accordion_item',
+                    'image',
+                    'file',
+                ]
