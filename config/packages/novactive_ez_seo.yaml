@@ -5,7 +5,7 @@ nova_ezseo:
             fieldtype_metas: [ ]
             robots:
                 sitemap:
-                    - url: "https://%ngsite.default.site_domain%/sitemap.xml"
+                    - url: "https://%ngsite.fh_group.site_domain%/sitemap.xml"
             robots_disallow:
                 - "*/content/search"
             sitemap_excludes:
