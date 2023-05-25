@@ -1,4 +1,5 @@
 parameters:
+    ngsite.default.site_domain: localhost
     ngsite.fh_group.site_domain: localhost
     ngsite.bold_group.site_domain: localhost
 
