@@ -1,0 +1,22 @@
+# ICU message format enables conditions in translations, for example:
+#
+# num_of_apples: >-
+#     {apples, plural,
+#         =0    {There are no apples}
+#         =1    {There is one apple...}
+#         other {There are # apples!}
+#     }
+#
+# // prints "There is one apple..."
+# PHP:
+#   echo $translator->trans('num_of_apples', ['apples' => 1]);
+# Twig:
+#   {{ 'num_of_apples'|trans({apples: 1}) }}
+#
+# // prints "There are 23 apples!"
+# PHP:
+#   echo $translator->trans('num_of_apples', ['apples' => 23]);
+# Twig:
+#   {{ 'num_of_apples'|trans({apples: 23}) }}
+#
+# For more info see https://symfony.com/doc/current/reference/formats/message_format.html
