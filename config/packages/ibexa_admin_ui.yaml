@@ -28,3 +28,4 @@ ibexa:
                 icon_sets:
                     default_icons: /bundles/ibexaadminui/img/ibexa-icons.svg
                 default_icon_set: default_icons
+            default_page: 'dashboard'

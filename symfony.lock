@@ -1,6 +1,6 @@
 {
     "google/recaptcha": {
-        "version": "1.2",
+        "version": "1.3",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
             "branch": "main",
@@ -12,12 +12,12 @@
         ]
     },
     "ibexa/oss": {
-        "version": "4.4",
+        "version": "4.5",
         "recipe": {
             "repo": "github.com/ibexa/recipes",
             "branch": "master",
-            "version": "4.4",
-            "ref": "7154537665bd5ca634b51253d0c3623abf2a2fe4"
+            "version": "4.5",
+            "ref": "121b6cbe1d15d9392810069518475046cdda9609"
         },
         "files": [
             "config/packages/cache_pool/cache.memcached.yaml",
