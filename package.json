@@ -71,7 +71,7 @@
         "@fortawesome/fontawesome-free": "^5.8.1",
         "@netgen/javascript-cookie-control": "^0.0.8",
         "@popperjs/core": "^2.11.6",
-        "bootstrap": "^5.2.1",
+        "bootstrap": "~5.2.1",
         "js-cookie": "^3.0.5",
         "photoswipe": "^5.3.4",
         "popper.js": "^1.15.0",
