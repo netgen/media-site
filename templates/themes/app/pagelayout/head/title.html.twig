@@ -15,14 +15,20 @@
         {% endif %}
     {% endif %}
 
+    {% if content is defined %}
+        {% if content.hasField('metadata') and not content.fields.metadata.empty %}
+            {% set content_meta_data = content.fields.metadata.value %}
+
+            {% if content_meta_data.metas['title'].content|default('') is not empty %}
+                {% set site_title = content_meta_data.metas['title'].content %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
     {% if site_title is not empty %}
         {% set site_title = site_title ~ (site_name is not empty ? ' - ' ~ site_name : '') %}
     {% else %}
         {% set site_title = site_name|default('') %}
-    {% endif %}
-
-    {% if content_meta_data.title|default('') is not empty %}
-        {% set site_title = content_meta_data.title %}
     {% endif %}
 {% endapply %}
 
