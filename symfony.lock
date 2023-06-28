@@ -80,6 +80,18 @@
             "assets/scss/welcome-page.scss"
         ]
     },
+    "php-cs-fixer/shim": {
+        "version": "3.20",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "16422bf8eac6c3be42afe07d37e2abc89d2bdf6b"
+        },
+        "files": [
+            ".php-cs-fixer.dist.php"
+        ]
+    },
     "symfony/framework-bundle": {
         "version": "5.4",
         "recipe": {
