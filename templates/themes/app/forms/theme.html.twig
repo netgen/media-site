@@ -97,7 +97,7 @@
     {% else %}
         <div class="form-group {{ form.parent.vars.name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
             {{- form_label(form) -}}
-            {{ block('form_widget_simple') }}
+            {{- form_widget(form) -}}
             {{- form_errors(form) -}}
         </div>
     {% endif %}
