@@ -48,8 +48,8 @@ final class Kernel extends BaseKernel
         $configDir = $this->getConfigDir();
 
         $container->import($configDir . '/app/{packages}/*.yaml');
-        $container->import($configDir . '/app/{services}/**/*.yaml');
         $container->import($configDir . '/app/services.yaml');
+        $container->import($configDir . '/app/{services}/**/*.yaml');
         $container->import($configDir . '/app/app.yaml');
 
         $serverEnvironment = $_SERVER['SERVER_ENVIRONMENT'];
