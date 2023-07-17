@@ -25,26 +25,27 @@ nova_ezseo:
                     - url: "https://%ngsite.fh_group.site_domain%/sitemap.xml"
             sitemap_excludes:
                 contentTypeIdentifiers:
-                    - ng_htmlbox
-                    - user_group
-                    - user
-                    - ng_site_info
-                    - ng_shortcut
-                    - ng_person
-                    - ng_menu_item
-                    - ng_logo
-                    - ng_lead_form
-                    - ng_landing_page
-                    - ng_job_application_form
-                    - ng_cookie_policy
-                    - ng_container
-                    - ng_component_quote
-                    - ng_component_logos
-                    - ng_component_lead
-                    - ng_component_hero
-                    - ng_component_features
-                    - ng_component_about
-                    - ng_banner
-                    - ng_accordion_item
-                    - image
                     - file
+                    - image
+                    - ng_accordion_item
+                    - ng_banner
+                    - ng_component_about
+                    - ng_component_features
+                    - ng_component_hero
+                    - ng_component_lead
+                    - ng_component_logos
+                    - ng_component_quote
+                    - ng_container
+                    - ng_cookie_policy
+                    - ng_htmlbox
+                    - ng_job_application_form
+                    - ng_landing_page
+                    - ng_lead_form
+                    - ng_logo
+                    - ng_menu_item
+                    - ng_person
+                    - ng_shortcut
+                    - ng_site_info
+                    - user
+                    - user_group
+
