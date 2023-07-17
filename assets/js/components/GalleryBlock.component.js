@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 
 export default class GalleryBlock {
