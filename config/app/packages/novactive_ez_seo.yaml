@@ -2,9 +2,9 @@ nova_ezseo:
     system:
         default:
             default_metas:
-                author: "Media Site"
+                author: "Netgen"
                 copyright: ~
-                generator: "Media Site"
+                generator: "Ibexa DXP"
                 MSSmartTagsPreventParsing: "TRUE"
             fieldtype_metas_identifier: "metas"
             fieldtype_metas:
@@ -22,10 +22,7 @@ nova_ezseo:
                     default_pattern: ~
             robots:
                 sitemap:
-                    - url: "https://%ngsite.ta_group.site_domain%/sitemap.xml"
-            robots_disallow:
-                - "/bm/ajax/"
-                - "*/content/search"
+                    - url: "https://%ngsite.fh_group.site_domain%/sitemap.xml"
             sitemap_excludes:
                 contentTypeIdentifiers:
                     - ng_htmlbox
