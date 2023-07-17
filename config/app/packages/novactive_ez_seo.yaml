@@ -11,11 +11,9 @@ nova_ezseo:
                 title:
                     label: 'Title'
                     default_pattern: "<title|name>"
-                    required: true
                 description:
                     label: 'Description'
                     default_pattern: "<description|short_description|title|name>"
-                    minLength: 100
                     maxLength: 150
                 keywords:
                     label: 'Keywords'
