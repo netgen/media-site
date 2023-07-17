@@ -13,12 +13,12 @@ export default class CookieControl {
   }
 
   init() {
-    this.initNetgenCookieControl();
+    CookieControl.initNetgenCookieControl();
     this.optionalListToggle.addEventListener('click', this.handleOptionalListToggle.bind(this));
-    this.optionalSaveBtn.addEventListener('click', this.handleConsentChange);
+    this.optionalSaveBtn.addEventListener('click', CookieControl.handleConsentChange);
   }
 
-  initNetgenCookieControl() {
+  static initNetgenCookieControl() {
     // eslint-disable-next-line no-underscore-dangle
     const cookieControl = new NetgenCookieControl(window.__ngCcConfig);
     cookieControl.init();
@@ -35,7 +35,7 @@ export default class CookieControl {
     this.optionalListToggle.classList.toggle(this.options.shownClass);
   }
 
-  handleConsentChange(event) {
+  static handleConsentChange(event) {
     event.preventDefault();
 
     GTM.push('ngcc', GTM.EVENTS.CHANGED);
