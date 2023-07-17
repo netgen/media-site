@@ -1,15 +1,34 @@
 nova_ezseo:
     system:
         default:
-            default_metas: [ ]
-            fieldtype_metas: [ ]
+            default_metas:
+                author: "Media Site"
+                copyright: ~
+                generator: "Media Site"
+                MSSmartTagsPreventParsing: "TRUE"
+            fieldtype_metas_identifier: "metas"
+            fieldtype_metas:
+                title:
+                    label: 'Title'
+                    default_pattern: "<title|name>"
+                    required: true
+                description:
+                    label: 'Description'
+                    default_pattern: "<description|short_description|title|name>"
+                    minLength: 100
+                    maxLength: 150
+                keywords:
+                    label: 'Keywords'
+                    default_pattern: ~
             robots:
                 sitemap:
-                    - url: "https://%ngsite.fh_group.site_domain%/sitemap.xml"
+                    - url: "https://%ngsite.ta_group.site_domain%/sitemap.xml"
             robots_disallow:
+                - "/bm/ajax/"
                 - "*/content/search"
             sitemap_excludes:
                 contentTypeIdentifiers:
+                    - ng_htmlbox
                     - user_group
                     - user
                     - ng_site_info
@@ -17,7 +36,11 @@ nova_ezseo:
                     - ng_person
                     - ng_menu_item
                     - ng_logo
+                    - ng_lead_form
+                    - ng_landing_page
+                    - ng_job_application_form
                     - ng_cookie_policy
+                    - ng_container
                     - ng_component_quote
                     - ng_component_logos
                     - ng_component_lead
