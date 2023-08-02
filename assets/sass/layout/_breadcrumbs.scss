@@ -59,6 +59,18 @@
                 }
             }
         }
+
+        .icon-home {
+            &::before {
+                content: "";
+                width: 1rem;
+                height: 1rem;
+                position: relative;
+                top: 1px;
+                margin-right: 10px;
+                @extend %icon-home;
+            }
+        }
     }
     a:last-of-type {
         @include media-breakpoint-down(md) {

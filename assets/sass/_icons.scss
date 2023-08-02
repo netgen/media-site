@@ -97,3 +97,25 @@
     background: url("../sass/assets/icons/volume-high.svg") no-repeat center;
     display: inline-block;
 }
+
+%icon-home {
+    background: url("../sass/assets/icons/house.svg") no-repeat center;
+    display: inline-block;
+}
+
+/*** Specific cases to avoid duplication in multiple templates and style files ***/
+
+.icon-play {
+    &.article-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &::before {
+        content: "";
+        width: 1.1rem;
+        height: 1.1rem;
+        @extend %icon-play;
+    }
+}

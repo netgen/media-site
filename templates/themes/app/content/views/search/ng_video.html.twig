@@ -26,7 +26,7 @@
         </div>
         {% if not content.fields.video_file.empty or not content.fields.video_identifier.empty %}
             <figure class="image">
-                <i class="fas fa-play article-icon" aria-hidden="true"></i>
+                <i class="icon-play article-icon" aria-hidden="true"></i>
                 {{ video.poster(content, location) }}
             </figure>
         {% endif %}

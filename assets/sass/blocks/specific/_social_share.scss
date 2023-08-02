@@ -22,15 +22,33 @@
     span {
         @extend .sr-only;
     }
+
     i {
         @include text-1_25;
         position: relative;
-    }
-    &:last-child {
-        a {
-            border-width: 1px;
+        width: 1.25rem;
+        height: 1.25rem;
+        transition: all .3s ease-in-out;
+        opacity: .55;
+
+        &.icon-facebook {
+            @extend %icon-facebook;
+        }
+
+        &.icon-twitter {
+            @extend %icon-twitter;
+        }
+
+        &.icon-linkedin {
+            @extend %icon-linkedin;
         }
     }
+
+    &:last-child {
+            a {
+                border-width: 1px;
+            }
+        }
     }
 }
 

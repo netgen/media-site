@@ -8,7 +8,7 @@
 {% if not content.fields.video_file.empty or not content.fields.video_identifier.empty %}
     <article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-video vl5">
         <figure class="image">
-            <i class="fas fa-play article-icon" aria-hidden="true"></i>
+            <i class="icon-play article-icon" aria-hidden="true"></i>
             {{ video.poster(content, location, null, null, 'ratio-1x1') }}
         </figure>
 
