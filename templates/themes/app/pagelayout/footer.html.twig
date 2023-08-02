@@ -19,19 +19,39 @@
         <div class="footer-social">
             <ul>
                 {% if not site_info.fields.facebook.empty %}
-                    <li><a href="{{ site_info.fields.facebook.value.link }}" target="_blank" noreferrer noopener ><i class="fab fa-facebook-f"></i><span class="tt">Facebook</span></a></li>
+                    <li>
+                        <a href="{{ site_info.fields.facebook.value.link }}" target="_blank" noreferrer noopener >
+                            <i class="icon-facebook"></i>
+                            <span class="tt">Facebook</span>
+                        </a>
+                    </li>
                 {% endif %}
 
                 {% if not site_info.fields.twitter.empty %}
-                    <li><a href="{{ site_info.fields.twitter.value.link }}" target="_blank" noreferrer noopener ><i class="fab fa-twitter"></i><span class="tt">Twitter</span></a></li>
+                    <li>
+                        <a href="{{ site_info.fields.twitter.value.link }}" target="_blank" noreferrer noopener >
+                            <i class="icon-twitter"></i>
+                            <span class="tt">Twitter</span>
+                        </a>
+                    </li>
                 {% endif %}
 
                 {% if not site_info.fields.instagram.empty %}
-                    <li><a href="{{ site_info.fields.instagram.value.link }}" target="_blank" noreferrer noopener ><i class="fab fa-instagram"></i><span class="tt">Instagram</span></a></li>
+                    <li>
+                        <a href="{{ site_info.fields.instagram.value.link }}" target="_blank" noreferrer noopener >
+                            <i class="icon-instagram"></i>
+                            <span class="tt">Instagram</span>
+                        </a>
+                    </li>
                 {% endif %}
 
                 {% if not site_info.fields.linkedin.empty %}
-                    <li><a href="{{ site_info.fields.linkedin.value.link }}" target="_blank" noreferrer noopener ><i class="fab fa-linkedin"></i><span class="tt">LinkedIn</span></a></li>
+                    <li>
+                        <a href="{{ site_info.fields.linkedin.value.link }}" target="_blank" noreferrer noopener >
+                            <i class="icon-linkedin"></i>
+                            <span class="tt">LinkedIn</span>
+                        </a>
+                    </li>
                 {% endif %}
             </ul>
         </div>

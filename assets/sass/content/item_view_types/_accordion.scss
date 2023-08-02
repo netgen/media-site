@@ -19,15 +19,18 @@
         position: relative;
         padding-right: 3rem;
         &:after {
-            @extend %fontawesome;
-            content: "\f106";
+            content: "";
+            width: 1.5rem;
+            height: 1.5rem;
+            background-image: url("../../assets/icons/angle-down.svg");
+            background-repeat: no-repeat;
             position: absolute;
             top: 50%;
             right: 0;
             transform: translateY(-50%);
         }
         &.collapsed:after {
-            content: "\f107";
+            background-image: url("../../assets/icons/angle-up.svg");
         }
     }
     .short {
