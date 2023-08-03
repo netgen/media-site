@@ -19,9 +19,6 @@
         color: $gray-54;
         }
     }
-    span {
-        @extend .sr-only;
-    }
 
     i {
         @include text-1_25;
