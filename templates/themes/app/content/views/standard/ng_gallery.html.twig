@@ -8,7 +8,7 @@
 {% set children = location.filterChildren(['image'], 1).currentPageResults %}
 
 <article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-gallery vl1">
-    <i class="fas fa-camera article-icon" aria-hidden="true"></i>
+    <i class="icon-camera article-icon" aria-hidden="true"></i>
     {% if children.searchHits is not empty %}
         {% set first_image = children[0].content %}
 
