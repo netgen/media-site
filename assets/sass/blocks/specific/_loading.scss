@@ -2,16 +2,16 @@
     position: relative;
     pointer-events: none;
     &::before {
-        @extend %fontawesome;
-        content: '\f1ce';
+        content: "";
+        @extend %icon-circle-notch;
         @include text-2;
         position: absolute;
         z-index: 100;
         left: 50%;
         top: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
-        line-height: 2.5rem;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
         text-align: center;
         margin: -1.25rem 0 0 -1.25rem;
         color: $black;
