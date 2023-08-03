@@ -94,17 +94,17 @@
                     font-variant: normal;
                     text-rendering: auto;
                     line-height: 1;
-                    font-family: 'Font Awesome 5 Free';
                     font-weight: 900;
                     display: block;
                     color: inherit;
-                    content: "\f053";
                     margin-right: .5rem;
                     color: #000;
                     @include text-1_5;
                     position: absolute;
                     left: 0;
-                    transform: none;
+                    content: url("../assets/icons/angle-down.svg");
+                    width: 1rem;
+                    transform: rotate(90deg);
                 }
             }
         }
