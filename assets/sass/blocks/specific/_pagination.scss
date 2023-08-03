@@ -28,7 +28,29 @@
                 &:hover {
                     background: $gray-87;
                     color: $white;
+
+                    i {
+                        @include icon-color(white);
+                    }
                 }
+            }
+
+            i.icon-angles-left {
+                @extend %icon-angles-down;
+                width: 0.8rem;
+                height: 0.8rem;
+                transform: rotate(90deg);
+                position: relative;
+                top: 2px;
+            }
+
+            i.icon-angles-right {
+                @extend %icon-angles-down;
+                width: 0.8rem;
+                height: 0.8rem;
+                transform: rotate(-90deg);
+                position: relative;
+                top: 2px;
             }
         }
     }
