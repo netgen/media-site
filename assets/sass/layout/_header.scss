@@ -56,6 +56,16 @@ $header-bg: $white;
         align-items: center;
         padding: 0 1em;
         transition: color .2s;
+
+        i {
+            width: 0.75rem;
+            height: 0.75rem;
+
+            &.icon-angle-down {
+                @extend %icon-angle-down;
+            }
+        }
+
         @include media-breakpoint-down(lg) {
             height: $header-height-sm;
         }
@@ -107,6 +117,22 @@ $header-bg: $white;
         background: $header-bg;
         z-index: 2;
         transition: color .2s, background .3s;
+
+        i {
+            width: 1rem;
+            height: 1rem;
+            position: relative;
+            top: 1px;
+
+            @include media-breakpoint-down(md) {
+                width: 0.9rem;
+                height: 0.9rem;
+            }
+
+            &.icon-search {
+                @extend %icon-search;
+            }
+        }
     }
     .navbar-search {
         padding: 1rem $btn-width 1rem 1rem;

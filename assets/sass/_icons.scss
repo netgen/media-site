@@ -103,6 +103,11 @@
     display: inline-block;
 }
 
+%icon-search {
+    background: url("../sass/assets/icons/magnifying-glass.svg") no-repeat center;
+    display: inline-block;
+}
+
 /*** Specific cases to avoid duplication in multiple templates and style files ***/
 
 .icon-play {
