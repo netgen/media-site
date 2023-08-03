@@ -15,10 +15,10 @@
 
                 <span class="recipe-details">
                     {% if not content.fields.preparation_time.empty %}
-                        <span><i class="far fa-clock"></i> {{ ng_render_field(content.fields.preparation_time) }} {{ 'ngsite.layout.recipe.min'|trans }}</span>
+                        <span><i class="icon-clock"></i> {{ ng_render_field(content.fields.preparation_time) }} {{ 'ngsite.layout.recipe.min'|trans }}</span>
                     {% endif %}
                     {% if not content.fields.serving_calories.empty %}
-                        <span><i class="fas fa-fire"></i> {{ ng_render_field(content.fields.serving_calories) }} {{ 'ngsite.layout.recipe.cal'|trans }}</span>
+                        <span><i class="icon-fire"></i> {{ ng_render_field(content.fields.serving_calories) }} {{ 'ngsite.layout.recipe.cal'|trans }}</span>
                     {% endif %}
                 </span>
             </div>

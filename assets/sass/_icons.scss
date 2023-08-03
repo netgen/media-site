@@ -119,3 +119,18 @@
         @extend %icon-play;
     }
 }
+
+.icon-volume {
+    &.article-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &::before {
+        content: "";
+        width: 1.1rem;
+        height: 1.1rem;
+        @extend %icon-volume-high;
+    }
+}
