@@ -1,13 +1,20 @@
 .site-logo {
     display: inline-block;
-    width: 14rem;
+    width: 10rem;
+    order: 1;
+    margin-right: auto;
+
+    @include media-breakpoint-up(lg) {
+        width: 12rem;
+        order: revert;
+        margin-right: revert;
+    }
+
+    @include media-breakpoint-up(xl) {
+        width: 14rem;
+    }
+
     img {
         width: 100%;
-    }
-    @include media-breakpoint-down(xl) {
-        width: 12rem;
-    }
-    @include media-breakpoint-down(lg) {
-        width: 10rem;
     }
 }
