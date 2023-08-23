@@ -4,6 +4,8 @@ namespace Deployer;
 
 require 'recipe/symfony.php';
 require 'contrib/rsync.php';
+require 'contrib/sentry.php';
+require 'contrib/cachetool.php';
 
 require __DIR__ . '/deploy/hosts.php';
 require __DIR__ . '/deploy/tasks/server.php';
@@ -64,7 +66,7 @@ task('deploy', [
     'deploy:sentry',
     'git:tag:add',
     'deploy:cache:clear',
-    'deploy:cache:warmup',
+    //'deploy:cache:warmup',
     'deploy:writable',
     // Migrate database before symlink new release.
     //  'database:migrate',
