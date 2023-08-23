@@ -10,8 +10,8 @@ task('app:graphql:deploy', [
 ]);
 
 task('app:graphql:generate', function () {
-    run("{{graphql_generate_command}}");
-})->local();
+    runLocally("{{graphql_generate_command}}");
+})->once();
 
 
 task('app:graphql:upload', function () {

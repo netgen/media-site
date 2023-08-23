@@ -2,11 +2,8 @@
 
 namespace Deployer;
 
-require 'recipe/symfony4.php';
-require 'vendor/deployer/recipes/recipe/cachetool.php';
-require 'vendor/deployer/recipes/recipe/rsync.php';
-require 'vendor/deployer/recipes/recipe/sentry.php';
-require 'vendor/deployer/recipes/recipe/slack.php';
+require 'recipe/symfony.php';
+require 'contrib/rsync.php';
 
 require __DIR__ . '/deploy/hosts.php';
 require __DIR__ . '/deploy/tasks/server.php';
@@ -24,6 +21,8 @@ require __DIR__ . '/deploy/parameters.php';
 // optional: slack integration
 //require __DIR__ . '/deploy/tasks/slack.php';
 
+putenv("DEPLOYER_ROOT=. vendor/bin/dep taskname`");
+
 /** Parameters */
 set('git_tty', true);
 
@@ -38,6 +37,10 @@ set('sentry', [
     'version' => getReleaseVersion(),
     'commits' => getCommitsInformation()
 ]);
+
+set('writable_recursive', true);
+
+set('update_code_strategy', 'clone');
 
 /** Execution */
 task('deploy', [
@@ -74,13 +77,13 @@ task('deploy', [
     'cachetool:clear:opcache',
     // Cleanup and finish the deploy
     'deploy:unlock',
-    'cleanup',
+    'deploy:cleanup',
 ])->desc('Deploy your project');
 
 // after successful deploy
 after('deploy', 'httpcache:invalidate');
 after('deploy', 'deploy:log:remote');
-after('deploy', 'success');
+after('deploy', 'deploy:success');
 
 // If deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');

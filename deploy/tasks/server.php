@@ -30,7 +30,7 @@ task('deploy:confirm', function() {
     if(!askConfirmation($question)) {
         die("Ok, no deploy then.\n");
     }
-})->onStage('prod');
+})->select('stage=prod');
 
 desc('Upload appropriate .env.local file to the server');
 task('server:upload_env', function() {

@@ -18,4 +18,4 @@ task('git:tag:add', function () {
 
     runLocally("$git tag -a $tag -m '" . $message . "' " . trim($commitHash));
     runLocally("$git push origin $tag");
-})->onStage('prod');
+})->select('stage=prod');
