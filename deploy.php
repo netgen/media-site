@@ -21,7 +21,6 @@ require __DIR__ . '/deploy/parameters.php';
 // optional: slack integration
 //require __DIR__ . '/deploy/tasks/slack.php';
 
-putenv("DEPLOYER_ROOT=. vendor/bin/dep taskname`");
 
 /** Parameters */
 set('git_tty', true);
