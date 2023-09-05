@@ -27,6 +27,8 @@ require __DIR__ . '/deploy/parameters.php';
 /** Parameters */
 set('git_tty', true);
 
+set('git_ssh_command', 'ssh');
+
 add('copy_dirs', ['vendor']);
 
 set('use_relative_symlink', false);
@@ -50,11 +52,7 @@ task('deploy', [
     'server:upload_env',
     'deploy:info',
     'deploy:prepare',
-    'deploy:lock',
-    'deploy:release',
-    'deploy:update_code',
     'deploy:clear_paths',
-    'deploy:shared',
     // build and upload assets
     'app:assets:deploy',
     'app:graphql:deploy',
@@ -66,7 +64,6 @@ task('deploy', [
     'deploy:sentry',
     'git:tag:add',
     'deploy:cache:clear',
-    //'deploy:cache:warmup',
     'deploy:writable',
     // Migrate database before symlink new release.
     //  'database:migrate',

@@ -42,7 +42,7 @@ task('app:assets:build', function() {
 })->once();
 
 task('app:assets:ibexa:build', function() {
-    runLocally("{{asset_ibexa_build_command}}");
+    runLocally("{{bin/php}} {{asset_ibexa_build_command}}");
 })->once();
 
 task('app:assets:upload', function() {
@@ -51,7 +51,7 @@ task('app:assets:upload', function() {
 
     $config = [];
     foreach ($excludedPaths as $excludedPath) {
-        $config['options'][] = "--exclude {$excludedPath}";
+        $config['options'][] = "--exclude= {$excludedPath}";
     }
 
     foreach ($assetPaths as $path) {

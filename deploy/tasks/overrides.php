@@ -27,3 +27,10 @@ task('rollback', function () {
         writeln("<comment>No more releases you can revert to.</comment>");
     }
 });
+
+task('deploy:vendors', function () {
+    if (!commandExist('unzip')) {
+        warning('To speed up composer installation setup "unzip" command with PHP zip extension.');
+    }
+    run('cd {{release_or_current_path}} && {{bin/php}} {{bin/composer}} {{composer_action}} {{composer_options}} 2>&1');
+});
