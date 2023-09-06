@@ -17,8 +17,9 @@ task('deploy:confirm', function() {
     }
 
     $stage = null;
-    if (input()->hasArgument('stage')) {
-        $stage = input()->getArgument('stage');
+    $labels = get('labels');
+    if (array_key_exists('stage', $labels)) {
+        $stage = $labels['stage'];
     }
 
     $question = 'Please confirm deploy';
@@ -35,8 +36,9 @@ task('deploy:confirm', function() {
 desc('Upload appropriate .env.local file to the server');
 task('server:upload_env', function() {
     $stage = 'dev';
-    if (input()->hasArgument('stage')) {
-        $stage = input()->getArgument('stage');
+    $labels = get('labels');
+    if (array_key_exists('stage', $labels)) {
+        $stage = $labels['stage'];
     }
 
     $path = get('deploy_path');
@@ -79,7 +81,7 @@ function invalidateFOSHttpCache($tag = null)
 {
     $tag = !empty($tag) ? $tag : get('http_invalidate_tag');
 
-    run("{{bin/php}} {{bin/console}} fos:httpcache:invalidate:tag {$tag} {{console_options}}");
+    run("{{bin/console}} fos:httpcache:invalidate:tag {$tag} {{console_options}}");
 }
 
 desc('Invalidate content on varnish per host');
@@ -124,7 +126,7 @@ desc('List crontab configuration');
 task('crontab:list', function () {
     $result = run('crontab -l');
 
-    write($result);
+    writeln($result);
 });
 
 desc('Reindex solr');

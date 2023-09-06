@@ -42,7 +42,7 @@ task('app:assets:build', function() {
 })->once();
 
 task('app:assets:ibexa:build', function() {
-    runLocally("{{bin/php}} {{asset_ibexa_build_command}}");
+    runLocally('{{asset_ibexa_build_command}}');
 })->once();
 
 task('app:assets:upload', function() {

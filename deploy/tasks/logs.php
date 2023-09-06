@@ -8,5 +8,5 @@ task('logs:read:symfony', function () {
 
     $result = run('cat '.$file);
 
-    write($result);
+    writeln($result);
 });
