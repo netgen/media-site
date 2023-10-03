@@ -9,7 +9,7 @@
         <div {{ block('field_attributes') }}>
             {% dump %}
             {% if field.value.isTypeInternal %}
-                {% set label = fieldSettings.enableLabelInternal and field.value.label ? field.value.label : ngsite_content_name(field.value.reference) %}
+                {% set label = fieldSettings.enableLabelInternal is defined and fieldSettings.enableLabelInternal and field.value.label ? field.value.label : ngsite_content_name(field.value.reference) %}
                 {% set suffix = field.value.suffix|default('') %}
                 {% if field.value.isTargetModal %}
                     {{ ng_view_content_embedded(
@@ -43,7 +43,7 @@
                     {% endif %}
                 {% endif %}
             {% elseif field.value.isTypeExternal %}
-                {% set label = fieldSettings.enableLabelExternal and field.value.label ? field.value.label : field.value.reference %}
+                {% set label = fieldSettings.enableLabelExternal is defined and fieldSettings.enableLabelExternal and field.value.label ? field.value.label : field.value.reference %}
 
                 {% if field.value.isTargetModal %}
                     <div>{{ label }}</div>
