@@ -11,9 +11,7 @@
             <p class="site-error-message">{{ 'ngsite.errors.500.message'|trans }}</p>
         </div>
         <div class="site-error-buttons text-center">
-            <button class="btn btn-primary">
-                {{ 'ngsite.errors.button.back'|trans }}
-            </button>
+            <a href="{{ ibexa_path(ibexa.rootLocation) }}" class="btn btn-primary">{{ 'ngsite.errors.button.back'|trans }}</a>
         </div>
     </div>
 {% endblock %}
