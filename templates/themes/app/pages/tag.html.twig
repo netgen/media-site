@@ -4,6 +4,12 @@
 {% set site_title = tag.keyword %}
 {% set topic_tag = tag.keyword %}
 
+{% block page_head_meta %}
+    {{ parent() }}
+
+    <meta name="robots" content="noindex">
+{% endblock %}
+
 {% block content %}
     <header class="full-page-header text-center no-breadcrumbs">
         <div class="container">
