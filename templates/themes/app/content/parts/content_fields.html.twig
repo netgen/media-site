@@ -4,10 +4,9 @@
 
 {% block ngenhancedlink_field %}
 {% apply spaceless %}
-    {% if not ibexa_field_is_empty(content, field) %}
+    {% if not ibexa_field_is_empty(content, field) and parameters.available %}
         {% set css_class = parameters.css_class|default('') %}
         <div {{ block('field_attributes') }}>
-            {% dump %}
             {% if field.value.isTypeInternal %}
                 {% set label = fieldSettings.enableLabelInternal is defined and fieldSettings.enableLabelInternal and field.value.label ? field.value.label : ngsite_content_name(field.value.reference) %}
                 {% set suffix = field.value.suffix|default('') %}
