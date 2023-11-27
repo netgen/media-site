@@ -2,9 +2,9 @@ ez_core_extra:
     system:
         default:
             twig_globals:
-                date_format: 'd MMM Y'
-                datetime_format: 'd MMM Y, H:mm'
+                date_format: 'd MMM y'
+                datetime_format: 'd MMM y, H:mm'
         bold_ger:
             twig_globals:
-                date_format: 'd. MMMM Y'
-                datetime_format: 'd. MMMM Y, H:mm'
+                date_format: 'd. MMMM y'
+                datetime_format: 'd. MMMM y, H:mm'
