@@ -101,7 +101,7 @@
             "@type": "Recipe",
             "name": "{{ content.fields.title.value.text }}",
             {% if content.contentInfo.publishedDate %}
-                "datePublished": "{{ content.contentInfo.publishedDate|format_date(pattern='Y-MM-dd') }}",
+                "datePublished": "{{ content.contentInfo.publishedDate|format_date(pattern='y-MM-dd') }}",
             {% endif %}
             "totalTime": "PT{{ content.fields.preparation_time.value.value }}M",
             "nutrition": {
