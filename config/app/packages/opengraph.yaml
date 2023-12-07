@@ -3,7 +3,7 @@ netgen_open_graph:
         frontend_group:
             global_handlers:
                 - { handler: ngsite/site_name, tag: "og:site_name" }
-                - { handler: app/canonical, tag: "og:url" }
+                - { handler: ngsite/canonical, tag: "og:url" }
             content_type_handlers:
                 ng_frontpage:
                     - { handler: literal/text, tag: "og:type", params: [website] }
