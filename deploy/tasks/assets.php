@@ -31,19 +31,19 @@ task('app:assets:build', function() {
     writeln('<comment>Checking for changes in asset files. If this fails, commit or stash your changes before deploying.</comment>');
     $assetResourcePaths = get('asset_resource_paths');
     foreach ($assetResourcePaths as $resourcePath) {
-        run("git diff --exit-code {$resourcePath}");
+        runLocally("git diff --exit-code {$resourcePath}");
     }
 
     $installCmd = get('asset_install_command');
-    run($installCmd);
+    runLocally($installCmd);
 
     $buildCmd = get('asset_build_command');
-    run($buildCmd);
-})->local();
+    runLocally($buildCmd);
+})->once();
 
 task('app:assets:ibexa:build', function() {
-    run("{{asset_ibexa_build_command}}");
-})->local();
+    runLocally('{{asset_ibexa_build_command}}');
+})->once();
 
 task('app:assets:upload', function() {
     $assetPaths = get('asset_build_paths');
@@ -51,7 +51,7 @@ task('app:assets:upload', function() {
 
     $config = [];
     foreach ($excludedPaths as $excludedPath) {
-        $config['options'][] = "--exclude {$excludedPath}";
+        $config['options'][] = "--exclude= {$excludedPath}";
     }
 
     foreach ($assetPaths as $path) {

@@ -2,11 +2,10 @@
 
 namespace Deployer;
 
-require 'recipe/symfony4.php';
-require 'vendor/deployer/recipes/recipe/cachetool.php';
-require 'vendor/deployer/recipes/recipe/rsync.php';
-require 'vendor/deployer/recipes/recipe/sentry.php';
-require 'vendor/deployer/recipes/recipe/slack.php';
+require 'recipe/symfony.php';
+require 'contrib/rsync.php';
+require 'contrib/sentry.php';
+require 'contrib/cachetool.php';
 
 require __DIR__ . '/deploy/hosts.php';
 require __DIR__ . '/deploy/tasks/server.php';
@@ -24,8 +23,11 @@ require __DIR__ . '/deploy/parameters.php';
 // optional: slack integration
 //require __DIR__ . '/deploy/tasks/slack.php';
 
+
 /** Parameters */
 set('git_tty', true);
+
+set('git_ssh_command', 'ssh');
 
 add('copy_dirs', ['vendor']);
 
@@ -39,6 +41,10 @@ set('sentry', [
     'commits' => getCommitsInformation()
 ]);
 
+set('writable_recursive', true);
+
+set('update_code_strategy', 'clone');
+
 /** Execution */
 task('deploy', [
     'deploy:confirm',
@@ -46,11 +52,7 @@ task('deploy', [
     'server:upload_env',
     'deploy:info',
     'deploy:prepare',
-    'deploy:lock',
-    'deploy:release',
-    'deploy:update_code',
     'deploy:clear_paths',
-    'deploy:shared',
     // build and upload assets
     'app:assets:deploy',
     'app:graphql:deploy',
@@ -62,7 +64,6 @@ task('deploy', [
     'deploy:sentry',
     'git:tag:add',
     'deploy:cache:clear',
-    'deploy:cache:warmup',
     'deploy:writable',
     // Migrate database before symlink new release.
     //  'database:migrate',
@@ -74,13 +75,13 @@ task('deploy', [
     'cachetool:clear:opcache',
     // Cleanup and finish the deploy
     'deploy:unlock',
-    'cleanup',
+    'deploy:cleanup',
 ])->desc('Deploy your project');
 
 // after successful deploy
 after('deploy', 'httpcache:invalidate');
 after('deploy', 'deploy:log:remote');
-after('deploy', 'success');
+after('deploy', 'deploy:success');
 
 // If deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');

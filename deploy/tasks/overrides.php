@@ -2,9 +2,6 @@
 
 namespace Deployer;
 
-set('bin/cachetool', function(){
-    return 'cachetool-7.0.0.phar';
-});
 
 // overridden to make sure public folder is correctly symlinked (L79)
 desc('Rollback to previous release');
@@ -20,9 +17,9 @@ task('rollback', function () {
 
         // Remove release
         run("rm -rf {{deploy_path}}/releases/{$releases[0]}");
-        if (isVerbose()) {
-            writeln("Rollback to `{$releases[1]}` release was successful.");
-        }
+
+        writeln("Rollback to `{$releases[1]}` release was successful.");
+
     } else {
         writeln("<comment>No more releases you can revert to.</comment>");
     }

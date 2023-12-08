@@ -60,13 +60,13 @@
         "symfony/web-profiler-bundle": "5.4.*",
 
         "netgen/git-hooks": "^2.3",
-        "deployer/recipes": "^6.2",
         "phpstan/phpstan": "^1.9",
         "phpstan/extension-installer": "^1.2",
         "phpstan/phpstan-strict-rules": "^1.4",
         "phpstan/phpstan-symfony": "^1.2",
         "phpstan/phpstan-doctrine": "^1.3",
-        "php-cs-fixer/shim": "^3.20"
+        "php-cs-fixer/shim": "^3.20",
+        "deployer/deployer": "^7.3"
     },
     "config": {
         "allow-plugins": {
