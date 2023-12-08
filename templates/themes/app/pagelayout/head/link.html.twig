@@ -3,6 +3,8 @@
 
 {% if canonical_url|default('') is not empty %}
     <link rel="canonical" href="{{ canonical_url }}" />
+{% elseif content is defined %}
+    <link rel="canonical" href="{{ ibexa_url(content) }}" />
 {% endif %}
 
 <link rel="home" href="{{ root_location_path }}" title="{{ 'ngsite.layout.site_frontpage'|trans({'%site_name%': site_name}) }}" />
