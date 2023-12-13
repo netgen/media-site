@@ -28,6 +28,12 @@ endif
 vendor: ## Run composer install
 	$(COMPOSER_RUN) install $(COMPOSER_INSTALL_PARAMETERS)
 
+.PHONY: ibexa-assets
+.ONESHELL:
+ibexa-assets: ## Generate Ibexa Admin UI assets
+	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
+	$(COMPOSER_RUN) ibexa-assets
+
 .PHONY: assets
 .ONESHELL:
 assets: ## Build frontend assets for DEV environment
@@ -84,6 +90,7 @@ ifeq ($(APP_ENV), prod)
 else
 	$(MAKE) -s assets
 endif
+	@$(MAKE) -s ibexa-assets
 	@$(MAKE) -s graphql-schema
 	@$(MAKE) -s clear-cache
 
