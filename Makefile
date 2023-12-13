@@ -29,7 +29,9 @@ vendor: ## Run composer install
 	$(COMPOSER_RUN) install $(COMPOSER_INSTALL_PARAMETERS)
 
 .PHONY: ibexa-assets
+.ONESHELL:
 ibexa-assets: ## Generate Ibexa Admin UI assets
+	. ${NVM_DIR}/nvm.sh && nvm use || nvm install $(cat .nvmrc)
 	$(COMPOSER_RUN) ibexa-assets
 
 .PHONY: assets
