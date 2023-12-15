@@ -53,7 +53,7 @@ nova_ezseo:
                     default_pattern: ~
             robots:
                 sitemap:
-                    -   url: "https://%ngsite.fh_group.site_domain%/sitemap.xml"
+                    - url: "https://%ngsite.fh_group.site_domain%/sitemap.xml"
             sitemap_includes:
                 subtrees:
                     - "%ngsite.fh_group.locations.tree_root.id%"
