@@ -78,6 +78,12 @@
                 {% if parameters.link_title|default('') is not empty %} title="{{ parameters.link_title }}" {% endif %}
                 aria-label="{{ alt_text }}"
             >
+        {% elseif parameters.ezlink|default({}) is not empty %}
+            <a
+                href="{{ parameters.ezlink.href }}"
+                {% if parameters.ezlink.title is defined %} title="{{ parameters.ezlink.title|e('html_attr') }}"{% endif %}
+                {% if parameters.ezlink.target is defined %} target="{{ parameters.ezlink.target|e('html_attr') }}"{% endif %}
+            >
         {% endif %}
 
         <img
@@ -89,9 +95,10 @@
             alt="{{ alt_text }}"
             {{ block('field_attributes') }} />
 
-        {% if link_href is not empty %}
+        {% if link_href is not empty or parameters.ezlink|default({}) is not empty %}
             </a>
         {% endif %}
+
     {% elseif parameters.force_tag|default(false) %}
         <img src="//:0" alt="" />
     {% endif %}
