@@ -70,22 +70,20 @@
             {% set lazy_loading = parameters.lazy_loading %}
         {% endif %}
 
-        {% if link_href is not empty or parameters.ezlink|default({}) is not empty %}
-            {% if link_href is not empty %}
-                <a href="{{ link_href }}"
-                    {% if link_target is not empty %} target="{{ link_target }}" {% if link_target == '_blank' %}rel="nofollow noopener noreferrer"{% endif %} {% endif %}
-                    {% if parameters.link_id|default('') is not empty %} id="{{ parameters.link_id }}" {% endif %}
-                    {% if parameters.link_class|default('') is not empty %} class="{{ parameters.link_class }}" {% endif %}
-                    {% if parameters.link_title|default('') is not empty %} title="{{ parameters.link_title }}" {% endif %}
-                    aria-label="{{ alt_text }}"
-                >
-            {% elseif parameters.ezlink|default({}) is not empty %}
-                <a
-                    href="{{ parameters.ezlink.href }}"
-                    {% if parameters.ezlink.title is defined %} title="{{ parameters.ezlink.title|e('html_attr') }}"{% endif %}
-                    {% if parameters.ezlink.target is defined %} target="{{ parameters.ezlink.target|e('html_attr') }}"{% endif %}
-                >
-            {% endif %}
+        {% if link_href is not empty %}
+            <a href="{{ link_href }}"
+                {% if link_target is not empty %} target="{{ link_target }}" {% if link_target == '_blank' %}rel="nofollow noopener noreferrer"{% endif %} {% endif %}
+                {% if parameters.link_id|default('') is not empty %} id="{{ parameters.link_id }}" {% endif %}
+                {% if parameters.link_class|default('') is not empty %} class="{{ parameters.link_class }}" {% endif %}
+                {% if parameters.link_title|default('') is not empty %} title="{{ parameters.link_title }}" {% endif %}
+                aria-label="{{ alt_text }}"
+            >
+        {% elseif parameters.ezlink|default({}) is not empty %}
+            <a
+                href="{{ parameters.ezlink.href }}"
+                {% if parameters.ezlink.title is defined %} title="{{ parameters.ezlink.title|e('html_attr') }}"{% endif %}
+                {% if parameters.ezlink.target is defined %} target="{{ parameters.ezlink.target|e('html_attr') }}"{% endif %}
+            >
         {% endif %}
 
         <img
