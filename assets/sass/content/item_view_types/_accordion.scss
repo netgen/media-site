@@ -22,15 +22,14 @@
             content: "";
             width: 1.5rem;
             height: 1.5rem;
-            background-image: url("../../assets/icons/angle-down.svg");
-            background-repeat: no-repeat;
+            @extend %icon-angle-down;
             position: absolute;
             top: 50%;
             right: 0;
             transform: translateY(-50%);
         }
         &.collapsed:after {
-            background-image: url("../../assets/icons/angle-up.svg");
+            @extend %icon-angle-up;
         }
     }
     .short {
