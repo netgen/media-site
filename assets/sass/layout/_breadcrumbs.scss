@@ -85,26 +85,12 @@
 
         &.breadcrumb-item {
             @include media-breakpoint-down(md) {
-                padding-left: 2rem;
                 &:before {
-                    -moz-osx-font-smoothing: grayscale;
-                    -webkit-font-smoothing: antialiased;
-                    display: inline-block;
-                    font-style: normal;
-                    font-variant: normal;
-                    text-rendering: auto;
-                    line-height: 1;
-                    font-weight: 900;
-                    display: block;
-                    color: inherit;
-                    margin-right: .5rem;
-                    color: #000;
-                    @include text-1_5;
-                    position: absolute;
-                    left: 0;
-                    content: url("../assets/icons/angle-down.svg");
+                    content: "";
                     width: 1rem;
-                    transform: rotate(90deg);
+                    height: 1rem;
+                    margin-right: 10px;
+                    @include iconChevron;
                 }
             }
         }

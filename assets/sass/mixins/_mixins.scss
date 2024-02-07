@@ -145,3 +145,8 @@
     padding: .25rem;
     margin: 0 .1666666667em;
 }
+
+@mixin iconChevron {
+    background: url("../../sass/assets/icons/chevron-left.svg") no-repeat center;
+    display: inline-block;
+}
