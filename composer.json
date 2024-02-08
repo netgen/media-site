@@ -40,7 +40,7 @@
         "tanoconsulting/ibexa-migration-bundle": "^1.0",
 
         "netgen/media-site-data": "^3.1",
-        "netgen/site-bundle": "^3.1.3",
+        "netgen/site-bundle": "^3.2.0",
         "netgen/site-installer-bundle": "^3.1",
         "netgen/ibexa-site-api": "^6.0",
         "netgen/ibexa-search-extra": "^3.0",
@@ -136,7 +136,7 @@
             "docker": false
         },
         "branch-alias": {
-            "dev-master": "3.0.x-dev"
+            "dev-master": "3.2.x-dev"
         }
     }
 }
