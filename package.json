@@ -50,7 +50,7 @@
         "eslint-plugin-jsx-a11y": "^6.2.1",
         "eslint-plugin-react": "^7.12.4",
         "eslint-plugin-react-hooks": "^4.3.0",
-        "node-sass": "^4.11.0",
+        "sass": "^1.63.4",
         "path": "^0.12.7",
         "postcss-loader": "^4.3.0",
         "prettier": "^2.5.0",
@@ -61,12 +61,13 @@
         "style-loader": "^2.0.0",
         "file-loader": "^6.0.0",
         "webpack-notifier": "^1.6.0",
-        "@ckeditor/ckeditor5-alignment": "^36.0.1",
-        "@ckeditor/ckeditor5-build-inline": "^36.0.1",
-        "@ckeditor/ckeditor5-dev-utils": "^32.0.0",
-        "@ckeditor/ckeditor5-widget": "^36.0.1",
-        "@ckeditor/ckeditor5-theme-lark": "^36.0.1",
-        "@ckeditor/ckeditor5-code-block": "^36.0.1"
+        "@ckeditor/ckeditor5-alignment": "^40.1.0",
+        "@ckeditor/ckeditor5-build-inline": "^40.1.0",
+        "@ckeditor/ckeditor5-dev-utils": "^39.0.0",
+        "@ckeditor/ckeditor5-widget": "^40.1.0",
+        "@ckeditor/ckeditor5-theme-lark": "^40.1.0",
+        "@ckeditor/ckeditor5-code-block": "^40.1.0",
+        "@svgr/webpack": "^8.1.0"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.8.1",
@@ -79,6 +80,6 @@
         "swiper": "^4.5.0"
     },
     "engines": {
-        "node": "^12 || ^14"
+        "node": "^18"
     }
 }
