@@ -12,12 +12,12 @@
         ]
     },
     "ibexa/oss": {
-        "version": "4.5",
+        "version": "4.6",
         "recipe": {
             "repo": "github.com/ibexa/recipes",
             "branch": "master",
-            "version": "4.5",
-            "ref": "121b6cbe1d15d9392810069518475046cdda9609"
+            "version": "4.6",
+            "ref": "c7f69c005aeae690d8c13e4862957f8e3907060c"
         },
         "files": [
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -56,7 +56,7 @@
             "assets/images/development.svg",
             "assets/images/documentation.svg",
             "assets/images/header-background.png",
-            "assets/images/oss.svg",
+            "assets/images/oss.png",
             "assets/images/php-api.svg",
             "assets/images/rest-api.svg",
             "assets/images/support-background.png",
@@ -81,7 +81,7 @@
         ]
     },
     "php-cs-fixer/shim": {
-        "version": "3.20",
+        "version": "3.49",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -138,12 +138,12 @@
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.16",
+        "version": "1.17",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "1.10",
-            "ref": "f8fc53f1942f76679e9ee3c25fd44865355707b5"
+            "ref": "eff2e505d4557c967b6710fe06bd947ba555cae5"
         },
         "files": [
             "assets/app.js",
