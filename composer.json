@@ -43,7 +43,7 @@
         "netgen/site-bundle": "^3.2",
         "netgen/site-installer-bundle": "^3.1",
         "netgen/ibexa-site-api": "^6.1",
-        "netgen/ibexa-search-extra": "^3.1",
+        "netgen/ibexa-search-extra": "^3.2.1",
         "netgen/information-collection-bundle": "^3.0@alpha",
         "netgen/ibexa-fieldtype-enhanced-link": "^1.1.2",
         "netgen/better-ibexa-admin-ui": "^1.1",
@@ -51,6 +51,7 @@
         "netgen/layouts-standard": "~1.4.0",
         "netgen/layouts-ibexa": "~1.4.0",
         "netgen/layouts-ibexa-site-api": "~1.4.0",
+        "netgen/layouts-enterprise-ibexa": "~1.4.0",
         "netgen/layouts-ibexa-relation-list-query": "^1.4",
         "netgen/layouts-ibexa-tags-query": "^1.4"
     },
@@ -69,6 +70,11 @@
         "phpstan/phpstan-doctrine": "^1.3",
         "php-cs-fixer/shim": "^3.49"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        { "type": "composer", "url": "https://packagist.netgen.biz", "canonical": false }
+    ],
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
@@ -77,6 +83,7 @@
             "symfony/runtime": true,
             "netgen/git-hooks": true,
             "phpstan/extension-installer": true,
+            "franzl/studio": true,
             "*": false
         },
         "optimize-autoloader": true,
