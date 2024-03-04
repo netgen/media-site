@@ -68,9 +68,6 @@
         "phpstan/phpstan-doctrine": "^1.3",
         "php-cs-fixer/shim": "^3.50"
     },
-    "repositories": [
-        { "type": "vcs", "url": "https://github.com/netgen/NovaeZSEOBundle.git", "canonical": false }
-    ],
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
