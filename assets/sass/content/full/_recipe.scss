@@ -45,3 +45,20 @@
         }
     }
 }
+
+.recipe-details {
+    i {
+        width: 0.75rem;
+        height: 0.75rem;
+        position: relative;
+        top: 3px;
+
+        &.icon-clock {
+            @extend %icon-clock;
+        }
+
+        &.icon-fire {
+            @extend %icon-fire;
+        }
+    }
+}

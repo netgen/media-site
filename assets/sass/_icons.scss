@@ -1,0 +1,151 @@
+%icon-facebook {
+    background: url("../sass/assets/icons/facebook-f.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-twitter {
+    background: url("../sass/assets/icons/twitter.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-linkedin {
+    background: url("../sass/assets/icons/linkedin.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-instagram {
+    background: url("../sass/assets/icons/instagram.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-angle-down {
+    background: url("../sass/assets/icons/angle-down.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-angle-up {
+    background: url("../sass/assets/icons/angle-up.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-angles-down {
+    background: url("../sass/assets/icons/angles-down.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-angles-up {
+    background: url("../sass/assets/icons/angles-up.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-angle-right {
+    background: url("../sass/assets/icons/angle-right.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-camera {
+    background: url("../sass/assets/icons/camera.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-chevron-left {
+    background: url("../sass/assets/icons/chevron-left.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-chevron-right {
+    background: url("../sass/assets/icons/chevron-right.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-circle-notch {
+    background: url("../sass/assets/icons/circle-notch.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-clock {
+    background: url("../sass/assets/icons/clock.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-file {
+    background: url("../sass/assets/icons/file.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-fire {
+    background: url("../sass/assets/icons/fire.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-play {
+    background: url("../sass/assets/icons/play.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-quote-left {
+    background: url("../sass/assets/icons/quote-left.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-volume-high {
+    background: url("../sass/assets/icons/volume-high.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-home {
+    background: url("../sass/assets/icons/house.svg") no-repeat center;
+    display: inline-block;
+}
+
+%icon-search {
+    background: url("../sass/assets/icons/magnifying-glass.svg") no-repeat center;
+    display: inline-block;
+}
+
+/*** Specific cases to avoid duplication in multiple templates and style files ***/
+
+.icon-play {
+    &.article-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &::before {
+        content: "";
+        width: 1.1rem;
+        height: 1.1rem;
+        @extend %icon-play;
+    }
+}
+
+.icon-volume-up {
+    &.article-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &::before {
+        content: "";
+        width: 1.1rem;
+        height: 1.1rem;
+        @extend %icon-volume-high;
+    }
+}
+
+.icon-camera {
+    &.article-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &::before {
+        content: "";
+        width: 1.1rem;
+        height: 1.1rem;
+        @extend %icon-camera;
+    }
+}

@@ -6,11 +6,23 @@
         .input-group {
             gap: .5rem;
             .btn {
+                display: flex;
+                align-items: center;
                 @include media-breakpoint-down(sm) {
                     width: auto;
                 }
                 i {
                     margin-left: .75rem;
+                }
+            }
+
+            i {
+                @include icon-color(white);
+                width: 1rem;
+                height: 1rem;
+
+                &.icon-search {
+                    @extend %icon-search;
                 }
             }
         }

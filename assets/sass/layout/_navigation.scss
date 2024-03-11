@@ -76,7 +76,7 @@
         }
     }
     .submenu-trigger {
-        @extend %fontawesome;
+        // NOTE: Removed fontawesome extend rule since the nav will we rewritten
         display: none;
     }
     /* small screen sizes */
