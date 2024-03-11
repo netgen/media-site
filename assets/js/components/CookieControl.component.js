@@ -5,7 +5,7 @@ export default class CookieControl {
   constructor(element, options) {
     this.options = options;
 
-    this.optionalSaveBtn = element.querySelector(options.optionalSaveBtn);
+    this.optionalSaveBtn = element.querySelectorAll(options.optionalSaveBtn);
     this.optionalList = element.querySelector(options.optionalList);
     this.optionalListToggle = element.querySelector(options.optionalListToggle);
 
@@ -15,7 +15,9 @@ export default class CookieControl {
   init() {
     CookieControl.initNetgenCookieControl();
     this.optionalListToggle.addEventListener('click', this.handleOptionalListToggle.bind(this));
-    this.optionalSaveBtn.addEventListener('click', CookieControl.handleConsentChange);
+    this.optionalSaveBtn.forEach((element) =>
+      element.addEventListener('click', this.handleConsentChange)
+    );
   }
 
   static initNetgenCookieControl() {
