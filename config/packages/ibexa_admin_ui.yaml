@@ -2,6 +2,10 @@ parameters:
     # Admin siteaccess group name
     admin_group_name: admin_group
 
+    # This should be configured through semantic config, but this disables other
+    # configuration forms: https://issues.ibexa.co/browse/IBX-7934
+    ibexa.site_access.config.admin_group.user_preferences.additional_translations: ['de_DE']
+
 ibexa:
     siteaccess:
     system:
