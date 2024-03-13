@@ -1,6 +1,7 @@
 /* slide item view type */
 .vl3 {
-    .swiper-container.gallery-thumbs & {
+
+    .swiper.gallery-thumbs & {
         position: relative;
         height: 0;
         padding-bottom: 56.25%;
@@ -15,7 +16,7 @@
             will-change: transform;
         }
     }
-    .swiper-container:not(.gallery-thumbs) & {
+    .swiper:not(.gallery-thumbs) & {
         position: relative;
         height: 0;
         padding-bottom: 56.25%;
