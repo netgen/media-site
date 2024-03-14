@@ -80,6 +80,7 @@ const componentConfiguration = [
       navigationList: 'ul.nav.navbar-nav',
       filledClass: 'filled',
       languageSelector: '.site-header .language-selector',
+      stickyHeaderClass: '.site-header-sticky',
     },
   },
   {
