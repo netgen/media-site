@@ -4,6 +4,7 @@ $header-bg: $white;
 .site-header {
     background: $header-bg;
     position: relative;
+    transition: all .15s ease-in-out;
     > .container {
         height: $header-height;
         display: flex;
@@ -27,6 +28,14 @@ $header-bg: $white;
                 order: 4;
             }
         }
+    }
+
+    &.site-header-sticky--active {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        transition: all .15s ease-in-out;
     }
 }
 
