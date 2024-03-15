@@ -13,7 +13,7 @@ export default class PageHeader {
     this.level1Menus = [];
     this.submenuTriggerElements = [];
     this.languageSelector = document.querySelector(options.languageSelector);
-    this.stickyHeaderClass = document.querySelector(options.stickyHeaderClass);
+    this.stickyHeader = document.querySelector(options.stickyHeader);
 
     this.init();
   }
@@ -25,7 +25,7 @@ export default class PageHeader {
     this.headerSearchSetup();
     this.addSubmenuTriggers();
     this.languageSelectorSetup();
-    this.stickyHeader();
+    this.stickyHeaderSetup();
   }
 
   navToggleSetup() {
@@ -174,12 +174,15 @@ export default class PageHeader {
     this.pageWrapper.classList.toggle(classToToggle);
   }
 
-  stickyHeader() {
+  stickyHeaderSetup() {
+    if (this.stickyHeader === null) {
+      return;
+    }
     ['load', 'scroll', 'resize', 'orientationchange'].forEach((eventType) => {
       window.addEventListener(eventType, () => {
         window.scrollY >= 1
-          ? this.stickyHeaderClass.classList.add('site-header-sticky--active')
-          : this.stickyHeaderClass.classList.remove('site-header-sticky--active');
+          ? this.stickyHeader.classList.add('site-header-sticky--active')
+          : this.stickyHeader.classList.remove('site-header-sticky--active');
       });
     });
   }
