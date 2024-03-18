@@ -40,7 +40,7 @@
             {
                 "action": "\\Netgen\\GitHooks\\Action\\PHPCSFixer",
                 "options": {
-                    "excluded_files": ["deploy.php", "/^deploy.*/"],
+                    "excluded_files": ["deploy.php", "/^deploy.*/", "config/bundles.php"],
                     "fixer_path": "vendor/bin/php-cs-fixer"
                 }
             },
