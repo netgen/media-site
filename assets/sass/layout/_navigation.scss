@@ -145,6 +145,10 @@
             }
         }
     }
+    @include media-breakpoint-down(sm) {
+        max-height: 70vh;
+        overflow: scroll;
+    }
     @include media-breakpoint-down(xs) {
         left: 0;
         right: 0;
@@ -202,5 +206,14 @@
     }
     @include media-breakpoint-down(lg) {
         display: block;
+    }
+}
+
+
+.mainnav-active {
+
+    @include media-breakpoint-down(sm) {
+        overflow-y: hidden;
+        position: fixed;
     }
 }
