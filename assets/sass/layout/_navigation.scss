@@ -215,5 +215,6 @@
     @include media-breakpoint-down(sm) {
         overflow-y: hidden;
         position: fixed;
+        width: 100%;
     }
 }
