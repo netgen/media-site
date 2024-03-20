@@ -2,20 +2,13 @@
 
 namespace SmokeTests;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Tests\SmokeTests\ProjectWebTestCase;
 
-class FrontpageTest extends WebTestCase
+final class FrontpageTest extends ProjectWebTestCase
 {
     public function testFrontpageWorks(): void
     {
-        $client = static::createClient(
-            [],
-            [
-                'HTTP_HOST' => 'media-site.dev.php81.ez'
-            ]
-        );
-
-        $client->setServerParameter('SCRIPT_FILENAME', 'index.php');
+        $client = parent::createClient();
         $crawler = $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
