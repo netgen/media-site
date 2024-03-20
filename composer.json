@@ -59,7 +59,7 @@
         "symfony/maker-bundle": "^1.48",
         "symfony/web-profiler-bundle": "5.4.*",
 
-        "netgen/git-hooks": "^2.4",
+        "netgen/git-hooks": "^2.5",
         "deployer/recipes": "^6.2",
         "phpstan/phpstan": "^1.10",
         "phpstan/extension-installer": "^1.3",
