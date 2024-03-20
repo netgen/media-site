@@ -10,9 +10,11 @@ abstract class ProjectWebTestCase extends WebTestCase
 {
     public static function createClient(array $options = [], array $server = [])
     {
-        $server['HTTP_HOST'] = 'media-site.dev.php81.ez'; // @todo
         $client = parent::createClient($options, $server);
 
+        $server['HTTP_HOST'] = static::getContainer()->getParameter('app.testing.site_domain');
+
+        $client->setServerParameters($server);
         $client->setServerParameter('SCRIPT_FILENAME', 'index.php');
 
         return $client;
