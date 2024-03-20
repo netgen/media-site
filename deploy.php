@@ -9,6 +9,7 @@ require 'vendor/deployer/recipes/recipe/sentry.php';
 require 'vendor/deployer/recipes/recipe/slack.php';
 
 require __DIR__ . '/deploy/hosts.php';
+require __DIR__ . '/deploy/tasks/test.php';
 require __DIR__ . '/deploy/tasks/server.php';
 require __DIR__ . '/deploy/tasks/database.php';
 require __DIR__ . '/deploy/tasks/rsync.php';
@@ -43,6 +44,7 @@ set('sentry', [
 task('deploy', [
     'deploy:confirm',
     // Upload server specific .env.local file. Those files are NOT to be committed to the repository
+    'app:test:phpunit',
     'server:upload_env',
     'deploy:info',
     'deploy:prepare',
