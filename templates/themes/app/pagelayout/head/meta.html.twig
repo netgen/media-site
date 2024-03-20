@@ -27,3 +27,27 @@
         <meta name="{{ key }}" content="{{ meta_data[key] }}" />
     {% endif %}
 {% endfor %}
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+
+        "itemListElement": [
+        {% for item in path_array %}
+
+            {
+                "@type": "ListItem",
+                "position": {{ loop.index }},
+                "name": "{{ item.text }}",
+                {% if item.url != false %}"item": "{{ absolute_url(item.url)}}" {% endif %}
+
+            }{% if not loop.last %},{% endif %}
+
+        {% endfor %}
+
+        ]
+}
+</script>
