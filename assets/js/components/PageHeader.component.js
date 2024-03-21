@@ -14,6 +14,7 @@ export default class PageHeader {
     this.submenuTriggerElements = [];
     this.languageSelector = document.querySelector(options.languageSelector);
     this.stickyHeader = document.querySelector(options.stickyHeader);
+    this.sitePage = document.querySelector('#page');
 
     this.init();
   }
@@ -33,13 +34,21 @@ export default class PageHeader {
       return;
     }
 
+    let scrollTop = 0;
+
     this.navToggle.addEventListener('click', (event) => {
       event.preventDefault();
 
-      this.changePageClasses({
-        toggle: this.options.navActiveClass,
-        remove: this.options.searchboxActiveClass,
-      });
+      if (!this.sitePage.classList.contains(this.options.navActiveClass)) {
+        scrollTop = window.scrollY; // set scroll position intro variable
+        this.changePageClasses({
+          add: this.options.navActiveClass,
+          remove: this.options.searchboxActiveClass,
+        });
+      } else {
+        this.changePageClasses({ remove: this.options.navActiveClass });
+        window.scrollTo({ top: scrollTop, left: 0, behavior: 'instant' }); // scroll to saved position
+      }
     });
   }
 

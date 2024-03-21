@@ -145,9 +145,12 @@
             }
         }
     }
-    @include media-breakpoint-down(sm) {
-        max-height: 70vh;
+    @include media-breakpoint-down(md) {
         overflow: scroll;
+        position: fixed;
+        left: 0;
+        right: 0;
+        height: calc(100vh - #{$header-height-sm});
     }
     @include media-breakpoint-down(xs) {
         left: 0;
@@ -212,7 +215,7 @@
 
 .mainnav-active {
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         overflow-y: hidden;
         position: fixed;
         width: 100%;
