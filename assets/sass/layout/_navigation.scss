@@ -145,7 +145,7 @@
             }
         }
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         overflow: scroll;
         position: fixed;
         left: 0;
@@ -215,7 +215,7 @@
 
 .mainnav-active {
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         overflow-y: hidden;
         position: fixed;
         width: 100%;

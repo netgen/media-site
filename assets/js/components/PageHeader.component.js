@@ -14,7 +14,6 @@ export default class PageHeader {
     this.submenuTriggerElements = [];
     this.languageSelector = document.querySelector(options.languageSelector);
     this.stickyHeader = document.querySelector(options.stickyHeader);
-    this.sitePage = document.querySelector('#page');
 
     this.init();
   }
@@ -39,7 +38,7 @@ export default class PageHeader {
     this.navToggle.addEventListener('click', (event) => {
       event.preventDefault();
 
-      if (!this.sitePage.classList.contains(this.options.navActiveClass)) {
+      if (!this.pageWrapper.classList.contains(this.options.navActiveClass)) {
         scrollTop = window.scrollY; // set scroll position intro variable
         this.changePageClasses({
           add: this.options.navActiveClass,
