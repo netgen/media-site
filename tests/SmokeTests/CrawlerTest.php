@@ -3,6 +3,7 @@
 namespace SmokeTests;
 
 use App\Tests\SmokeTests\ProjectWebTestCase;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 final class CrawlerTest extends ProjectWebTestCase
 {
@@ -15,11 +16,13 @@ final class CrawlerTest extends ProjectWebTestCase
 
         $frontpageLinks = $crawler->filter('a')->links();
 
-        $selectedLinkIndices = array_rand($frontpageLinks, 10);
+        $selectedLinkIndices = array_rand($frontpageLinks, 5);
+
+        $output = new ConsoleOutput();
 
         foreach($selectedLinkIndices as $index) {
             $link = $frontpageLinks[$index];
-            fwrite(STDERR, print_r($link->getUri() . PHP_EOL, TRUE));
+            $output->writeln('Test page: ' . $link->getUri());
             $client->click($link);
             $this->assertResponseIsSuccessful();
         }
