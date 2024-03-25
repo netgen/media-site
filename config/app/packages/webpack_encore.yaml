@@ -9,3 +9,9 @@ when@prod:
         builds:
             # The path where Encore is building the assets - i.e. Encore.setOutputPath()
             app: '%kernel.project_dir%/public/assets/app/build'
+
+when@test:
+    webpack_encore:
+        builds:
+            # The path where Encore is building the assets - i.e. Encore.setOutputPath()
+            app: '%kernel.project_dir%/public/assets/app/build_dev'

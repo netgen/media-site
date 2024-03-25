@@ -36,4 +36,6 @@ set('deploy_log', 'DEPLOY_LOG.md');
 
 set('local_php_path', '/usr/bin/env php8.1');
 
+set('testing_domains', ['media-site.dev.php81.ez', 'media-site.dev.php81.ez/bold_eng']);
+
 //set('slack_webhook', 'https://hooks.slack.com/services/S0M3/3XAMP7E');

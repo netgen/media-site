@@ -12,3 +12,5 @@ parameters:
         - file
 
     ngsite.default.lazy_loading.enabled: true
+
+    app.testing.site_domain: '%env(TEST_DOMAIN)%'
