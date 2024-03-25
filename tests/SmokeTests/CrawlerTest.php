@@ -16,7 +16,7 @@ final class CrawlerTest extends ProjectWebTestCase
 
         $frontpageLinks = $crawler->filter('a')->links();
 
-        $selectedLinkIndices = array_rand($frontpageLinks, 5);
+        $selectedLinkIndices = array_rand($frontpageLinks, 10);
 
         $output = new ConsoleOutput();
 

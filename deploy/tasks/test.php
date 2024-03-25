@@ -3,5 +3,9 @@
 namespace Deployer;
 
 task('app:test:phpunit', function () {
-    runLocally('{{local_php_path}} vendor/bin/phpunit');
+    $domains = get('testing_domains');
+
+    foreach ($domains as $domain) {
+        runLocally("TEST_DOMAIN={$domain} {{local_php_path}} vendor/bin/phpunit");
+    }
 });
