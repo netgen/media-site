@@ -147,7 +147,8 @@
     }
     @include media-breakpoint-down(lg) {
         overflow: scroll;
-        position: fixed;
+        position: absolute;
+        z-index: 1000;
         left: 0;
         right: 0;
         height: calc(100vh - #{$header-height-sm});
@@ -214,10 +215,14 @@
 
 
 .mainnav-active {
-
     @include media-breakpoint-down(lg) {
         overflow-y: hidden;
         position: fixed;
         width: 100%;
+        body {
+            overflow-y: hidden;
+            position: fixed;
+            width: 100%;
+        }
     }
 }
