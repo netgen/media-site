@@ -64,7 +64,7 @@ const componentConfiguration = [
     Component: PageHeader,
     selector: 'html',
     options: {
-      pageWrapper: '#page',
+      pageWrapper: 'html',
       navToggle: '.mainnav-toggle',
       searchToggle: '.searchbox-toggle',
       headerSearch: '.header-search',
