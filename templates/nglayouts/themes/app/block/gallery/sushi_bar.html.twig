@@ -4,7 +4,7 @@
 
 {% block content %}
     {% if collections.default is defined and collections.default is not empty %}
-        <div class="sushi-swiper swiper-container"
+        <div class="sushi-swiper swiper"
             data-effect="slide"
             {% if block.parameter('infinite_loop').value %}data-loop="true"{% endif %}
             {% if block.parameter('autoplay').value %}data-autoplay="{{ block.parameter('autoplay_time').value }}"{% endif %}

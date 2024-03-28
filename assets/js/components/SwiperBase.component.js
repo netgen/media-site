@@ -1,4 +1,5 @@
-import Swiper from 'swiper/dist/js/swiper';
+/* eslint-disable import/no-unresolved */
+import Swiper from 'swiper/bundle';
 
 export default class SwiperBase {
   constructor(element, options) {

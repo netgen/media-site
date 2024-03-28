@@ -1,0 +1,55 @@
+{% extends '@nglayouts/block/block.html.twig' %}
+
+{% import '@NetgenLayouts/parts/macros.html.twig' as macros %}
+
+{% block content %}
+    {% if collections.default is defined and collections.default is not empty %}
+        <div class="thumb-swiper">
+            <div class="gallery-top swiper"
+                data-effect="{{ block.parameter('transition').value }}"
+                data-length="{{ collections.default|length }}"
+                {% if block.parameter('infinite_loop').value %}data-loop="true"{% endif %}
+                {% if block.parameter('autoplay').value %}data-autoplay="{{ block.parameter('autoplay_time').value }}"{% endif %}
+            >
+                <div class="swiper-wrapper">
+                    {% for result in collections.default %}
+                        <div class="swiper-slide">
+                            {{ nglayouts_render_result(
+                                result,
+                                null,
+                                block.itemViewType, {
+                                    image_type: 'main',
+                                    show_details: block.parameter('show_details').value,
+                                    show_details_on_hover: block.parameter('show_details_on_hover').value
+                                }
+                            ) }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if block.parameter('next_and_previous').value %}
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                {% endif %}
+            </div>
+
+            <div class="swiper gallery-thumbs">
+                <div class="swiper-wrapper">
+                    {% for result in collections.default %}
+                        <div class="swiper-slide">
+                            {{ nglayouts_render_result(
+                                result,
+                                null,
+                                block.itemViewType, {
+                                    image_type: 'thumb',
+                                    show_details: block.parameter('show_details').value,
+                                    show_details_on_hover: block.parameter('show_details_on_hover').value
+                                }
+                            ) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+   {% endif %}
+{% endblock %}

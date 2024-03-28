@@ -1,4 +1,4 @@
-.related-multimedia.swiper-container {
+.related-multimedia.swiper {
     .swiper-navigation {
         @include swiper-navigation-as-overlay($top: 0, $right: 0, $hide-arrows-on-mobile: true);
     }
@@ -43,6 +43,10 @@
     .bg-color-black & {
         background-color: $white;
     }
+
+    &::after {
+        content: initial;
+    }
     @include media-breakpoint-down(sm) {
         width: 2.25rem;
         height: 2.25rem;
@@ -75,7 +79,7 @@
     }
 }
 
-.swiper-container {
+.swiper {
     .swiper-pagination {
         position: static;
         margin-top: 1rem;

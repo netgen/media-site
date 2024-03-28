@@ -2,14 +2,14 @@
 .ngl-vt-sushi_bar {
     position: relative;
     overflow: hidden;
-    .swiper-container {
+    .swiper {
         overflow: visible;
         position: static;
     }
     .swiper-slide {
         pointer-events: none;
         opacity: .2;
-        &.swiper-slide-visible {
+        &.swiper-slide-fully-visible {
             opacity: 1;
             pointer-events: initial;
         }
