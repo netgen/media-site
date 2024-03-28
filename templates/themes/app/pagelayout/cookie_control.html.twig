@@ -1,12 +1,28 @@
 {% if ngsite.siteInfoContent.hasField('related_cookie_policy') and not ngsite.siteInfoContent.fields.related_cookie_policy.empty %}
     {% set cookie_policy = ngsite.siteInfoContent.fieldRelation('related_cookie_policy') %}
+    {% set cookie_policy_text = cookie_policy.fieldRelation('cookie_policy_text') %}
 
     <div id="ng-cc">
         <div class="ng-cc-overlay"></div>
 
-        <div class="ng-cc-modal">
+        <div class="ng-cc-modal js-fetch-page" data-fetch-page-content-id="{{ cookie_policy_text.id }}">
+
+            {# cookie policy addition #}
+            {% if cookie_policy.hasField('cookie_policy_text') and not cookie_policy.fields.cookie_policy_text.empty %}
+                <div class="ng-cc-cookie-policy-text">
+                    <div class="wrapper">
+                        <div class="ng-cc-header-in">
+                            <a href="#" class="btn btn-default btn-icon-chevron-left btn-left-icon cookie-policy-hide js-fetch-page-remove">{{ 'ngsite.layout.cookie_settings.go_back'|trans }}</a>
+                        </div>
+                        <div class="js-fetch-page-placeholder">
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {# /cookie policy addition #}
+
             <div class="ng-cc-content">
-              <div class="wrapper">
+              <div class="wrapper ng-cc-js-link-cookie-policy js-fetch-page-trigger-wrapper">
                 {% if not cookie_policy.fields.ribbon_description.empty %}
                     {{ ng_render_field(cookie_policy.fields.ribbon_description) }}
                 {% endif %}

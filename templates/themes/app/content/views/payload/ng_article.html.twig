@@ -3,7 +3,7 @@
 
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
 
-<article class="view-type view-type-{{ view_type }} ng-article vl4">
+<article class="view-type view-type-{{ view_type }} ng-article">
 
     {{ content_fields.image(content, location, 'i320') }}
 
@@ -17,5 +17,12 @@
         <div class="short">
             {{ content_fields.intro(content) }}
         </div>
+
+        {% if content.fields.body is defined and not content.fields.body.empty %}
+            <div class="body">
+                {{ ng_render_field(content.fields.body) }}
+            </div>
+        {% endif %}
+
     </div>
 </article>

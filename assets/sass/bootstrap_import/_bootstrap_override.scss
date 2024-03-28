@@ -99,6 +99,18 @@
                 color: $white;
             }
         }
+        &.btn-icon-chevron-left {
+            &:active,
+            &.active,
+            &:not(:disabled):not(.disabled):active,
+            &:not(:disabled):not(.disabled).active,
+            &:hover,
+            &:focus-visible {
+                &:after {
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
     }
     &.btn-link {
         border: none;
@@ -125,6 +137,35 @@
             right: 1.5rem;
             top: 50%;
             transform: translate(0, -50%);
+        }
+    }
+
+    //icons
+    &[class*="btn-icon-"] {
+        align-items: center;
+        gap: 1rem;
+        &::after {
+            width: 1.125rem;
+            height: 1.125rem;
+            flex: 0 0 auto;
+            background-size: contain;
+            @include media-breakpoint-down(lg) {
+                width: .875rem;
+                height: .875rem;
+            }
+        }
+    }
+    &.btn-left-icon {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        padding-left: 1.25rem;
+        width: auto!important;
+    }
+    &.btn-icon-chevron-left {
+        &:after {
+            content: "";
+            background-image: url(../assets/icons/icon_chevron_left.svg);
         }
     }
 }
