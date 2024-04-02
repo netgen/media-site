@@ -145,6 +145,14 @@
             }
         }
     }
+    @include media-breakpoint-down(lg) {
+        overflow: scroll;
+        position: absolute;
+        z-index: 1000;
+        left: 0;
+        right: 0;
+        height: calc(100vh - #{$header-height-sm});
+    }
     @include media-breakpoint-down(xs) {
         left: 0;
         right: 0;
@@ -202,5 +210,19 @@
     }
     @include media-breakpoint-down(lg) {
         display: block;
+    }
+}
+
+
+.mainnav-active {
+    @include media-breakpoint-down(lg) {
+        overflow-y: hidden;
+        position: fixed;
+        width: 100%;
+        body {
+            overflow-y: hidden;
+            position: fixed;
+            width: 100%;
+        }
     }
 }
