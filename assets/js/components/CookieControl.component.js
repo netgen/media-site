@@ -22,7 +22,7 @@ export default class CookieControl {
     this.optionalListToggle.addEventListener('click', this.handleOptionalListToggle.bind(this));
 
     this.optionalSaveBtn.forEach((element) =>
-      element.addEventListener('click', this.handleConsentChange)
+      element.addEventListener('click', CookieControl.handleConsentChange)
     );
 
     this.cookiePolicyShow.addEventListener('click', (e) => {
