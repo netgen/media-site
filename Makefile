@@ -1,5 +1,5 @@
 APP_ENV = dev
-PHP_VERSION = php8.1
+PHP_VERSION = php8.2
 PHP_RUN = /usr/bin/env $(PHP_VERSION)
 COMPOSER_PATH = /usr/local/bin/composer2
 ifeq ("$(wildcard $(COMPOSER_PATH))","")
