@@ -1,0 +1,32 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ezplatform_url_management' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
+        { value: 'import.export'|trans|desc('Import/Export'), url: path('netgen_import_export.route.admin.overview') },
+        { value: 'export'|trans|desc('Export') }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {{ include('@NetgenContentBrowser/page_head.html.twig') }}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'export'|trans|desc('Export'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% if file is not null %}
+        <a href="{{ path('netgen_import_export.route.admin.download', {'file': file}) }}" class="btn btn-primary" id="download-link" onclick="window.onbeforeunload = null">Download File</a>
+    {% endif %}
+
+    {{ form_start(form) }}
+    {{ form_row(form.migration_type) }}
+    {{ form_row(form.source_structure) }}
+    {{ form_row(form.source) }}
+
+    <input type="submit" class="btn btn-primary" value="{{'Export'|trans }}" />
+    {{ form_end(form) }}
+{% endblock %}

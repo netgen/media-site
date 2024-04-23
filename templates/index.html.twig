@@ -1,0 +1,25 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ezplatform_url_management' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
+        { value: 'overview'|trans|desc('Import/Export') },
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'overview'|trans|desc('Import/Export'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    <p>
+        <a href="{{ path('netgen_import_export.route.admin.import') }}">Import</a>
+    </p>
+    <p>
+        <a href="{{ path('netgen_import_export.route.admin.export') }}">Export</a>
+    </p>
+{% endblock %}
