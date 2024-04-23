@@ -179,71 +179,8 @@
                 @extend %icon-dashboard;
             }
 
-            i.icon-notifications::before {
-                @extend %icon-notifications;
-            }
-
             i.icon-conversations::before {
                 @extend %icon-conversations;
-            }
-
-            i.icon-bookmarks::before {
-                @extend %icon-bookmarks;
-            }
-
-            i.icon-report::before {
-                @extend %icon-report;
-            }
-
-            i.icon-events::before {
-                @extend %icon-events;
-            }
-
-            i.icon-technical-enquiries::before {
-                @extend %icon-technical;
-            }
-
-            i.icon-executive-council::before {
-                @extend %icon-council;
-            }
-
-            i.icon-news::before {
-                @extend %icon-news;
-            }
-
-            i.icon-cbip::before {
-                @extend %icon-cbip;
-            }
-
-            &#menu_item_events_admin {
-                i.icon-events::before {
-                    @extend %icon-event-admin;
-                }
-            }
-
-            &#menu_item_events_pcp_hosting,
-            &#menu_item_events_specialist_hosting {
-                i.icon-events::before {
-                    @extend %icon-event-hosting;
-                }
-            }
-
-            &#menu_item_country_profiles {
-                i.icon-events::before {
-                    @extend %icon-my-country-profiles;
-                }
-            }
-
-            &#menu_item_mailing {
-                i.icon-my-country::before {
-                    @extend %icon-mailing;
-                }
-            }
-
-            &#menu_item_iota_admin_restricted_surveys_list {
-                i.icon-news::before {
-                    @extend %icon-survey;
-                }
             }
 
             @include media-breakpoint-down(md) {
@@ -310,10 +247,6 @@
                 position: absolute;
                 top: 9px;
                 left: 16px;
-            }
-
-            > div > i.icon-my-country::before {
-                @extend %icon-my-country;
             }
 
             ul.menu_level_1 {
@@ -476,10 +409,6 @@
                 position: absolute;
                 top: 11px;
                 left: 16px;
-            }
-
-            i.icon-report::before {
-                @extend %icon-report;
             }
 
             .user-settings {
