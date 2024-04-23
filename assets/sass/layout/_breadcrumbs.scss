@@ -84,13 +84,26 @@
         }
 
         &.breadcrumb-item {
-            @include media-breakpoint-down(md) {
+            span {
                 &:before {
-                    background: url("../../sass/assets/icons/chevron-left.svg") no-repeat center;
+                    @extend %icon-chevron-left;
                     content: "";
                     width: 1rem;
                     height: 1rem;
                     margin-right: 10px;
+                    display: none;
+                }
+                @include media-breakpoint-down(md) {
+                    display: inline-flex;
+                    align-items: center;
+                    &:before {
+                        display: inline-block;
+                    }
+                }
+            }
+            @include media-breakpoint-down(md) {
+                &:before {
+                    content: initial;
                 }
             }
         }
