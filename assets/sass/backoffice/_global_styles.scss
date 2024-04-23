@@ -1,6 +1,6 @@
 // Section styles
 
-.iota-bo-container {
+.backoffice-container {
     flex: 1;
 
     &.page-actions-fixed {
@@ -11,7 +11,7 @@
         min-height: calc(100vh - 5rem - 3.25rem - 4.625rem);
     }
 
-    .iota-bo-container-title {
+    .backoffice-container-title {
         color: $secondary_1;
         padding: 1rem;
 
@@ -19,50 +19,50 @@
     }
 }
 
-.iota-bo-section {
+.backoffice-section {
     padding: 1rem;
 
-    + .iota-bo-section,
-    .iota-bo-container-title + &,
-    + * > .iota-bo-section {
+    + .backoffice-section,
+    .backoffice-container-title + &,
+    + * > .backoffice-section {
         border-top: 2px solid $secondary_2;
     }
 
-    .iota-bo-section-title {
+    .backoffice-section-title {
         color: $secondary_1;
 
         font-size: 1.125rem;
         line-height: 1.2;
         font-weight: 600;
 
-        + .iota-bo-section-description {
+        + .backoffice-section-description {
             margin-top: 0.25rem;
             font-size: 0.75rem;
             line-height: 1.5;
             color: rgba($secondary_1, 0.66);
         }
 
-        ~ .iota-bo-section-content {
+        ~ .backoffice-section-content {
             margin-top: 1rem;
         }
     }
 
-    .iota-bo-section-content:first-child {
-        .iota-bo-table-view {
+    .backoffice-section-content:first-child {
+        .backoffice-table-view {
             margin-top: -1rem;
         }
     }
 
-    .iota-bo-section-actions {
+    .backoffice-section-actions {
         display: flex;
         justify-content: space-between;
 
-        .iota-bo-section-actions-right {
+        .backoffice-section-actions-right {
             margin-left: auto;
         }
 
-        .iota-bo-section-actions-left {
-            + .iota-bo-section-actions-right {
+        .backoffice-section-actions-left {
+            + .backoffice-section-actions-right {
                 margin-left: unset;
             }
         }
@@ -79,7 +79,7 @@
 .ngsb-form-controls {
 }
 
-.iota-bo-page-actions {
+.backoffice-page-actions {
     display: flex;
     justify-content: space-between;
     padding: 0 1rem;
@@ -94,18 +94,18 @@
         background-color: $secondary_2;
     }
 
-    .iota-bo-page-actions-right {
+    .backoffice-page-actions-right {
         margin-left: auto;
     }
 
-    .iota-bo-page-actions-left {
-        + .iota-bo-page-actions-right {
+    .backoffice-page-actions-left {
+        + .backoffice-page-actions-right {
             margin-left: unset;
         }
     }
 
-    .iota-bo-page-actions-left,
-    .iota-bo-page-actions-right {
+    .backoffice-page-actions-left,
+    .backoffice-page-actions-right {
         display: flex;
         gap: 1rem;
 
@@ -121,50 +121,16 @@
     }
 }
 
-//Status pill styles
-
-.iota-status-pill {
-    border-radius: 99px;
-    font-size: 0.875rem;
-    line-height: 1.4;
-    font-weight: 400;
-    padding: 0 0.75rem;
-    display: inline-block;
-
-    &.status-pill-large {
-        font-size: 1.25rem;
-        font-weight: 600;
-        padding: 1.5rem 0;
-        width: 100%;
-        text-align: center;
-        border-radius: 8px;
-    }
-
-    &.status-pill-positive {
-        background-color: rgba($badge-green-bg, 0.3);
-        color: $badge-green-text;
-    }
-
-    &.status-pill-neutral {
-        background-color: $gray;
-    }
-
-    &.status-pill-negative {
-        background-color: rgba($badge-red-bg, 0.3);
-        color: $badge-red-text;
-    }
-}
-
 // Table styles
 
-.iota-bo-table-view {
+.backoffice-table-view {
     margin-left: -1rem;
     margin-right: -1rem;
     margin-bottom: -1rem;
 }
 
-.iota-bo-table-view {
-    .iota-bo-table-head {
+.backoffice-table-view {
+    .backoffice-table-head {
         tr {
             border-bottom: 2px solid $secondary_2;
 
@@ -182,10 +148,10 @@
         }
     }
 
-    .iota-bo-table-body {
+    .backoffice-table-body {
         font-size: 0.875rem;
         line-height: 1.4;
-        
+
         tr {
             &:not(:last-child) {
                 border-bottom: 2px solid $secondary_2;
@@ -198,18 +164,18 @@
                     padding-left: 1rem;
                 }
 
-                &.iota-table-row-title {
+                &.backoffice-table-row-title {
                     font-weight: 600;
                 }
             }
         }
 
-        .iota-bo-table-row-highlight {
+        .backoffice-table-row-highlight {
             background-color: rgba($secondary_4, 0.05);
         }
     }
 
-    + .iota-bo-section-actions {
+    + .backoffice-section-actions {
         border-top: 2px solid $secondary_2;
         margin-left: -1rem;
         margin-right: -1rem;
