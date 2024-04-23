@@ -1,0 +1,376 @@
+.event-hosting-specialist,
+.event-hosting-pcp {
+    h2 {
+        padding: 16px;
+        font-size: 18px;
+        line-height: 1.2;
+        border-bottom: 2px solid $secondary_2;
+    }
+
+    .docs-list {
+        margin-bottom: 8px;
+
+        .event-date {
+            min-width: 200px;
+            width: 250px;
+        }
+
+        .event-location {
+            min-width: 150px;
+            width: 200px;
+        }
+
+        .event-hosting-status {
+            min-width: 100px;
+            width: 100px;
+            text-transform: capitalize;
+        }
+
+        .event-options {
+            width: 40px;
+        }
+    }
+}
+
+.event-apply-form,
+.event-hosting-form {
+    div.ngsb-field-field-group {
+        padding: 0 !important;
+        .field-group-header {
+            background-color: $secondary_2;
+            margin-top: 2rem;
+        }
+    }
+
+    .expense-threshold {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+
+        h2 {
+            width: 35%;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .thresholds-wrapper {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                padding: 0.5rem 0;
+                margin: 0;
+            }
+        }
+
+        .threshold-note {
+            color: rgba($secondary_1, 0.6);
+
+            a {
+                font-weight: 600;
+                color: $secondary_4;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .ngsb-form-field.ngsb-field-iota-expense {
+        padding: 0.5rem 0;
+        margin-bottom: 0;
+        .col-form-label {
+            padding: 1rem;
+            p {
+                margin-bottom: 0;
+                font-weight: 600;
+            }
+        }
+        &:hover {
+            background-color: unset;
+        }
+
+        .ngsb-field-wrapper {
+            display: flex;
+            gap: 8px 0;
+
+            .event-expense-item {
+                position: relative;
+                width: 100%;
+                border-top: 2px solid $border;
+                padding: 1rem;
+
+                .remove-btn-wrapper {
+                    position: absolute;
+                    right: 1rem;
+                    top: 0.5rem;
+                }
+
+                .expense-item-field {
+                    display: flex;
+
+                    + .expense-item-field {
+                        margin-top: 1rem;
+                    }
+
+                    label {
+                        width: 35%;
+                    }
+
+                    input {
+                        width: 65%;
+                        max-width: 330px;
+                    }
+                }
+            }
+            .btn {
+                margin: 0 1rem;
+            }
+        }
+
+        .add-new-item-wrapper {
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 2px solid $border;
+            border-bottom: 2px solid $border;
+        }
+    }
+
+    .total-group-amount-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        border-top: 2px solid $secondary_2;
+        margin-top: 2rem;
+        h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .group-amount-row {
+            display: flex;
+            gap: 1rem;
+
+            .group-amount-label {
+                width: 35%;
+                font-weight: 400;
+            }
+
+            .group-amount-value {
+                width: 65%;
+                font-weight: 600;
+                background-color: $secondary_3;
+                max-width: fit-content;
+                border-radius: 3px;
+                padding: 0 0.5rem;
+            }
+
+            .group-amount-value,
+            .group-amount-label {
+                font-size: 0.875rem;
+                line-height: 1.4;
+            }
+        }
+    }
+
+    .total-amount {
+        background-color: $secondary_3;
+        padding: 1rem;
+        &.total-amount-sticky {
+            position: sticky;
+            bottom: 0;
+            .total-amount-row {
+                margin-top: .5rem;
+            }
+            .total-amount-refresh {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+                @include media-breakpoint-down(md) {
+                    position: relative;
+                    margin-top: .5rem;
+                    right: auto;
+                    bottom: auto;
+                }
+            }
+        }
+        &-row {
+            display: flex;
+            margin-top: 1rem;
+
+            .total-amount-label {
+                width: 35%;
+                font-size: 0.875rem;
+                font-weight: 400;
+            }
+
+            .total-amount-value {
+                width: 65%;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.event-details {
+    padding-bottom: 5rem;
+    height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
+
+    .event-details-section {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        ~ .event-details-section {
+            border-top: 2px solid $border;
+        }
+
+        .event-details-section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .event-details-row {
+            display: flex;
+            gap: 1rem;
+
+            .event-details-label {
+                font-size: 0.875rem;
+                font-weight: 400;
+                width: 35%;
+                min-width: 200px;
+                color: $secondary_1;
+            }
+
+            .event-details-value {
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: $secondary_1;
+                width: 65%;
+            }
+
+            .event-details-multiple {
+                width: 65%;
+
+                .event-details-label {
+                    display: inline;
+                    min-width: unset;
+                    width: unset;
+                }
+
+                .event-details-value {
+                    display: inline;
+                    min-width: unset;
+                    width: unset;
+                }
+            }
+        }
+    }
+
+    + .page-actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        border-top: 2px solid $border;
+    }
+}
+
+.event-applied-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1rem 5rem;
+    position: relative;
+    h3 {
+        font-size: 1.125rem;
+        color: $secondary_1;
+        line-height: 1.2;
+    }
+
+    span {
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.4;
+    }
+
+    a {
+        color: $secondary_4;
+        text-decoration: underline;
+    }
+
+    .event-applied-detail {
+        color: rgba($secondary_1, 0.66);
+    }
+
+    .page-actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        border-top: 2px solid $border;
+    }
+}
+
+.specialist-add-event {
+    padding: 1rem;
+
+    .row-input {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        > label {
+            width: 25%;
+        }
+
+        > input,
+        > div {
+            width: 75%;
+        }
+
+        input[type='number'] {
+            width: 75%;
+            font-size: 14px;
+            font-weight: 600;
+            height: 40px;
+            border: 2px solid $border;
+            border-radius: 4px;
+            background-color: $light-bg;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+}
+
+.event-hosting-table {
+    .table-link {
+        color: $secondary_4;
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,42 @@
+@media print {
+    html,
+    body {
+        font-size: 10px !important;
+        width: 210mm !important;
+        margin: 0px;
+        background-color: transparent;
+    }
+
+    @page {
+        size: A4;
+        width: 210mm;
+        height: 297mm;
+        padding: 1cm;
+        margin: 25mm 25mm 25mm 25mm;
+        border: 1px #D3D3D3 solid;
+        border-radius: 0px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .container {
+        max-width: 100%;
+    }
+    .impersonation-active-panel,
+    .app-sidebar,
+    .btn:not(.btn-download-link),
+    .header-icon.icon-arrow {
+        display: none !important;
+    }
+    .list-group-item {
+        border: none;
+        border-radius: 0;
+    }
+    .alert {
+        color: $black;
+        background-color: transparent;
+        border-color: $black;
+    }
+    .collapse:not(.show) {
+        display: block;
+    }
+}

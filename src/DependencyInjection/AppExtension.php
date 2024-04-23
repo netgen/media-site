@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\DependencyInjection;
 
+use App\Attribute;
 use Symfony\Component\Config\Resource\FileResource;
+use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\Finder\Finder;
@@ -19,6 +21,8 @@ final class AppExtension extends Extension implements PrependExtensionInterface
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
+
+        $this->registerAttributeAutoConfiguration($container);
     }
 
     public function prepend(ContainerBuilder $container): void
@@ -31,5 +35,15 @@ final class AppExtension extends Extension implements PrependExtensionInterface
                 $container->addResource(new FileResource($file->getPathname()));
             }
         }
+    }
+
+    private function registerAttributeAutoConfiguration(ContainerBuilder $container): void
+    {
+        $container->registerAttributeForAutoconfiguration(
+            Attribute\AsMenuBuilder::class,
+            static function (ChildDefinition $definition, Attribute\AsMenuBuilder $attribute): void {
+                $definition->addTag('knp_menu.menu_builder', ['method' => $attribute->method, 'alias' => $attribute->alias]);
+            },
+        );
     }
 }

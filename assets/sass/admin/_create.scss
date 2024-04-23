@@ -1,0 +1,37 @@
+form.news-create {
+    padding: 16px 16px 150px 16px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    .create-actions {
+        position: absolute;
+        bottom: 0;
+        width: stretch;
+        border-top: 2px solid $secondary-3;
+        margin: 0 0 0 -16px;
+        padding: 16px;
+        justify-content: flex-end;
+        background-color: $white;
+        z-index: 10;
+
+        .btn {
+            margin-left: 8px;
+        }
+
+        .btn-hollow {
+            color: $secondary_4;
+        }
+
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+
+            .btn {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    .select {
+        max-width: 300px;
+    }
+}
