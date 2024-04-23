@@ -1,0 +1,15 @@
+{% extends '@app/admin/layout.html.twig' %}
+
+{% block title %}{{ title|default('IOTA Conversations') }}{% endblock %}
+
+{% block meta %}
+    {% include '@NetgenConversations/app/meta.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {% include '@NetgenConversations/app/javascripts.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {% include '@NetgenConversations/app/stylesheets.html.twig' %}
+{% endblock %}
