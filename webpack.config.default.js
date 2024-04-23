@@ -1,6 +1,5 @@
 // webpack.config.default.js
 const Encore = require('@symfony/webpack-encore');
-// eslint-disable-next-line no-unused-vars
 const Webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
 
 const path = require('path');
@@ -44,7 +43,7 @@ Encore
 
   .enablePostCssLoader((options) => {
     options.postcssOptions = {
-      config: path.resolve(__dirname, 'postcss.config.js'),
+      config: path.resolve(__dirname, 'postcss.config.js')
     };
   })
 
@@ -62,11 +61,12 @@ Encore
 
   .enableSingleRuntimeChunk()
 
-  // enables @babel/preset-env polyfills
+    // enables @babel/preset-env polyfills
   .configureBabelPresetEnv((config) => {
     config.useBuiltIns = 'entry';
     config.corejs = 3;
-  });
+  })
+;
 
 if (Encore.isProduction()) {
   Encore.configureFilenames({
@@ -75,11 +75,11 @@ if (Encore.isProduction()) {
   });
 
   Encore.configureImageRule({
-    filename: 'images/[name][ext]?v=[hash:8]',
+    filename: 'images/[name][ext]?v=[hash:8]'
   });
 
   Encore.configureFontRule({
-    filename: 'fonts/[name][ext]?v=[hash:8]',
+    filename: 'fonts/[name][ext]?v=[hash:8]'
   });
 }
 
