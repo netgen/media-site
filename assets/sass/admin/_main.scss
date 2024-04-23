@@ -1,0 +1,121 @@
+html, body {
+    background-color: #fff;
+}
+
+.app-container .app-main__outer {
+    transition: all .2s ease-in-out;
+
+    @include media-breakpoint-down(md) {
+        padding-top: 80px;
+    }
+}
+
+.impersonation-active {
+    .app-header {
+        top: 52px;
+
+        @media (max-width: 600px) {
+            top: 77px;
+        }
+    }
+
+    .app-container {
+        margin-top: 52px;
+
+        @media (max-width: 600px) {
+            margin-top: 77px;
+        }
+    }
+
+    .app-sidebar {
+        top: 52px;
+        height: calc(100vh - 52px);
+
+        @media (max-width: 600px) {
+            top: 144px;
+            height: calc(100vh - 144px);
+        }
+    }
+}
+
+.fixed-sidebar.app-container .app-main__outer {
+    z-index: 9;
+    padding-left: 248px;
+    padding-top: 80px;
+
+    @include media-breakpoint-down(md) {
+        padding-left: 0;
+        padding-top: 68px;
+    }
+}
+
+.closed-sidebar.fixed-sidebar .app-main__outer {
+    padding-left: 75px;
+
+    @include media-breakpoint-down(md) {
+        padding-left: 0;
+    }
+}
+
+.chat-container {
+    height: calc(100vh - #{$chat-header-height});
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    margin-right: 16px;
+    background-size: cover;
+    cursor: pointer;
+    @extend %icon-close;
+}
+
+.impersonation-active-panel {
+    background: $primary_0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-size: 0.875rem;
+    padding: 8px 16px;
+
+    p {
+        display: flex;
+        align-items: center;
+
+        &::before {
+            content: "";
+            width: 16px;
+            height: 16px;
+            display: block;
+            border-radius: 50%;
+            margin-right: 8px;
+            @extend %icon-info;
+        }
+    }
+
+    span {
+        font-weight: 600;
+        margin-left: 8px;
+    }
+
+    .btn-user-switch-back {
+        text-transform: uppercase;
+        color: $secondary_4;
+        border: 2px solid rgba($black, .12);
+        border-radius: 20px;
+        font-size: 0.75rem;
+        height: 36px;
+
+        @media (max-width: 600px) {
+            margin-top: 4px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+}

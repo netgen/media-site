@@ -1,0 +1,79 @@
+{% trans_default_domain 'admin' %}
+
+{% set user_initials = ibexa_field_value(app.user.APIUser, 'first_name').text[0:1] ~ ibexa_field_value(app.user.APIUser, 'last_name').text[0:1] %}
+
+{% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
+
+<div class="sidebar-wrapper">
+    <a class="sidebar-wrapper-logo" href="{{ ibexa_path(ibexa.rootLocation) }}" title="{{ site_name }}">
+        {{ site_name }}
+    </a>
+
+    <div class="sidebar-menu">
+        {{ knp_menu_render(
+            knp_menu_get('app.admin.main_menu'), {
+                'branch_class': 'has-submenu',
+                'template': '@app/admin/menu/knp_menu.html.twig'
+            }
+        ) }}
+    </div>
+
+    <div class="sidebar-bottom">
+        <ul>
+            <li>
+                <div>
+                    <i class="icon-report"></i>
+                    <a href="mailto:info@netgen.io">{{ 'layout.report_an_issue'|trans }}</a>
+                </div>
+            </li>
+            <li class="user-settings-menu-wrap">
+                <div class="user-settings" id="myAccountToggle">
+                    {% if not ibexa_field_is_empty(app.user.APIUser, 'image') %}
+                        <img class="avatar" src="{{ asset(ibexa_image_alias(app.user.APIUser.field('image'), app.user.APIUser.versionInfo, 'i160').uri) }}" alt="">
+                    {% else %}
+                        <i><span>{{ user_initials }}</span></i>
+                    {% endif %}
+                    <div>
+                        {{ app.user.APIUser.name }}
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="user-settings-menu" id="myAccountMenu">
+            <div class="user-settings-menu-header">
+                {% if not ibexa_field_is_empty(app.user.APIUser, 'image') %}
+                    <img class="avatar" src="{{ asset(ibexa_image_alias(app.user.APIUser.field('image'), app.user.APIUser.versionInfo, 'i160').uri) }}" alt="">
+                {% else %}
+                    <span class="user-icon"></span>
+                {% endif %}
+                <h6>{{ app.user.APIUser.name }}</h6>
+            </div>
+            <div class="user-settings-menu-body">
+                <ul>
+                    <li><a href="">{{ 'menu.main_menu.personal_details'|trans }}</a></li>
+                    <li><a href="">{{ 'menu.main_menu.user_credentials'|trans }}</a></li>
+
+{#                    {% if is_granted('ROLE_IOTA_MEMBER') %}#}
+{#                        <li><a href="{{ path('iota_admin_my_account_organization_details') }}">{{ 'menu.main_menu.organization_details'|trans }}</a></li>#}
+{#                    {% endif %}#}
+
+{#                    <li><a href="">{{ 'menu.main_menu.preferences'|trans }}</a></li>#}
+
+                    {% if is_granted('ibexa:netgen_ibexa_user_impersonation:impersonate') %}
+                        <li><a href="{{ path('netgen.ibexa_user_impersonation.admin.list') }}">{{ 'menu.main_menu.impersonate'|trans }}</a></li>
+                    {% elseif is_granted('ROLE_IMPERSONATED_USER') %}
+                        <li><a href="{{ path('netgen.ibexa_user_impersonation.app.user.switch_back') }}">{{ 'layout.user_settings.end_impersonation'|trans }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="user-settings-menu-footer">
+                <a href="{{ logout_path() }}">{{ 'menu.main_menu.logout'|trans }}</a>
+            </div>
+        </div>
+    </div>
+
+    <button id="toggleSidebar" class="sidebar-toggle">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+</div>

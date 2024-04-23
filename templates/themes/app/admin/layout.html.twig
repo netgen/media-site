@@ -1,0 +1,122 @@
+{% trans_default_domain 'admin' %}
+
+{% set user_initials = ibexa_field_value(app.user.APIUser, 'first_name').text[0:1] ~ ibexa_field_value(app.user.APIUser, 'last_name').text[0:1] %}
+
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|replace({'_': '-'}) }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+
+    {% block meta %}{% endblock %}
+
+{#    {% for href in encore_entry_css_files('app', 'ngsb') %}#}
+{#        <link rel="stylesheet" type="text/css" href="{{ href }}">#}
+{#    {% endfor %}#}
+
+    {% for href in encore_entry_css_files('admin-index', 'app') %}
+        <link rel="stylesheet" type="text/css" href="{{ href }}">
+    {% endfor %}
+
+    {% block stylesheets %}{% endblock %}
+
+    <script src="{{ asset('bundles/netgenibexafieldtypehtmltext/build/app.js') }}"></script>
+
+{#    {% for src in encore_entry_js_files('app', 'ngsb') %}#}
+{#        <script type="text/javascript" src="{{ src }}"></script>#}
+{#    {% endfor %}#}
+
+{#    <link rel="icon" href="{{ asset('images/iota/admin/favicon/favicon.ico') }}">#}
+{#    <link rel="icon" href="{{ asset('images/iota/admin/favicon/favicon-32x32.png') }}" sizes="32x32">#}
+{#    <link rel="shortcut icon" sizes="192x192" href="{{ asset('images/iota/admin/favicon/favicon-192x192.png') }}">#}
+{#    <link rel="apple-touch-icon" href="{{ asset('images/iota/admin/favicon/favicon-192x192.png') }}">#}
+
+    <title>
+        {% block title %}
+            {{ 'layout.title'|trans }}
+        {% endblock %}
+    </title>
+</head>
+<body {% if is_granted('ROLE_IMPERSONATED_USER') %}class="impersonation-active"{% endif %}>
+{% if is_granted('ROLE_IMPERSONATED_USER') %}
+    <div class="impersonation-active-panel d-flex justify-content-between align-items-center">
+        <p class="m-0">{{ 'layout.user_settings.you_are_impersonating'|trans }} <span>{{ app.user.APIUser.name }}</span></p>
+        <a class="btn btn-user btn-user-switch-back" href="{{ path("netgen.ibexa_user_impersonation.app.user.switch_back") }}">{{ 'layout.user_settings.end_impersonation'|trans }}</a>
+    </div>
+{% endif %}
+
+<div class="app-container fixed-sidebar">
+
+    <div class="app-header">
+        <a class="mainnav-toggle" id="mobileNavToggle" href="#">
+            <span class="hamburger"></span>
+        </a>
+
+{#        <a href="{{ ibexa_path(ibexa.rootLocation) }}" class="app-header-logo">#}
+{#            {% if not ngsite.siteInfoContent.fields.site_logo_inverted.empty %}#}
+{#                <img src="{{ asset(ngsite.siteInfoContent.fields.site_logo_inverted.value.id, 'ibexa_file') }}" alt="{{ ngsite.siteInfoContent.fields.site_name.value.text|trim }}" />#}
+{#            {% endif %}#}
+{#        </a>#}
+
+        <div class="app-header__content">
+            {% block header %}
+                <div class="app-header__content-wrap">
+                    <span class="app-header__content-initials">{{ user_initials }}</span>
+
+                    <div>
+                        <h3 class="app-header__content-name">{{ 'layout.hello'|trans }}, {{ app.user.APIUser.name }}</h3>
+                    </div>
+
+                    {% block header_menu %}{% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="app-tabs-mobile-wrapper">
+        {% block mobile_header_menu %}
+            {{ block('header_menu') }}
+        {% endblock %}
+    </div>
+
+    <div class="app-sidebar">
+        {% block main_menu %}
+            {% include '@app/admin/main_menu.html.twig' %}
+        {% endblock %}
+    </div>
+
+    <div class="content">
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                {% block top_navigation %}{% endblock %}
+
+                {% block pre_content %}{% endblock %}
+
+                <div class="flash-notices" id="flashNotices">
+                    {% for type, messages in app.session.flashBag.all %}
+                        {% for message in messages %}
+                            <div class="flash-{{ type }}">
+                                {{ message|trans }}
+                                <div class="btn btn-icon btn-icon-close"></div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+
+                {% block content %}{% endblock %}
+
+                {% block post_content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for src in encore_entry_js_files('admin-index', 'app') %}
+    <script defer type="text/javascript" src="{{ src }}"></script>
+{% endfor %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

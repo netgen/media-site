@@ -1,0 +1,41 @@
+.news-create {
+    div.row-input {
+        margin-bottom: 8px;
+        display: flex;
+        width: 100%;
+    }
+
+    div.tox.tox-tinymce {
+        display: none;
+    }
+
+    input[type="text"], textarea, .filter-select__select-options, div.tox.tox-tinymce {
+        height: 40px;
+        border-radius: 4px;
+        background: #FAFAFA;
+        border: 2px solid #E8E8E8;
+        font-size: 14px;
+        width: 65%;
+    }
+
+    textarea {
+        height: 160px;
+    }
+
+    label {
+        width: 35%;
+
+        + div {
+            flex-direction: column;
+            width: 65%;
+        }
+    }
+
+    .news-content {
+        margin-bottom: 24px;
+        p {
+            font-size: 0.875rem;
+            opacity: .66;
+        }
+    }
+}
