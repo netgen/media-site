@@ -70,7 +70,6 @@
         "webpack-notifier": "^1.6.0"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.8.1",
         "@netgen/javascript-cookie-control": "^0.0.8",
         "@popperjs/core": "^2.11.6",
         "bootstrap": "~5.2.1",

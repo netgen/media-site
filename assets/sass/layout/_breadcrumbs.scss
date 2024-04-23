@@ -38,7 +38,7 @@
                 color: #000;
                 padding: 0;
 
-                @include media-breakpoint-down(md) {
+                @include media-breakpoint-down(sm) {
                     content: none;
                 }
             }
@@ -86,11 +86,11 @@
         &.breadcrumb-item {
             @include media-breakpoint-down(md) {
                 &:before {
+                    background: url("../../sass/assets/icons/chevron-left.svg") no-repeat center;
                     content: "";
                     width: 1rem;
                     height: 1rem;
                     margin-right: 10px;
-                    @include iconChevron;
                 }
             }
         }
