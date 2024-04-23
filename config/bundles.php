@@ -82,4 +82,7 @@ return [
     Netgen\IbexaFieldTypeEnhancedLinkBundle\NetgenIbexaFieldTypeEnhancedLinkBundle::class => ['all' => true],
     Netgen\Bundle\BetterIbexaAdminUIBundle\NetgenBetterIbexaAdminUIBundle::class => ['all' => true],
     Netgen\Bundle\ToolbarBundle\NetgenToolbarBundle::class => ['all' => true],
+    Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
+    ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
+    Netgen\Bundle\ConversationsBundle\NetgenConversationsBundle::class => ['all' => true],
 ];
