@@ -1,4 +1,4 @@
-{% trans_default_domain 'admin' %}
+{% trans_default_domain 'backoffice' %}
 
 {% set user_initials = ibexa_field_value(app.user.APIUser, 'first_name').text[0:1] ~ ibexa_field_value(app.user.APIUser, 'last_name').text[0:1] %}
 
@@ -11,9 +11,9 @@
 
     <div class="sidebar-menu">
         {{ knp_menu_render(
-            knp_menu_get('app.admin.main_menu'), {
+            knp_menu_get('app.backoffice.main_menu'), {
                 'branch_class': 'has-submenu',
-                'template': '@app/admin/menu/knp_menu.html.twig'
+                'template': '@app/backoffice/menu/knp_menu.html.twig'
             }
         ) }}
     </div>
@@ -53,12 +53,6 @@
                 <ul>
                     <li><a href="">{{ 'menu.main_menu.personal_details'|trans }}</a></li>
                     <li><a href="">{{ 'menu.main_menu.user_credentials'|trans }}</a></li>
-
-{#                    {% if is_granted('ROLE_IOTA_MEMBER') %}#}
-{#                        <li><a href="{{ path('iota_admin_my_account_organization_details') }}">{{ 'menu.main_menu.organization_details'|trans }}</a></li>#}
-{#                    {% endif %}#}
-
-{#                    <li><a href="">{{ 'menu.main_menu.preferences'|trans }}</a></li>#}
 
                     {% if is_granted('ibexa:netgen_ibexa_user_impersonation:impersonate') %}
                         <li><a href="{{ path('netgen.ibexa_user_impersonation.admin.list') }}">{{ 'menu.main_menu.impersonate'|trans }}</a></li>
