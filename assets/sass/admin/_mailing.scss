@@ -1,0 +1,572 @@
+.mail-container {
+    padding: 1rem 1rem 0 1rem;
+
+    > ul.errors {
+        list-style: none;
+        margin-top: 1rem;
+        padding-left: 0;
+
+        li {
+            color: $red;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: '';
+                @extend %icon-alert;
+                margin-right: 4px;
+                width: 1rem;
+                height: 1rem;
+                display: inline-block;
+            }
+        }
+    }
+
+    h4 {
+        margin-bottom: 1rem;
+    }
+
+    &-preview-select {
+        margin: 2rem 0 1.5rem;
+        padding-left: 1rem;
+
+        span {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+    }
+
+    iframe {
+        border-radius: 4px;
+    }
+
+    &-actions {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        margin: 0 -1rem;
+
+        .btn-secondary {
+            margin-right: 8px;
+
+            @include media-breakpoint-down(sm) {
+                margin-right: 0;
+            }
+        }
+
+        .btn-primary {
+            margin-left: auto;
+        }
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
+    .mail-status {
+        td a {
+            font-weight: 600;
+            color: $secondary_4;
+        }
+    }
+}
+
+form .btn.btn-link.btn-link-plain.btn-padding-left {
+    padding-left: 1rem;
+}
+
+.mail-container-form-wrap {
+    margin-top: 2rem;
+    .mail-group-input {
+        padding-top: 2px;
+        margin-bottom: 1rem;
+        .row-input {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            label {
+                width: 35%;
+            }
+
+            input:not([type='checkbox']) {
+                width: 65%;
+                height: 40px;
+                background: $light-bg;
+                font-size: 0.875rem;
+
+                &[type='file'] {
+                    margin-left: -7px;
+                }
+            }
+
+            input[type='checkbox'] {
+                margin-bottom: 1rem;
+                margin-left: -4px;
+            }
+
+            div.cke {
+                border: 2px solid $border;
+                width: 65%;
+                margin-bottom: 1rem;
+            }
+
+            &.error-input {
+                margin-bottom: 2rem;
+                ul.errors {
+                    position: absolute;
+                    right: 0;
+                    bottom: -1.75rem;
+                }
+            }
+
+            .js-date-input {
+                padding-left: 8px;
+            }
+
+            &.row-input-baseline {
+                align-items: baseline;
+                margin-bottom: 2rem;
+                margin-top: 0.5rem;
+            }
+
+            &:has(label[for='mail_attachmentFile_delete']) {
+                margin-bottom: 1rem;
+
+                input[type='checkbox'] {
+                    margin-bottom: 0;
+                    margin-left: 0;
+                    position: relative;
+                    top: 2px;
+                }
+
+                a {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        &.mail-group-input-select-helper {
+            .ss-main.js-item-select[role="combobox"] {
+                width: 65%;
+                height: 40px;
+                background: $light-bg;
+                font-size: 0.875rem;
+            }
+        }
+
+        &.mail-group-input-checkbox {
+            .row-input input[type='checkbox'] {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .mail-group-input-helper {
+        .row-input {
+            > label {
+                display: none;
+            }
+        }
+    }
+
+    .mail-group-radio {
+        margin-top: 2rem;
+        .row-input {
+            display: flex;
+            align-items: center;
+            label {
+                width: 35%;
+            }
+
+            .row-input {
+                label {
+                    display: none;
+                }
+
+                input[type='radio'] {
+                    width: 24px;
+                    height: 24px;
+
+                    + label {
+                        display: inline-block;
+                    }
+                }
+            }
+
+            div#mail_from {
+                width: 65%;
+                display: flex;
+                align-items: center;
+
+                input {
+                    margin-right: 8px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    flex-direction: column;
+                }
+
+                input[type="radio"] {
+                    border: 2px solid $secondary_4;
+                    appearance: none;
+                    border-radius: 50%;
+
+                    @include media-breakpoint-down(sm) {
+                        + label {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mail-label-input {
+        display: flex;
+        margin-bottom: 1rem;
+        align-items: center;
+
+        label {
+            width: 35%;
+        }
+
+        div.js-item-select {
+            height: 40px;
+            background: $light-bg;
+            font-size: 14px;
+            width: 65%;
+        }
+
+        input {
+            width: 65%;
+        }
+
+        .ss-main {
+            overflow-y: auto;
+        }
+    }
+
+    form {
+        height: calc(100vh - 250px);
+        overflow-y: auto;
+        padding-bottom: 70px;
+        .create-actions {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            width: stretch;
+            border-top: 2px solid $secondary-3;
+            margin: 0 0 0 -16px;
+            padding: 16px;
+            justify-content: flex-end;
+            background-color: $white;
+            z-index: 10;
+
+            .btn {
+                margin-left: 8px;
+            }
+
+            .btn-hollow {
+                color: $secondary_4;
+            }
+
+            @include media-breakpoint-down(md) {
+                flex-direction: column;
+
+                .btn {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+}
+
+.mail-groups-filter-form.filter-form {
+    .ntf-filter-search .ntf-filter-search-wrap .ntf-filter-wrap select[multiple='multiple'] {
+        background-size: 0;
+
+        + .ss-main {
+            background-image: none;
+        }
+
+        @at-root .ss-content.form-select.ss-open-below {
+            background-image: none;
+        }
+    }
+}
+
+.mail-group-button-wrap {
+    padding: 1rem;
+
+    .btn-secondary:not(:disabled) {
+        background-color: $secondary_4;
+        border-color: $secondary_4;
+        color: $white;
+
+        &::after {
+            filter: brightness(6);
+        }
+    }
+}
+
+.mail-groups-container {
+    position: relative;
+    overflow-y: auto;
+
+    .mail-groups-form-table {
+        height: calc(100vh - 185px);
+        overflow-y: auto;
+        padding-bottom: 100px;
+
+        .mail-group-name-widget {
+            padding: 1rem;
+        }
+
+        .create-actions {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid $secondary-3;
+            padding: 16px;
+            justify-content: flex-end;
+            background-color: $white;
+            z-index: 10;
+
+            .btn {
+                margin-left: 8px;
+            }
+
+            .btn-hollow {
+                color: $secondary_4;
+            }
+
+            @include media-breakpoint-down(md) {
+                flex-direction: column;
+
+                .btn {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+
+    .filter-form {
+        .ntf-filter-search .ntf-filter-search-wrap-grid {
+            flex-wrap: wrap;
+            padding-right: 1rem;
+        }
+
+        &:not(.has-new-input) .ntf-filter-search {
+            .btn-apply-filters {
+                color: $secondary_1;
+                border: 2px solid $border;
+                pointer-events: all;
+            }
+        }
+
+        @at-root .ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected:hover {
+            background-color: $secondary_4;
+            color: $white;
+        }
+    }
+
+    .filter-form .ntf-filter-search .ss-main.form-select {
+        width: auto;
+        min-width: 300px;
+        max-width: 700px;
+        overflow-y: auto;
+
+        @include media-breakpoint-down(xxl) {
+            min-width: 100%;
+            background-size: 0;
+        }
+    }
+
+    .modal-dialog {
+        background-color: $white;
+        border-radius: 4px;
+        .ntf-filter-search-wrap,
+        .ntf-filter-wrap {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .ntf-filter-search .ntf-filter-search-wrap-grid {
+            padding-right: 0;
+        }
+
+        .ntf-filter-search .ntf-filter-search-wrap .ntf-filter-wrap select[multiple='multiple'] {
+            background-size: 0;
+        }
+
+        .date-wrapper {
+            width: 100%;
+            margin: 0 0 0.625rem 0;
+        }
+
+        .ntf-filter-search {
+            padding: 0 0 1rem 0;
+
+            .filter-by-date {
+                width: 100%;
+                input.flatpickr-input {
+                    width: 100%;
+                }
+            }
+
+            @at-root .modal-open .ss-content.form-select.ss-open-below {
+                .ss-search {
+                    display: none;
+                }
+            }
+        }
+
+        .modal-content {
+            border: none;
+        }
+
+        form.js-add-recipients-form {
+            overflow-x: auto;
+        }
+
+        table.js-table-with-checkbox {
+            min-width: 1000px;
+        }
+
+        .ntf-filter-wrap select[multiple='multiple'] {
+            background-size: 0;
+
+            + .ss-main {
+                background-image: none;
+            }
+
+            @at-root .ss-content.form-select.ss-open-below {
+                background-image: none;
+            }
+        }
+
+        .create-actions-user-modal {
+            padding-bottom: 2rem;
+        }
+    }
+
+    .mail-group-create-requirement {
+        button {
+            position: relative;
+            span {
+                position: absolute;
+                font-size: 0.75rem;
+                top: -50px;
+                left: 0;
+                padding: 0.25rem;
+                border-radius: 0.25rem;
+                background-color: $red;
+                color: $white;
+                box-shadow: 2px 2px 12px 4px rgba(0,0,0,0.15);
+                display: none;
+            }
+        }
+
+        &.mail-group-create-requirement-disabled {
+            button {
+                opacity: .65;
+                pointer-events: none;
+            }
+
+            &:hover {
+                span {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.mail-groups-table {
+    tr td a {
+        color: $secondary_4;
+        font-weight: 600;
+    }
+}
+
+.mail-placeholders-list {
+    column-count: 2;
+    column-gap: 4rem;
+    padding: 0;
+
+    &.mail-placeholders-hidden {
+        display: none;
+    }
+
+    li {
+        list-style: none;
+        display: flex;
+        margin-bottom: 0.5rem;
+        position: relative;
+        cursor: pointer;
+        &::before {
+            content: '';
+            height: 1.5rem;
+            width: 1.5rem;
+            display: inline-block;
+            margin-right: 0.25rem;
+            @extend %icon-copy;
+        }
+
+        .copy-tooltip {
+            display: none;
+            position: absolute;
+            font-size: 0.875rem;
+            left: 1.5rem;
+            right: 0;
+            top: 0.25rem;
+            background: rgba(black, .9);
+            width: max-content;
+            border-radius: 4px;
+            color: $white;
+            padding: 0 4px;
+        }
+        &.show-tooltip {
+            .copy-tooltip {
+                display: block;
+            }
+        }
+
+        &:hover {
+            opacity: .75;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        column-count: 1;
+    }
+}
+
+.show-placeholders-label {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &::after {
+        content: '';
+        width: 1.5rem;
+        height: 1.5rem;
+        display: inline-block;
+        transition: transform .15s ease-in-out;
+        @extend %icon-chevron;
+    }
+
+    &.arrow-toggle {
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+}
+

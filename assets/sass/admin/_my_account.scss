@@ -1,0 +1,253 @@
+.my-account {
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 24px 16px;
+
+        > div {
+            display: grid;
+            grid-template-columns: 35% 1fr;
+            column-gap: 1rem;
+
+            row-gap: 0.5rem;
+
+            @include media-breakpoint-down(sm) {
+                grid-template-columns: 1fr;
+            }
+
+            label {
+                flex: 35%;
+                color: $secondary_1;
+                margin-right: 0;
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            label[for='preferences_email_consent'] {
+                width: auto;
+            }
+
+            > input,
+            > .ss-main,
+            > .cke,
+            .custom-image-upload,
+            select {
+                width: 100%;
+
+                @include media-breakpoint-down(sm) {
+                    max-width: unset;
+                }
+            }
+
+            > input[type='checkbox'] {
+                min-width: unset;
+                max-width: 20px;
+            }
+
+            .errors {
+                flex: 100%;
+                margin-left: calc(35% + 16px);
+
+                @include media-breakpoint-down(sm) {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .my-account-image-container {
+            display: flex;
+            gap: 1rem;
+
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+
+                img {
+                    align-self: flex-start;
+                }
+            }
+
+            img {
+                border-radius: 4px;
+                max-width: 200px;
+                max-height: 200px;
+
+                &[src=''] {
+                    display: none;
+                }
+
+                + .custom-image-upload {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.75rem;
+
+                    .file-wrapper {
+                        width: unset;
+                    }
+
+                    .btn-replace-image {
+                        align-self: unset;
+                        margin-left: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        > .checkbox-row {
+            label {
+                grid-row: 1;
+                grid-column: 1;
+            }
+
+            input {
+                grid-row: 1;
+                grid-column: 2;
+            }
+
+            .extra-label {
+                grid-row: 1;
+                grid-column: 2;
+                margin-left: 1.625rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+
+            @include media-breakpoint-down(sm) {
+                grid-template-columns: 1fr minmax(auto, 50%);
+            }
+        }
+
+        &[name='change_password'] {
+            div:nth-child(1),
+            div:nth-child(2),
+            div:nth-child(3) {
+                position: relative;
+                margin-bottom: 1.25rem;
+
+                ul {
+                    flex: 100%;
+                    margin-left: calc(35% + 16px);
+                    position: absolute;
+                    list-style: none;
+                    top: 3rem;
+                    padding-left: 0;
+
+                    li {
+                        color: $red;
+                        font-size: 0.75rem;
+                        display: flex;
+                        align-items: center;
+
+                        &::before {
+                            content: '';
+                            @extend %icon-alert;
+                            margin-right: 4px;
+                            width: 1rem;
+                            height: 1rem;
+                            display: inline-block;
+                        }
+                    }
+
+                    @include media-breakpoint-down(lg) {
+                        margin-left: 0;
+                        margin-bottom: 0;
+                        right: 0;
+                        position: revert;
+                        grid-row: 2;
+                        grid-column: 2;
+                    }
+
+                    @include media-breakpoint-down(sm) {
+                        grid-column: 1;
+                        grid-row: 3;
+                    }
+                }
+
+                @include media-breakpoint-down(lg) {
+                    margin-bottom: 0.5rem;
+                }
+            }
+
+            @include media-breakpoint-down(lg) {
+                input:not([type='checkbox']) {
+                    min-width: 100%;
+                }
+            }
+
+            div:nth-child(3) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .change-email-wrapper {
+        .email-domain {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            height: 40px;
+            border: 2px solid $light-bg;
+            background-color: $light-bg;
+            color: $border-hover;
+            border-radius: 4px;
+            width: 330px;
+            padding: 0 12px 0 16px;
+        }
+    }
+
+    .form-actions-password-requirements {
+        margin-bottom: 16px;
+        width: calc(65% - 16px);
+        margin-left: auto;
+        display: inline-block;
+
+        p {
+            font-size: 0.875rem;
+            color: $gray-54;
+            margin-bottom: 0;
+        }
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+        }
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+        @include media-breakpoint-down(lg) {
+            justify-content: center;
+
+            button {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    &.my-account-preferences {
+        div.checkbox-row {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            min-width: 530px;
+
+            span.extra-label {
+                margin-left: 0;
+            }
+
+            @include media-breakpoint-down(sm) {
+                min-width: auto;
+                flex-direction: column;
+            }
+        }
+
+        .form-actions {
+            justify-content: flex-start;
+        }
+    }
+}

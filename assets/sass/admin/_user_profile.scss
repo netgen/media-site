@@ -1,0 +1,35 @@
+.user-profile {
+    padding: 1rem;
+    .user-profile-person-image {
+        width: 8.375rem;
+        height: 8.375rem;
+        margin-bottom: 1.25rem;
+        overflow: hidden;
+        position: relative;
+        img {
+            position: absolute;
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .user-profile-person-details {
+        h2 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+        dl {
+            dt {
+                font-weight: 400;
+                font-size: 0.875rem;
+                color: rgba(37, 45, 64, 0.66);
+            }
+            dd {
+                font-weight: 600;
+                font-size: 0.875rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@charset "UTF-8";
+// IMPORTANT: only add imports to this file
+
+// External libraries
+@import '@fortawesome/fontawesome-free/css/all';
+
+// Main variables
+@import '../variables';
+
+// Bootstrap setup
+@import 'bootstrap/scss/functions';
+@import '../bootstrap_import/bootstrap_variables';
+@import '../bootstrap_import/bootstrap';
+
+@import "flatpickr";
+
+// Mixins
+@import '../mixins/mixins';
+@import '../typography';
+
+@import '../bootstrap_import/bootstrap_override';
+
+@import 'icons';
+@import 'buttons';
+@import 'global';
+@import 'header';
+@import 'dashboard';
+@import 'sidebar';
+@import 'main';
+@import 'filter_form';
+@import 'listing';
+@import 'event_hosting';
+@import 'event_report';
+@import 'top_navigation';
+@import 'survey';
+@import 'user_impersonation';
+@import 'event_registration';
+@import 'spinner';
+@import 'modal';
+@import 'my_country';
+@import 'my_account';
+@import 'news';
+@import 'create';
+@import 'event';
+@import 'mailing';
+@import 'technical-enquiry';
+@import 'user_profile';
+@import 'cbip';
+@import 'global_styles';
+
+@import 'print';

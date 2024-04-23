@@ -1,0 +1,720 @@
+.hide-sm {
+    @media (max-width: 767px) {
+        display: none !important;
+    }
+}
+
+.hide-lg {
+    @media (min-width: 768px) {
+        display: none !important;
+    }
+}
+
+.cell-input-wrap {
+    display: flex;
+    align-items: center;
+
+    input[type='checkbox'] {
+        margin-right: 8px;
+    }
+
+    a {
+        font-weight: 600;
+    }
+}
+
+.flash-notices {
+    position: fixed;
+    right: 0;
+    top: 4rem;
+    font-size: 0.875rem;
+    z-index: 9999;
+    animation: 3s hideMessage 5s forwards;
+
+    > div {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        margin-bottom: 4px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+}
+
+.flash-success,
+.flash-notice,
+.flash-error {
+    padding: 1rem;
+    color: $secondary_4;
+    font-size: 1rem;
+    padding-bottom: 0;
+    font-weight: 600;
+
+    &::before {
+        content: '';
+        margin-right: 8px;
+        border-radius: 50%;
+        padding: 4px;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.flash-success {
+    background: $flash-ntf;
+    color: $flash-ntf-text;
+
+    &::before {
+        @extend %icon-check-white;
+        background-color: $success-green;
+    }
+}
+
+.flash-notice {
+    background: orange;
+
+    &::before {
+        content: '!';
+        line-height: 1;
+    }
+}
+
+.flash-error {
+    background: $red;
+    color: $white;
+
+    &::before {
+        content: '!';
+        line-height: 1;
+        font-weight: 600;
+        margin-right: 0;
+    }
+}
+
+@keyframes hideMessage {
+    from {
+        opacity: 1;
+        z-index: 9999;
+    }
+
+    to {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+form {
+    label {
+        font-size: 0.875rem;
+        margin-right: 16px;
+    }
+
+    .row-input {
+        &.error-input {
+            ul {
+                list-style: none;
+                margin-top: 0.5rem;
+                margin-bottom: 0;
+                padding-left: 0;
+
+                li {
+                    color: $red;
+                    font-size: 0.75rem;
+                    display: flex;
+                    align-items: center;
+
+                    &::before {
+                        content: '';
+                        @extend %icon-alert;
+                        margin-right: 4px;
+                        width: 1rem;
+                        height: 1rem;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    .ss-main .ss-values .ss-value {
+        background-color: rgba($secondary_1, 0.12);
+        font-weight: 900;
+        padding: 1px;
+
+        .ss-value-text {
+            color: $secondary_1;
+        }
+
+        .ss-value-delete {
+            border-left: none;
+            svg {
+                transform: scale(1.25);
+                margin-top: 1px;
+
+                path {
+                    stroke: $secondary_1;
+                }
+            }
+        }
+    }
+}
+
+div.ss-content {
+    font-size: 14px;
+    border: 2px solid $border;
+    border-radius: 4px;
+    background-color: $light-bg;
+
+    &.ss-open-below {
+        border-top: none;
+        border-color: $secondary_1;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    &.ss-open-above {
+        border-bottom: none;
+        border-color: $secondary_1;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .ss-list {
+        .ss-option:not(.ss-hide) {
+            line-height: 1.4;
+            margin: 0 8px 4px;
+            padding: 6px 4px;
+            display: block;
+            &:hover {
+                background-color: $secondary_2;
+                color: inherit;
+            }
+
+            .ss-search-highlight {
+                padding: 0;
+                background-color: $secondary_4;
+                color: $secondary_3;
+            }
+        }
+
+        .ss-search,
+        .ss-searching {
+            padding: 4px 14px 8px;
+        }
+    }
+
+    .ss-search {
+        input {
+            background-color: transparent;
+            border: none;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &::-webkit-search-cancel-button {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        .ss-addable {
+            border: none;
+            margin-right: 8px;
+        }
+    }
+}
+
+div.ss-main {
+    padding-left: 13px;
+    border-radius: 4px !important;
+
+    .ss-arrow {
+        width: 16px;
+        height: 16px;
+        margin-right: 16px;
+
+        path {
+            stroke-width: 14px;
+        }
+    }
+
+    &[aria-expanded='true'] {
+        border-color: $secondary_1;
+    }
+
+    &.ss-open-below {
+        border-bottom: none;
+        border-radius: 4px 4px 0 0 !important;
+    }
+
+    &.ss-open-above {
+        border-top: none;
+        border-radius: 0 0 4px 4px !important;
+    }
+}
+
+div.ss-main,
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='email'],
+input[type='file'],
+select,
+textarea,
+textarea.form-control {
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    border: 2px solid $border;
+    border-radius: 4px;
+    width: 330px;
+    background-color: $light-bg;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+
+    @include media-breakpoint-down(md) {
+        width: 100%;
+        max-width: 330px;
+    }
+}
+
+textarea,
+textarea.form-control {
+    height: unset;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+select,
+select.form-select,
+textarea,
+textarea.form-control {
+    padding: 0 12px 0 16px;
+
+    &::placeholder {
+        font-weight: 400;
+        color: $border-hover;
+    }
+
+    &:hover:not(:disabled):not(:focus):not([readonly='readonly']) {
+        border-color: $border-hover;
+    }
+
+    &:focus,
+    &:focus-visible {
+        outline: none;
+        box-shadow: none;
+
+        &:not(:disabled):not([readonly='readonly']) {
+            border-color: $secondary_1;
+            font-weight: 400;
+            letter-spacing: 0.07px;
+        }
+    }
+
+    &:disabled,
+    &[readonly='readonly']:not([data-provide='datetimepicker']):not(.flatpickr-input) {
+        border-color: $light-bg;
+        background-color: $light-bg;
+        color: $border-hover;
+    }
+}
+
+textarea,
+textarea.form-control {
+    padding: 10px 12px 10px 16px;
+    height: unset;
+}
+
+select {
+    @extend %icon-chevron;
+    background-position: right 12px center;
+    appearance: none;
+    padding-right: 44px;
+
+    &,
+    &.form-select {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+input[type='checkbox'] {
+    &,
+    &.form-check-input {
+        position: relative;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        appearance: none;
+        background-color: $white;
+        margin: 0;
+
+        border-radius: 4px;
+        border: 2px solid $border;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+
+        &:not(:checked):not(:indeterminate):hover {
+            background-color: $light-bg;
+        }
+
+        &:checked:not(:indeterminate) {
+            background-color: $secondary_4;
+            border-color: $secondary_4;
+            background-image: none;
+
+            &::after {
+                content: '';
+                @extend %icon-check;
+                position: absolute;
+                inset: 0;
+            }
+        }
+
+        &:indeterminate {
+            background-color: $secondary_4;
+            border-color: $secondary_4;
+            background-image: none;
+
+            &::after {
+                content: '—';
+                color: white;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1;
+                position: absolute;
+                inset: 0;
+            }
+        }
+    }
+}
+
+input[type='file'] {
+    font-weight: 400;
+
+    &::file-selector-button {
+        background-color: $white;
+        color: $secondary_1;
+        border: none;
+        border-radius: 4px;
+        border: 2px solid $border;
+        padding: 2px 6px;
+        margin: 4px;
+        height: 28px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        font-weight: 600;
+    }
+
+    &:hover {
+        &::file-selector-button {
+            background-color: rgba($secondary_1, 0.12);
+            border-color: $border-hover;
+        }
+    }
+}
+
+input[type='radio'],
+input[type='radio'].form-check-input {
+    border-width: 2px;
+    width: 20px;
+    height: 20px;
+    @extend .form-check-input;
+
+    &:checked {
+        background-image: none;
+        position: relative;
+        background-color: transparent;
+        border-color: $secondary_4;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 500px;
+            background-color: $secondary_4;
+        }
+    }
+}
+
+div.cke,
+div.cke.cke_chrome {
+    border: none;
+    box-sizing: border-box;
+    width: calc(65% - 16px);
+    border-radius: 4px;
+    border: 2px solid $border;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+        border-color: $border-hover;
+    }
+
+    &.cke_focus {
+        border-color: black;
+    }
+
+    .cke_inner {
+        flex: 1;
+
+        .cke_top {
+            border-bottom: none;
+        }
+
+        .cke_bottom {
+            border-top: none;
+        }
+
+        .cke_contents {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-color: rgba(0, 0, 0, 0.01);
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+ol li a {
+    color: $secondary_4;
+}
+
+.ntf-view-text a {
+    color: $secondary_4;
+    font-weight: 600;
+    border-bottom: 2px solid $border;
+}
+
+.gl-star-rating--stars[class*=' s'] > span {
+    background-image: none !important;
+
+    &::before {
+        content: '';
+        @extend %icon-star;
+        position: absolute;
+        width: 24px;
+        height: 24px;
+    }
+
+    &:hover {
+        &::before {
+            @include icon-color(secondary_4);
+        }
+    }
+}
+
+.gl-star-rating--stars[class*=' s'] > span.gl-active {
+    background-image: none !important;
+
+    &::before {
+        @extend %icon-star-filled;
+    }
+}
+
+input[type='range'] {
+    width: 330px;
+
+    + output {
+        width: fit-content;
+    }
+
+    @include media-breakpoint-down(md) {
+        width: 100%;
+        max-width: 330px;
+    }
+}
+
+.custom-image-upload {
+    .file-wrapper {
+        display: inline-block;
+        border: 2px solid $border;
+        border-radius: 4px;
+        padding: 4px;
+        width: 330px;
+        max-width: 100%;
+        background-color: $light-bg;
+        height: 40px;
+        display: inline-block;
+
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+            max-width: unset;
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        .file-container {
+            width: fit-content;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: rgba($secondary_1, 0.12);
+
+            .file-name {
+                max-width: 274px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                @include media-breakpoint-down(sm) {
+                    max-width: calc(100vw - 6.5rem);
+                }
+            }
+
+            .remove-image-btn {
+                background-color: transparent;
+                border: none;
+
+                &::after {
+                    content: '';
+                    @extend %icon-close;
+                    position: absolute;
+                    inset: 0;
+                }
+            }
+        }
+    }
+
+    .image-upload {
+        position: relative;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    .btn-replace-image {
+        text-transform: uppercase;
+        height: fit-content;
+        align-self: center;
+        margin-left: 16px;
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+.alert.alert-margin {
+    margin: 1rem;
+}
+
+.ajax-message-wrapper {
+    max-width: 40%;
+    margin: 7rem auto 2rem;
+
+    i {
+        font-size: 4rem;
+        color: $success-green;
+        margin-bottom: 2rem;
+    }
+
+    &-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    h4 {
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        max-width: 100%;
+
+        i {
+            font-size: 3rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.sf-helper {
+    @include media-breakpoint-up(xl) {
+        .ntf-create-actions,
+        .create-actions,
+        .event-actions {
+            background-color: $white;
+            width: calc(100% - 248px) !important;
+        }
+    }
+}
+
+.ntf-create {
+    input[type=checkbox] {
+        height: auto;
+        width: revert;
+    }
+}
+
+.admin-form-action-buttons-wrapper {
+    display: none;
+    background-color: $light-bg;
+    width: 100%;
+    &.visible {
+        display: inline-flex;
+    }
+
+    .btn-action {
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        font-size: .875rem;
+        color: $secondary_4;
+        margin-right: 0.875rem;
+
+        &.icon-user-cancel {
+            &::before {
+                content: '';
+                @extend %icon-user-cancel;
+                width: 1.5rem;
+                height: 1.5rem;
+                display: block;
+                margin-right: 8px;
+            }
+        }
+
+        &.icon-user-check {
+            &::before {
+                content: '';
+                @extend %icon-user-check;
+                width: 1.5rem;
+                height: 1.5rem;
+                display: block;
+                margin-right: 8px;
+            }
+        }
+
+        &.icon-delete {
+            &::before {
+                content: '';
+                @extend %icon-trash;
+                width: 1.5rem;
+                height: 1.5rem;
+                display: block;
+                margin-right: 8px;
+            }
+        }
+    }
+}
