@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Admin\Menu;
+namespace App\Backoffice\Menu;
 
 use App\Attribute\AsMenuBuilder;
 use Knp\Menu\FactoryInterface;
@@ -10,7 +10,7 @@ use Knp\Menu\ItemInterface;
 use Netgen\Conversations\Participant\ParticipantProviderInterface;
 use Netgen\Conversations\Repository\ConversationRepository;
 
-#[AsMenuBuilder('createMenu', 'app.admin.main_menu')]
+#[AsMenuBuilder('createMenu', 'app.backoffice.main_menu')]
 final class MainMenuBuilder
 {
     public function __construct(
@@ -26,7 +26,7 @@ final class MainMenuBuilder
         $menu
             ->addChild('conversations', ['route' => 'ngconversations_app'])
             ->setLabel('menu.main_menu.conversations')
-            ->setExtra('translation_domain', 'admin')
+            ->setExtra('translation_domain', 'backoffice')
             ->setExtra('icon_class', 'icon-conversations')
             ->setExtra(
                 'icon_count',

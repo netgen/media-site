@@ -1,4 +1,4 @@
 netgen_conversations:
     resource: '@NetgenConversationsBundle/Resources/config/routing.yaml'
     defaults:
-        ngconversations_pagelayout: '@app/admin/conversations/layout.html.twig'
+        ngconversations_pagelayout: '@app/backoffice/conversations/layout.html.twig'
