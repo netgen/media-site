@@ -23,7 +23,7 @@ Encore
   // will create public/assets/app/build/index.js and public/assets/app/build/index.css
   .addEntry('index', `./${siteConfig.assetsLocation}/js/index.js`)
   .addEntry('index-noncritical', `./${siteConfig.assetsLocation}/js/index-noncritical.js`)
-  .addEntry('admin-index', `./${siteConfig.assetsLocation}/js/admin/index.js`)
+  .addEntry('backoffice-index', `./${siteConfig.assetsLocation}/js/backoffice/index.js`)
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {

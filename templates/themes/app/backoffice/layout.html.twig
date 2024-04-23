@@ -16,7 +16,7 @@
 {#        <link rel="stylesheet" type="text/css" href="{{ href }}">#}
 {#    {% endfor %}#}
 
-    {% for href in encore_entry_css_files('admin-index', 'app') %}
+    {% for href in encore_entry_css_files('backoffice-index', 'app') %}
         <link rel="stylesheet" type="text/css" href="{{ href }}">
     {% endfor %}
 
@@ -83,7 +83,7 @@
 
     <div class="app-sidebar">
         {% block main_menu %}
-            {% include '@app/admin/main_menu.html.twig' %}
+            {% include '@app/backoffice/main_menu.html.twig' %}
         {% endblock %}
     </div>
 
@@ -113,7 +113,7 @@
     </div>
 </div>
 
-{% for src in encore_entry_js_files('admin-index', 'app') %}
+{% for src in encore_entry_js_files('backoffice-index', 'app') %}
     <script defer type="text/javascript" src="{{ src }}"></script>
 {% endfor %}
 
