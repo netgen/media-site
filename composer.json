@@ -53,7 +53,8 @@
         "netgen/layouts-ibexa": "~1.4.0",
         "netgen/layouts-ibexa-site-api": "~1.4.0",
         "netgen/layouts-ibexa-relation-list-query": "^1.4",
-        "netgen/layouts-ibexa-tags-query": "^1.4"
+        "netgen/layouts-ibexa-tags-query": "^1.4",
+        "netgen/conversations": "^1.0"
     },
     "require-dev": {
         "symfony/debug-bundle": "5.4.*",
@@ -73,6 +74,9 @@
         "symfony/css-selector": "5.4.*",
         "symfony/phpunit-bridge": "5.4.*"
     },
+    "repositories": [
+        { "type": "composer", "url": "https://packagist.netgen.biz", "canonical": false }
+    ],
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
