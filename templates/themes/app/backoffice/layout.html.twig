@@ -12,10 +12,6 @@
 
     {% block meta %}{% endblock %}
 
-{#    {% for href in encore_entry_css_files('app', 'ngsb') %}#}
-{#        <link rel="stylesheet" type="text/css" href="{{ href }}">#}
-{#    {% endfor %}#}
-
     {% for href in encore_entry_css_files('backoffice-index', 'app') %}
         <link rel="stylesheet" type="text/css" href="{{ href }}">
     {% endfor %}
@@ -23,15 +19,6 @@
     {% block stylesheets %}{% endblock %}
 
     <script src="{{ asset('bundles/netgenibexafieldtypehtmltext/build/app.js') }}"></script>
-
-{#    {% for src in encore_entry_js_files('app', 'ngsb') %}#}
-{#        <script type="text/javascript" src="{{ src }}"></script>#}
-{#    {% endfor %}#}
-
-{#    <link rel="icon" href="{{ asset('images/iota/admin/favicon/favicon.ico') }}">#}
-{#    <link rel="icon" href="{{ asset('images/iota/admin/favicon/favicon-32x32.png') }}" sizes="32x32">#}
-{#    <link rel="shortcut icon" sizes="192x192" href="{{ asset('images/iota/admin/favicon/favicon-192x192.png') }}">#}
-{#    <link rel="apple-touch-icon" href="{{ asset('images/iota/admin/favicon/favicon-192x192.png') }}">#}
 
     <title>
         {% block title %}
