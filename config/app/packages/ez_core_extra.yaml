@@ -4,6 +4,8 @@ ez_core_extra:
             twig_globals:
                 date_format: 'd MMM y'
                 datetime_format: 'd MMM y, H:mm'
+                admin_siteaccess_name: '%ngsite.admin_siteaccess_name%'
+                default_siteaccess_name: '%ibexa.site_access.default%'
         bold_ger:
             twig_globals:
                 date_format: 'd. MMMM y'
