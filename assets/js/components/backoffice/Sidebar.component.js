@@ -55,14 +55,12 @@ export default class Sidebar {
     }
 
     // Scroll sidebar to the selected item after the reload
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentItems = document.querySelectorAll(this.options.currentItems);
+    const currentItems = document.querySelectorAll(this.options.currentItems);
 
-      if (currentItems.length > 0) {
-        const currentItem = currentItems[0];
-        currentItem.scrollIntoView();
-      }
-    });
+    if (currentItems.length > 0) {
+      const currentItem = currentItems[0];
+      currentItem.scrollIntoView();
+    }
 
     // Detect Safari for specific CSS
     if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
