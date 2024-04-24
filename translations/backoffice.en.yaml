@@ -5,6 +5,7 @@ layout.user_settings: 'User settings'
 layout.user_settings.end_impersonation: 'End impersonation'
 layout.user_settings.you_are_impersonating: 'You are impersonating'
 
+menu.main_menu.dashboard: 'Dashboard'
 menu.main_menu.conversations: 'Conversations'
 menu.main_menu.personal_details: 'Personal details'
 menu.main_menu.user_credentials: 'User credentials'
