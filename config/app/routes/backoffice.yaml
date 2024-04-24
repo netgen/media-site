@@ -1,0 +1,6 @@
+backoffice:
+    resource: backoffice/*
+    prefix: /backoffice
+    trailing_slash_on_root: false
+    defaults:
+        allowed_siteaccess: peak_eng
