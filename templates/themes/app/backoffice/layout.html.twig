@@ -1,4 +1,4 @@
-{% trans_default_domain 'admin' %}
+{% trans_default_domain 'backoffice' %}
 
 {% set user_initials = ibexa_field_value(app.user.APIUser, 'first_name').text[0:1] ~ ibexa_field_value(app.user.APIUser, 'last_name').text[0:1] %}
 
