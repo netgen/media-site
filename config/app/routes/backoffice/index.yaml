@@ -1,5 +1,5 @@
-admin_index:
-    path: /backoffice
+backoffice_index:
+    path: /
     controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction'
     methods: [GET]
     defaults:
@@ -7,6 +7,6 @@ admin_index:
         permanent: true
 
 backoffice_dashboard_index:
-    path: /backoffice/dashboard
+    path: /dashboard
     controller: App\Controller\Backoffice\Dashboard\Index
     methods: [GET]
