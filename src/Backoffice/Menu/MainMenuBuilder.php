@@ -24,6 +24,12 @@ final class MainMenuBuilder
         $menu = $this->factory->createItem('root');
 
         $menu
+            ->addChild('dashboard', ['route' => 'backoffice_dashboard_index'])
+            ->setLabel('menu.main_menu.dashboard')
+            ->setExtra('translation_domain', 'backoffice')
+            ->setExtra('icon_class', 'icon-dashboard');
+
+        $menu
             ->addChild('conversations', ['route' => 'ngconversations_app'])
             ->setLabel('menu.main_menu.conversations')
             ->setExtra('translation_domain', 'backoffice')
