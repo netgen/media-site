@@ -19,7 +19,8 @@ export default class NgConversationsMarkThreadAsRead {
         if (countElement === null) {
           countElement = document.createElement('span');
           countElement.classList.add(this.options.menuItemCountClass);
-          menuItem.insertBefore(countElement, menuItem.querySelector(this.options.menuItemIconSelector));
+          const menuItemIcon = menuItem.querySelector(this.options.menuItemIconSelector);
+          menuItemIcon.parentNode.insertBefore(countElement, menuItemIcon);
         }
 
         countElement.innerText = count;
