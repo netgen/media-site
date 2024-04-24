@@ -8,6 +8,7 @@ ibexa:
             - fh_eng
             - bold_eng
             - bold_ger
+            - peak_eng
             - '%ngsite.admin_siteaccess_name%'
         groups:
             admin_group:
@@ -16,11 +17,14 @@ ibexa:
                 - fh_eng
                 - bold_eng
                 - bold_ger
+                - peak_eng
             fh_group:
                 - fh_eng
             bold_group:
                 - bold_eng
                 - bold_ger
+            peak_group:
+                - peak_eng
     system:
         admin_group:
             design: ngadmin
@@ -48,6 +52,15 @@ ibexa:
                     location_id: '%ngsite.bold_group.locations.tree_root.id%'
             session:
                 name: eZSESSID
+        peak_group:
+            design: peak
+            translation_siteaccesses:
+                - peak_eng
+            content:
+                tree_root:
+                    location_id: '%ngsite.peak_group.locations.tree_root.id%'
+            session:
+                name: eZSESSID
         fh_eng:
             languages:
                 - eng-GB
@@ -57,6 +70,9 @@ ibexa:
         bold_ger:
             languages:
                 - ger-DE
+        peak_eng:
+            languages:
+                - eng-GB
 
 netgen_layouts:
     design_list:
@@ -68,6 +84,11 @@ netgen_layouts:
 
 ibexa_design_engine:
     design_list:
+        peak:
+            - peak
+            - app
+            - common
+            - standard
         bold:
             - bold
             - app
