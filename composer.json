@@ -36,13 +36,14 @@
 
         "novactive/ezseobundle": "^7.0.4",
         "sentry/sentry-symfony": "^4.13",
-        "twig/intl-extra": "^3.8",
+        "twig/twig": "^3.9",
+        "twig/intl-extra": "^3.9",
         "tanoconsulting/ibexa-migration-bundle": "^1.0",
 
         "netgen/media-site-data": "^3.2",
         "netgen/site-bundle": "^3.2",
         "netgen/site-installer-bundle": "^3.1",
-        "netgen/ibexa-site-api": "^6.1",
+        "netgen/ibexa-site-api": "^6.1.2",
         "netgen/ibexa-search-extra": "^3.2.1",
         "netgen/information-collection-bundle": "^3.0@alpha",
         "netgen/ibexa-fieldtype-enhanced-link": "^1.1.2",
