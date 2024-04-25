@@ -30,6 +30,12 @@ final class MainMenuBuilder
             ->setExtra('icon_class', 'icon-dashboard');
 
         $menu
+            ->addChild('bookmarks', ['route' => 'backoffice_bookmarks_index'])
+            ->setLabel('menu.main_menu.bookmarks')
+            ->setExtra('translation_domain', 'backoffice')
+            ->setExtra('icon_class', 'icon-bookmarks');
+
+        $menu
             ->addChild('conversations', ['route' => 'ngconversations_app'])
             ->setLabel('menu.main_menu.conversations')
             ->setExtra('translation_domain', 'backoffice')
