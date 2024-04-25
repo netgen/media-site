@@ -9,7 +9,3 @@ parameters:
 
     symfony:
         container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
-
-    ignoreErrors:
-        # Disable errors for various "only read/written" properties
-        - '#\$\w+ is never (written|read), only (read|written).#'
