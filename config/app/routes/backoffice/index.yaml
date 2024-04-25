@@ -8,5 +8,5 @@ backoffice_index:
 
 backoffice_dashboard_index:
     path: /dashboard
-    controller: App\Controller\Backoffice\Dashboard\Index
+    controller: App\Backoffice\Controller\Dashboard\Index
     methods: [GET]

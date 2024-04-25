@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Doctrine\Entity;
+namespace App\Backoffice\Doctrine\Entity;
 
 use DateTimeImmutable;
 use Netgen\IbexaSiteApi\API\Values\Location;

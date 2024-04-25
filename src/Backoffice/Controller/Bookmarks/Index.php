@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Backoffice\Bookmarks;
+namespace App\Backoffice\Controller\Bookmarks;
 
-use App\Backoffice\Filters\Bookmarks\ContentType;
-use App\Doctrine\Repository\BookmarkRepository;
-use App\Form\Filter\FilterType;
-use App\Pagerfanta\BookmarksAdapter;
+use App\Backoffice\Doctrine\Repository\BookmarkRepository;
+use App\Backoffice\Form\Bookmarks\ContentType;
+use App\Backoffice\Form\Filter\FilterType;
+use App\Backoffice\Pagerfanta\BookmarksAdapter;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Netgen\Bundle\IbexaSiteApiBundle\Controller\Controller;
