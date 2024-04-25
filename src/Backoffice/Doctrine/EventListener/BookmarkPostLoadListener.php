@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Doctrine\EventListener;
+namespace App\Backoffice\Doctrine\EventListener;
 
-use App\Doctrine\Entity\Bookmark;
+use App\Backoffice\Doctrine\Entity\Bookmark;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsEntityListener;
 use Doctrine\ORM\Event\PostLoadEventArgs;
 use Doctrine\ORM\Event\PostPersistEventArgs;

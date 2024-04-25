@@ -13,10 +13,15 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
-                type: xml
-                dir: '%kernel.project_dir%/config/app/doctrine'
-                prefix: 'App\Doctrine\Entity'
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
                 alias: App
+            App\Backoffice:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/app/doctrine/backoffice'
+                prefix: 'App\Backoffice\Doctrine\Entity'
+                alias: Backoffice
 
 when@test:
     doctrine:
