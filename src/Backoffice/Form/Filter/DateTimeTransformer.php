@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Form\Filter;
+namespace App\Backoffice\Form\Filter;
 
 use DateTimeImmutable;
 use DateTimeZone;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Backoffice\Filters\Bookmarks;
+namespace App\Backoffice\Form\Bookmarks;
 
 use Generator;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;

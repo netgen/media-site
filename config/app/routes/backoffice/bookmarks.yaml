@@ -1,11 +1,11 @@
 backoffice_bookmarks_index:
     path: /bookmarks
-    controller: App\Controller\Backoffice\Bookmarks\Index
+    controller: App\Backoffice\Controller\Bookmarks\Index
     methods: [GET]
 
 backoffice_bookmarks_delete:
     path: /bookmarks/delete/{id}
-    controller: App\Controller\Backoffice\Bookmarks\Delete
+    controller: App\Backoffice\Controller\Bookmarks\Delete
     methods: [GET, POST]
     requirements:
         id: \d+
