@@ -15,7 +15,7 @@ doctrine:
                 is_bundle: false
                 type: xml
                 dir: '%kernel.project_dir%/config/app/doctrine'
-                prefix: 'App\Entity'
+                prefix: 'App\Doctrine\Entity'
                 alias: App
 
 when@test:

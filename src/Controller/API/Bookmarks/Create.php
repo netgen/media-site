@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller\API\Bookmarks;
 
-use App\Entity\Bookmark;
-use App\Repository\BookmarkRepository;
+use App\Doctrine\Entity\Bookmark;
+use App\Doctrine\Repository\BookmarkRepository;
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Netgen\Bundle\IbexaSiteApiBundle\Controller\Controller;
 use Netgen\IbexaSiteApi\API\Values\Location;

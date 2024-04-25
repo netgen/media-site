@@ -2,18 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Repository;
+namespace App\Doctrine\Repository;
 
-use App\Entity\Bookmark;
+use App\Doctrine\Entity\Bookmark;
+use App\Repository\Repository;
 use DateTimeImmutable;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method \App\Entity\Bookmark|null find($id, $lockMode = null, $lockVersion = null)
- * @method \App\Entity\Bookmark|null findOneBy(array $criteria, array $orderBy = null)
- * @method \App\Entity\Bookmark[] findAll()
- * @method \App\Entity\Bookmark[] findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method \App\Doctrine\Entity\Bookmark|null find($id, $lockMode = null, $lockVersion = null)
+ * @method \App\Doctrine\Entity\Bookmark|null findOneBy(array $criteria, array $orderBy = null)
+ * @method \App\Doctrine\Entity\Bookmark[] findAll()
+ * @method \App\Doctrine\Entity\Bookmark[] findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 final class BookmarkRepository extends Repository
 {
@@ -39,7 +40,7 @@ final class BookmarkRepository extends Repository
     }
 
     /**
-     * @return iterable<int, \App\Entity\Bookmark>
+     * @return iterable<int, \App\Doctrine\Entity\Bookmark>
      */
     public function filterUserBookmarks(
         int $userId,

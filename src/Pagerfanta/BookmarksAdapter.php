@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Pagerfanta;
 
-use App\Repository\BookmarkRepository;
+use App\Doctrine\Repository\BookmarkRepository;
 use DateTimeImmutable;
 use Pagerfanta\Adapter\AdapterInterface;
 
@@ -34,7 +34,7 @@ final class BookmarksAdapter implements AdapterInterface
      * @param int $offset
      * @param int $length
      *
-     * @return iterable<int, \App\Entity\Bookmark>
+     * @return iterable<int, \App\Doctrine\Entity\Bookmark>
      */
     public function getSlice($offset, $length): iterable
     {

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Controller\Backoffice\Bookmarks;
 
 use App\Backoffice\Filters\Bookmarks\ContentType;
+use App\Doctrine\Repository\BookmarkRepository;
 use App\Form\Filter\FilterType;
 use App\Pagerfanta\BookmarksAdapter;
-use App\Repository\BookmarkRepository;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Netgen\Bundle\IbexaSiteApiBundle\Controller\Controller;

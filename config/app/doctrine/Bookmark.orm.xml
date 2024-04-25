@@ -5,7 +5,7 @@
     xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
         https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
-    <entity name="App\Entity\Bookmark" table="ngsite_bookmark">
+    <entity name="App\Doctrine\Entity\Bookmark" table="ngsite_bookmark">
         <unique-constraints>
             <unique-constraint columns="user_id,location_id" />
         </unique-constraints>
