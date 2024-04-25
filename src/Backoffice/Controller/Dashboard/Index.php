@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Backoffice\Dashboard;
+namespace App\Backoffice\Controller\Dashboard;
 
 use Netgen\Bundle\IbexaSiteApiBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
