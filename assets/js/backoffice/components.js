@@ -1,6 +1,7 @@
 // This file contains only import, configuration and initialization of components
 import addDocumentEventListeners from '../utilities/components/add-document-event-listeners';
 
+import ModalConfirmControl from '../components/backoffice/ModalConfirmControl.component';
 import NgConversationsMarkThreadAsRead from '../components/backoffice/NgConversationsMarkThreadAsRead.component';
 import Sidebar from '../components/backoffice/Sidebar.component';
 
@@ -22,8 +23,13 @@ const componentConfiguration = [
       hasSubmenu: '.has-submenu',
       submenu: '.menu_level_1',
       child: 'div:first-child',
-      currentItems: '.app-sidebar .sidebar-wrapper .current, .app-sidebar .sidebar-wrapper .current_ancestor',
+      currentItems:
+        '.app-sidebar .sidebar-wrapper .current, .app-sidebar .sidebar-wrapper .current_ancestor',
     },
+  },
+  {
+    Component: ModalConfirmControl,
+    selector: '.js-modal-confirm',
   },
 ];
 
