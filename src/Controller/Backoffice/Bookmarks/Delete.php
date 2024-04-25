@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller\Backoffice\Bookmarks;
 
-use App\Entity\Bookmark;
-use App\Repository\BookmarkRepository;
+use App\Doctrine\Entity\Bookmark;
+use App\Doctrine\Repository\BookmarkRepository;
 use Netgen\Bundle\IbexaSiteApiBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

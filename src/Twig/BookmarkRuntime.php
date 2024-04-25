@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Twig;
 
-use App\Entity\Bookmark;
-use App\Repository\BookmarkRepository;
+use App\Doctrine\Entity\Bookmark;
+use App\Doctrine\Repository\BookmarkRepository;
 use Netgen\IbexaSiteApi\API\Values\Location;
 use Symfony\Component\Security\Core\Security;
 use Twig\Extension\RuntimeExtensionInterface;

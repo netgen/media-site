@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\EventListener\Ibexa\Bookmarks;
 
-use App\Repository\BookmarkRepository;
+use App\Doctrine\Repository\BookmarkRepository;
 use Ibexa\Contracts\Core\Repository\Events\Content\UpdateContentEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
