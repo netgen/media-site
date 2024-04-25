@@ -16,6 +16,7 @@ import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
 import SkipToMainContent from './components/SkipToMainContent.component';
+import BookmarkWidget from './components/BookmarkWidget.component';
 
 // Configuration
 const componentConfiguration = [
@@ -213,6 +214,14 @@ const componentConfiguration = [
   {
     Component: SkipToMainContent,
     selector: '#skip-to-main-content',
+  },
+  {
+    Component: BookmarkWidget,
+    selector: '.js-bookmark-widget',
+    options: {
+      bookmarkIcon: '.fa-bookmark',
+      bookmarkTooltip: '.bookmark-tooltip',
+    },
   },
 ];
 

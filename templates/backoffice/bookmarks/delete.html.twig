@@ -1,0 +1,26 @@
+{% trans_default_domain 'backoffice' %}
+
+<div class="modal-header">
+    <div class="modal-title centered">
+        <i class="icon-error"></i>
+        <button class="close-modal" type="button" data-bs-dismiss="modal">
+            <i class="icon-close"></i>
+        </button>
+        <p>
+            {{ 'bookmarks.delete.title'|trans }}
+        </p>
+    </div>
+</div>
+
+<div class="modal-body centered">
+    <p>{{ 'bookmarks.delete.confirmation'|trans({'%content%': bookmark.location.content.name}) }}</p>
+</div>
+
+<div class="modal-footer centered">
+    <form action="{{ path('backoffice_bookmarks_delete', { id: bookmark.id }) }}" method="post">
+        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">{{ 'bookmarks.delete.cancel'|trans }}</button>
+        <button class="btn btn-primary" type="submit">{{ 'bookmarks.delete'|trans }}</button>
+
+        {{ form_rest(form) }}
+    </form>
+</div>

@@ -1,0 +1,76 @@
+{% extends 'backoffice/layout.html.twig' %}
+
+{% trans_default_domain 'backoffice' %}
+
+{% block content %}
+    <form method="get" class="filter-form js-filter-form">
+        {{ form_widget(filter_form) }}
+    </form>
+
+    {% if bookmarks|length > 0 %}
+        <table width="100%" class="list-table">
+            <thead>
+                <tr>
+                    <th>{{ 'bookmarks.title'|trans }}</th>
+                    <th>{{ 'bookmarks.type'|trans }}</th>
+                    <th>{{ 'bookmarks.saved'|trans }}</th>
+                    <th>{{ 'bookmarks.options'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody class="list-body">
+            {% for bookmark in bookmarks %}
+                <tr>
+                    <td class="list-title">
+                        <a target="_blank" href="{{ ibexa_path(bookmark.location) }}">
+                            {{ bookmark.location.content.name }}
+                        </a>
+                    </td>
+                    <td>
+                        {% if bookmark.location is not null %}
+                            {{ bookmark.location.contentInfo.contentType.name }}
+                        {% endif %}
+                    </td>
+                    <td>{{ bookmark.createdAt|format_datetime }}</td>
+                    <td>
+                        <div class="dropdown" >
+                            <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="icon-dots"></i>
+                            </div>
+                            <div class="dropdown-menu">
+                                {% if bookmark.location is not null %}
+                                <div class="dropdown-item with-icon with-icon-left">
+                                    <i class="icon-docs"></i>
+                                    <a target="_blank" href="{{ ibexa_path(bookmark.location) }}">{{ 'bookmarks.view_content'|trans }}</a>
+                                </div>
+                                {% endif %}
+                                <div class="dropdown-item with-icon with-icon-left">
+                                    <i class="icon-delete"></i>
+                                    <button class="js-modal-confirm"
+                                        type="button"
+                                        data-bs-target="#js-confirm-modal"
+                                        data-bs-toggle="modal"
+                                        data-modal-element-selector="#js-confirm-modal .modal-content"
+                                        data-get-form-url="{{ path('backoffice_bookmarks_delete', { id: bookmark.id }) }}"
+                                    >
+                                        {{ 'bookmarks.delete'|trans }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% include 'backoffice/parts/confirm_modal.html.twig' %}
+
+        {% if bookmarks.haveToPaginate() %}
+            {{ pagerfanta(bookmarks, 'ngsite') }}
+        {% endif %}
+    {% else %}
+        <div class="nothing-to-show nothing-to-show-with-margin">
+            <h3>{{ 'bookmarks.no_bookmarks'|trans }}</h3>
+        </div>
+    {% endif %}
+{% endblock %}

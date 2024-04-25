@@ -1,0 +1,22 @@
+<div class="page-floating-widgets">
+
+    <a class="print-icon js-print-icon" aria-label="Print" href="javascript:;" onclick="window.print();">
+        <i class="fas fa-print"></i>
+    </a>
+
+    {% if location is defined and is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% if location.contentInfo.contentType.identifier in ibexa.configResolver.parameter('bookmarks.content_types', 'ngsite') %}
+            {% set is_bookmarked = ngsite_bookmark(location) is not null %}
+
+            <a class="print-icon bookmark-widget js-bookmark-widget"
+               href="javascript:;"
+               data-is-bookmarked="{{ is_bookmarked ? 'true' : 'false' }}"
+               data-create-bookmark-endpoint="{{ path('ngsite_api_bookmarks_create', { locationId: location.id }) }}"
+               data-delete-bookmark-endpoint="{{ path('ngsite_api_bookmarks_delete', { locationId: location.id }) }}"
+            >
+                <i class="{{ is_bookmarked ? 'fas' : 'far' }} fa-bookmark"></i>
+                <span class="bookmark-tooltip"></span>
+            </a>
+        {% endif %}
+    {% endif %}
+</div>
