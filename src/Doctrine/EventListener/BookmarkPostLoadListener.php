@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Doctrine\EventListener;
 
-use App\Entity\Bookmark;
+use App\Doctrine\Entity\Bookmark;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsEntityListener;
 use Doctrine\ORM\Event\PostLoadEventArgs;
 use Doctrine\ORM\Event\PostPersistEventArgs;
