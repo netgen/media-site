@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping
+    xmlns="https://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+    <entity name="App\Entity\Bookmark" table="ngsite_bookmark">
+        <unique-constraints>
+            <unique-constraint columns="user_id,location_id" />
+        </unique-constraints>
+
+        <id name="id" type="integer">
+            <generator />
+        </id>
+
+        <field name="createdAt" type="datetime_immutable" />
+        <field name="userId" type="integer" />
+        <field name="contentId" type="integer" />
+        <field name="locationId" type="integer" />
+        <field name="contentTypeId" type="integer" />
+        <field name="title" type="string" />
+    </entity>
+</doctrine-mapping>

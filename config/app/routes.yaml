@@ -1,0 +1,13 @@
+ngsite_api_bookmarks_create:
+    path: /api/bookmarks/create/{locationId}
+    controller: App\Controller\API\Bookmarks\Create
+    methods: [POST]
+    requirements:
+        locationId: \d+
+
+ngsite_api_bookmarks_delete:
+    path: /api/bookmarks/delete/{locationId}
+    controller: App\Controller\API\Bookmarks\Delete
+    methods: [POST]
+    requirements:
+        locationId: \d+

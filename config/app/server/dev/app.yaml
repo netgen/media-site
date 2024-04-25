@@ -24,3 +24,12 @@ parameters:
     # This is Netgen Stack Demo GTM code: GTM-WMG2VT2
     # Replace it with project specific GTM code before going live
     ngsite.default.site_settings.google_tag_manager_code: 'GTM-WMG2VT2'
+
+    ngsite.default.pager_limit: 25
+
+    ngsite.default.bookmarks.content_types:
+        - ng_article
+        - ng_category
+        - ng_job_position
+        - ng_landing_page
+        - ng_news

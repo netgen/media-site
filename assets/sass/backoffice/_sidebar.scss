@@ -186,6 +186,10 @@
                 @extend %icon-dashboard;
             }
 
+            i.icon-bookmarks::before {
+                @extend %icon-bookmarks;
+            }
+
             i.icon-conversations::before {
                 @extend %icon-conversations;
             }
