@@ -76,9 +76,6 @@
 
 // Page actions styles (e.g. next page, discard, save)
 
-.ngsb-form-controls {
-}
-
 .backoffice-page-actions {
     display: flex;
     justify-content: space-between;
@@ -124,12 +121,8 @@
 // Table styles
 
 .backoffice-table-view {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    margin-bottom: -1rem;
-}
+    margin: 0 -1rem -1rem;
 
-.backoffice-table-view {
     .backoffice-table-head {
         tr {
             border-bottom: 2px solid $secondary_2;
@@ -153,6 +146,7 @@
         line-height: 1.4;
 
         tr {
+
             &:not(:last-child) {
                 border-bottom: 2px solid $secondary_2;
             }
