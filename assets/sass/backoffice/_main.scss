@@ -1,56 +1,56 @@
 html, body {
-    background-color: #fff;
+    background-color: $white;
 }
 
 .app-container .app-main__outer {
     transition: all .2s ease-in-out;
 
     @include media-breakpoint-down(md) {
-        padding-top: 80px;
+        padding-top: 5rem;
     }
 }
 
 .impersonation-active {
     .app-header {
-        top: 52px;
+        top: 3.25rem;
 
         @media (max-width: 600px) {
-            top: 77px;
+            top: 4.8125rem;
         }
     }
 
     .app-container {
-        margin-top: 52px;
+        margin-top: 3.25rem;
 
         @media (max-width: 600px) {
-            margin-top: 77px;
+            margin-top: 4.8125rem;
         }
     }
 
     .app-sidebar {
-        top: 52px;
-        height: calc(100vh - 52px);
+        top: 3.25rem;
+        height: calc(100vh - 3.25rem);
 
         @media (max-width: 600px) {
-            top: 144px;
-            height: calc(100vh - 144px);
+            top: 9rem;
+            height: calc(100vh - 9rem);
         }
     }
 }
 
 .fixed-sidebar.app-container .app-main__outer {
     z-index: 9;
-    padding-left: 248px;
-    padding-top: 80px;
+    padding-left: 15.5rem;
+    padding-top: 5rem;
 
     @include media-breakpoint-down(md) {
         padding-left: 0;
-        padding-top: 68px;
+        padding-top: 4.25rem;
     }
 }
 
 .closed-sidebar.fixed-sidebar .app-main__outer {
-    padding-left: 75px;
+    padding-left: 4.6875rem;
 
     @include media-breakpoint-down(md) {
         padding-left: 0;
@@ -64,9 +64,9 @@ html, body {
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
     appearance: none;
-    width: 16px;
-    height: 16px;
-    margin-right: 16px;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
     background-size: cover;
     cursor: pointer;
     @extend %icon-close;
@@ -80,7 +80,11 @@ input[type="search"]::-webkit-search-cancel-button {
     left: 0;
     z-index: 1000;
     font-size: 0.875rem;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
 
     p {
         display: flex;
@@ -88,18 +92,18 @@ input[type="search"]::-webkit-search-cancel-button {
 
         &::before {
             content: "";
-            width: 16px;
-            height: 16px;
+            width: 1rem;
+            height: 1rem;
             display: block;
             border-radius: 50%;
-            margin-right: 8px;
+            margin-right: 0.5rem;
             @extend %icon-info;
         }
     }
 
     span {
         font-weight: 600;
-        margin-left: 8px;
+        margin-left: 0.5rem;
     }
 
     .btn-user-switch-back {
@@ -108,14 +112,10 @@ input[type="search"]::-webkit-search-cancel-button {
         border: 2px solid rgba($black, .12);
         border-radius: 20px;
         font-size: 0.75rem;
-        height: 36px;
+        height: 2.25rem;
 
         @media (max-width: 600px) {
-            margin-top: 4px;
+            margin-top: 0.25rem;
         }
-    }
-
-    @media (max-width: 600px) {
-        flex-direction: column;
     }
 }

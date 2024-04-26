@@ -15,7 +15,7 @@
     align-items: center;
 
     input[type='checkbox'] {
-        margin-right: 8px;
+        margin-right: 0.5rem;
     }
 
     a {
@@ -34,8 +34,8 @@
     > div {
         display: flex;
         align-items: center;
-        padding: 8px 16px;
-        margin-bottom: 4px;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.25rem;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
     }
@@ -52,11 +52,11 @@
 
     &::before {
         content: '';
-        margin-right: 8px;
+        margin-right: 0.5rem;
         border-radius: 50%;
-        padding: 4px;
-        width: 24px;
-        height: 24px;
+        padding: 0.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }
 
@@ -71,7 +71,7 @@
 }
 
 .flash-notice {
-    background: orange;
+    background: $orange;
 
     &::before {
         content: '!';
@@ -106,7 +106,7 @@
 form {
     label {
         font-size: 0.875rem;
-        margin-right: 16px;
+        margin-right: 1rem;
     }
 
     .row-input {
@@ -126,7 +126,7 @@ form {
                     &::before {
                         content: '';
                         @extend %icon-alert;
-                        margin-right: 4px;
+                        margin-right: 0.25rem;
                         width: 1rem;
                         height: 1rem;
                         display: inline-block;
@@ -139,7 +139,7 @@ form {
     .ss-main .ss-values .ss-value {
         background-color: rgba($secondary_1, 0.12);
         font-weight: 900;
-        padding: 1px;
+        padding: 0.0625rem;
 
         .ss-value-text {
             color: $secondary_1;
@@ -149,7 +149,7 @@ form {
             border-left: none;
             svg {
                 transform: scale(1.25);
-                margin-top: 1px;
+                margin-top: 0.0625rem;
 
                 path {
                     stroke: $secondary_1;
@@ -160,7 +160,7 @@ form {
 }
 
 div.ss-content {
-    font-size: 14px;
+    font-size: 0.875rem;
     border: 2px solid $border;
     border-radius: 4px;
     background-color: $light-bg;
@@ -182,8 +182,8 @@ div.ss-content {
     .ss-list {
         .ss-option:not(.ss-hide) {
             line-height: 1.4;
-            margin: 0 8px 4px;
-            padding: 6px 4px;
+            margin: 0 0.5rem 0.25rem;
+            padding: 0.375rem 0.25rem;
             display: block;
             &:hover {
                 background-color: $secondary_2;
@@ -199,7 +199,7 @@ div.ss-content {
 
         .ss-search,
         .ss-searching {
-            padding: 4px 14px 8px;
+            padding: 0.25rem 0.875rem 0.5rem;
         }
     }
 
@@ -213,26 +213,26 @@ div.ss-content {
             }
 
             &::-webkit-search-cancel-button {
-                width: 12px;
-                height: 12px;
+                width: 0.75rem;
+                height: 0.75rem;
             }
         }
 
         .ss-addable {
             border: none;
-            margin-right: 8px;
+            margin-right: 0.5rem;
         }
     }
 }
 
 div.ss-main {
-    padding-left: 13px;
+    padding-left: 0.8125rem;
     border-radius: 4px !important;
 
     .ss-arrow {
-        width: 16px;
-        height: 16px;
-        margin-right: 16px;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 1rem;
 
         path {
             stroke-width: 14px;
@@ -263,9 +263,9 @@ input[type='file'],
 select,
 textarea,
 textarea.form-control {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
-    height: 40px;
+    height: 2.5rem;
     border: 2px solid $border;
     border-radius: 4px;
     width: 330px;
@@ -290,7 +290,7 @@ select,
 select.form-select,
 textarea,
 textarea.form-control {
-    padding: 0 12px 0 16px;
+    padding: 0 0.75rem 0 1rem;
 
     &::placeholder {
         font-weight: 400;
@@ -323,7 +323,7 @@ textarea.form-control {
 
 textarea,
 textarea.form-control {
-    padding: 10px 12px 10px 16px;
+    padding: 0.625rem 0.75rem 0.625rem 1rem;
     height: unset;
 }
 
@@ -331,11 +331,11 @@ select {
     @extend %icon-chevron;
     background-position: right 12px center;
     appearance: none;
-    padding-right: 44px;
+    padding-right: 2.75rem;
 
     &,
     &.form-select {
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 600;
     }
 }
@@ -344,8 +344,8 @@ input[type='checkbox'] {
     &,
     &.form-check-input {
         position: relative;
-        height: 20px;
-        width: 20px;
+        height: 1.25rem;
+        width: 1.25rem;
         cursor: pointer;
         appearance: none;
         background-color: $white;
@@ -379,7 +379,7 @@ input[type='checkbox'] {
 
             &::after {
                 content: '—';
-                color: white;
+                color: $white;
                 font-weight: 700;
                 display: flex;
                 align-items: center;
@@ -401,9 +401,9 @@ input[type='file'] {
         border: none;
         border-radius: 4px;
         border: 2px solid $border;
-        padding: 2px 6px;
-        margin: 4px;
-        height: 28px;
+        padding: 0.125rem 0.375rem;
+        margin: 0.25rem;
+        height: 1.75rem;
         cursor: pointer;
         transition: background-color 0.3s ease, border-color 0.3s ease;
         font-weight: 600;
@@ -420,8 +420,8 @@ input[type='file'] {
 input[type='radio'],
 input[type='radio'].form-check-input {
     border-width: 2px;
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     @extend .form-check-input;
 
     &:checked {
@@ -436,8 +436,8 @@ input[type='radio'].form-check-input {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
+            width: 0.625rem;
+            height: 0.625rem;
             border-radius: 500px;
             background-color: $secondary_4;
         }
@@ -448,7 +448,7 @@ div.cke,
 div.cke.cke_chrome {
     border: none;
     box-sizing: border-box;
-    width: calc(65% - 16px);
+    width: calc(65% - 1rem);
     border-radius: 4px;
     border: 2px solid $border;
     transition: border-color 0.3s ease;
@@ -458,7 +458,7 @@ div.cke.cke_chrome {
     }
 
     &.cke_focus {
-        border-color: black;
+        border-color: $black;
     }
 
     .cke_inner {
@@ -503,8 +503,8 @@ ol li a {
         content: '';
         @extend %icon-star;
         position: absolute;
-        width: 24px;
-        height: 24px;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 
     &:hover {
@@ -525,13 +525,13 @@ ol li a {
 input[type='range'] {
     width: 330px;
 
-    + output {
-        width: fit-content;
-    }
-
     @include media-breakpoint-down(md) {
         width: 100%;
         max-width: 330px;
+    }
+
+    + output {
+        width: fit-content;
     }
 }
 
@@ -540,11 +540,11 @@ input[type='range'] {
         display: inline-block;
         border: 2px solid $border;
         border-radius: 4px;
-        padding: 4px;
+        padding: 0.25rem;
         width: 330px;
         max-width: 100%;
         background-color: $light-bg;
-        height: 40px;
+        height: 2.5rem;
         display: inline-block;
 
         @include media-breakpoint-down(sm) {
@@ -561,9 +561,9 @@ input[type='range'] {
             display: flex;
             gap: 8px;
             align-items: center;
-            padding: 4px 8px;
+            padding: 0.25rem 0.5rem;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 600;
             background-color: rgba($secondary_1, 0.12);
 
@@ -691,7 +691,7 @@ input[type='range'] {
                 width: 1.5rem;
                 height: 1.5rem;
                 display: block;
-                margin-right: 8px;
+                margin-right: 0.5rem;
             }
         }
 
@@ -702,7 +702,7 @@ input[type='range'] {
                 width: 1.5rem;
                 height: 1.5rem;
                 display: block;
-                margin-right: 8px;
+                margin-right: 0.5rem;
             }
         }
 
@@ -713,7 +713,7 @@ input[type='range'] {
                 width: 1.5rem;
                 height: 1.5rem;
                 display: block;
-                margin-right: 8px;
+                margin-right: 0.5rem;
             }
         }
     }

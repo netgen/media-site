@@ -1,6 +1,6 @@
 .top-navigation {
     height: 60px;
-    border-bottom: 2px solid #f3f3f3;
+    border-bottom: 2px solid $secondary_2;
 
     ul {
         list-style-type: none;
@@ -23,12 +23,9 @@
             display: flex;
             align-items: center;
             color: rgba(37, 45, 64, 0.38);
-
             font-size: 0.875rem;
-
             font-weight: 600;
             line-height: 140%;
-
             padding: 0rem 1rem;
             height: 100%;
             border-bottom: 2px solid transparent;
@@ -37,7 +34,6 @@
 
             @media (max-width: 768px) {
                 text-align: center;
-
                 padding: 0 0.5rem;
                 justify-content: center;
             }
@@ -47,16 +43,16 @@
             }
 
             &:hover {
-                background-color: #a31f340a;
-                border-color: #a31f34;
-                color: #0a0a0a;
+                background-color: $secondary_4;
+                border-color: $secondary_4;
+                color: $darkgray;
             }
         }
 
         &--active {
             a {
-                color: #a31f34;
-                border-color: #a31f34;
+                color: $secondary_4;
+                border-color: $secondary_4;
             }
         }
     }
