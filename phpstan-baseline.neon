@@ -3,3 +3,5 @@ parameters:
         - '#Access to an undefined property Ibexa\\Contracts\\Core\\FieldType\\Value::\$\w+#'
         - '#Cannot access property \$\w+ on Ibexa\\Contracts\\Core\\FieldType\\Value\|null#'
         - '#Cannot access property \$value on Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Field\|null#'
+        # Disable errors for various "only read/written" properties
+        - '#\$\w+ is never (written|read), only (read|written).#'

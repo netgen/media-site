@@ -13,8 +13,9 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
+                type: xml
+                dir: '%kernel.project_dir%/config/app/doctrine'
+                prefix: 'App\Doctrine\Entity'
                 alias: App
 
 when@test:

@@ -13,6 +13,6 @@ final class Index extends Controller
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 
-        return $this->render('@app/backoffice/dashboard/index.html.twig');
+        return $this->render('backoffice/dashboard/index.html.twig');
     }
 }
