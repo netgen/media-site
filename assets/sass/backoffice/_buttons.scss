@@ -83,7 +83,7 @@
     }
 
     &.btn-secondary {
-        background: white;
+        background: $white;
         border: 2px solid $border;
         color: $secondary_1;
 
@@ -119,7 +119,7 @@
         border-radius: 0;
         padding: 0;
         text-transform: unset;
-        font-size: 14px;
+        font-size: 0.875rem;
         border-bottom: 2px solid $border;
         color: $secondary_4;
         white-space: nowrap;
@@ -142,8 +142,8 @@
             &.icon-view {
                 &::after {
                     content: '';
-                    width: 24px;
-                    height: 24px;
+                    width: 1.5rem;
+                    height: 1.5rem;
                     display: inline-block;
                     @extend %icon-view;
                 }
@@ -163,7 +163,7 @@
 
     &.btn-dropdown {
         text-transform: unset;
-        font-size: 14px;
+        font-size: 0.875rem;
         color: $secondary_4;
         white-space: nowrap;
         padding: 0.35rem 1rem 0.35rem 1.5rem;
@@ -176,16 +176,16 @@
     &.btn-confirm {
         color: $olive;
         background-color: $accept;
-        height: 32px;
+        height: 2rem;
 
         &.btn-icon-left,
         &.btn-icon-right {
-            padding: 8px 12px;
+            padding: 0.5rem 0.75rem;
         }
     }
 
     &.btn-decline {
-        padding: 8px 12px;
+        padding: 0.5rem 0.75rem;
         color: $olive-dark;
         background-color: $decline;
 
@@ -194,7 +194,7 @@
             width: 1rem;
             height: 1rem;
             @extend %icon-x;
-            margin-right: 4px;
+            margin-right: 0.25rem;
         }
     }
 
