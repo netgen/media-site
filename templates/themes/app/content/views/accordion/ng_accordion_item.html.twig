@@ -1,8 +1,9 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-<article class="view-type view-type-{{ view_type }} ng-accordion-item vl10">
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-accordion-item vl10">
     <h3 class="title collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-{{ location.id }}" aria-expanded="false" aria-controls="collapse-{{ location.id }}">
         {{ ng_render_field(content.fields.title) }}
     </h3>

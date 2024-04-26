@@ -2,9 +2,9 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% import "@ibexadesign/content/macros/links.html.twig" as links %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
-<article class="view-type view-type-{{ view_type }} ng-banner vl5">
-
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-banner vl5">
     {% if not content.fields.image.empty %}
         <figure class="image">
             {{ links.image_link(content, 'image', 'i160') }}

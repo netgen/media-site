@@ -1,7 +1,9 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-<article class="view-type view-type-{{ view_type }} file vl6">
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
+
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} file vl6">
     <h2 class="title">
         <a href="{{ ibexa_path(location) }}">
             {{ ng_render_field(content.fields.name) }}

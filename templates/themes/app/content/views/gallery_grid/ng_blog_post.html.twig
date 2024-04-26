@@ -2,9 +2,10 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
 {% if not content.fields.image.empty %}
-    <div class="view-type view-type-{{ view_type }} ng-blog-post vl3">
+    <div {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-blog-post vl3">
         {% if not content.fields.authors.empty %}
             {% set author = content.fieldRelations('authors')[0].name %}
         {% else %}

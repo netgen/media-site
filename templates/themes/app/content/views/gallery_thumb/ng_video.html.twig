@@ -2,9 +2,10 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% import "@ibexadesign/content/macros/video.html.twig" as video %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
 {% if not content.fields.video_file.empty or not content.fields.video_identifier.empty %}
-    <div class="view-type view-type-{{ view_type }} ng-video vl3  {% if show_details_on_hover %}show_details_on_hover{% endif %}">
+    <div {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-video vl3  {% if show_details_on_hover %}show_details_on_hover{% endif %}">
         {% if image_type == 'main' %}
             {{ video.poster_slide(content, true, content.fields.title.value.text) }}
 

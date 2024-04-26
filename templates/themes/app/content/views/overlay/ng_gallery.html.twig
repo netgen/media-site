@@ -2,11 +2,13 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
-{% set children = location.filterChildren(['image'], 1).currentPageResults %}
-
-<article class="view-type view-type-{{ view_type }} ng-article vl2">
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-article vl2">
     <i class="fas fa-camera article-icon" aria-hidden="true"></i>
+
+    {% set children = location.filterChildren(['image'], 1).currentPageResults %}
+
     {% if children.searchHits is not empty %}
         {% set first_image = children[0].content %}
 

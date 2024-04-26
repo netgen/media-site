@@ -2,8 +2,9 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% import "@ibexadesign/content/macros/links.html.twig" as links %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
-<article class="view-type view-type-{{ view_type }} ng-banner vl6">
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-banner vl6">
     <h2 class="title">
         {{ links.content_link(content, content.fields.title.value.text) }}
     </h2>

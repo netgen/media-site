@@ -2,10 +2,11 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
-{% set location_path = ibexa_path(location) %}
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-audio vl5">
+    {% set location_path = ibexa_path(location) %}
 
-<article class="view-type view-type-{{ view_type }} ng-audio vl5">
     <figure class="image">
         <i class="fas fa-volume-up article-icon" aria-hidden="true"></i>
         {{ ng_render_field(

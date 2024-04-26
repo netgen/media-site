@@ -2,9 +2,10 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
 {% if content.hasField('image') and not content.fields.image.empty %}
-    <div class="view-type view-type-{{ view_type }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl3">
+    <div {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl3">
         {% set title = content_fields.title(content) %}
 
         <a href="{{ asset(ng_image_alias(content.fields.image, 'i1320').uri) }}" title="{{ title }}" class="js-lightbox-item" data-pswp-width="{{ content.fields.image.value.width }}" data-pswp-height="{{ content.fields.image.value.height }}">

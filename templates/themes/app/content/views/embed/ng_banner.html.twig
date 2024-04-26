@@ -3,10 +3,8 @@
 
 {% import "@ibexadesign/content/macros/links.html.twig" as links %}
 
-{% block content %}
-    <div class="view-type view-type-{{ view_type }} ng-banner">
-        <h2 class="title">
-            {{ links.content_link(content, content.fields.title.value.text) }}
-        </h2>
-    </div>
-{% endblock %}
+<div class="view-type view-type-{{ view_type }} ng-banner">
+    <h2 class="title">
+        {{ links.content_link(content, content.fields.title.value.text) }}
+    </h2>
+</div>

@@ -1,10 +1,10 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% set location_path = ibexa_path(location) %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
-<article class="view-type view-type-{{ view_type }} file vl5">
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} file vl5">
     <header class="article-header">
-        <h2 class="title"><a href="{{ location_path }}">{{ ng_render_field(content.fields.name) }}</a></h2>
+        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ ng_render_field(content.fields.name) }}</a></h2>
     </header>
 </article>

@@ -3,8 +3,9 @@
 
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
 {% import '@ibexadesign/content/macros/slide.html.twig' as slide %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
-<div class="view-type view-type-{{ view_type }} ng-news vl3 {% if show_details_on_hover %}show_details_on_hover{% endif %}">
+<div {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-news vl3 {% if show_details_on_hover %}show_details_on_hover{% endif %}">
     {% if image_type == 'main' %}
         {{ slide.image(content, 'image', 'i1320', true) }}
 

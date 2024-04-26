@@ -3,8 +3,9 @@
 
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
 {% import '@ibexadesign/content/macros/slide.html.twig' as slide %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
-<div class="view-type view-type-{{ view_type }} ng-blog-post vl3">
+<div {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-blog-post vl3">
     {{ slide.image(content) }}
 
     <div class="info">
