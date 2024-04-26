@@ -5,6 +5,8 @@
     template and apply them here.
 #}
 
+{% import "@NetgenToolbar/macros/admin_url_params.html.twig" as toolbar_macros %}
+
 {% set css_id = css_id|default(block.parameter('css_id').value) %}
 {% set set_container = block.parameter('set_container').value %}
 {% set container_size = block.parameter('set_container:size').value %}
@@ -60,7 +62,7 @@
 {% endif %}
 
 {% if block_content is not empty or show_empty_wrapper %}
-    <div
+    <div {{ toolbar_macros.component_params(block) }}
         class="{{ css_classes|join(' ') }}"
         {% if css_id is not empty %}id="{{ css_id }}"{% endif %}
         {% if use_bg_image %}

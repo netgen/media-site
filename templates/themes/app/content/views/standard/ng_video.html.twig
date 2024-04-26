@@ -5,7 +5,7 @@
 {% import '@ibexadesign/content/macros/video.html.twig' as video %}
 
 {% if not content.fields.video_file.empty or not content.fields.video_identifier.empty %}
-    <article class="view-type view-type-{{ view_type }} ng-video vl1">
+    <article data-item="true" data-content-id="{{ content.id }}" data-location-id="{{ location.id }}" class="view-type view-type-{{ view_type }} ng-video vl1">
         <i class="fas fa-play article-icon" aria-hidden="true"></i>
         <figure class="image">
             {{ video.poster(content, location, null, content_fields.title(content)) }}

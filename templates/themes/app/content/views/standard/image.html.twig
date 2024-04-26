@@ -1,7 +1,7 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-<article class="view-type view-type-{{ view_type }} image vl1">
+<article data-item="true" data-content-id="{{ content.id }}" data-location-id="{{ location.id }}" class="view-type view-type-{{ view_type }} image vl1">
     <i class="fas fa-camera article-icon" aria-hidden="true"></i>
     <figure class="image">
         {{ ng_render_field(

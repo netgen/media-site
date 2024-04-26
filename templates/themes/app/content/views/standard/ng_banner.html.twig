@@ -4,7 +4,7 @@
 {% import "@ibexadesign/content/macros/links.html.twig" as links %}
 
 {% block content %}
-<article class="view-type view-type-{{ view_type }} ng-banner vl1">
+<article data-item="true" data-content-id="{{ content.id }}" data-location-id="{{ location.id }}" class="view-type view-type-{{ view_type }} ng-banner vl1">
 
     {% if not content.fields.image.empty %}
         <figure class="image">
