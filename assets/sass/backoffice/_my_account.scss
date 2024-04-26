@@ -3,7 +3,7 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        margin: 24px 16px;
+        margin: 1.5rem 1rem;
 
         > div {
             display: grid;
@@ -20,7 +20,7 @@
                 flex: 35%;
                 color: $secondary_1;
                 margin-right: 0;
-                font-size: 14px;
+                font-size: 0.875rem;
                 line-height: 1.4;
             }
 
@@ -47,7 +47,7 @@
 
             .errors {
                 flex: 100%;
-                margin-left: calc(35% + 16px);
+                margin-left: calc(35% + 1rem);
 
                 @include media-breakpoint-down(sm) {
                     margin-left: 0;
@@ -94,6 +94,11 @@
         }
 
         > .checkbox-row {
+
+            @include media-breakpoint-down(sm) {
+                grid-template-columns: 1fr minmax(auto, 50%);
+            }
+
             label {
                 grid-row: 1;
                 grid-column: 1;
@@ -111,42 +116,33 @@
                 font-size: 0.875rem;
                 font-weight: 600;
             }
-
-            @include media-breakpoint-down(sm) {
-                grid-template-columns: 1fr minmax(auto, 50%);
-            }
         }
 
         &[name='change_password'] {
+
+            @include media-breakpoint-down(lg) {
+                input:not([type='checkbox']) {
+                    min-width: 100%;
+                }
+            }
+
             div:nth-child(1),
             div:nth-child(2),
             div:nth-child(3) {
                 position: relative;
                 margin-bottom: 1.25rem;
 
+                @include media-breakpoint-down(lg) {
+                    margin-bottom: 0.5rem;
+                }
+
                 ul {
                     flex: 100%;
-                    margin-left: calc(35% + 16px);
+                    margin-left: calc(35% + 1rem);
                     position: absolute;
                     list-style: none;
                     top: 3rem;
                     padding-left: 0;
-
-                    li {
-                        color: $red;
-                        font-size: 0.75rem;
-                        display: flex;
-                        align-items: center;
-
-                        &::before {
-                            content: '';
-                            @extend %icon-alert;
-                            margin-right: 4px;
-                            width: 1rem;
-                            height: 1rem;
-                            display: inline-block;
-                        }
-                    }
 
                     @include media-breakpoint-down(lg) {
                         margin-left: 0;
@@ -161,16 +157,22 @@
                         grid-column: 1;
                         grid-row: 3;
                     }
-                }
 
-                @include media-breakpoint-down(lg) {
-                    margin-bottom: 0.5rem;
-                }
-            }
+                    li {
+                        color: $red;
+                        font-size: 0.75rem;
+                        display: flex;
+                        align-items: center;
 
-            @include media-breakpoint-down(lg) {
-                input:not([type='checkbox']) {
-                    min-width: 100%;
+                        &::before {
+                            content: '';
+                            @extend %icon-alert;
+                            margin-right: 0.25rem;
+                            width: 1rem;
+                            height: 1rem;
+                            display: inline-block;
+                        }
+                    }
                 }
             }
 
@@ -184,21 +186,21 @@
         .email-domain {
             display: inline-flex;
             align-items: center;
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 600;
-            height: 40px;
+            height: 2.5rem;
             border: 2px solid $light-bg;
             background-color: $light-bg;
             color: $border-hover;
             border-radius: 4px;
             width: 330px;
-            padding: 0 12px 0 16px;
+            padding: 0 0.75rem 0 1rem;
         }
     }
 
     .form-actions-password-requirements {
-        margin-bottom: 16px;
-        width: calc(65% - 16px);
+        margin-bottom: 1rem;
+        width: calc(65% - 1rem);
         margin-left: auto;
         display: inline-block;
 

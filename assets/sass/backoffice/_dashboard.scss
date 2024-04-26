@@ -1,9 +1,9 @@
 .startpage-wrapper {
-    padding: 16px;
+    padding: 1rem;
 
     h5 {
-        font-size: 18px;
-        margin: 24px 0 16px;
+        font-size: 1.125rem;
+        margin: 1.5rem 0 1rem;
         font-weight: 600;
     }
 }
@@ -11,11 +11,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
-    
+
+    @include media-breakpoint-down(lg) {
+        display: block;
+    }
+
     &-item {
-        padding: 24px;
+        padding: 1.5rem;
         background-color: $light-bg;
         border-radius: 8px;
+
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 8px;
+        }
 
         h6 {
             font-size: 0.875rem;
@@ -25,7 +33,7 @@
 
         p {
             font-size: 0.875rem;
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
             color: rgba($secondary_1, .66);
         }
 
@@ -41,12 +49,9 @@
                 }
             }
         }
+
         &.startpage-shortcuts-item-full-width {
             grid-column: 1 / 4;
-        }
-
-        @include media-breakpoint-down(lg) {
-            margin-bottom: 8px;
         }
 
         .startpage-shortcuts-lists {
@@ -57,28 +62,28 @@
             }
         }
     }
-
-    @include media-breakpoint-down(lg) {
-        display: block;
-    }
 }
 
 .welcome-message,
 .user-info-message {
     background-color: rgba($message, .2);
-    padding: 16px 16px 24px 16px;
+    padding: 1rem 1rem 1.5rem 1rem;
     border-radius: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
     position: relative;
+
+    @include media-breakpoint-down(md) {
+        min-width: calc(100vw - 110px);
+    }
 
     i::before {
         content: "";
-        width: 16px;
+        width: 1rem;
         height: 16px;
         background-repeat: no-repeat;
         position: absolute;
-        top: 18px;
-        left: 18px;
+        top: 1.125rem;
+        left: 1.125rem;
         border-radius: 50%;
     }
 
@@ -89,11 +94,11 @@
     a.btn-close {
         position: absolute;
         right: 0;
-        top: 2px;
+        top: 0.125rem;
         outline: none;
         border: none;
-        font-size: 10px;
-        color: black;
+        font-size: 0.625rem;
+        color: $black;
         opacity: 1;
 
         @include media-breakpoint-down(xs) {
@@ -104,16 +109,12 @@
     }
 
     &-content {
-        padding: 0 32px;
+        padding: 0 2rem;
 
         p {
-            font-size: 14px;
-            margin: 10px 0 0;
+            font-size: 0.875rem;
+            margin: 0.625rem 0 0;
         }
-    }
-
-    @include media-breakpoint-down(md) {
-        min-width: calc(100vw - 110px);
     }
 }
 

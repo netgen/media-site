@@ -5,7 +5,7 @@
 {% set site_name = ngsite.siteInfoContent.fields.site_name.value.text|trim %}
 
 <div class="sidebar-wrapper">
-    <a class="sidebar-wrapper-logo" href="{{ ibexa_path(ibexa.rootLocation) }}" title="{{ site_name }}">
+    <a class="sidebar-wrapper__logo" href="{{ ibexa_path(ibexa.rootLocation) }}" title="{{ site_name }}">
         {{ site_name }}
     </a>
 
@@ -41,7 +41,7 @@
         </ul>
 
         <div class="user-settings-menu" id="myAccountMenu">
-            <div class="user-settings-menu-header">
+            <div class="user-settings-menu__header">
                 {% if not ibexa_field_is_empty(app.user.APIUser, 'image') %}
                     <img class="avatar" src="{{ asset(ibexa_image_alias(app.user.APIUser.field('image'), app.user.APIUser.versionInfo, 'i160').uri) }}" alt="">
                 {% else %}
@@ -49,13 +49,13 @@
                 {% endif %}
                 <h6>{{ app.user.APIUser.name }}</h6>
             </div>
-            <div class="user-settings-menu-body">
+            <div class="uuser-settings-menu__body">
                 <ul>
                     <li><a href="">{{ 'menu.main_menu.personal_details'|trans }}</a></li>
                     <li><a href="">{{ 'menu.main_menu.user_credentials'|trans }}</a></li>
                 </ul>
             </div>
-            <div class="user-settings-menu-footer">
+            <div class="user-settings-menu__footer">
                 <a href="{{ logout_path() }}">{{ 'menu.main_menu.logout'|trans }}</a>
             </div>
         </div>
