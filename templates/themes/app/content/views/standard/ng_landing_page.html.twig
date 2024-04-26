@@ -2,8 +2,9 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
-<article data-item="true" data-content-id="{{ content.id }}" data-location-id="{{ location.id }}" class="view-type view-type-{{ view_type }} ng-landing-page vl1">
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-landing-page vl1">
     <header class="article-header">
         <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
     </header>

@@ -5,7 +5,7 @@
     template and apply them here.
 #}
 
-{% import "@NetgenToolbar/macros/admin_url_params.html.twig" as toolbar_macros %}
+{% import "@NetgenToolbar/macros.html.twig" as toolbar_macros %}
 
 {% set css_id = css_id|default(block.parameter('css_id').value) %}
 {% set set_container = block.parameter('set_container').value %}

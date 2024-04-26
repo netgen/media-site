@@ -1,7 +1,9 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-<article data-item="true" data-content-id="{{ content.id }}" data-location-id="{{ location.id }}" class="view-type view-type-{{ view_type }} file vl1">
+{% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
+
+<article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} file vl1">
     <header class="article-header">
         <h2 class="title">
             <a href="{{ ibexa_path(location) }}">
