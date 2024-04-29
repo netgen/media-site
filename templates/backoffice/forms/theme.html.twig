@@ -1,0 +1,324 @@
+{% extends 'backoffice/layout.html.twig' %}
+
+{% trans_default_domain 'backoffice' %}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <ul class="errors">
+            {%- for error in errors -%}
+                <li>{{ error.message }}</li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{%- block form_row -%}
+    {% set row_attr = row_attr|default([]) %}
+    {% set row_attr = row_attr|merge({class: row_attr.class|default('') ~ ' row-input'}) %}
+
+    {% if errors|length > 0 %}
+        {% set row_attr = row_attr|merge({class: row_attr.class|default('') ~ ' error-input'}) %}
+    {% endif %}
+
+    <div {% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock form_row -%}
+
+{% block filter_widget %}
+    <div class="ntf-filter-search js-filter-wrapper">
+        <div class="ntf-filter-search__wrap ntf-filter-search__wrap--grid">
+            <div class="ntf-filter-search__filters-container js-filters">
+                {{ form_widget(form.selections) }}
+
+                <div class="date-wrapper">
+                    <div class="input-group">
+                        {% if form.vars.show_date|default(false) %}
+                            {{ form_widget(form.date) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown" >
+                <button class="btn btn-dropdown btn-more-filters dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" type="button">
+                    <span>{{ (form.vars.translation_prefix ~ '.filter.button.more')|trans }}</span>
+                    <i class="icon-filter"></i>
+                </button>
+                <div class="dropdown-menu"></div>
+            </div>
+
+            {% if form.vars.show_search|default(false) %}
+                <div class="search-wrap">
+                    <div class="input-group input-search">
+                        {{ form_widget(
+                            form.searchText, {
+                                attr: {
+                                    placeholder: form.vars.translation_prefix ~ '.filter.search_text.placeholder'
+                                }
+                            }
+                        ) }}
+                    </div>
+                </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-apply-filters">
+                {{ (form.vars.translation_prefix ~ '.filter.button.apply')|trans }}
+            </button>
+
+            <a class="btn btn-link btn-reset-filters" href="{{ app.request.pathInfo }}">
+                {{ (form.vars.translation_prefix ~ '.filter.button.reset')|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block selections_widget %}
+    {% for identifier, child in form.children %}
+        <div>
+            {{ form_label(child, null, {label_attr: {'class': 'form-label'}}) }}
+            {{ form_widget(
+                child, {
+                    placeholder: not child.vars.required ?
+                        form.vars.translation_prefix ~ '.filter.' ~ identifier ~ '.empty_option' :
+                        null,
+                    attr: {'class': 'form-select'}
+                }
+            ) }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block date_range_widget %}
+    <div class="filter-by-date js-date-filter">
+        {{ form_label(form.date, null, {label_attr: {'class': 'form-label'}}) }}
+        {{ form_widget(
+            form.date, {
+                attr: {
+                    'readonly': true,
+                    'placeholder': form.vars.translation_prefix ~ '.filter.date.placeholder',
+                    'class': 'flatpickr flatpickr-input',
+                    'data-input': null
+                }
+            }
+        ) }}
+
+        {{ form_widget(form.dateFrom, {'id': 'dateFromHidden', attr: {class: 'form-hidden'}}) }}
+        {{ form_widget(form.dateTo, {'id': 'dateToHidden', attr: {class: 'form-hidden'}}) }}
+
+        <a class="input-button input-button--calendar" title="toggle" data-toggle></a>
+    </div>
+{% endblock %}
+
+{% block backoffice_date_range_widget %}
+    <div class="js-date-range-input">
+        {{ form_label(form.date, null, {label_attr: {'class': 'form-label'}}) }}
+        {{ form_widget(
+            form.date, {
+                attr: {
+                    'readonly': true,
+                    'placeholder': form.vars.placeholder,
+                    'class': 'flatpickr flatpickr-input',
+                    'data-input': null
+                }
+            }
+        ) }}
+        {{ form_errors(form.date) }}
+
+        {{ form_widget(form.date_from, {'id': 'dateFromHidden', attr: {class: 'form-hidden'}}) }}
+        {{ form_widget(form.date_to, {'id': 'dateToHidden', attr: {class: 'form-hidden'}}) }}
+
+        <a class="input-button input-button--calendar" title="toggle" data-toggle></a>
+    </div>
+{% endblock %}
+
+{% block country_widget %}
+    {% set attr = {
+        'class': 'js-country-select',
+        'data-placeholder': 'form.country.placeholder'|trans,
+        'data-placeholder-search': 'form.country.placeholder.search'|trans,
+        'data-search-text': 'form.country.search_text'|trans,
+        'data-no-results': 'form.country.no_results'|trans,
+        'data-searching': 'form.country.searching'|trans,
+        'data-url': form.vars.data_url,
+    } %}
+
+    {{ form_label(form.country) }}
+    {{ form_widget(form.country, {attr: attr}) }}
+{% endblock %}
+
+{% block content_choice_widget %}
+    {% set attr = {
+        'class': 'js-item-select',
+        'data-placeholder': form.vars.data_placeholder,
+        'data-placeholder-search': form.vars.data_placeholder_search,
+        'data-search-text': form.vars.data_search_text,
+        'data-no-results': form.vars.data_no_results,
+        'data-searching': form.vars.data_searching,
+        'data-max-selected': form.vars.data_max_selected,
+        'data-url': form.vars.data_url,
+    } %}
+
+    {{ form_label(form.inner) }}
+    {{ form_widget(form.inner, {attr: attr}) }}
+    {{ form_errors(form.inner) }}
+{% endblock %}
+
+{% block add_participants_widget %}
+    {{ form_row(form.users) }}
+
+    {% if form.vars.select_email %}
+        {{ form_row(form.emails) }}
+    {% endif %}
+{% endblock %}
+
+{% block user_position_widget %}
+    {% set attr = {
+        'class': 'js-user-position-department-select js-slim-select',
+        'data-placeholder': 'form.my_account.positions.placeholder'|trans,
+        'data-placeholder-search': 'form.my_account.placeholder.search'|trans,
+        'data-search-text': 'form.my_account.positions.search_text'|trans,
+        'data-no-results': 'form.my_account.no_results'|trans,
+        'data-searching': 'form.my_account.searching'|trans,
+        'data-url': form.vars.data_url,
+        'data-country-code': form.vars.country_code,
+        'data-selected': form.vars.position
+    } %}
+
+    {{ form_widget(form.position, {attr: attr}) }}
+{% endblock %}
+
+{% block user_department_widget %}
+    {% set attr = {
+        'class': 'js-user-position-department-select js-slim-select',
+        'data-placeholder': 'form.my_account.departments.placeholder'|trans,
+        'data-placeholder-search': 'form.my_account.placeholder.search'|trans,
+        'data-search-text': 'form.my_account.departments.search_text'|trans,
+        'data-no-results': 'form.my_account.no_results'|trans,
+        'data-searching': 'form.my_account.searching'|trans,
+        'data-url': form.vars.data_url,
+        'data-country-code': form.vars.country_code,
+        'data-selected': form.vars.department
+    } %}
+
+    {{ form_widget(form.department, {attr: attr}) }}
+{% endblock %}
+
+{% block select_users_row %}
+    {% set attr = {
+        'class': 'js-item-select',
+        'data-placeholder': 'form.select_users.placeholder'|trans,
+        'data-placeholder-search': 'form.select_users.placeholder.search'|trans,
+        'data-search-text': 'form.select_users.search_text'|trans,
+        'data-no-results': 'form.select_users.no_results'|trans,
+        'data-searching': 'form.select_users.searching'|trans,
+        'data-url': form.vars.data_url,
+    } %}
+
+    <div class="iota-input-row row-input-group">
+        {{ form_label(form) }}
+        {{ form_widget(form.users, {attr: attr}) }}
+    </div>
+{% endblock %}
+
+{% block select_survey_row %}
+    {% set attr = {
+        'class': 'js-item-select',
+        'data-placeholder': 'form.select_survey.placeholder'|trans,
+        'data-placeholder-search': 'form.select_survey.placeholder.search'|trans,
+        'data-search-text': 'form.select_survey.search_text'|trans,
+        'data-no-results': 'form.select_survey.no_results'|trans,
+        'data-searching': 'form.select_survey.searching'|trans,
+        'data-url': form.vars.data_url,
+    } %}
+
+    <div class="row-input-group">
+        {{ form_label(form) }}
+        {{ form_widget(form.survey, {attr: attr}) }}
+    </div>
+{% endblock %}
+
+{% block select_emails_row %}
+    {% set attr = {
+        'class': 'js-email-select js-slimselect',
+        'data-placeholder': 'form.select_emails.placeholder'|trans,
+        'data-placeholder-search': 'form.select_emails.placeholder.search'|trans,
+        'data-search-text': 'form.select_emails.search_text'|trans,
+        'data-invalid-email': 'form.select_emails.invalid_email'|trans,
+    } %}
+
+    <div class="email-select">
+        {{ form_label(form) }}
+        {{ form_widget(form.emails, {attr: attr}) }}
+    </div>
+{% endblock %}
+
+{% block tags_widget %}
+    {% set attr = {
+        'class': 'js-item-select',
+        'data-placeholder': form.vars.placeholder|trans,
+        'data-placeholder-search': 'form.my_account.placeholder.search'|trans,
+        'data-search-text': form.vars.search_text|trans,
+        'data-no-results': 'form.my_account.no_results'|trans,
+        'data-searching': 'form.my_account.searching'|trans,
+        'data-url': form.vars.data_url,
+    } %}
+
+    {{ form_widget(form.tags, {attr: attr}) }}
+{% endblock %}
+
+{% block ckeditor_row %}
+    <div class="row-input">
+        {{ form_label(form) }}
+        {% if tooltip_template is defined %}
+            {% include tooltip_template %}
+        {% endif %}
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{%- block iota_file_row -%}
+    {%- set force_error = true -%}
+    {{- block('form_row') -}}
+{%- endblock -%}
+
+{%- block iota_file_widget -%}
+    <div class="vich-file">
+        {%- if errors|length > 0 -%}
+            {%- set attr = attr|merge({class: (attr.class|default('') ~ ' is-invalid')|trim}) -%}
+        {%- endif -%}
+        {% if accept_extensions is not empty %}
+            {%- set attr = attr|merge({accept: accept_extensions}) -%}
+        {% endif %}
+        {{- form_widget(form.file, {attr: attr}) -}}
+        {%- if form.delete is defined -%}
+            <div class="vich-file-delete-wrapper">
+                {{- form_widget(form.delete) -}}
+                {{- form_label(form.delete) -}}
+            </div>
+        {%- endif -%}
+
+        {%- if download_uri -%}
+            <a href="{{ asset_helper is same as(true) ? asset(download_uri) : download_uri }}" class="btn btn-link btn-icon-right btn-icon-download" download>
+                {{ translation_domain is same as(false) ? download_label : download_label|trans({}, translation_domain) }}
+            </a>
+        {%- endif -%}
+    </div>
+{%- endblock -%}
+
+{% block event_hosting_event_widget %}
+    {% set attr = {
+        'class': 'js-item-select',
+        'data-placeholder': 'form.event_hosting.event.placeholder'|trans,
+        'data-placeholder-search': 'form.event_hosting.event.placeholder.search'|trans,
+        'data-search-text': 'form.event_hosting.event.search_text'|trans,
+        'data-no-results': 'form.event_hosting.event.no_results'|trans,
+        'data-searching': 'form.event_hosting.event.searching'|trans,
+        'data-max-selected': 1,
+        'data-url': path('iota_admin_event_hosting_ajax_filter_events'),
+    } %}
+
+    {{ form_widget(form.event, {attr: attr}) }}
+{% endblock %}
