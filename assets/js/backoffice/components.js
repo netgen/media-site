@@ -4,6 +4,8 @@ import addDocumentEventListeners from '../utilities/components/add-document-even
 import ModalConfirmControl from '../components/backoffice/ModalConfirmControl.component';
 import NgConversationsMarkThreadAsRead from '../components/backoffice/NgConversationsMarkThreadAsRead.component';
 import Sidebar from '../components/backoffice/Sidebar.component';
+import EnableFilterButtons from '../components/backoffice/EnableFilterButtons.component';
+import HideOverflowingFilters from '../components/backoffice/HideOverflowingFilters.component';
 
 const componentConfiguration = [
   {
@@ -30,6 +32,21 @@ const componentConfiguration = [
   {
     Component: ModalConfirmControl,
     selector: '.js-modal-confirm',
+  },
+  {
+    Component: EnableFilterButtons,
+    selector: '.js-filter-form',
+    options: {
+      hasActiveFilterClass: 'has-active-filter',
+      hasNewInputClass: 'has-new-input',
+    },
+  },
+  {
+    Component: HideOverflowingFilters,
+    selector: '.js-filter-wrapper',
+    options: {
+      filterWrapSelector: '.js-filters',
+    },
   },
 ];
 
