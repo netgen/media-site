@@ -4,7 +4,7 @@
 {% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
 <article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} image vl1">
-    <i class="fas fa-camera article-icon" aria-hidden="true"></i>
+    <i class="icon-camera article-icon" aria-hidden="true"></i>
     <figure class="image">
         {{ ng_render_field(
             content.fields.image, {

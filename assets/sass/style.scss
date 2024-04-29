@@ -2,7 +2,6 @@
 // IMPORTANT: only add imports to this file
 
 // External libraries
-@import '@fortawesome/fontawesome-free/css/all';
 @import 'swiper/css/bundle';
 @import 'photoswipe/dist/photoswipe';
 
@@ -19,6 +18,7 @@
 @import 'mixins/text';
 @import 'mixins/mixins';
 @import 'typography';
+@import 'icons';
 
 // General Layout
 @import 'layout/site_logo';

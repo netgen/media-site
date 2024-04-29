@@ -41,6 +41,40 @@
                 @include text_2;
                 padding: .5em;
                 margin: 0 .5em;
+
+                i {
+                    @include icon-color(white);
+                    width: 2rem;
+                    height: 2rem;
+                    transition: all .3s ease-in-out;
+
+                    &.icon-facebook {
+                        @extend %icon-facebook;
+                    }
+
+                    &.icon-twitter {
+                        @extend %icon-twitter;
+                    }
+
+                    &.icon-instagram {
+                        @extend %icon-instagram;
+                    }
+
+                    &.icon-linkedin {
+                        @extend %icon-linkedin;
+                    }
+
+                    @include media-breakpoint-down(md) {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
+                }
+
+                &:hover {
+                    i {
+                        opacity: .66;
+                    }
+                }
             }
             .tt {
                 display: none;

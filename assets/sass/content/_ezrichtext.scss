@@ -145,11 +145,11 @@
         @include text-1_5;
         .blockquote-body {
             &::before {
-                @extend %fontawesome;
-                content: '\f10d';
-                color: $primary;
-                font-size: 3.5rem;
-                margin-bottom: 0.5rem;
+                content: "";
+                @include icon-color(primary);
+                @extend %icon-quote-left;
+                width: 4.5rem;
+                height: 4.5rem;
             }
         }
         p {
