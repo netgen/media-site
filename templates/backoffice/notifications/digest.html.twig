@@ -1,0 +1,7 @@
+{% for notification in notifications %}
+    <h1>{{ notification.title }}</h1>
+
+    <p>{{ notification.sentAt|format_datetime }}</p>
+
+    {{ notification.text|raw }}
+{% endfor %}

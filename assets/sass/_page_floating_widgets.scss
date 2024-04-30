@@ -8,6 +8,30 @@
     color: $secondary_3;
     z-index: 10;
 
+    .subscription-widget {
+        background-color: $secondary_0;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .subscription-icon {
+        transform: rotate(180deg);
+
+        &::before {
+            content: url(../sass/assets/icons/icon_notification.svg);
+        }
+    }
+
+    .subscriptions-widget-toggle {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 1rem 0;
+    }
+
     .bookmark-widget {
         position: relative;
 
@@ -59,5 +83,28 @@
         opacity: 0;
         pointer-events: none;
         visibility: hidden;
+    }
+}
+
+#subscriptionModal {
+    .modal-dialog {
+        max-width: 30rem;
+    }
+
+    .modal-content {
+        border-radius: 0.25rem;
+    }
+
+    .modal-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .modal-footer {
+        border-top: none;
+        padding: 0 1.5rem 1.5rem;
     }
 }

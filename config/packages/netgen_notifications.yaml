@@ -1,0 +1,23 @@
+netgen_notifications:
+    categories:
+        default:
+            subscription:
+                enabled: true
+                resolver: netgen_notifications.ibexa.subtree_update_resolver
+                digest_actions:
+                    email:
+                        type: digest_email
+                        parameters:
+                            from: 'info@netgen.io'
+                            subject: 'Here is what you missed'
+                            template: backoffice/notifications/digest.html.twig
+            actions:
+                email:
+                    type: email
+                    parameters:
+                        from: 'info@netgen.io'
+                        template: backoffice/notifications/notification.html.twig
+    category_mappings:
+        ibexa:
+            subtree:
+                default: [167]
