@@ -6,6 +6,7 @@ import NgConversationsMarkThreadAsRead from '../components/backoffice/NgConversa
 import Sidebar from '../components/backoffice/Sidebar.component';
 import EnableFilterButtons from '../components/backoffice/EnableFilterButtons.component';
 import HideOverflowingFilters from '../components/backoffice/HideOverflowingFilters.component';
+import DateRangeInput from '../components/backoffice/DateRangeInput.component';
 
 const componentConfiguration = [
   {
@@ -47,6 +48,10 @@ const componentConfiguration = [
     options: {
       filterWrapSelector: '.js-filters',
     },
+  },
+  {
+    Component: DateRangeInput,
+    selector: '.js-date-range-input',
   },
 ];
 
