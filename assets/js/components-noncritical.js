@@ -13,6 +13,7 @@ import PageHeader from './components/PageHeader.component';
 import LoginFormFragment from './components/LoginFormFragment.component';
 import ResponsiveVideo from './components/ResponsiveVideo.component';
 import SwiperBase from './components/SwiperBase.component';
+import SubscriptionWidget from './components/SubscriptionWidget.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
 import SkipToMainContent from './components/SkipToMainContent.component';
@@ -221,6 +222,19 @@ const componentConfiguration = [
     options: {
       bookmarkIcon: '.fa-bookmark',
       bookmarkTooltip: '.bookmark-tooltip',
+    },
+  },
+  {
+    Component: SubscriptionWidget,
+    selector: '#subscription-modal-body',
+    options: {
+      modalBody: '.modal-body',
+      subscriptionForm: '.ntf-subscribe-widget',
+      subscriptionTypeWrapper: '#subscription_widget_type',
+      subscriptionTypeRadios: 'input[type=radio]',
+      digestType: '#subscription_widget_type_1',
+      digestOptions: '.digest-options',
+      buttonSubscribe: 'button[type=submit]',
     },
   },
 ];
