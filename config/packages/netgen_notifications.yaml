@@ -8,14 +8,14 @@ netgen_notifications:
                     email:
                         type: digest_email
                         parameters:
-                            from: 'info@netgen.io'
+                            from: '%env(MAIL_SENDER)%'
                             subject: 'Here is what you missed'
                             template: backoffice/notifications/digest.html.twig
             actions:
                 email:
                     type: email
                     parameters:
-                        from: 'info@netgen.io'
+                        from: '%env(MAIL_SENDER)%'
                         template: backoffice/notifications/notification.html.twig
     category_mappings:
         ibexa:
