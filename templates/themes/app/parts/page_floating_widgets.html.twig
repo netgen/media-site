@@ -1,4 +1,18 @@
+{% set notification_category = null %}
+
+{% if location is defined %}
+    {% set notification_category = ngnotifications_category(location) %}
+{% endif %}
+
 <div class="page-floating-widgets">
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and notification_category is not null %}
+        <div class="subscription-widget">
+            <a class="subscriptions-widget-toggle" data-bs-toggle="modal" data-bs-target="#subscriptionModal" href="javascript:;">
+                <div class="subscription-icon"></div>
+                {{ 'ngsite.widget.subscriptions'|trans }}
+            </a>
+        </div>
+    {% endif %}
 
     <a class="print-icon js-print-icon" aria-label="Print" href="javascript:;" onclick="window.print();">
         <i class="fas fa-print"></i>
@@ -20,3 +34,18 @@
         {% endif %}
     {% endif %}
 </div>
+
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') and notification_category is not null %}
+    <div class="modal fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscription-modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="subscription-modal-body">
+                    {% include '@NetgenNotifications/subscription/widget/widget.html.twig' with {
+                        category: notification_category.identifier,
+                        parameters: { contentId: content.id, locationId: location.id }
+                    } %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

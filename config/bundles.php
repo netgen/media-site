@@ -84,4 +84,5 @@ return [
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
     ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
     Netgen\Bundle\ConversationsBundle\NetgenConversationsBundle::class => ['all' => true],
+    Netgen\Bundle\NotificationsBundle\NetgenNotificationsBundle::class => ['all' => true],
 ];
