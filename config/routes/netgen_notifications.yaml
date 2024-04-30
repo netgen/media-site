@@ -1,0 +1,5 @@
+netgen_notifications:
+    resource: '@NetgenNotificationsBundle/Resources/config/routing.yaml'
+    prefix: '%netgen_notifications.route_prefix%'
+    defaults:
+        ngnotifications_pagelayout: 'backoffice/notifications/layout.html.twig'
