@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping
+    xmlns="https://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+    <entity name="App\Backoffice\Doctrine\Entity\SecurityToken" table="ngsite_security_token">
+        <id name="id" type="integer">
+            <generator />
+        </id>
+
+        <field name="userId" type="integer" />
+        <field name="token" type="string" unique="true" />
+        <field name="tokenType" type="string" enum-type="App\Backoffice\Enums\SecurityTokenType" />
+        <field name="data" type="string" nullable="true" />
+        <field name="creationDate" type="datetime_immutable" />
+        <field name="expiryDate" type="datetime_immutable" />
+        <field name="isUsed" type="boolean" />
+    </entity>
+</doctrine-mapping>

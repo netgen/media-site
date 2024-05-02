@@ -1,0 +1,21 @@
+{% trans_default_domain 'backoffice' %}
+
+<div class="my-account">
+    {{ form_start(form) }}
+    <div class="change-email-wrapper">
+        {{ form_label(form.email_username) }}
+        <div>
+            {{ form_widget(form.email_username) }}
+            <span class="email-domain">{{ '@' ~ app.user.APIUser.email|split('@')[1] }}</span>
+        </div>
+    </div>
+    <div class="form-actions-password-requirements">
+        <p>{{ 'my_account.email_requirements'|trans }}</p>
+    </div>
+    <div class="form-actions">
+        <button type="reset" class="btn btn-secondary">{{ 'my_account.button.discard'|trans }}</button>
+        <button type="submit" class="btn btn-primary">{{ 'my_account.button.save_changes'|trans }}</button>
+    </div>
+    {{ form_end(form) }}
+</div>
+

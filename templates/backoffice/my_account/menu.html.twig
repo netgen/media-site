@@ -1,0 +1,9 @@
+<div class="top-navigation">
+    {{ knp_menu_render(
+        knp_menu_get('backoffice.my_account_menu'), {
+            'leaf_class': 'top-navigation-btn',
+            'currentClass': 'top-navigation-btn--active',
+            'template': 'backoffice/menu/knp_menu.html.twig'
+        }
+    ) }}
+</div>
