@@ -1,0 +1,52 @@
+{% trans_default_domain 'messages' %}
+
+{% set menu_url = path('login') %}
+{% set menu_label = 'ngsite.layout.login'|trans %}
+
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    {% set menu_url = '#' %}
+    {% set menu_label = '%s %s'|format(
+        ibexa_field_value(app.user.APIUser, 'first_name').text,
+        ibexa_field_value(app.user.APIUser, 'last_name').text
+    ) %}
+{% endif %}
+
+<div class="user-menu">
+    <a class="user-menu-cta {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}prevent-user-menu-cta{% endif %}" title="{{ menu_label }}" id="dropdownMenuButton" href="{{ menu_url }}" aria-expanded="false">
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and not ibexa_field_is_empty(app.user.APIUser, 'image') %}
+            <img class="user-icon" src="{{ asset(ibexa_image_alias(app.user.APIUser.field('image'), app.user.APIUser.versionInfo, 'i160').uri) }}" alt="">
+        {% else %}
+            <span class="user-icon"></span>
+        {% endif %}
+
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            {{ ibexa_field_value(app.user.APIUser, 'first_name').text[0:1] ~ '.' ~ ibexa_field_value(app.user.APIUser, 'last_name').text[0:1] ~ '.' }}
+        {% else %}
+            {{ 'ngsite.layout.login'|trans }}
+        {% endif %}
+
+        <span class="arrow-icon"></span>
+    </a>
+
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <div class="user-dropdown-menu menu_level_1">
+            <small class="d-block mt-0 mb-4 d-xl-block d-none">{{ menu_label }}</small>
+            {% if not ibexa_field_is_empty(app.user.APIUser, 'image') %}
+                <img class="user-icon" src="{{ asset(ibexa_image_alias(app.user.APIUser.field('image'), app.user.APIUser.versionInfo, 'i160').uri) }}" alt="">
+            {% else %}
+                <span class="user-icon user-icon--main"></span>
+            {% endif %}
+
+            <a class="btn btn-user" href={{ path('backoffice_dashboard_index') }}>{{ 'layout.my_dashboard'|trans }}</a>
+            <a class="btn btn-user" href="">{{ 'layout.my_profile'|trans }}</a>
+
+            {% if is_granted('ROLE_IMPERSONATED_USER') %}
+                <a class="btn btn-user btn-user-switch-back" href="{{ path("netgen.ibexa_user_impersonation.app.user.switch_back") }}">
+                    {{ 'layout.impersonated_user.switch_back'|trans }}
+                </a>
+            {% else %}
+                <a class="btn btn-user" href="{{ logout_path() }}">{{ 'layout.logout'|trans }}</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
