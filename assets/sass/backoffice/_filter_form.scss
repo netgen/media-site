@@ -1,0 +1,320 @@
+.filter-form {
+    .ntf-filter-search {
+        padding: 1rem;
+        border-bottom: 4px solid $secondary_2;
+
+        @include media-breakpoint-down(sm) {
+            display: block;
+        }
+
+        .ntf-filter-search-wrap {
+            display: flex;
+            gap: 16px;
+
+            @include media-breakpoint-down(sm) {
+                flex-wrap: wrap;
+                column-gap: 8px;
+            }
+
+            div .input-group [type='search'] {
+                @include media-breakpoint-up(md) {
+                    max-width: 224px;
+                }
+            }
+        }
+
+        &.more-filters .dropdown-menu {
+            select.form-select,
+            .date-wrapper,
+            .filter-by-date,
+            input {
+                width: 100%;
+            }
+        }
+
+        &.ntf-filter-search-wrap-grid {
+            .ss-main.form-select {
+                background-image: none;
+
+                .ss-single {
+                    color: $placeholder;
+                }
+            }
+
+            div > select.form-select {
+                width: 235px;
+            }
+        }
+
+        .search-wrap {
+            align-self: flex-end;
+
+            @include media-breakpoint-down(sm) {
+                flex: 1;
+            }
+        }
+
+        .dropdown {
+            align-self: flex-end;
+
+            .dropdown-menu {
+                border: 2px solid $secondary_2;
+                border-radius: 4px;
+                padding: 1rem;
+                box-shadow: 0px 4px 12px 0px rgba(37, 45, 64, 0.1);
+                display: none;
+                flex-direction: column;
+                gap: 16px;
+                top: 0.25rem;
+
+                &.show {
+                    display: flex;
+                }
+            }
+        }
+
+        .ntf-filter-wrap {
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+            margin-right: -1rem;
+
+            @include media-breakpoint-down(md) {
+                > div {
+                    width: 100%;
+                }
+            }
+
+            select {
+                color: $placeholder;
+                @extend %icon-chevron;
+                background-size: 1.5rem;
+                background-position: 98%;
+                position: relative;
+                background-color: $light-bg;
+            }
+        }
+
+        .date-wrapper {
+            margin-right: auto;
+        }
+
+        label {
+            font-size: 0.875rem;
+            display: block;
+        }
+
+        .form-hidden {
+            display: none;
+        }
+
+        .form-select {
+            height: 40px;
+            font-size: 0.875rem;
+            width: 220px;
+            border-radius: 4px;
+            padding: 0 0 0 0.75rem;
+        }
+
+        input {
+            height: 40px;
+            border-radius: 4px;
+            background-color: $light-bg;
+            border: 2px solid $border;
+            font-size: 0.875rem;
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+
+        select {
+            background-color: $light-bg;
+        }
+
+        input[type='search'] {
+            border-radius: 100px;
+            padding-left: 3rem;
+            min-width: 200px;
+
+            @include media-breakpoint-up(md) {
+                max-width: 204px;
+            }
+        }
+
+        .input-group {
+            @include media-breakpoint-up(md) {
+                flex-wrap: nowrap;
+            }
+        }
+
+        .btn-apply-filters {
+            white-space: nowrap;
+            align-self: flex-end;
+            width: auto;
+            color: $secondary_4;
+            border-color: $secondary_4;
+
+            @include media-breakpoint-down(md) {
+                padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+            }
+
+            &:active {
+                background: $red;
+                border-color: $red;
+                color: $white;
+            }
+        }
+
+        .btn-reset-filters {
+            height: fit-content;
+            display: none;
+            align-self: flex-end;
+            margin: 0.5938rem 0;
+        }
+
+        .more-filters-btn {
+            align-items: center;
+            border-color: transparent;
+            display: none;
+            align-self: flex-end;
+
+            @include media-breakpoint-down(md) {
+                padding: 0.125rem 0.5rem 0.125rem 1rem;
+            }
+
+            &::after {
+                content: unset;
+            }
+
+            span {
+                display: inline-block;
+                line-height: 1.4;
+            }
+
+            i {
+                display: inline-flex;
+
+                &::after {
+                    content: '';
+                    width: 1rem;
+                    height: 1rem;
+                }
+
+                &.icon-filter::after {
+                    @extend %icon-filter;
+                }
+            }
+
+            &.show {
+                background-color: rgba($secondary_1, 0.04);
+            }
+        }
+
+        &.more-filters .more-filters-btn {
+            display: flex;
+        }
+
+        .input-group.input-search {
+            position: relative;
+            &::before {
+                content: '';
+                @extend %icon-search;
+                width: 1.5rem;
+                height: 1.5rem;
+                position: absolute;
+                margin: 0;
+                left: 1rem;
+                top: 0.5rem;
+                z-index: 10;
+            }
+
+            .btn {
+                border: 2px solid $border;
+            }
+        }
+
+        .input-group:not(.has-validation)
+            > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+            @include media-breakpoint-down(md) {
+                border-radius: 100px;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .input-group
+            > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(
+                .invalid-tooltip
+            ):not(.invalid-feedback) {
+            &.btn-apply-filters {
+                border-radius: 100px;
+
+                @include media-breakpoint-down(md) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &.has-active-filter .ntf-filter-search {
+        .btn-reset-filters {
+            display: block;
+        }
+    }
+
+    &:not(.has-new-input) .ntf-filter-search {
+        .btn-apply-filters {
+            color: $gray;
+            border-color: $gray;
+            pointer-events: none;
+        }
+    }
+
+    .filter-by-date {
+        position: relative;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            margin-right: 0;
+        }
+
+        .input-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            position: absolute;
+            bottom: 0;
+            border-radius: 4px;
+            cursor: pointer;
+
+            @include media-breakpoint-down(md) {
+                top: 2rem;
+            }
+
+            &-calendar {
+                right: 0;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    @extend %icon-date;
+                }
+            }
+        }
+
+        input {
+            min-width: 220px;
+            padding-left: 1rem;
+        }
+    }
+}
+
+.modal-dialog .modal-content {
+    .ntf-filter-search .btn-apply-filters {
+        pointer-events: initial!important;
+    }
+}
