@@ -1,0 +1,76 @@
+{% extends 'backoffice/layout.html.twig' %}
+
+{% trans_default_domain 'backoffice' %}
+
+{% form_theme form.image _self %}
+{% form_theme form.remove_image _self %}
+
+{% block top_navigation %}
+    {% include 'backoffice/my_account/menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="my-account">
+        {{ form_start(form, {attr: { class: 'js-custom-form' }}) }}
+
+            {% if errors is defined and errors|length > 0 %}
+                <div class="row-input error-input">
+                    <ul class="errors">
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <div>
+                {{ form_label(form.image) }}
+                <div class="my-account-image-container">
+                    {% if not ibexa_field_is_empty(app.user.APIUser, 'image') %}
+                        <img class="avatar js-image-preview" src="{{ asset(ibexa_image_alias(app.user.APIUser.field('image'), app.user.APIUser.versionInfo, 'i160').uri) }}" alt="">
+                    {% else %}
+                        <img class="avatar js-image-preview" src="" alt="">
+                    {% endif %}
+                    {{ form_widget(form.image, {remove_image_form: form.remove_image}) }}
+                </div>
+            </div>
+
+            {{ form_row(form.first_name) }}
+            {{ form_row(form.last_name) }}
+
+
+            <div class="form-actions">
+                <button type="reset" class="btn btn-secondary">{{ 'my_account.button.discard'|trans }}</button>
+                <button type="submit" class="btn btn-primary">{{ 'my_account.button.save_changes'|trans }}</button>
+            </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block _personal_details_image_widget %}
+    {% set user = app.user.APIUser %}
+
+    {% set image_class = not ibexa_field_is_empty(user, 'image') ? ' hidden' : '' %}
+
+    <div class="custom-image-upload">
+        {{ form_widget(remove_image_form) }}
+        {{ form_widget(form, {attr: {accept: 'image/*', class: 'image-upload js-image-upload' ~  image_class }}) }}
+
+        <button type="button" class="btn btn-link btn-replace-image js-replace-image-btn {{ ibexa_field_is_empty(user, 'image') ? 'hidden' : ''}}">
+            {{ 'form.my_account.image.replace_image'|trans }}
+        </button>
+    </div>
+{% endblock %}
+
+{% block _personal_details_remove_image_widget %}
+    {% set user = app.user.APIUser %}
+
+    <div class="file-wrapper js-filename-wrapper {{ ibexa_field_is_empty(user, 'image') ? 'hidden' : ''}}">
+        <div class="file-container">
+            <div class="file-name js-image-filename">
+                {{ user.field('image').value.fileName }}
+            </div>
+
+            {{ form_widget(form, {attr: {class: 'remove-image-btn js-remove-image'}}) }}
+        </div>
+    </div>
+{% endblock %}

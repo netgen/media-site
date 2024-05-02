@@ -1,0 +1,5 @@
+<p>Dear {{ user.name }},<p>
+
+<p>You requested a change of your email. To confirm, click <a href="{{ url('backoffice_my_account_change_email_confirmation', { token: token }) }}">here.</a></p>
+
+<p>This link will be active for 15 minutes.</p>

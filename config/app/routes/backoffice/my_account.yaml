@@ -1,0 +1,22 @@
+backoffice_my_account_index:
+    path: /backoffice/my_account
+    controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction'
+    methods: [GET]
+    defaults:
+        route: backoffice_my_account_personal_details
+        permanent: true
+
+backoffice_my_account_personal_details:
+    path: /backoffice/my_account/personal_details
+    controller: App\Backoffice\Controller\MyAccount\PersonalDetails
+    methods: [GET, POST]
+
+backoffice_my_account_user_credentials:
+    path: /backoffice/my_account/user_credentials
+    controller: App\Backoffice\Controller\MyAccount\UserCredentials
+    methods: [GET, POST]
+
+backoffice_my_account_change_email_confirmation:
+    path: /backoffice/my_account/change_email_confirmation/{token}
+    controller: App\Backoffice\Controller\MyAccount\ChangeEmailConfirmation
+    methods: [GET]
