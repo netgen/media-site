@@ -41,3 +41,9 @@ ngsite.job_application.deadline: 'Application deadline'
 
 ngsite.skip_to_main_content: 'Skip to main content'
 ngsite.widget.subscriptions: 'Subscriptions'
+
+ngsite.layout.login: 'Log in'
+ngsite.layout.register: 'Register'
+ngsite.layout.logout: 'Logout'
+ngsite.layout.my_dashboard: 'My dashboard'
+ngsite.layout.my_profile: 'My profile'

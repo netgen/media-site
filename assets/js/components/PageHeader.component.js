@@ -100,7 +100,6 @@ export default class PageHeader {
     if (this.mainNav === null) {
       return;
     }
-
     this.level1Menus = this.mainNav.querySelectorAll(this.options.menuLevel1);
     if (this.level1Menus.length === 0) {
       return;
@@ -116,9 +115,19 @@ export default class PageHeader {
       this.submenuTriggerElements.push(submenuTriggerContent);
     });
 
-    this.submenuTriggerElements.forEach((submenuTrigger) => {
-      submenuTrigger.addEventListener('click', () => {
-        this.toggleMobileSubmenu(submenuTrigger);
+    window.addEventListener('click', (e) => {
+      this.submenuTriggerElements.forEach((submenuTrigger) => {
+        const submenuTriggered = submenuTrigger.contains(e.target);
+
+        if (e.target.closest('.prevent-user-menu-cta')) {
+          e.preventDefault();
+        }
+
+        if (!submenuTriggered || submenuTrigger.classList.contains('submenu-active')) {
+          submenuTrigger.classList.remove('submenu-active');
+        } else {
+          submenuTrigger.classList.add('submenu-active');
+        }
       });
     });
   }

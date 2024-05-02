@@ -1,43 +1,109 @@
 .main-navigation {
     flex: 1;
+    position: relative;
+    margin-left: 2rem;
+
+    @include media-breakpoint-down(xl) {
+        margin-left: 0;
+    }
+
     .navbar-nav {
         display: flex;
         flex-direction: row;
-        justify-content: center;
         list-style-type: none;
         margin: 0;
         padding: 0 1rem;
-        text-align: center;
         > li {
+            display: flex;
+            align-items: center;
+            padding: 0 1.3333333333em;
             position: relative;
+            cursor: pointer;
+            @extend %hover-underline;
+
+            @media (max-width: 1300px) {
+                padding: 0 1rem;
+            }
+
+            @include media-breakpoint-down(xl) {
+                padding: 0;
+            }
+
             > a,
             > span {
-                @extend %hover-underline;
-                @include text-link;
+                @include text-1_125;
+                font-weight: 600;
                 display: inline-block;
-                padding: 0 1.3333333333em;
+
+                @include media-breakpoint-down(sm) {
+                    font-size: 1rem;
+                }
+            }
+
+            &.submenu-active {
+                .menu_level_1 {
+                    display: block;
+                }
+                .submenu-trigger {
+                    transform: rotate(180deg);
+                }
             }
         }
     }
     /* main submenu */
     .menu_level_1 {
         list-style-type: none;
-        padding: 1rem 0;
+        padding: 0.875rem 0;
         margin: 0;
         display: none;
+        cursor: auto;
+
+        li {
+            width: 100%;
+
+            &:not([id*="menu-item"]) {
+                display: flex;
+                flex-direction: column;
+
+                > span {
+                    @include text-0_875;
+                    border-top: 2px solid rgba($black, 0.1);
+                    margin-top: 0.75rem;
+                    color: $darkgray;
+                }
+            }
+        }
+
         a {
             display: block;
-            padding: .5em 1.5em;
+            padding: 0.625rem 2rem;
+            width: max-content;
+            min-width: 100%;
+        }
+
+        span {
+            &:not(.user-icon) {
+                display: inline-block;
+                padding: 1.25rem 0 0.75rem;
+                margin: 0 2rem;
+            }
         }
     }
+
+    .menu_level_2 {
+        list-style-type: none;
+        padding: 0;
+    }
+
     /* large screen sizes */
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
+        display: flex;
+
         .navbar-nav {
             > li:hover,
             .active {
                 > a,
                 > span {
-                    color: $black;
                     &::after {
                         transform: scaleY(1);
                     }
@@ -63,7 +129,6 @@
             position: absolute;
             top: 100%;
             left: 0;
-            width: 16rem;
             z-index: 20;
             background: $primary;
             box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
@@ -75,25 +140,60 @@
             }
         }
     }
+
     .submenu-trigger {
-        // NOTE: Removed fontawesome extend rule since the nav will we rewritten
-        display: none;
+        margin-left: 1.375rem;
+        line-height: 0;
+
+        @media (max-width: 1300px) {
+            margin-left: 0.75rem;
+        }
+
+        &::before {
+            content: url('../assets/icons/icon_arrow_down.svg');
+
+            .inverted & {
+                @include media-breakpoint-up(xl) {
+                    @include icon-color(secondary_1);
+                }
+            }
+        }
     }
     /* small screen sizes */
-    @include media-breakpoint-down(lg) {
-        display: none;
+    @include media-breakpoint-down(xl) {
+        transform: translateX(100%);
+        pointer-events: none;
+        transition: transform 300ms;
         position: absolute;
-        left: calc(var(--bs-gutter-x) * .5);
-        right: calc(var(--bs-gutter-x) * .5);
-        top: $header-height-sm;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - #{$header-height-sm});
+        overflow-y: scroll;
+        left: 0;
+        right: 0;
+        top: calc(#{$header-height-sm} + 2px);
         z-index: 1000;
-        background: $primary;
+        background: $secondary_0;
         box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
+        padding-bottom: 1.5rem;
         .navbar-nav {
             display: block;
             margin: 0;
-            padding: 1rem 0;
+            padding: 0;
             > li {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 0.75rem 1.5rem;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
                 > a,
                 > span {
                     padding: .5em 1em;
@@ -107,20 +207,15 @@
                         margin: 0 1.875rem;
                     }
                 }
-                &.submenu-active {
-                    .menu_level_1 {
-                        display: block;
-                    }
-                    .submenu-trigger {
-                        &::before {
-                            transform: rotate(180deg);
-                        }
-                    }
+
+                &::after {
+                    display: none;
                 }
             }
         }
         .mainnav-active & {
-            display: block;
+            transform: translateX(0);
+            pointer-events: all;
         }
         .submenu-trigger {
             display: inline-block;
@@ -128,30 +223,40 @@
             right: 0;
             top: 0;
             cursor: pointer;
-            width: 1.875rem;
-            height: 1.875rem;
             line-height: 1.875rem;
             @include text-0_875;
             &::before {
                 display: block;
-                content: '\f078';
             }
         }
         .menu_level_1 {
-            padding: 0 0 1rem;
+            width: 100%;
+            padding: 0;
+            background-color: $primary_0;
+            margin-top: 0.5rem;
+            border-radius: 2px;
+
             a {
-                color: $gray-54;
-                @include text-0_875;
+                @include text-1_125;
+                font-weight: 600;
+                padding-inline: 1.5rem;
+
+                @include media-breakpoint-down(sm) {
+                    font-size: 1rem;
+                    line-height: 1.15;
+                }
+            }
+
+            span {
+                &:not(.user-icon) {
+                    margin: 0 1.5rem;
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+                padding: 0.5rem 0;
             }
         }
-    }
-    @include media-breakpoint-down(lg) {
-        overflow: scroll;
-        position: absolute;
-        z-index: 1000;
-        left: 0;
-        right: 0;
-        height: calc(100vh - #{$header-height-sm});
     }
     @include media-breakpoint-down(xs) {
         left: 0;
@@ -160,7 +265,6 @@
 }
 
 .mainnav-toggle {
-    @extend %hover-underline;
     display: none;
     position: relative;
     width: $header-height-sm;
@@ -196,7 +300,6 @@
         color: inherit;
     }
     .mainnav-active & {
-        background: $primary;
         .hamburger {
             background: transparent;
             transition: background 100ms ease-out;
@@ -208,21 +311,218 @@
             }
         }
     }
-    @include media-breakpoint-down(lg) {
+
+    .inverted & {
+        @include media-breakpoint-up(xl) {
+            .hamburger {
+                color: $secondary_1;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(xl) {
         display: block;
+        margin-right: -1.5rem;
     }
 }
 
+.user-menu {
+    display: flex;
+    border-left: 2px solid rgba(249, 241, 222, 0.08);
+    flex-direction: row;
+    position: relative;
 
-.mainnav-active {
-    @include media-breakpoint-down(lg) {
-        overflow-y: hidden;
-        position: fixed;
-        width: 100%;
-        body {
-            overflow-y: hidden;
-            position: fixed;
-            width: 100%;
+    @include media-breakpoint-down(xl) {
+        flex-direction: column;
+        border-left: none;
+        border-top: 2px solid rgba(0, 0, 0, 0.08);
+        margin: 1.5rem;
+        padding: 1.5rem 0;
+    }
+
+    &.submenu-active {
+        .user-dropdown-menu {
+            display: flex;
+        }
+    }
+
+    .submenu-trigger {
+        display: none;
+    }
+
+    .user-menu-cta {
+        display: flex;
+        align-items: center;
+        position: relative;
+        //color: $secondary_3;
+        @include text-base;
+        font-weight: 600;
+        padding-inline: 2rem;
+        @extend %hover-underline;
+
+        @include media-breakpoint-down(xl) {
+            padding-inline: 0;
+        }
+
+        &.prevent-user-menu-cta {
+            @include media-breakpoint-down(xl) {
+                display: none;
+            }
+        }
+
+        .arrow-icon {
+            &::after {
+                content: url('../assets/icons/icon_arrow_right_small.svg');
+                @include icon-color(secondary_3);
+                margin-left: 0.625rem;
+
+                .inverted & {
+                    @include media-breakpoint-up(xl) {
+                        @include icon-color(secondary_1);
+                    }
+                }
+            }
+
+        }
+
+        .inverted & {
+            @include media-breakpoint-up(xl) {
+                color: $secondary_1;
+            }
+        }
+
+        .user-icon {
+            margin: 0 0.5rem 0 0;
+            width: 1.875rem;
+            height: 1.875rem;
+            background-color: $secondary_3;
+            font-size: 0;
+        }
+    }
+
+    .user-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: revert;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1.5rem 2.5rem;
+        border: none;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        width: max-content;
+
+        @include media-breakpoint-down(xl) {
+            display: flex;
+            position: relative;
+            top: revert;
+            right: revert;
+            box-shadow: none;
+            align-items: flex-start;
+            padding: 0;
+        }
+
+        &.menu_level_1 {
+            @include media-breakpoint-down(xl) {
+                background-color: revert;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .user-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background-color: $primary_2;
+        display: flex;
+        justify-content: center;
+        object-fit: cover;
+        align-items: center;
+        margin-bottom: 24px;
+
+        &--main {
+            @include media-breakpoint-down(xl) {
+                display: none;
+            }
+        }
+
+        &::before {
+            content: url('../assets/icons/icon_user.svg');
+        }
+    }
+
+    .user-menu-title {
+        @include text-1_25;
+        font-weight: 600;
+        margin-bottom: 1rem;
+
+        @include media-breakpoint-down(xl) {
+            display: none;
+        }
+    }
+
+    a.btn-user {
+        @include text-1_125;
+        font-weight: 600;
+        color: $secondary_4;
+        display: flex;
+        align-items: center;
+
+        @include media-breakpoint-down(xl) {
+            justify-content: flex-start;
+            font-size: 1rem;
+            font-weight: 600;
+            color: $secondary_3;
+        }
+
+        &::after {
+            content: url('../assets/icons/icon_caret_right.svg');
+            margin-left: 0.625rem;
+            width: 1.5625rem;
+            height: 1.5625rem;
+            @include icon-color(secondary_4);
+
+            @include media-breakpoint-down(xl) {
+                @include icon-color(secondary_3);
+            }
+        }
+
+        & + .btn-user {
+            margin-top: 24px;
+        }
+
+        &:not(.btn.btn-link) {
+            @include media-breakpoint-down(xl) {
+                width: fit-content;
+                padding: 0;
+            }
+        }
+
+        .user-icon {
+            display: none;
+
+            @include media-breakpoint-down(xl) {
+                display: inline-flex;
+                width: 2rem;
+                height: 2rem;
+                margin: 0 0.5rem 0 0;
+                background-color: $white;
+            }
+
+            &::before {
+                @include media-breakpoint-down(xl) {
+                    transform: scale(0.9);
+                }
+            }
+        }
+
+        &-register {
+            @include media-breakpoint-down(xl) {
+                display: none;
+                pointer-events: none;
+            }
         }
     }
 }
