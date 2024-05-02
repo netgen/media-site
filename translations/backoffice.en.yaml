@@ -36,3 +36,33 @@ bookmarks.filter.search_text.placeholder: 'Search bookmarks'
 bookmarks.filter.button.more: 'More filters'
 bookmarks.filter.button.apply: 'Apply filter'
 bookmarks.filter.button.reset: 'Reset all'
+
+my_account.preferences.send_to_email: 'Send to email'
+my_account.button.discard: 'Discard'
+my_account.button.save_changes: 'Save changes'
+my_account.password_requirements: 'The password must have at least 10 characters and at least one uppercase and one lowercase letter.'
+my_account.email_requirements: "You will receive a confirmation email with a link to confirm your new email address. The link will be valid for 15 minutes. If you don't confirm, the change won't be accepted."
+
+my_account.change_email.already_requested: 'You already requested change of e-mail address. Check you inbox or try again later.'
+my_account.change_email.same_email: 'You requested the same e-mail address.'
+my_account.change_email.email_exists: 'The e-mail address you entered is used by another user.'
+my_account.change_email.invalid_email: 'You requested invalid e-mail address.'
+my_account.change_email.activation_mail_sent: 'We sent you activation e-mail with confirmation link. Please check your inbox.'
+my_account.change_email.already_activated: 'E-mail address has already been activated.'
+my_account.change_email.token_expired: 'Your request for e-mail address change has expired. Please try again.'
+my_account.change_email.successfully_changed: 'E-mail address successfully changed.'
+
+my_account.user_successfully_updated: 'User successfully updated.'
+
+form.my_account.image.replace_image: 'Replace image'
+form.my_account.placeholder.search: 'Type to search...'
+form.my_account.no_results: 'No results'
+form.my_account.searching: 'Searching...'
+
+form.my_account.user_credentials.email: 'E-mail'
+
+form.my_account.personal_details.image: 'Image'
+form.my_account.personal_details.first_name: 'First name'
+form.my_account.personal_details.last_name: 'Last name'
+form.user_password.password.label: 'Password'
+form.user_password.repeat_password.label: 'Repeat password'
