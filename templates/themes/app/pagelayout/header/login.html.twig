@@ -38,6 +38,7 @@
             {% endif %}
 
             <a class="btn btn-user" href={{ path('backoffice_dashboard_index') }}>{{ 'layout.my_dashboard'|trans }}</a>
+
             <a class="btn btn-user" href={{ path("backoffice_my_account_personal_details") }}>{{ 'layout.my_profile'|trans }}</a>
 
             {% if is_granted('ROLE_IMPERSONATED_USER') %}
