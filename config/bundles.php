@@ -82,4 +82,5 @@ return [
     Netgen\IbexaFieldTypeEnhancedLinkBundle\NetgenIbexaFieldTypeEnhancedLinkBundle::class => ['all' => true],
     Netgen\Bundle\BetterIbexaAdminUIBundle\NetgenBetterIbexaAdminUIBundle::class => ['all' => true],
     Netgen\Bundle\ToolbarBundle\NetgenToolbarBundle::class => ['all' => true],
+    Pentatrion\ViteBundle\PentatrionViteBundle::class => ['all' => true],
 ];

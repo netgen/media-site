@@ -39,7 +39,9 @@
 {% include '@ibexadesign/pagelayout/accessibility_links.html.twig' %}
 {% include '@ibexadesign/parts/google_tag_manager_code_noscript.html.twig' %}
 {% include '@ibexadesign/parts/facebook_api.html.twig' %}
-{% include "@NetgenToolbar/ngtoolbar.html.twig" %}
+{% include "@NetgenToolbar/ngtoolbar.html.twig" with {
+    offset_selectors: [".site-header-sticky" , "#page"]
+}  %}
 
 <div id="page"{% if page_css_class|default is not empty %} class="{{ page_css_class }}"{% endif %}{% if location is defined and location is not empty %} data-path='["{{ location.pathArray|join('","') }}"]'{% endif %}>
     {% block layout %}

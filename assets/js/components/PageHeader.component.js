@@ -180,6 +180,7 @@ export default class PageHeader {
 
   togglePageClass(classToToggle) {
     this.pageWrapper.classList.toggle(classToToggle);
+
   }
 
   stickyHeaderSetup() {
@@ -188,9 +189,12 @@ export default class PageHeader {
     }
     ['load', 'scroll', 'resize', 'orientationchange'].forEach((eventType) => {
       window.addEventListener(eventType, () => {
-        window.scrollY >= 1
-          ? this.stickyHeader.classList.add('site-header-sticky--active')
-          : this.stickyHeader.classList.remove('site-header-sticky--active');
+        if (window.scrollY >= 1) {
+          this.stickyHeader.classList.add('site-header-sticky--active')
+          this.stickyHeader.parentElement.style.height = `${this.stickyHeader.offsetHeight}px`
+        } else {
+          this.stickyHeader.classList.remove('site-header-sticky--active');
+        }
       });
     });
   }
