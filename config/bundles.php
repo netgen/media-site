@@ -86,4 +86,5 @@ return [
     ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
     Netgen\Bundle\ConversationsBundle\NetgenConversationsBundle::class => ['all' => true],
     Netgen\Bundle\NotificationsBundle\NetgenNotificationsBundle::class => ['all' => true],
+    Netgen\IbexaUserImpersonationBundle\NetgenIbexaUserImpersonationBundle::class => ['all' => true],
 ];

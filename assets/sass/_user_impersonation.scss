@@ -1,0 +1,44 @@
+.user-impersonation {
+    background-color: $primary_0;
+    padding: 0.5rem 1rem;
+    height: $impersonation-bar-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .user-impersonation-label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        gap: 0.25rem;
+        @include text-0_875;
+
+        &::before {
+            content: url(../../assets/sass/assets/icons/icon_info.svg);
+            line-height: 0;
+        }
+
+        .impersonating-label {
+            @include media-breakpoint-down(sm) {
+                text-transform: capitalize;
+            }
+        }
+
+        .user-name {
+            font-weight: 600;
+        }
+    }
+
+    .btn-end-process {
+        @include text-0_75;
+        font-weight: 600;
+        gap: 0.25rem;
+
+        &.btn:not(.btn.btn-link) {
+            @include media-breakpoint-down(sm) {
+                width: fit-content;
+            }
+        }
+    }
+}
+

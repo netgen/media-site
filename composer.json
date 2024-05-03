@@ -56,7 +56,8 @@
         "netgen/layouts-ibexa-relation-list-query": "^1.4",
         "netgen/layouts-ibexa-tags-query": "^1.4",
         "netgen/conversations": "^1.0",
-        "netgen/notifications": "^1.0"
+        "netgen/notifications": "^1.0",
+        "netgen/ibexa-user-impersonation": "dev-NGSTACK-853"
     },
     "require-dev": {
         "symfony/debug-bundle": "5.4.*",

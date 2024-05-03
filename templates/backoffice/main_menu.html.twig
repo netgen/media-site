@@ -53,6 +53,11 @@
                 <ul>
                     <li><a href="{{ path('backoffice_my_account_personal_details') }}">{{ 'menu.main_menu.personal_details'|trans }}</a></li>
                     <li><a href="{{ path('backoffice_my_account_user_credentials') }}">{{ 'menu.main_menu.user_credentials'|trans }}</a></li>
+                    {% if is_granted('ibexa:netgen_ibexa_user_impersonation:impersonate') %}
+                        <li><a href="{{ path('netgen.ibexa_user_impersonation.admin.list') }}">{{ 'menu.main_menu.impersonate'|trans }}</a></li>
+                    {% elseif is_granted('ROLE_IMPERSONATED_USER') %}
+                        <li><a href="{{ path('netgen.ibexa_user_impersonation.app.user.switch_back') }}">{{ 'layout.user_settings.end_impersonation'|trans }}</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="user-settings-menu__footer">

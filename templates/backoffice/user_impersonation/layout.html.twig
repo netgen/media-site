@@ -1,0 +1,15 @@
+{% extends 'backoffice/layout.html.twig' %}
+
+{% block title %}{{ title|default('User impersonation') }}{% endblock %}
+
+{% block pre_content %}
+    <div class="ng-user-impersonation-app">
+        <section class="ng-user-impersonation-container">
+            <div class="ng-user-impersonation-content">
+{% endblock %}
+
+{% block post_content %}
+            </div>
+        </section>
+    </div>
+{% endblock %}
