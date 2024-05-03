@@ -80,6 +80,6 @@ return [
     Netgen\Bundle\IbexaFormsBundle\NetgenIbexaFormsBundle::class => ['all' => true],
     Netgen\Bundle\IbexaSearchExtraBundle\NetgenIbexaSearchExtraBundle::class => ['all' => true],
     Netgen\IbexaFieldTypeEnhancedLinkBundle\NetgenIbexaFieldTypeEnhancedLinkBundle::class => ['all' => true],
-    Netgen\Bundle\BetterIbexaAdminUIBundle\NetgenBetterIbexaAdminUIBundle::class => ['all' => true],
+    Netgen\Bundle\IbexaAdminUIExtraBundle\NetgenIbexaAdminUIExtraBundle::class => ['all' => true],
     Netgen\Bundle\ToolbarBundle\NetgenToolbarBundle::class => ['all' => true],
 ];
