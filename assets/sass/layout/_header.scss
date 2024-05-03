@@ -11,7 +11,7 @@ $header-bg: $white;
         display: flex;
         align-items: center;
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         > .container {
             height: $header-height-sm;
             .site-logo {
@@ -186,7 +186,7 @@ $header-bg: $white;
             }
         }
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         height: $header-height-sm;
         .searchbox-toggle {
             line-height: $header-height-sm;
