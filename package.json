@@ -77,7 +77,6 @@
         "js-cookie": "^3.0.5",
         "photoswipe": "^5.3.4",
         "popper.js": "^1.15.0",
-        "slim-select": "^2.8.2",
         "swiper": "^11.0.2"
     },
     "engines": {
