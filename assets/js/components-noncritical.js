@@ -71,7 +71,7 @@ const componentConfiguration = [
       searchToggle: '.searchbox-toggle',
       headerSearch: '.header-search',
       searchInput: 'input.search-query',
-      mainNav: '.main-navigation ul.navbar-nav',
+      mainNav: '.main-navigation',
       menuLevel1: '.menu_level_1',
       navActiveClass: 'mainnav-active',
       searchboxActiveClass: 'searchbox-active',

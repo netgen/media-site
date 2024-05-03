@@ -112,7 +112,7 @@ export default class PageHeader {
       menu.parentElement.insertBefore(submenuTriggerContent, menu);
       menu.parentElement.dataset[this.options.submenuDataParam] = true;
 
-      this.submenuTriggerElements.push(submenuTriggerContent);
+      this.submenuTriggerElements.push(menu.parentElement);
     });
 
     window.addEventListener('click', (e) => {
