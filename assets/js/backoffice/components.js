@@ -7,6 +7,7 @@ import Sidebar from '../components/backoffice/Sidebar.component';
 import EnableFilterButtons from '../components/backoffice/EnableFilterButtons.component';
 import HideOverflowingFilters from '../components/backoffice/HideOverflowingFilters.component';
 import DateRangeInput from '../components/backoffice/DateRangeInput.component';
+import ImageUpload from '../components/backoffice/ImageUpload.component';
 
 const componentConfiguration = [
   {
@@ -52,6 +53,18 @@ const componentConfiguration = [
   {
     Component: DateRangeInput,
     selector: '.js-date-range-input',
+  },
+  {
+    Component: ImageUpload,
+    selector: '.js-image-upload',
+    options: {
+      parentFormSelector: '.js-custom-form',
+      removeButtonSelector: '.js-remove-image',
+      filenameWrapper: '.js-filename-wrapper',
+      imageFilenameSelector: '.js-image-filename',
+      replaceImageBtnSelector: '.js-replace-image-btn',
+      imagePreviewSelector: '.js-image-preview',
+    },
   },
 ];
 
