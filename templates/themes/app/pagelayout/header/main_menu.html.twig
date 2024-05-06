@@ -8,6 +8,8 @@
             )
         ) }}
 
-        {{ render_esi(controller('App\\Controller\\PageLayout\\UserMenu')) }}
+        {% if app.request.attributes.get('siteaccess').name == 'peak_eng' %}
+            {{ render_esi(controller('App\\Controller\\PageLayout\\UserMenu')) }}
+        {% endif %}
     {% endblock %}
 </nav>
