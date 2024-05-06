@@ -363,6 +363,15 @@
             padding-inline: 0;
         }
 
+        &:hover {
+            &:after {
+
+                @include media-breakpoint-down(xl) {
+                    content: none;
+                }
+            }
+        }
+
         &.prevent-user-menu-cta {
             @include media-breakpoint-down(xl) {
                 display: none;
