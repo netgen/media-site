@@ -1,2 +1,0 @@
-netgen_better_ibexa_admin_ui:
-    resource: "@NetgenBetterIbexaAdminUIBundle/Resources/config/routing.yaml"
