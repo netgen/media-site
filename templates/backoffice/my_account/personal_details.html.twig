@@ -24,11 +24,11 @@
             {% endif %}
             <div>
                 {{ form_label(form.image) }}
-                <div class="my-account-image-container">
+                <div class="my-account__image-container">
                     {% if not ibexa_field_is_empty(app.user.APIUser, 'image') %}
-                        <img class="avatar js-image-preview" src="{{ asset(ibexa_image_alias(app.user.APIUser.field('image'), app.user.APIUser.versionInfo, 'i160').uri) }}" alt="">
+                        <img class="my-account__avatar js-image-preview" src="{{ asset(ibexa_image_alias(app.user.APIUser.field('image'), app.user.APIUser.versionInfo, 'i160').uri) }}" alt="">
                     {% else %}
-                        <img class="avatar js-image-preview" src="" alt="">
+                        <img class="my-account__avatar js-image-preview" src="" alt="">
                     {% endif %}
                     {{ form_widget(form.image, {remove_image_form: form.remove_image}) }}
                 </div>

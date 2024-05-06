@@ -1,4 +1,44 @@
 .my-account {
+
+
+    &__image-container {
+        display: flex;
+        gap: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+    }
+
+    &__avatar {
+        border-radius: 4px;
+        max-width: 200px;
+        max-height: 200px;
+
+        @include media-breakpoint-down(sm) {
+            align-self: flex-start;
+        }
+
+        &[src=''] {
+            display: none;
+        }
+    }
+
+    .custom-image-upload {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .file-wrapper {
+            width: unset;
+        }
+
+        .btn-replace-image {
+            align-self: flex-start;
+            margin-left: 0.5rem;
+        }
+    }
+
     form {
         display: flex;
         flex-direction: column;
@@ -51,44 +91,6 @@
 
                 @include media-breakpoint-down(sm) {
                     margin-left: 0;
-                }
-            }
-        }
-
-        .my-account-image-container {
-            display: flex;
-            gap: 1rem;
-
-            @include media-breakpoint-down(sm) {
-                flex-direction: column;
-
-                img {
-                    align-self: flex-start;
-                }
-            }
-
-            img {
-                border-radius: 4px;
-                max-width: 200px;
-                max-height: 200px;
-
-                &[src=''] {
-                    display: none;
-                }
-
-                + .custom-image-upload {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.75rem;
-
-                    .file-wrapper {
-                        width: unset;
-                    }
-
-                    .btn-replace-image {
-                        align-self: unset;
-                        margin-left: 0.5rem;
-                    }
                 }
             }
         }
@@ -204,14 +206,14 @@
         margin-left: auto;
         display: inline-block;
 
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+        }
+
         p {
             font-size: 0.875rem;
             color: $gray-54;
             margin-bottom: 0;
-        }
-
-        @include media-breakpoint-down(lg) {
-            width: 100%;
         }
     }
 
@@ -223,15 +225,19 @@
         justify-content: space-between;
 
         @include media-breakpoint-down(lg) {
-            justify-content: center;
+            justify-content: flex-start;
+        }
 
-            button {
+        button {
+
+            @include media-breakpoint-down(lg) {
                 margin-bottom: 0.5rem;
             }
         }
     }
 
     &.my-account-preferences {
+
         div.checkbox-row {
             display: flex;
             align-items: center;

@@ -1,5 +1,5 @@
 .top-navigation {
-    height: 60px;
+    height: 3.75rem;
     border-bottom: 2px solid $secondary_2;
 
     ul {
@@ -9,9 +9,9 @@
     }
 
     &-btn {
-        height: 60px;
+        height: 3.75rem;
 
-        @media (max-width: 768px) {
+        @include media-breakpoint-down(md) {
             flex: 1;
         }
 
@@ -32,7 +32,7 @@
 
             cursor: pointer;
 
-            @media (max-width: 768px) {
+            @include media-breakpoint-down(md) {
                 text-align: center;
                 padding: 0 0.5rem;
                 justify-content: center;
@@ -45,7 +45,7 @@
             &:hover {
                 background-color: $secondary_4;
                 border-color: $secondary_4;
-                color: $darkgray;
+                color: $white;
             }
         }
 
