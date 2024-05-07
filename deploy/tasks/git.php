@@ -9,7 +9,7 @@ task('git:tag:add', function () {
     $branch = get('branch', 'unknown');
     $date = new \DateTimeImmutable();
 
-    $tag = $date->format('Y.m.d.H.i');
+    $tag = $date->format('Y.m.d.H.i') . '-' . $host;
     $message = 'Deployed branch ' . $branch . ' to ' . $host;
 
     cd('{{release_path}}');
