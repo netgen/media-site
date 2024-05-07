@@ -33,3 +33,7 @@ parameters:
         - ng_job_position
         - ng_landing_page
         - ng_news
+
+    netgen_user_impersonation.default.excluded_user_groups:
+        - 13 # administrator users
+        - 44 # anonymous users
