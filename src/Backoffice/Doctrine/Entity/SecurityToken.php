@@ -27,7 +27,7 @@ class SecurityToken
     ) {
         $this->token = hash('sha256', random_bytes(256));
         $this->creationDate = new DateTimeImmutable();
-        $this->expiryDate = $this->creationDate->modify(sprintf('+%d minutes', $validity));
+        $this->expiryDate = $this->creationDate->modify(sprintf('+%d seconds', $validity));
     }
 
     public function getId(): int

@@ -13,5 +13,6 @@ parameters:
 
     ngsite.default.lazy_loading.enabled: true
 
+    ngsite.default.token_validity.email_change: 900
+
     app.testing.site_domain: '%env(TEST_DOMAIN)%'
-    ngsite.default.email_change.token_validity_time_minutes: 15
