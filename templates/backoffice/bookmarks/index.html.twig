@@ -2,6 +2,8 @@
 
 {% trans_default_domain 'backoffice' %}
 
+{% form_theme filter_form 'backoffice/forms/theme.html.twig' %}
+
 {% block content %}
     <form method="get" class="filter-form js-filter-form">
         {{ form_widget(filter_form) }}
@@ -69,7 +71,7 @@
             {{ pagerfanta(bookmarks, 'ngsite') }}
         {% endif %}
     {% else %}
-        <div class="nothing-to-show nothing-to-show-with-margin">
+        <div class="nothing-to-show nothing-to-show--margin">
             <h3>{{ 'bookmarks.no_bookmarks'|trans }}</h3>
         </div>
     {% endif %}

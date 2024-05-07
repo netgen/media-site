@@ -11,6 +11,8 @@
 @import '../bootstrap_import/bootstrap_variables';
 @import '../bootstrap_import/bootstrap';
 
+@import "flatpickr";
+
 // Mixins
 @import '../mixins/mixins';
 @import '../typography';
@@ -34,3 +36,6 @@
 @import 'listing';
 
 @import 'print';
+
+@import 'listing';
+@import 'filter_form';

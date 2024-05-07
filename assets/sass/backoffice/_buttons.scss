@@ -268,13 +268,13 @@
             @extend %btn-icon;
         }
     }
-}
 
-.btn-icon {
-    border: none;
-    background: none;
+    &.btn-icon {
+        border: none;
+        background: none;
 
-    &::after {
-        @extend %btn-icon;
+        &::after {
+            @extend %btn-icon;
+        }
     }
 }

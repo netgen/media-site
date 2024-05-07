@@ -1,0 +1,97 @@
+{% extends 'backoffice/layout.html.twig' %}
+
+{% trans_default_domain 'backoffice' %}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <ul class="errors">
+            {%- for error in errors -%}
+                <li>{{ error.message }}</li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{%- block form_row -%}
+    {% set row_attr = row_attr|default([]) %}
+    {% set row_attr = row_attr|merge({class: row_attr.class|default('') ~ ' row-input'}) %}
+
+    {% if errors|length > 0 %}
+        {% set row_attr = row_attr|merge({class: row_attr.class|default('') ~ ' error-input'}) %}
+    {% endif %}
+
+    <div {% with {attr: row_attr} %}{{ block('attributes') }}{% endwith %}>
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock form_row -%}
+
+{% block filter_widget %}
+    <div class="ntf-filter-search js-filter-wrapper">
+        <div class="ntf-filter-search-wrap ntf-filter-search-wrap-grid">
+            <div class="ntf-filter-wrap js-filters">
+                {{ form_widget(form.selections) }}
+
+                <div class="date-wrapper">
+                    <div class="input-group">
+                        {% if form.vars.show_date|default(false) %}
+                            {{ form_widget(form.date) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown" >
+                <button class="btn btn-dropdown more-filters-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" type="button">
+                    <span>{{ (form.vars.translation_prefix ~ '.filter.button.more')|trans }}</span>
+                    <i class="icon-filter"></i>
+                </button>
+                <div class="dropdown-menu"></div>
+            </div>
+
+            {% if form.vars.show_search|default(false) %}
+                <div class="search-wrap">
+                    <div class="input-group input-search">
+                        {{ form_widget(
+                            form.searchText, {
+                                attr: {
+                                    placeholder: form.vars.translation_prefix ~ '.filter.search_text.placeholder'
+                                }
+                            }
+                        ) }}
+                    </div>
+                </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-apply-filters">
+                {{ (form.vars.translation_prefix ~ '.filter.button.apply')|trans }}
+            </button>
+
+            <a class="btn btn-link btn-reset-filters" href="{{ app.request.pathInfo }}">
+                {{ (form.vars.translation_prefix ~ '.filter.button.reset')|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block date_range_widget %}
+    <div class="filter-by-date js-date-filter">
+        {{ form_label(form.date, null, {label_attr: {'class': 'form-label'}}) }}
+        {{ form_widget(
+            form.date, {
+                attr: {
+                    'readonly': true,
+                    'placeholder': form.vars.translation_prefix ~ '.filter.date.placeholder',
+                    'class': 'flatpickr flatpickr-input',
+                    'data-input': null
+                }
+            }
+        ) }}
+
+        {{ form_widget(form.dateFrom, {'id': 'dateFromHidden', attr: {class: 'form-hidden'}}) }}
+        {{ form_widget(form.dateTo, {'id': 'dateToHidden', attr: {class: 'form-hidden'}}) }}
+
+        <a class="input-button input-button-calendar" title="toggle" data-toggle></a>
+    </div>
+{% endblock %}
