@@ -23,10 +23,6 @@ parameters:
     netgen_user_impersonation.default.content_type_identifier.users: ['user']
     netgen_user_impersonation.default.users.root_location_ids: [5]
     netgen_user_impersonation.default.users.name_search_fields: ['first_name', 'last_name']
-    netgen_user_impersonation.default.excluded_user_groups:
-        - 13 # administrator users
-        - 44 # anonymous users
-
     netgen_user_impersonation.admin.siteaccess_name: '%ngsite.admin_siteaccess_name%'
     netgen_user_impersonation.default.admin.pagelayout: 'backoffice/user_impersonation/layout.html.twig'
     netgen_user_impersonation.peak_eng.impersonate.default_target.route: 'backoffice_dashboard_index'
