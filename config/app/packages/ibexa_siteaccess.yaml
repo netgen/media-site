@@ -25,6 +25,9 @@ ibexa:
                 - bold_ger
             peak_group:
                 - peak_eng
+            impersonation_group:
+                - peak_eng
+                - '%ngsite.admin_siteaccess_name%'
     system:
         admin_group:
             design: ngadmin

@@ -1,0 +1,3 @@
+netgen_ibexa_user_impersonation:
+    resource: "@NetgenIbexaUserImpersonationBundle/Resources/config/routing.yaml"
+    prefix: /user-impersonation
