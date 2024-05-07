@@ -78,7 +78,7 @@ final class UserCredentials extends Controller
             $token = new SecurityToken(
                 $user->id,
                 SecurityTokenType::EmailChangeConfirmation,
-                $this->configResolver->getParameter('email_change.token_validity_time_minutes', 'ngsite'),
+                $this->configResolver->getParameter('ngsite.default.token_validity.email_change', 'ngsite'),
                 $email,
             );
 
