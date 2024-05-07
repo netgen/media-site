@@ -65,6 +65,10 @@
     text-transform: uppercase;
     height: 40px;
     padding: 0.35rem 1.75rem 0.35rem;
+    display: inline-flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
 
     &.btn-primary {
         background-color: $secondary_4;

@@ -194,6 +194,10 @@
                 @extend %icon-conversations;
             }
 
+            i.icon-notifications::before {
+                @extend %icon-notifications;
+            }
+
             @include media-breakpoint-down(md) {
                 width: 100%;
             }
