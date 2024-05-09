@@ -7,6 +7,7 @@ body {
     -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
     background: $footer-bg;
     word-wrap: break-word;
+    overflow-x: hidden;
     @include media-breakpoint-down(md) {
         font-size: 1rem;
     }

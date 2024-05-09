@@ -5,6 +5,21 @@
 
     @include media-breakpoint-down(xl) {
         margin-left: 0;
+        transform: translateX(100%);
+        pointer-events: none;
+        transition: transform 300ms;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - #{$header-height-sm});
+        overflow-y: scroll;
+        left: 0;
+        right: 0;
+        top: calc(#{$header-height-sm} + 2px);
+        z-index: 1000;
+        background: $primary;
+        box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
+        padding-bottom: 1.5rem;
     }
 
     .navbar-nav {
@@ -161,21 +176,6 @@
     }
     /* small screen sizes */
     @include media-breakpoint-down(xl) {
-        transform: translateX(100%);
-        pointer-events: none;
-        transition: transform 300ms;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        height: calc(100vh - #{$header-height-sm});
-        overflow-y: scroll;
-        left: 0;
-        right: 0;
-        top: calc(#{$header-height-sm} + 2px);
-        z-index: 1000;
-        background: $secondary_0;
-        box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
-        padding-bottom: 1.5rem;
         .navbar-nav {
             display: block;
             margin: 0;
@@ -196,7 +196,7 @@
 
                 > a,
                 > span {
-                    padding: .5em 1em;
+                    padding: .5em 0;
                     color: $gray-87;
                     &::after {
                         display: none;
@@ -351,17 +351,25 @@
     }
 
     .user-menu-cta {
+        @include text-base;
+        @extend %hover-underline;
         display: flex;
         align-items: center;
         position: relative;
-        //color: $secondary_3;
-        @include text-base;
         font-weight: 600;
         padding-inline: 2rem;
-        @extend %hover-underline;
 
         @include media-breakpoint-down(xl) {
             padding-inline: 0;
+        }
+
+        &:hover {
+            &:after {
+
+                @include media-breakpoint-down(xl) {
+                    content: none;
+                }
+            }
         }
 
         &.prevent-user-menu-cta {
@@ -372,8 +380,8 @@
 
         .arrow-icon {
             &::after {
+                @include icon-color(secondary_1);
                 content: url('../assets/icons/icon_arrow_right_small.svg');
-                @include icon-color(secondary_3);
                 margin-left: 0.625rem;
 
                 .inverted & {
@@ -389,14 +397,6 @@
             @include media-breakpoint-up(xl) {
                 color: $secondary_1;
             }
-        }
-
-        .user-icon {
-            margin: 0 0.5rem 0 0;
-            width: 1.875rem;
-            height: 1.875rem;
-            background-color: $secondary_3;
-            font-size: 0;
         }
     }
 
@@ -432,41 +432,37 @@
     }
 
     .user-icon {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 1.875rem;
+        height: 1.875rem;
+        background-color: $primary;
+        font-size: 0;
         border-radius: 50%;
-        background-color: $primary_2;
         display: flex;
         justify-content: center;
         object-fit: cover;
         align-items: center;
-        margin-bottom: 24px;
-
-        &--main {
-            @include media-breakpoint-down(xl) {
-                display: none;
-            }
-        }
+        margin: 0 0.5rem 0 0;
 
         &::before {
             content: url('../assets/icons/icon_user.svg');
         }
-    }
 
-    .user-menu-title {
-        @include text-1_25;
-        font-weight: 600;
-        margin-bottom: 1rem;
+        &--main {
+            width: 3.5rem;
+            height: 3.5rem;
+            margin-bottom: 1.5rem;
+            background-color: $secondary;
 
-        @include media-breakpoint-down(xl) {
-            display: none;
+            @include media-breakpoint-down(xl) {
+                display: none;
+            }
         }
     }
 
     a.btn-user {
         @include text-1_125;
         font-weight: 600;
-        color: $secondary_4;
+        color: $secondary_1;
         display: flex;
         align-items: center;
 
@@ -474,7 +470,7 @@
             justify-content: flex-start;
             font-size: 1rem;
             font-weight: 600;
-            color: $secondary_3;
+            color: $secondary_1;
         }
 
         &::after {
@@ -482,10 +478,10 @@
             margin-left: 0.625rem;
             width: 1.5625rem;
             height: 1.5625rem;
-            @include icon-color(secondary_4);
+            @include icon-color(secondary_1);
 
             @include media-breakpoint-down(xl) {
-                @include icon-color(secondary_3);
+                @include icon-color(secondary_1);
             }
         }
 
@@ -500,29 +496,25 @@
             }
         }
 
-        .user-icon {
-            display: none;
-
-            @include media-breakpoint-down(xl) {
-                display: inline-flex;
-                width: 2rem;
-                height: 2rem;
-                margin: 0 0.5rem 0 0;
-                background-color: $white;
-            }
-
-            &::before {
-                @include media-breakpoint-down(xl) {
-                    transform: scale(0.9);
-                }
-            }
-        }
-
         &-register {
             @include media-breakpoint-down(xl) {
                 display: none;
                 pointer-events: none;
             }
+        }
+    }
+}
+
+.mainnav-active {
+    @include media-breakpoint-down(xl) {
+        overflow-y: hidden;
+        position: fixed;
+        width: 100%;
+
+        body {
+            overflow-y: hidden;
+            position: fixed;
+            width: 100%;
         }
     }
 }

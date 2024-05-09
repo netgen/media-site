@@ -3,6 +3,7 @@
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+
         .form-group {
             .form-label {
                 @include text-0_875;
@@ -59,6 +60,14 @@
                         }
                     }
                 }
+            }
+            .errors {
+                list-style: none;
+                padding: 0.25rem 0.5rem;
+                margin: 0;
+                font-size: 0.875rem;
+                background-color: hsl(0, 100, 80);
+                border-right: none;
             }
         }
     }
