@@ -1,0 +1,24 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain 'log_viewer' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages') },
+        { value: 'log_viewer.main_menu_item'|trans }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'log_viewer.page_title'|trans,
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% for file in files %}
+        <div>
+            <a href="{{ path('ngsite_ibexa_admin_log_download', {'fileName': file.relativePathname}) }}">{{ file.relativePathname }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

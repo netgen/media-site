@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping
+    xmlns="https://doctrine-project.org/schemas/orm/doctrine-mapping"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
+        https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+    <entity name="App\Entity\Log" table="ngsite_log">
+        <id name="id" type="integer">
+            <generator />
+        </id>
+
+        <field name="date" type="datetime_immutable" />
+        <field name="severity" type="string" enum-type="App\Enums\Log\Severity" />
+        <field name="module" type="string" enum-type="App\Enums\Log\Module" />
+        <field name="email" type="string" />
+        <field name="message" type="text" />
+        <field name="context" type="json" />
+    </entity>
+</doctrine-mapping>

@@ -1,0 +1,16 @@
+log_viewer.main_menu_item: 'Log viewer'
+log_viewer.page_title: 'Log viewer'
+
+log_viewer.message: 'Message'
+log_viewer.severity: 'Severity'
+log_viewer.module: 'Module'
+log_viewer.email: 'E-mail'
+log_viewer.date: 'Date'
+log_viewer.date_from: 'Date from'
+log_viewer.date_to: 'Date to'
+log_viewer.context: 'Context'
+
+log_viewer.filter.button.reset: 'Clear filters'
+log_viewer.filter.button.submit: 'Apply filters'
+log_viewer.filter.button.export: 'Export'
+log_viewer.button.archive_list: 'View archive list'

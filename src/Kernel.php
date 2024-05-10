@@ -6,6 +6,7 @@ namespace App;
 
 use App\DependencyInjection\AppExtension;
 use App\DependencyInjection\CompilerPass;
+use App\Security\PolicyProvider;
 use RuntimeException;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -27,6 +28,10 @@ final class Kernel extends BaseKernel
     public function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new CompilerPass\XslRegisterPass());
+
+        /** @var \Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension $ibexaExtension */
+        $ibexaExtension = $container->getExtension('ibexa');
+        $ibexaExtension->addPolicyProvider(new PolicyProvider());
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader): void

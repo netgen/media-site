@@ -1,0 +1,57 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain 'log_viewer' %}
+
+{% set head_cols = [
+    { content: 'log_viewer.date'|trans },
+    { content: 'log_viewer.severity'|trans },
+    { content: 'log_viewer.module'|trans },
+    { content: 'log_viewer.email'|trans },
+    { content: 'log_viewer.message'|trans },
+    { content: 'log_viewer.context'|trans },
+] %}
+
+{% set body_rows = [] %}
+{% for log in logs %}
+    {% set body_rows = body_rows|merge([{
+        cols: [
+            { content: log.date|format_datetime},
+            { content: log.severity.value },
+            { content: log.module.value },
+            { content: log.email },
+            { content: log.message },
+            { content: log.context|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_PRETTY_PRINT')) },
+        ]
+    }]) %}
+{% endfor %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages') },
+        { value: 'log_viewer.main_menu_item'|trans }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'log_viewer.page_title'|trans,
+    } %}
+{% endblock %}
+
+{% block content %}
+
+    <a href="{{ path('ngsite_ibexa_admin_log_archive_list') }}" class="btn-primary btn mb-5">
+        {{ 'log_viewer.button.archive_list'|trans }}
+    </a>
+
+    {% include '@ibexadesign/log_viewer/filter_form.html.twig' %}
+
+    <section class="container ibexa-container">
+
+        {% embed "@ibexadesign/ui/component/table/table.html.twig" %}{% endembed %}
+
+        {% include '@ibexadesign/ui/pagination.html.twig' with {
+            'pager': logs
+        } %}
+    </section>
+{% endblock %}

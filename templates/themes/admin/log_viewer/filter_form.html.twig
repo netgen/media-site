@@ -1,0 +1,28 @@
+{% trans_default_domain 'log_viewer' %}
+
+{% form_theme form 'themes/app/forms/theme.html.twig' %}
+
+<section class="container ibexa-container logger-filter-form">
+    <form method="get" id="filter-form">
+        {{ form_row(form.message) }}
+        {{ form_row(form.severity) }}
+        {{ form_row(form.module) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.dateFrom) }}
+        {{ form_row(form.dateTo) }}
+    </form>
+
+    <div class="form-actions">
+        <a href="{{ path('ngsite_ibexa_admin_log_viewer') }}" class="btn-secondary btn">
+            {{ 'log_viewer.filter.button.reset'|trans }}
+        </a>
+
+        <button type="submit" form="filter-form" name="filter[submit]" class="btn-primary btn">
+            {{ 'log_viewer.filter.button.submit'|trans }}
+        </button>
+
+        <button type="submit" form="filter-form" name="filter[export]" class="btn-primary btn">
+            {{ 'log_viewer.filter.button.export'|trans }}
+        </button>
+    </div>
+</section>

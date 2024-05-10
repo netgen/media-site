@@ -1,0 +1,11 @@
+ngsite_ibexa_admin_log_viewer:
+    path: /logs
+    controller: App\Controller\LogViewer\Index
+
+ngsite_ibexa_admin_log_archive_list:
+    path: /logs/archive_list
+    controller: App\Controller\LogViewer\ArchiveList
+
+ngsite_ibexa_admin_log_download:
+    path: /logs/download/{fileName}
+    controller: App\Controller\LogViewer\Download

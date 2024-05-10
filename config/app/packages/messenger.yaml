@@ -1,0 +1,26 @@
+framework:
+    messenger:
+        reset_on_message: true
+        transports:
+            sync: 'sync://'
+            ngsite_logger:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                failure_transport: ngsite_logger_failed
+                retry_strategy:
+                    max_retries: 5
+                    delay: 300
+                    multiplier: 2
+                    max_delay: 0
+                options:
+                    redeliver_timeout: 300
+                    queue_name: ngsite_logger
+
+            ngsite_logger_failed: 'doctrine://default?queue_name=iota_logger_failed'
+
+        routing:
+            'App\Messenger\Message\Logger\LogAction': ngsite_logger
+        default_bus: messenger.bus.default
+        buses:
+            messenger.bus.default:
+                middleware:
+                    - doctrine_ping_connection

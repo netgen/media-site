@@ -5,3 +5,4 @@ parameters:
         - '#Cannot access property \$value on Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Field\|null#'
         # Disable errors for various "only read/written" properties
         - '#\$\w+ is never (written|read), only (read|written).#'
+        - '#Method App\\Messenger\\MessageHandler\\Logger\\LogActionBatchHandler::process\(\) is unused.#'
