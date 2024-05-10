@@ -10,7 +10,7 @@ set('branch', 'master');
 set('repository_name', 'netgen/example');
 
 add('shared_files', ['.env.local']);
-add('shared_dirs', ['public/var/site/storage']);
+add('shared_dirs', ['public/var/site/storage', 'var/ngsite_log_archive']);
 
 add('writable_dirs', ['var/encore']);
 set('writable_use_sudo', false);
