@@ -1,0 +1,12 @@
+#filter-form {
+    display: flex;
+
+    .form-group {
+        flex-basis: 20%;
+        padding: 0.5rem 0.5rem 0.5rem 0;
+    }
+}
+
+.logger-filter-form .form-actions {
+    margin-top: 1rem;
+}
