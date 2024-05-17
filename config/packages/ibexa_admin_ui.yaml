@@ -6,6 +6,9 @@ parameters:
     # configuration forms: https://issues.ibexa.co/browse/IBX-7934
     ibexa.site_access.config.admin_group.user_preferences.additional_translations: ['de_DE']
 
+    # Overriden to disable errors about missing "folder" content type (IBX-8285)
+    ibexa.dam_widget.folder.content_type_identifier: ng_container
+
 ibexa:
     siteaccess:
     system:
