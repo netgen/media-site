@@ -53,6 +53,7 @@
         "netgen/layouts-standard": "~1.4.0",
         "netgen/layouts-ibexa": "~1.4.0",
         "netgen/layouts-ibexa-site-api": "~1.4.0",
+        "netgen/layouts-enterprise-ibexa": "~1.4.0",
         "netgen/layouts-ibexa-relation-list-query": "^1.4",
         "netgen/layouts-ibexa-tags-query": "^1.4",
         "netgen/conversations": "^1.0",
