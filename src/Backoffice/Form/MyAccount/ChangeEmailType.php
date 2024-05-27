@@ -32,7 +32,7 @@ final class ChangeEmailType extends AbstractType
                 'label' => 'form.my_account.user_credentials.email',
                 'constraints' => [
                     new Constraints\NotBlank(),
-                    new Constraints\Regex(['pattern' => '/^[^@]+$/', 'message' => 'backoffice.change_email.username.invalid']),
+                    new Constraints\Email(),
                 ],
             ],
         );
