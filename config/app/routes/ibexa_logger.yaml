@@ -1,0 +1,4 @@
+ibexa_logger:
+    resource: '@IbexaLoggerBundle/Resources/config/app/routes/ibexa.yaml'
+    defaults:
+        siteaccess_group_whitelist: '%admin_group_name%'
