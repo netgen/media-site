@@ -26,17 +26,17 @@ final class ChangeEmailDataMapper implements DataMapperInterface
             return;
         }
 
+        $email = $viewData->email;
+
         $emailParts = explode('@', $viewData->email);
 
         if (count($emailParts) !== 2) {
             throw new BadRequestHttpException("User's email address is not valid.");
         }
 
-        $emailUsername = $emailParts[0];
-
         $forms = iterator_to_array($forms);
 
-        $forms['email_username']->setData($emailUsername);
+        $forms['email_username']->setData($email);
     }
 
     public function mapFormsToData(Traversable $forms, &$viewData): void
@@ -52,10 +52,9 @@ final class ChangeEmailDataMapper implements DataMapperInterface
         }
 
         $forms = iterator_to_array($forms);
-        $emailDomain = '@' . $emailParts[1];
 
         $viewData = new ChangeEmailData(
-            $forms['email_username']->getData() . $emailDomain,
+            $forms['email_username']->getData(),
         );
     }
 }
