@@ -91,4 +91,5 @@ return [
     Netgen\Bundle\ConversationsBundle\NetgenConversationsBundle::class => ['all' => true],
     Netgen\Bundle\NotificationsBundle\NetgenNotificationsBundle::class => ['all' => true],
     Netgen\IbexaUserImpersonationBundle\NetgenIbexaUserImpersonationBundle::class => ['all' => true],
+    Netgen\IbexaLoggerBundle\IbexaLoggerBundle::class => ['all' => true],
 ];
