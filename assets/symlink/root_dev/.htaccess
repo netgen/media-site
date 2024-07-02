@@ -75,6 +75,7 @@ RewriteRule ^var/.*(?i)\.(php3?|phar|phtml|sh|exe|pl|bin)$ - [F]
 
 RewriteRule ^var/([^/]+/)?storage/images(-versioned)?/.* - [L]
 RewriteRule ^var/([^/]+/)?storage/original/image/(.*)\.svg - [L]
+RewriteRule ^media/cache/ngsb_preview/.* - [L]
 
 # Makes it possible to place your favicon at the root of your web folder
 RewriteRule ^favicon\.ico - [L]

@@ -30,7 +30,8 @@
         "site:server": "encore dev-server --config-name",
         "ibexa": "encore production --config=webpack.config.ibexa.js",
         "format:js": "prettier --write \"assets/js/**/*.js\"",
-        "linter:js": "eslint \"assets/js/**/*.js\""
+        "linter:js": "eslint \"assets/js/**/*.js\"",
+        "ckeditor": "encore production --config=webpack.config.ckeditor.js"
     },
     "private": true,
     "devDependencies": {

@@ -40,26 +40,26 @@
             {
                 "action": "\\Netgen\\GitHooks\\Action\\PHPCSFixer",
                 "options": {
-                    "excluded_files": ["deploy.php", "/^deploy.*/", "config/bundles.php"],
+                    "excluded_files": ["deploy.php", "/^deploy.*/", "config/bundles.php", "/^assets\\/ckeditor4\\/.*/"],
                     "fixer_path": "vendor/bin/php-cs-fixer"
                 }
             },
             {
                 "action": "\\Netgen\\GitHooks\\Action\\PHPStan",
                 "options": {
-                    "excluded_files": ["/^deploy.*/"]
+                    "excluded_files": ["/^deploy.*/", "/^assets\\/ckeditor4\\/.*/"]
                 }
             },
             {
                 "action": "\\Netgen\\GitHooks\\Action\\JSLinter",
                 "options": {
-                    "excluded_files": []
+                    "excluded_files": ["/^assets\\/ckeditor4\\/.*/", "webpack.config.ckeditor.js"]
                 }
             },
             {
                 "action": "\\Netgen\\GitHooks\\Action\\JSPrettier",
                 "options": {
-                    "excluded_files": []
+                    "excluded_files": ["/^assets\\/ckeditor4\\/.*/", "webpack.config.ckeditor.js"]
                 }
             },
             {
