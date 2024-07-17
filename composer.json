@@ -127,7 +127,8 @@
         "phpstan": "@php vendor/bin/phpstan analyse -c phpstan.neon --level=8 --ansi src tests"
     },
     "conflict": {
-        "symfony/symfony": "*"
+        "symfony/symfony": "*",
+        "ibexa/core": ">=4.6.7"
     },
     "extra": {
         "symfony": {
