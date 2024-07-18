@@ -91,4 +91,7 @@ return [
     Netgen\Bundle\ConversationsBundle\NetgenConversationsBundle::class => ['all' => true],
     Netgen\Bundle\NotificationsBundle\NetgenNotificationsBundle::class => ['all' => true],
     Netgen\IbexaUserImpersonationBundle\NetgenIbexaUserImpersonationBundle::class => ['all' => true],
+    Netgen\SurveyBuilderBundle\NetgenSurveyBuilderBundle::class => ['all' => true],
+    Misd\PhoneNumberBundle\MisdPhoneNumberBundle::class => ['all' => true],
+    FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
 ];
