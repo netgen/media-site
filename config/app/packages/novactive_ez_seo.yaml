@@ -6,7 +6,7 @@ nova_ezseo:
                 copyright: ~
                 generator: "Ibexa DXP"
                 MSSmartTagsPreventParsing: "TRUE"
-            fieldtype_metas_identifier: "metas"
+            fieldtype_metas_identifier: "metadata"
             fieldtype_metas:
                 title:
                     label: 'Title'
@@ -39,7 +39,7 @@ nova_ezseo:
                 copyright: ~
                 generator: "Ibexa DXP"
                 MSSmartTagsPreventParsing: "TRUE"
-            fieldtype_metas_identifier: "metas"
+            fieldtype_metas_identifier: "metadata"
             fieldtype_metas:
                 title:
                     label: 'Title'
