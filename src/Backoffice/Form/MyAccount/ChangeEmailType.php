@@ -25,7 +25,7 @@ final class ChangeEmailType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-            'email_username',
+            'email',
             TextType::class,
             [
                 'required' => true,
