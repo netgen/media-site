@@ -25,14 +25,14 @@ final class ChangeEmailType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-            'email_username',
+            'email',
             TextType::class,
             [
                 'required' => true,
                 'label' => 'form.my_account.user_credentials.email',
                 'constraints' => [
                     new Constraints\NotBlank(),
-                    new Constraints\Regex(['pattern' => '/^[^@]+$/', 'message' => 'backoffice.change_email.username.invalid']),
+                    new Constraints\Email(),
                 ],
             ],
         );

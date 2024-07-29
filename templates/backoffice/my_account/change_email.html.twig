@@ -3,10 +3,9 @@
 <div class="my-account">
     {{ form_start(form) }}
     <div class="change-email-wrapper">
-        {{ form_label(form.email_username) }}
+        {{ form_label(form.email) }}
         <div>
-            {{ form_widget(form.email_username) }}
-            <span class="email-domain">{{ '@' ~ app.user.APIUser.email|split('@')[1] }}</span>
+            {{ form_widget(form.email) }}
         </div>
     </div>
     <div class="form-actions-password-requirements">
