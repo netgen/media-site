@@ -94,4 +94,5 @@ return [
     Netgen\SurveyBuilderBundle\NetgenSurveyBuilderBundle::class => ['all' => true],
     Misd\PhoneNumberBundle\MisdPhoneNumberBundle::class => ['all' => true],
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
+    Netgen\IbexaLoggerBundle\IbexaLoggerBundle::class => ['all' => true],
 ];

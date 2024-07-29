@@ -60,6 +60,7 @@
         "netgen/notifications": "^1.0",
         "netgen/ibexa-user-impersonation": "dev-NGSTACK-853",
         "netgen/survey-builder": "^0.1.2"
+        "netgen/ibexa-logger": "^1.0@dev"
     },
     "require-dev": {
         "symfony/debug-bundle": "5.4.*",
