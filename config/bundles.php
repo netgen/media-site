@@ -82,4 +82,5 @@ return [
     Netgen\IbexaFieldTypeEnhancedLinkBundle\NetgenIbexaFieldTypeEnhancedLinkBundle::class => ['all' => true],
     Netgen\Bundle\IbexaAdminUIExtraBundle\NetgenIbexaAdminUIExtraBundle::class => ['all' => true],
     Netgen\Bundle\ToolbarBundle\NetgenToolbarBundle::class => ['all' => true],
+    Netgen\Bundle\IbexaScheduledVisibilityBundle\NetgenIbexaScheduledVisibilityBundle::class => ['all' => true],
 ];

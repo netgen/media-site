@@ -49,6 +49,7 @@
         "netgen/ibexa-fieldtype-enhanced-link": "^1.1.2",
         "netgen/ibexa-admin-ui-extra": "^1.3.0",
         "netgen/toolbar": "^1.0",
+        "netgen/ibexa-scheduled-visibility": "^1.0",
 
         "netgen/layouts-standard": "~1.4.0",
         "netgen/layouts-ibexa": "~1.4.0",
