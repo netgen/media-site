@@ -129,7 +129,7 @@
     },
     "conflict": {
         "symfony/symfony": "*",
-        "ibexa/core": ">=4.6.7"
+        "ibexa/core": "<4.6.10"
     },
     "extra": {
         "symfony": {
