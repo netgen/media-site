@@ -75,6 +75,9 @@
         "symfony/css-selector": "5.4.*",
         "symfony/phpunit-bridge": "5.4.*"
     },
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/netgen/NovaeZSEOBundle.git" }
+    ],
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
