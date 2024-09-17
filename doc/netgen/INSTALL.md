@@ -61,25 +61,61 @@ After this, you can run `composer install`, and follow the rest of the instructi
 
 Run the following to generate development versions of the assets:
 
+<details>
+<summary>Makefile</summary>
+
+```
+make assets
+```
+</details>
+
+<details>
+<summary>Manually</summary>
+
 ```
 yarn install
 yarn build:dev
 ```
+</details>
 
 or to build production versions of the assets:
+
+<details>
+<summary>Makefile</summary>
+
+```
+make assets-prod
+```
+</details>
+
+<details>
+<summary>Manually</summary>
 
 ```
 yarn install
 yarn build:prod
 ```
+</details>
 
 ### Generate backend assets
 
 Run the following to generate Ibexa Admin UI assets:
 
+<details>
+<summary>Makefile</summary>
+
+```
+make ibexa-assets
+```
+</details>
+
+<details>
+<summary>Manually</summary>
+
 ```
 composer ibexa-assets
 ```
+</details>
 
 ### Note for Ibexa DXP official WebPack support
 
@@ -130,9 +166,21 @@ is `admin` and its password is `publish`.
 
 Finally, generate the GraphQL schema for admin interface:
 
+<details>
+<summary>Makefile</summary>
+
+```
+make graphql-schema
+```
+</details>
+
+<details>
+<summary>Manually</summary>
+
 ```
 php bin/console ibexa:graphql:generate-schema
 ```
+</details>
 
 ### Generate image variations
 
@@ -141,9 +189,22 @@ request time, especially since demo content uses high quality and high resolutio
 
 To overcome this, you can use the following command to generate most used image variations for all images:
 
+<details>
+<summary>Makefile</summary>
+
+```
+make images
+```
+</details>
+
+<details>
+<summary>Manually</summary>
+
 ```
 php bin/console ngsite:content:generate-image-variations --variations=i30,i160,i320,i480,nglayouts_app_preview,ngcb_thumbnail
 ```
+</details>
+
 
 This command will take a couple of minutes to complete, so grab a cup of coffee while it's running.
 
