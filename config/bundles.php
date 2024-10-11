@@ -23,6 +23,7 @@ return [
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
     Ibexa\Bundle\Core\IbexaCoreBundle::class => ['all' => true],
     Ibexa\Bundle\CorePersistence\IbexaCorePersistenceBundle::class => ['all' => true],
+    Ibexa\Bundle\CoreSearch\IbexaCoreSearchBundle::class => ['all' => true],
     Ibexa\Bundle\LegacySearchEngine\IbexaLegacySearchEngineBundle::class => ['all' => true],
     Ibexa\Bundle\IO\IbexaIOBundle::class => ['all' => true],
     Ibexa\Bundle\Debug\IbexaDebugBundle::class => ['dev' => true, 'test' => true, 'behat' => true],

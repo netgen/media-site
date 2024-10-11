@@ -137,13 +137,13 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
+            "require": "5.4.*",
             "endpoint": [
                 "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main",
                 "https://api.github.com/repos/netgen/recipes/contents/index.json?ref=flex",
                 "https://api.github.com/repos/netgen-layouts/recipes/contents/index.json?ref=flex",
                 "flex://defaults"
             ],
-            "require": "5.4.*",
             "docker": false
         },
         "branch-alias": {

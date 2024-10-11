@@ -17,7 +17,7 @@
             "repo": "github.com/ibexa/recipes",
             "branch": "master",
             "version": "4.6",
-            "ref": "c7f69c005aeae690d8c13e4862957f8e3907060c"
+            "ref": "fbc471823f80c22b726e6f5bfb8641abc95839b7"
         },
         "files": [
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -31,6 +31,7 @@
             "config/packages/ibexa_doctrine_schema.yaml",
             "config/packages/ibexa_http_cache.yaml",
             "config/packages/ibexa_jms_translation.yaml",
+            "config/packages/ibexa_richtext.yaml",
             "config/packages/ibexa_solr.yaml",
             "config/packages/ibexa_welcome_page.yaml",
             "config/packages/security.yaml",

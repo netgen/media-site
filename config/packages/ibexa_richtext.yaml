@@ -1,0 +1,7 @@
+ibexa_fieldtype_richtext:
+    enabled_attribute_types:
+        - number
+        - string
+        - boolean
+        - choice
+        - link
