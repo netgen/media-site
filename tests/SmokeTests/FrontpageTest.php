@@ -1,8 +1,6 @@
 <?php
 
-namespace SmokeTests;
-
-use App\Tests\SmokeTests\ProjectWebTestCase;
+namespace App\Tests\SmokeTests;
 
 final class FrontpageTest extends ProjectWebTestCase
 {

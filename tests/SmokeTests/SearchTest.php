@@ -1,9 +1,7 @@
 <?php
 
 
-namespace SmokeTests;
-
-use App\Tests\SmokeTests\ProjectWebTestCase;
+namespace App\Tests\SmokeTests;
 
 final class SearchTest extends ProjectWebTestCase
 {

@@ -1,8 +1,7 @@
 <?php
 
-namespace SmokeTests;
+namespace App\Tests\SmokeTests;
 
-use App\Tests\SmokeTests\ProjectWebTestCase;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 final class CrawlerTest extends ProjectWebTestCase
