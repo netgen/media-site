@@ -16,7 +16,7 @@ export default class CookieControl {
     CookieControl.initNetgenCookieControl();
     this.optionalListToggle.addEventListener('click', this.handleOptionalListToggle.bind(this));
     this.optionalSaveBtn.forEach((element) =>
-      element.addEventListener('click', this.handleConsentChange)
+      element.addEventListener('click', CookieControl.handleConsentChange)
     );
   }
 
@@ -41,5 +41,35 @@ export default class CookieControl {
     event.preventDefault();
 
     GTM.push('ngcc', GTM.EVENTS.CHANGED);
+
+    // check if analytics and marketing cookie status changed and update consents
+    if (typeof window.getCookieStatus === 'function') {
+      const analyticsStatus = window.getCookieStatus('ng-cc-analytics');
+      if (window.lastAnalyticsStatus !== analyticsStatus) {
+        window.gtag('consent', 'update', {
+          ad_storage: analyticsStatus,
+          analytics_storage: analyticsStatus,
+        });
+        window.lastAnalyticsStatus = analyticsStatus;
+        const bcolor = analyticsStatus === 'granted' ? 'green' : 'orange';
+        console.info(
+          '%cAnalytics cookie changed to: ' + analyticsStatus,
+          'color: white; background-color: ' + bcolor
+        );
+      }
+      const marketingStatus = window.getCookieStatus('ng-cc-marketing');
+      if (window.lastMarketingStatus !== marketingStatus) {
+        window.gtag('consent', 'update', {
+          ad_user_data: marketingStatus,
+          ad_personalization: marketingStatus,
+        });
+        window.lastMarketingStatus = marketingStatus;
+        const bcolor = marketingStatus === 'granted' ? 'green' : 'orange';
+        console.info(
+          '%cMarketing cookie changed to: ' + marketingStatus,
+          'color: white; background-color: ' + bcolor
+        );
+      }
+    }
   }
 }
