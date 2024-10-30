@@ -5,20 +5,22 @@
     <div id="ng-cc">
         <div class="ng-cc-overlay"></div>
 
+        {% if cookie_policy.hasField('cookie_policy_text') and not cookie_policy.fields.cookie_policy_text.empty %}
         <div class="ng-cc-modal js-fetch-page" data-fetch-page-content-id="{{ cookie_policy_text.id }}">
+        {% else %}
+        <div class="ng-cc-modal">
+        {% endif %}
 
             {# cookie policy addition #}
-            {% if cookie_policy.hasField('cookie_policy_text') and not cookie_policy.fields.cookie_policy_text.empty %}
-                <div class="ng-cc-cookie-policy-text">
-                    <div class="wrapper">
-                        <div class="ng-cc-header-in">
-                            <a href="#" class="btn btn-default btn-icon-chevron-left cookie-policy-hide js-fetch-page-remove">{{ 'ngsite.layout.cookie_settings.go_back'|trans }}</a>
-                        </div>
-                        <div class="js-fetch-page-placeholder">
-                        </div>
+            <div class="ng-cc-cookie-policy-text">
+                <div class="wrapper">
+                    <div class="ng-cc-header-in">
+                        <a href="#" class="btn btn-default btn-icon-chevron-left cookie-policy-hide js-fetch-page-remove">{{ 'ngsite.layout.cookie_settings.go_back'|trans }}</a>
+                    </div>
+                    <div class="js-fetch-page-placeholder">
                     </div>
                 </div>
-            {% endif %}
+            </div>
             {# /cookie policy addition #}
 
             <div class="ng-cc-content">
