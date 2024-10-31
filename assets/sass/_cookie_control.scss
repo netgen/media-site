@@ -394,7 +394,7 @@
     .ng-cc-cookie-policy-text {
         position: absolute;
         inset: 0;
-        z-index: 900;
+        z-index: 10000000;
         transition: transform .3s ease;
         transform: translateX(100%);
         background: #fff;
@@ -422,7 +422,7 @@
     }
     .ng-cc-modal {
         overflow-x: hidden;
-        min-height: 200px;
+        min-height: 180px;
         max-width: calc(100% - 60px);
         transition: min-height .3s ease, max-width .3s ease;
         overscroll-behavior: contain;
@@ -438,7 +438,7 @@
     }
     @include media-breakpoint-down(lg) {
         .ng-cc-modal {
-            min-height: 200px;
+            min-height: 180px;
             max-width: none;
             &.cookie-policy-shown {
                 min-height: 75vh;
