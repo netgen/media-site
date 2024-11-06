@@ -87,6 +87,6 @@
         "actions": []
     },
     "config": {
-        "php-path": "/usr/bin/env php8.1"
+        "php-path": "/usr/bin/env php8.2"
     }
 }
