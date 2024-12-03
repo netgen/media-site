@@ -16,6 +16,7 @@ import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
 import SkipToMainContent from './components/SkipToMainContent.component';
+import FetchPageAndRender from './components/FetchPageAndRender.component';
 
 // Configuration
 const componentConfiguration = [
@@ -38,6 +39,11 @@ const componentConfiguration = [
       optionalListToggle: '.optional-list-toggle',
       rotateArrowClass: 'rotate-arrow',
       shownClass: 'shown',
+      cookieModal: '.ng-cc-modal',
+      cookiePolicyShow: '.ng-cc-js-link-cookie-policy a',
+      cookiePolicyHide: '.cookie-policy-hide',
+      cookiePolicyText: '.ng-cc-cookie-policy-text',
+      cookiePolicyShownClass: 'cookie-policy-shown',
     },
   },
   {
@@ -213,6 +219,15 @@ const componentConfiguration = [
   {
     Component: SkipToMainContent,
     selector: '#skip-to-main-content',
+  },
+  {
+    Component: FetchPageAndRender,
+    selector: '.js-fetch-page',
+    options: {
+      triggerWrapper: '.js-fetch-page-trigger-wrapper',
+      pagePlaceholder: '.js-fetch-page-placeholder',
+      pageRemove: '.js-fetch-page-remove',
+    },
   },
 ];
 
