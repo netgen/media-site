@@ -42,6 +42,9 @@ AddOutputFilterByType DEFLATE application/xml+rss
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
 
+# disable indexing
+Header set X-Robots-Tag "noindex, nofollow"
+
 AddDefaultCharset UTF-8
 
 DirectoryIndex index.php
