@@ -57,7 +57,10 @@
         </div>
 
         <div class="footer-info">
-            <a href="#" class="js-open-ng-cc d-block my-2">{{ 'ngsite.layout.cookie_settings'|trans }}</a>
+            {% if ngsite.siteInfoContent.hasField('related_cookie_policy') and not ngsite.siteInfoContent.fields.related_cookie_policy.empty %}
+                <a href="#" class="js-open-ng-cc d-block my-2">{{ 'ngsite.layout.cookie_settings'|trans }}</a>
+            {% endif %}
+
             {% if not site_info.fields.footer_block.empty %}
                 <div>
                     {{ ng_render_field(site_info.fields.footer_block) }}
