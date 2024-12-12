@@ -1,4 +1,4 @@
-{% if ngsite.siteInfoContent.hasField('related_cookie_policy') and not ngsite.siteInfoContent.fields.related_cookie_policy.empty %}
+{% if not ngsite.siteInfoContent.fields.related_cookie_policy.empty %}
     {% set cookie_policy = ngsite.siteInfoContent.fieldRelation('related_cookie_policy') %}
 
     <div id="ng-cc">
