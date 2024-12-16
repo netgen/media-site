@@ -29,6 +29,12 @@
 {% macro poster_slide(content, use_lazy_load, alt_text) %}
     {% import '@ibexadesign/content/macros/slide.html.twig' as slide %}
 
+    {% if not content.fields.title.empty %}
+        {% set video_title = content.fields.title.value.text %}
+    {% else %}
+        {% set video_title = content.name %}
+    {% endif %}
+
     {% set use_lazy_load = use_lazy_load|default(false) %}
     {% set alt_text = alt_text ?? null %}
 
@@ -54,6 +60,13 @@
 
     {% set video_types = content.fields.video_type.value.identifiers %}
     {% set autoplay = content.fields.autoplay.value.bool %}
+
+    {% if not content.fields.title.empty %}
+        {% set video_title = content.fields.title.value.text %}
+    {% else %}
+        {% set video_title = content.name %}
+    {% endif %}
+
 
     {% set image_path = asset('images/video_poster.png') %}
     {% if not content.fields.poster.empty %}
@@ -111,15 +124,15 @@
 
         {% if 'youtube' in video_types %}
             <div class="video-youtube ratio ratio-16x9">
-                <iframe frameborder="0" src="https://www.youtube.com/embed/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+                <iframe frameborder="0" src="https://www.youtube.com/embed/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" {% if video_title %}title="{{ video_title }}" {% endif %}width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'vimeo' in video_types %}
             <div class="video-vimeo ratio ratio-16x9">
-                <iframe frameborder="0" src="https://player.vimeo.com/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+                <iframe frameborder="0" src="https://player.vimeo.com/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" {% if video_title %}title="{{ video_title }}" {% endif %}width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'dailymotion' in video_types %}
             <div class="video-dailymotion ratio ratio-16x9">
-                <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" width="770" height="433" allowfullscreen></iframe>
+                <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}{% if autoplay %}?autoplay=1{% endif %}" {% if video_title %}title="{{ video_title }}" {% endif %}width="770" height="433" allowfullscreen></iframe>
             </div>
         {% endif %}
     {% endif %}
@@ -184,15 +197,15 @@
 
         {% if 'youtube' in video_types %}
             <div class="video-youtube ratio ratio-16x9">
-                <iframe frameborder="0" src="https://www.youtube.com/embed/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+                <iframe frameborder="0" src="https://www.youtube.com/embed/{{ video_identifier }}" {% if video_title %}title="{{ video_title }}" {% endif %}width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'vimeo' in video_types %}
             <div class="video-vimeo ratio ratio-16x9">
-                <iframe frameborder="0" src="https://player.vimeo.com/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+                <iframe frameborder="0" src="https://player.vimeo.com/video/{{ video_identifier }}" {% if video_title %}title="{{ video_title }}" {% endif %}width="770" height="433" allowfullscreen></iframe>
             </div>
         {% elseif 'dailymotion' in video_types %}
             <div class="video-dailymotion ratio ratio-16x9">
-                <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}" width="770" height="433" allowfullscreen></iframe>
+                <iframe frameborder="0" src="https://www.dailymotion.com/embed/video/{{ video_identifier }}" {% if video_title %}title="{{ video_title }}" {% endif %}width="770" height="433" allowfullscreen></iframe>
             </div>
         {% endif %}
     {% endif %}
