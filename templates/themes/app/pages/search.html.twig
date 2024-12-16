@@ -9,7 +9,7 @@
                 <div class="search-inputs">
                     <div class="input-group">
                         <input type="text" aria-label="{{ 'ngsite.search.placeholder'|trans }}" value="{{ search_text }}" name="searchText" id="Search" class="form-control" placeholder="{{ 'ngsite.search.placeholder'|trans }}" />
-                        <button type="submit" class="btn btn-sm btn-dark">{{ 'ngsite.search.button'|trans }}<i class="icon-search" aria-hidden="true"></i></button>
+                        <button type="submit" aria-label="{{ 'ngsite.search.submit_search'|trans }}" class="btn btn-sm btn-dark">{{ 'ngsite.search.button'|trans }}<i class="icon-search" aria-hidden="true"></i></button>
                     </div>
 
                     {% if search_text is not empty %}
