@@ -76,7 +76,7 @@
                 {% if parameters.link_id|default('') is not empty %} id="{{ parameters.link_id }}" {% endif %}
                 {% if parameters.link_class|default('') is not empty %} class="{{ parameters.link_class }}" {% endif %}
                 {% if parameters.link_title|default('') is not empty %} title="{{ parameters.link_title }}" {% endif %}
-                aria-label="{{ alt_text }}"
+                aria-label=" {{'ngsite.general.read_more_about'|trans}} {{ alt_text }}"
             >
         {% elseif parameters.ezlink|default({}) is not empty %}
             <a
