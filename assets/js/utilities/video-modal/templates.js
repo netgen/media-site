@@ -37,7 +37,12 @@ export const vimeoVideoTemplate = ({ videoTitle, videoIdentifier, autoplayAttrib
     videoTitle,
   });
 
-export const dailymotionVideoTemplate = ({ videoTitle, videoIdentifier, autoplayAttribute, type }) =>
+export const dailymotionVideoTemplate = ({
+  videoTitle,
+  videoIdentifier,
+  autoplayAttribute,
+  type,
+}) =>
   iframeEmbedTemplate({
     src: `https://www.dailymotion.com/embed/video/${videoIdentifier}`,
     srcParameters: 'autoplay=1',
