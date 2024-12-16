@@ -56,3 +56,7 @@ ngsite.search.submit_search: 'Suche abschicken'
 ngsite.share_on_twitter: 'Auf Twitter teilen'
 ngsite.share_on_linkedin: 'Auf LinkedIn teilen'
 ngsite.share_on_facebook: 'Auf Facebook teilen'
+
+ngsite.change_language: 'Sprache ändern'
+
+ngsite.open_navigation: 'Navigation öffnen'
