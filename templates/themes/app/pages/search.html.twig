@@ -8,14 +8,14 @@
             <div class="container">
                 <div class="search-inputs">
                     <div class="input-group">
-                        <input type="text" value="{{ search_text }}" name="searchText" id="Search" class="form-control" placeholder="{{ 'ngsite.search.placeholder'|trans }}" />
-                        <button type="submit" class="btn btn-sm btn-dark">{{ 'ngsite.search.button'|trans }}<i class="icon-search" aria-hidden="true"></i></button>
+                        <input type="text" aria-label="{{ 'ngsite.search.placeholder'|trans }}" value="{{ search_text }}" name="searchText" id="Search" class="form-control" placeholder="{{ 'ngsite.search.placeholder'|trans }}" />
+                        <button type="submit" aria-label="{{ 'ngsite.search.submit_search'|trans }}" class="btn btn-sm btn-dark">{{ 'ngsite.search.button'|trans }}<i class="icon-search" aria-hidden="true"></i></button>
                     </div>
 
                     {% if search_text is not empty %}
                         {% if pager.nbResults == 0 %}
                             <div class="result-message result-message-error">
-                                <p class="search-text">{{ 'ngsite.search.no_results'|trans({'%searchText%': search_text}) }}</p>
+                                <p role="status" class="search-text">{{ 'ngsite.search.no_results'|trans({'%searchText%': search_text}) }}</p>
 
                                 {% if search_suggestion is not empty %}
                                     <div class="result-notice">
@@ -28,7 +28,7 @@
                             </div>
                         {% else %}
                             <div class="result-message result-message-success">
-                                <p class="search-text">{{ 'ngsite.search.results'|trans({'%searchText%': search_text, '%searchCount%': pager.nbResults}) }}</p>
+                                <p role="status" class="search-text">{{ 'ngsite.search.results'|trans({'%searchText%': search_text, '%searchCount%': pager.nbResults}) }}</p>
                             </div>
                         {% endif %}
                     {% endif %}
