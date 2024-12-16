@@ -49,3 +49,7 @@ ngsite.search.submit_search: 'Submit search'
 ngsite.share_on_twitter: 'Share on Twitter'
 ngsite.share_on_linkedin: 'Share on LinkedIn'
 ngsite.share_on_facebook: 'Share on Facebook'
+
+ngsite.change_language: 'Change language'
+
+ngsite.open_navigation: 'Open navigation'
