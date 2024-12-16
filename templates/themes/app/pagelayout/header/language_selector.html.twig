@@ -2,11 +2,11 @@
     {% set prioritized_languages = ibexa.configResolver.getParameter('languages') %}
 
     <div class="language-selector dropdown">
-        <button data-bs-toggle="dropdown" class="current-lang" aria-label="{{ 'ngsite.change_language'|trans }}">
+        <button data-bs-toggle="dropdown" class="current-lang" aria-label="{{ 'ngsite.change_language'|trans }}" aria-controls="langSelector" aria-expanded="false">
             {{ ngsite_language_name(prioritized_languages.0) }}&nbsp;<i class="icon-angle-down"></i>
         </button>
 
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" id="langSelector">
             {% for language in ibexa.availableLanguages %}
                 {% set language_name = ngsite_language_name(language) %}
 
