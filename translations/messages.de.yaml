@@ -40,3 +40,5 @@ ngsite.job_application.responsibilities: 'Verantwortlichkeiten'
 ngsite.job_application.deadline: 'Bewerbungsschluss'
 
 ngsite.skip_to_main_content: 'Zum Hauptinhalt springen'
+
+ngsite.search.submit_search: 'Suche abschicken'
