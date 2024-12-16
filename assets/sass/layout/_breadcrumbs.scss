@@ -3,17 +3,14 @@
     display: flex;
     align-items: center;
     padding: 2rem 0;
-
+    ol {
+        display: flex;
+        padding: 0;
+        margin: 0;
+    }
     @include media-breakpoint-down(md) {
         padding: 1.5rem 0;
     }
-
-    .fas {
-        margin-right: .5rem;
-        color: #000;
-        margin-bottom: 2px;
-    }
-
     .breadcrumb-item {
         @include text-base;
         margin-right: 1rem;
@@ -23,11 +20,12 @@
         display: flex;
         align-items: center;
         white-space: nowrap;
-
         @include media-breakpoint-down(md) {
             display: none;
         }
-
+        &:first-child a {
+            display: inline-block;
+        }
         & + .breadcrumb-item {
             padding-left: 0;
             &:before {
@@ -37,53 +35,15 @@
                 margin-right: 1rem;
                 color: #000;
                 padding: 0;
-
                 @include media-breakpoint-down(sm) {
                     content: none;
                 }
             }
         }
-        &.breadcrumb-item--no-link {
-            display: none;
-            &:last-child {
-                display: flex;
-                align-items: center;
-                width: 350px;
-                span {
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-                @include media-breakpoint-down(sm) {
-                    display: none;
-                }
-            }
-        }
-
-        .icon-home {
-            &::before {
-                content: "";
-                width: 1rem;
-                height: 1rem;
-                position: relative;
-                top: 1px;
-                margin-right: 10px;
-                @extend %icon-home;
-            }
-        }
-    }
-    a:last-of-type {
-        @include media-breakpoint-down(md) {
-            display: flex;
-        }
-
-        .icon-home-page {
+        &.breadcrumb-item--link:not(:has(+ .breadcrumb-item--link)) {
             @include media-breakpoint-down(md) {
-                display: none;
+                display: flex;
             }
-        }
-
-        &.breadcrumb-item {
             span {
                 &:before {
                     @extend %icon-chevron-left;
@@ -105,6 +65,33 @@
                 &:before {
                     content: initial;
                 }
+            }
+        }
+        &.breadcrumb-item--no-link {
+            display: none;
+            &:last-child {
+                display: flex;
+                align-items: center;
+                width: 350px;
+                span {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+            }
+        }
+        .icon-home {
+            &::before {
+                content: "";
+                width: 1rem;
+                height: 1rem;
+                position: relative;
+                top: 1px;
+                margin-right: 10px;
+                @extend %icon-home;
             }
         }
     }
