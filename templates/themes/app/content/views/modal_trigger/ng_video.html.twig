@@ -3,6 +3,7 @@
 
 {% if location is defined %}
     {% set videoOptions = {
+        'videoTitle': content.name,
         'type': content.fields.video_type.value.identifiers.0,
         'fileLink': content.fields.video_file.value.uri,
         'mimeType': content.fields.video_file.value.mimeType,
