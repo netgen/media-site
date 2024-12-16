@@ -2,22 +2,23 @@
     <div class="social-share static-social-buttons">
         <ul class="social">
             <li>
-                <a class="static-social-button" target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet?url={{ app.request.uri }}">
+                <a class="static-social-button" title="{{ 'ngsite.share_on_twitter'|trans }}" target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet?url={{ app.request.uri }}">
                     <i class="icon-twitter"></i>
                 </a>
             </li>
 
             <li>
-                <a class="static-social-button" target="_blank" rel="nofollow" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ app.request.uri }}&amp;title={{ content.fields.title.value }}">
+                <a class="static-social-button" title="{{ 'ngsite.share_on_linkedin'|trans }}" target="_blank" rel="nofollow" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ app.request.uri }}&amp;title={{ content.fields.title.value }}">
                     <i class="icon-linkedin"></i>
                 </a>
             </li>
 
             <li>
-                <a class="static-social-button" target="_blank" rel="nofollow" href="https://www.facebook.com/sharer.php?u={{ app.request.uri }}&amp;t={{ content.fields.title.value }}">
+                <a class="static-social-button" title="{{ 'ngsite.share_on_facebook'|trans }}" target="_blank" rel="nofollow" href="https://www.facebook.com/sharer.php?u={{ app.request.uri }}&amp;t={{ content.fields.title.value }}">
                     <i class="icon-facebook"></i>
                 </a>
             </li>
         </ul>
     </div>
 </div>
+

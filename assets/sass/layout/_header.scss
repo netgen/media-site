@@ -42,7 +42,7 @@ $header-bg: $white;
 /* header language selector */
 .language-selector {
     margin: 0 0 0 1em;
-    a {
+    a, button {
         @extend %hover-underline;
         @include text-0_75;
         text-transform: uppercase;
@@ -56,6 +56,8 @@ $header-bg: $white;
         align-items: center;
         padding: 0 1em;
         transition: color .2s;
+        background: transparent;
+        border: none;
 
         i {
             width: 0.75rem;

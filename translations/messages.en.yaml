@@ -45,3 +45,7 @@ ngsite.job_application.deadline: 'Application deadline'
 ngsite.skip_to_main_content: 'Skip to main content'
 
 ngsite.search.submit_search: 'Submit search'
+
+ngsite.share_on_twitter: 'Share on Twitter'
+ngsite.share_on_linkedin: 'Share on LinkedIn'
+ngsite.share_on_facebook: 'Share on Facebook'

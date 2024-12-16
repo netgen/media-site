@@ -45,3 +45,7 @@ ngsite.job_application.deadline: 'Bewerbungsschluss'
 ngsite.skip_to_main_content: 'Zum Hauptinhalt springen'
 
 ngsite.search.submit_search: 'Suche abschicken'
+
+ngsite.share_on_twitter: 'Auf Twitter teilen'
+ngsite.share_on_linkedin: 'Auf LinkedIn teilen'
+ngsite.share_on_facebook: 'Auf Facebook teilen'
