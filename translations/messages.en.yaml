@@ -9,6 +9,8 @@ ngsite.layout.cookie_settings.accepted: "Accepted"
 ngsite.layout.cookie_settings.not_accepted: "Not accepted"
 ngsite.layout.sponsored: 'Sponsored'
 
+ngsite.general.read_more_about: 'Read more about'
+
 ngsite.search.placeholder: 'Search'
 ngsite.search.button: 'Search'
 
