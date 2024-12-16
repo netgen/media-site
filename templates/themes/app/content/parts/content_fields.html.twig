@@ -62,6 +62,7 @@
     {% if not ibexa_field_is_empty(content, field) %}
         {% set link_href = parameters.link_href|default('') %}
         {% set link_target = parameters.link_target|default('') %}
+        {% set link_title = parameters.alt_text|default(field.value.alternativeText ?: ('ngsite.general.read_more_about'|trans ~ ' ' ~ content.name)) %}
         {% set use_image_size = parameters.use_image_size|default(false) %}
         {% set image_alias = ibexa_image_alias(field, versionInfo, parameters.alias|default('original')) %}
         {% set alt_text = parameters.alt_text|default(field.value.alternativeText ?: content.name) %}
@@ -76,7 +77,7 @@
                 {% if parameters.link_id|default('') is not empty %} id="{{ parameters.link_id }}" {% endif %}
                 {% if parameters.link_class|default('') is not empty %} class="{{ parameters.link_class }}" {% endif %}
                 {% if parameters.link_title|default('') is not empty %} title="{{ parameters.link_title }}" {% endif %}
-                aria-label=" {{'ngsite.general.read_more_about'|trans}} {{ alt_text }}"
+                title="{{ link_title }}"
             >
         {% elseif parameters.ezlink|default({}) is not empty %}
             <a
