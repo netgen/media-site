@@ -12,6 +12,9 @@ ngsite.layout.sponsored: 'Gesponsert'
 ngsite.search.placeholder: 'Suche'
 ngsite.search.button: 'Suche'
 
+ngsite.tags.tag: 'Tag'
+ngsite.tags.related_tags: "Verwandte Tags"
+
 ngsite.search.results: 'Suche nach "%searchText%" ergab %searchCount% Treffer'
 ngsite.search.no_results: 'Es wurden keine Ergebnisse gefunden bei der Suche nach "%searchText%".'
 ngsite.search.did_you_mean: 'Meinten Sie'

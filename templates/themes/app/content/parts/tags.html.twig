@@ -1,9 +1,9 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 
 {% if content.hasField('tags') and not content.fields.tags.empty %}
-    <div class="full-page-tags">
+    <div class="full-page-tags" role="list" aria-label="{{'ngsite.tags.related_tags'|trans}}">
         {% for tag in content.fields.tags.value.tags %}
-            <a href="{{ ibexa_path(tag) }}">{{ tag.keyword }}</a>
+            <a href="{{ ibexa_path(tag) }}" aria-label="{{'ngsite.tags.tag'|trans}}: {{ tag.keyword }}" role="listitem" >{{ tag.keyword }}</a>
         {% endfor %}
     </div>
 {% endif %}
