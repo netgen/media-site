@@ -3,9 +3,9 @@
 
 {% macro poster(content, location, alias_name, alt_text, image_ratio) %}
     {% if content.fields.title is defined and content.fields.title is not empty %}
-        {% set link_title = 'ngsite.general.read_more_about'|trans ~ ' ' ~ content.fields.title.value.text %}
+        {% set link_title = 'ngsite.read_more_about'|trans ~ ' ' ~ content.fields.title.value.text %}
     {% else %}
-        {% set link_title = 'ngsite.general.read_more_about'|trans ~ ' ' ~ content.name %}
+        {% set link_title = 'ngsite.read_more_about'|trans ~ ' ' ~ content.name %}
     {% endif %}
     {% set alias_name = alias_name|default('i480') %}
     {% set alt_text = alt_text ?? content.name %}
