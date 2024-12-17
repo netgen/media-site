@@ -14,8 +14,7 @@
             <figure class="image-wrapper">
                 <img
                     src="{{ image_uri }}"
-                    {% if is_slider or lazy_loading %}loading="lazy"{% endif %}
-                    {% if alt_text %} alt="{{ alt_text }}"{% endif %}
+                    {% if is_slider or lazy_loading %}loading="lazy"{% endif %} alt="{{ alt_text }}"
                 />
 
                 {% if content.fields.caption is defined and not content.fields.caption.empty %}
