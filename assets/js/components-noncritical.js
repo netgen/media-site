@@ -15,7 +15,7 @@ import ResponsiveVideo from './components/ResponsiveVideo.component';
 import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
-import SkipToMainContent from './components/SkipToMainContent.component';
+import AccessibilitySkips from './components/AccessibilitySkips.component';
 
 // Configuration
 const componentConfiguration = [
@@ -211,8 +211,12 @@ const componentConfiguration = [
     },
   },
   {
-    Component: SkipToMainContent,
-    selector: '#skip-to-main-content',
+    Component: AccessibilitySkips,
+    selector: '#skip-to-main-content, #skip-to-cookie-banner',
+    options: {
+      cookieBanner: '#ng-cc',
+      skipCookieBanner: '#skip-to-cookie-banner',
+    },
   },
 ];
 
