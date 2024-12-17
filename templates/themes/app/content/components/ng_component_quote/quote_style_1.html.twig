@@ -59,7 +59,7 @@
                                         {% if not item.person_name.empty or not item.person_description.empty %}
                                             <div class="quote-person-info">
                                                 {% if not item.person_name.empty %}
-                                                    <h4 class="quote-person-info-name">{{ item.person_name.value.text }}</h4>
+                                                    <div class="quote-person-info-name">{{ item.person_name.value.text }}</div>
                                                 {% endif %}
                                                 {% if not item.person_description.empty %}
                                                     {{ ng_render_field(item.person_description) }}
