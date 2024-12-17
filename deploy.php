@@ -58,8 +58,8 @@ task('deploy', [
     // copy vendors folder between releases before running composer install to speed it up
     'deploy:copy_dirs',
     'deploy:vendors',
-    // build admin schema
-    'app:graphql:deploy',
+    // build graphql schema
+    'app:graphql:generate',
     //'deploy:assets:install',
     'deploy:sentry:symfony',
     'deploy:sentry',
