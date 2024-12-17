@@ -2,11 +2,16 @@
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
 {% macro poster(content, location, alias_name, alt_text, image_ratio) %}
+    {% if content.fields.title is defined and content.fields.title is not empty %}
+        {% set link_title = 'ngsite.read_more_about'|trans ~ ' ' ~ content.fields.title.value.text %}
+    {% else %}
+        {% set link_title = 'ngsite.read_more_about'|trans ~ ' ' ~ content.name %}
+    {% endif %}
     {% set alias_name = alias_name|default('i480') %}
-    {% set alt_text = alt_text ?? null %}
+    {% set alt_text = alt_text ?? content.name %}
     {% set image_ratio = image_ratio|default('ratio-16x9') %}
 
-    <a href="{{ ibexa_path(location is not empty ? location : content) }}" class="ratio {{ image_ratio }}" {% if alt_text is not empty %}aria-label="{{ alt_text }}"{% endif %}>
+    <a href="{{ ibexa_path(location is not empty ? location : content) }}" class="ratio {{ image_ratio }}" title="{{ link_title }}">
         {% if not content.fields.poster.empty %}
             {{ ng_render_field(content.fields.poster, {'parameters': {'alias': alias_name}}) }}
         {% elseif not content.fields.video_identifier.empty %}
@@ -30,7 +35,7 @@
     {% import '@ibexadesign/content/macros/slide.html.twig' as slide %}
 
     {% set use_lazy_load = use_lazy_load|default(false) %}
-    {% set alt_text = alt_text ?? null %}
+    {% set alt_text = alt_text ?? content.name %}
 
     {% if not content.fields.poster.empty %}
         {{ slide.image(content, 'poster', 'i1320', use_lazy_load) }}
