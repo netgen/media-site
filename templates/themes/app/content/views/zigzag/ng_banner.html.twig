@@ -16,9 +16,9 @@
             {% if not content.fields.eyebrow_title.empty %}
                 <span class="eyebrow-title">{{ content.fields.eyebrow_title.value.text }}</span>
             {% endif %}
-            <h2 class="title">
+            <h3 class="title">
                 {{ links.content_link(content, content.fields.title.value.text) }}
-            </h2>
+            </h3>
         </header>
         <div class="short">
             {{ ng_render_field(content.fields.description) }}

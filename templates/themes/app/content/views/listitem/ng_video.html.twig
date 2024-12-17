@@ -5,11 +5,11 @@
 {% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
 <article {{ toolbar_macros.item_params(content, location) }} class="view-type-{{ view_type }} ng-video vl6 t1">
-    <h2 class="title">
+    <h3 class="title">
         <a href="{{ ibexa_path(location) }}">
             <i class="icon-play article-icon" aria-hidden="true"></i>{{ content_fields.title(content) }}
         </a>
-    </h2>
+    </h3>
 
     {% if with_intro|default(false) %}
         {{ content_fields.intro(content) }}

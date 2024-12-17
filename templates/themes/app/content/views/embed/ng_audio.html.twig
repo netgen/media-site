@@ -4,7 +4,7 @@
 {% import '@ibexadesign/content/macros/content_fields.html.twig' as content_fields %}
 
 <div class="view-type view-type-{{ view_type }} ng-audio">
-    <h2 class="title">{{ content_fields.title(content) }}</h2>
+    <h3 class="title">{{ content_fields.title(content) }}</h3>
 
     {% if not content.fields.file.empty %}
         <audio controls>

@@ -62,7 +62,7 @@
                                             <span class="eyebrow-title">{{ item.highlight_title.value.text }}</span>
                                         {% endif %}
                                         {% if item.title is defined and not item.title.empty %}
-                                            <h2 class="title">{{ links.item_content_link(item.link, item.title.value.text) }}</h2>
+                                            <h3 class="title">{{ links.item_content_link(item.link, item.title.value.text) }}</h3>
                                         {% endif %}
                                     </header>
                                     {% if item.description is defined and not item.description.empty %}

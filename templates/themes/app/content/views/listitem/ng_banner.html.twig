@@ -5,9 +5,9 @@
 {% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
 <article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-banner vl6">
-    <h2 class="title">
+    <h3 class="title">
         {{ links.content_link(content, content.fields.title.value.text) }}
-    </h2>
+    </h3>
     {% if with_intro|default(false) %}
         <div class="short">
             {{ ng_render_field(content.fields.description) }}
