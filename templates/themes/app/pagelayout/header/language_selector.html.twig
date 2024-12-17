@@ -2,22 +2,22 @@
     {% set prioritized_languages = ibexa.configResolver.getParameter('languages') %}
 
     <div class="language-selector dropdown">
-        <a href="#lang-selector" data-bs-toggle="dropdown" class="current-lang">
+        <button data-bs-toggle="dropdown" class="current-lang" aria-label="{{ 'ngsite.change_language'|trans }}" aria-controls="langSelector" aria-expanded="false">
             {{ ngsite_language_name(prioritized_languages.0) }}&nbsp;<i class="icon-angle-down"></i>
-        </a>
+        </button>
 
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" id="langSelector">
             {% for language in ibexa.availableLanguages %}
                 {% set language_name = ngsite_language_name(language) %}
 
                 {% if available_translations[language] is defined %}
                     {% if language != prioritized_languages.0 %}
-                        <li><a href="{{ available_translations[language] }}">{{ language_name }}</a></li>
+                        <li><a href="{{ available_translations[language] }}" aria-label="{{ language_name }}">{{ language_name }}</a></li>
                     {% else %}
                         <li class="current"><a href="#" data-toggle="dropdown">{{ language_name }}</a></li>
                     {% endif %}
                 {% else %}
-                    <li><a href="{{ ibexa_url(ibexa.rootLocation, {'language': language}) }}">{{ language_name }}</a></li>
+                    <li><a href="{{ ibexa_url(ibexa.rootLocation, {'language': language}) }}" aria-label="{{ language_name }}">{{ language_name }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>

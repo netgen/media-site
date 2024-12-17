@@ -165,6 +165,8 @@
     position: relative;
     width: $header-height-sm;
     height: $header-height-sm;
+    background: transparent;
+    border: none;
     .hamburger {
         display: block;
         width: 1.25rem;
