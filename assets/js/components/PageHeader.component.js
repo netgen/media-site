@@ -38,13 +38,7 @@ export default class PageHeader {
     this.navToggle.addEventListener('click', (event) => {
       event.preventDefault();
 
-      let ariaExpanded = this.navToggle.getAttribute('aria-expanded');
-
-      if (ariaExpanded === 'true') {
-        ariaExpanded = 'false';
-      } else {
-        ariaExpanded = 'true';
-      }
+      let ariaExpanded = this.navToggle.getAttribute('aria-expanded') === 'true';
 
       this.navToggle.setAttribute('aria-expanded', ariaExpanded);
 
