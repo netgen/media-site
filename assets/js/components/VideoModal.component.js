@@ -89,6 +89,7 @@ export default class VideoModalComponent {
     } else {
       templateOptions.videoIdentifier = this.collectedVideoOptions.identifier;
       templateOptions.type = this.collectedVideoOptions.type;
+      templateOptions.videoTitle = this.collectedVideoOptions.videoTitle;
     }
 
     this.modalContent = template(templateOptions);

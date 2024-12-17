@@ -14,33 +14,41 @@ export const uploadVideoTemplate = ({ collectedVideoOptions, videoSource, autopl
     ${videoSource}
   </video>`;
 
-const iframeEmbedTemplate = ({ src, srcParameters, autoplayAttribute, type }) =>
+const iframeEmbedTemplate = ({ videoTitle, src, srcParameters, autoplayAttribute, type }) =>
   `<div class="video-${type} iframe-video ratio ratio-16x9">
-      <iframe frameborder="0" src="${src}?${srcParameters}" ${autoplayAttribute} allowfullscreen></iframe>
+      <iframe frameborder="0" src="${src}?${srcParameters}" title="${videoTitle}" ${autoplayAttribute} allowfullscreen></iframe>
   </div>`;
 
-export const youtubeVideoTemplate = ({ videoIdentifier, autoplayAttribute, type }) =>
+export const youtubeVideoTemplate = ({ videoTitle, videoIdentifier, autoplayAttribute, type }) =>
   iframeEmbedTemplate({
     src: `https://www.youtube.com/embed/${videoIdentifier}`,
     srcParameters: 'autoplay=1',
     autoplayAttribute,
     type,
+    videoTitle,
   });
 
-export const vimeoVideoTemplate = ({ videoIdentifier, autoplayAttribute, type }) =>
+export const vimeoVideoTemplate = ({ videoTitle, videoIdentifier, autoplayAttribute, type }) =>
   iframeEmbedTemplate({
     src: `https://player.vimeo.com/video/${videoIdentifier}`,
     srcParameters: 'autoplay=1',
     autoplayAttribute,
     type,
+    videoTitle,
   });
 
-export const dailymotionVideoTemplate = ({ videoIdentifier, autoplayAttribute, type }) =>
+export const dailymotionVideoTemplate = ({
+  videoTitle,
+  videoIdentifier,
+  autoplayAttribute,
+  type,
+}) =>
   iframeEmbedTemplate({
     src: `https://www.dailymotion.com/embed/video/${videoIdentifier}`,
     srcParameters: 'autoplay=1',
     autoplayAttribute,
     type,
+    videoTitle,
   });
 
 export const videoModalStyleTemplate = () =>
