@@ -41,9 +41,11 @@ ngsite.job_application.deadline: 'Bewerbungsschluss'
 
 ngsite.skip_to_main_content: 'Zum Hauptinhalt springen'
 
-ngsite.share_on_twitter: 'Auf Twitter teilen'
-ngsite.share_on_linkedin: 'Auf LinkedIn teilen'
-ngsite.share_on_facebook: 'Auf Facebook teilen'
-ngsite.share_on_instagram: 'Auf Instagram teilen'
+ngsite.visit_us_on_twitter: 'Besuchen Sie uns auf Twitter'
+ngsite.visit_us_on_linkedin: 'Besuchen Sie uns auf LinkedIn'
+ngsite.visit_us_on_facebook: 'Besuchen Sie uns auf Facebook'
+ngsite.visit_us_on_instagram: 'Besuchen Sie uns auf Instagram'
+
+
 
 ngsite.search.submit_search: 'Suche abschicken'
