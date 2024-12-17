@@ -1,15 +1,19 @@
 {% if show_path and path_array|length > 2 %}
-    <div class="breadcrumb-wrapper" aria-label="breadcrumb">
-        <a href="{{ ibexa_path(ibexa.rootLocation) }}" class="breadcrumb-item">
-            <i class="icon-home"></i>
-            <span>{{ ibexa.rootLocation.content.name }}</span>
-        </a>
-        {% for path_item in path_array|slice(1, path_array|length - 1) %}
-            {% if path_item.url == false %}
-                <span class="breadcrumb-item breadcrumb-item--no-link"><span>{{ path_item.text }}</span></span>
-            {% else %}
-                <a class="breadcrumb-item breadcrumb-item--link" href="{{ path_item.url }}"><span>{{ path_item.text }}</span></a>
-            {% endif %}
-        {% endfor %}
-    </div>
+    <nav class="breadcrumb-wrapper" aria-label="breadcrumbs">
+        <ol>
+            <li class="breadcrumb-item">
+                <a href="{{ ibexa_path(ibexa.rootLocation) }}">
+                    <i class="icon-home" aria-hidden="true"></i>
+                    <span>{{ ibexa.rootLocation.content.name }}</span>
+                </a>
+            </li>
+            {% for path_item in path_array|slice(1, path_array|length - 1) %}
+                {% if path_item.url == false %}
+                    <li class="breadcrumb-item breadcrumb-item--no-link"><span{% if loop.last %} aria-current="location"{% endif %}>{{ path_item.text }}</span></li>
+                {% else %}
+                    <li class="breadcrumb-item breadcrumb-item--link"><a href="{{ path_item.url }}"{% if loop.last %} aria-current="location"{% endif %}><span>{{ path_item.text }}</span></a></li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </nav>
 {% endif %}
