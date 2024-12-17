@@ -6,7 +6,7 @@
 
 <article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-category vl1">
     <header class="article-header">
-        <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+        <h3 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h3>
     </header>
 
     {% if with_intro|default(false) %}

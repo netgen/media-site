@@ -5,7 +5,7 @@
 {% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
 <article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} ng-recipe vl6">
-    <h2 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h2>
+    <h3 class="title"><a href="{{ ibexa_path(location) }}">{{ content_fields.title(content) }}</a></h3>
     <div class="info">
         {% include '@ibexadesign/content/parts/author.html.twig' %}
 

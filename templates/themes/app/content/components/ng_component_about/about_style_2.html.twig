@@ -31,9 +31,9 @@
 
         <header class="article-header{% if image is not empty %} col-lg-5 offset-lg-1{% endif %}">
             {% if not content.fields.eyebrow_title.empty %}
-                <h4 class="eyebrow-title">
+                <div class="eyebrow-title">
                     {{ ng_render_field(content.fields.eyebrow_title) }}
-                </h4>
+                </div>
             {% endif %}
 
             {% if not content.fields.title.empty %}
