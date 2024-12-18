@@ -3,21 +3,21 @@ export default class AccessibilitySkips {
     this.trigger = trigger;
     this.targetElement = document.querySelector(`.${this.trigger.dataset.targetClass}`);
     this.options = options;
-    this.cookieBanner = document.querySelector(options.cookieBanner);
-    this.skipCookieBanner = document.querySelector(options.skipCookieBanner);
-
+    this.cookieBanner = options?.cookieBanner ? document.querySelector(options.cookieBanner) : null;
     this.init();
   }
 
   init() {
+    //general funcionality
     this.trigger.addEventListener('click', this.handleTriggerClick.bind(this));
 
-    if (this.cookieBanner && this.skipCookieBanner) {
+    //specific funcionality for skipping to cookie banner
+    if (this.cookieBanner && this.trigger) {
       const updateSkipCookieBanner = () => {
         if (this.cookieBanner.hasAttribute('open')) {
-          this.skipCookieBanner.tabIndex = 0;
+          this.trigger.tabIndex = 0;
         } else {
-          this.skipCookieBanner.tabIndex = -1;
+          this.trigger.tabIndex = -1;
         }
       };
       updateSkipCookieBanner();
