@@ -114,7 +114,10 @@
         {# Attribute "required" is not supported #}
         {%- set required = false -%}
     {%- endif -%}
-    <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    <input class="form-control" type="{{ type }}"
+        {{ block('widget_attributes') }}
+        {% if value is not empty %}value="{{ value }}"{% endif %}
+        {% if ngparams.autocomplete is defined %} autocomplete="{{ ngparams.autocomplete|raw }}"{% endif %}/>
 {%- endblock form_widget_simple -%}
 
 {%- block hidden_row -%}
