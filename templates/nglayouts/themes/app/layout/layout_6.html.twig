@@ -1,0 +1,65 @@
+{% extends nglayouts.pageLayoutTemplate %}
+
+{% block layout %}
+    <div class="zone-layout-layout6">
+
+        <div class="top-content-block">
+            <section class="zone zone-header">
+                {% nglayouts_render_zone 'header' %}
+            </section>
+        </div>
+
+        <main class="main-content-block">
+            <section class="zone zone-post_header">
+                {% nglayouts_render_zone 'post_header' %}
+            </section>
+
+            <div class="container">
+                <div class="custom-grid">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <section class="zone zone-top">
+                                        {% nglayouts_render_zone 'top' %}
+                                    </section>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <section class="zone zone-left">
+                                        {% nglayouts_render_zone 'left' %}
+                                    </section>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <section class="zone zone-center">
+                                        {% nglayouts_render_zone 'center' %}
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <section class="zone zone-right">
+                                {% nglayouts_render_zone 'right' %}
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="zone zone-pre_footer">
+                {% nglayouts_render_zone 'pre_footer' %}
+            </section>
+        </main>
+
+        <div class="bottom-content-block">
+            <section class="zone zone-footer">
+                {% nglayouts_render_zone 'footer' %}
+            </section>
+        </div>
+
+    </div>
+{% endblock %}
