@@ -7,6 +7,7 @@
     {% else %}
         {% set link_title = 'ngsite.read_more_about'|trans ~ ' ' ~ content.name %}
     {% endif %}
+
     {% set alias_name = alias_name|default('i480') %}
     {% set alt_text = alt_text ?? content.name %}
     {% set image_ratio = image_ratio|default('ratio-16x9') %}
@@ -56,7 +57,6 @@
 {% endmacro %}
 
 {% macro player(content) %}
-
     {% set video_types = content.fields.video_type.value.identifiers %}
     {% set autoplay = content.fields.autoplay.value.bool %}
 
@@ -65,7 +65,6 @@
     {% else %}
         {% set video_title = content.name %}
     {% endif %}
-
 
     {% set image_path = asset('images/video_poster.png') %}
     {% if not content.fields.poster.empty %}
@@ -138,7 +137,6 @@
 {% endmacro %}
 
 {% macro player_slide(content) %}
-
     {% set video_types = content.fields.video_type.value.identifiers %}
 
     {% if not content.fields.title.empty %}
