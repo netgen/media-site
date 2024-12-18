@@ -212,10 +212,13 @@ const componentConfiguration = [
   },
   {
     Component: AccessibilitySkips,
-    selector: '#skip-to-main-content, #skip-to-cookie-banner',
+    selector: '#skip-to-main-content',
+  },
+  {
+    Component: AccessibilitySkips,
+    selector: '#skip-to-cookie-banner',
     options: {
       cookieBanner: '#ng-cc',
-      skipCookieBanner: '#skip-to-cookie-banner',
     },
   },
 ];
