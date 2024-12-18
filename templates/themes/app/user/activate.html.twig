@@ -13,13 +13,13 @@
 
     {{ form_start(form, { 'attr' : { 'class': 'embed-form' } }) }}
 
-    <fieldset>
+    <div class="form-wrapper">
         <div class="form-group">
             {{ form_row(form.email, {'label': 'ngsite.user.activate.email.label'}) }}
         </div>
 
         <button type="submit" class="btn btn-primary">{{ 'ngsite.user.activate.submit'|trans }}</button>
-    </fieldset>
+    </div>
 
     {{ form_end(form) }}
 {% endblock %}
