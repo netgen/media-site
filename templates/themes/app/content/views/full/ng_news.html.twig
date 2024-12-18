@@ -50,14 +50,6 @@
         <div class="container container-narrow">
             {% block body %}
                 <div class="full-page-body">
-                    <div class="sticky-sidebar-wrapper">
-                        <div id="sticky-sidebar" class="sticky-sidebar">
-                            <div class="sticky-sidebar-inner">
-                                {% include '@ibexadesign/content/parts/social_share.html.twig' %}
-                            </div>
-                        </div>
-                    </div>
-
                     {% if not content.fields.full_intro.empty %}
                         <div class="full-page-intro">
                             {{ ng_render_field(content.fields.full_intro) }}
@@ -69,6 +61,14 @@
                     {% endif %}
 
                     {% include '@ibexadesign/content/parts/tags.html.twig' %}
+
+                    <div class="sticky-sidebar-wrapper">
+                        <div id="sticky-sidebar" class="sticky-sidebar">
+                            <div class="sticky-sidebar-inner">
+                                {% include '@ibexadesign/content/parts/social_share.html.twig' %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             {% endblock %}
         </div>
