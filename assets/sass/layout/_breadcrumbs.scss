@@ -15,7 +15,7 @@
         @include text-base;
         margin-right: 1rem;
         background-color: transparent;
-        color: #000;
+        color: $black;
         position: relative;
         display: flex;
         align-items: center;
@@ -31,9 +31,10 @@
             &:before {
                 @include text-1_25;
                 content: "/";
+                content: "/" / "";
                 color: inherit;
                 margin-right: 1rem;
-                color: #000;
+                color: $black;
                 padding: 0;
                 @include media-breakpoint-down(sm) {
                     content: none;
