@@ -1,26 +1,26 @@
 {% trans_default_domain 'ngsite' %}
 
-<nav class="page-navigation">
+<nav class="page-navigation" role="navigation" aria-label="{{ 'pagination.label'|trans }}">
     <ul>
 
         {# First page link (for mobile) #}
         {% if pages.mobile_first_page %}
-            <li class="page-item d-block d-sm-none"><a href="{{ pages.mobile_first_page }}" class="page-link"><i class="icon-angles-left"></i></a></li>
+            <li class="page-item d-block d-sm-none"><a href="{{ pages.mobile_first_page }}" class="page-link" aria-label="{{ 'pagination.go_to_first_page'|trans }}"><i class="icon-angles-left"></i></a></li>
         {% endif %}
 
         {# Previous page link #}
         {% if pages.previous_page %}
-            <li class="page-item"><a href="{{ pages.previous_page }}" class="page-link" rel="prev">{{ 'pagination.previous'|trans }}</a></li>
+            <li class="page-item"><a href="{{ pages.previous_page }}" class="page-link" rel="prev" aria-label="{{ 'pagination.go_to_previous_page'|trans }}">{{ 'pagination.previous'|trans }}</a></li>
         {% endif %}
 
         {# First page link #}
         {% if pages.first_page %}
-            <li class="page-item d-none d-sm-block"><a href="{{ pages.first_page }}" class="page-link">1</a></li>
+            <li class="page-item d-none d-sm-block"><a href="{{ pages.first_page }}" class="page-link" aria-label="{{ 'pagination.go_to_first_page'|trans }}">1</a></li>
         {% endif %}
 
         {# Second page link #}
         {% if pages.second_page %}
-            <li class="page-item d-none d-sm-block"><a href="{{ pages.second_page }}" class="page-link">2</a></li>
+            <li class="page-item d-none d-sm-block"><a href="{{ pages.second_page }}" class="page-link" aria-label="{{ 'pagination.go_to_second_page'|trans }}">2</a></li>
         {% endif %}
 
         {# Dots if start is over 3 #}
@@ -33,7 +33,7 @@
             {% if page == pager.currentPage %}
                 <li class="page-item current"><span class="page-link">{{ page }}<span class="d-inline d-sm-none"> of {{ pager.nbPages }}</span></span></li>
             {% else %}
-                <li class="page-item d-none d-sm-block"><a href="{{ page_url }}" class="page-link">{{ page }}</a></li>
+                <li class="page-item d-none d-sm-block"><a href="{{ page_url }}" class="page-link" aria-label="{{ 'pagination.go_to_page'|trans ~ ' ' ~ page }}" aria-current="true">{{ page }}</a></li>
             {% endif %}
         {% endfor %}
 
@@ -44,22 +44,22 @@
 
         {# Second to last page link #}
         {% if pages.second_to_last_page %}
-            <li class="page-item d-none d-sm-block"><a href="{{ pages.second_to_last_page }}" class="page-link">{{ pager.nbPages - 1 }}</a></li>
+            <li class="page-item d-none d-sm-block"><a href="{{ pages.second_to_last_page }}" class="page-link" aria-label="{{ 'pagination.go_to_second_to_last_page'|trans }}">{{ pager.nbPages - 1 }}</a></li>
         {% endif %}
 
         {# Last page link #}
         {% if pages.last_page %}
-            <li class="page-item d-none d-sm-block"><a href="{{ pages.last_page }}" class="page-link">{{ pager.nbPages }}</a></li>
+            <li class="page-item d-none d-sm-block"><a href="{{ pages.last_page }}" class="page-link" aria-label="{{ 'pagination.go_to_last_page'|trans }}">{{ pager.nbPages }}</a></li>
         {% endif %}
 
         {# Next page link #}
         {% if pages.next_page %}
-            <li class="page-item"><a href="{{ pages.next_page }}" class="page-link" rel="next">{{ 'pagination.next'|trans }}</a></li>
+            <li class="page-item"><a href="{{ pages.next_page }}" class="page-link" rel="next" aria-label="{{ 'pagination.go_to_next_page'|trans }}">{{ 'pagination.next'|trans }}</a></li>
         {% endif %}
 
         {# Last page link (for mobile) #}
         {% if pages.mobile_last_page %}
-            <li class="page-item d-block d-sm-none"><a href="{{ pages.mobile_last_page }}" class="page-link"><i class="icon-angles-right"></i></a></li>
+            <li class="page-item d-block d-sm-none"><a href="{{ pages.mobile_last_page }}" class="page-link" aria-label="{{ 'pagination.go_to_last_page'|trans }}"><i class="icon-angles-right"></i></a></li>
         {% endif %}
 
     </ul>
