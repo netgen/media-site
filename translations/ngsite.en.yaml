@@ -1,6 +1,6 @@
 pagination.previous: 'Previous'
 pagination.next: 'Next'
-pagination.label: 'Pagination navigation'
+pagination.title: 'Pagination navigation'
 pagination.go_to_page: 'Go to page'
 pagination.go_to_previous_page: 'Go to previous page'
 pagination.go_to_first_page: 'Go to first page'
