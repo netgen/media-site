@@ -21,8 +21,8 @@
                 {{ form_row(form[content.fields.honeypot_field_name.value.text]) }}
             {% endif %}
 
-            {{ form_row(form.sender_last_name,  { ngparams: { autocomplete: 'family-name' } })}}
-            {{ form_row(form.sender_email,  { ngparams: { autocomplete: 'email' } })}}
+            {{ form_row(form.sender_last_name, { ngparams: { autocomplete: 'family-name' } })}}
+            {{ form_row(form.sender_email, { ngparams: { autocomplete: 'email' } })}}
             {{ form_row(form.sender_message) }}
 
             {{ form_row(form.gdpr_consent, { ngparams: { label: content.fields.gdpr_consent_label.value.xml|ibexa_richtext_to_html5} }) }}

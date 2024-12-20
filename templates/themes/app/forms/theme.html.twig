@@ -117,7 +117,7 @@
     <input class="form-control" type="{{ type }}"
         {{ block('widget_attributes') }}
         {% if value is not empty %}value="{{ value }}"{% endif %}
-        {% if ngparams.autocomplete is defined %} autocomplete="{{ ngparams.autocomplete|raw }}"{% endif %}/>
+        {% if ngparams.autocomplete is defined %} autocomplete="{{ ngparams.autocomplete }}"{% endif %}/>
 {%- endblock form_widget_simple -%}
 
 {%- block hidden_row -%}
