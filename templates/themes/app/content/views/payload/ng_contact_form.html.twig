@@ -14,15 +14,15 @@
     {{ form_start(form, form_parameters) }}
         {{ form_errors(form) }}
 
-        <fieldset>
-            {{ form_row(form.sender_first_name, { ngparams: { autocomplete: 'ngsite.collected_info.given_name.attribute'|trans } })}}
+        <div class="form-wrapper">
+            {{ form_row(form.sender_first_name, { ngparams: { autocomplete: 'given-name' } })}}
 
             {% if not content.fields.honeypot_field_name.empty %}
                 {{ form_row(form[content.fields.honeypot_field_name.value.text]) }}
             {% endif %}
 
-            {{ form_row(form.sender_last_name,  { ngparams: { autocomplete: 'ngsite.collected_info.family_name.attribute'|trans } })}}
-            {{ form_row(form.sender_email,  { ngparams: { autocomplete: 'ngsite.collected_info.email.attribute'|trans } })}}
+            {{ form_row(form.sender_last_name,  { ngparams: { autocomplete: 'family-name' } })}}
+            {{ form_row(form.sender_email,  { ngparams: { autocomplete: 'email' } })}}
             {{ form_row(form.sender_message) }}
 
             {{ form_row(form.gdpr_consent, { ngparams: { label: content.fields.gdpr_consent_label.value.xml|ibexa_richtext_to_html5} }) }}
