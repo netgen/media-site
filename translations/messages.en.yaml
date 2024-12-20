@@ -32,9 +32,6 @@ ngsite.search.no_results.reduce_keywords: 'Reduce number of keywords to get more
 ngsite.collected_info.success_text: 'Thank you for your feedback.'
 ngsite.collected_info.button.send: 'Send form'
 ngsite.collected_info.information_collected: 'The following information was collected'
-ngsite.collected_info.given_name.attribute: 'given-name'
-ngsite.collected_info.family_name.attribute: 'family-name'
-ngsite.collected_info.email.attribute: 'email'
 
 ngsite.layout.recipe.min: 'min'
 ngsite.layout.recipe.cal: 'cal'
