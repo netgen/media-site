@@ -16,3 +16,5 @@ parameters:
     ngsite.default.token_validity.email_change: 900
 
     app.testing.site_domain: '%env(TEST_DOMAIN)%'
+
+    siteaccess_indexer: rag

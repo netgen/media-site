@@ -60,7 +60,8 @@
         "netgen/notifications": "^1.0",
         "netgen/ibexa-user-impersonation": "dev-NGSTACK-853",
         "netgen/survey-builder": "^0.1.2",
-        "netgen/ibexa-logger": "^1.0@dev"
+        "netgen/ibexa-logger": "^1.0@dev",
+        "netgen/ibexa-rag-indexer": "dev-master"
     },
     "require-dev": {
         "symfony/debug-bundle": "5.4.*",
@@ -78,7 +79,8 @@
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "5.4.*",
         "symfony/css-selector": "5.4.*",
-        "symfony/phpunit-bridge": "5.4.*"
+        "symfony/phpunit-bridge": "5.4.*",
+        "franzl/studio": "^0.16.0"
     },
     "repositories": [
         { "type": "composer", "url": "https://packagist.netgen.biz", "canonical": false }

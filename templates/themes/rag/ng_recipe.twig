@@ -1,0 +1,59 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% set meta_data = {'description': content.fields.teaser_intro.value.xml.saveXML()|striptags|trim|u.truncate(152)} %}
+
+<article class="ng-recipe">
+    <header>
+        <h1>{{ ng_render_field(content.fields.title) }}</h1>
+        {% include '@ibexadesign/content/parts/time.html.twig' %}
+    </header>
+
+    {% if not content.fields.image.empty %}
+        <div class="recipe-image">
+            {{ ng_render_field(content.fields.image) }}
+        </div>
+    {% endif %}
+
+    <div class="container container-narrow">
+        {% if not content.fields.full_intro.empty %}
+            <div class="recipe-intro">
+                {{ ng_render_field(content.fields.full_intro) }}
+            </div>
+        {% endif %}
+
+        {% if not content.fields.body.empty %}
+            <div class="recipe-body">
+                {{ ng_render_field(content.fields.body) }}
+            </div>
+        {% endif %}
+
+        <div class="recipe-info">
+            {% if not content.fields.serving_calories.empty %}
+                <div class="recipe-calories">
+                    {{ ng_render_field(content.fields.serving_calories) }} cal
+                </div>
+            {% endif %}
+
+            <ul class="recipe-nutrition">
+                {% if not content.fields.serving_fat.empty %}
+                    <li>Fat: {{ ng_render_field(content.fields.serving_fat) }}g</li>
+                {% endif %}
+                {% if not content.fields.serving_carbohydrates.empty %}
+                    <li>Carbs: {{ ng_render_field(content.fields.serving_carbohydrates) }}g</li>
+                {% endif %}
+                {% if not content.fields.serving_protein.empty %}
+                    <li>Protein: {{ ng_render_field(content.fields.serving_protein) }}g</li>
+                {% endif %}
+            </ul>
+
+            {% if not content.fields.preparation_time.empty %}
+                <div class="recipe-time">
+                    Preparation Time: {{ ng_render_field(content.fields.preparation_time) }} min
+                </div>
+            {% endif %}
+        </div>
+
+        {% include '@ibexadesign/content/parts/tags.html.twig' %}
+    </div>
+</article>

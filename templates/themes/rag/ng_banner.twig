@@ -1,0 +1,20 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+<article class="ng-banner">
+    {% if not content.fields.image.empty %}
+        <figure class="image">
+            {{ ng_render_field(content.fields.image) }}
+        </figure>
+    {% endif %}
+
+    <header>
+        <h2>{{ ng_render_field(content.fields.title) }}</h2>
+    </header>
+
+    {% if with_intro|default(false) %}
+        <div class="intro">
+            {{ ng_render_field(content.fields.description) }}
+        </div>
+    {% endif %}
+</article>

@@ -1,0 +1,4 @@
+netgen_rag_indexer:
+    resource: "@IbexaRagIndexerBundle/Resources/config/routing.yml"
+    prefix: '%netgen_rag_indexer.route_prefix%'
+
