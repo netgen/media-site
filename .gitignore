@@ -61,3 +61,5 @@ studio.json
 .php_cs.cache
 .php-cs-fixer.cache
 .php-version
+
+/index_outputs

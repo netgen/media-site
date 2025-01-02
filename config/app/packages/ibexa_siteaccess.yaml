@@ -10,6 +10,7 @@ ibexa:
             - bold_ger
             - peak_eng
             - '%ngsite.admin_siteaccess_name%'
+            - rag
         groups:
             admin_group:
                 - '%ngsite.admin_siteaccess_name%'
@@ -28,6 +29,9 @@ ibexa:
             impersonation_group:
                 - peak_eng
                 - '%ngsite.admin_siteaccess_name%'
+            rag_group:
+                - rag
+
     system:
         admin_group:
             design: ngadmin
@@ -76,6 +80,13 @@ ibexa:
         peak_eng:
             languages:
                 - eng-GB
+        rag_group:
+            languages:
+                - eng-GB
+            design: rag
+            session:
+                name: eZSESSID
+
 
 netgen_layouts:
     design_list:
@@ -109,4 +120,8 @@ ibexa_design_engine:
         ngadmin:
             - common
         admin:
+            - common
+        rag:
+            - rag
+            - app
             - common

@@ -95,4 +95,5 @@ return [
     Misd\PhoneNumberBundle\MisdPhoneNumberBundle::class => ['all' => true],
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
     Netgen\IbexaLoggerBundle\IbexaLoggerBundle::class => ['all' => true],
+    Netgen\Bundle\IbexaRagIndexer\IbexaRagIndexerBundle::class => ['all' => true],
 ];

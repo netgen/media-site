@@ -10,3 +10,4 @@ logout:
 
 ibexa.core:
     resource: '@IbexaCoreBundle/Resources/config/routing/internal.yml'
+

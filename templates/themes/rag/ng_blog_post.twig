@@ -1,0 +1,25 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% set meta_data = {'description': content.fields.teaser_intro.value.xml.saveXML()|striptags|trim|u.truncate(152) } %}
+
+<article class="view-type ng-blog-post vf1">
+    <header>
+        <h1>{{ ng_render_field(content.fields.title) }}</h1>
+        {% include '@ibexadesign/content/parts/time.html.twig' %}
+    </header>
+
+    <div class="container container-narrow">
+        {% if not content.fields.full_intro.empty %}
+            <div class="full-page-intro">
+                {{ ng_render_field(content.fields.full_intro) }}
+            </div>
+        {% endif %}
+
+        {% if not content.fields.body.empty %}
+            {{ ng_render_field(content.fields.body) }}
+        {% endif %}
+
+        {% include '@ibexadesign/content/parts/tags.html.twig' %}
+    </div>
+</article>
