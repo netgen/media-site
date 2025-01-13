@@ -12,26 +12,30 @@
     .bg-color-secondary & {
         background-color: $white;
     }
-    h3 {
+    .title {
         margin: 0;
         @include text-1_5;
         cursor: pointer;
         position: relative;
         padding-right: 3rem;
-        &:after {
-            content: "";
-            width: 1.5rem;
-            height: 1.5rem;
-            @extend %icon-angle-down;
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-        }
-        &.collapsed:after {
-            @extend %icon-angle-up;
+        a {
+            &::after {
+                content: "";
+                width: 1.5rem;
+                height: 1.5rem;
+                @extend %icon-angle-down;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
+
+            &.collapsed::after {
+                @extend %icon-angle-up;
+            }
         }
     }
+
     .short {
         border-top: 1px solid;
         padding-top: 1rem;
