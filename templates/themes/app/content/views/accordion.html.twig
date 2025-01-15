@@ -5,11 +5,13 @@
 {% import '@NetgenToolbar/macros.html.twig' as toolbar_macros %}
 
 <article {{ toolbar_macros.item_params(content, location) }} class="view-type view-type-{{ view_type }} {{ content.contentInfo.contentTypeIdentifier|replace({'_': '-'}) }} vl10">
-    <h3 class="title collapsed" data-toggle="collapse" data-target="#collapse-{{ location.id }}" aria-expanded="true" aria-controls="collapse-{{ location.id }}">
-        {{ content_fields.title(content) }}
+    <h3 class="title">
+        <a role="button" href="#collapse-{{ location.id }}" role="button" class="collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-{{ location.id }}">
+            {{ content_fields.title(content) }}
+        </a>
     </h3>
 
-    <div id="collapse-{{ location.id }}" class="collapse" aria-labelledby="heading-{{ location.id }}" data-parent=".list-accordion">
+    <div id="collapse-{{ location.id }}" class="collapse" aria-labelledby="heading-{{ location.id }}" data-bs-parent=".list-accordion">
         <div class="short">
             {{ content_fields.intro(content) }}
         </div>
