@@ -35,7 +35,13 @@
     {% block structuredData %}{% endblock %}
 </head>
 <body>
-
+    <div id="root"></div>
+    {% for src in encore_entry_js_files('ai-chat-app', 'app') %}
+        <script defer type="text/javascript" src="{{ src }}"></script>
+    {% endfor %}
+    {% for href in encore_entry_css_files('ai-chat-app', 'app') %}
+        <link rel="stylesheet" type="text/css" href="{{ href }}"></link>
+    {% endfor %}
 {% include '@ibexadesign/pagelayout/accessibility_links.html.twig' %}
 {% include '@ibexadesign/parts/google_tag_manager_code_noscript.html.twig' %}
 {% include '@ibexadesign/parts/facebook_api.html.twig' %}
