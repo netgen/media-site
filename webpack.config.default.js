@@ -23,12 +23,15 @@ Encore
   .addEntry('index', `./${siteConfig.assetsLocation}/js/index.js`)
   .addEntry('index-noncritical', `./${siteConfig.assetsLocation}/js/index-noncritical.js`)
   .addEntry('backoffice-index', `./${siteConfig.assetsLocation}/js/backoffice/index.js`)
+  .addEntry('ai-chat-app', `./${siteConfig.assetsLocation}/js/apps/ai-chat/src/main.tsx`)
 
   // allow sass/scss files to be processed
   .enableSassLoader((options) => {
     options.sassOptions.includePaths = [path.resolve(__dirname, 'node_modules')]; // eslint-disable-line no-param-reassign
     options.sassOptions.outputStyle = Encore.isProduction() ? 'compressed' : 'expanded';
   })
+
+  .enableTypeScriptLoader()
 
   // allow legacy applications to use $/jQuery as a global variable
   // .autoProvidejQuery()
@@ -43,7 +46,7 @@ Encore
 
   .enablePostCssLoader((options) => {
     options.postcssOptions = {
-      config: path.resolve(__dirname, 'postcss.config.js')
+      config: path.resolve(__dirname, 'postcss.config.js'),
     };
   })
 
@@ -61,12 +64,11 @@ Encore
 
   .enableSingleRuntimeChunk()
 
-    // enables @babel/preset-env polyfills
+  // enables @babel/preset-env polyfills
   .configureBabelPresetEnv((config) => {
     config.useBuiltIns = 'entry';
     config.corejs = 3;
-  })
-;
+  });
 
 if (Encore.isProduction()) {
   Encore.configureFilenames({
@@ -75,11 +77,11 @@ if (Encore.isProduction()) {
   });
 
   Encore.configureImageRule({
-    filename: 'images/[name][ext]?v=[hash:8]'
+    filename: 'images/[name][ext]?v=[hash:8]',
   });
 
   Encore.configureFontRule({
-    filename: 'fonts/[name][ext]?v=[hash:8]'
+    filename: 'fonts/[name][ext]?v=[hash:8]',
   });
 }
 
