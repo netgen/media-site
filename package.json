@@ -48,6 +48,8 @@
         "@svgr/webpack": "^8.1.0",
         "@symfony/stimulus-bridge": "^3.0.0",
         "@symfony/webpack-encore": "^3.0.0",
+        "@types/react": "^19.0.7",
+        "@types/react-dom": "^19.0.3",
         "autoprefixer": "^9.5.1",
         "core-js": "^3.0.0",
         "eslint": "^8.3.0",
@@ -67,16 +69,23 @@
         "sass-lint": "^1.12.1",
         "sass-loader": "^13.0.0",
         "style-loader": "^2.0.0",
+        "ts-loader": "^9.0.0",
+        "typescript": "^5.7.3",
         "webpack-notifier": "^1.6.0"
     },
     "dependencies": {
+        "@copilotkit/react-core": "^1.5.11",
+        "@copilotkit/react-ui": "^1.5.11",
         "@fortawesome/fontawesome-free": "^6.5.2",
         "@netgen/javascript-cookie-control": "^0.0.8",
         "@popperjs/core": "^2.11.6",
         "bootstrap": "^5.3.3",
+        "flatpickr": "^4.6.13",
         "js-cookie": "^3.0.5",
         "photoswipe": "^5.3.4",
         "popper.js": "^1.15.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
         "swiper": "^11.0.2"
     },
     "engines": {
