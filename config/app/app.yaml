@@ -18,3 +18,8 @@ parameters:
     app.testing.site_domain: '%env(TEST_DOMAIN)%'
 
     siteaccess_indexer: rag
+
+    netgen_rag_indexer.contentclass_identifier:
+        - 'ng_article'
+
+    netgen_rag_indexer.site_domain: 'netgen-ai-site.dev10.netgen.biz'
