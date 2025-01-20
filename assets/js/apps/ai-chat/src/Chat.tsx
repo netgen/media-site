@@ -8,7 +8,11 @@ import { CopilotPopup } from '@copilotkit/react-ui';
 import { ActionExecutionMessage, ResultMessage, TextMessage } from '@copilotkit/runtime-client-gql';
 import React, { useEffect, useState } from 'react';
 
-export const Chat = () => {
+interface ChatProps {
+    userName: string;
+}
+
+export const Chat = ({ userName }: ChatProps) => {
     const { messages, setMessages } = useCopilotMessagesContext();
 
     // save to local storage when messages change
@@ -63,7 +67,7 @@ export const Chat = () => {
                     }
                     labels={{
                         title: 'Ibexa RAG Assistant',
-                        initial: ['Hi, need any help?'],
+                        initial: [`Hi ${userName}, need any help?`],
                     }}
                 />
             }

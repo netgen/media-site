@@ -35,7 +35,7 @@
     {% block structuredData %}{% endblock %}
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root" data-user-name="{{ is_granted('IS_AUTHENTICATED_REMEMBERED') ? ibexa_field_value(app.user.APIUser, 'first_name') ~ ' ' ~ ibexa_field_value(app.user.APIUser, 'last_name') : '' }}"></div>
     {% for src in encore_entry_js_files('ai-chat-app', 'app') %}
         <script defer type="text/javascript" src="{{ src }}"></script>
     {% endfor %}
