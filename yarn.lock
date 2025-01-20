@@ -1252,7 +1252,7 @@
     remark-gfm "^3.0.1"
     remark-math "^5.1.1"
 
-"@copilotkit/runtime-client-gql@1.5.11":
+"@copilotkit/runtime-client-gql@1.5.11", "@copilotkit/runtime-client-gql@^1.5.11":
   version "1.5.11"
   resolved "https://registry.yarnpkg.com/@copilotkit/runtime-client-gql/-/runtime-client-gql-1.5.11.tgz#ccd56628eef05b788071c3c155a2026d8879f21d"
   integrity sha512-WajWAjyoYxGsfG2igR32UrXa2eR+16frEIgJOJmuaImg6rpkK9OWZjZhIjE0KbsN+ZLtFM4uZpvYoakhurRiTw==

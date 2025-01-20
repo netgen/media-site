@@ -76,6 +76,7 @@
     "dependencies": {
         "@copilotkit/react-core": "^1.5.11",
         "@copilotkit/react-ui": "^1.5.11",
+        "@copilotkit/runtime-client-gql": "^1.5.11",
         "@fortawesome/fontawesome-free": "^6.5.2",
         "@netgen/javascript-cookie-control": "^0.0.8",
         "@popperjs/core": "^2.11.6",
