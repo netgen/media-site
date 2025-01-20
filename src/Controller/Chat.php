@@ -17,7 +17,7 @@ use function usleep;
 class Chat extends AbstractController
 {
     /**
-     * @Route("/ai")
+     * @Route("/ai-proxy")
      */
     public function __invoke(): StreamedResponse
     {
