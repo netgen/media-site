@@ -55,9 +55,9 @@ class ProxyChat extends AbstractController
         );
 
         $response->setCallback(function () use ($remoteResponse) {
-            $this->flushProlog();
+            $this->dumpAndFlushProlog();
             $this->streamRemoteResponse($remoteResponse);
-            $this->flushClose();
+            $this->dumpAndFlushClose();
         });
 
         return $response;
@@ -76,22 +76,24 @@ class ProxyChat extends AbstractController
                 $step,
             );
 
-            $this->flushChunk($data);
+            $this->dumpAndFlushChunk($data);
 
             ++$step;
         }
     }
 
-    private function flushProlog(): void
+    private function dumpAndFlushProlog(): void
     {
         $data = '{"data":{"generateCopilotResponse":{"threadId":"ck-5eecb86e-2095-4769-88ea-73532be385a7","runId":null,"__typename":"CopilotResponse","messages":[]}},"hasNext":true}';
-        $this->flushChunk($data);
+        $this->dumpChunk($data);
 
         $data = '{"incremental":[{"items":[{"__typename":"TextMessageOutput","id":"ck-e3772f2f-22c4-4e31-a375-225313d0d1df","createdAt":"2025-01-13T10:31:09.776Z","role":"assistant","content":[]}],"path":["generateCopilotResponse","messages",0]}],"hasNext":true}';
-        $this->flushChunk($data);
+        $this->dumpChunk($data);
+
+        $this->flush();
     }
 
-    private function flushChunk(string $data): void
+    private function dumpChunk(string $data): void
     {
         echo '---';
         echo self::NEW_LINE;
@@ -102,18 +104,26 @@ class ProxyChat extends AbstractController
         echo self::NEW_LINE;
         echo $data;
         echo self::NEW_LINE;
-
-        ob_flush();
-        flush();
     }
 
-    private function flushClose(): void
+    private function dumpAndFlushChunk(string $data): void
     {
-        $this->flushChunk('{"hasNext":false}');
+        $this->dumpChunk($data);
+        $this->flush();
+    }
+
+    private function dumpAndFlushClose(): void
+    {
+        $this->dumpChunk('{"hasNext":false}');
 
         echo '-----';
         echo self::NEW_LINE;
 
+        $this->flush();
+    }
+
+    private function flush(): void
+    {
         ob_flush();
         flush();
     }
