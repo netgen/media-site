@@ -6,21 +6,32 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
+use function end;
 use function flush;
+use function json_decode;
 use function mb_strlen;
 use function ob_flush;
+use function sprintf;
 use function usleep;
+
+use const JSON_THROW_ON_ERROR;
 
 class ProxyChat extends AbstractController
 {
     /**
      * @Route("/ai")
      */
-    public function __invoke(): StreamedResponse
+    public function __invoke(Request $request): StreamedResponse
     {
+        $data = json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR);
+        $messages = $data['variables']['data']['messages'];
+        $lastMessage = end($messages);
+        $payload = $lastMessage['textMessage']['content'];
+
         $client = HttpClient::create();
 
         $response = new StreamedResponse();
@@ -33,7 +44,7 @@ class ProxyChat extends AbstractController
             'http://192.168.10.219:8000/api/rag/send_message_to_llm',
             [
                 // + session_id, filter_field
-                'body' => '{"query": "who is messi?"}',
+                'body' => sprintf('{"query": "%s"}', $payload),
                 'headers' => [
                     'accept' => 'application/json',
                     'Content-Type' => 'application/json',
