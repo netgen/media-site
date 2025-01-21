@@ -21,5 +21,8 @@ parameters:
 
     netgen_rag_indexer.contentclass_identifier:
         - 'ng_article'
+        - 'ng_news'
+        - 'ng_recipe'
+        - 'ng_blog_post'
 
     netgen_rag_indexer.site_domain: 'netgen-ai-site.dev10.netgen.biz'
