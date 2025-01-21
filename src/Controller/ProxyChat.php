@@ -75,8 +75,17 @@ class ProxyChat extends AbstractController
 
     private function getPermissionString(): string
     {
-        /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Query\CriterionInterface $rootPermissionsCriterion */
         $rootPermissionsCriterion = $this->permissionService->getPermissionsCriterion();
+
+        if ($rootPermissionsCriterion === true) {
+            return '{}';
+        }
+
+        if ($rootPermissionsCriterion === false) {
+            return '{"nonexistent_field": {"$eq": "nonexistent_value"}}';
+        }
+
+        /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Query\CriterionInterface $rootPermissionsCriterion */
         $permissionsArray = $this->aggregate->visit($rootPermissionsCriterion);
 
         return json_encode($permissionsArray, JSON_THROW_ON_ERROR);
