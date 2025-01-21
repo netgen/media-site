@@ -9,6 +9,7 @@ use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 use function end;
 use function flush;
@@ -16,12 +17,13 @@ use function json_decode;
 use function mb_strlen;
 use function ob_flush;
 use function sprintf;
-use function usleep;
 
 use const JSON_THROW_ON_ERROR;
 
 class ProxyChat extends AbstractController
 {
+    private const NEW_LINE = "\r\n";
+
     /**
      * @Route("/ai")
      */
@@ -52,65 +54,67 @@ class ProxyChat extends AbstractController
             ],
         );
 
-        $response->setCallback(static function () use ($client, $remoteResponse) {
-            $data = '{"data":{"generateCopilotResponse":{"threadId":"ck-5eecb86e-2095-4769-88ea-73532be385a7","runId":null,"__typename":"CopilotResponse","messages":[]}},"hasNext":true}';
-            echo "\r\n---\r\n";
-            echo "Content-Type: application/json; charset=utf-8\r\n";
-            echo 'Content-Length: ' . mb_strlen($data) . "\r\n";
-            echo "\r\n";
-            echo $data;
-            echo "\r\n";
-
-            ob_flush();
-            flush();
-
-            $data = '{"incremental":[{"items":[{"__typename":"TextMessageOutput","id":"ck-e3772f2f-22c4-4e31-a375-225313d0d1df","createdAt":"2025-01-13T10:31:09.776Z","role":"assistant","content":[]}],"path":["generateCopilotResponse","messages",0]}],"hasNext":true}';
-            echo "\r\n---\r\n";
-            echo "Content-Type: application/json; charset=utf-8\r\n";
-            echo 'Content-Length: ' . mb_strlen($data) . "\r\n";
-            echo "\r\n";
-            echo $data;
-            echo "\r\n";
-
-            ob_flush();
-            flush();
-
-            $k = 1;
-            foreach ($client->stream($remoteResponse) as $chunk) {
-                $payload = $chunk->getContent();
-                $data = '{"incremental":[{"items":["' . $payload . ' "],"path":["generateCopilotResponse","messages",0,"content",' . $k . ']}],"hasNext":true}';
-
-                echo "\r\n---\r\n";
-                echo "Content-Type: application/json; charset=utf-8\r\n";
-                echo 'Content-Length: ' . mb_strlen($data) . "\r\n";
-                echo "\r\n";
-                echo $data;
-                echo "\r\n";
-
-                ob_flush();
-                flush();
-
-                ++$k;
-                //                usleep(250000);
-            }
-
-            $data = '{"hasNext":false}';
-            echo "---\r\n";
-            echo "Content-Type: application/json; charset=utf-8\r\n";
-            echo 'Content-Length: ' . mb_strlen($data) . "\r\n";
-            echo "\r\n";
-            echo $data;
-            echo "\r\n";
-
-            ob_flush();
-            flush();
-
-            echo "-----\r\n";
-
-            ob_flush();
-            flush();
+        $response->setCallback(function () use ($remoteResponse) {
+            $this->flushProlog();
+            $this->streamRemoteResponse($remoteResponse);
+            $this->flushClose();
         });
 
         return $response;
+    }
+
+    private function streamRemoteResponse(ResponseInterface $response): void
+    {
+        $client = HttpClient::create();
+
+        $step = 0;
+
+        foreach ($client->stream($response) as $chunk) {
+            $data = sprintf(
+                '{"incremental":[{"items":["%s"],"path":["generateCopilotResponse","messages",0,"content",%d]}],"hasNext":true}',
+                $chunk->getContent(),
+                $step,
+            );
+
+            $this->flushChunk($data);
+
+            ++$step;
+        }
+    }
+
+    private function flushProlog(): void
+    {
+        $data = '{"data":{"generateCopilotResponse":{"threadId":"ck-5eecb86e-2095-4769-88ea-73532be385a7","runId":null,"__typename":"CopilotResponse","messages":[]}},"hasNext":true}';
+        $this->flushChunk($data);
+
+        $data = '{"incremental":[{"items":[{"__typename":"TextMessageOutput","id":"ck-e3772f2f-22c4-4e31-a375-225313d0d1df","createdAt":"2025-01-13T10:31:09.776Z","role":"assistant","content":[]}],"path":["generateCopilotResponse","messages",0]}],"hasNext":true}';
+        $this->flushChunk($data);
+    }
+
+    private function flushChunk(string $data): void
+    {
+        echo '---';
+        echo self::NEW_LINE;
+        echo 'Content-Type: application/json; charset=utf-8';
+        echo self::NEW_LINE;
+        echo sprintf('Content-Length: %d', mb_strlen($data));
+        echo self::NEW_LINE;
+        echo self::NEW_LINE;
+        echo $data;
+        echo self::NEW_LINE;
+
+        ob_flush();
+        flush();
+    }
+
+    private function flushClose(): void
+    {
+        $this->flushChunk('{"hasNext":false}');
+
+        echo '-----';
+        echo self::NEW_LINE;
+
+        ob_flush();
+        flush();
     }
 }
