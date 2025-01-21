@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Ibexa\Contracts\Core\Repository\PermissionService;
+use Netgen\Bundle\IbexaRagIndexer\Service\PermissionCriterionVisitor\Aggregate;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,6 +16,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 use function end;
 use function flush;
 use function json_decode;
+use function json_encode;
 use function mb_strlen;
 use function ob_flush;
 use function sprintf;
@@ -23,6 +26,11 @@ use const JSON_THROW_ON_ERROR;
 class ProxyChat extends AbstractController
 {
     private const NEW_LINE = "\r\n";
+
+    public function __construct(
+        private readonly PermissionService $permissionService,
+        private readonly Aggregate $aggregate,
+    ) {}
 
     /**
      * @Route("/ai")
@@ -42,11 +50,13 @@ class ProxyChat extends AbstractController
 
         $remoteResponse = $client->request(
             'POST',
-            // send_message_to_rag
-            'http://192.168.10.219:8000/api/rag/send_message_to_llm',
+            'http://192.168.10.219:8000/api/rag/send_message_to_rag',
             [
-                // + session_id, filter_field
-                'body' => sprintf('{"query": "%s"}', $payload),
+                'body' => sprintf(
+                    '{"query": "%s", "session_id": "string", "filter_field": %s}',
+                    $payload,
+                    $this->getPermissionString(),
+                ),
                 'headers' => [
                     'accept' => 'application/json',
                     'Content-Type' => 'application/json',
@@ -61,6 +71,15 @@ class ProxyChat extends AbstractController
         });
 
         return $response;
+    }
+
+    private function getPermissionString(): string
+    {
+        /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Query\CriterionInterface $rootPermissionsCriterion */
+        $rootPermissionsCriterion = $this->permissionService->getPermissionsCriterion();
+        $permissionsArray = $this->aggregate->visit($rootPermissionsCriterion);
+
+        return json_encode($permissionsArray, JSON_THROW_ON_ERROR);
     }
 
     private function streamRemoteResponse(ResponseInterface $response): void
