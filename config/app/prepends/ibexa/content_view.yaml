@@ -351,27 +351,18 @@ system:
     rag:
         ng_content_view:
             full:
-                ng_article:
-                    template: "ng_article.twig"
+                common:
+                    template: "@ibexadesign/content/views/full/{content_type}.twig"
                     match:
-                        Identifier\ContentType: [ ng_article ]
-                ng_banner:
-                    template: "ng_banner.twig"
-                    match:
-                        Identifier\ContentType: [ ng_banner ]
-                ng_blog_post:
-                    template: "ng_blog_post.twig"
-                    match:
-                        Identifier\ContentType: [ ng_blog_post ]
-                ng_news:
-                    template: "ng_news.twig"
-                    match:
-                        Identifier\ContentType: [ ng_news ]
-                ng_recipe:
-                    template: "ng_recipe.twig"
-                    match:
-                        Identifier\ContentType: [ ng_recipe ]
-
+                        Identifier\ContentType:
+                            - ng_article
+                            - ng_banner
+                            - ng_blog_post
+                            - ng_news
+                            - ng_recipe
+                match_all:
+                    template: "@ibexadesign/content/views/full.twig"
+                    match: ~
 
     default:
         ng_content_view:
