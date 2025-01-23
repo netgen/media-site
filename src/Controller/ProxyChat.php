@@ -9,6 +9,7 @@ use Netgen\Bundle\IbexaRagIndexer\Service\PermissionCriterionVisitor\Aggregate;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\HttpClient\ResponseInterface;
@@ -30,11 +31,10 @@ class ProxyChat extends AbstractController
     public function __construct(
         private readonly PermissionService $permissionService,
         private readonly Aggregate $aggregate,
+        private readonly RequestStack $requestStack,
     ) {}
 
-    /**
-     * @Route("/ai")
-     */
+    #[Route('/ai', methods: ['POST'])]
     public function __invoke(Request $request): StreamedResponse
     {
         $data = json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR);
@@ -47,14 +47,16 @@ class ProxyChat extends AbstractController
         $response = new StreamedResponse();
         $response->headers->set('Content-Type', 'multipart/mixed; boundary="-"');
         $response->headers->set('X-Accel-Buffering', 'no');
+        $sessionId = $this->getSessionId();
 
         $remoteResponse = $client->request(
             'POST',
             'http://192.168.10.219:8000/api/rag/send_message_to_rag',
             [
                 'body' => sprintf(
-                    '{"query": "%s", "session_id": "string", "filter_field": %s}',
+                    '{"query": "%s", "session_id": "%s", "filter_field": %s}',
                     $payload,
+                    $sessionId,
                     $this->getPermissionString(),
                 ),
                 'headers' => [
@@ -71,6 +73,15 @@ class ProxyChat extends AbstractController
         });
 
         return $response;
+    }
+
+    private function getSessionId(): string
+    {
+        $session = $this->requestStack->getSession();
+
+        $session->set('foo', 'bar');
+
+        return $session->getId();
     }
 
     private function getPermissionString(): string
