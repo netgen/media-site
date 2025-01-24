@@ -1,0 +1,3 @@
+ngsite_view_payload:
+    path: /view-payload/{contentId}
+    controller: App\Controller\ViewPayload
