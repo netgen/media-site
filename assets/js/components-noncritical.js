@@ -40,7 +40,7 @@ const componentConfiguration = [
       rotateArrowClass: 'rotate-arrow',
       shownClass: 'shown',
       cookieModal: '.ng-cc-modal',
-      cookiePolicyShow: '.ng-cc-js-link-cookie-policy a',
+      cookiePolicyShowTrigger: '.ng-cc-js-link-cookie-policy a',
       cookiePolicyHide: '.cookie-policy-hide',
       cookiePolicyText: '.ng-cc-cookie-policy-text',
       cookiePolicyShownClass: 'cookie-policy-shown',
