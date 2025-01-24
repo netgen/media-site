@@ -3,7 +3,7 @@ parameters:
 
 ibexa:
     siteaccess:
-        default_siteaccess: fh_eng
+        default_siteaccess: peak_eng
         list:
             - fh_eng
             - bold_eng

@@ -3,6 +3,8 @@
 
 {% set meta_data = {'description': content.fields.teaser_intro.value.xml.saveXML()|striptags|trim|u.truncate(152)} %}
 
+This content represents web page available at {{ url('ibexa.url.alias', {location: location, siteaccess: 'peak_eng'}) }}
+
 <article class="ng-recipe">
     <header>
         <h1>{{ ng_render_field(content.fields.title) }}</h1>
