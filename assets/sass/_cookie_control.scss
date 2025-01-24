@@ -397,7 +397,7 @@
         z-index: 10000000;
         transition: transform .3s ease;
         transform: translateX(100%);
-        background: #fff;
+        background: $white;
         overflow-y: auto;
         .wrapper {
             padding: 2rem 0 1rem 0;
