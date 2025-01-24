@@ -38,7 +38,7 @@ class ProxyChat extends AbstractController
     public function __invoke(Request $request): StreamedResponse
     {
         $data = json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR);
-        $messages = $data['variables']['data']['messages'];
+        $messages = $data['variables']['data']['messages'] ?? [];
         $lastMessage = end($messages);
         $payload = $lastMessage['textMessage']['content'];
 
