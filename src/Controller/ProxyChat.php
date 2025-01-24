@@ -40,7 +40,7 @@ class ProxyChat extends AbstractController
         $data = json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR);
         $messages = $data['variables']['data']['messages'] ?? [];
         $lastMessage = end($messages);
-        $payload = $lastMessage['textMessage']['content'];
+        $payload = $lastMessage['textMessage']['content'] ?? '';
 
         $client = HttpClient::create();
 
