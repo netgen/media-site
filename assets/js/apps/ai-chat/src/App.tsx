@@ -5,6 +5,8 @@ import '@copilotkit/react-ui/styles.css';
 import { useState } from 'react';
 import { Chat } from './Chat';
 
+import './app.scss';
+
 function App(props: { userName?: string }) {
     const [messages, setMessages] = useState([]);
 

@@ -1,0 +1,17 @@
+.copilotKitPopup {
+    z-index: 1001;
+
+    --copilot-kit-primary-color: #fed830;
+    --copilot-kit-contrast-color: black;
+
+    .copilotKitWindow {
+        max-height: 824px;
+        height: 85dvh;
+        width: 458px;
+
+        &,
+        .copilotKitHeader {
+            border-radius: 0;
+        }
+    }
+}
