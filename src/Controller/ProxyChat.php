@@ -21,6 +21,7 @@ use function json_encode;
 use function mb_strlen;
 use function ob_flush;
 use function sprintf;
+use function str_replace;
 
 use const JSON_THROW_ON_ERROR;
 
@@ -111,7 +112,7 @@ class ProxyChat extends AbstractController
         foreach ($client->stream($response) as $chunk) {
             $data = sprintf(
                 '{"incremental":[{"items":["%s"],"path":["generateCopilotResponse","messages",0,"content",%d]}],"hasNext":true}',
-                $chunk->getContent(),
+                str_replace(["\r\n", "\n", "\r", '"'], ['\n', '\n', '\n', '\"'], $chunk->getContent()),
                 $step,
             );
 
