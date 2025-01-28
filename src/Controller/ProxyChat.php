@@ -56,7 +56,7 @@ class ProxyChat extends AbstractController
             [
                 'body' => sprintf(
                     '{"query": "%s", "session_id": "%s", "filter_field": %s}',
-                    $payload,
+                    str_replace(["\r\n", "\n", "\r", '"'], ['\n', '\n', '\n', '\"'], $payload),
                     $sessionId,
                     $this->getPermissionString(),
                 ),
