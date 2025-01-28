@@ -1,12 +1,12 @@
-import {
-    CopilotKit,
-    CopilotMessagesContext,
-    useCopilotChat,
-    useCopilotMessagesContext,
-} from '@copilotkit/react-core';
+import { useCopilotMessagesContext } from '@copilotkit/react-core';
 import { CopilotPopup } from '@copilotkit/react-ui';
-import { ActionExecutionMessage, ResultMessage, TextMessage } from '@copilotkit/runtime-client-gql';
-import React, { useEffect, useState } from 'react';
+import {
+    ActionExecutionMessage,
+    MessageRole,
+    ResultMessage,
+    TextMessage,
+} from '@copilotkit/runtime-client-gql';
+import { useEffect } from 'react';
 
 interface ChatProps {
     userName: string;
@@ -54,7 +54,49 @@ export const Chat = ({ userName }: ChatProps) => {
                     throw new Error(`Unknown message type: ${message.type}`);
                 }
             });
-            setMessages(parsedMessages);
+
+            const lastWelcomeMessage = [...parsedMessages]
+                .reverse()
+                .find(
+                    (msg) => msg.id === 'authenticated-welcome' || msg.id === 'anonymous-welcome'
+                );
+
+            if (
+                lastWelcomeMessage &&
+                lastWelcomeMessage.id === 'anonymous-welcome' &&
+                userName !== ''
+            ) {
+                const newWelcomeMessage = new TextMessage({
+                    id: 'authenticated-welcome',
+                    role: MessageRole.Assistant,
+                    content: `Welcome ${userName}! How can I help you?`,
+                    createdAt: '2025-01-20T14:47:19.401Z',
+                });
+                setMessages([newWelcomeMessage]);
+            } else if (
+                lastWelcomeMessage &&
+                lastWelcomeMessage.id === 'authenticated-welcome' &&
+                userName === ''
+            ) {
+                const newWelcomeMessage = new TextMessage({
+                    id: 'anonymous-welcome',
+                    role: MessageRole.Assistant,
+                    content: `Hi, how can I help you?`,
+                    createdAt: '2025-01-20T14:47:19.401Z',
+                });
+                setMessages([newWelcomeMessage]);
+            } else {
+                setMessages(parsedMessages);
+            }
+        } else {
+            setMessages([
+                new TextMessage({
+                    id: `${userName === '' ? 'anonymous-welcome' : 'authenticated-welcome'}`,
+                    role: MessageRole.Assistant,
+                    content: `Hi${userName ? ` ${userName}` : ''}, how can I help you?`,
+                    createdAt: '2025-01-20T14:47:19.401Z',
+                }),
+            ]);
         }
     }, []);
 
@@ -67,7 +109,7 @@ export const Chat = ({ userName }: ChatProps) => {
                     }
                     labels={{
                         title: 'Ibexa RAG Assistant',
-                        initial: [`Hi ${userName}, need any help?`],
+                        // initial: [`Hi ${userName}, need any help?`],
                     }}
                 />
             }
