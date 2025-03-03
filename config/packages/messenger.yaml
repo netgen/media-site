@@ -12,6 +12,41 @@ framework:
             # failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
 
+            sync: 'sync://'
         routing:
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
+
+            # If you want sync + async_chroma, put [ netgen_chroma_search_extra_asynchronous_indexing, sync ].
+            #    NOTE: It is NECESSARY sync comes after netgen_chroma_search_extra_asynchronous_indexing, otherwise this will not work correctly
+            # If you want async + async_chroma, put [ netgen_ibexa_search_extra_asynchronous_indexing, netgen_chroma_search_extra_asynchronous_indexing ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Content\CopyContent': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Content\DeleteContent': [netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Content\DeleteTranslation': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Content\HideContent': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Content\PublishVersion': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Content\RevealContent': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Content\UpdateContentMetadata': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\AssignSectionToSubtree': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\CopySubtree': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\CreateLocation': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\DeleteLocation': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\HideLocation': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\MoveSubtree': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\SwapLocation': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\UnhideLocation': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Location\UpdateLocation': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\ObjectState\SetContentState': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Section\AssignSection': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Trash\Recover': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\Trash\Trash': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\AssignUserToUserGroup': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\BeforeUnAssignUserFromUserGroup': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\CreateUserGroup': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\CreateUser': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\DeleteUserGroup': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\DeleteUser': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\MoveUserGroup': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\UnAssignUserFromUserGroup': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\UpdateUserGroup': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]
+            'Netgen\IbexaSearchExtra\Core\Search\Common\Messenger\Message\Search\User\UpdateUser': [ netgen_chroma_search_extra_asynchronous_indexing, sync ]

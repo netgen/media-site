@@ -1,3 +1,4 @@
 imports:
     - { resource: dev/app.yaml }
     - { resource: dev/ibexa_siteaccess.yaml }
+    - { resource: dev/search_extra.yaml }
