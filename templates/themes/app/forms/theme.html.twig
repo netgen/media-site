@@ -132,7 +132,12 @@
 
 {% block file_row %}
     <div class="form-group file-group {{ form.parent.parent.vars|default(form.parent.vars).name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
-        <label class="form-label{% if required %} required{% endif %}" for={{ id }}>{{ ngparams.label|default(label|trans(label_translation_parameters, translation_domain)|default('File'))|raw }}</label>
+        <label class="form-label{% if required %} required{% endif %}" for={{ id }}>{{ ngparams.label|default(label|trans(label_translation_parameters, translation_domain)|default('File'))|raw }}
+            {% if required %}
+                <span aria-hidden="true">*</span>
+                <span class="sr-only">Mandatory field</span>
+            {% endif %}
+        </label>
         {{- form_widget(form) -}}
         {{- form_errors(form) -}}
     </div>
@@ -195,3 +200,111 @@
         {{- form_row(child, { ngparams: ngparams }) -}}
     {% endfor %}
 {%- endblock form_rows -%}
+
+{%- block form_label -%}
+    {% if label is not same as(false) -%}
+        {%- set parent_label_class = parent_label_class|default(label_attr.class|default('')) -%}
+        {%- if compound is defined and compound -%}
+            {%- set element = 'legend' -%}
+            {%- if 'col-form-label' not in parent_label_class -%}
+                {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' col-form-label' )|trim}) -%}
+            {%- endif -%}
+        {%- else -%}
+            {%- set row_class = row_class|default(row_attr.class|default('')) -%}
+            {%- set label_attr = label_attr|merge({for: id}) -%}
+            {%- if 'col-form-label' not in parent_label_class -%}
+                {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ('input-group' in row_class ? ' input-group-text' : ' form-label') )|trim}) -%}
+            {%- endif -%}
+        {%- endif -%}
+
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif -%}
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                    '%name%': name,
+                    '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+
+        <{{ element|default('label') }}{% if label_attr %}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}>
+            {%- if translation_domain is same as(false) -%}
+                {%- if label_html is same as(false) -%}
+                    {{- label -}}
+                {%- else -%}
+                    {{- label|raw -}}
+                {%- endif -%}
+            {%- else -%}
+                {%- if label_html is same as(false) -%}
+                    {{- label|trans(label_translation_parameters, translation_domain) -}}
+                {%- else -%}
+                    {{- label|trans(label_translation_parameters, translation_domain)|raw -}}
+                {%- endif -%}
+            {%- endif -%}
+
+            {% if required %}
+                <span aria-hidden="true">*</span>
+                <span class="sr-only">{{ 'ngsite.collected_info.mandatory_field'|trans }}</span>
+            {% endif %}
+        </{{ element|default('label') }}>
+    {%- endif -%}
+{%- endblock form_label -%}
+
+
+{%- block checkbox_radio_label -%}
+    {#- Do not display the label if widget is not defined in order to prevent double label rendering -#}
+    {%- if widget is defined -%}
+        {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' form-check-label')|trim}) -%}
+        {%- if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {%- if required -%}
+            {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) -%}
+        {%- endif -%}
+        {%- if parent_label_class is defined -%}
+            {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|replace({'checkbox-inline': '', 'radio-inline': ''})|trim}) -%}
+        {%- endif -%}
+        {%- if label is not same as(false) and label is empty -%}
+            {%- if label_format is not empty -%}
+                {%- set label = label_format|replace({
+                    '%name%': name,
+                    '%id%': id,
+                }) -%}
+            {%- else -%}
+                {%- set label = name|humanize -%}
+            {%- endif -%}
+        {%- endif -%}
+
+        {{ widget|raw }}
+        <label{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}>
+            {%- if label is not same as(false) -%}
+                {%- if translation_domain is same as(false) -%}
+                    {%- if label_html is same as(false) -%}
+                        {{- label -}}
+                    {%- else -%}
+                        {{- label|raw -}}
+                    {%- endif -%}
+                {%- else -%}
+                    {%- if label_html is same as(false) -%}
+                        {{- label|trans(label_translation_parameters, translation_domain) -}}
+                    {%- else -%}
+                        {{- label|trans(label_translation_parameters, translation_domain)|raw -}}
+                    {%- endif -%}
+                {%- endif -%}
+
+                {% if required %}
+                    <span aria-hidden="true">*</span>
+                    <span class="sr-only">{{ 'ngsite.collected_info.mandatory_field'|trans }}</span>
+                {% endif %}
+
+            {%- endif -%}
+        </label>
+    {%- endif -%}
+{%- endblock checkbox_radio_label %}

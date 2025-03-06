@@ -32,6 +32,7 @@ ngsite.search.no_results.reduce_keywords: 'Reduzieren Sie die Anzahl der Keyword
 ngsite.collected_info.success_text: 'Wir danken Ihnen für Ihr Feedback.'
 ngsite.collected_info.button.send: 'Formular senden'
 ngsite.collected_info.information_collected: 'Die folgenden Informationen wurden gesammelt'
+ngsite.collected_info.mandatory_field: 'Pflichtfeld'
 
 ngsite.layout.recipe.min: 'min'
 ngsite.layout.recipe.cal: 'kal'
