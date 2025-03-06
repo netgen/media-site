@@ -6,6 +6,12 @@
         .form-group {
             .form-label {
                 @include text-0_875;
+                &.required {
+                    &:after {
+                        content: '*';
+                        margin-left: .25rem;
+                    }
+                }
             }
             .form-control {
                 .bg-color-secondary & {
