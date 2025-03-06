@@ -38,3 +38,8 @@ button {
         @include custom-outline;
     }
 }
+
+.sr-only {
+    position: absolute;
+    left: -9999px;
+}
