@@ -8,6 +8,11 @@ export default class CookieControl {
     this.optionalSaveBtn = element.querySelectorAll(options.optionalSaveBtn);
     this.optionalList = element.querySelector(options.optionalList);
     this.optionalListToggle = element.querySelector(options.optionalListToggle);
+    this.cookieModal = element.querySelector(options.cookieModal);
+    this.cookiePolicyShowTrigger = element.querySelector(options.cookiePolicyShowTrigger);
+    this.cookiePolicyHide = element.querySelector(options.cookiePolicyHide);
+    this.cookiePolicyText = element.querySelector(options.cookiePolicyText);
+    this.cookiePolicyShownClass = options.cookiePolicyShownClass;
 
     this.init();
   }
@@ -18,9 +23,21 @@ export default class CookieControl {
     this.optionalSaveBtn.forEach((element) =>
       element.addEventListener('click', CookieControl.handleConsentChange)
     );
+    this.cookiePolicyShowTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.cookieModal.classList.add(this.cookiePolicyShownClass);
+      document.querySelector('.ng-cc-cookie-policy-text').scrollTop = 0;
+    });
+    this.cookiePolicyHide.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.cookieModal.classList.remove(this.cookiePolicyShownClass);
+    });
   }
 
   static initNetgenCookieControl() {
+    if (this.element === null) {
+      return;
+    }
     // eslint-disable-next-line no-underscore-dangle
     const cookieControl = new NetgenCookieControl(window.__ngCcConfig);
     cookieControl.init();
@@ -38,6 +55,9 @@ export default class CookieControl {
   }
 
   static handleConsentChange(event) {
+    if (this.element === null) {
+      return;
+    }
     event.preventDefault();
 
     GTM.push('ngcc', GTM.EVENTS.CHANGED);

@@ -7,6 +7,7 @@ ngsite.layout.powered_by: "Unterstützt durch"
 ngsite.layout.cookie_settings: "Cookie Einstellungen"
 ngsite.layout.cookie_settings.accepted: "Akzeptiert"
 ngsite.layout.cookie_settings.not_accepted: "Nicht akzeptiert"
+ngsite.layout.cookie_settings.go_back: "Zurück"
 ngsite.layout.sponsored: 'Gesponsert'
 
 ngsite.search.placeholder: 'Suche'
