@@ -36,9 +36,9 @@
     {% for item in path_array %}
         {
             "@type": "ListItem",
-            "position": {{ loop.index }},
             "name": "{{ item.text }}",
-            {% if item.url != false %}"item": "{{ absolute_url(item.url)}}" {% endif %}
+            {% if item.url != false %}"item": "{{ absolute_url(item.url) }}",{% endif %}
+            "position": {{ loop.index }}
 
         }{% if not loop.last %},{% endif %}
     {% endfor %}
