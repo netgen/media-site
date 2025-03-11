@@ -134,6 +134,7 @@
     <div class="form-group file-group {{ form.parent.parent.vars|default(form.parent.vars).name|replace({'_': '-'}) }}{% if errors|length > 0 %} error-input{% endif %}">
         <label class="form-label{% if required %} required{% endif %}" for={{ id }}>{{ ngparams.label|default(label|trans(label_translation_parameters, translation_domain)|default('File'))|raw }}
             {% if required %}
+                <span aria-hidden="true">*</span>
                 <span class="sr-only">{{ 'ngsite.collected_info.mandatory_field'|trans }}</span>
             {% endif %}
         </label>
@@ -249,6 +250,7 @@
             {%- endif -%}
 
             {% if required %}
+                <span aria-hidden="true">*</span>
                 <span class="sr-only">{{ 'ngsite.collected_info.mandatory_field'|trans }}</span>
             {% endif %}
         </{{ element|default('label') }}>
@@ -298,6 +300,7 @@
                 {%- endif -%}
 
                 {% if required %}
+                    <span aria-hidden="true">*</span>
                     <span class="sr-only">{{ 'ngsite.collected_info.mandatory_field'|trans }}</span>
                 {% endif %}
 
