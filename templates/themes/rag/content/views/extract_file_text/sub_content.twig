@@ -1,0 +1,19 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+{# file \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% set files = location.filterChildren(["file"]) %}
+
+{% for file in files %}
+    {% set pdfFile = file.content.getFieldValue('file') %}
+    {% if pdfFile %}
+        <div>
+            <h3>Extracted PDF Text:</h3>
+            {% set relativeDownloadPath = path('ngsite_download', {'contentId': file.content.id, 'fieldId': file.content.fields.file.id, 'isInline': 1}) %}
+            {% set domain = ibexa.configResolver.parameter('site_domain', 'ngsite', 'peak_group') %}
+
+            <p>{{ ('http://' ~ domain ~ relativeDownloadPath) | extract_pdf_text }}</p>
+        </div>
+    {% endif %}
+{% endfor %}
+

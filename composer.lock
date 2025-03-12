@@ -19488,6 +19488,107 @@
             "time": "2024-12-29T10:51:50+00:00"
         },
         {
+            "name": "vaites/php-apache-tika",
+            "version": "v1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vaites/php-apache-tika.git",
+                "reference": "9d7d13aad7df5789b765977f57f2c1d000c4cfa4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vaites/php-apache-tika/zipball/9d7d13aad7df5789b765977f57f2c1d000c4cfa4",
+                "reference": "9d7d13aad7df5789b765977f57f2c1d000c4cfa4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.3.0"
+            },
+            "require-dev": {
+                "filp/whoops": "^2.7",
+                "nunomaduro/collision": "^5.11",
+                "nunomaduro/phpinsights": "^1.14",
+                "phpstan/phpstan": "^0.12.26",
+                "phpunit/phpunit": "^9.0",
+                "psy/psysh": "^0.10.8",
+                "symfony/var-dumper": "^5.1"
+            },
+            "type": "library",
+            "extra": {
+                "supported-versions": [
+                    "1.15",
+                    "1.16",
+                    "1.17",
+                    "1.18",
+                    "1.19",
+                    "1.19.1",
+                    "1.20",
+                    "1.21",
+                    "1.22",
+                    "1.23",
+                    "1.24",
+                    "1.24.1",
+                    "1.25",
+                    "1.26",
+                    "1.27",
+                    "1.28",
+                    "1.28.1",
+                    "1.28.2",
+                    "1.28.3",
+                    "1.28.4",
+                    "1.28.5",
+                    "2.0.0",
+                    "2.1.0",
+                    "2.2.0",
+                    "2.2.1",
+                    "2.3.0",
+                    "2.4.0",
+                    "2.5.0",
+                    "2.6.0",
+                    "2.7.0",
+                    "2.8.0",
+                    "2.9.0",
+                    "2.9.1",
+                    "2.9.2"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vaites\\ApacheTika\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Martínez",
+                    "email": "contacto@davidmartinez.net"
+                }
+            ],
+            "description": "Apache Tika bindings for PHP: extracts text from documents and images (with OCR), metadata and more...",
+            "keywords": [
+                "OCR",
+                "apache",
+                "doc",
+                "documents",
+                "docx",
+                "odt",
+                "office",
+                "pdf",
+                "ppt",
+                "pptx",
+                "tika"
+            ],
+            "support": {
+                "issues": "https://github.com/vaites/php-apache-tika/issues",
+                "source": "https://github.com/vaites/php-apache-tika/tree/v1.3.2"
+            },
+            "time": "2024-05-28T22:00:22+00:00"
+        },
+        {
             "name": "vich/uploader-bundle",
             "version": "v2.5.1",
             "source": {
@@ -23009,7 +23110,8 @@
         "ext-intl": "*",
         "ext-mbstring": "*",
         "ext-ctype": "*",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "ext-dom": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
