@@ -23,7 +23,7 @@ class TikaPdfExtractorExtension extends AbstractExtension
 
     public function extractPdfText(string $filePath): string
     {
-        // $this->apacheTikaService->extractTextAsProcess($filePath);
+        // return $this->apacheTikaService->extractTextAsProcess($filePath);
         return $this->apacheTikaService->extractTextAsServer($filePath);
     }
 }
