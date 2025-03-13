@@ -18,7 +18,7 @@ final class ApacheTikaService
 {
     public function __construct(
         private readonly string $projectDir,
-        private readonly string $apacheTikaDir,
+        private readonly string $apacheTikaCliPath,
         private readonly string $javaDir,
         private readonly string $tikaDomain,
         private readonly string $tikaPort,
@@ -30,9 +30,9 @@ final class ApacheTikaService
             [
                 $this->javaDir,
                 '-jar',
-                $this->apacheTikaDir,
+                $this->apacheTikaCliPath,
                 '--text',
-                sprintf('public%s', $filePath),
+                sprintf('%s', $filePath),
             ],
             $this->projectDir,
         );
