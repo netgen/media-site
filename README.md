@@ -27,6 +27,14 @@ a subscription. Learn more about [Ibexa DXP](https://www.ibexa.co/products).
 For installation instructions of Ibexa Open Source see [ibexa/oss](https://github.com/ibexa/oss)
 package.
 
+#### Apache Tika
+Apache Tika needs to be downloaded for pdf extraction. It can be used as server, or as CLI. Download link:
+ https://tika.apache.org/download.html. If you want to use it as server, download tika-server, and if you want to use
+it as CLI, download tika-app version.
+
+**Note**: It is a java app, so java needs to be installed as well. If java is not installed in ```/usr/bin/java```, parameters
+need to be updated to.
+
 ## COPYRIGHT
 Copyright (C) 1999-2021 Ibexa AS (formerly eZ Systems AS). All rights reserved.
 
