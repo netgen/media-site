@@ -10,6 +10,11 @@ use Vaites\ApacheTika\Client;
 
 class TikaPdfExtractorExtension extends AbstractExtension
 {
+    public function __construct(
+        private readonly string $tikaDomain,
+        private readonly int $tikaPort,
+    ) {}
+
     public function getFilters(): array
     {
         return [
@@ -20,7 +25,7 @@ class TikaPdfExtractorExtension extends AbstractExtension
     public function extractPdfText(string $filePath): string
     {
         try {
-            $tika = Client::make('127.0.0.1', 9998);
+            $tika = Client::make($this->tikaDomain, $this->tikaPort);
 
             return $tika->getText($filePath) ?? '';
         } catch (\Exception $e) {
