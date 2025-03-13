@@ -32,7 +32,7 @@ services:
     App\Services\ApacheTikaService:
         arguments:
             $projectDir: '%kernel.project_dir%'
-            $apacheTikaDir: '%app.tika.domain%'
-            $javaDir: '%app.java.dir%'
+            $apacheTikaCliPath: '%app.tika.cli.path%'
+            $javaDir: '%app.java.path%'
             $tikaDomain: '%app.tika.domain%'
             $tikaPort: '%app.tika.port%'
