@@ -53,7 +53,7 @@ final class ApacheTikaService
         return $process->getOutput();
     }
 
-    public function extractTextAsServer(string $filePath): string
+    public function extractTextViaServer(string $filePath): string
     {
         try {
             $tika = Client::make($this->tikaDomain, $this->tikaPort);
