@@ -25,7 +25,10 @@ services:
 
     Netgen\Bundle\IbexaRagIndexer\Service\PermissionCriterionVisitor\Aggregate: '@netgen_rag.permission_criterion_visitor.aggregate'
 
-    App\Twig\TikaPdfExtractorExtension:
+    App\Services\ApacheTikaService:
         arguments:
+            $projectDir: '%kernel.project_dir%'
+            $apacheTikaDir: '%app.tika.domain%'
+            $javaDir: '%app.java.dir%'
             $tikaDomain: '%app.tika.domain%'
             $tikaPort: '%app.tika.port%'
