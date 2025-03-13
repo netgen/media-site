@@ -25,13 +25,14 @@ services:
 
     Netgen\Bundle\IbexaRagIndexer\Service\PermissionCriterionVisitor\Aggregate: '@netgen_rag.permission_criterion_visitor.aggregate'
 
-<<<<<<< HEAD
     App\Controller\ProxyChat:
         arguments:
             $pythonDomainAndPort: '%netgen_rag.python_domain%'
-=======
-    App\Twig\TikaPdfExtractorExtension:
+
+    App\Services\ApacheTikaService:
         arguments:
+            $projectDir: '%kernel.project_dir%'
+            $apacheTikaDir: '%app.tika.domain%'
+            $javaDir: '%app.java.dir%'
             $tikaDomain: '%app.tika.domain%'
             $tikaPort: '%app.tika.port%'
->>>>>>> 1499ea33 (NGAIPLAY-50 domain and port moved to parameters)

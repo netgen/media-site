@@ -38,6 +38,7 @@ parameters:
         - 13 # administrator users
         - 44 # anonymous users
 
+<<<<<<< HEAD
     siteaccess_indexer: rag
 
     netgen_rag_indexer.contentclass_identifier:
@@ -49,3 +50,8 @@ parameters:
     netgen_rag_indexer.site_domain: 'netgen-ai-site.dev10.netgen.biz'
 
     netgen_rag.python_domain: 'http://192.168.10.219:8000'
+=======
+    app.tika.dir: "/opt/tika/tika-server-standard-3.1.0.jar"
+    app.tika.allowed_mime_types:
+        - "application/pdf"
+>>>>>>> 518b0ff3 (NGAIPLAY-50 added optio to run tika as process~)

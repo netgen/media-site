@@ -19,3 +19,5 @@ parameters:
 
     app.tika.domain: '127.0.0.1'
     app.tika.port: 9998
+
+    app.java.dir: '/usr/bin/java'

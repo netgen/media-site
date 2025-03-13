@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace App\Twig;
 
+use App\Services\ApacheTikaService;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
-use Vaites\ApacheTika\Client;
 
 class TikaPdfExtractorExtension extends AbstractExtension
 {
     public function __construct(
-        private readonly string $tikaDomain,
-        private readonly int $tikaPort,
+        private readonly ApacheTikaService $apacheTikaService,
     ) {}
 
     public function getFilters(): array
@@ -24,12 +23,7 @@ class TikaPdfExtractorExtension extends AbstractExtension
 
     public function extractPdfText(string $filePath): string
     {
-        try {
-            $tika = Client::make($this->tikaDomain, $this->tikaPort);
-
-            return $tika->getText($filePath) ?? '';
-        } catch (\Exception $e) {
-            return 'Error extracting text: ' . $e->getMessage();
-        }
+        // $this->apacheTikaService->extractTextAsProcess($filePath);
+        return $this->apacheTikaService->extractTextAsServer($filePath);
     }
 }
