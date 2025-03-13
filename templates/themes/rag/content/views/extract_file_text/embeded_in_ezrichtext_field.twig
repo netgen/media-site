@@ -1,0 +1,25 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# pdf \Netgen\IbexaSiteApi\API\Values\Content #}
+{# doc DOMDocument #}
+
+{% set domain = ibexa.configResolver.parameter('site_domain', 'ngsite', 'peak_group') %}
+
+{% for field in content.fields %}
+    {% if field.fieldTypeIdentifier == 'ezrichtext' %}
+        {% set doc = field.value.xml %}
+        {% set embeddedPdfs = doc | extract_embedded_pdfs %}
+
+        {% for pdf in embeddedPdfs %}
+            {% set relativeDownloadPath = path('ngsite_download', {
+                'contentId': pdf.id,
+                'fieldId': pdf.fields.file.id,
+                'isInline': 1
+            }) %}
+
+            <div>
+                <h3>Extracted PDF Text from Embedded File:</h3>
+                <p>{{ ('http://' ~ domain ~ relativeDownloadPath) | extract_pdf_text }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endfor %}

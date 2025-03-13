@@ -1,0 +1,24 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# pdfFile \Netgen\IbexaSiteApi\API\Values\Content #}
+
+{% set domain = ibexa.configResolver.parameter('site_domain', 'ngsite', 'peak_group') %}
+
+{% for field in content.fields %}
+    {% if field.fieldTypeIdentifier == 'ezobjectrelation' %}
+        {% set pdfFile = content.fieldRelations(field.fieldDefIdentifier)[0] %}
+
+        {% if pdfFile %}
+            <div>
+                <h3>Extracted PDF Text from {{ field.fieldDefIdentifier }}:</h3>
+
+                {% set relativeDownloadPath = path('ngsite_download', {
+                    'contentId': pdfFile.id,
+                    'fieldId': pdfFile.fields.file.id,
+                    'isInline': 1
+                }) %}
+
+                <p>{{ ('http://' ~ domain ~ relativeDownloadPath) | extract_pdf_text }}</p>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}

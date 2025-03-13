@@ -24,3 +24,11 @@ services:
     # please note that last definitions always *replace* previous ones
 
     Netgen\Bundle\IbexaRagIndexer\Service\PermissionCriterionVisitor\Aggregate: '@netgen_rag.permission_criterion_visitor.aggregate'
+
+    App\Services\ApacheTikaService:
+        arguments:
+            $projectDir: '%kernel.project_dir%'
+            $apacheTikaCliPath: '%app.tika.cli.path%'
+            $javaDir: '%app.java.path%'
+            $tikaDomain: '%app.tika.domain%'
+            $tikaPort: '%app.tika.port%'

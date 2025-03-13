@@ -26,3 +26,8 @@ parameters:
         - 'ng_blog_post'
 
     netgen_rag_indexer.site_domain: 'netgen-ai-site.dev10.netgen.biz'
+
+    app.tika.domain: '127.0.0.1'
+    app.tika.port: 9998
+
+    app.java.path: '/usr/bin/java'
