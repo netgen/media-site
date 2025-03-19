@@ -52,7 +52,7 @@ class ProxyChat extends AbstractController
 
         $remoteResponse = $client->request(
             'POST',
-            'http://192.168.10.219:8000/api/rag/send_message_to_rag',
+            'http://127.0.0.1:8000/api/rag/send_message_to_rag',
             [
                 'body' => sprintf(
                     '{"query": "%s", "session_id": "%s", "filter_field": %s}',
