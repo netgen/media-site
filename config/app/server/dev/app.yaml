@@ -48,4 +48,4 @@ parameters:
 
     netgen_rag_indexer.site_domain: 'netgen-ai-site.dev10.netgen.biz'
 
-    netgen_rag.python_domain: 'http://localhost:8001'
+    netgen_rag.python_domain: 'http://192.168.10.219:8000/'
