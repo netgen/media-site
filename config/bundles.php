@@ -82,6 +82,7 @@ return [
     Netgen\Bundle\InformationCollectionBundle\NetgenInformationCollectionBundle::class => ['all' => true],
     Netgen\Bundle\IbexaSiteApiBundle\NetgenIbexaSiteApiBundle::class => ['all' => true],
     Netgen\Bundle\IbexaFormsBundle\NetgenIbexaFormsBundle::class => ['all' => true],
+    Netgen\Bundle\IbexaRagIndexer\IbexaRagIndexerBundle::class => ['all' => true],
     Netgen\Bundle\IbexaSearchExtraBundle\NetgenIbexaSearchExtraBundle::class => ['all' => true],
     Netgen\IbexaFieldTypeEnhancedLinkBundle\NetgenIbexaFieldTypeEnhancedLinkBundle::class => ['all' => true],
     Netgen\Bundle\IbexaAdminUIExtraBundle\NetgenIbexaAdminUIExtraBundle::class => ['all' => true],
@@ -95,5 +96,4 @@ return [
     Misd\PhoneNumberBundle\MisdPhoneNumberBundle::class => ['all' => true],
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
     Netgen\IbexaLoggerBundle\IbexaLoggerBundle::class => ['all' => true],
-    Netgen\Bundle\IbexaRagIndexer\IbexaRagIndexerBundle::class => ['all' => true],
 ];
