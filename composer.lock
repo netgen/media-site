@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "889eb342f49f481de3149e17d3f2f6a4",
+    "content-hash": "69016b4f281c2d20dac934728d27470d",
     "packages": [
         {
             "name": "api-platform/core",
@@ -7757,11 +7757,12 @@
             "dist": {
                 "type": "path",
                 "url": "/var/www/ibexa-rag-indexer",
-                "reference": "4eef052856e7f7aaa291728fe17a99fbceacf895"
+                "reference": "16f822dbf5463af02f378e8f9fd824a4e9a07af6"
             },
             "require": {
                 "http-interop/http-factory-guzzle": "^1.2",
                 "ibexa/core": "^4.6",
+                "netgen/ibexa-search-extra": "dev-NGAIPLAY-54-incremental-and-async-indexing as 3.2.5",
                 "netgen/ibexa-site-api": "^6.1",
                 "php": ">=8.1",
                 "symfony/monolog-bundle": "^3.10"
@@ -7793,16 +7794,16 @@
         },
         {
             "name": "netgen/ibexa-search-extra",
-            "version": "3.2.4",
+            "version": "dev-NGAIPLAY-54-incremental-and-async-indexing",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netgen/ibexa-search-extra.git",
-                "reference": "a4dceecf34dc06918a5bb1c01e3ad1c7c2bfdb9e"
+                "reference": "ddeb070c602d83bc85a94613067ae95c0180a952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netgen/ibexa-search-extra/zipball/a4dceecf34dc06918a5bb1c01e3ad1c7c2bfdb9e",
-                "reference": "a4dceecf34dc06918a5bb1c01e3ad1c7c2bfdb9e",
+                "url": "https://api.github.com/repos/netgen/ibexa-search-extra/zipball/ddeb070c602d83bc85a94613067ae95c0180a952",
+                "reference": "ddeb070c602d83bc85a94613067ae95c0180a952",
                 "shasum": ""
             },
             "require": {
@@ -7853,9 +7854,9 @@
             "description": "Netgen's extra search bits for Ibexa CMS",
             "support": {
                 "issues": "https://github.com/netgen/ibexa-search-extra/issues",
-                "source": "https://github.com/netgen/ibexa-search-extra/tree/3.2.4"
+                "source": "https://github.com/netgen/ibexa-search-extra/tree/NGAIPLAY-54-incremental-and-async-indexing"
             },
-            "time": "2025-01-15T14:16:31+00:00"
+            "time": "2025-03-20T12:10:01+00:00"
         },
         {
             "name": "netgen/ibexa-site-api",
@@ -22980,9 +22981,17 @@
             "time": "2024-03-03T12:36:25+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "netgen/ibexa-search-extra",
+            "version": "dev-NGAIPLAY-54-incremental-and-async-indexing",
+            "alias": "3.2.5",
+            "alias_normalized": "3.2.5.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "netgen/ibexa-search-extra": 20,
         "netgen/information-collection-bundle": 15,
         "netgen/ibexa-user-impersonation": 20,
         "netgen/ibexa-logger": 20,
