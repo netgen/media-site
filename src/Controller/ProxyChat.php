@@ -33,6 +33,7 @@ class ProxyChat extends AbstractController
         private readonly PermissionService $permissionService,
         private readonly Aggregate $aggregate,
         private readonly RequestStack $requestStack,
+        private readonly string $pythonDomainAndPort,
     ) {}
 
     #[Route('/ai', methods: ['POST'])]
@@ -52,7 +53,7 @@ class ProxyChat extends AbstractController
 
         $remoteResponse = $client->request(
             'POST',
-            'http://192.168.10.219:8000/api/rag/send_message_to_rag',
+            $this->pythonDomainAndPort . '/api/rag/send_message_to_rag',
             [
                 'body' => sprintf(
                     '{"query": "%s", "session_id": "%s", "filter_field": %s}',
@@ -88,9 +89,9 @@ class ProxyChat extends AbstractController
     private function getPermissionString(): string
     {
         $rootPermissionsCriterion = $this->permissionService->getPermissionsCriterion();
-
         if ($rootPermissionsCriterion === true) {
-            return '{}';
+            // this means user will have all permissions, as "/1/" is root path and all visible content is under it
+            return '{"subtree": {"$eq": "/1/"}}';
         }
 
         if ($rootPermissionsCriterion === false) {
