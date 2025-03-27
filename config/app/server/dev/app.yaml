@@ -40,6 +40,8 @@ parameters:
 
     siteaccess_indexer: rag
 
+    netgen_rag.python_domain: 'http://192.168.10.219:8000'
+
     netgen_rag_indexer.contentclass_identifier:
         - 'ng_article'
         - 'ng_news'
@@ -48,7 +50,9 @@ parameters:
 
     netgen_rag_indexer.site_domain: 'netgen-ai-site.dev10.netgen.biz'
 
-    netgen_rag.python_domain: 'http://192.168.10.219:8000'
-
     netgen_rag_indexer.tika.server.path: "/opt/tika/tika-server-standard-3.1.0.jar"
+    netgen_rag_indexer.tika.server.domain: '127.0.0.1'
+    netgen_rag_indexer.tika.server.port: 9998
     netgen_rag_indexer.tika.cli.path: "/opt/tika/tika-app.jar"
+
+    netgen_rag_indexer.java.path: '/usr/bin/java'
