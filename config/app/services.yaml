@@ -28,3 +28,4 @@ services:
     App\Controller\ProxyChat:
         arguments:
             $pythonDomainAndPort: '%netgen_rag.python_domain%'
+

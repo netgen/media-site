@@ -27,6 +27,7 @@ a subscription. Learn more about [Ibexa DXP](https://www.ibexa.co/products).
 For installation instructions of Ibexa Open Source see [ibexa/oss](https://github.com/ibexa/oss)
 package.
 
+
 ## COPYRIGHT
 Copyright (C) 1999-2021 Ibexa AS (formerly eZ Systems AS). All rights reserved.
 

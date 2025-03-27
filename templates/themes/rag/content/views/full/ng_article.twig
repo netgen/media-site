@@ -26,5 +26,16 @@ This content represents web page available at {{ url('ibexa.url.alias', {locatio
         {% endif %}
 
         {% include '@ibexadesign/content/parts/tags.html.twig' %}
+
+        {% include '@ibexadesign/content/views/extract_file_text/sub_content.twig' %}
+    </div>
+    <div class="container container-narrow">
+        {% include '@ibexadesign/content/views/extract_file_text/file_field.twig' %}
+        {% include '@ibexadesign/content/views/extract_file_text/file_relation_fields.twig' %}
+        {% include '@ibexadesign/content/views/extract_file_text/sub_content.twig' %}
+        {% include '@ibexadesign/content/views/extract_file_text/embeded_in_ezrichtext_field.twig' %}
     </div>
 </article>
+
+
+

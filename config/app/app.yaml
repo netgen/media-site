@@ -16,3 +16,8 @@ parameters:
     ngsite.default.token_validity.email_change: 900
 
     app.testing.site_domain: '%env(TEST_DOMAIN)%'
+
+    app.tika.domain: '127.0.0.1'
+    app.tika.port: 9998
+
+    app.java.path: '/usr/bin/java'
