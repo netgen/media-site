@@ -15,7 +15,7 @@
                     'isInline': 1
                 }) %}
 
-                <p>{{ ('http://' ~ domain ~ relativeDownloadPath) | extract_pdf_text }}</p>
+                <p>{{ ('http://' ~ domain ~ relativeDownloadPath) | extract_pdf_text_via_server }}</p>
             </div>
         {% endif %}
     {% endif %}

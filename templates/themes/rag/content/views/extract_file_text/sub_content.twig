@@ -12,7 +12,7 @@
             {% set relativeDownloadPath = path('ngsite_download', {'contentId': file.content.id, 'fieldId': file.content.fields.file.id, 'isInline': 1}) %}
             {% set domain = ibexa.configResolver.parameter('site_domain', 'ngsite', 'peak_group') %}
 
-            <p>{{ ('http://' ~ domain ~ relativeDownloadPath) | extract_pdf_text }}</p>
+            <p>{{ ('http://' ~ domain ~ relativeDownloadPath) | extract_pdf_text_via_server }}</p>
         </div>
     {% endif %}
 {% endfor %}

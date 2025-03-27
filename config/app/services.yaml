@@ -29,10 +29,3 @@ services:
         arguments:
             $pythonDomainAndPort: '%netgen_rag.python_domain%'
 
-    App\Services\ApacheTikaService:
-        arguments:
-            $projectDir: '%kernel.project_dir%'
-            $apacheTikaCliPath: '%app.tika.cli.path%'
-            $javaDir: '%app.java.path%'
-            $tikaDomain: '%app.tika.domain%'
-            $tikaPort: '%app.tika.port%'
