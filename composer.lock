@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a61eb1e507a86392cc7232c3185d9db3",
+    "content-hash": "69016b4f281c2d20dac934728d27470d",
     "packages": [
         {
             "name": "api-platform/core",
@@ -7757,7 +7757,7 @@
             "dist": {
                 "type": "path",
                 "url": "/var/www/ibexa-rag-indexer",
-                "reference": "c59ed32fbb41e85d0f81e9c973cfe01582b08b68"
+                "reference": "16f822dbf5463af02f378e8f9fd824a4e9a07af6"
             },
             "require": {
                 "http-interop/http-factory-guzzle": "^1.2",
@@ -19488,111 +19488,6 @@
             "time": "2024-12-29T10:51:50+00:00"
         },
         {
-            "name": "vaites/php-apache-tika",
-            "version": "v1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vaites/php-apache-tika.git",
-                "reference": "a115fa0790c17e97a94fdd3e7ff55e2fc2b810e5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vaites/php-apache-tika/zipball/a115fa0790c17e97a94fdd3e7ff55e2fc2b810e5",
-                "reference": "a115fa0790c17e97a94fdd3e7ff55e2fc2b810e5",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "php": ">=7.4.0"
-            },
-            "require-dev": {
-                "filp/whoops": "^2.7",
-                "nunomaduro/collision": "^5.11",
-                "nunomaduro/phpinsights": "^1.14",
-                "phpstan/phpstan": "^0.12.26",
-                "phpunit/phpunit": "^9.0",
-                "psy/psysh": "^0.10.8",
-                "symfony/var-dumper": "^5.1"
-            },
-            "type": "library",
-            "extra": {
-                "supported-versions": [
-                    "1.15",
-                    "1.16",
-                    "1.17",
-                    "1.18",
-                    "1.19",
-                    "1.19.1",
-                    "1.20",
-                    "1.21",
-                    "1.22",
-                    "1.23",
-                    "1.24",
-                    "1.24.1",
-                    "1.25",
-                    "1.26",
-                    "1.27",
-                    "1.28",
-                    "1.28.1",
-                    "1.28.2",
-                    "1.28.3",
-                    "1.28.4",
-                    "1.28.5",
-                    "2.0.0",
-                    "2.1.0",
-                    "2.2.0",
-                    "2.2.1",
-                    "2.3.0",
-                    "2.4.0",
-                    "2.5.0",
-                    "2.6.0",
-                    "2.7.0",
-                    "2.8.0",
-                    "2.9.0",
-                    "2.9.1",
-                    "2.9.2",
-                    "2.9.3",
-                    "3.0.0",
-                    "3.1.0"
-                ]
-            },
-            "autoload": {
-                "psr-4": {
-                    "Vaites\\ApacheTika\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Martínez",
-                    "email": "contacto@davidmartinez.net"
-                }
-            ],
-            "description": "Apache Tika bindings for PHP: extracts text from documents and images (with OCR), metadata and more...",
-            "keywords": [
-                "OCR",
-                "apache",
-                "doc",
-                "documents",
-                "docx",
-                "odt",
-                "office",
-                "pdf",
-                "ppt",
-                "pptx",
-                "tika"
-            ],
-            "support": {
-                "issues": "https://github.com/vaites/php-apache-tika/issues",
-                "source": "https://github.com/vaites/php-apache-tika/tree/v1.4.0"
-            },
-            "time": "2025-03-16T10:35:49+00:00"
-        },
-        {
             "name": "vich/uploader-bundle",
             "version": "v2.5.1",
             "source": {
@@ -23114,8 +23009,7 @@
         "ext-intl": "*",
         "ext-mbstring": "*",
         "ext-ctype": "*",
-        "ext-iconv": "*",
-        "ext-dom": "*"
+        "ext-iconv": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
