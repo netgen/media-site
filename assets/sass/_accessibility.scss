@@ -12,7 +12,7 @@
 #skip-to-cookie-banner {
     @include visually-hidden-focusable;
     position: fixed;
-    z-index: 99999;
+    z-index: 1055;
     top: $gap;
     left: 50%;
     transform: translate(-50%, -200%);
