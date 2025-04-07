@@ -14,6 +14,9 @@
 @import 'bootstrap_import/bootstrap';
 @import 'bootstrap_import/bootstrap_override';
 
+// Accessibility
+@import 'accessibility';
+
 // Mixins
 @import 'mixins/text';
 @import 'mixins/mixins';
@@ -92,9 +95,6 @@
 @import 'content/ezrichtext';
 @import 'content/sticky_sidebar';
 @import 'content/forms';
-
-// Accessibility
-@import 'accessibility';
 
 // Cookie ribbon
 @import 'cookie_control';
