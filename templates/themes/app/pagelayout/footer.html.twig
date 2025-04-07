@@ -16,7 +16,7 @@
             {% endblock %}
         </div>
 
-        <div class="footer-social">
+        <nav class="footer-social" role="navigation">
             <ul>
                 {% if not site_info.fields.facebook.empty %}
                     <li>
@@ -54,7 +54,7 @@
                     </li>
                 {% endif %}
             </ul>
-        </div>
+        </nav>
 
         <div class="footer-info">
             {% if not ngsite.siteInfoContent.fields.related_cookie_policy.empty %}
