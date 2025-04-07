@@ -12,10 +12,10 @@
         position: relative;
         height: 0;
         padding-bottom: 56.25%;
-        overflow: hidden;
         a, span {
             position: absolute;
             inset: 0;
+            overflow: hidden;
             &::before {
                 content: '';
                 position: absolute;
