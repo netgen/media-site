@@ -29,7 +29,7 @@
                         <div class="container container-narrow">
                             {% if not item.title.empty or not item.description.empty %}
                                 <div class="quote-item">
-                                    <img class="quote-icon" src="{{ asset('/images/quote.svg') }}" alt="quote" title="quote" />
+                                    <img class="quote-icon" src="{{ asset('/images/quote.svg') }}" alt="" />
                                     {% if item.title is defined and not item.title.empty %}
                                         <h3 class="item-title">{{ ng_render_field(item.title) }}</h3>
                                     {% endif %}
@@ -41,16 +41,11 @@
 
                                     <div class="quote-person">
                                         {% if not item.person_image.empty %}
-                                            {% set alt_text = "" %}
-                                            {% if not item.person_name.empty %}
-                                                {% set alt_text = item.person_name.value.text %}
-                                            {% endif %}
                                             <div class="quote-person-image">
                                                 {{ ng_render_field(
                                                     item.person_image, {
                                                         parameters: {
                                                             alias: 'i160',
-                                                            alt_text: alt_text,
                                                         }
                                                     }
                                                 ) }}
