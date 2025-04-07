@@ -199,4 +199,12 @@ $header-bg: $white;
             width: 4rem;
         }
     }
+
+    @include media-breakpoint-down(sm) {
+        .searchbox-active & {
+            .navbar-search {
+                width: calc(100vw - $header-height-sm);
+            }
+        }
+    }
 }
