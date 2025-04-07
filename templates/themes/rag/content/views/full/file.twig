@@ -1,0 +1,26 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% set domain = ibexa.configResolver.parameter('site_domain', 'ngsite', 'peak_group') %}
+
+{% set url = path('ngsite_download', {
+    contentId: content.id,
+    fieldId: content.fields.file.id,
+    isInline: 1
+}) %}
+
+{% set downloadUrl = path('ngsite_download', {
+    contentId: content.id,
+    fieldId: content.fields.file.id,
+    isInline: 0
+}) %}
+
+<div class="file-content">
+    <p>
+        This content is from a file and can be downloaded at {{ 'http://' ~ domain ~ downloadUrl }}">.
+    </p>
+
+    <div class="extracted-text">
+        {{ ('http://' ~ domain ~ url) | extract_pdf_text_via_server }}
+    </div>
+</div>

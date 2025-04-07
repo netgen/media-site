@@ -47,6 +47,7 @@ parameters:
         - 'ng_news'
         - 'ng_recipe'
         - 'ng_blog_post'
+        - 'file'
 
     netgen_rag_indexer.site_domain: 'netgen-ai-site.dev10.netgen.biz'
 

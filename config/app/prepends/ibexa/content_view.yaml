@@ -360,6 +360,7 @@ system:
                             - ng_blog_post
                             - ng_news
                             - ng_recipe
+                            - file
                 match_all:
                     template: "@ibexadesign/content/views/full.twig"
                     match: ~
