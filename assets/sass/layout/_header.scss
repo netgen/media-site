@@ -59,6 +59,16 @@ $header-bg: $white;
         background: transparent;
         border: none;
 
+        &.show {
+            position: relative;
+            z-index: 1001;
+            background: $primary;
+
+            i {
+                transform: rotate(180deg);
+            }
+        }
+
         i {
             width: 0.75rem;
             height: 0.75rem;
@@ -87,18 +97,17 @@ $header-bg: $white;
         a {
             padding: .5em 1em;
             display: block;
+            &:hover {
+                color: $gray-54;
+            }
+            &:focus-visible {
+                @include custom-outline;
+            }
         }
         .current {
             a {
                 color: $gray-54;
             }
-        }
-    }
-    &.show {
-        .current-lang {
-            position: relative;
-            z-index: 1001;
-            background: $primary;
         }
     }
 }
