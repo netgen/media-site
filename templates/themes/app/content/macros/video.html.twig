@@ -1,7 +1,7 @@
 {# content \Netgen\IbexaSiteApi\API\Values\Content #}
 {# location \Netgen\IbexaSiteApi\API\Values\Location #}
 
-{% macro poster(content, location, alias_name, alt_text, image_ratio) %}
+{% macro poster(content, location, alias_name, image_ratio) %}
     {% if content.fields.title is defined and content.fields.title is not empty %}
         {% set link_title = 'ngsite.read_more_about'|trans ~ ' ' ~ content.fields.title.value.text %}
     {% else %}
@@ -9,7 +9,6 @@
     {% endif %}
 
     {% set alias_name = alias_name|default('i480') %}
-    {% set alt_text = alt_text ?? content.name %}
     {% set image_ratio = image_ratio|default('ratio-16x9') %}
 
     <a href="{{ ibexa_path(location is not empty ? location : content) }}" class="ratio {{ image_ratio }}" title="{{ link_title }}">
@@ -20,23 +19,22 @@
             {% set video_types = content.fields.video_type.value.identifiers %}
 
             {% if 'youtube' in video_types %}
-                <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                <img src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" alt="" />
             {% elseif 'vimeo' in video_types %}
-                <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" alt="" />
             {% elseif 'dailymotion' in video_types %}
-                <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_360_url" alt="" />
             {% endif %}
         {% else %}
-                <img src="{{ asset('images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+                <img src="{{ asset('images/video_poster.png') }}" alt="" />
         {% endif %}
     </a>
 {% endmacro %}
 
-{% macro poster_slide(content, use_lazy_load, alt_text) %}
+{% macro poster_slide(content, use_lazy_load) %}
     {% import '@ibexadesign/content/macros/slide.html.twig' as slide %}
 
     {% set use_lazy_load = use_lazy_load|default(false) %}
-    {% set alt_text = alt_text ?? content.name %}
 
     {% if not content.fields.poster.empty %}
         {{ slide.image(content, 'poster', 'i1320', use_lazy_load) }}
@@ -45,14 +43,14 @@
         {% set video_types = content.fields.video_type.value.identifiers %}
 
         {% if 'youtube' in video_types %}
-            <img {% if use_lazy_load %}loading="lazy"{% endif %} src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+            <img {% if use_lazy_load %}loading="lazy"{% endif %} src="https://img.youtube.com/vi/{{ video_identifier }}/mqdefault.jpg" alt="" />
         {% elseif 'vimeo' in video_types %}
-            <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+            <img src="" class="vimeo-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_large" alt="" />
         {% elseif 'dailymotion' in video_types %}
-            <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+            <img src="" class="dailymotion-poster" data-id="{{ video_identifier }}" data-thumbname="thumbnail_720_url" alt="" />
         {% endif %}
     {% else %}
-            <img {% if use_lazy_load %}loading="lazy"{% endif %} src="{{ asset('images/video_poster.png') }}" {% if alt_text is not empty %}alt="{{ alt_text }}"{% endif %} />
+            <img {% if use_lazy_load %}loading="lazy"{% endif %} src="{{ asset('images/video_poster.png') }}" alt="" />
     {% endif %}
 {% endmacro %}
 
