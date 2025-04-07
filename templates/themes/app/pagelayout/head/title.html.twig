@@ -25,10 +25,12 @@
         {% endif %}
     {% endif %}
 
-    {% if site_title is not empty %}
-        {% set site_title = site_title ~ (site_name is not empty ? ' - ' ~ site_name : '') %}
-    {% else %}
-        {% set site_title = site_name|default('') %}
+    {% if content is not defined or content.contentInfo.contentTypeIdentifier != "ng_frontpage" %}
+        {% if site_title is not empty %}
+            {% set site_title = site_title ~ (site_name is not empty ? ' - ' ~ site_name : '') %}
+        {% else %}
+            {% set site_title = site_name|default('') %}
+        {% endif %}
     {% endif %}
 {% endapply %}
 
