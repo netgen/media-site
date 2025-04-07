@@ -389,4 +389,67 @@
     &[open] {
         opacity: 1;
     }
+
+    // cookie policy addition
+    .ng-cc-cookie-policy-text {
+        position: absolute;
+        inset: 0;
+        z-index: 10000000;
+        transition: transform .3s ease;
+        transform: translateX(100%);
+        background: $white;
+        overflow-y: auto;
+        .wrapper {
+            padding: 2rem 0 1rem 0;
+            margin: 0 2.5rem;
+            > * + * {
+                margin-top: 2rem;
+            }
+        }
+        .title {
+            margin-top: 2rem;
+        }
+        .intro {
+            margin-top: 1rem;
+        }
+        .body h3 {
+            margin-top: 2rem;
+            font-size: 1.25rem;
+        }
+        p {
+            margin-top: 1rem;
+        }
+    }
+    .ng-cc-modal {
+        overflow-x: hidden;
+        min-height: 180px;
+        max-width: calc(100% - 60px);
+        transition: min-height .3s ease, max-width .3s ease;
+        overscroll-behavior: contain;
+        &.cookie-policy-shown {
+            overflow: hidden;
+            min-height: 75vh;
+            max-width: 1024px;
+            .ng-cc-cookie-policy-text {
+                transform: translateX(0);
+                overscroll-behavior: contain;
+            }
+        }
+    }
+    @include media-breakpoint-down(lg) {
+        .ng-cc-modal {
+            min-height: 180px;
+            max-width: none;
+            &.cookie-policy-shown {
+                min-height: 75vh;
+                .ng-cc-cookie-policy-text {
+                    .wrapper {
+                        padding: 1rem 0;
+                        margin: 0 1rem;
+                    }
+                }
+            }
+        }
+    }
+    // /cookie policy addition
 }

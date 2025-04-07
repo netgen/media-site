@@ -127,6 +127,48 @@
             transform: translate(0, -50%);
         }
     }
+    &[class*="btn-icon-"] {
+        &.btn-default {
+            &:active,
+            &.active,
+            &:not(:disabled):not(.disabled):active,
+            &:not(:disabled):not(.disabled).active,
+            &:hover,
+            &:focus-visible {
+                &:after {
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+        &.btn-secondary {
+            &:after {
+                filter: brightness(0) invert(1);
+            }
+        }
+        &:after {
+            content: "";
+            width: 1.125rem;
+            height: 1.125rem;
+            flex: 0 0 auto;
+            background-size: contain;
+            @include media-breakpoint-down(lg) {
+                width: .875rem;
+                height: .875rem;
+            }
+        }
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 1rem;
+        padding-left: 1.25rem;
+        width: auto!important;
+    }
+    &.btn-icon-chevron-left {
+        &:after {
+            @extend %icon-chevron-left;
+        }
+    }
 }
 
 .container {
