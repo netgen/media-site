@@ -1,10 +1,18 @@
 <div class="header-search">
-    <a class="searchbox-toggle" href="{{ path('ngsite_content_search') }}" title="{{ 'ngsite.layout.search'|trans }}">
+    <a class="searchbox-toggle" href="{{ path('ngsite_content_search') }}" title="{{ 'ngsite.layout.search'|trans }}" aria-expanded="false" aria-controls="site-wide-search">
         <i class="icon-search" aria-hidden="true"></i>
+        <span class="sr-only">{{ 'ngsite.layout.search'|trans }}</span>
     </a>
+
     <form class="navbar-search" method="get" action="{{ path('ngsite_content_search') }}" id="site-wide-search">
-        <span class="d-none">{{ 'ngsite.layout.search'|trans }}</span>
-        <input class="search-query" type="search" name="searchText" id="site-wide-search-field" placeholder="{{ 'ngsite.layout.search'|trans }}" aria-label="{{ 'ngsite.layout.search'|trans }}" />
+        <label for="site-wide-search-field" class="sr-only">{{ 'ngsite.layout.search'|trans }}</label>
+        <input
+            class="search-query"
+            type="search"
+            name="searchText"
+            id="site-wide-search-field"
+            placeholder="{{ 'ngsite.layout.search'|trans }}"
+        >
         <button type="submit" class="search-submit">{{ 'ngsite.layout.search.button'|trans }}</button>
     </form>
 </div>

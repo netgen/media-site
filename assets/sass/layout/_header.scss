@@ -156,6 +156,7 @@ $header-bg: $white;
         display: flex;
         background: $primary;
         opacity: 0;
+        visibility: hidden;
     }
     .search-query {
         flex: 1;
@@ -176,6 +177,9 @@ $header-bg: $white;
         top: 0;
         bottom: 0;
         cursor: pointer;
+        &:focus-visible {
+            @include custom-outline;
+        }
     }
 
     /* searchbox opened */
@@ -189,6 +193,7 @@ $header-bg: $white;
             width: 18rem;
             transition: width .4s;
             z-index: 1;
+            visibility: visible;
         }
         /* entered text in input */
         &.filled {
