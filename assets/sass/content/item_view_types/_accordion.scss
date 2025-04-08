@@ -23,7 +23,7 @@
                 content: "";
                 width: 1.5rem;
                 height: 1.5rem;
-                @extend %icon-angle-down;
+                @extend %icon-angle-up;
                 position: absolute;
                 top: 50%;
                 right: 0;
@@ -31,7 +31,7 @@
             }
 
             &.collapsed::after {
-                @extend %icon-angle-up;
+                @extend %icon-angle-down;
             }
         }
     }
