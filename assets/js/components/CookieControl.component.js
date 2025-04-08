@@ -5,6 +5,7 @@ export default class CookieControl {
   constructor(element, options) {
     this.options = options;
 
+    this.modal = element.querySelector(options.modal);
     this.optionalSaveBtn = element.querySelectorAll(options.optionalSaveBtn);
     this.optionalList = element.querySelector(options.optionalList);
     this.optionalListToggle = element.querySelector(options.optionalListToggle);
@@ -13,16 +14,25 @@ export default class CookieControl {
   }
 
   init() {
-    CookieControl.initNetgenCookieControl();
+    CookieControl.initNetgenCookieControl(this.modal);
     this.optionalListToggle.addEventListener('click', this.handleOptionalListToggle.bind(this));
     this.optionalSaveBtn.forEach((element) =>
       element.addEventListener('click', CookieControl.handleConsentChange)
     );
   }
 
-  static initNetgenCookieControl() {
+  static initNetgenCookieControl(modal) {
     // eslint-disable-next-line no-underscore-dangle
     const cookieControl = new NetgenCookieControl(window.__ngCcConfig);
+
+    cookieControl.open = function (e) {
+      e && e.preventDefault();
+      this.el.setAttribute('open', '');
+
+      this.opened = true;
+      modal.focus();
+    };
+
     cookieControl.init();
   }
 
@@ -53,8 +63,8 @@ export default class CookieControl {
         window.lastAnalyticsStatus = analyticsStatus;
         const bcolor = analyticsStatus === 'granted' ? 'green' : 'orange';
         console.info(
-          '%cAnalytics cookie changed to: ' + analyticsStatus,
-          'color: white; background-color: ' + bcolor
+          `%cAnalytics cookie changed to: ${analyticsStatus}`,
+          `color: white; background-color: ${bcolor}`
         );
       }
       const marketingStatus = window.getCookieStatus('ng-cc-marketing');
@@ -66,8 +76,8 @@ export default class CookieControl {
         window.lastMarketingStatus = marketingStatus;
         const bcolor = marketingStatus === 'granted' ? 'green' : 'orange';
         console.info(
-          '%cMarketing cookie changed to: ' + marketingStatus,
-          'color: white; background-color: ' + bcolor
+          `%cMarketing cookie changed to: ${marketingStatus}`,
+          `color: white; background-color: ${bcolor}`
         );
       }
     }

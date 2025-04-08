@@ -16,6 +16,7 @@ import SwiperBase from './components/SwiperBase.component';
 import SwiperThumb from './components/SwiperThumb.component';
 import VideoPoster from './components/VideoPoster.component';
 import AccessibilitySkips from './components/AccessibilitySkips.component';
+import FocusTrap from './components/FocusTrap.component';
 
 // Configuration
 const componentConfiguration = [
@@ -38,6 +39,7 @@ const componentConfiguration = [
       optionalListToggle: '.optional-list-toggle',
       rotateArrowClass: 'rotate-arrow',
       shownClass: 'shown',
+      modal: '.ng-cc-modal',
     },
   },
   {
@@ -215,10 +217,11 @@ const componentConfiguration = [
     selector: '#skip-to-main-content',
   },
   {
-    Component: AccessibilitySkips,
-    selector: '#skip-to-cookie-banner',
+    Component: FocusTrap,
+    selector: '.js-focus-trap',
     options: {
-      cookieBanner: '#ng-cc',
+      deactivateSelectors: '.ng-cc-btn-close',
+      activeClass: '[open]',
     },
   },
 ];

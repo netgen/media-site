@@ -5,7 +5,6 @@ ngsite.layout.site_frontpage: "%site_name% front page"
 ngsite.layout.meta_generator: "Ibexa DXP powered by Netgen"
 ngsite.layout.powered_by: "Powered by"
 ngsite.layout.cookie_settings: "Cookie settings"
-ngsite.layout.cookie_settings.skip: "Skip to cookie settings"
 ngsite.layout.cookie_settings.accepted: "Accepted"
 ngsite.layout.cookie_settings.not_accepted: "Not accepted"
 ngsite.layout.sponsored: 'Sponsored'
