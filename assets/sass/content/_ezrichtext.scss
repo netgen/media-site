@@ -83,16 +83,16 @@
             margin-top: 2rem;
         }
     }
+    a:not(.btn) {
+        border-bottom: .25rem solid $primary;
+        transition: border .3s;
+        &:hover {
+            color: inherit;
+            border-color: darken($primary, 15%);
+        }
+    }
     p {
         margin-bottom: 0;
-        a:not(.btn) {
-            border-bottom: .25rem solid $primary;
-            transition: border .3s;
-            &:hover {
-                color: inherit;
-                border-color: darken($primary, 15%);
-            }
-        }
     }
     ul {
         list-style-type: none !important; //used to override ibexa's inline css

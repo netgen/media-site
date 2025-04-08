@@ -38,7 +38,7 @@ export default class PageHeader {
     this.navToggle.addEventListener('click', (event) => {
       event.preventDefault();
 
-      let ariaExpanded = this.navToggle.getAttribute('aria-expanded') === 'true';
+      const ariaExpanded = this.navToggle.getAttribute('aria-expanded') === 'true';
 
       this.navToggle.setAttribute('aria-expanded', ariaExpanded);
 
@@ -68,6 +68,8 @@ export default class PageHeader {
         remove: this.options.navActiveClass,
       });
 
+      const ariaExpanded = this.searchToggle.getAttribute('aria-expanded') === 'true';
+      this.searchToggle.setAttribute('aria-expanded', !ariaExpanded);
       this.searchInput.focus();
     });
   }
