@@ -4,7 +4,7 @@
     <div id="ng-cc">
         <div class="ng-cc-overlay"></div>
 
-        <div class="ng-cc-modal" role="region" aria-label="{{ 'ngsite.layout.cookie_settings'|trans }}">
+        <div class="ng-cc-modal js-focus-trap" role="region" tabindex="-1" aria-label="{{ 'ngsite.layout.cookie_settings'|trans }}">
             <div class="ng-cc-content">
               <div class="wrapper">
                 {% if not cookie_policy.fields.ribbon_description.empty %}
@@ -19,7 +19,7 @@
                         <span class="cookie-angle-up"></span>
                       {% endif %}
                     </a>
-                    <button id="ng-cc-accept" class="btn btn-primary">
+                    <button id="ng-cc-accept" class="btn btn-primary ng-cc-btn-close">
                         {% if not cookie_policy.fields.ribbon_button_accept_all_label.empty %}
                             {{ ng_render_field(cookie_policy.fields.ribbon_button_accept_all_label) }}
                         {% endif %}
@@ -47,7 +47,7 @@
                     </li>
                 </ul>
                 <div class="ng-cc-optional-actions clearfix">
-                    <button id="ng-cc-optional-save" class="btn btn-outline-primary">
+                    <button id="ng-cc-optional-save" class="btn btn-outline-primary ng-cc-btn-close">
                         {% if not cookie_policy.fields.ribbon_button_save_label.empty %}
                             {{ ng_render_field(cookie_policy.fields.ribbon_button_save_label) }}
                         {% endif %}
