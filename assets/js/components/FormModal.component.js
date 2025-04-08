@@ -1,6 +1,7 @@
 import { Modal } from 'bootstrap';
 import GTM from '../utilities/gtm';
 import submit from '../utilities/form/submit';
+import validateForm from '../utilities/form/validate';
 import setupUpdateSelectedFilesList from '../utilities/form/setup-update-selected-files-list';
 
 export default class FormModal {
@@ -49,7 +50,7 @@ export default class FormModal {
     this.modalElement.addEventListener('hidden.bs.modal', this.closeModal.bind(this));
 
     setupUpdateSelectedFilesList(this.form);
-    this.form.addEventListener('submit', submit.bind(this, 'modal'));
+    this.form.addEventListener('submit', this.handleSubmit.bind(this));
 
     document.body.appendChild(template.content);
 
@@ -58,6 +59,14 @@ export default class FormModal {
 
     const { gtmEventPrefix } = this.form.dataset;
     GTM.push(gtmEventPrefix, GTM.EVENTS.OPENED);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    if (validateForm(this.form)) {
+      submit.bind(this, 'modal', e)();
+    }
   }
 
   closeModal() {

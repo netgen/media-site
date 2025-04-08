@@ -31,6 +31,8 @@ ngsite.collected_info.success_text: 'Wir danken Ihnen für Ihr Feedback.'
 ngsite.collected_info.button.send: 'Formular senden'
 ngsite.collected_info.information_collected: 'Die folgenden Informationen wurden gesammelt'
 ngsite.collected_info.mandatory_field: 'Pflichtfeld'
+ngsite.collected_info.form_errors.enter_valid_value: 'Geben Sie einen gültigen Wert an'
+ngsite.collected_info.form_errors.not_checked: 'nicht ausgewählt'
 
 ngsite.layout.recipe.min: 'min'
 ngsite.layout.recipe.cal: 'kal'

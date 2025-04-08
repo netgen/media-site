@@ -7,9 +7,24 @@
             .form-label {
                 @include text-0_875;
             }
+            .error-message {
+                @include text-0_875;
+                font-weight: 600;
+                display: none;
+                margin-top: .25rem;
+            }
             .form-control {
                 .bg-color-secondary & {
                     background-color: $white;
+                }
+                &[aria-invalid="true"] {
+                    outline: 2px solid red;
+                    & + .error-message {
+                        display: block;
+                    }
+                }
+                &:focus-visible {
+                    @include custom-outline;
                 }
             }
             // Honeypot field
@@ -27,6 +42,15 @@
                 font-size: $font-size-base;
                 .form-check-input {
                     margin-top: 0;
+                    &[aria-invalid="true"] {
+                        outline: 2px solid red;
+                        & ~ .error-message {
+                            display: block;
+                        }
+                    }
+                    &:focus-visible {
+                        @include custom-outline;
+                    }
                 }
                 .form-label {
                     cursor: pointer;

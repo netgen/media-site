@@ -1,5 +1,19 @@
 {% extends 'bootstrap_5_layout.html.twig' %}
 
+{%- block form_start -%}
+    {%- do form.setMethodRendered() -%}
+    {% set method = method|upper %}
+    {%- if method in ["GET", "POST"] -%}
+        {% set form_method = method %}
+    {%- else -%}
+        {% set form_method = "POST" %}
+    {%- endif -%}
+    <form{% if name != '' %} name="{{ name }}"{% endif %} method="{{ form_method|lower }}"{% if action != '' %} action="{{ action }}"{% endif %}{{ block('attributes') }}{% if multipart %} enctype="multipart/form-data"{% endif %} novalidate>
+    {%- if form_method != method -%}
+        <input type="hidden" name="_method" value="{{ method }}" />
+    {%- endif -%}
+{%- endblock form_start -%}
+
 {%- block form_row -%}
     {% if compound %}
         {{- form_widget(form, { ngparams: ngparams|default({}) }) -}}
@@ -117,7 +131,13 @@
     <input class="form-control" type="{{ type }}"
         {{ block('widget_attributes') }}
         {% if value is not empty %}value="{{ value }}"{% endif %}
-        {% if ngparams.autocomplete is defined %} autocomplete="{{ ngparams.autocomplete }}"{% endif %}/>
+        {% if ngparams.autocomplete is defined %} autocomplete="{{ ngparams.autocomplete }}"{% endif %}
+        {% if type != "hidden" %} aria-invalid="false" aria-errormessage="error-{{ form.vars.id }}"{% endif %}
+    />
+    {% if type != "hidden" %}
+        {% set error_label = ngparams.label|default(form.vars.label) %}
+        <span id="error-{{ form.vars.id }}" class="error-message">{{ 'ngsite.collected_info.form_errors.enter_valid_value'|trans }} {{ error_label }}</span>
+    {% endif %}
 {%- endblock form_widget_simple -%}
 
 {%- block hidden_row -%}
@@ -180,7 +200,11 @@
 {%- block checkbox_widget -%}
     {%- set label_checkbox = label|default('') -%}
     <input type="checkbox" class="form-check-input" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
-    <label class="form-label" for={{ id }}>{{ ngparams.label|default(label_checkbox)|raw }}</label>
+    <label class="form-label" for={{ id }} aria-invalid="false"
+        aria-errormessage="error-{{ form.vars.id }}" />
+        {{ ngparams.label|default(label_checkbox)|raw }}
+    </label>
+    <span id="error-{{ form.vars.id }}" class="error-message">{{ form.vars.label }} {{ 'ngsite.collected_info.form_errors.not_checked'|trans }}</span>
 {%- endblock checkbox_widget %}
 
 {%- block checkbox_row -%}
