@@ -45,7 +45,6 @@ final class Kernel extends BaseKernel
         }
     }
 
-
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $this->registerKernelContainerConfiguration($loader);

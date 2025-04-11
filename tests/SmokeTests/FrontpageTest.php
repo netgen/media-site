@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests\SmokeTests;
 
 final class FrontpageTest extends ProjectWebTestCase
@@ -9,7 +11,7 @@ final class FrontpageTest extends ProjectWebTestCase
         $client = parent::createClient();
         $crawler = $client->request('GET', '/');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorExists('a.site-logo');
+        self::assertResponseIsSuccessful();
+        self::assertSelectorExists('a.site-logo');
     }
 }

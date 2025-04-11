@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Tests\SmokeTests;
 
@@ -10,8 +11,8 @@ final class SearchTest extends ProjectWebTestCase
         $client = parent::createClient();
         $crawler = $client->request('GET', '/content/search');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorExists('a.site-logo');
-        $this->assertSelectorExists('input[name=searchText]');
+        self::assertResponseIsSuccessful();
+        self::assertSelectorExists('a.site-logo');
+        self::assertSelectorExists('input[name=searchText]');
     }
 }
