@@ -146,6 +146,9 @@
             ],
             "docker": false
         },
+        "runtime": {
+            "error_handler": "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+        },
         "branch-alias": {
             "dev-master": "3.5.x-dev"
         }
