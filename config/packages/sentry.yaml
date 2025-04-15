@@ -10,3 +10,4 @@ services:
             $options:
                 ignore_exceptions:
                     - 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException'
+                    - 'Ibexa\Core\MVC\Symfony\Security\Exception\UnauthorizedSiteAccessException'
