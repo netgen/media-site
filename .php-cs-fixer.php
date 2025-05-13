@@ -18,6 +18,7 @@ return (new PhpCsFixer\Config())
         'native_function_invocation' => ['include' => ['@all']],
         'no_superfluous_phpdoc_tags' => false,
         'no_unset_on_property' => false,
+        'operator_linebreak' => false,
         'ordered_imports' => ['imports_order' => ['class', 'function', 'const'], 'sort_algorithm' => 'alpha'],
         'ordered_types' => ['null_adjustment' => 'always_last', 'sort_algorithm' => 'alpha'],
         'php_unit_internal_class' => false,
