@@ -64,7 +64,7 @@ const componentConfiguration = [
   },
   {
     Component: PageHeader,
-    selector: 'html',
+    selector: '.site-header',
     options: {
       pageWrapper: 'html',
       navToggle: '.mainnav-toggle',
