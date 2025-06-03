@@ -141,7 +141,7 @@ export default class PageHeader {
     const activeItemsList = JSON.parse(page.dataset.path);
     const navigationList = document.querySelectorAll(this.options.navigationList);
 
-    navigationList?.forEach((navigation) => {
+    navigationList.forEach((navigation) => {
       activeItemsList.forEach((activeItemId) => {
         const item = navigation.querySelector(`[data-location-id="${activeItemId}"]`);
 
