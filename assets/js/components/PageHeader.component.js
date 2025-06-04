@@ -8,7 +8,7 @@ export default class PageHeader {
     this.navToggle = document.querySelector(options.navToggle);
     this.searchToggle = document.querySelector(options.searchToggle);
     this.headerSearch = document.querySelector(options.headerSearch);
-    this.searchInput = this.headerSearch.querySelector(options.searchInput);
+    this.searchInput = this.headerSearch?.querySelector(options.searchInput) ?? null;
     this.mainNav = document.querySelector(options.mainNav);
     this.level1Menus = [];
     this.submenuTriggerElements = [];
@@ -70,7 +70,7 @@ export default class PageHeader {
 
       const ariaExpanded = this.searchToggle.getAttribute('aria-expanded') === 'true';
       this.searchToggle.setAttribute('aria-expanded', !ariaExpanded);
-      this.searchInput.focus();
+      this.searchInput?.focus();
     });
   }
 
