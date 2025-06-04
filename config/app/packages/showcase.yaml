@@ -1,0 +1,91 @@
+ngsite:
+    system:
+        default:
+            showcase:
+                rule_priority: 15
+                # rule_group_uuid: '00000000-0000-0000-0000-000000000000'
+                blocks:
+                    grid:
+                        block_definition: list
+                        view_type: grid
+                        parameters:
+                            set_container: true
+                            number_of_columns: 3
+                        item_view_types:
+                            - standard
+                            - standard_with_intro
+                            - overlay
+
+                    list:
+                        block_definition: list
+                        view_type: list
+                        parameters:
+                            set_container: true
+                        item_view_types:
+                            - line
+                            - listitem
+                            - listitem_with_intro
+                            - mini
+
+                    slider:
+                        block_definition: gallery
+                        view_type: slider
+                        parameters:
+                            next_and_previous: true
+                            show_pagination: true
+                            infinite_loop: true
+                            set_container: true
+                        item_view_types:
+                            - slide
+
+                    sushi_bar:
+                        block_definition: gallery
+                        view_type: sushi_bar
+                        parameters:
+                            next_and_previous: true
+                            show_pagination: true
+                            set_container: true
+                        item_view_types:
+                            - overlay
+
+                    grid_gallery:
+                        block_definition: gallery
+                        view_type: grid_gallery
+                        parameters:
+                            enable_lightbox: true
+                            number_of_thumbnails: 3
+                            set_container: true
+                        item_view_types:
+                            - gallery_grid
+
+                    thumb_gallery:
+                        block_definition: gallery
+                        view_type: thumb_gallery
+                        parameters:
+                            next_and_previous: true
+                            show_details: true
+                            set_container: true
+                        item_view_types:
+                            - gallery_thumb
+
+                    list_zigzag:
+                        block_definition: list
+                        view_type: list_zigzag
+                        parameters:
+                            set_container: true
+                        item_view_types:
+                            - zigzag
+                        use_view_content_types: false
+                        included_content_types:
+                            - ng_banner
+
+                    list_accordion:
+                        block_definition: list
+                        view_type: list_accordion
+                        parameters:
+                            set_container: true
+                        item_view_types:
+                            - accordion
+                        use_view_content_types: false
+                        included_content_types:
+                            - ng_accordion_item
