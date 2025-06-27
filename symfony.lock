@@ -17,7 +17,7 @@
             "repo": "github.com/ibexa/recipes",
             "branch": "master",
             "version": "4.6",
-            "ref": "fbc471823f80c22b726e6f5bfb8641abc95839b7"
+            "ref": "8dd55364e8103f84ff04dcd013458e3f0ba55576"
         },
         "files": [
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -33,6 +33,7 @@
             "config/packages/ibexa_jms_translation.yaml",
             "config/packages/ibexa_richtext.yaml",
             "config/packages/ibexa_solr.yaml",
+            "config/packages/ibexa_twig_components.yaml",
             "config/packages/ibexa_welcome_page.yaml",
             "config/packages/security.yaml",
             "config/routes/graphql.yaml",
@@ -197,7 +198,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "1.10",
-            "ref": "eff2e505d4557c967b6710fe06bd947ba555cae5"
+            "ref": "6642c5eeebbd06268826e7f9fbee721cba1d7d77"
         },
         "files": [
             "assets/app.js",

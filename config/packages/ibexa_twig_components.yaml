@@ -1,0 +1,8 @@
+## Uncomment and change configuration below if you wish to configure twig components
+
+#ibexa_twig_components:
+#    example_components_group:
+#        example_html_component:
+#            type: html
+#            arguments:
+#                content: 'some example html content'
