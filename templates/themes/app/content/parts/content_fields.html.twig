@@ -1,4 +1,4 @@
-{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# content \Ibexa\Contracts\Core\Repository\Values\Content\Content #}
 
 {% extends '@IbexaCore/content_fields.html.twig' %}
 
@@ -32,6 +32,19 @@
                                 'label': label,
                                 'suffix': suffix,
                                 'refererLocationId': app.request.attributes.get('locationId'),
+                            }
+                        })
+                    }}
+                {% elseif field.value.isTargetDownloadLink %}
+                    {{ ng_view_content_embedded(
+                        'download_link',
+                        {
+                            'contentId': field.value.reference,
+                            'params': {
+                                'label': label,
+                                'suffix': suffix,
+                                'refererLocationId': app.request.attributes.get('locationId'),
+                                'css_class': css_class
                             }
                         })
                     }}

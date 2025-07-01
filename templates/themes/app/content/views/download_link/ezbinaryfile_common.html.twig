@@ -1,0 +1,21 @@
+{# content \Netgen\IbexaSiteApi\API\Values\Content #}
+{# location \Netgen\IbexaSiteApi\API\Values\Location #}
+
+{% set ezBinaryFileField = null %}
+{% for field in content.fields %}
+    {% if field.fieldTypeIdentifier == 'ezbinaryfile' %}
+        {% set ezBinaryFileField = field %}
+        {% set break = true %}
+    {% endif %}
+    {% if break is defined %}
+        {% set break = loop.last %}
+    {% endif %}
+{% endfor %}
+
+{% if location is defined and ezBinaryFileField is not null %}
+    <a href="{{ path('ngsite_download', { 'contentId': content.id, 'fieldId': ezBinaryFileField.id, 'isInline': 0 }) }}" class="{{ css_class }}">
+        {{ content.name }}
+    </a>
+{% else %}
+    <p>{{ content.name }}</p>
+{% endif %}
