@@ -48,6 +48,19 @@
                             }
                         })
                     }}
+                {% elseif field.value.isTargetDownloadInline %}
+                    {{ ng_view_content_embedded(
+                        'download_inline',
+                        {
+                            'contentId': field.value.reference,
+                            'params': {
+                                'label': label,
+                                'suffix': suffix,
+                                'refererLocationId': app.request.attributes.get('locationId'),
+                                'css_class': css_class
+                            }
+                        })
+                    }}
                 {% else %}
                     {% if ng_enhancedlink_has_location(field.value.reference) %}
                         {% set href = path('ibexa.url.alias', { 'contentId': field.value.reference }) ~ suffix %}
