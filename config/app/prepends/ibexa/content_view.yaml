@@ -101,8 +101,8 @@ system:
                     template: "@ibexadesign/content/views/link_embed.html.twig"
                     match: ~
             download_inline:
-                ezbinaryfile_common:
-                    template: "@ibexadesign/content/views/download_inline/ezbinaryfile_common.html.twig"
+                common:
+                    template: "@ibexadesign/content/views/download_inline/common.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_video
@@ -111,8 +111,8 @@ system:
                     template: "@ibexadesign/content/views/download_inline.html.twig"
                     match: ~
             download_link:
-                ezbinaryfile_common:
-                    template: "@ibexadesign/content/views/download_link/ezbinaryfile_common.html.twig"
+                common:
+                    template: "@ibexadesign/content/views/download_link/common.html.twig"
                     match:
                         Identifier\ContentType:
                             - ng_video
