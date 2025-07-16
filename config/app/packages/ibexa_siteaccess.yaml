@@ -12,13 +12,13 @@ ibexa:
         groups:
             admin_group:
                 - '%ngsite.admin_siteaccess_name%'
-            frontend_group:
-                - fh_eng
-                - bold_eng
-                - bold_ger
             fh_group:
                 - fh_eng
             bold_group:
+                - bold_eng
+                - bold_ger
+            frontend_group:
+                - fh_eng
                 - bold_eng
                 - bold_ger
     system:
