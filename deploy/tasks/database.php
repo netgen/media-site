@@ -10,6 +10,7 @@ task('database:kaliop:migrate', function () {
     run('{{bin/php}} {{bin/console}} kaliop:migration:migrate --env={{symfony_env}}');
 });
 
+desc('Download database dump');
 task('database:dump', function () {
     if (!input()->hasArgument('stage')) {
         writeln('<error>Stage was not provided</error>');
