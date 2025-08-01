@@ -73,8 +73,7 @@
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "5.4.*",
         "symfony/css-selector": "5.4.*",
-        "symfony/phpunit-bridge": "5.4.*",
-        "vlucas/phpdotenv": "^5.6"
+        "symfony/phpunit-bridge": "5.4.*"
     },
     "repositories": [
         { "type": "vcs", "url": "https://github.com/netgen/NovaeZSEOBundle.git" }

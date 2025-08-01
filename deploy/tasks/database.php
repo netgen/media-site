@@ -3,7 +3,7 @@
 namespace Deployer;
 
 use Deployer\Task\Context;
-use Dotenv\Dotenv;
+use Symfony\Component\Dotenv\Dotenv;
 
 desc('Execute kaliop migrations');
 task('database:kaliop:migrate', function () {
@@ -18,18 +18,23 @@ task('database:dump', function () {
     }
 
     $stage = input()->getArgument('stage');
-    $dotenvPath = __DIR__ . '/../files';
-    $dotenvFile = '.env.local.' . $stage;
-    $dotenvFilePath = $dotenvPath . '/' . $dotenvFile;
+    $dotenvFilePath = __DIR__ . '/../files/.env.local.' . $stage;
 
     if (!file_exists($dotenvFilePath)) {
         writeln('<error>Env file was not found: ' . $dotenvFilePath . '</error>');
         return;
     }
 
-    $dotenv = Dotenv::createImmutable($dotenvPath, $dotenvFile);
-    $environmentVariables = $dotenv->load();
-    $databaseUrl = $environmentVariables['DATABASE_URL'];
+    $dotenv = new Dotenv();
+    $dotenv->load($dotenvFilePath);
+
+    $databaseUrl = $_ENV['DATABASE_URL'] ?? null;
+
+    if ($databaseUrl === null) {
+        writeln("<error>DATABASE_URL environment variable not found</error>");
+        exit;
+    }
+
     $databaseParts = parse_url($databaseUrl);
 
     $databaseUser = $databaseParts['user'] ?? writeln("<error>Database user not found</error>") && exit;
