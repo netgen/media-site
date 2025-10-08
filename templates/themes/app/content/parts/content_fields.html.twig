@@ -38,7 +38,20 @@
                 {% else %}
                     {% if ng_enhancedlink_has_location(field.value.reference) %}
                         {% set href = path('ibexa.url.alias', { 'contentId': field.value.reference }) ~ suffix %}
-                        <a href="{{ href }}"{% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if field.value.isTargetLinkInNewTab %} target="_blank"{% endif %}>{{ label }}</a>
+                        <a
+                            href="{{ href }}"
+                            {% if css_class is not empty %}
+                                class="{{ css_class }}"
+                            {% endif %}
+                            {% if field.value.isTargetLinkInNewTab %}
+                                target="_blank"
+                                {% if field.value.relAttribute is not null %}
+                                    rel="{{ field.value.relAttribute }}"
+                                {% endif %}
+                            {% endif %}
+                        >
+                            {{ label }}
+                        </a>
                     {% endif %}
                 {% endif %}
             {% elseif field.value.isTypeExternal %}
@@ -49,7 +62,20 @@
                 {% elseif field.value.isTargetEmbed %}
                     <div>{{ label }}</div>
                 {% else %}
-                    <a href="{{ field.value.reference }}" {% if css_class is not empty %} class="{{ css_class }}"{% endif %}{% if field.value.isTargetLinkInNewTab %} target="_blank"{% endif %}>{{ label }}</a>
+                    <a
+                        href="{{ field.value.reference }}"
+                        {% if css_class is not empty %}
+                            class="{{ css_class }}"
+                        {% endif %}
+                        {% if field.value.isTargetLinkInNewTab %}
+                            target="_blank"
+                            {% if field.value.relAttribute is not null %}
+                                rel="{{ field.value.relAttribute }}"
+                            {% endif %}
+                        {% endif %}
+                    >
+                        {{ label }}
+                    </a>
                 {% endif %}
             {% endif %}
         </div>
