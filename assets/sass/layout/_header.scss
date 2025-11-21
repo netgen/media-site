@@ -11,7 +11,7 @@ $header-bg: $white;
         display: flex;
         align-items: center;
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down($collapse-nav) {
         > .container {
             height: $header-height-sm;
             .site-logo {
@@ -78,7 +78,7 @@ $header-bg: $white;
             }
         }
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down($collapse-nav) {
             height: $header-height-sm;
         }
     }
@@ -91,7 +91,7 @@ $header-bg: $white;
         left: auto !important;
         top: -.125rem !important;
         box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .1);
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down($collapse-nav) {
             text-align: left;
         }
         a {
@@ -202,7 +202,7 @@ $header-bg: $white;
             }
         }
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down($collapse-nav) {
         height: $header-height-sm;
         .searchbox-toggle {
             line-height: $header-height-sm;

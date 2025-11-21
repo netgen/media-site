@@ -31,7 +31,7 @@
         }
     }
     /* large screen sizes */
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up($collapse-nav) {
         .navbar-nav {
             > li:hover,
             .active {
@@ -80,7 +80,7 @@
         display: none;
     }
     /* small screen sizes */
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down($collapse-nav) {
         display: none;
         position: absolute;
         left: calc(var(--bs-gutter-x) * .5);
@@ -145,7 +145,7 @@
             }
         }
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down($collapse-nav) {
         overflow: scroll;
         position: absolute;
         z-index: 1000;
@@ -210,14 +210,14 @@
             }
         }
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down($collapse-nav) {
         display: block;
     }
 }
 
 
 .mainnav-active {
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down($collapse-nav) {
         overflow-y: hidden;
         position: fixed;
         width: 100%;
