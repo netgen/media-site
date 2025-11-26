@@ -7,7 +7,7 @@
     @include media-breakpoint-down(xl) {
         width: 12rem;
     }
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down($collapse-nav) {
         width: 10rem;
     }
 }
