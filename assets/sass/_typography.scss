@@ -5,15 +5,10 @@ html {
 body {
     -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
     -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
-    background: $footer-bg;
     word-wrap: break-word;
     @include media-breakpoint-down(md) {
         font-size: 1rem;
     }
-}
-
-#page {
-    background: $body-bg;
 }
 
 a {
@@ -44,18 +39,4 @@ h6 {
     font-feature-settings: 'kern' 1;
     font-kerning: normal;
     margin: 0;
-}
-
-img {
-    max-width: 100%;
-    opacity: 1;
-    transition: opacity .3s;
-}
-
-figure {
-    margin: 0;
-}
-
-audio {
-    width: 100%;
 }

@@ -6,14 +6,11 @@ $header-bg: $white;
     position: relative;
     z-index: 1000;
     transition: all .15s ease-in-out;
-    > .container {
-        height: $header-height;
+    .header-content {
+        height: var(--header-height);
         display: flex;
         align-items: center;
-    }
-    @include media-breakpoint-down($collapse-nav) {
-        > .container {
-            height: $header-height-sm;
+        @include media-breakpoint-down($collapse-nav) {
             .site-logo {
                 order: 1;
                 margin-right: auto;
@@ -51,7 +48,7 @@ $header-bg: $white;
         color: $black;
     }
     .current-lang {
-        height: $header-height;
+        height: var(--header-height);
         display: flex;
         align-items: center;
         padding: 0 1em;
@@ -76,10 +73,6 @@ $header-bg: $white;
             &.icon-angle-down {
                 @extend %icon-angle-down;
             }
-        }
-
-        @include media-breakpoint-down($collapse-nav) {
-            height: $header-height-sm;
         }
     }
     .dropdown-menu {
@@ -115,14 +108,14 @@ $header-bg: $white;
 /* header-searchbox */
 .header-search {
     $btn-width: 4rem;
-    height: $header-height;
+    height: var(--header-height);
     position: relative;
     .searchbox-toggle {
         @extend %hover-underline;
         @include text-base;
         color: $black;
         display: block;
-        line-height: $header-height;
+        line-height: var(--header-height);
         width: $btn-width;
         text-align: center;
         background: $header-bg;
@@ -200,12 +193,6 @@ $header-bg: $white;
             .searchbox-toggle {
                 pointer-events: none;
             }
-        }
-    }
-    @include media-breakpoint-down($collapse-nav) {
-        height: $header-height-sm;
-        .searchbox-toggle {
-            line-height: $header-height-sm;
         }
     }
     @include media-breakpoint-down(md) {
