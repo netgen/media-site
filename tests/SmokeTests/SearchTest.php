@@ -8,7 +8,7 @@ final class SearchTest extends ProjectWebTestCase
 {
     public function testSearchWorks(): void
     {
-        $client = parent::createClient();
+        $client = self::createClient();
         $crawler = $client->request('GET', '/content/search');
 
         self::assertResponseIsSuccessful();

@@ -18,7 +18,7 @@
             <div class="title-icon"><i class="{{ icon_css_class }}"></i></div>
         {% endif %}
 
-        {% if block.parameter('use_link').value and not link.empty %}
+        {% if block.parameter('use_link').value and not link.isEmpty %}
             {{ nglayouts_render_parameter(link, {content: title}) }}
         {% else %}
             {{ title }}

@@ -7,4 +7,4 @@ const customConfigsPaths = require('./var/encore/ibexa.webpack.custom.config.js'
 const customConfigs = getWebpackConfigs(Encore, customConfigsPaths);
 const isReactBlockPathCreated = fs.existsSync('./assets/page-builder/react/blocks');
 
-module.exports = [ ibexaConfig, ...customConfigs ];
+module.exports = [...customConfigs];

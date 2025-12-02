@@ -8,7 +8,7 @@ final class FrontpageTest extends ProjectWebTestCase
 {
     public function testFrontpageWorks(): void
     {
-        $client = parent::createClient();
+        $client = self::createClient();
         $crawler = $client->request('GET', '/');
 
         self::assertResponseIsSuccessful();
