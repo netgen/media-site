@@ -1,0 +1,28 @@
+// Global variables
+:root {
+	--header-height: #{$header-height};
+	@include media-breakpoint-down($collapse-nav) {
+		--header-height: #{$header-height-sm};
+	}
+}
+
+// Global background
+body,
+#page {
+    background-color: $body-bg;
+}
+
+// Global styles
+img {
+    max-width: 100%;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+figure {
+    margin: 0;
+}
+
+audio {
+    width: 100%;
+}
