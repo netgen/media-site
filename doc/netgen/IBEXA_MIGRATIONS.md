@@ -28,7 +28,7 @@ The command for running the migration is rather simple:
 php kaliop:migration:migrate
 ```
 
-For more instructions you can check [GitHub repository](https://github.com/tanoconsulting/ibexa-migration-bundle) and this [blog post](https://netgen.io/blog/ez-migrations-made-easy-kaliop-migration-bundle).
+For more instructions you can check [GitHub repository](https://github.com/mrk-te/ibexa-migration-bundle2) and this [blog post](https://netgen.io/blog/ez-migrations-made-easy-kaliop-migration-bundle).
 
 Deployment
 ----------
