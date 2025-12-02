@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.4",
         "ext-gd": "*",
         "ext-curl": "*",
         "ext-json": "*",
@@ -25,14 +25,16 @@
         "ext-mbstring": "*",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "http-interop/http-factory-guzzle": "^1.2",
-        "ibexa/oss": "~4.6.0",
-        "symfony/console": "5.4.*",
-        "symfony/dotenv": "5.4.*",
-        "symfony/flex": "^1.17|^2",
-        "symfony/framework-bundle": "5.4.*",
-        "symfony/runtime": "5.4.*",
-        "symfony/yaml": "5.4.*",
+        "guzzlehttp/promises": "^2.3",
+        "ibexa/oss": "~5.0.0",
+        "nyholm/psr7": "^1.8",
+        "symfony/console": "7.3.*",
+        "symfony/dotenv": "7.3.*",
+        "symfony/flex": "^2",
+        "symfony/framework-bundle": "7.3.*",
+        "symfony/monolog-bundle": "^3.0|^4.0",
+        "symfony/runtime": "7.3.*",
+        "symfony/yaml": "7.3.*",
 
         "novactive/ezseobundle": "^7.0.4",
         "sentry/sentry-symfony": "^4.13",
@@ -58,9 +60,9 @@
         "netgen/layouts-ibexa-tags-query": "^1.4"
     },
     "require-dev": {
-        "symfony/debug-bundle": "5.4.*",
-        "symfony/maker-bundle": "^1.48",
-        "symfony/web-profiler-bundle": "5.4.*",
+        "symfony/debug-bundle": "7.3.*",
+        "symfony/stopwatch": "7.3.*",
+        "symfony/web-profiler-bundle": "7.3.*",
 
         "netgen/git-hooks": "^2.5",
         "deployer/recipes": "^6.2",
@@ -125,19 +127,21 @@
             "@project-scripts"
         ],
         "ibexa-assets": [
+            "yarn ibexa-generate-tsconfig --use-relative-paths",
+            "@php bin/console ibexa:encore:compile --config-name app",
             "@php bin/console bazinga:js-translation:dump public/assets --merge-domains",
-            "yarn ibexa"
+            "@php bin/console ibexa:encore:compile --frontend-configs-name ibexa,internals,libs,richtext",
+            "@php bin/console ibexa:encore:compile"
         ],
         "phpstan": "@php vendor/bin/phpstan analyse -c phpstan.neon --level=8 --ansi src tests"
     },
     "conflict": {
-        "symfony/symfony": "*",
-        "ibexa/core": "<4.6.10"
+        "symfony/symfony": "*"
     },
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "5.4.*",
+            "require": "7.3.*",
             "endpoint": [
                 "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main",
                 "https://api.github.com/repos/netgen/recipes/contents/index.json?ref=flex",
@@ -146,11 +150,8 @@
             ],
             "docker": false
         },
-        "runtime": {
-            "error_handler": "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-        },
         "branch-alias": {
-            "dev-master": "3.5.x-dev"
+            "dev-master": "4.0.x-dev"
         }
     }
 }

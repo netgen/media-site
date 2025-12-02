@@ -28,7 +28,7 @@ ibexa:
                 - eng-GB
                 - ger-DE
             session:
-                name: eZSESSID
+                name: IBX_SESSION_ID
         fh_group:
             design: fh
             translation_siteaccesses:
@@ -37,7 +37,7 @@ ibexa:
                 tree_root:
                     location_id: '%ngsite.fh_group.locations.tree_root.id%'
             session:
-                name: eZSESSID
+                name: IBX_SESSION_ID
         bold_group:
             design: bold
             translation_siteaccesses:
@@ -47,7 +47,7 @@ ibexa:
                 tree_root:
                     location_id: '%ngsite.bold_group.locations.tree_root.id%'
             session:
-                name: eZSESSID
+                name: IBX_SESSION_ID
         fh_eng:
             languages:
                 - eng-GB

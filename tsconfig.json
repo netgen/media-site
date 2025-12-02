@@ -1,0 +1,39 @@
+{
+    "extends": "@ibexa/ts-config",
+    "include": [
+        "vendor/ibexa/**/*"
+    ],
+    "exclude": [
+        "vendor/ibexa/**/node_modules/**/*",
+        "vendor/ibexa/**/vendors/**/*",
+        "vendor/ibexa/**/vendor/**/*"
+    ],
+    "compilerOptions": {
+        "paths": {
+            "@ibexa-admin-ui-assets/*": [
+                "./vendor/ibexa/admin-ui-assets/*"
+            ],
+            "@ibexa-admin-ui-helpers/*": [
+                "./vendor/ibexa/admin-ui/src/bundle/Resources/public/js/scripts/helpers/*"
+            ],
+            "@ibexa-admin-ui-modules/*": [
+                "./vendor/ibexa/admin-ui/src/bundle/ui-dev/src/modules/*"
+            ],
+            "@ibexa-admin-ui/*": [
+                "./vendor/ibexa/admin-ui/*"
+            ],
+            "@ids-assets/*": [
+                "./vendor/ibexa/admin-ui-assets/src/bundle/Resources/public/vendors/ids-assets/dist/*"
+            ],
+            "@ids-components/*": [
+                "./vendor/ibexa/admin-ui-assets/src/bundle/Resources/public/vendors/ids-components/dist/*"
+            ],
+            "@ids-core/*": [
+                "./vendor/ibexa/admin-ui-assets/src/bundle/Resources/public/vendors/ids-core/dist/*"
+            ],
+            "@popperjs/core/*": [
+                "./vendor/ibexa/admin-ui-assets/src/bundle/Resources/public/vendors/@popperjs/core/lib/*"
+            ]
+        }
+    }
+}

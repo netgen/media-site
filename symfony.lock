@@ -16,8 +16,8 @@
         "recipe": {
             "repo": "github.com/ibexa/recipes",
             "branch": "master",
-            "version": "4.6",
-            "ref": "8dd55364e8103f84ff04dcd013458e3f0ba55576"
+            "version": "5.0",
+            "ref": "e054983d51157c70900d776ea123664d2fcb5719"
         },
         "files": [
             "config/packages/cache_pool/cache.memcached.yaml",
@@ -83,7 +83,7 @@
         ]
     },
     "php-cs-fixer/shim": {
-        "version": "3.49",
+        "version": "3.92",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
