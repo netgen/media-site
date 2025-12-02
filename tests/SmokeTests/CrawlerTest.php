@@ -12,7 +12,7 @@ final class CrawlerTest extends ProjectWebTestCase
 {
     public function testFrontpageLinks(): void
     {
-        $client = parent::createClient();
+        $client = self::createClient();
         $crawler = $client->request('GET', '/');
 
         self::assertResponseIsSuccessful();

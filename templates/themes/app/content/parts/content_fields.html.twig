@@ -57,7 +57,7 @@
 {% endapply %}
 {% endblock %}
 
-{% block ezimage_field %}
+{% block ibexa_image_field %}
 {% apply spaceless %}
     {% if not ibexa_field_is_empty(content, field) %}
         {% set link_href = parameters.link_href|default('') %}
@@ -106,7 +106,7 @@
 {% endapply %}
 {% endblock %}
 
-{% block ezgmaplocation_field %}
+{% block ibexa_gmap_location_field %}
 {% apply spaceless %}
     {% set map_height = map_height|default(500) %}
     {% set zoom = zoom|default(false) %}
@@ -128,7 +128,7 @@
 {% endapply %}
 {% endblock %}
 
-{% block ezbinaryfile_field %}
+{% block ibexa_binaryfile_field %}
 {% apply spaceless %}
     {% if not ibexa_field_is_empty(content, field) %}
         <a href="{{ path('ngsite_download', { contentId: contentInfo.id, fieldId: field.id }) }}" {{ block('field_attributes') }}>

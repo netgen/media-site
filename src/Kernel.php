@@ -20,7 +20,6 @@ use function preg_match;
 use const E_ALL;
 use const E_DEPRECATED;
 use const E_NOTICE;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 
 final class Kernel extends BaseKernel
@@ -41,7 +40,7 @@ final class Kernel extends BaseKernel
         parent::boot();
 
         if ($this->environment === 'prod') {
-            error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE & ~E_STRICT & ~E_USER_DEPRECATED);
+            error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE & ~E_USER_DEPRECATED);
         }
     }
 
