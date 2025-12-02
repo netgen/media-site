@@ -34,7 +34,7 @@ set('sentry_dsn', 'https://yourtoken@sentry.io/here');
 
 set('deploy_log', 'DEPLOY_LOG.md');
 
-set('local_php_path', '/usr/bin/env php8.1');
+set('local_php_path', '/usr/bin/env php8.4');
 
 set('testing_domains', ['media-site.dev.php81.ez', 'media-site.dev.php81.ez/bold_eng']);
 
