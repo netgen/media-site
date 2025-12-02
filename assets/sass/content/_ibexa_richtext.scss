@@ -73,8 +73,8 @@
 
 /* /EMBEDED OBJECTS */
 
-/* ezrichtext elements */
-.ezrichtext-field {
+/* ibexa_richtext elements */
+.ibexa_richtext-field {
     & > *[style*="text-align:justify;"] {
         text-align: inherit !important;
     }

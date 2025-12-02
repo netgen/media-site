@@ -27,6 +27,9 @@
 # To get started with security, check out the documentation:
 # https://symfony.com/doc/current/security.html
 security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         ibexa:
@@ -50,37 +53,58 @@ security:
 
         # Uncomment the rules below to enable JSON Web Token (JWT) authentication for REST and/or GraphQL
         #ibexa_jwt_rest:
-        #    request_matcher: Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher
+        #    request_matcher: Ibexa\Rest\Security\JWTTokenCreationRESTRequestMatcher
         #    user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-        #    anonymous: ~
-        #    guard:
-        #        authenticators:
-        #            - lexik_jwt_authentication.jwt_token_authenticator
-        #        entry_point: lexik_jwt_authentication.jwt_token_authenticator
         #    stateless: true
+        #    provider: ibexa
+        #    json_login:
+        #        check_path: ibexa.rest.create_token
+        #        username_path: JWTInput.username
+        #        password_path: JWTInput.password
+        #        success_handler: lexik_jwt_authentication.handler.authentication_success
+        #        failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        #ibexa_jwt_rest.api:
+        #    request_matcher: Ibexa\Rest\Security\AuthorizationHeaderRESTRequestMatcher
+        #    user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+        #    provider: ibexa
+        #    stateless: true
+        #    jwt: ~
 
         #ibexa_jwt_graphql:
         #    request_matcher: Ibexa\GraphQL\Security\NonAdminGraphQLRequestMatcher
-        #    user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-        #    anonymous: ~
-        #    guard:
-        #        authenticators:
-        #            - lexik_jwt_authentication.jwt_token_authenticator
-        #        entry_point: lexik_jwt_authentication.jwt_token_authenticator
+        #    provider: ibexa
         #    stateless: true
+        #    jwt: ~
+
+        # If you wish to use http_basic authentication, uncomment the firewall below and adjust the pattern to meet your project's requirements.
+        #ibexa_http_basic:
+        #    pattern: ^/
+        #    http_basic:
+        #        realm: Secured Area
+
+        ibexa_rest:
+            pattern: ^/api/ibexa
+            provider: ibexa
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+            context: ibexa
+            custom_authenticators:
+                - Ibexa\Rest\Security\Authenticator\RestAuthenticator
 
         ibexa_front:
             pattern: ^/
+            provider: ibexa
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
-            anonymous: ~
-            ibexa_rest_session: ~
+            context: ibexa
             form_login:
-                require_previous_session: false
-                csrf_token_generator: security.csrf.token_manager
-            logout: ~
+                enable_csrf: true
+                login_path: login
+                check_path: login_check
+            entry_point: form_login
+            logout:
+                path: logout
 
         main:
-            anonymous: ~
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate

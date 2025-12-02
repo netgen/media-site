@@ -1,9 +1,10 @@
-// webpack.config.js
-const config = require('./webpack.config.default');
+const fs = require('fs');
+const path = require('path');
+const Encore = require('@symfony/webpack-encore');
+const getWebpackConfigs = require('@ibexa/frontend-config/webpack-config/get-configs');
+const customConfigsPaths = require('./var/encore/ibexa.webpack.custom.config.js');
 
-// for multiple webpack configurations, create another webpack config file and require it here
-// const anotherConfig = require('./webpack.config.anotherConfig');
+const customConfigs = getWebpackConfigs(Encore, customConfigsPaths);
+const isReactBlockPathCreated = fs.existsSync('./assets/page-builder/react/blocks');
 
-// export the final configuration
-// for multiple webpack configurations, add imported configuration to export array eg. module.exports = [config, anotherConfig];
-module.exports = [config];
+module.exports = [ ibexaConfig, ...customConfigs ];

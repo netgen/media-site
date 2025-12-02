@@ -119,29 +119,14 @@ composer ibexa-assets
 
 ### Note for Ibexa DXP official WebPack support
 
-This repo completely replaces the default `webpack.config.js` file coming from Ibexa DXP with
-Netgen Site specific version which is used **only** for frontend of the project. The Ibexa provided
-file is renamed to `webpack.config.ibexa.js` without changes.
-
-Also, automatic building of Ibexa Admin UI assets on every `composer install` or `composer update`
+Automatic building of Ibexa Admin UI assets on every `composer install` or `composer update`
 has been disabled so there's no need to install `nodejs` or `yarn` on your production servers to build
 those assets. Either deploy them via your deployment procedures, or commit the entire `public/assets` folder
 to the git repository. You can build the Ibexa Admin UI assets on demand simply by executing
 `composer ibexa-assets`.
 
 If, however, you wish to bring back building Ibexa Admin UI assets when running Composer, add the
-`public/assets/` folder to `.gitignore` and add the following to `symfony-scripts` in your `composer.json`:
-
-```json
-"@php bin/console bazinga:js-translation:dump public/assets --merge-domains",
-"yarn install",
-"yarn ibexa"
-```
-
-Note that you do NOT need to rename `webpack.config.ibexa.js` back to its old name since
-`yarn ibexa` takes the new name into account.
-
-More info: https://github.com/ezsystems/ezplatform/pull/392
+`public/assets/` folder to `.gitignore` and add `@ibexa-assets` to `auto-scripts` in your `composer.json`.
 
 ### Import database schema and demo data
 

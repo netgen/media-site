@@ -31,10 +31,6 @@ ibexa:
             subtree_paths:
                 content: /1/2/
                 media: /1/43/
-            assets:
-                icon_sets:
-                    default_icons: /bundles/ibexaadminui/img/ibexa-icons.svg
-                default_icon_set: default_icons
             default_page: 'dashboard'
             content:
                 default_ttl: 0

@@ -6,10 +6,10 @@
             <div class="field {{ field.fieldTypeIdentifier }}">
                 <p><strong>{{ field.name }}</strong></p>
 
-                {% if field.fieldTypeIdentifier == 'ezrichtext' %}
-                    {# Special handling of ezrichtext field to prevent output of too much text #}
+                {% if field.fieldTypeIdentifier == 'ibexa_richtext' %}
+                    {# Special handling of ibexa_richtext field to prevent output of too much text #}
                     {{ field.value.xml.saveXML()|striptags|trim|u.truncate(300) }}
-                {% elseif field.fieldTypeIdentifier == 'ezimage' %}
+                {% elseif field.fieldTypeIdentifier == 'ibexa_image' %}
                     {{ ng_render_field(field, {parameters: {alias: 'i480'}}) }}
                 {% else %}
                     {{ ng_render_field(field) }}

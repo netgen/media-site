@@ -23,8 +23,8 @@ final class AppExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container): void
     {
-        foreach ((new Finder())->in(__DIR__ . '/../../config/app/prepends')->directories() as $directory) {
-            foreach ((new Finder())->files()->in($directory->getPathname()) as $file) {
+        foreach (new Finder()->in(__DIR__ . '/../../config/app/prepends')->directories() as $directory) {
+            foreach (new Finder()->files()->in($directory->getPathname()) as $file) {
                 /** @var array<string, mixed> $config */
                 $config = Yaml::parse((string) file_get_contents($file->getPathname()));
                 $container->prependExtensionConfig($directory->getBasename(), $config);

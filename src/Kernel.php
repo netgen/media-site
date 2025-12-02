@@ -36,7 +36,7 @@ final class Kernel extends BaseKernel
         $container->addCompilerPass(new CompilerPass\XslRegisterPass());
     }
 
-    public function boot()
+    public function boot(): void
     {
         parent::boot();
 
