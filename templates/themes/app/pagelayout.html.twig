@@ -60,7 +60,7 @@
         {% endblock %}
     {% endblock %}
 
-    {{ nglayouts_template_plugin('preview.body') }}
+    {% include '@NetgenLayouts/preview/body.html.twig' %}
 </div>
 
 {% block page_footer_script %}
