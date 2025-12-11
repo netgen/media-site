@@ -63,6 +63,7 @@
         "symfony/stopwatch": "7.3.*",
         "symfony/web-profiler-bundle": "7.3.*",
 
+        "netgen/coding-standard": "^1.0",
         "netgen/git-hooks": "^3.0",
         "deployer/recipes": "^6.2",
         "phpstan/phpstan": "^2.1",
