@@ -7,12 +7,16 @@
 }
 
 // Global background
-body,
-#page {
+body {
     background-color: $body-bg;
 }
 
 // Global styles
+body:has(.site-header-fixed),
+body:has(.site-header-sticky--active) {
+    padding-top: var(--header-height);
+}
+
 img {
     max-width: 100%;
     opacity: 1;
