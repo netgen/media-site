@@ -1,4 +1,5 @@
 /* card item */
+@use "sass:color";
 .vl8 {
     position: relative;
     border-radius: 1.5rem;
@@ -22,10 +23,10 @@
         padding: 2rem;
         background-color: $secondary;
         .bg-color-black & {
-            background-color: lighten($black, 10%);
+            background-color: color.adjust($black, $lightness: 10%);
         }
         .bg-color-primary & {
-            background-color: lighten($primary, 10%);
+            background-color: color.adjust($primary, $lightness: 10%);
         }
         .bg-color-secondary & {
             background-color: $white;

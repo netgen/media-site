@@ -6,7 +6,7 @@
         + .list-item {
             padding-top: 1rem;
             margin-top: 1rem;
-            border-top: 2px dashed hsla(0, 0, 0, .12);
+            border-top: 2px dashed hsla(0, 0%, 0%, .12);
         }
         &::before {
             counter-increment: my-counter;

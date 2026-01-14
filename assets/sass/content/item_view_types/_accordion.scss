@@ -1,13 +1,14 @@
 /* accordion item */
+@use "sass:color";
 .vl10 {
     background-color: $secondary;
     padding: 1.5rem;
     border-radius: 1rem;
     .bg-color-black & {
-        background-color: lighten($black, 10%);
+        background-color: color.adjust($black, $lightness: 10%);
     }
     .bg-color-primary & {
-        background-color: lighten($primary, 10%);
+        background-color: color.adjust($primary, $lightness: 10%);
     }
     .bg-color-secondary & {
         background-color: $white;

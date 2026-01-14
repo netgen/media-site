@@ -66,11 +66,11 @@
             width: 16rem;
             z-index: 20;
             background: $primary;
-            box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
+            box-shadow: 0 .5rem 1rem hsla(0, 0%, 0%, .12);
             a {
                 @include text-link;
                 &:hover {
-                    background: hsla(0, 0, 0, .05);
+                    background: hsla(0, 0%, 0%, .05);
                 }
             }
         }
@@ -88,7 +88,7 @@
         top: $header-height-sm;
         z-index: 1000;
         background: $primary;
-        box-shadow: 0 .5rem 1rem hsla(0, 0, 0, .12);
+        box-shadow: 0 .5rem 1rem hsla(0, 0%, 0%, .12);
         .navbar-nav {
             display: block;
             margin: 0;
