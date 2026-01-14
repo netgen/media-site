@@ -1,4 +1,5 @@
 /* EMBEDED OBJECTS ----------------------------------------------------- */
+@use "sass:color";
 
 .align-left {
     float: left;
@@ -88,7 +89,7 @@
         transition: border .3s;
         &:hover {
             color: inherit;
-            border-color: darken($primary, 15%);
+            border-color: color.adjust($primary, $lightness: -15%);
         }
     }
     p {

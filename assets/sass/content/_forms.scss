@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .embed-form {
     .form-wrapper {
         display: flex;
@@ -67,12 +69,12 @@
                         transition: border .3s;
                         &:hover {
                             color: inherit;
-                            border-color: darken($primary, 15%);
+                            border-color: color.adjust($primary, $lightness: -15%);
                         }
                         .bg-color-primary & {
                             border-bottom: .25rem solid $black;
                             &:hover {
-                                border-color: darken($black, 15%);
+                                border-color: color.adjust($black, $lightness: -15%);
                             }
                         }
                     }

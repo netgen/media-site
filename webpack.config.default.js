@@ -27,6 +27,12 @@ Encore
   .enableSassLoader((options) => {
     options.sassOptions.includePaths = [path.resolve(__dirname, 'node_modules')]; // eslint-disable-line no-param-reassign
     options.sassOptions.outputStyle = Encore.isProduction() ? 'compressed' : 'expanded';
+    // Silence noisy Sass deprecation warnings for @import without changing code now
+    // See: https://sass-lang.com/documentation/breaking-changes/import/
+    // This keeps builds clean until a full @use/@forward migration is planned
+    options.sassOptions.silenceDeprecations = ['import'];
+    // Reduce deprecation noise coming from dependencies
+    options.sassOptions.quietDeps = true;
   })
 
   // allow legacy applications to use $/jQuery as a global variable
@@ -68,6 +74,15 @@ Encore
 ;
 
 if (Encore.isProduction()) {
+  // Configure CSS minimizer to avoid SVGO parsing errors on data-URI SVGs
+  // SVGO inside cssnano can choke on already URL-encoded SVGs embedded in CSS.
+  // Disabling it prevents noisy build warnings without affecting other minifications.
+  Encore.configureCssMinimizerPlugin((pluginOptions) => {
+    pluginOptions.minimizerOptions = {
+      preset: ['default', { svgo: false }],
+    };
+  });
+
   Encore.configureFilenames({
     js: '[name].js?v=[contenthash]',
     css: '[name].css?v=[contenthash]',

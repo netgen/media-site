@@ -1,3 +1,5 @@
+@use "sass:map";
+
 %clearfix {
     &::after {
         clear: both;
@@ -29,7 +31,7 @@
 }
 
 @mixin icon-color($color) {
-    filter: map-get($filtered-colours, $color);
+    filter: map.get($filtered-colours, $color);
 }
 
 @mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
