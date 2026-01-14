@@ -1,4 +1,5 @@
 /* btn overrides */
+@use "sass:color";
 
 .btn {
     border-width: 2px;
@@ -19,8 +20,8 @@
         &:not(:disabled):not(.disabled).active,
         &:hover,
         &:focus-visible {
-            background: darken($primary, 10%);
-            border-color: darken($primary, 10%);
+            background: color.adjust($primary, $lightness: -10%);
+            border-color: color.adjust($primary, $lightness: -10%);
             color: $black;
         }
         .bg-color-primary & {
@@ -33,8 +34,8 @@
             &:not(:disabled):not(.disabled).active,
             &:hover,
             &:focus-visible {
-                background: lighten($black, 20%);
-                border-color: lighten($black, 20%);
+                background: color.adjust($black, $lightness: 20%);
+                border-color: color.adjust($black, $lightness: 20%);
                 color: $white;
             }
         }
@@ -49,8 +50,8 @@
         &:not(:disabled):not(.disabled).active,
         &:hover,
         &:focus-visible {
-            background: lighten($black, 20%);
-            border-color: lighten($black, 20%);
+            background: color.adjust($black, $lightness: 20%);
+            border-color: color.adjust($black, $lightness: 20%);
             color: $white;
         }
         .bg-color-black &,
@@ -64,8 +65,8 @@
             &:not(:disabled):not(.disabled).active,
             &:hover,
             &:focus-visible {
-                background: darken($primary, 10%);
-                border-color: darken($primary, 10%);
+                background: color.adjust($primary, $lightness: -10%);
+                border-color: color.adjust($primary, $lightness: -10%);
                 color: $black;
             }
         }
