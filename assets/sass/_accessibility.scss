@@ -1,16 +1,16 @@
 @mixin highlight {
     outline: none;
-    background-color: $primary!important;
-    color: $black !important;
+    background-color: $primary !important;
+    color: color-contrast($primary) !important;
     .bg-color-primary & {
-        background-color: $black!important;
+        background-color: color-contrast($primary) !important;
         color: $primary !important;
     }
 }
 
-@mixin custom-outline($border-color: $primary, $accent-color: $outline-color) {
+@mixin custom-outline {
     outline: 2px transparent solid;
-    box-shadow: 0 0 0 2px $accent-color, 0 0 0 4px $border-color, 0 0 4px 8px $accent-color;
+    box-shadow: 0 0 0 2px $white, 0 0 0 4px $black;
 }
 
 #skip-to-main-content,
