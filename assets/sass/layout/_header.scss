@@ -27,10 +27,11 @@ $header-bg: $white;
         }
     }
 
+    &.site-header-fixed,
     &.site-header-sticky--active {
         position: fixed;
         width: 100%;
-        top: 0;
+        top: var(--ngtoolbar-height, 0);
         z-index: 100;
         transition: all .15s ease-in-out;
     }
