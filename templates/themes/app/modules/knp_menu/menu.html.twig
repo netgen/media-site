@@ -43,12 +43,25 @@
         {%- endif %}
         {# END NGSTACK-448 #}
 
+        {# Generate unique submenu ID for ARIA attributes #}
+        {%- if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
+            {%- if item.extras.ibexa_location is defined and item.extras.ibexa_location is not empty %}
+                {%- set submenuId = 'submenu-' ~ item.extras.ibexa_location.id %}
+            {%- else %}
+                {%- set submenuId = 'submenu-' ~ item.name|lower|replace({' ': '-', '_': '-'}) %}
+            {%- endif %}
+        {%- endif %}
+
         {# displaying the item #}
         {% import _self as knp_menu %}
         <li{{ knp_menu.attributes(attributes) }}>
             {%- if item.uri is not empty and (not matcher.isCurrent(item) or options.currentAsLink) %}
                 {{ block('linkElement') }}
+            {%- elseif submenuId is defined %}
+                {# Item has submenu - use button for accessibility #}
+                <button class="submenu-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="{{ submenuId }}">{{ block('label') }}</button>
             {%- else %}
+                {# Item has no link and no submenu - fallback to span #}
                 {{ block('spanElement') }}
             {%- endif %}
 
@@ -56,6 +69,9 @@
             {%- set childrenClasses = item.childrenAttribute('class') is not empty ? [item.childrenAttribute('class')] : [] %}
             {%- set childrenClasses = childrenClasses|merge(['menu_level_' ~ item.level]) %}
             {%- set listAttributes = item.childrenAttributes|merge({'class': childrenClasses|join(' ') }) %}
+            {%- if submenuId is defined %}
+                {%- set listAttributes = listAttributes|merge({'id': submenuId, 'aria-hidden': 'true'}) %}
+            {%- endif %}
 
             {{ block('list') }}
         </li>

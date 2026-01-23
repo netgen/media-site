@@ -22,9 +22,20 @@
             justify-content: center;
             margin: 0 0 1.5rem;
             padding: 0;
-            a {
+            a,
+            span,
+            .submenu-trigger {
                 @include text-link;
                 padding: .5em 1.1428571429em;
+            }
+            a,
+            span {
+                display: inline-block;
+            }
+            .menu_level_1 {
+                list-style-type: none;
+                padding: .5rem 0;
+                margin: 0;
             }
         }
     }
@@ -75,9 +86,6 @@
                         opacity: .66;
                     }
                 }
-            }
-            .tt {
-                display: none;
             }
         }
     }
