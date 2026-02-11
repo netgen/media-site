@@ -54,7 +54,6 @@ return [
     ApiPlatform\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
     Lolautruche\EzCoreExtraBundle\EzCoreExtraBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
-    Novactive\Bundle\eZSEOBundle\NovaeZSEOBundle::class => ['all' => true],
     Kaliop\IbexaMigrationBundle\KaliopMigrationBundle::class => ['all' => true],
     Netgen\Bundle\ContentBrowserUIBundle\NetgenContentBrowserUIBundle::class => ['all' => true],
     Netgen\Bundle\ContentBrowserBundle\NetgenContentBrowserBundle::class => ['all' => true],

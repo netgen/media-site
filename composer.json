@@ -36,7 +36,6 @@
         "symfony/runtime": "7.3.*",
         "symfony/yaml": "7.3.*",
 
-        "novactive/ezseobundle": "^7.3",
         "sentry/sentry-symfony": "^5.8",
         "twig/intl-extra": "^3.22",
         "mrk-te/ibexa-migration-bundle2": "^3.0",

@@ -1,0 +1,13 @@
+services:
+    ibexa.field_type.novaseometas:
+        class: Ibexa\Core\FieldType\Null\Type
+        parent: Ibexa\Core\FieldType\FieldType
+        arguments:
+            - novaseometas
+        tags:
+            - { name: ibexa.field_type, alias: novaseometas }
+
+    ibexa.field_type.novaseometas.converter:
+        class: Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: novaseometas }
