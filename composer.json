@@ -37,7 +37,7 @@
         "symfony/yaml": "7.3.*",
 
         "sentry/sentry-symfony": "^5.8",
-        "twig/intl-extra": "^3.22",
+        "twig/intl-extra": "^3.23",
         "mrk-te/ibexa-migration-bundle2": "^3.0",
 
         "netgen/media-site-data": "^4.0",
@@ -70,7 +70,7 @@
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-symfony": "^2.0",
         "phpstan/phpstan-doctrine": "^2.0",
-        "php-cs-fixer/shim": "^3.91",
+        "php-cs-fixer/shim": "^3.94",
         "phpunit/phpunit": "^13.0",
         "symfony/browser-kit": "7.3.*",
         "symfony/css-selector": "7.3.*",
