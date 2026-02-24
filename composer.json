@@ -36,7 +36,7 @@
         "symfony/runtime": "7.3.*",
         "symfony/yaml": "7.3.*",
 
-        "sentry/sentry-symfony": "^5.8",
+        "sentry/sentry-symfony": "^5.9",
         "twig/intl-extra": "^3.23",
         "mrk-te/ibexa-migration-bundle2": "^3.0",
 
