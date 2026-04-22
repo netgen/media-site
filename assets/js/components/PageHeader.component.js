@@ -4,158 +4,260 @@ export default class PageHeader {
   constructor(_, options) {
     this.options = options;
 
+    // Page structure
     this.pageWrapper = document.querySelector(options.pageWrapper);
+    this.siteHeader = document.querySelector(options.siteHeader);
+
+    // Navigation
+    this.mainNav = document.querySelector(options.mainNav);
+    this.navigationList = document.querySelectorAll(options.navigationList);
     this.navToggle = document.querySelector(options.navToggle);
+    this.languageSelector = this.siteHeader?.querySelector(options.languageSelector) ?? null;
+
+    // Search
     this.searchToggle = document.querySelector(options.searchToggle);
     this.headerSearch = document.querySelector(options.headerSearch);
     this.searchInput = this.headerSearch?.querySelector(options.searchInput) ?? null;
-    this.mainNav = document.querySelector(options.mainNav);
-    this.level1Menus = [];
-    this.submenuTriggerElements = [];
-    this.languageSelector = document.querySelector(options.languageSelector);
-    this.stickyHeader = document.querySelector(options.stickyHeader);
+
+    // Internal state
+    this.submenuRefs = [];
+    this.submenuTriggerSelector = '.' + options.submenuTriggerClass;
 
     this.init();
   }
 
   init() {
-    this.setActiveStateOnMenuItems();
     this.navToggleSetup();
     this.searchToggleSetup();
     this.headerSearchSetup();
-    this.addSubmenuTriggers();
+    this.submenuTriggersSetup();
+    this.setActiveStateOnMenuItems(); // Must run AFTER submenuTriggersSetup so [data-submenu] exists
     this.languageSelectorSetup();
-    this.stickyHeaderSetup();
+    this.headerScrollSetup();
+  }
+
+  isMobile() {
+    return window.innerWidth < 992; // Has to be in sync with the SCSS variables $collapse-nav and $grid-breakpoints
   }
 
   navToggleSetup() {
-    if (this.navToggle === null) {
-      return;
+    if (!this.navToggle) return;
+
+    if (this.isMobile() && this.mainNav) {
+      this.mainNav.setAttribute('aria-hidden', 'true');
     }
 
-    let scrollTop = 0;
+    let savedScrollTop = 0;
 
     this.navToggle.addEventListener('click', (event) => {
       event.preventDefault();
 
-      const ariaExpanded = this.navToggle.getAttribute('aria-expanded') === 'true';
+      const isOpening = !this.pageWrapper.classList.contains(this.options.navActiveClass);
 
-      this.navToggle.setAttribute('aria-expanded', ariaExpanded);
-
-      if (!this.pageWrapper.classList.contains(this.options.navActiveClass)) {
-        scrollTop = window.scrollY; // set scroll position intro variable
-        this.changePageClasses({
-          add: this.options.navActiveClass,
-          remove: this.options.searchboxActiveClass,
-        });
+      if (isOpening) {
+        savedScrollTop = window.scrollY;
+        document.body.style.top = `-${savedScrollTop}px`;
+        this.changePageClasses({ add: this.options.navActiveClass, remove: this.options.searchboxActiveClass });
       } else {
+        document.body.style.top = '';
         this.changePageClasses({ remove: this.options.navActiveClass });
-        window.scrollTo({ top: scrollTop, left: 0, behavior: 'instant' }); // scroll to saved position
+        window.scrollTo({ top: savedScrollTop, left: 0, behavior: 'instant' });
       }
+
+      this.navToggle.setAttribute('aria-expanded', isOpening);
+      this.mainNav?.setAttribute('aria-hidden', !isOpening);
     });
   }
 
   searchToggleSetup() {
-    if (this.searchToggle === null) {
-      return;
-    }
+    if (!this.searchToggle) return;
 
     this.searchToggle.addEventListener('click', (event) => {
       event.preventDefault();
+      this.changePageClasses({ toggle: this.options.searchboxActiveClass, remove: this.options.navActiveClass });
 
-      this.changePageClasses({
-        toggle: this.options.searchboxActiveClass,
-        remove: this.options.navActiveClass,
-      });
-
-      const ariaExpanded = this.searchToggle.getAttribute('aria-expanded') === 'true';
-      this.searchToggle.setAttribute('aria-expanded', !ariaExpanded);
+      const isExpanded = this.searchToggle.getAttribute('aria-expanded') === 'true';
+      this.searchToggle.setAttribute('aria-expanded', !isExpanded);
       this.searchInput?.focus();
     });
   }
 
   headerSearchSetup() {
-    if (this.headerSearch === null) {
-      return;
-    }
+    if (!this.headerSearch) return;
 
     this.headerSearch.addEventListener('blur', () => {
       this.changePageClasses({ remove: this.options.searchboxActiveClass });
     });
 
-    this.headerSearch.addEventListener('click', (event) => {
-      if (this.headerSearch.contains(event.target)) {
-        return;
-      }
-
-      this.changePageClasses({ remove: this.options.searchboxActiveClass });
-    });
-
     this.headerSearch.addEventListener('input', () => {
-      if (this.searchInput.value !== '') {
-        this.headerSearch.classList.add(this.options.filledClass);
+      this.headerSearch.classList.toggle(this.options.filledClass, this.searchInput.value !== '');
+    });
 
-        return;
+    document.addEventListener('click', (e) => {
+      if (!this.headerSearch.contains(e.target) && !this.searchToggle?.contains(e.target)) {
+        this.changePageClasses({ remove: this.options.searchboxActiveClass });
       }
-
-      this.headerSearch.classList.remove(this.options.filledClass);
     });
   }
 
-  addSubmenuTriggers() {
-    if (this.mainNav === null) {
-      return;
-    }
+  submenuTriggersSetup() {
+    if (this.navigationList.length === 0) return;
 
-    this.level1Menus = this.mainNav.querySelectorAll(this.options.menuLevel1);
-    if (this.level1Menus.length === 0) {
-      return;
-    }
-
-    this.level1Menus.forEach((menu) => {
-      const submenuTriggerContent = document.createElement(this.options.submenuTriggerElement);
-      submenuTriggerContent.classList.add(this.options.submenuTriggerClass);
-
-      menu.parentElement.insertBefore(submenuTriggerContent, menu);
-      menu.parentElement.dataset[this.options.submenuDataParam] = true;
-
-      this.submenuTriggerElements.push(submenuTriggerContent);
+    this.navigationList.forEach((navigation) => {
+      const submenus = navigation.querySelectorAll(this.options.menuLevel1);
+      submenus.forEach((submenu, index) => this.initSubmenu(submenu, index));
     });
 
-    this.submenuTriggerElements.forEach((submenuTrigger) => {
-      submenuTrigger.addEventListener('click', () => {
-        this.toggleMobileSubmenu(submenuTrigger);
+    if (this.submenuRefs.length === 0) return;
+
+    // Single delegated click handler for all submenu interactions
+    document.addEventListener('click', (e) => this.handleDocumentClick(e));
+    window.addEventListener('keyup', (e) => e.key === 'Escape' && this.closeAllSubmenus());
+  }
+
+  initSubmenu(submenu, index) {
+    const submenuParent = submenu.parentElement;
+    if (!submenuParent) return;
+
+    submenuParent.dataset[this.options.submenuDataParam] = true;
+
+    // Check if submenu triggers should be disabled (e.g. in footer where items are listed directly)
+    const disableSelector = this.options.disableSubmenuTriggers;
+    if (disableSelector && submenuParent.closest(disableSelector)) {
+      const disabledTrigger = submenuParent.querySelector(this.submenuTriggerSelector);
+      if (disabledTrigger) {
+        disabledTrigger.setAttribute('tabindex', '-1');
+        disabledTrigger.style.setProperty('pointer-events', 'none');
+        disabledTrigger.removeAttribute('aria-haspopup');
+        disabledTrigger.removeAttribute('aria-expanded');
+        disabledTrigger.removeAttribute('aria-controls');
+      }
+      submenu.removeAttribute('aria-hidden');
+      return;
+    }
+
+    // Get or create trigger
+    let submenuTrigger = submenuParent.querySelector(this.submenuTriggerSelector);
+    if (!submenuTrigger) {
+      submenuTrigger = this.createSubmenuTrigger(submenuParent, submenu);
+    }
+
+    // Generate submenu ID for ARIA
+    if (!submenu.id) {
+      const locationId = submenuParent.dataset.locationId;
+      submenu.id = locationId ? `submenu-${locationId}` : `submenu-${index}`;
+    }
+    submenu.setAttribute('aria-hidden', 'true');
+
+    // Ensure ARIA attributes
+    submenuTrigger.setAttribute('aria-haspopup', 'menu');
+    submenuTrigger.setAttribute('aria-expanded', 'false');
+    submenuTrigger.setAttribute('aria-controls', submenu.id);
+
+    this.submenuRefs.push({ submenuParent, submenuTrigger, submenu });
+  }
+
+  createSubmenuTrigger(submenuParent, submenu) {
+    const trigger = document.createElement(this.options.submenuTriggerElement);
+    trigger.classList.add(this.options.submenuTriggerClass);
+
+    const parentLink = submenuParent.querySelector('a');
+    if (parentLink) {
+      trigger.setAttribute('aria-label', `${parentLink.textContent.trim()} menu`);
+    }
+
+    submenuParent.insertBefore(trigger, submenu);
+    return trigger;
+  }
+
+  handleDocumentClick(e) {
+    const clickedTrigger = e.target.closest(this.submenuTriggerSelector);
+
+    if (clickedTrigger) {
+      const ref = this.submenuRefs.find(({ submenuTrigger }) => submenuTrigger === clickedTrigger);
+      if (ref) {
+        this.toggleSubmenu(ref);
+      }
+      return;
+    }
+
+    // Click outside - close submenus on desktop only
+    if (this.isMobile()) return;
+
+    this.submenuRefs.forEach((ref) => {
+      if (!ref.submenuParent.contains(e.target) && ref.submenuParent.classList.contains(this.options.submenuActiveClass)) {
+        this.closeSubmenu(ref);
+      }
+    });
+  }
+
+  toggleSubmenu(ref) {
+    const { submenuParent, submenuTrigger, submenu } = ref;
+
+    this.setSubmenuMaxHeight(submenu);
+    const isActive = submenuParent.classList.toggle(this.options.submenuActiveClass);
+
+    // Close other submenus when opening one
+    if (isActive) {
+      this.submenuRefs.forEach((other) => {
+        if (other !== ref && other.submenuParent.classList.contains(this.options.submenuActiveClass)) {
+          this.closeSubmenu(other);
+        }
       });
+    }
+
+    submenuTrigger.setAttribute('aria-expanded', isActive);
+    submenu.setAttribute('aria-hidden', !isActive);
+  }
+
+  closeSubmenu({ submenuParent, submenuTrigger, submenu }) {
+    submenuParent.classList.remove(this.options.submenuActiveClass);
+    submenuTrigger.setAttribute('aria-expanded', 'false');
+    submenu.setAttribute('aria-hidden', 'true');
+  }
+
+  closeAllSubmenus() {
+    this.submenuRefs.forEach((ref) => {
+      if (ref.submenuParent.classList.contains(this.options.submenuActiveClass)) {
+        this.closeSubmenu(ref);
+      }
     });
   }
 
-  toggleMobileSubmenu(submenuTrigger) {
-    submenuTrigger.parentElement.classList.toggle(this.options.submenuActiveClass);
+  setSubmenuMaxHeight(submenu) {
+    submenu.style.setProperty('--max-height', `${submenu.scrollHeight}px`);
   }
 
   setActiveStateOnMenuItems() {
-    if (page.dataset.path === undefined) {
-      return;
-    }
+    if (!page.dataset.path) return;
 
-    const activeItemsList = JSON.parse(page.dataset.path);
-    const navigationList = document.querySelectorAll(this.options.navigationList);
+    const activeItemIds = JSON.parse(page.dataset.path);
 
-    navigationList.forEach((navigation) => {
-      activeItemsList.forEach((activeItemId) => {
-        const item = navigation.querySelector(`[data-location-id="${activeItemId}"]`);
+    this.navigationList.forEach((navigation) => {
+      activeItemIds.forEach((id) => {
+        const item = navigation.querySelector(`[data-location-id="${id}"]`);
+        if (!item) return;
 
-        if (item !== null) {
-          item.classList.add('active', this.options.submenuActiveClass);
+        item.classList.add('active');
+
+        // Pre-expand parent submenu on mobile only
+        if (!this.isMobile()) return;
+
+        const parentWithSubmenu = item.parentElement?.closest('li[data-submenu]');
+        const ref = this.submenuRefs.find((r) => r.submenuParent === parentWithSubmenu);
+        if (ref) {
+          ref.submenuParent.classList.add(this.options.submenuActiveClass);
+          ref.submenuTrigger.setAttribute('aria-expanded', 'true');
+          ref.submenu.setAttribute('aria-hidden', 'false');
+          this.setSubmenuMaxHeight(ref.submenu);
         }
       });
     });
   }
 
   languageSelectorSetup() {
-    if (this.languageSelector === null) {
-      return;
-    }
+    if (!this.languageSelector) return;
+
     this.languageSelector.addEventListener('show.bs.dropdown', () => {
       this.removePageClass(this.options.navActiveClass);
       this.removePageClass(this.options.searchboxActiveClass);
@@ -188,16 +290,15 @@ export default class PageHeader {
     this.pageWrapper.classList.toggle(classToToggle);
   }
 
-  stickyHeaderSetup() {
-    if (this.stickyHeader === null) {
-      return;
-    }
-    ['load', 'scroll', 'resize', 'orientationchange'].forEach((eventType) => {
-      window.addEventListener(eventType, () => {
-        window.scrollY >= 1
-          ? this.stickyHeader.classList.add('site-header-sticky--active')
-          : this.stickyHeader.classList.remove('site-header-sticky--active');
-      });
+  headerScrollSetup() {
+    if (!this.siteHeader) return;
+
+    const updateScrollState = () => {
+      this.siteHeader.classList.toggle('scrolled', window.scrollY >= 1);
+    };
+
+    ['load', 'scroll', 'resize', 'orientationchange'].forEach((event) => {
+      window.addEventListener(event, updateScrollState);
     });
   }
 }

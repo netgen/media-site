@@ -4,7 +4,7 @@
     <div class="container">
         {% include '@ibexadesign/content/parts/site_logo.html.twig' %}
 
-        <div class="footer-menu">
+        <div class="footer-menu no-triggers">
             {% block page_additional_menu_footer %}
                 {{ render_esi(
                     controller(
@@ -22,7 +22,7 @@
                     <li>
                         <a href="{{ site_info.fields.facebook.value.link }}" aria-label="{{ 'ngsite.visit_us_on_facebook'|trans }}"  target="_blank" noreferrer noopener >
                             <i class="icon-facebook"></i>
-                            <span class="tt">Facebook</span>
+                            <span class="visually-hidden">Facebook</span>
                         </a>
                     </li>
                 {% endif %}
@@ -31,7 +31,7 @@
                     <li>
                         <a href="{{ site_info.fields.twitter.value.link }}" aria-label="{{ 'ngsite.visit_us_on_twitter'|trans }}"  target="_blank" noreferrer noopener >
                             <i class="icon-twitter"></i>
-                            <span class="tt">Twitter</span>
+                            <span class="visually-hidden">Twitter</span>
                         </a>
                     </li>
                 {% endif %}
@@ -40,7 +40,7 @@
                     <li>
                         <a href="{{ site_info.fields.instagram.value.link }}" aria-label="{{ 'ngsite.visit_us_on_instagram'|trans }}" target="_blank" noreferrer noopener >
                             <i class="icon-instagram"></i>
-                            <span class="tt">Instagram</span>
+                            <span class="visually-hidden">Instagram</span>
                         </a>
                     </li>
                 {% endif %}
@@ -49,7 +49,7 @@
                     <li>
                         <a href="{{ site_info.fields.linkedin.value.link }}" aria-label="{{ 'ngsite.visit_us_on_linkedin'|trans }}"  target="_blank" noreferrer noopener >
                             <i class="icon-linkedin"></i>
-                            <span class="tt">LinkedIn</span>
+                            <span class="visually-hidden">LinkedIn</span>
                         </a>
                     </li>
                 {% endif %}

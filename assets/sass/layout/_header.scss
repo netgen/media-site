@@ -28,7 +28,7 @@ $header-bg: $white;
     }
 
     &.site-header-fixed,
-    &.site-header-sticky--active {
+    &.site-header-sticky.scrolled {
         position: fixed;
         width: 100%;
         top: var(--ngtoolbar-height, 0);
