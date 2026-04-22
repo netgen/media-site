@@ -28,16 +28,15 @@
         "guzzlehttp/promises": "^2.3",
         "ibexa/oss": "~5.0.0",
         "nyholm/psr7": "^1.8",
-        "symfony/console": "7.3.*",
-        "symfony/dotenv": "7.3.*",
+        "symfony/console": "7.4.*",
+        "symfony/dotenv": "7.4.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "7.3.*",
-        "symfony/monolog-bundle": "^3.0|^4.0",
-        "symfony/runtime": "7.3.*",
-        "symfony/yaml": "7.3.*",
+        "symfony/framework-bundle": "7.4.*",
+        "symfony/runtime": "7.4.*",
+        "symfony/yaml": "7.4.*",
 
-        "sentry/sentry-symfony": "^5.9",
-        "twig/intl-extra": "^3.23",
+        "sentry/sentry-symfony": "^5.10",
+        "twig/intl-extra": "^3.24",
         "mrk-te/ibexa-migration-bundle2": "^3.0",
 
         "netgen/media-site-data": "^4.0",
@@ -58,9 +57,9 @@
         "netgen/layouts-ibexa-tags-query": "^2.0"
     },
     "require-dev": {
-        "symfony/debug-bundle": "7.3.*",
-        "symfony/stopwatch": "7.3.*",
-        "symfony/web-profiler-bundle": "7.3.*",
+        "symfony/debug-bundle": "7.4.*",
+        "symfony/stopwatch": "7.4.*",
+        "symfony/web-profiler-bundle": "7.4.*",
 
         "netgen/coding-standard": "^1.0",
         "netgen/git-hooks": "^3.0",
@@ -70,11 +69,11 @@
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-symfony": "^2.0",
         "phpstan/phpstan-doctrine": "^2.0",
-        "php-cs-fixer/shim": "^3.94",
-        "phpunit/phpunit": "^13.0",
-        "symfony/browser-kit": "7.3.*",
-        "symfony/css-selector": "7.3.*",
-        "symfony/phpunit-bridge": "7.3.*"
+        "php-cs-fixer/shim": "^3.95",
+        "phpunit/phpunit": "^13.1",
+        "symfony/browser-kit": "7.4.*",
+        "symfony/css-selector": "7.4.*",
+        "symfony/phpunit-bridge": "7.4.*"
     },
     "config": {
         "allow-plugins": {
@@ -136,7 +135,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "7.3.*",
+            "require": "7.4.*",
             "endpoint": [
                 "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main",
                 "https://api.github.com/repos/netgen/recipes/contents/index.json?ref=flex",
@@ -146,7 +145,7 @@
             "docker": false
         },
         "branch-alias": {
-            "dev-master": "4.0.x-dev"
+            "dev-master": "4.1.x-dev"
         }
     }
 }

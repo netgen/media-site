@@ -4,8 +4,8 @@
 ibexa_solr:
     endpoints:
         endpoint0:
-            dsn: '%solr_dsn%'
-            core: '%solr_core%'
+            dsn: '%env(string:SOLR_DSN)%'
+            core: '%env(string:SOLR_CORE)%'
     connections:
         default:
             entry_endpoints:

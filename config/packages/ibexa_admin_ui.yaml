@@ -34,3 +34,8 @@ ibexa:
             default_page: 'dashboard'
             content:
                 default_ttl: 0
+
+            notifier:
+                subscriptions:
+                    Ibexa\AdminUi\Notifier\Notification\UserPasswordReset:
+                        channels: [ email ]

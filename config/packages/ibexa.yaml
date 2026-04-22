@@ -4,9 +4,6 @@ parameters:
     # You can uncomment following parameters to override the setting.
     # Their values correspond to the defaults being used.
 
-    # One of `legacy` (default) or `solr`
-    #search_engine: '%env(SEARCH_ENGINE)%'
-
     # Session save path as used by symfony session handlers (eg. used for dsn with redis)
     #ibexa.session.save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
 
@@ -49,7 +46,7 @@ ibexa:
         default:
             storage: ~
             search:
-                engine: '%search_engine%'
+                engine: "%env(string:SEARCH_ENGINE)%"
                 connection: default
 
     # System settings, read in following order: `default`, <siteaccess-group>, <siteacces>, and `global`
