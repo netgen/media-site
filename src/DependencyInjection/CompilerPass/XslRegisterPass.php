@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\DependencyInjection\CompilerPass;
 
-use Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigResolver;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -16,7 +16,7 @@ final class XslRegisterPass implements CompilerPassInterface
     public function process(ContainerBuilder $container): void
     {
         $scopes = [
-            ConfigResolver::SCOPE_DEFAULT,
+            ConfigResolverInterface::SCOPE_DEFAULT,
             ...$container->getParameter('ibexa.site_access.list'),
         ];
 
