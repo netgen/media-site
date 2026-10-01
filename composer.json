@@ -40,14 +40,14 @@
         "mrk-te/ibexa-migration-bundle2": "^3.0",
 
         "netgen/media-site-data": "^4.0",
-        "netgen/site-bundle": "^4.0",
+        "netgen/site-bundle": "^4.0.2",
         "netgen/site-installer-bundle": "^4.0",
         "netgen/ibexa-site-api": "^7.0",
         "netgen/ibexa-search-extra": "^4.0",
         "netgen/information-collection-bundle": "^4.0@alpha",
         "netgen/ibexa-fieldtype-enhanced-link": "^2.0",
         "netgen/ibexa-admin-ui-extra": "^2.0",
-        "netgen/toolbar": "^2.0",
+        "netgen/toolbar": "^2.0.1",
         "netgen/ibexa-scheduled-visibility": "^2.0",
 
         "netgen/layouts-standard": "~2.0.0",
