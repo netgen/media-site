@@ -11,32 +11,78 @@
         > li {
             position: relative;
             > a,
-            > span {
+            > span,
+            > .submenu-trigger {
                 @extend %hover-underline;
                 @include text-link;
                 display: inline-block;
                 padding: 0 1.3333333333em;
+            }
+            .submenu-trigger {
+                position: relative;
+                padding-right: 1.75em;
+            }
+            > a + .submenu-trigger {
+                padding-left: .25em;
+            }
+            &:has(> a + .submenu-trigger) {
+                padding-right: 2em;
+                .submenu-trigger {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 2em;
+                    display: block;
+                }
             }
         }
     }
     /* main submenu */
     .menu_level_1 {
         list-style-type: none;
-        padding: 1rem 0;
+        padding: .5rem 0;
         margin: 0;
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-.25rem) scaleY(.85);
+        transform-origin: top;
+        transition: .1s;
         a {
             display: block;
             padding: .5em 1.5em;
         }
     }
+    .submenu-active {
+        > .menu_level_1 {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0) scaleY(1);
+        }
+    }
+    .submenu-trigger {
+        &::before {
+            content: '';
+            position: absolute;
+            right: .75em;
+            top: 50%;
+            transform: translateY(-50%);
+            width: .625em;
+            height: .625em;
+            background-color: currentColor;
+            mask: url(../assets/icons/angle-down.svg) no-repeat center;
+            mask-size: contain;
+            transition: .15s;
+        }
+    }
     /* large screen sizes */
     @include media-breakpoint-up($collapse-nav) {
         .navbar-nav {
+            > li:has(.submenu-active),
             > li:hover,
             .active {
                 > a,
-                > span {
+                > span,
+                > .submenu-trigger {
                     color: $black;
                     &::after {
                         transform: scaleY(1);
@@ -45,17 +91,18 @@
             }
             > li {
                 > a,
-                > span {
+                > span,
+                > .submenu-trigger {
                     display: flex;
                     height: $header-height;
                     align-items: center;
                     justify-content: center;
                     color: $gray-54;
                 }
-                &:hover {
-                    .menu_level_1 {
-                        display: block;
-                    }
+            }
+            > li.submenu-active {
+                .submenu-trigger::before {
+                    transform: translateY(-60%) rotate(180deg);
                 }
             }
         }
@@ -75,13 +122,14 @@
             }
         }
     }
-    .submenu-trigger {
-        // NOTE: Removed fontawesome extend rule since the nav will we rewritten
-        display: none;
-    }
     /* small screen sizes */
     @include media-breakpoint-down($collapse-nav) {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(.95);
+        transition: .1s;
         position: absolute;
         left: calc(var(--bs-gutter-x) * .5);
         right: calc(var(--bs-gutter-x) * .5);
@@ -95,52 +143,53 @@
             padding: 1rem 0;
             > li {
                 > a,
-                > span {
+                > span,
+                > .submenu-trigger {
                     padding: .5em 1em;
                     color: $gray-87;
                     &::after {
                         display: none;
                     }
                 }
-                &[data-submenu='true'] {
-                    > a {
-                        margin: 0 1.875rem;
-                    }
+                .submenu-trigger {
+                    padding-right: 2em;
                 }
                 &.submenu-active {
                     .menu_level_1 {
-                        display: block;
+                        max-height: var(--max-height);
                     }
                     .submenu-trigger {
                         &::before {
-                            transform: rotate(180deg);
+                            transform: translateY(-60%) rotate(180deg);
                         }
+                    }
+                }
+                &:has(> a + .submenu-trigger) {
+                    padding-right: 0;
+                    .submenu-trigger {
+                        position: relative;
+                        height: 1.5em;
+                        display: inline-block;
                     }
                 }
             }
         }
         .mainnav-active & {
-            display: block;
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1);
         }
         .submenu-trigger {
-            display: inline-block;
-            position: absolute;
             right: 0;
             top: 0;
-            cursor: pointer;
-            width: 1.875rem;
-            height: 1.875rem;
-            line-height: 1.875rem;
-            @include text-0_875;
-            &::before {
-                display: block;
-                content: '\f078';
-            }
         }
         .menu_level_1 {
-            padding: 0 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            padding: 0;
+            transform: translateY(-.25rem);
+            transition: .25s;
             a {
-                color: $gray-54;
                 @include text-0_875;
             }
         }
@@ -156,6 +205,17 @@
     @include media-breakpoint-down(xs) {
         left: 0;
         right: 0;
+    }
+}
+
+.submenu-trigger {
+    text-align: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    .no-triggers &::after,
+    .no-triggers a + & {
+        display: none;
     }
 }
 

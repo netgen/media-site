@@ -13,7 +13,7 @@ body {
 
 // Global styles
 body:has(.site-header-fixed),
-body:has(.site-header-sticky--active) {
+body:has(.site-header-sticky.scrolled) {
     padding-top: var(--header-height);
 }
 

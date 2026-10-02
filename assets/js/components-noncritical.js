@@ -66,23 +66,31 @@ const componentConfiguration = [
     Component: PageHeader,
     selector: '.site-header',
     options: {
+      // Page structure
       pageWrapper: 'html',
+      siteHeader: '.site-header',
+
+      // Navigation
+      mainNav: '.main-navigation',
+      navigationList: 'ul.navbar-nav',
       navToggle: '.mainnav-toggle',
-      searchToggle: '.searchbox-toggle',
-      headerSearch: '.header-search',
-      searchInput: 'input.search-query',
-      mainNav: '.main-navigation ul.navbar-nav',
-      menuLevel1: '.menu_level_1',
       navActiveClass: 'mainnav-active',
-      searchboxActiveClass: 'searchbox-active',
-      submenuTriggerElement: 'i',
+      languageSelector: '.language-selector',
+
+      // Submenus
+      menuLevel1: '.menu_level_1',
+      submenuTriggerElement: 'button',
       submenuTriggerClass: 'submenu-trigger',
       submenuDataParam: 'submenu',
       submenuActiveClass: 'submenu-active',
-      navigationList: 'ul.nav.navbar-nav',
+      disableSubmenuTriggers: '.no-triggers',
+
+      // Search
+      searchToggle: '.searchbox-toggle',
+      headerSearch: '.header-search',
+      searchInput: 'input.search-query',
+      searchboxActiveClass: 'searchbox-active',
       filledClass: 'filled',
-      languageSelector: '.site-header .language-selector',
-      stickyHeader: '.site-header-sticky',
     },
   },
   {
