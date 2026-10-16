@@ -4,7 +4,7 @@ namespace Deployer;
 
 set('application', 'project_name');
 
-set('repository', 'git@bitbucket.org:netgen/example.git');
+set('repository', 'git@ssh.bitbucket.org:netgen/example.git');
 set('branch', 'master');
 
 set('repository_name', 'netgen/example');
